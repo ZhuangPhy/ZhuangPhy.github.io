@@ -31,6 +31,31 @@
   
   
   <entry>
+    <title>Introduction</title>
+    <link href="/2019/09/04/QC01_AIFR/"/>
+    <url>/2019/09/04/QC01_AIFR/</url>
+    
+    <content type="html"><![CDATA[<h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><blockquote><p>学习一个领域的最好方法是写一本这个主题的书</p></blockquote><h2 id="文章计划"><a href="#文章计划" class="headerlink" title="文章计划"></a>文章计划</h2><h4 id="量子计算-QC"><a href="#量子计算-QC" class="headerlink" title="量子计算(QC)"></a>量子计算(QC)</h4><ul><li>从量子比特到量子电路</li><li>量子算法</li><li>量子计算的物理实现</li></ul><h4 id="凝聚态物理系列-CMP"><a href="#凝聚态物理系列-CMP" class="headerlink" title="凝聚态物理系列(CMP)"></a>凝聚态物理系列(CMP)</h4><p>这个系列的起源是张博尧老师的凝聚态课程，我想把课程中的话题用自己理解的方式书写一遍</p><ul><li>玻色化</li><li>朗道费米液体理论</li><li>重整化</li><li>拓扑场论</li><li>规范场论</li><li>共形场论</li></ul><h4 id="机器学习-ML"><a href="#机器学习-ML" class="headerlink" title="机器学习(ML)"></a>机器学习(ML)</h4><h4 id="拓扑物质-TP"><a href="#拓扑物质-TP" class="headerlink" title="拓扑物质(TP)"></a>拓扑物质(TP)</h4><ul><li><p>贝里相位</p></li><li><p>能带(数值计算)</p></li><li><p>拓扑超导</p></li><li></li></ul><h4 id="学位论文阅读-thesis"><a href="#学位论文阅读-thesis" class="headerlink" title="学位论文阅读(thesis)"></a>学位论文阅读(thesis)</h4><h4 id="期刊论文阅读-paper"><a href="#期刊论文阅读-paper" class="headerlink" title="期刊论文阅读(paper)"></a>期刊论文阅读(paper)</h4><h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h3><h4 id="微分几何"><a href="#微分几何" class="headerlink" title="微分几何"></a>微分几何</h4><p>《曲线与曲面的微分几何》阅读笔记</p><h4 id="对称性与群论"><a href="#对称性与群论" class="headerlink" title="对称性与群论"></a>对称性与群论</h4><p>《物理学与对称》阅读笔记</p><h4 id="微分方程"><a href="#微分方程" class="headerlink" title="微分方程"></a>微分方程</h4><h2 id="文章整理"><a href="#文章整理" class="headerlink" title="文章整理"></a>文章整理</h2><p>已经完成的文章</p><h2 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h2><h3 id="学者-amp-研究组"><a href="#学者-amp-研究组" class="headerlink" title="学者&amp;研究组"></a>学者&amp;研究组</h3><ul><li><a href="http://www.phys.nthu.edu.tw/~aicmt/index.html" target="_blank" rel="noopener">Group home page in NTHU</a></li><li><a href="https://zqyin.wordpress.com/" target="_blank" rel="noopener">尹彰琦：量子物理，清华大学</a></li><li><a href="">蔡家麒</a></li></ul><h3 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h3><p><a href="https://www.koushare.com/video/fop" target="_blank" rel="noopener">物理学前沿 Frontiers of Physics 蔻享</a></p><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>Introduction</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Introduction</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>从量子比特到量子线路</title>
     <link href="/2019/09/03/QC03_Bit_to_Ciruit/"/>
     <url>/2019/09/03/QC03_Bit_to_Ciruit/</url>
