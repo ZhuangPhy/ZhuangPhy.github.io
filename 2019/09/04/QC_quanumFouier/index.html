@@ -460,7 +460,7 @@ F(|j\rangle)
 \]</span></p>
 <h3 id="简单的qft电路表示">简单的QFT电路表示</h3>
 <figure>
-<img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200513132430129.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200513132430129</figcaption>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200513132430129.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200513132430129</figcaption>
 </figure>
 <p>这个量子电路看起来很吓人，我们先分析3个比特的简单情况，再推导到 <span class="math inline">\(n\)</span> 比特的一般情况。</p>
 <p>其中算符：相移门 <span class="math display">\[
@@ -468,7 +468,10 @@ R_{k}=\left[\begin{array}{cc}1 &amp; 0 \\0 &amp; \exp \left(\frac{2 \pi i}{2^{k}
 \]</span></p>
 <h4 id="n1">n=1</h4>
 <p>对于只有1个比特，那么第一行后面没有<span class="math inline">\(R_{k}\)</span>，QFT等价于</p>
-<p><img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200515094828385.png" srcset="/img/loading.gif" alt="image-20200515094828385" style="zoom:50%;" /> <span class="math display">\[
+<div data-align="center">
+<p><img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200515094828385.png" srcset="/img/loading.gif" style="zoom: 50%;" /></p>
+</div>
+<p><span class="math display">\[
 H\left|j_{1}  \right\rangle  
 =\frac{1}{\sqrt{2}}\left(|0\rangle+e^{2 \pi i 0 . j_{1}}|1\rangle\right)
 \]</span></p>
@@ -482,7 +485,7 @@ H_{1}\left|j_{1}  \right\rangle  \otimes\left|j_{2}\right\rangle
 \]</span></p>
 <ol start="2" type="1">
 <li><p>受控相移门<span class="math inline">\(R_{2}\)</span> 对第一个比特 <span class="math inline">\(\left|j_{1}\right\rangle\)</span> 的作用取决于第二个比特的状态</p>
-<p><img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200515122217430.png" srcset="/img/loading.gif" alt="image-20200515122217430" style="zoom:50%;" /></p></li>
+<p><img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200515122217430.png" srcset="/img/loading.gif" alt="image-20200515122217430" style="zoom:50%;" /></p></li>
 </ol>
 <p><span class="math display">\[
 \begin{aligned}
@@ -499,7 +502,7 @@ R_{2}H_{1}\left|j_{1}  \right\rangle  \otimes\left|j_{2}\right\rangle
 </ul>
 <ol start="3" type="1">
 <li><p>第二个Hadamard门的作用</p>
-<p><img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200515122310805.png" srcset="/img/loading.gif" alt="image-20200515122310805" style="zoom:50%;" /></p></li>
+<p><img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200515122310805.png" srcset="/img/loading.gif" alt="image-20200515122310805" style="zoom:50%;" /></p></li>
 </ol>
 <p><span class="math display">\[
 \begin{aligned}
@@ -510,7 +513,7 @@ R_{2}H_{1}\left|j_{1}  \right\rangle  \otimes\left|j_{2}\right\rangle
 \]</span></p>
 <h3 id="一般的qft电路表示">一般的QFT电路表示</h3>
 <h4 id="第一个qubit">第一个Qubit</h4>
-<p><img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200515124443712.png" srcset="/img/loading.gif" alt="image-20200515124443712" style="zoom:50%;" /></p>
+<p><img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200515124443712.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
 <ol type="1">
 <li>对于只有n个比特,第一个Hadamard门的作用</li>
 </ol>
@@ -547,7 +550,7 @@ R_{2}H_{1}\left|j_{1} j_{2} \ldots j_{n}\right\rangle
 \]</span></li>
 </ol>
 <h4 id="第二个qubit">第二个Qubit</h4>
-<p><img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200515124400700.png" srcset="/img/loading.gif" alt="image-20200515124400700" style="zoom:50%;" /></p>
+<p><img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200515124400700.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
 <p>第一个量子比特在电路门的作用下结果 <span class="math display">\[
 \frac{1}{\sqrt{2}}\left(|0\rangle+e^{2 \pi i 0 . j_{1} j_{2} \dots j_{n}}|1\rangle\right)\left|j_{2} \dots j_{n}\right\rangle
 \]</span> Hadamard 门作用到第二个量子比特 <span class="math display">\[

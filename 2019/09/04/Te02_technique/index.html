@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      176 字
+      1.1k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      11
        分钟
     </span>
   
@@ -206,6 +206,34 @@
             
             <article class="markdown-body">
               <h2 id="云服务器">1 云服务器</h2>
+<blockquote>
+<p><strong>动机</strong>：一开始玩云服务器有两个目的</p>
+<ol type="1">
+<li><p>部署个人网站</p></li>
+<li><p>运行程序</p></li>
+</ol>
+</blockquote>
+<ul>
+<li>选择服务器</li>
+</ul>
+<p>在国内的常见服务器供应商有</p>
+<ol type="1">
+<li>阿里云</li>
+<li>腾讯云</li>
+<li>华为云</li>
+</ol>
+<ul>
+<li>备案</li>
+</ul>
+<p>网站备案流程非常麻烦，建议提前一段时间，否则长时间的流程可能耽误你。</p>
+<ul>
+<li>图床</li>
+</ul>
+<p>图床就是一个在网络上存储图片的地方，目的是为了节省本地服务器空间，加快网站的图片打开速度。</p>
+<p>网上有很多免费的图床，但是考虑到长久性，我选择了付费的阿里云oss来搭建自己的图床。</p>
+<ul>
+<li>参考</li>
+</ul>
 <p><a href="https://www.zhihu.com/question/40854395" target="_blank" rel="noopener">自己拥有一台服务器可以做哪些很酷的事情？</a></p>
 <p><a href="https://xiaoyou66.com/" target="_blank" rel="noopener">跟着小游学网站(个人网站)</a></p>
 <p><a href="https://space.bilibili.com/343147393" target="_blank" rel="noopener">跟着小游学网站(B站)</a></p>
@@ -217,17 +245,60 @@
 <p><a href="https://cloud.tencent.com/developer/article/1185253" target="_blank" rel="noopener">如何在腾讯云COS部署HEXO博客</a></p>
 <h2 id="电子技术">2 电子技术</h2>
 <h4 id="gpu">GPU</h4>
+<p>最早对GPU的认识就是一个用来处理图形的处理器。在16年掀起的机器学习浪潮中，知道了GPU在机器学习领域拥有很强的优势。</p>
+<p>曾经，IBM为了模拟油气勘探，不得不动用70万个处理器、近半个足球场的空间。而用GPU加速后，仅需两台服务器和半张乒乓球桌的大小就全部搞定。那么在哪些领域的程序适合在GPU上运行。</p>
+<ul>
+<li>计算密集型(Compute-intensive)的程序。就是其大部分运行时间花在了寄存器运算上，寄存器的速度和处理器的速度相当，从寄存器读写数据几乎没有延时。</li>
+<li>易于并行的程序。GPU其实是一种SIMD(Single Instruction Multiple Data)架构， 他有成百上千个核，每一个核在同一时间最好能做同样的事情。</li>
+</ul>
+<p>如何选购GPU</p>
+<p>第一次动了念头想买GPU，向学弟了解到他买的GPU是1080ti二手价格3000元，所以GPU的价格对普通人来说比较高。2080是实验室买的，结果过了一个月后，英伟达NVIDIA推出新产品3070，性能提升价格下降，等等党的胜利。</p>
+<ul>
+<li>参考</li>
+</ul>
 <p><a href="https://www.bilibili.com/video/BV18z411h7Ub/?spm_id_from=333.788.videocard.2" target="_blank" rel="noopener">并行计算与机器学习 Parallel Computing for Machine Learning(视频)</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/113138235" target="_blank" rel="noopener">并行计算与机器学习 Parallel Computing for Machine Learning(文字)</a></p>
 <h4 id="监控">监控</h4>
 <h4 id="无人机">无人机</h4>
 <h2 id="影视技术">3 影视技术</h2>
 <h4 id="pr-剪辑">Pr 剪辑</h4>
-<h4 id="manim">manim</h4>
+<p>B站教程: <a href="https://www.bilibili.com/cheese/play/ep155" target="_blank" rel="noopener">Pr剪辑上分攻略</a></p>
+<h4 id="manim">Manim</h4>
+<p>常看到一类数学物理视频，里面有漂亮的公式变化过程，有图形的变化旋转，这种视频是基于python的manim项目写出来的。</p>
+<h5 id="manim的教程和代码资源">manim的教程和代码资源</h5>
+<p>目前manim在GitHub上开源（<a href="https://link.zhihu.com/?target=https%3A//github.com/3b1b/manim">https://github.com/3b1b/manim</a>）</p>
+<p>B站的一群manim爱好者写的一份中文教程：<a href="https://manim.ml/getting_started/index.html" target="_blank" rel="noopener">manim幼儿园</a></p>
+<p>B站里一些manim视频与其对应的代码: <a href="https://github.com/cigar666/my_manim_projects/blob/master/Video%26Code_Portal.md" target="_blank" rel="noopener">code</a></p>
+<h5 id="我电脑里运行manim的过程记录">我电脑里运行manim的过程记录</h5>
+<p>打开软件Cygwin Terminal的界面，通过以下指令进入到对应文件夹</p>
+<pre><code class="hljs stata"><span class="hljs-keyword">cd</span> <span class="hljs-keyword">d</span>:
+<span class="hljs-keyword">cd</span> <span class="hljs-keyword">program</span>
+<span class="hljs-keyword">cd</span> manim-master</code></pre>
+<p>manim-master 这个文件夹里面有一个python文件 <code>example_scenes.py</code>，用指令运行</p>
+<pre><code class="hljs vim"><span class="hljs-keyword">python</span> -<span class="hljs-keyword">m</span> manim example_scenes.<span class="hljs-keyword">py</span> WriteStuff -pl</code></pre>
+<p>manim-master里面也可以设立文件夹方便分类，比如我设立文件夹physics001，里面有一个python文件<code>Rotate_by_complex.py</code> ，运行这个文件，使用指令</p>
+<pre><code class="hljs reasonml">python -m manim physics001/<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Rotate_by_complex</span>.</span></span>py WriteStuff -pl</code></pre>
 <h2 id="博客网站">4 博客网站</h2>
+<ul>
+<li>优化和修改网页</li>
+</ul>
 <p><a href="https://hexo.fluid-dev.com/docs/guide/#%E4%B8%BB%E9%A2%98%E7%AE%80%E4%BB%8B" target="_blank" rel="noopener">Fluid主题配置指南</a></p>
+<ul>
+<li>Hexo博客部署</li>
+</ul>
+<p>方法1：<code>hexo d</code></p>
+<p>方法2：把 pulic文件夹里的所有文件上传到</p>
 <p><a href="https://cloud.tencent.com/developer/article/1632020" target="_blank" rel="noopener">Hexo博客部署到腾讯云服务器</a></p>
+<ul>
+<li>数学公式的渲染冲突</li>
+</ul>
+<p>Hexo默认使用<code>hexo-renderer-marked</code>来渲染Markdown，但是这个渲染器在解析Latex语法的时候会和Markdown本身的语法符号产生冲突。网上有很多解决冲突的办法，有的需要手动修改一些js文件，有的需要手动转义。这里我推荐最便捷的方法是直接换一个渲染器Pandoc</p>
+<pre><code class="hljs sql">npm <span class="hljs-keyword">uninstall</span> hexo-renderer-marked <span class="hljs-comment">--save</span>
+npm <span class="hljs-keyword">install</span> hexo-renderer-pandoc <span class="hljs-comment">--save</span></code></pre>
+<p>Typora编辑器使用的就是Pandoc的语法。</p>
 <p><a href="%5Bhttps://pxxyyz.com/posts/32990/#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%5D(https://pxxyyz.com/posts/32990/#数学公式)">数学公式的符号冲突</a></p>
+<p><a href="https://adores.cc/posts/62947.html" target="_blank" rel="noopener">Hexo和Typora的协调</a></p>
+<p><a href="https://chaoskey.gitee.io/notes/posts/0000/" target="_blank" rel="noopener">Hugo上协调Typora</a></p>
 
             </article>
             <hr>
