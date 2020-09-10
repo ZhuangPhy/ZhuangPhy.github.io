@@ -6,7 +6,7 @@
 
 
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" type="image/png" href="/img/favicon.png">
   <meta name="viewport"
@@ -38,11 +38,11 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <body>
-  <header style="height: 100vh;">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -260,32 +260,81 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019/09/04/QC04_Algorithm/">量子算法和模拟代码</a>
+      <a class="index-header" href="/2019/09/04/QC_phase/">量子相位</a>
 
-      <a href="/2019/09/04/QC04_Algorithm/" class="index-excerpt">
+      <a href="/2019/09/04/QC_phase/" class="index-excerpt">
         
         
           
         
-        <div>前言在本章我将介绍量子算法，以及用代码进行模拟
-量子算法
-基础算法 Basic Algorithms
+        <div>[TOC]
+相位估计应用
 
-量子傅里叶变换 Quantum Fourier transform
-量子相位估计 Quantum phase estimation
+Shor算法：因子分解
+求阶
+HHL算法
 
+目标
+对于一个幺正算符 \(U\)，算符的本征值和本征向量 \[
+U|u\rangle=e^{2 \pi i \theta}|u\rangle
+\] 我们希望估计出相位 \(\theta\) 的最佳 \(t\) 量子比特估计
+注意: 因为算符 \(U\) 是幺正的，所以本征值的模是1。
+电路介绍
 
-Shor算法 Shor’s Algorithm
+</div>
+      </a>
 
-整数分解
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-09-04
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Quantum-Computation/">Quantum Computation</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Quantum-Computation/">Quantum Computation</a>
+            
+              <a href="/tags/Algorithm/">Algorithm</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
 
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2019/09/04/QC_quanumFouier/">量子傅里叶</a>
 
-Grover算法 Grover’s Algorithm
+      <a href="/2019/09/04/QC_quanumFouier/" class="index-excerpt">
+        
+        
+          
+        
+        <div>[TOC]
+简介量子傅里叶 Quantum Fourier
+应用
 
-搜索算法
+相位估计
+求周期问题
+离散对数问题
+隐含子群
 
-
-优化算法 Optimiz</div>
+离散傅里叶 discrete Fourier
+一个向量的各个分量是复数 \(f=\{f(0), f(1), \ldots, f(N-1)\}\) 用离散傅里叶变换到另一个向量$={(0), (1), , (N-1) $}, 变换过程定义为 \[
+\tilde{f</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -366,6 +415,63 @@ Grover算法 Grover’s Algorithm
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2019/09/04/QC04_Algorithm/">量子算法和模拟代码</a>
+
+      <a href="/2019/09/04/QC04_Algorithm/" class="index-excerpt">
+        
+        
+          
+        
+        <div>前言
+在本章我将介绍量子算法，以及用代码进行模拟
+量子算法
+
+基础算法 Basic Algorithms
+
+量子傅里叶变换 Quantum Fourier transform
+量子相位估计 Quantum phase estimation
+
+Shor算法 Shor's Algorithm
+
+整数分解
+
+Grover算法 Grover's Algorithm
+
+搜索算法</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-09-04
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Quantum-Computation/">Quantum Computation</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Quantum-Computation/">Quantum Computation</a>
+            
+              <a href="/tags/Algorithm/">Algorithm</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a class="index-header" href="/2019/09/03/QC03_Bit_to_Ciruit/">从量子比特到量子线路</a>
 
       <a href="/2019/09/03/QC03_Bit_to_Ciruit/" class="index-excerpt">
@@ -374,20 +480,18 @@ Grover算法 Grover’s Algorithm
           
         
         <div>前言
+
 量子比特 Qubit
-
 量子门 Quantum gate
-
 量子电路 Quantum circuit
 
-
-量子比特 Qubit量子比特的表示 Presentation of a Qubit
+量子比特 Qubit
+量子比特的表示 Presentation of a Qubit
 
 狄拉克符号 Dirac notation
 布洛赫球 Bloch sphere (几何图像)
 
-量子门&amp;量子电路 Quantum gate &amp; Quantum circuit
-单量子比特门</div>
+量子门&amp;量子电路 Quantum gate &amp; Quantum cir</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -408,9 +512,9 @@ Grover算法 Grover’s Algorithm
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/introduction/">introduction</a>
-            
               <a href="/tags/Quantum-Computation/">Quantum Computation</a>
+            
+              <a href="/tags/introduction/">introduction</a>
             
           </div>
         
@@ -429,15 +533,19 @@ Grover算法 Grover’s Algorithm
         
           
         
-        <div>前言Motivations:
+        <div>前言
+Motivations:
 
 To enhance Al performance
 To understand Al better
 To save cost
 For build strong Al?
 
-知识架构Future challenges量子人工智能的10个挑战
-Challenge 1:Challenge 1: Quantum automated theorem proving (first</div>
+知识架构
+Future challenges
+量子人工智能的10个挑战
+Challenge 1:
+Challenge 1: Quantum automated theore</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -458,9 +566,9 @@ Challenge 1:Challenge 1: Quantum automated theorem proving (first</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Quantum-Computation/">Quantum Computation</a>
-            
               <a href="/tags/AI/">AI</a>
+            
+              <a href="/tags/Quantum-Computation/">Quantum Computation</a>
             
           </div>
         
@@ -479,11 +587,12 @@ Challenge 1:Challenge 1: Quantum automated theorem proving (first</div>
         
           
         
-        <div>前言如果用量子力学的规则替换二进制逻辑来计算，某些用经典计算机难以攻克的计算任务将得到解决。这就是量子计算的核心问题。
+        <div>前言
+如果用量子力学的规则替换二进制逻辑来计算，某些用经典计算机难以攻克的计算任务将得到解决。这就是量子计算的核心问题。
 所谓的量子力学的规则，在量子计算的三大核心体现：叠加、量子测量和纠缠。对于超越经典计算机的计算能力起名“量子霸权（quantum supremacy）”。
 运行量子规则的物理实现有：离子阱，超导量子比特，光子，拓扑超导的任意子等。
 
-2013年5月D-Wave 系统公司宣称NAS</div>
+2013年5月D-Wave 系统公</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -504,9 +613,9 @@ Challenge 1:Challenge 1: Quantum automated theorem proving (first</div>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/introduction/">introduction</a>
-            
               <a href="/tags/Quantum-Computation/">Quantum Computation</a>
+            
+              <a href="/tags/introduction/">introduction</a>
             
           </div>
         
@@ -525,9 +634,9 @@ Challenge 1:Challenge 1: Quantum automated theorem proving (first</div>
         
           
         
-        <div>前言朗道提出用对称性描述相变，成为物理学家描述的相变的标准理论。整数量子霍尔效应的发现，揭示了对称性不足够描述相变，因此物理学家引入了拓扑来描述相变。
+        <div>前言
+朗道提出用对称性描述相变，成为物理学家描述的相变的标准理论。整数量子霍尔效应的发现，揭示了对称性不足够描述相变，因此物理学家引入了拓扑来描述相变。
 拓扑早先是描述几何形体在连续变化过程中不变性质的数学概念。当两个形体可以通过连续形变从一个变到另一个的时候，它们属于同一个拓扑类，可以用相同的拓扑不变量来表征。
-
 
 
 
@@ -538,14 +647,10 @@ Challenge 1:Challenge 1: Quantum automated theorem proving (first</div>
 
 
 
+参考文献
+书籍
 
-
-
-
-
-
-参考文献书籍
-《Topological </div>
+《Topolog</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -576,56 +681,19 @@ Challenge 1:Challenge 1: Quantum automated theorem proving (first</div>
     </div>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2016/11/03/topology02_BerryPhase/">Berry Phase</a>
-
-      <a href="/2016/11/03/topology02_BerryPhase/" class="index-excerpt">
-        
-        
-          
-        
-        <div>拓扑入门第一例
-[TOC]
-详细这个问题的起源是计算凝聚态系统中电流对于外电场的响应$$j_{\alpha}=\sum_{\beta} \sigma_{\alpha \beta} E_{\beta}$$其中
-
-$\alpha, \beta=x, y$ 二维系统
-$\sigma_{\alpha \beta}$ 电导率
-
-我们通常考虑外电场较弱的情况，此时我们可以采用含时微扰理论来处理，只需要考虑一阶</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2016-11-03
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Topological-Physics/">Topological Physics</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Introduction/">Introduction</a>
-            
-              <a href="/tags/Topology/">Topology</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
 
 
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
@@ -718,7 +786,7 @@ $\sigma_{\alpha \beta}$ 电导率
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Thinking like electrons&nbsp;",
+        "Dialogue with Nature&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -743,7 +811,24 @@ $\sigma_{\alpha \beta}$ 电导率
       searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
-  </script>
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

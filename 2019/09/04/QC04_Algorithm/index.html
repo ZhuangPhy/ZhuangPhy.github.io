@@ -6,7 +6,7 @@
 
 
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" type="image/png" href="/img/favicon.png">
   <meta name="viewport"
@@ -48,11 +48,11 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <body>
-  <header style="height: 70vh;">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -205,35 +205,32 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在本章我将介绍量子算法，以及用代码进行模拟</p>
-<h4 id="量子算法"><a href="#量子算法" class="headerlink" title="量子算法"></a>量子算法</h4><ol>
-<li><p>基础算法 Basic Algorithms</p>
+              <h2 id="前言">前言</h2>
+<p>在本章我将介绍量子算法，以及用代码进行模拟</p>
+<h4 id="量子算法">量子算法</h4>
+<ol type="1">
+<li>基础算法 Basic Algorithms
 <ul>
 <li>量子傅里叶变换 Quantum Fourier transform</li>
 <li>量子相位估计 Quantum phase estimation</li>
-</ul>
-</li>
-<li><p>Shor算法 Shor’s Algorithm</p>
+</ul></li>
+<li>Shor算法 Shor's Algorithm
 <ul>
 <li>整数分解</li>
-</ul>
-</li>
-<li><p>Grover算法 Grover’s Algorithm</p>
+</ul></li>
+<li>Grover算法 Grover's Algorithm
 <ul>
 <li>搜索算法</li>
-</ul>
-</li>
-<li><p>优化算法 Optimization Algorithms</p>
+</ul></li>
+<li>优化算法 Optimization Algorithms
 <ul>
 <li>HHL algorithm</li>
 <li>Quantum Annealing</li>
-</ul>
-</li>
-<li><p>Amplitude Amplification Algorithm </p>
+</ul></li>
+<li>Amplitude Amplification Algorithm
 <ul>
 <li>to increase the probability of getting an expected result</li>
-</ul>
-</li>
+</ul></li>
 </ol>
 <p>几个算法之间的联系</p>
 <ul>
@@ -241,33 +238,34 @@
 <li>量子相位估计 (Quantum phase estimation)是Shor算法和HHL算法 的基础</li>
 <li>Shor算法是Amplitude Amplification算法 的基础</li>
 </ul>
-<h4 id="量子编程-Quantum-Program"><a href="#量子编程-Quantum-Program" class="headerlink" title="量子编程 Quantum Program"></a>量子编程 Quantum Program</h4><ol>
-<li>Python<ul>
+<h4 id="量子编程-quantum-program">量子编程 Quantum Program</h4>
+<ol type="1">
+<li>Python
+<ul>
 <li>QISKit(IBM )</li>
 <li>HiQ(华为)</li>
-<li>Project $Q$(ETHZ)</li>
+<li>Project <span class="math inline">\(Q\)</span>(ETHZ)</li>
 <li>Cirq (Google)</li>
 <li>PyQuil (Rigetti)</li>
-</ul>
-</li>
-<li>$\mathrm{Q} #$<ul>
+</ul></li>
+<li><span class="math inline">\(\mathrm{Q} \#\)</span>
+<ul>
 <li>QDK (Microsoft)</li>
-</ul>
-</li>
-<li>Julia <ul>
-<li>Yao.jl </li>
-</ul>
-</li>
+</ul></li>
+<li>Julia
+<ul>
+<li>Yao.jl</li>
+</ul></li>
 </ol>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>量子编程</p>
-<ol>
-<li>Hidary, J.D. 《Quantum Computing: An Applied Approach》 (2019)</li>
-<li>Vladimir Silva《Practical Quantum Computing for Developers Programming Quantum Rigs in the Cloud using Python, Quantum Assembly Language and IBM QExperience》</li>
-<li>Mingsheng Ying《Foundations of Quantum Programming》 </li>
+<h2 id="参考文献">参考文献</h2>
+<p>量子编程</p>
+<ol type="1">
+<li><p>Hidary, J.D. 《Quantum Computing: An Applied Approach》 (2019)</p></li>
+<li><p>Vladimir Silva《Practical Quantum Computing for Developers Programming Quantum Rigs in the Cloud using Python, Quantum Assembly Language and IBM QExperience》</p></li>
+<li><p>Mingsheng Ying《Foundations of Quantum Programming》</p></li>
+<li></li>
 </ol>
-<ol>
-<li><h3 id="网页"><a href="#网页" class="headerlink" title="网页"></a>网页</h3></li>
-</ol>
+<h3 id="网页">网页</h3>
 <p>Qiskit</p>
 <ul>
 <li><a href="https://qiskit.org/textbook/preface.html" target="_blank" rel="noopener">qiskit主页</a></li>
@@ -276,10 +274,8 @@
 </ul>
 <p>ProjectQ</p>
 <ul>
-<li><p><a href="https://blog.csdn.net/m0_37622530/article/details/89852779" target="_blank" rel="noopener">安装ProjectQ并生成量子电路的latex</a></p>
-</li>
-<li><p><a href="https://projectq.readthedocs.io/en/latest/examples.html" target="_blank" rel="noopener">ProjectQ主页</a></p>
-</li>
+<li><p><a href="https://blog.csdn.net/m0_37622530/article/details/89852779" target="_blank" rel="noopener">安装ProjectQ并生成量子电路的latex</a></p></li>
+<li><p><a href="https://projectq.readthedocs.io/en/latest/examples.html" target="_blank" rel="noopener">ProjectQ主页</a></p></li>
 </ul>
 <p>他山之石</p>
 <ul>
@@ -318,9 +314,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2019/09/04/QC01_AIFR/">
+                      <a href="/2019/09/04/Te02_technique/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">简介</span>
+                        <span class="hidden-mobile">技术宅</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -328,8 +324,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2019/09/04/Te02_technique/">
-                        <span class="hidden-mobile">技术宅</span>
+                      <a href="/2019/09/03/QC03_Bit_to_Ciruit/">
+                        <span class="hidden-mobile">从量子比特到量子线路</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -565,7 +561,24 @@
       };
     </script>
 
-    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
   
 

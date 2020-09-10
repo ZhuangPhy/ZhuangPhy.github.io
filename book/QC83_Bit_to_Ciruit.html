@@ -6,7 +6,7 @@
 
 
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" type="image/png" href="/img/favicon.png">
   <meta name="viewport"
@@ -48,11 +48,11 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <body>
-  <header style="height: 60vh;">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -170,49 +170,45 @@
                 
 
 <div class="page-content">
-  <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ol>
-<li><p>量子比特 Qubit</p>
-</li>
-<li><p>量子门 Quantum gate</p>
-</li>
-<li><p>量子电路 Quantum circuit</p>
-</li>
+  <h2 id="前言">前言</h2>
+<ol type="1">
+<li><p>量子比特 Qubit</p></li>
+<li><p>量子门 Quantum gate</p></li>
+<li><p>量子电路 Quantum circuit</p></li>
 </ol>
-<h4 id="量子比特-Qubit"><a href="#量子比特-Qubit" class="headerlink" title="量子比特 Qubit"></a>量子比特 Qubit</h4><p>量子比特的表示 Presentation of a Qubit</p>
+<h4 id="量子比特-qubit">量子比特 Qubit</h4>
+<p>量子比特的表示 Presentation of a Qubit</p>
 <ul>
 <li>狄拉克符号 Dirac notation</li>
 <li>布洛赫球 Bloch sphere (几何图像)</li>
 </ul>
-<h4 id="量子门-amp-量子电路-Quantum-gate-amp-Quantum-circuit"><a href="#量子门-amp-量子电路-Quantum-gate-amp-Quantum-circuit" class="headerlink" title="量子门&amp;量子电路 Quantum gate &amp; Quantum circuit"></a>量子门&amp;量子电路 Quantum gate &amp; Quantum circuit</h4><ol>
-<li>单量子比特门 Gate of Single QuBit</li>
-<li>多量子比特门 Gate of Multi QuBit</li>
-<li>量子电路 Quantum circuit</li>
-</ol>
-<ol>
+<h4 id="量子门量子电路-quantum-gate-quantum-circuit">量子门&amp;量子电路 Quantum gate &amp; Quantum circuit</h4>
+<ol type="1">
+<li><p>单量子比特门 Gate of Single QuBit</p></li>
+<li><p>多量子比特门 Gate of Multi QuBit</p></li>
+<li><p>量子电路 Quantum circuit</p></li>
 <li><p>单量子比特门 Gate of Single Bit</p>
 <ul>
 <li>Hadamard门</li>
 <li>相门 Phase gate (S;T)</li>
 <li>旋转门 XYZ</li>
-</ul>
-</li>
+</ul></li>
 <li><p>多量子比特门 Gate of Multi QuBit</p>
 <ul>
 <li>控制-非门 Contronelled-Not</li>
 <li>控制-U门 Contronelled-U</li>
-</ul>
-</li>
+</ul></li>
 <li><p>量子电路 Quantum circuit</p>
 <ul>
 <li>量子傅里叶变换 Quantum Fourier transform</li>
 <li>量子相位估计 Quantum phase estimation</li>
-</ul>
-</li>
+</ul></li>
 </ol>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>综合类书籍</p>
-<ol>
-<li>Michael A Nielsen and Isaac Chuang.《Quantum computation and quantum information》, 2002 </li>
-<li>Giuliano Benenti.《Principles of Quantum Computation and Information: Basic Tools and Special Topics》 </li>
+<h2 id="参考文献">参考文献</h2>
+<p>综合类书籍</p>
+<ol type="1">
+<li>Michael A Nielsen and Isaac Chuang.《Quantum computation and quantum information》, 2002</li>
+<li>Giuliano Benenti.《Principles of Quantum Computation and Information: Basic Tools and Special Topics》</li>
 <li>Mikio Nakahara, Tetsuo Ohmi.《Quantum Computing. From Linear Algebra to Physical Realizations 》</li>
 <li>David McMahon. 《Quantum Computing Explained 》</li>
 </ol>
@@ -348,7 +344,24 @@
       searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
-  </script>
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

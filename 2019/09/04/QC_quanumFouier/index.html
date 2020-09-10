@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>量子傅里叶 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2019-09-04 14:23">
+      September 4, 2019 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      103
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="简介量子傅里叶-quantum-fourier">简介量子傅里叶 Quantum Fourier</h2>
+<p>应用</p>
+<ul>
+<li>相位估计</li>
+<li>求周期问题</li>
+<li>离散对数问题</li>
+<li>隐含子群</li>
+</ul>
+<h3 id="离散傅里叶-discrete-fourier">离散傅里叶 discrete Fourier</h3>
+<p>一个向量的各个分量是复数 <span class="math inline">\(f=\{f(0), f(1), \ldots, f(N-1)\}\)</span> 用离散傅里叶变换到另一个向量$={(0), (1), , (N-1) $}, 变换过程定义为 <span class="math display">\[
+\tilde{f}=K f
+\]</span> 变换的过程可以看成：初始是一个向量，一个矩阵 作用到这个向量，结果也是一个向量。 <span class="math display">\[
+\left(\begin{array}{c}\tilde{f}(0 )    \\\tilde{f}(1 )     \\\dots     \\\tilde{f}(N-1 ) \end{array}\right)=\left(\begin{array}{ccc}K(0,0) &amp; \dots &amp; K(0, N-1) \\K(1,0) &amp; \dots &amp; K(1, N-1) \\\dots &amp; \dots &amp; \dots \\K(N-1,0) &amp; \dots &amp; K(N-1, N-1)\end{array}\right)\left(\begin{array}{c}f(0 )    \\f(1 )     \\\dots     \\f(N-1 ) \end{array}\right)
+\]</span> 矩阵的元素记作 <span class="math inline">\(\frac{1}{\sqrt{N}} \omega_{N}^{j k}\equiv K(j,k)\)</span> 左边向量的每一个元素，等于右边向量和对应一行矩阵元素的乘积求和 <span class="math display">\[
+\tilde{f}(k)=\frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} \omega_{N}^{j k} f(j)
+\]</span> 矩阵的元素可以写成 <span class="math inline">\(\omega_{N}^{j k}=e^{2 \pi i \frac{j k}{N}}\)</span>，因为他们可以看成1的N个根。则这个变换过程也可以写成 <span class="math display">\[
+\tilde{f}(k)=\frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} e^{2 \pi i \frac{j k}{N}} f(j)
+\]</span></p>
+<h3 id="量子傅里叶-quantum-fourier">量子傅里叶 Quantum Fourier</h3>
+<p>量子傅里叶和前面的离散傅里叶一样，定义一个幺正变换 <span class="math inline">\(K\)</span> 作用到一个 <span class="math inline">\(n\)</span> 量子比特的量子态 <span class="math inline">\(|\psi\rangle=\sum_{j} f(j)|j\rangle\)</span>，其中<span class="math inline">\(\left(N=2^{n}\right)\)</span>， <span class="math display">\[
+\begin{aligned}
+|\tilde{\psi}\rangle&amp;=K|\psi\rangle
+\\&amp;=\sum_{j=0}^{N-1} f(j)K|j\rangle
+\\&amp;=\sum_{j=0}^{N-1} f(j)\frac{1}{\sqrt{N}}\sum_{k=0}^{N-1} \sum_{m=0}^{N-1} \omega_{N}^{m k}|k\rangle\langle m ||j\rangle
+\\&amp;=\sum_{j=0}^{N-1} f(j)\frac{1}{\sqrt{N}}\sum_{k=0}^{N-1} \sum_{m=0}^{N-1}\omega_{N}^{m k}|k\rangle \delta_{mj}
+\\&amp;=\sum_{j=0}^{N-1} f(j)\frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}  \omega_{N}^{m k}|k\rangle  
+\\&amp;=\sum_{k=0}^{2^{n}-1} \tilde{f}(k)|k\rangle
+\end{aligned}
+\]</span> 其中我们用了</p>
+<ul>
+<li>傅里叶矩阵 <span class="math inline">\(K_{Q F T}=\frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} \sum_{n=0}^{N-1} \omega_{N}^{nk}|k\rangle\langle n|\)</span></li>
+<li>离散傅里叶 <span class="math inline">\(\tilde{f}(k)=\frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} e^{2 \pi i \frac{j k}{N}} f(j)\)</span></li>
+</ul>
+<p>整个叠加态 <span class="math inline">\(|\tilde{\psi}\rangle\)</span> 太复杂，我们考虑 <span class="math inline">\(|\tilde{\psi}\rangle\)</span> 其中一个分量 <span class="math inline">\(|k\rangle\)</span> <span class="math display">\[
+\begin{aligned}
+K(|j\rangle)
+&amp;=\frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} \sum_{m=0}^{N-1} \omega_{N}^{mk}|k\rangle\langle m| |j\rangle 
+\\&amp;=\frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} \sum_{m=0}^{N-1} \omega_{N}^{mk}|k\rangle\delta_{mj}
+\\&amp;=\frac{1}{\sqrt{N}} \sum_{k=0}^{N-1}  \omega_{N}^{jk}|k\rangle 
+\\&amp;=\frac{1}{\sqrt{2^{n}}} \sum_{k=0}^{2^{n}-1} e^{2 \pi i \frac{j k}{2^{n}}}|k\rangle
+\end{aligned}
+\]</span></p>
+<h4 id="example-n1">example <span class="math inline">\(n=1\)</span></h4>
+<p>考虑量子傅里叶变换 K 作用到单量子比特 <span class="math inline">\(|\psi\rangle=\alpha|0\rangle+\beta|1\rangle\)</span>，初始向量 <span class="math inline">\(f=\{f(0),f(1)\}=\{\alpha,\beta\}\)</span> <span class="math display">\[
+\begin{aligned}
+\tilde{f}(k)&amp;=\frac{1}{\sqrt{N}} \sum_{j=0}^{N-1} e^{2 \pi i \frac{j k}{N}} f(j)
+\\&amp;=\frac{1}{\sqrt{2}}\left[e^{2 \pi i \frac{0 \times k}{2}} f(0)+e^{2 \pi i \frac{1\times k}{2}} f(1)\right] 
+\\&amp;=\frac{1}{\sqrt{2}}\left[e^{2 \pi i \frac{0 \times k}{2}} \alpha+e^{2 \pi i \frac{1\times k}{2}} \beta\right] 
+\end{aligned}
+\]</span> 具体到每个分量 <span class="math display">\[
+\begin{aligned}
+\tilde{f}(0)&amp;=\frac{1}{\sqrt{2}}\left[e^{2 \pi i \frac{0 \times 0}{2}} \alpha+e^{2 \pi i \frac{1\times 0}{2}} \beta\right] =\frac{1}{\sqrt{2}}(\alpha+\beta)
+\\
+\tilde{f}(1)&amp;=\frac{1}{\sqrt{2}}\left[e^{2 \pi i \frac{0 \times 1}{2}} \alpha+e^{2 \pi i \frac{1\times 1}{2}} \beta\right] =\frac{1}{\sqrt{2}}(\alpha-\beta)
+\end{aligned}
+\]</span> 所以单量子比特的量子傅里叶变换过程的矩阵表示 <span class="math display">\[
+\begin{aligned}
+K_{Q F T}|\psi\rangle&amp;=\frac{1}{\sqrt{2}}(\alpha+\beta)|0\rangle+\frac{1}{\sqrt{2}}(\alpha-\beta)|1\rangle
+\\
+&amp;=\frac{1}{\sqrt{2}}(\alpha+\beta)
+\left(\begin{array}{c}
+1  \\
+0 
+\end{array}\right)+\frac{1}{\sqrt{2}}(\alpha-\beta)
+\left(\begin{array}{c}
+0  \\
+1 
+\end{array}\right)
+\\
+&amp;=\frac{1}{\sqrt{2}}\left(\begin{array}{cc}
+1 &amp; 1 \\
+1 &amp; -1
+\end{array}\right)
+\left(\begin{array}{c}
+\alpha  \\
+\beta 
+\end{array}\right)
+\end{aligned}
+\]</span> 其中变换矩阵 <span class="math inline">\(K_{Q F T}\)</span> 就是我们熟悉的Hadamard门 <span class="math display">\[
+\begin{aligned}
+K_{Q F T}=\frac{1}{\sqrt{2}}\left(\begin{array}{cc}
+1 &amp; 1 \\
+1 &amp; -1
+\end{array}\right)
+=H
+\end{aligned}
+\]</span></p>
+<p>方法2：</p>
+<p>用到 <span class="math inline">\(\omega_{N}^{j k}=e^{2 \pi i \frac{j k}{N}}\)</span>, <span class="math inline">\(\left(N=2^{n}\right)\)</span>，写出矩阵形式</p>
+<p><span class="math display">\[
+\begin{aligned}
+K_{Q F T}&amp;=\frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} \sum_{n=0}^{N-1} \omega_{N}^{nk}|k\rangle\langle n|\\
+&amp;=\frac{1}{\sqrt{N}}\left(\begin{array}{cc}
+\omega^{0 \times 0} &amp; \omega^{0 \times 1} \\
+\omega^{1 \times 0} &amp; \omega^{1 \times 1}
+\end{array}\right)\\
+&amp;=\frac{1}{\sqrt{2}}\left(\begin{array}{cc}
+1 &amp; 1 \\
+1 &amp; e^{2 \pi i / 2}
+\end{array}\right)=\frac{1}{\sqrt{2}}\left(\begin{array}{cc}
+1 &amp; 1 \\
+1 &amp; -1
+\end{array}\right)
+\\
+&amp;=H
+\end{aligned}
+\]</span> #### example <span class="math inline">\(n=2\)</span></p>
+<p>用到 <span class="math inline">\(\omega_{ }^{j k}=e^{2 \pi i \frac{j k}{N}}\)</span>, <span class="math inline">\(\left(N=2^{n}=2^{2}\right)\)</span>，写出傅里叶变换的矩阵形式 <span class="math display">\[
+\begin{aligned}
+K_{Q F T}&amp;=\frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} \sum_{n=0}^{N-1} \omega_{N}^{nk}|k\rangle\langle n|\\
+&amp;=\frac{1}{\sqrt{N}}\left(\begin{array}{cccc}
+1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; \omega^{1} &amp; \omega^{2} &amp; \omega^{3} \\
+1 &amp; \omega^{2} &amp; \omega^{4} &amp; \omega^{6} \\
+1 &amp; \omega^{3} &amp; \omega^{6} &amp; \omega^{9}
+\end{array}\right)\\
+&amp;=\frac{1}{\sqrt{2^{2}}}\left(\begin{array}{cccc}
+1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; i &amp; -1 &amp; -i \\
+1 &amp; -1 &amp; 1 &amp; -1 \\
+1 &amp; -i &amp; -1 &amp; i
+\end{array}\right)\\
+\end{aligned}
+\]</span> 其中矩阵元素</p>
+<ul>
+<li><span class="math inline">\(\omega_{ }^{1}= e^{2 \pi i \frac{1}{4}}=i\)</span></li>
+<li><span class="math inline">\(\omega_{ }^{2}= e^{2 \pi i \frac{2}{4}}=-1\)</span></li>
+<li><span class="math inline">\(\omega_{ }^{3}= e^{2 \pi i \frac{3}{4}}=-i\)</span></li>
+<li><span class="math inline">\(\omega_{ }^{4}= e^{2 \pi i \frac{4}{4}}=1\)</span></li>
+<li><span class="math inline">\(\omega_{ }^{5}= \omega_{ }^{1}=i\)</span></li>
+<li><span class="math inline">\(\omega_{ }^{m+4}= \omega_{ }^{m}\)</span></li>
+</ul>
+<h4 id="example-n3">example <span class="math inline">\(n=3\)</span></h4>
+<p>用到 <span class="math inline">\(\omega_{ }^{j k}=e^{2 \pi i \frac{j k}{N}}\)</span>, <span class="math inline">\(\left(N=2^{n}=2^{3}\right)\)</span>，写出傅里叶变换的矩阵形式 <span class="math display">\[
+\begin{aligned}
+K_{Q F T}&amp;=\frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} \sum_{n=0}^{N-1} \omega_{N}^{nk}|k\rangle\langle n|\\
+&amp;=\frac{1}{\sqrt{N}}\left[\begin{array}{cccccccc}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; \omega &amp; \omega^{2} &amp; \omega^{3} &amp; \omega^{4} &amp; \omega^{5} &amp; \omega^{6} &amp; \omega^{7} \\
+1 &amp; \omega^{2} &amp; \omega^{4} &amp; \omega^{6} &amp; 1 &amp; \omega^{2} &amp; \omega^{4} &amp; \omega^{6} \\
+1 &amp; \omega^{3} &amp; \omega^{6} &amp; \omega^{1} &amp; \omega^{4} &amp; \omega^{7} &amp; \omega^{2} &amp; \omega^{5} \\
+1 &amp; \omega^{4} &amp; 1 &amp; \omega^{4} &amp; 1 &amp; \omega^{4} &amp; 1 &amp; \omega^{4} \\
+1 &amp; \omega^{5} &amp; \omega^{2} &amp; \omega^{\prime} &amp; \omega^{4} &amp; \omega^{1} &amp; \omega^{6} &amp; \omega^{3} \\
+1 &amp; \omega^{6} &amp; \omega^{4} &amp; \omega^{2} &amp; 1 &amp; \omega^{6} &amp; \omega^{4} &amp; \omega^{2} \\
+1 &amp; \omega^{7} &amp; \omega^{6} &amp; \omega^{5} &amp; \omega^{4} &amp; \omega^{3} &amp; \omega^{2} &amp; \omega^{1}
+\end{array}\right]\\
+\end{aligned}
+\]</span> 其中矩阵元素</p>
+<ul>
+<li><span class="math inline">\(\omega_{ }^{1}= e^{2 \pi i \frac{1}{8}}\)</span></li>
+<li><span class="math inline">\(\omega_{ }^{2}= e^{2 \pi i \frac{2}{8}}\)</span></li>
+<li><span class="math inline">\(\omega_{ }^{3}= e^{2 \pi i \frac{3}{8}}\)</span></li>
+<li><span class="math inline">\(\cdots\)</span></li>
+<li><span class="math inline">\(\omega_{ }^{m+8}= \omega_{ }^{m}\)</span></li>
+</ul>
+<h2 id="qft的电路表示">QFT的电路表示</h2>
+<h3 id="量子傅里叶的乘积形式">量子傅里叶的乘积形式</h3>
+<p>在前面我们得到量子傅里叶的形式 <span class="math display">\[
+\begin{aligned}
+|k\rangle =K(|j\rangle)
+=\frac{1}{\sqrt{2^{n}}} \sum_{k=0}^{2^{n}-1} e^{2 \pi i \frac{j k}{2^{n}}}|j\rangle
+\end{aligned}
+\]</span> 为了方便理解量子傅里叶的电路表示，我们先把量子傅里叶这个形式变成乘积形式</p>
+<p><span class="math display">\[
+\begin{aligned}
+F(|j\rangle) &amp;=\frac{1}{\sqrt{2^{n}}} \sum_{k=0}^{2^{n}-1} \exp \left(\frac{2 \pi i j k}{2^{n}}\right)|k\rangle \\
+&amp;=\frac{1}{\sqrt{2^{n}}} \sum_{k_{n}-1=0}^{1} \ldots \sum_{k_{0}=0}^{1} \exp \left(2 \pi i j \sum_{l=1}^{n} \frac{k_{n-l}}{2^{l}}\right)\left|k_{n-1} \ldots k_{0}\right\rangle \\
+&amp;=\frac{1}{\sqrt{2^{n}}} \sum_{k_{n-1}=0}^{1} \ldots \sum_{k_{0}=0}^{1} \otimes_{l=1}^{n} \exp \left(2 \pi i j \frac{k_{n-l}}{2^{l}}\right)\left|k_{n-l}\right\rangle \\
+&amp;=\frac{1}{\sqrt{2^{n}}} \otimes_{l=1}^{n}\left[\sum_{k_{n-l}=0}^{1} \exp \left(2 \pi i j \frac{k_{n-l}}{2^{l}}\right)\left|k_{n-l}\right\rangle\right] \\
+&amp;=\frac{1}{\sqrt{2^{n}}} \otimes_{l=1}^{n}\left[|0\rangle+\exp \left(2 \pi i j \frac{1}{2^{l}}\right)|1\rangle\right] \\
+&amp;=\frac{1}{\sqrt{2^{n}}}\left(|0\rangle+e^{2 \pi i 0 . j_{0}}|1\rangle\right)\left(|0\rangle+e^{2 \pi i 0 . j_{1} j_{0}}|1\rangle\right) \cdots
+\\&amp;\cdots\left(|0\rangle+e^{2 \pi i 0 . j_{n}-1 j_{n-2} \dots j_{0}}|1\rangle\right)
+\end{aligned}
+\]</span> 如果你对于上面的推导感到疑惑，下面我就一步步拆解，如果你懂了或者觉得只要结论就足够，那你可以跳过这部分</p>
+<h4 id="详细推导">详细推导</h4>
+<ol type="1">
+<li><p>用了新记号标记二进制数 <span class="math inline">\(j:\)</span> <span class="math display">\[
+k=k_{n-1} k_{n-2} \ldots k_{0}=k_{n-1} 2^{n-1}+k_{n-2} 2^{n-2}+\cdots+k_{0} 2^{0}
+\]</span> 指数上的系数 <span class="math display">\[
+\frac{1}{2^{n}}j \cdot k=j \cdot \frac{1}{2^{n}}(k_{n-1} 2^{n-1}+k_{n-2} 2^{n-2}+\cdots+k_{0} 2^{0})
+=j \cdot\sum_{l=1}^{n} \frac{k_{n-l}}{2^{l}}
+\]</span> 所以 <span class="math display">\[
+\begin{aligned}
+F(|j\rangle) &amp;=\frac{1}{\sqrt{2^{n}}} \sum_{k=0}^{2^{n}-1} \exp \left(\frac{2 \pi i j k}{2^{n}}\right)|k\rangle \\
+&amp;=\frac{1}{\sqrt{2^{n}}} \sum_{k=0}^{2^{n}-1} \exp \left(2 \pi i j \sum_{l=1}^{n} \frac{k_{n-l}}{2^{l}}\right)\left|k_{n-1} \ldots k_{0}\right\rangle 
+\end{aligned}
+\]</span></p></li>
+<li><p>指数上的求和 等于 指数外的连成 <span class="math inline">\(e^{a+b}=e^{a}e^{b}\)</span></p></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+F(|j\rangle) &amp;=\frac{1}{\sqrt{2^{n}}} \sum_{k=0}^{2^{n}-1} \exp \left(2 \pi i j \sum_{l=1}^{n} \frac{k_{n-l}}{2^{l}}\right)\left|k_{n-1} \ldots k_{0}\right\rangle  \\
+&amp;=\frac{1}{\sqrt{2^{n}}} \sum_{k=0}^{2^{n}-1} \prod_{l=1}^{n} \exp \left(2 \pi i j \frac{k_{n-l}}{2^{l}}\right)\left|k_{n-l}\right\rangle
+ \\
+&amp;=\frac{1}{\sqrt{2^{n}}} \sum_{k=0}^{2^{n}-1} \otimes_{l=1}^{n} \exp \left(2 \pi i j \frac{k_{n-l}}{2^{l}}\right)\left|k_{n-l}\right\rangle
+\end{aligned}
+\]</span></p>
+<ol start="3" type="1">
+<li>对<span class="math inline">\(k\)</span>的求和 <span class="math inline">\(\sum_{k=0}^{2^{n}-1}\)</span>变成</li>
+</ol>
+<p><span class="math display">\[
+\sum_{k=0}^{2^{n}-1}=\sum_{k_{1}=0}^{1} \sum_{k_{2}=0}^{1}\ldots \sum_{k_{n}=0}^{1}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+F(|j\rangle) &amp;=\frac{1}{\sqrt{2^{n}}} \sum_{k=0}^{2^{n}-1} \otimes_{l=1}^{n} \exp \left(2 \pi i j \frac{k_{n-l}}{2^{l}}\right)\left|k_{n-l}\right\rangle\\
+&amp;=\frac{1}{\sqrt{2^{n}}} \sum_{k_{1}=0}^{1} \sum_{k_{2}=0}^{1}\ldots \sum_{k_{n}=0}^{1} \otimes_{l=1}^{n} \exp \left(2 \pi i j \frac{k_{n-l}}{2^{l}}\right)\left|k_{n-l}\right\rangle\\
+&amp;=\frac{1}{\sqrt{2^{n}}} \otimes_{l=1}^{n}\left[\sum_{k_{n-l}=0}^{1} \exp \left(2 \pi i j \frac{k_{n-l}}{2^{l}}\right)\left|k_{n-l}\right\rangle\right]
+\end{aligned}
+\]</span></p>
+<ol start="4" type="1">
+<li>其中 <span class="math display">\[
+\begin{aligned}
+\sum_{k_{n-l}=0}^{1} \exp \left(2 \pi i j \frac{k_{n-l}}{2^{l}}\right)\left|k_{n-l}\right\rangle &amp;=\exp \left(2 \pi i j \frac{0}{2^{l}}\right)\left|0\right\rangle+\exp \left(2 \pi i j \frac{1}{2^{l}}\right)\left|1\right\rangle\\
+&amp;=|0\rangle+e^{\frac{2 \pi i}{2^{l}}j}|1\rangle
+\end{aligned}
+\]</span> 连乘得</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+F(|j\rangle) 
+&amp;=\frac{1}{\sqrt{2^{n}}} \otimes_{l=1}^{n}\left[|0\rangle+\exp \left(2 \pi i j \frac{1}{2^{l}}\right)|1\rangle\right] \\
+&amp;=\frac{1}{\sqrt{2^{n}}} \left(|0\rangle+e^{\frac{2 \pi i}{2} j}|1\rangle\right) \otimes\left(|0\rangle+e^{\frac{2 \pi i}{2^{2}} j}|1\rangle\right) \otimes \ldots\\
+&amp;\quad \ldots\otimes\left(|0\rangle+e^{\frac{2 \pi i}{2^{n-1}} j}|1\rangle\right) \otimes\left(|0\rangle+e^{\frac{2 \pi i}{2^{n}} j}|1\rangle\right)
+\end{aligned}
+\]</span></p>
+<ol start="5" type="1">
+<li><p>用新的记号 表示二进制分数 <span class="math display">\[
+\begin{align}\begin{array}{c}
+j=j_{n-1} j_{n-2} \ldots j_{0}=j_{n-1} 2^{n-1}+j_{n-2} 2^{n-2}+\cdots+j_{0} 2^{0} \\
+0 . j_{l} j_{l-1} \ldots j_{m}=\frac{1}{2} j_{l}+\frac{1}{4} j_{l+1}+\cdots+\frac{1}{2^{m-l+1}} j_{m}
+\end{array}\end{align}
+\]</span> 具体展开</p>
+<ul>
+<li><span class="math inline">\(\frac{j_{0}}{2} \rightarrow 0 . j_{0}\)</span></li>
+<li><span class="math inline">\(\frac{j_{0}}{2^{2}}+\frac{j_{1}}{2} \rightarrow 0 . j_{0} j_{1}\)</span></li>
+<li><span class="math inline">\(\cdots\)</span></li>
+</ul></li>
+</ol>
+<ul>
+<li><p><span class="math inline">\(\frac{1}{2} j_{l}+\frac{1}{4} j_{l+1}+\cdots+\frac{1}{2^{m-l+1}} j_{m}=0 . j_{l} j_{l+1} \ldots j_{m}\)</span></p>
+<p>最后</p></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+F(|j\rangle) 
+&amp;=\frac{1}{\sqrt{2^{n}}} \left(|0\rangle+e^{\frac{2 \pi i}{2} j}|1\rangle\right) \otimes\left(|0\rangle+e^{\frac{2 \pi i}{2^{2}} j}|1\rangle\right) \otimes \ldots\\
+&amp;\quad \ldots\otimes\left(|0\rangle+e^{\frac{2 \pi i}{2^{n-1}} j}|1\rangle\right) \otimes\left(|0\rangle+e^{\frac{2 \pi i}{2^{n}} j}|1\rangle\right)\\
+&amp;=\frac{1}{\sqrt{2^{n}}}\left(|0\rangle+e^{2 \pi i 0 . j_{0}}|1\rangle\right)\left(|0\rangle+e^{2 \pi i 0 . j_{1} j_{0}}|1\rangle\right) \cdots
+\\&amp;\quad \cdots\left(|0\rangle+e^{2 \pi i 0 . j_{n}-1 j_{n-2} \dots j_{0}}|1\rangle\right)
+\end{aligned}
+\]</span></p>
+<h3 id="简单的qft电路表示">简单的QFT电路表示</h3>
+<figure>
+<img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200513132430129.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200513132430129</figcaption>
+</figure>
+<p>这个量子电路看起来很吓人，我们先分析3个比特的简单情况，再推导到 <span class="math inline">\(n\)</span> 比特的一般情况。</p>
+<p>其中算符：相移门 <span class="math display">\[
+R_{k}=\left[\begin{array}{cc}1 &amp; 0 \\0 &amp; \exp \left(\frac{2 \pi i}{2^{k}}\right)\end{array}\right]
+\]</span></p>
+<h4 id="n1">n=1</h4>
+<p>对于只有1个比特，那么第一行后面没有<span class="math inline">\(R_{k}\)</span>，QFT等价于</p>
+<p><img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200515094828385.png" srcset="/img/loading.gif" alt="image-20200515094828385" style="zoom:50%;" /> <span class="math display">\[
+H\left|j_{1}  \right\rangle  
+=\frac{1}{\sqrt{2}}\left(|0\rangle+e^{2 \pi i 0 . j_{1}}|1\rangle\right)
+\]</span></p>
+<h4 id="n2">n=2</h4>
+<ol type="1">
+<li>对于只有2个比特,第一个Hadamard门的作用</li>
+</ol>
+<p><span class="math display">\[
+H_{1}\left|j_{1}  \right\rangle  \otimes\left|j_{2}\right\rangle
+=\frac{1}{\sqrt{2}}\left(|0\rangle+e^{\frac{2 \pi i}{2} j_{1}}|1\rangle\right)\otimes\left|j_{2}\right\rangle
+\]</span></p>
+<ol start="2" type="1">
+<li><p>受控相移门<span class="math inline">\(R_{2}\)</span> 对第一个比特 <span class="math inline">\(\left|j_{1}\right\rangle\)</span> 的作用取决于第二个比特的状态</p>
+<p><img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200515122217430.png" srcset="/img/loading.gif" alt="image-20200515122217430" style="zoom:50%;" /></p></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+R_{2}H_{1}\left|j_{1}  \right\rangle  \otimes\left|j_{2}\right\rangle
+&amp;=R_{2}\frac{1}{\sqrt{2}}\left(|0\rangle+e^{\frac{2 \pi i}{2} j_{1}}|1\rangle\right)\otimes\left|j_{2}\right\rangle
+\\&amp;= \frac{1}{\sqrt{2}}\left(|0\rangle+e^{\frac{2 \pi i}{2} j_{1}}e^{\frac{2 \pi i}{2^{2}} j_{2}}|1\rangle\right)\otimes\left|j_{2}\right\rangle
+\\&amp;= \frac{1}{\sqrt{2}}\left(|0\rangle+e^{\frac{2 \pi i}{2} j_{1}+\frac{2 \pi i}{2^{2} } j_{2}}|1\rangle\right)\otimes\left|j_{2}\right\rangle
+\end{aligned}
+\]</span></p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(R_{2} |0\rangle\otimes\left|j_{2}\right\rangle=|0\rangle\otimes\left|j_{2}\right\rangle\)</span> 从<span class="math inline">\(R_{2}\)</span>矩阵知道对比特的第一个分量不影响</li>
+<li><span class="math inline">\(R_{2} |1\rangle \otimes\left|j_{2}\right\rangle=e^{2 \pi i 0 . j_{2}}|1\rangle \otimes\left|j_{2}\right\rangle\)</span>从这里看出为什么作用取决于第二个比特的状态，如果 <span class="math inline">\(j_{2}=0\)</span> 或者不存在，那么</li>
+</ul>
+<ol start="3" type="1">
+<li><p>第二个Hadamard门的作用</p>
+<p><img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200515122310805.png" srcset="/img/loading.gif" alt="image-20200515122310805" style="zoom:50%;" /></p></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\quad H_{2}R_{2}H_{1}\left|j_{1}  \right\rangle  \otimes\left|j_{2}\right\rangle
+\\&amp;=H_{2} \frac{1}{\sqrt{2}}\left(|0\rangle+e^{\frac{2 \pi i}{2} j_{1}+\frac{2 \pi i}{2^{2}} j_{2}}|1\rangle\right)\otimes\left|j_{2}\right\rangle
+\\&amp;=  \frac{1}{\sqrt{2}}\left(|0\rangle+e^{\frac{2 \pi i}{2} j_{1}+\frac{2 \pi i}{2^{2}} j_{2}}|1\rangle\right)\otimes \frac{1}{\sqrt{2}}\left(|0\rangle+e^{\frac{2 \pi i}{2} j_{2}}|1\rangle\right)
+\end{aligned}
+\]</span></p>
+<h3 id="一般的qft电路表示">一般的QFT电路表示</h3>
+<h4 id="第一个qubit">第一个Qubit</h4>
+<p><img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200515124443712.png" srcset="/img/loading.gif" alt="image-20200515124443712" style="zoom:50%;" /></p>
+<ol type="1">
+<li>对于只有n个比特,第一个Hadamard门的作用</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+ H\left|j_{1} j_{2}\ldots j_{n}\right\rangle&amp;=H\left|j_{1}  \right\rangle  \left|  j_{2}\ldots j_{n}\right\rangle
+\\
+&amp;=\frac{1}{\sqrt{2}}\left(|0\rangle+e^{2 \pi i 0 . j_{1}}|1\rangle\right)\left|j_{2} \ldots j_{n}\right\rangle
+\end{aligned}
+\]</span></p>
+<ol start="2" type="1">
+<li>受控相移门<span class="math inline">\(R_{2}\)</span></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+R_{2}H_{1}\left|j_{1} j_{2} \ldots j_{n}\right\rangle
+&amp;=R_{2}\frac{1}{\sqrt{2}}\left(|0\rangle+e^{\frac{2 \pi i}{2} j_{1}}|1\rangle\right)\otimes \left|j_{2} \ldots j_{n}\right\rangle
+\\&amp;= \frac{1}{\sqrt{2}}\left(|0\rangle+e^{\frac{2 \pi i}{2} j_{1}+\frac{2 \pi i}{2^{2}} j_{2}}|1\rangle\right)\otimes \left|j_{2} \ldots j_{n}\right\rangle
+\end{aligned}
+\]</span></p>
+<ol start="3" type="1">
+<li>受控相移门 <span class="math inline">\(R_{3}, R_{4}\)</span> 直到 <span class="math inline">\(R_{n}\)</span> 门 <span class="math display">\[
+\begin{aligned}
+&amp;\quad R_{n}\cdots R_{3}R_{2}H_{1}\left|j_{1} j_{2} \ldots j_{n}\right\rangle
+\\&amp;= \frac{1}{\sqrt{2}}\left(|0\rangle+e^{\frac{2 \pi i}{2} j_{1}+\frac{2 \pi i}{2^{2}} j_{2}+\cdots+\frac{2 \pi i}{2^{n}} j_{n}}|1\rangle\right)\otimes \left|j_{2} \ldots j_{n}\right\rangle
+\end{aligned}
+\]</span> 根据二进制分数定义 <span class="math display">\[
+0 . j_{l} j_{l+1} \ldots j_{m}=\frac{1}{2} j_{l}+\frac{1}{4} j_{l+1}+\cdots+\frac{1}{2^{m-l+1}} j_{m}
+\]</span> 第一个比特最后 为 <span class="math display">\[
+\begin{aligned}
+&amp;\quad  \frac{1}{\sqrt{2}}\left(|0\rangle+e^{\frac{2 \pi i}{2} j_{1}+\frac{2 \pi i}{2^{2}} j_{2}+\cdots+\frac{2 \pi i}{2^{n}} j_{n}}|1\rangle\right)\otimes \left|j_{2} \ldots j_{n}\right\rangle
+\\&amp;=\frac{1}{\sqrt{2}}\left(|0\rangle+e^{2 \pi i 0 . j_{1} j_{2} \cdots j_{n}}|1\rangle\right)\left|j_{2} \ldots j_{n}\right\rangle
+\end{aligned} 
+\]</span></li>
+</ol>
+<h4 id="第二个qubit">第二个Qubit</h4>
+<p><img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200515124400700.png" srcset="/img/loading.gif" alt="image-20200515124400700" style="zoom:50%;" /></p>
+<p>第一个量子比特在电路门的作用下结果 <span class="math display">\[
+\frac{1}{\sqrt{2}}\left(|0\rangle+e^{2 \pi i 0 . j_{1} j_{2} \dots j_{n}}|1\rangle\right)\left|j_{2} \dots j_{n}\right\rangle
+\]</span> Hadamard 门作用到第二个量子比特 <span class="math display">\[
+\begin{align}\begin{array}{l}
+H_{2} \frac{1}{\sqrt{2}}\left(|0\rangle+e^{2 \pi i 0 . j_{1} j_{2} \ldots j_{n}}|1\rangle\right)\left|j_{2} \ldots j_{n}\right\rangle \\
+\frac{1}{\sqrt{2}}\left(|0\rangle+e^{2 \pi i 0 . j_{1} j_{2} \ldots j_{n}}|1\rangle\right) H\left|j_{2}\right\rangle\left|j_{2} \ldots j_{n}\right\rangle \\
+\frac{1}{2^{2 / 2}}\left(|0\rangle+e^{2 \pi i 0 . j_{1} j_{2} \ldots j_{n}}|1\rangle\right)\left(|0\rangle+e^{2 \pi i 0 . j_{2}}|1\rangle\right)\left|j_{3} \ldots j_{n}\right\rangle
+\end{array}\end{align}
+\]</span> 受控相门- <span class="math inline">\(R_{2}\)</span> 作用第二个量子比特直到 <span class="math inline">\(R_{n-1}\)</span> 门 <span class="math display">\[
+\frac{1}{2^{2 / 2}}\left(|0\rangle+e^{2 \pi i 0 . j_{1} j_{2} \ldots j_{n}}|1\rangle\right)\left(|0\rangle+e^{2 \pi i 0 . j_{2} \ldots j_{n}}|1\rangle\right)\left|j_{3} \ldots j_{n}\right\rangle
+\]</span></p>
+<h4 id="所有qubit">所有Qubit</h4>
+<p>按照上面的计算，经过类似的推导，我们得到最后的结果 <span class="math display">\[
+\frac{1}{2^{n / 2}}\left(|0\rangle+e^{2 \pi i 0 . j_{1} j_{2} \ldots j_{n}}|1\rangle\right)\left(|0\rangle+e^{2 \pi i 0 . j_{2} \ldots j_{n}}|1\rangle\right) \ldots\left(|0\rangle+e^{2 \pi i 0 . j_{n}}|1\rangle\right)
+\]</span> 把这个结果和 量子傅里叶变换的乘积形式(QFT product representation)对比，他们是相同的。也就说明了这个量子电路可以有效表示量子傅里叶变换。T</p>
+<h2 id="算法">算法</h2>
+<p>受控相移门 <span class="math display">\[
+C U_{1}(\theta)=\left[\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; e^{i \theta}
+\end{array}\right]
+\]</span> 看成组合</p>
+<ul>
+<li><span class="math inline">\(C R O T_{k}=\left[\begin{array}{cc}I &amp; 0 \\ 0 &amp; U R O T_{k}\end{array}\right]\)</span></li>
+<li><span class="math inline">\(U R O T_{k}=\left[\begin{array}{cc}1 &amp; 0 \\ 0 &amp; \exp \left(\frac{2 \pi i}{2^{k}}\right)\end{array}\right]\)</span></li>
+<li><span class="math inline">\(\theta=2 \pi / 2^{k}=\pi / 2^{k-1}\)</span></li>
+</ul>
+<p><span class="math display">\[
+C U_{1}(\theta)=C R O T_{k}\otimes U R O T_{k}
+\]</span></p>
+<h3 id="个量子比特">3个量子比特</h3>
+<p>导入必要的python库</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">from</span> numpy <span class="hljs-keyword">import</span> pi
+<span class="hljs-comment"># importing Qiskit</span>
+<span class="hljs-keyword">from</span> qiskit <span class="hljs-keyword">import</span> QuantumCircuit, execute, Aer, IBMQ
+<span class="hljs-keyword">from</span> qiskit.providers.ibmq <span class="hljs-keyword">import</span> least_busy
+<span class="hljs-keyword">from</span> qiskit.tools.monitor <span class="hljs-keyword">import</span> job_monitor
+<span class="hljs-keyword">from</span> qiskit.visualization <span class="hljs-keyword">import</span> plot_histogram, plot_bloch_multivector
+%config InlineBackend.figure_format = <span class="hljs-string">'svg'</span> <span class="hljs-comment"># Makes the images look nice</span></code></pre>
+<p>定义3量子比特态</p>
+<pre><code class="hljs ini"><span class="hljs-attr">qc</span> = QuantumCircuit(<span class="hljs-number">3</span>)</code></pre>
+<p>对第3个qubit使用Hadamard门(从0开始计数，所以第三个qubit对应下标是2)</p>
+<pre><code class="hljs python">qc.h(<span class="hljs-number">2</span>)  
+qc.draw(<span class="hljs-string">'mpl'</span>) <span class="hljs-comment">#把电路图画出来</span></code></pre>
+<p>对第一个态进行受控</p>
+<pre><code class="hljs python">qc.cu1(pi/<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-comment"># CROT  根据 qubit 1 翻转 qubit 2</span>
+qc.draw(<span class="hljs-string">'mpl'</span>) <span class="hljs-comment">#把电路图画出来</span></code></pre>
+<p>对第一个态进行受控</p>
+<pre><code class="hljs python">qc.cu1(pi/<span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>) <span class="hljs-comment"># CROT  根据 qubit 0 翻转 qubit 2</span>
+qc.draw(<span class="hljs-string">'mpl'</span>) <span class="hljs-comment">#把电路图画出来</span></code></pre>
+<p>对另外两个态做类似的操作</p>
+<pre><code class="hljs python">qc.h(<span class="hljs-number">1</span>)
+qc.cu1(pi/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>) <span class="hljs-comment"># CROT 根据 qubit 0 翻转 qubit 1</span>
+qc.h(<span class="hljs-number">0</span>)
+qc.draw(<span class="hljs-string">'mpl'</span>)</code></pre>
+<p>对换 qubit 0 和 qubit 2</p>
+<pre><code class="hljs python">qc.swap(<span class="hljs-number">0</span>,<span class="hljs-number">2</span>)
+qc.draw(<span class="hljs-string">'mpl'</span>)</code></pre>
+<h3 id="通用">通用</h3>
+<h2 id="附录">附录</h2>
+<p>用到 <span class="math inline">\(\omega_{ }^{j k}=e^{2 \pi i \frac{j k}{N}}\)</span>, <span class="math inline">\(\left(N=2^{n}=2^{2}\right)\)</span>，写出傅里叶变换的矩阵形式 <span class="math display">\[
+\begin{aligned}K_{Q F T}&amp;=\frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} \sum_{n=0}^{N-1} \omega_{N}^{nk}|k\rangle\langle n|\\&amp;=\frac{1}{\sqrt{N}}\left(\begin{array}{cccc}1 &amp; 1 &amp; 1 &amp; 1 \\1 &amp; \omega^{1} &amp; \omega^{2} &amp; \omega^{3} \\1 &amp; \omega^{2} &amp; \omega^{4} &amp; \omega^{6} \\1 &amp; \omega^{3} &amp; \omega^{6} &amp; \omega^{9}\end{array}\right)\\&amp;=\frac{1}{\sqrt{N}}\left(\begin{array}{cccc}e^{2 \pi i \frac{0\times0}{4}} &amp; e^{2 \pi i \frac{0\times1}{4}} &amp; e^{2 \pi i \frac{0\times2}{4}} &amp; e^{2 \pi i \frac{0\times 3}{4}} \\e^{2 \pi i \frac{1\times0}{4}} &amp; e^{2 \pi i \frac{1\times1}{4}} &amp; e^{2 \pi i \frac{1\times2}{4}}  &amp; e^{2 \pi i \frac{1\times3}{4}} \\e^{2 \pi i \frac{2\times0}{4}} &amp; e^{2 \pi i \frac{2\times1}{4}}  &amp; e^{2 \pi i \frac{2\times2}{4}} &amp; e^{2 \pi i \frac{2\times 3}{4}} \\e^{2 \pi i \frac{4\times0}{4}} &amp; e^{2 \pi i \frac{3\times1}{4}} &amp; e^{2 \pi i \frac{3\times2}{4}} &amp; e^{2 \pi i \frac{3\times3}{4}}\end{array}\right)\end{aligned}
+\]</span> 其中矩阵元素 <span class="math display">\[
+\begin{aligned}\left(\begin{array}{c}\tilde{f}(0 )    \\\tilde{f}(1 )     \\ \tilde{f}(2 )       \\ \tilde{f}(3) \end{array}\right)&amp;=\frac{1}{\sqrt{N}}\left(\begin{array}{cccc}e^{2 \pi i \frac{0\times0}{4}} &amp; e^{2 \pi i \frac{0\times1}{4}} &amp; e^{2 \pi i \frac{0\times2}{4}} &amp; e^{2 \pi i \frac{0\times 3}{4}} \\e^{2 \pi i \frac{1\times0}{4}} &amp; e^{2 \pi i \frac{1\times1}{4}} &amp; e^{2 \pi i \frac{1\times2}{4}}  &amp; e^{2 \pi i \frac{1\times3}{4}} \\e^{2 \pi i \frac{2\times0}{4}} &amp; e^{2 \pi i \frac{2\times1}{4}}  &amp; e^{2 \pi i \frac{2\times2}{4}} &amp; e^{2 \pi i \frac{2\times 3}{4}} \\e^{2 \pi i \frac{4\times0}{4}} &amp; e^{2 \pi i \frac{3\times1}{4}} &amp; e^{2 \pi i \frac{3\times2}{4}} &amp; e^{2 \pi i \frac{3\times3}{4}}\end{array}\right)\left(\begin{array}{c}f(0 )    \\f(1 )     \\f(2 )       \\f(3) \end{array}\right)\end{aligned}
+\]</span> 例如 j=2 <span class="math display">\[
+\begin{aligned}\tilde{f}(2)&amp;=e^{2 \pi i \frac{2 \times 0}{4}}f(0)+e^{2 \pi i \frac{2 \times 1}{4}}f(1)+e^{2 \pi i \frac{2 \times 2}{4}}f(2)+e^{2 \pi i \frac{2 \times 3}{4}}f(3)\\&amp;=\left[e^{2 \pi i \frac{2 \times 0}{4}} +e^{2 \pi i \frac{2 \times 1}{4}} +e^{2 \pi i \frac{2 \times 2}{4}} +e^{2 \pi i \frac{2 \times 3}{4}} \right]\left|  k_{0} k_{1}k_{2}k_{3}\right\rangle\\&amp;=\sum_{k=0}^{2^{n}-1}e^{2 \pi i \frac{2 \times k}{2^{l}}} |k\rangle\\&amp;=\sum_{k=0}^{2^{n}-1}e^{2 \pi i 2 \times\sum_{l=1}^{n}\frac{ k_{n-l}}{2^{l}}} |k\rangle \end{aligned}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(l=1\)</span>：<span class="math inline">\(k_{n-l}=k_{4-1}=k_{3}=3\)</span></li>
+<li><span class="math inline">\(l=2\)</span>：<span class="math inline">\(k_{n-l}=k_{4-2}=k_{2}=2\)</span></li>
+<li><span class="math inline">\(l=3\)</span>：<span class="math inline">\(k_{n-l}=k_{4-3}=k_{1}=1\)</span></li>
+<li><span class="math inline">\(l=4\)</span>：<span class="math inline">\(k_{n-l}=k_{4-4}=k_{0}=0\)</span></li>
+</ul>
+<p>二进制 <span class="math display">\[
+\begin{aligned}&amp;\left[e^{2 \pi i \frac{2 \times 0}{4}} +e^{2 \pi i \frac{2 \times 1}{4}} +e^{2 \pi i \frac{2 \times 2}{4}} +e^{2 \pi i \frac{2 \times 3}{4}} \right]\left|  k_{0} k_{1}k_{2}k_{3}\right\rangle \rightarrow \sum_{k=0}^{2^{n}-1} \otimes_{l=1}^{n} e^{2 \pi i 2 \times \frac{ k_{n-l}}{2^{l}}} |k\rangle\\&amp;\left[e^{2 \pi i \frac{2 \times 0}{4}} +e^{2 \pi i \frac{2 \times 1}{4}} +e^{2 \pi i \frac{2 \times 0}{4}} +e^{2 \pi i \frac{2 \times 1}{4}} \right]\left|  k_{0} k_{1}k_{2}k_{3}\right\rangle\rightarrow \sum_{k_0=0}^{1} \sum_{k_1=0}^{1} \otimes_{l=1}^{n} e^{2 \pi i 2 \times \frac{ k_{n-l}}{2^{l}}} |k\rangle\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}&amp;=\left[e^{2 \pi i \frac{2 \times 0}{4}} +e^{2 \pi i \frac{2 \times 1}{4}} +e^{2 \pi i \frac{2 \times 2}{4}} +e^{2 \pi i \frac{2 \times 3}{4}} \right]\left|  k_{0} k_{1}k_{2}k_{3}\right\rangle \rightarrow \sum_{k=0}^{2^{n}-1} \otimes_{l=1}^{n} e^{2 \pi i 2 \times \frac{ k_{n-l}}{2^{l}}} |k\rangle\\&amp;=\left[e^{2 \pi i \frac{2 \times 0}{4}} +e^{2 \pi i \frac{2 \times 1}{4}} +e^{2 \pi i \frac{2 \times 0}{4}} +e^{2 \pi i \frac{2 \times 1}{4}} \right]\left|  k_{0} k_{1}k_{2}k_{3}\right\rangle\rightarrow \sum_{k_0=0}^{1} \sum_{k_1=0}^{1} \otimes_{l=1}^{n} e^{2 \pi i 2 \times \frac{ k_{n-l}}{2^{l}}} |k\rangle\\&amp;=\sum_{k=0}^{2^{n}-1}e^{2 \pi i \frac{2 \times k}{2^{l}}} |k\rangle\\&amp;=\sum_{k=0}^{2^{n}-1}e^{2 \pi i 2 \times\sum_{l=1}^{n}\frac{ k_{n-l}}{2^{l}}} |k\rangle \\&amp;=\sum_{k=0}^{2^{n}-1} \otimes_{l=1}^{n} e^{2 \pi i 2 \times \frac{ k_{n-l}}{2^{l}}} |k\rangle \end{aligned}
+\]</span></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/">Quantum Computation</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Algorithm/">Algorithm</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/09/04/QC_phase/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">量子相位</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2019/09/04/Te02_technique/">
+                        <span class="hidden-mobile">技术宅</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "量子算法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

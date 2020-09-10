@@ -6,7 +6,7 @@
 
 
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" type="image/png" href="/img/favicon.png">
   <meta name="viewport"
@@ -48,11 +48,11 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <body>
-  <header style="height: 70vh;">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -207,43 +207,187 @@
             <article class="markdown-body">
               <p>拓扑入门第一例</p>
 <p>[TOC]</p>
-<h2 id="详细"><a href="#详细" class="headerlink" title="详细"></a>详细</h2><p>这个问题的起源是计算凝聚态系统中电流对于外电场的响应<br>$$<br>j_{\alpha}=\sum_{\beta} \sigma_{\alpha \beta} E_{\beta}<br>$$<br>其中</p>
+<h2 id="详细">详细</h2>
+<p>这个问题的起源是计算凝聚态系统中电流对于外电场的响应 <span class="math display">\[
+j_{\alpha}=\sum_{\beta} \sigma_{\alpha \beta} E_{\beta}
+\]</span> 其中</p>
 <ul>
-<li>$\alpha, \beta=x, y$ 二维系统</li>
-<li>$\sigma_{\alpha \beta}$ 电导率</li>
+<li><span class="math inline">\(\alpha, \beta=x, y\)</span> 二维系统</li>
+<li><span class="math inline">\(\sigma_{\alpha \beta}\)</span> 电导率</li>
 </ul>
 <p>我们通常考虑外电场较弱的情况，此时我们可以采用含时<strong>微扰</strong>理论来处理，只需要考虑一阶项就可以了。这就是<strong>线性响应</strong>理论（Linear response theory）。为了简单起见，下面的讨论都基于<strong>零温</strong>情形。</p>
-<h3 id="微扰"><a href="#微扰" class="headerlink" title="微扰"></a>微扰</h3><p>由于矢勢 A 的强度较弱，因此我们李哈密顿量展开到关于 A 的一阶项<br>$$<br>\hat{H}(\mathbf{k}+e \mathbf{A} / \hbar) \simeq \hat{H}(\mathbf{k})+\mathbf{A} \cdot \hat{\mathbf{j}}, \quad \hat{\mathbf{j}}=\frac{e}{\hbar} \frac{\partial \hat{H}}{\partial \mathbf{k}}<br>$$</p>
-<p>$$<br>\hat{H}(\mathbf{k}+e \mathbf{A} / \hbar) \simeq \hat{H}(\mathbf{k})+\mathbf{A} \cdot \hat{\mathbf{j}}<br>$$</p>
+<h3 id="微扰">微扰</h3>
+<p>由于矢勢 A 的强度较弱，因此我们李哈密顿量展开到关于 A 的一阶项 <span class="math display">\[
+\hat{H}(\mathbf{k}+e \mathbf{A} / \hbar) \simeq \hat{H}(\mathbf{k})+\mathbf{A} \cdot \hat{\mathbf{j}}, \quad \hat{\mathbf{j}}=\frac{e}{\hbar} \frac{\partial \hat{H}}{\partial \mathbf{k}}
+\]</span></p>
+<p><span class="math display">\[
+\hat{H}(\mathbf{k}+e \mathbf{A} / \hbar) \simeq \hat{H}(\mathbf{k})+\mathbf{A} \cdot \hat{\mathbf{j}} 
+\]</span></p>
 <p>其中</p>
 <ul>
-<li>$\hat{\mathbf{j}}=\frac{e}{\hbar} \frac{\partial \hat{H}}{\partial \mathbf{k}}$ 为电流密度算符</li>
-<li>$ \langle\psi_{n}(t)|\hat{\mathbf{j}}| \psi_{n}(t) \rangle$ 在实验中真实测得的电流值</li>
+<li><span class="math inline">\(\hat{\mathbf{j}}=\frac{e}{\hbar} \frac{\partial \hat{H}}{\partial \mathbf{k}}\)</span> 为电流密度算符</li>
+<li>$ <em>{n}(t)|| </em>{n}(t) $ 在实验中真实测得的电流值</li>
 </ul>
-<p>其中态矢量 $\left|\psi_{n}(t)\right\rangle$ 满足<br>$$<br>\begin{aligned}<br>\frac{\mathrm{d} n_{0}}{\mathrm{d} \zeta}&amp;=2 \sqrt{n_{0}\left(m_{1}-n_{0}\right)\left(m_{2}-n_{0}\right)-\left(m_{0}+\frac{1}{2} n_{0} \Delta s\right)^{2}}<br>\\&amp;=2 \sqrt{n_{0}\left(m_{1}-n_{0}\right)^{2}-\left(\frac{1}{2} n_{0} \Delta s\right)^{2}}<br>\end{aligned}<br>$$</p>
-<p>$$<br>\begin{aligned}<br>\mathrm{i} \hbar \frac{\partial}{\partial t}\left|\psi_{n}(t)\right\rangle &amp;=\left(\hat{H}_{0}+\hat{V}\right)\left|\psi_{n}(t)\right\rangle<br>\\&amp;=\left[\hat{H}(\mathbf{k})+\frac{e}{\hbar} \mathbf{A} \cdot \frac{\partial \hat{H}}{\partial \mathbf{k}}\right]\left|\psi_{n}(t)\right\rangle<br>\end{aligned}<br>$$</p>
-<p>放到相互作用绘景中去讨论这个平均值，先对态矢量作变换 $\left|\psi_{n}(t)\right\rangle=e^{-\mathrm{i} \hat{H}_{0} / \hbar}\left|\phi_{n}(t)\right\rangle$ 方程可以改写为<br>$$<br>\mathrm{i} \hbar \frac{\partial}{\partial t}\left|\phi_{n}(t)\right\rangle=e^{\mathrm{i} \hat{H}_{0} / \hbar} \hat{V} e^{-\mathrm{i} \hat{H}_{0} / \hbar}\left|\phi_{n}(t)\right\rangle=\hat{V}_{\mathrm{I}}(t)\left|\phi_{n}(t)\right\rangle<br>$$<br>这个方程的解可以通过反复迭代得到<br>$$<br>\left|\phi_{n}(t)\right\rangle=\left|\phi_{n}(-\infty)\right\rangle-\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t^{\prime} \hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\left|\phi_{n}\left(t^{\prime}\right)\right\rangle<br>$$<br>近似，我们假定相互作用项是被绝热地从 $t^{\prime}=-\infty$ 到 $t^{\prime}=t$ 这个时间区间 内加上去的。此外, 还假定了 $t^{\prime}=-\infty$ 的时候相互作用不存在, 因此 | $\left.\phi_{n}(-\infty)\right\rangle$ 是 $\hat{H}_{0} $ 的本征态。我们将这个态记为$   |  u_{n} \rangle \equiv\left|\phi_{n}(-\infty)\right\rangle$, 于是它满足方程 $\hat{H}_{0}\left|u_{n}\right\rangle=\epsilon_{n}\left|u_{n}\right\rangle \cdot$ 在只考虑一阶微?的情形下<br>$$<br>\left|\phi_{n}(t)\right\rangle \simeq\left|u_{n}\right\rangle-\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t^{\prime} \hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\left|u_{n}\right\rangle<br>$$<br>原始的态矢量这个时候就可以被表示为<br>$$<br>\begin{aligned}<br>\left|\psi_{n}(t)\right\rangle&amp;=e^{-\mathrm{i} \hat{H}_{0} / \hbar}\left|\phi_{n}(t)\right\rangle<br>\\&amp;=e^{-\mathrm{i} \hat{H}_{0} / \hbar}[1+S(t,-\infty)]\left|u_{n}\right\rangle<br>\end{aligned}<br>$$<br>其中 $S(t,-\infty)=-\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t^{\prime} \hat{V}_{\mathrm{I}}\left(t^{\prime}\right)$</p>
-<h3 id="电流算符的平均值"><a href="#电流算符的平均值" class="headerlink" title="电流算符的平均值"></a>电流算符的平均值</h3><p>所以我们可以将电流算符的平均值表示为<br>$$<br>\begin{aligned}<br>\langle\hat{\mathbf{j}}(t)\rangle_{n} &amp;=\left\langle\psi_{n}(t)|\hat{\mathbf{j}}| \psi_{n}(t)\right\rangle<br>\\&amp;=\left\langle\phi_{n}(t)\left|e^{i \hat{H}_{0} / \hbar} \hat{\mathbf{j}} e^{-\mathrm{i} \hat{H}_{0} / \hbar}\right| \phi_{n}(t)\right\rangle<br>\\&amp;=\left\langle\phi_{n}(t)|\hat{\mathbf{j}}(t)| \phi_{n}(t)\right\rangle<br>\\&amp;=\left\langle u_{n}\left|\left[1+S^{\dagger}(t,-\infty)\right] \hat{\mathbf{j}}(t)[1+S(t,-\infty)]\right| u_{n}\right\rangle<br>\\&amp; \simeq\left\langle u_{n}\left|S^{\dagger}(t,-\infty) \hat{\mathbf{j}}(t)+\hat{\mathbf{j}}(t) S(t,-\infty)\right| u_{n}\right\rangle+\mathcal{O}\left(\hat{V}^{2}\right)<br>\\&amp;=\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t^{\prime}\left\langle u_{n}\left|\left[\hat{V}_{\mathrm{I}}\left(t^{\prime}\right), \hat{\mathbf{j}}(t)\right]\right| u_{n}\right\rangle<br>\end{aligned}<br>$$<br>在上面的计算中, 我们假定了$ \langle u_n |  \hat{\mathrm{j}}(t)\left|u_{n}\right\rangle=0 .$ 这是显然的，因为不加外电场，处于基态 的系统当然不会自发产生电流。</p>
-<p>系统的总电流可以通过对Fermi面以下的所有占据态求和得到 $\left\langle\hat{j}_{\alpha}(t)\right\rangle=\sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}}\left\langle\hat{j}_{\alpha}(t)\right\rangle_{n}$<br>$$<br>\begin{aligned}<br>\sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}}\left\langle\hat{j}_{\alpha}(t)\right\rangle_{n}=&amp; \frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \int_{-\infty}^{t} \mathrm{d} t^{\prime}\left\langle u_{n}\left|\left[\hat{V}_{\mathrm{I}}\left(t^{\prime}\right), \hat{j}_{\alpha}(t)\right]\right| u_{n}\right\rangle<br>\\=&amp; \frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \int_{-\infty}^{t} \mathrm{d} t^{\prime}\left[\left\langle u_{n}\left|\hat{V}_{\mathrm{I}}\left(t^{\prime}\right) \hat{j}_{\alpha}(t)\right| u_{n}\right\rangle-\left\langle u_{n}\left|\hat{j}_{\alpha}(t) \hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\right| u_{n}\right\rangle\right]<br>\\=&amp; \frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\mathrm{\epsilon}_{\mathrm{F}}} \sum_{m} \int_{-\infty}^{t} \mathrm{d} t^{\prime}<br>\\&amp; \times\left[\left\langle u_{n}\left|\hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\right| u_{m}\right\rangle\left\langle u_{m}\left|\hat{j}_{\alpha}(t)\right| u_{n}\right\rangle-\left\langle u_{n}\left|\hat{j}_{\alpha}(t)\right| u_{m}\right\rangle\left\langle u_{m}\left|\hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\right| u_{n}\right\rangle\right]<br>\\=&amp; \frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \sum_{\beta} \int_{-\infty}^{t} \mathrm{d} t^{\prime}<br>\\&amp; \times\left(e^{\mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right)\left(t^{\prime}-t\right) / \hbar}\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}-e^{-\mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right)\left(t^{\prime}-t\right) / \hbar}\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}\right) A_{\beta}\left(t^{\prime}\right)<br>\end{aligned}<br>$$</p>
-<h3 id="频率空间"><a href="#频率空间" class="headerlink" title="频率空间"></a>频率空间</h3><p>将电流Fourier变换到频率空间进行讨论<br>$$<br>\begin{aligned}<br>\left\langle\hat{j}_{\alpha}(\omega)\right\rangle &amp;=\int \mathrm{d} t e^{\mathrm{i} \omega t}\left\langle\hat{j}_{\alpha}(t)\right\rangle<br>\\&amp;=\frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \sum_{\beta} A_{\beta}(\omega)\left[\frac{\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}}{\mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega+\eta}-\frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}}{-\mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega+\eta}\right]<br>\\&amp;=\sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \sum_{\beta} A_{\beta}(\omega)\left[\frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}+\hbar \omega+\mathrm{i} \eta}+\frac{\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}-\hbar \omega-\mathrm{i} \eta}\right]<br>\end{aligned}<br>$$<br>为了得到上面的式子，我们计算了如下积分<br>$$<br>\begin{aligned}<br>&amp; \int \mathrm{d} t e^{\mathrm{i} \omega t} \int_{-\infty}^{t} \mathrm{d} t^{\prime} e^{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right)\left(t^{\prime}-t\right) / \hbar} F\left(t^{\prime}\right)<br>\\=&amp; \int \mathrm{d} t e^{\mathrm{i} \omega t} \int_{-\infty}^{t} \mathrm{d} t^{\prime} e^{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right)\left(t^{\prime}-t\right) / \hbar} \frac{1}{2 \pi} \int \mathrm{d} \omega^{\prime} e^{-\mathrm{i} \omega^{\prime} t^{\prime}} F\left(\omega^{\prime}\right)<br>\\=&amp; \frac{1}{2 \pi} \int \mathrm{d} \omega^{\prime} F\left(\omega^{\prime}\right) \int \mathrm{d} t e^{\mp \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) t / \hbar+\mathrm{i} \omega t} \int_{-\infty}^{t} \mathrm{d} t^{\prime} e^{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) t^{\prime} / \hbar-\mathrm{i} \omega^{\prime} t^{\prime}+\eta t^{\prime}}<br>\\=&amp;\left.\frac{1}{2 \pi} \int \mathrm{d} \omega^{\prime} F\left(\omega^{\prime}\right) \int \mathrm{d} t e^{\mp \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) t / \hbar+\mathrm{i} \omega t} \frac{1}{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega^{\prime}+\eta} e^{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) t^{\prime} / \hbar-\mathrm{i} \omega^{\prime} t^{\prime}+\eta^{\prime}}\right|_{-\infty} ^{t}<br>\\=&amp; \frac{1}{2 \pi} \int \mathrm{d} \omega^{\prime} F\left(\omega^{\prime}\right) \int \mathrm{d} t e^{\mathrm{i}\left(\omega-\omega^{\prime}\right) t} \frac{1}{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega^{\prime}+\eta}<br>\\=&amp; \frac{F(\omega)}{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega+\eta}<br>\end{aligned}<br>$$<br>上面的计算中，为了使得积分收敘，我们引入了一个无限小的参数 $\eta=0^{+}$</p>
-<h3 id="作为-关联函数的电导"><a href="#作为-关联函数的电导" class="headerlink" title="作为 关联函数的电导"></a>作为 关联函数的电导</h3><p>对于Bloch态, 我们可以将态矢量i记作 | $\left.u_{n}\right\rangle=\left|u_{\mu}(\mathrm{k})\right\rangle$, 此时对态的求和则变为 $\sum_{n}=\sum_{\mu, \mathbf{k}},$ 我们还需要注意到Maxwell方程组 $\mathbf{E}=-\partial \mathbf{A} / \partial t$，基对应的频率表示为 $E_{\alpha}(\omega)=\mathrm{i} \omega A_{\alpha}$</p>
-<p>于是我们就得到了电导的表达式<br>$$<br>\sigma_{\alpha \beta}=\frac{\Pi_{\alpha \beta}(\omega)}{\mathrm{i} \omega}<br>$$<br>其中 $\prod_{\alpha \beta}(\omega)$ 流-流关联函数<br>$$<br>\Pi_{\alpha \beta}(\omega)=\sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m}\left[\frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}+\hbar \omega+\mathrm{i} \eta}+\frac{\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}-\hbar \omega-\mathrm{i} \eta}\right]<br>$$<br>我们最后得到的电导一定是实数，因此我们只对关联函数的虚部感兴趣。</p>
-<h3 id="TKNN-formula"><a href="#TKNN-formula" class="headerlink" title="TKNN formula"></a>TKNN formula</h3><p>我们接下来取直流极限 $\omega \rightarrow 0$。利用公式 $\lim _{\eta \rightarrow 0^{+}} \frac{1}{\omega \pm \mathrm{i} \eta}=\mathrm{P} \frac{1}{\omega} \mp \mathrm{i} \pi \delta(\omega)$，流-流关联函数 写成<br>$$<br>\begin{aligned}<br>\Pi_{\alpha \beta}(\omega \rightarrow 0)=&amp; \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m}\left[\mathrm{P} \frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}}-\mathrm{i} \pi\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n} \delta\left(\epsilon_{n}-\epsilon_{m}\right)\right.<br>\\&amp;\left.+\mathrm{P} \frac{\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}}+\mathrm{i} \pi\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n} \delta\left(\epsilon_{n}-\epsilon_{m}\right)\right]<br>\\=&amp; \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m}\left[\mathrm{P} \frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}+(n \leftrightarrow m)}{\epsilon_{n}-\epsilon_{m}}\right]<br>\end{aligned}<br>$$<br>电导的计算公式变形为<br>$$<br>\begin{aligned}<br>\sigma_{\alpha \beta}(\omega \rightarrow 0) &amp;=\lim _{\omega \rightarrow 0} \frac{\Pi_{\alpha \beta}(\omega)-\Pi_{\alpha \beta}(0)}{\mathrm{i} \omega}=\left.\frac{1}{\mathrm{i}} \frac{\partial \Pi_{\alpha \beta}}{\partial \omega}\right|_{\omega=0}<br>\\&amp;=\mathrm{i} \hbar \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}-\left[\hat{j}_{\alpha}\right]_{m n}\left[\hat{j}_{\beta}\right]_{n m}}{\left(\epsilon_{n}-\epsilon_{m}\right)^{2}}<br>\end{aligned}<br>$$<br>将流算符的表达式<br>$$<br>\left[\hat{j}_{\alpha}\right]_{n m}=\left\langle u_{n}\left|\hat{j}_{\alpha}\right| u_{m}\right\rangle=\frac{e}{\hbar}\left\langle u_{n}\left|\partial_{\alpha} \hat{H}\right| u_{m}\right\rangle<br>\\\partial_{\alpha} \equiv \frac{\partial}{\partial k_{\alpha}}, \quad \alpha=x, y<br>$$<br>代入电导公式<br>$$<br>\begin{aligned}<br>\sigma_{\alpha \beta}(\omega \rightarrow 0) &amp;=\mathrm{i} \frac{e^{2}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \frac{\left\langle u_{n}\left|\partial_{\alpha} \hat{H}\right| u_{m}\right\rangle\left\langle u_{m}\left|\partial_{\beta} \hat{H}\right| u_{n}\right\rangle-\left\langle u_{m}\left|\partial_{\alpha} \hat{H}\right| u_{n}\right\rangle\left\langle u_{n}\left|\partial_{\beta} \hat{H}\right| u_{m}\right\rangle}{\left(\epsilon_{n}-\epsilon_{m}\right)^{2}}<br>\\&amp;=\mathrm{i} \frac{e^{2}}{\hbar} \sum_{\mu \nu} \sum_{\mathbf{k}} \frac{\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle-\left\langle u_{\nu}\left|\partial_{\alpha} \hat{H}\right| u_{\mu}\right\rangle\left\langle u_{\mu}\left|\partial_{\beta} \hat{H}\right| u_{\nu}\right\rangle}{\left(\epsilon_{\mu}-\epsilon_{\nu}\right)^{2}}<br>\\&amp;=\mathrm{i} \frac{e^{2} L^{2}}{\hbar} \sum_{\mu \nu} \int \frac{\mathrm{d} k_{x} \mathrm{d} k_{y}}{(2 \pi)^{2}} \frac{\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle-\left\langle u_{\nu}\left|\partial_{\alpha} \hat{H}\right| u_{\mu}\right\rangle\left\langle u_{\mu}\left|\partial_{\beta} \hat{H}\right| u_{\nu}\right\rangle}{\left(\epsilon_{\mu}-\epsilon_{\nu}\right)^{2}}<br>\end{aligned}<br>$$<br>这就是标准的TKNN formula</p>
+<p>其中态矢量 <span class="math inline">\(\left|\psi_{n}(t)\right\rangle\)</span> 满足 <span class="math display">\[
+\begin{aligned}
+\frac{\mathrm{d} n_{0}}{\mathrm{d} \zeta}&amp;=2 \sqrt{n_{0}\left(m_{1}-n_{0}\right)\left(m_{2}-n_{0}\right)-\left(m_{0}+\frac{1}{2} n_{0} \Delta s\right)^{2}}
+\\&amp;=2 \sqrt{n_{0}\left(m_{1}-n_{0}\right)^{2}-\left(\frac{1}{2} n_{0} \Delta s\right)^{2}}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{i} \hbar \frac{\partial}{\partial t}\left|\psi_{n}(t)\right\rangle &amp;=\left(\hat{H}_{0}+\hat{V}\right)\left|\psi_{n}(t)\right\rangle
+\\&amp;=\left[\hat{H}(\mathbf{k})+\frac{e}{\hbar} \mathbf{A} \cdot \frac{\partial \hat{H}}{\partial \mathbf{k}}\right]\left|\psi_{n}(t)\right\rangle
+\end{aligned}
+\]</span></p>
+<p>放到相互作用绘景中去讨论这个平均值，先对态矢量作变换 <span class="math inline">\(\left|\psi_{n}(t)\right\rangle=e^{-\mathrm{i} \hat{H}_{0} / \hbar}\left|\phi_{n}(t)\right\rangle\)</span> 方程可以改写为 <span class="math display">\[
+\mathrm{i} \hbar \frac{\partial}{\partial t}\left|\phi_{n}(t)\right\rangle=e^{\mathrm{i} \hat{H}_{0} / \hbar} \hat{V} e^{-\mathrm{i} \hat{H}_{0} / \hbar}\left|\phi_{n}(t)\right\rangle=\hat{V}_{\mathrm{I}}(t)\left|\phi_{n}(t)\right\rangle
+\]</span> 这个方程的解可以通过反复迭代得到 <span class="math display">\[
+\left|\phi_{n}(t)\right\rangle=\left|\phi_{n}(-\infty)\right\rangle-\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t^{\prime} \hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\left|\phi_{n}\left(t^{\prime}\right)\right\rangle
+\]</span> 近似，我们假定相互作用项是被绝热地从 <span class="math inline">\(t^{\prime}=-\infty\)</span> 到 <span class="math inline">\(t^{\prime}=t\)</span> 这个时间区间 内加上去的。此外, 还假定了 <span class="math inline">\(t^{\prime}=-\infty\)</span> 的时候相互作用不存在, 因此 | <span class="math inline">\(\left.\phi_{n}(-\infty)\right\rangle\)</span> 是 $<em>{0} $ 的本征态。我们将这个态记为$ | u</em>{n} |_{n}(-)$, 于是它满足方程 <span class="math inline">\(\hat{H}_{0}\left|u_{n}\right\rangle=\epsilon_{n}\left|u_{n}\right\rangle \cdot\)</span> 在只考虑一阶微?的情形下 <span class="math display">\[
+\left|\phi_{n}(t)\right\rangle \simeq\left|u_{n}\right\rangle-\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t^{\prime} \hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\left|u_{n}\right\rangle
+\]</span> 原始的态矢量这个时候就可以被表示为 <span class="math display">\[
+\begin{aligned}
+\left|\psi_{n}(t)\right\rangle&amp;=e^{-\mathrm{i} \hat{H}_{0} / \hbar}\left|\phi_{n}(t)\right\rangle
+\\&amp;=e^{-\mathrm{i} \hat{H}_{0} / \hbar}[1+S(t,-\infty)]\left|u_{n}\right\rangle
+\end{aligned}
+\]</span> 其中 <span class="math inline">\(S(t,-\infty)=-\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t^{\prime} \hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\)</span></p>
+<h3 id="电流算符的平均值">电流算符的平均值</h3>
+<p>所以我们可以将电流算符的平均值表示为 <span class="math display">\[
+\begin{aligned}
+\langle\hat{\mathbf{j}}(t)\rangle_{n} &amp;=\left\langle\psi_{n}(t)|\hat{\mathbf{j}}| \psi_{n}(t)\right\rangle 
+\\&amp;=\left\langle\phi_{n}(t)\left|e^{i \hat{H}_{0} / \hbar} \hat{\mathbf{j}} e^{-\mathrm{i} \hat{H}_{0} / \hbar}\right| \phi_{n}(t)\right\rangle  
+\\&amp;=\left\langle\phi_{n}(t)|\hat{\mathbf{j}}(t)| \phi_{n}(t)\right\rangle  
+\\&amp;=\left\langle u_{n}\left|\left[1+S^{\dagger}(t,-\infty)\right] \hat{\mathbf{j}}(t)[1+S(t,-\infty)]\right| u_{n}\right\rangle  
+\\&amp; \simeq\left\langle u_{n}\left|S^{\dagger}(t,-\infty) \hat{\mathbf{j}}(t)+\hat{\mathbf{j}}(t) S(t,-\infty)\right| u_{n}\right\rangle+\mathcal{O}\left(\hat{V}^{2}\right)  
+\\&amp;=\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t^{\prime}\left\langle u_{n}\left|\left[\hat{V}_{\mathrm{I}}\left(t^{\prime}\right), \hat{\mathbf{j}}(t)\right]\right| u_{n}\right\rangle
+\end{aligned}
+\]</span> 在上面的计算中, 我们假定了$ u_n | (t)|u_{n}=0 .$ 这是显然的，因为不加外电场，处于基态 的系统当然不会自发产生电流。</p>
+<p>系统的总电流可以通过对Fermi面以下的所有占据态求和得到 <span class="math inline">\(\left\langle\hat{j}_{\alpha}(t)\right\rangle=\sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}}\left\langle\hat{j}_{\alpha}(t)\right\rangle_{n}\)</span> <span class="math display">\[
+\begin{aligned}
+\sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}}\left\langle\hat{j}_{\alpha}(t)\right\rangle_{n}=&amp; \frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \int_{-\infty}^{t} \mathrm{d} t^{\prime}\left\langle u_{n}\left|\left[\hat{V}_{\mathrm{I}}\left(t^{\prime}\right), \hat{j}_{\alpha}(t)\right]\right| u_{n}\right\rangle 
+\\=&amp; \frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \int_{-\infty}^{t} \mathrm{d} t^{\prime}\left[\left\langle u_{n}\left|\hat{V}_{\mathrm{I}}\left(t^{\prime}\right) \hat{j}_{\alpha}(t)\right| u_{n}\right\rangle-\left\langle u_{n}\left|\hat{j}_{\alpha}(t) \hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\right| u_{n}\right\rangle\right]  
+\\=&amp; \frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\mathrm{\epsilon}_{\mathrm{F}}} \sum_{m} \int_{-\infty}^{t} \mathrm{d} t^{\prime} 
+\\&amp; \times\left[\left\langle u_{n}\left|\hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\right| u_{m}\right\rangle\left\langle u_{m}\left|\hat{j}_{\alpha}(t)\right| u_{n}\right\rangle-\left\langle u_{n}\left|\hat{j}_{\alpha}(t)\right| u_{m}\right\rangle\left\langle u_{m}\left|\hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\right| u_{n}\right\rangle\right] 
+\\=&amp; \frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \sum_{\beta} \int_{-\infty}^{t} \mathrm{d} t^{\prime}  
+\\&amp; \times\left(e^{\mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right)\left(t^{\prime}-t\right) / \hbar}\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}-e^{-\mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right)\left(t^{\prime}-t\right) / \hbar}\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}\right) A_{\beta}\left(t^{\prime}\right)
+\end{aligned}
+\]</span></p>
+<h3 id="频率空间">频率空间</h3>
+<p>将电流Fourier变换到频率空间进行讨论 <span class="math display">\[
+\begin{aligned}
+\left\langle\hat{j}_{\alpha}(\omega)\right\rangle &amp;=\int \mathrm{d} t e^{\mathrm{i} \omega t}\left\langle\hat{j}_{\alpha}(t)\right\rangle 
+\\&amp;=\frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \sum_{\beta} A_{\beta}(\omega)\left[\frac{\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}}{\mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega+\eta}-\frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}}{-\mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega+\eta}\right]  
+\\&amp;=\sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \sum_{\beta} A_{\beta}(\omega)\left[\frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}+\hbar \omega+\mathrm{i} \eta}+\frac{\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}-\hbar \omega-\mathrm{i} \eta}\right]
+\end{aligned}
+\]</span> 为了得到上面的式子，我们计算了如下积分 <span class="math display">\[
+\begin{aligned}
+&amp; \int \mathrm{d} t e^{\mathrm{i} \omega t} \int_{-\infty}^{t} \mathrm{d} t^{\prime} e^{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right)\left(t^{\prime}-t\right) / \hbar} F\left(t^{\prime}\right)  
+\\=&amp; \int \mathrm{d} t e^{\mathrm{i} \omega t} \int_{-\infty}^{t} \mathrm{d} t^{\prime} e^{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right)\left(t^{\prime}-t\right) / \hbar} \frac{1}{2 \pi} \int \mathrm{d} \omega^{\prime} e^{-\mathrm{i} \omega^{\prime} t^{\prime}} F\left(\omega^{\prime}\right)  
+\\=&amp; \frac{1}{2 \pi} \int \mathrm{d} \omega^{\prime} F\left(\omega^{\prime}\right) \int \mathrm{d} t e^{\mp \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) t / \hbar+\mathrm{i} \omega t} \int_{-\infty}^{t} \mathrm{d} t^{\prime} e^{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) t^{\prime} / \hbar-\mathrm{i} \omega^{\prime} t^{\prime}+\eta t^{\prime}} 
+\\=&amp;\left.\frac{1}{2 \pi} \int \mathrm{d} \omega^{\prime} F\left(\omega^{\prime}\right) \int \mathrm{d} t e^{\mp \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) t / \hbar+\mathrm{i} \omega t} \frac{1}{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega^{\prime}+\eta} e^{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) t^{\prime} / \hbar-\mathrm{i} \omega^{\prime} t^{\prime}+\eta^{\prime}}\right|_{-\infty} ^{t} 
+\\=&amp; \frac{1}{2 \pi} \int \mathrm{d} \omega^{\prime} F\left(\omega^{\prime}\right) \int \mathrm{d} t e^{\mathrm{i}\left(\omega-\omega^{\prime}\right) t} \frac{1}{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega^{\prime}+\eta} 
+\\=&amp; \frac{F(\omega)}{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega+\eta}
+\end{aligned}
+\]</span> 上面的计算中，为了使得积分收敘，我们引入了一个无限小的参数 <span class="math inline">\(\eta=0^{+}\)</span></p>
+<h3 id="作为-关联函数的电导">作为 关联函数的电导</h3>
+<p>对于Bloch态, 我们可以将态矢量i记作 | <span class="math inline">\(\left.u_{n}\right\rangle=\left|u_{\mu}(\mathrm{k})\right\rangle\)</span>, 此时对态的求和则变为 <span class="math inline">\(\sum_{n}=\sum_{\mu, \mathbf{k}},\)</span> 我们还需要注意到Maxwell方程组 <span class="math inline">\(\mathbf{E}=-\partial \mathbf{A} / \partial t\)</span>，基对应的频率表示为 <span class="math inline">\(E_{\alpha}(\omega)=\mathrm{i} \omega A_{\alpha}\)</span></p>
+<p>于是我们就得到了电导的表达式 <span class="math display">\[
+\sigma_{\alpha \beta}=\frac{\Pi_{\alpha \beta}(\omega)}{\mathrm{i} \omega}
+\]</span> 其中 <span class="math inline">\(\prod_{\alpha \beta}(\omega)\)</span> 流-流关联函数 <span class="math display">\[
+\Pi_{\alpha \beta}(\omega)=\sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m}\left[\frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}+\hbar \omega+\mathrm{i} \eta}+\frac{\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}-\hbar \omega-\mathrm{i} \eta}\right]
+\]</span> 我们最后得到的电导一定是实数，因此我们只对关联函数的虚部感兴趣。</p>
+<h3 id="tknn-formula">TKNN formula</h3>
+<p>我们接下来取直流极限 <span class="math inline">\(\omega \rightarrow 0\)</span>。利用公式 <span class="math inline">\(\lim _{\eta \rightarrow 0^{+}} \frac{1}{\omega \pm \mathrm{i} \eta}=\mathrm{P} \frac{1}{\omega} \mp \mathrm{i} \pi \delta(\omega)\)</span>，流-流关联函数 写成 <span class="math display">\[
+\begin{aligned}
+\Pi_{\alpha \beta}(\omega \rightarrow 0)=&amp; \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m}\left[\mathrm{P} \frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}}-\mathrm{i} \pi\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n} \delta\left(\epsilon_{n}-\epsilon_{m}\right)\right. 
+\\&amp;\left.+\mathrm{P} \frac{\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}}+\mathrm{i} \pi\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n} \delta\left(\epsilon_{n}-\epsilon_{m}\right)\right] 
+\\=&amp; \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m}\left[\mathrm{P} \frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}+(n \leftrightarrow m)}{\epsilon_{n}-\epsilon_{m}}\right]
+\end{aligned}
+\]</span> 电导的计算公式变形为 <span class="math display">\[
+\begin{aligned}
+\sigma_{\alpha \beta}(\omega \rightarrow 0) &amp;=\lim _{\omega \rightarrow 0} \frac{\Pi_{\alpha \beta}(\omega)-\Pi_{\alpha \beta}(0)}{\mathrm{i} \omega}=\left.\frac{1}{\mathrm{i}} \frac{\partial \Pi_{\alpha \beta}}{\partial \omega}\right|_{\omega=0}  
+\\&amp;=\mathrm{i} \hbar \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}-\left[\hat{j}_{\alpha}\right]_{m n}\left[\hat{j}_{\beta}\right]_{n m}}{\left(\epsilon_{n}-\epsilon_{m}\right)^{2}}
+\end{aligned}
+\]</span> 将流算符的表达式 <span class="math display">\[
+\left[\hat{j}_{\alpha}\right]_{n m}=\left\langle u_{n}\left|\hat{j}_{\alpha}\right| u_{m}\right\rangle=\frac{e}{\hbar}\left\langle u_{n}\left|\partial_{\alpha} \hat{H}\right| u_{m}\right\rangle
+\\\partial_{\alpha} \equiv \frac{\partial}{\partial k_{\alpha}}, \quad \alpha=x, y
+\]</span> 代入电导公式 <span class="math display">\[
+\begin{aligned}
+\sigma_{\alpha \beta}(\omega \rightarrow 0) &amp;=\mathrm{i} \frac{e^{2}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \frac{\left\langle u_{n}\left|\partial_{\alpha} \hat{H}\right| u_{m}\right\rangle\left\langle u_{m}\left|\partial_{\beta} \hat{H}\right| u_{n}\right\rangle-\left\langle u_{m}\left|\partial_{\alpha} \hat{H}\right| u_{n}\right\rangle\left\langle u_{n}\left|\partial_{\beta} \hat{H}\right| u_{m}\right\rangle}{\left(\epsilon_{n}-\epsilon_{m}\right)^{2}}  
+\\&amp;=\mathrm{i} \frac{e^{2}}{\hbar} \sum_{\mu \nu} \sum_{\mathbf{k}} \frac{\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle-\left\langle u_{\nu}\left|\partial_{\alpha} \hat{H}\right| u_{\mu}\right\rangle\left\langle u_{\mu}\left|\partial_{\beta} \hat{H}\right| u_{\nu}\right\rangle}{\left(\epsilon_{\mu}-\epsilon_{\nu}\right)^{2}}  
+\\&amp;=\mathrm{i} \frac{e^{2} L^{2}}{\hbar} \sum_{\mu \nu} \int \frac{\mathrm{d} k_{x} \mathrm{d} k_{y}}{(2 \pi)^{2}} \frac{\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle-\left\langle u_{\nu}\left|\partial_{\alpha} \hat{H}\right| u_{\mu}\right\rangle\left\langle u_{\mu}\left|\partial_{\beta} \hat{H}\right| u_{\nu}\right\rangle}{\left(\epsilon_{\mu}-\epsilon_{\nu}\right)^{2}}
+\end{aligned}
+\]</span> 这就是标准的TKNN formula</p>
 <ul>
-<li>可以看出 $\sigma_{\alpha \beta}=-\sigma_{\beta \alpha}$ 所以我们可以进一步将电导率写为 $\sigma_{\alpha \beta}=\sigma_{\mathrm{H}} \epsilon_{\alpha \beta}$。这里 $\sigma_{\mathbf{H}}$ 表示Hall电导。</li>
-<li>注意到 $\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle$ 与 $\left\langle u_{\nu}\left|\partial_{\alpha} \hat{H}\right| u_{\mu}\right\rangle\left\langle u_{\mu}\left|\partial_{\beta} \hat{H}\right| u_{\nu}\right\rangle$ 互为复共轭的，因此</li>
+<li>可以看出 <span class="math inline">\(\sigma_{\alpha \beta}=-\sigma_{\beta \alpha}\)</span> 所以我们可以进一步将电导率写为 <span class="math inline">\(\sigma_{\alpha \beta}=\sigma_{\mathrm{H}} \epsilon_{\alpha \beta}\)</span>。这里 <span class="math inline">\(\sigma_{\mathbf{H}}\)</span> 表示Hall电导。</li>
+<li>注意到 <span class="math inline">\(\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle\)</span> 与 <span class="math inline">\(\left\langle u_{\nu}\left|\partial_{\alpha} \hat{H}\right| u_{\mu}\right\rangle\left\langle u_{\mu}\left|\partial_{\beta} \hat{H}\right| u_{\nu}\right\rangle\)</span> 互为复共轭的，因此</li>
 </ul>
-<p>$$<br>\begin{aligned}<br>&amp;=\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle-\left\langle u_{\nu}\left|\partial_{\alpha} \hat{H}\right| u_{\mu}\right\rangle\left\langle u_{\mu}\left|\partial_{\beta} \hat{H}\right| u_{\nu}\right\rangle<br>\\&amp;=2 \operatorname{iIm}\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle<br>\end{aligned}<br>$$</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;=\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle-\left\langle u_{\nu}\left|\partial_{\alpha} \hat{H}\right| u_{\mu}\right\rangle\left\langle u_{\mu}\left|\partial_{\beta} \hat{H}\right| u_{\nu}\right\rangle
+\\&amp;=2 \operatorname{iIm}\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle
+\end{aligned}
+\]</span></p>
 <p>将这个等式代入TKNN公式</p>
-<h3 id="陈数"><a href="#陈数" class="headerlink" title="陈数"></a>陈数</h3><p>由此我们可以定义第一陈数（the first Chern number）的概念<br>$$<br>\begin{aligned}<br>C_{\mu}^{\alpha \beta} &amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \sum_{\nu \neq \mu} \frac{\left\langle u_{\mu}\left|\partial^{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial^{\beta} \hat{H}\right| u_{\mu}\right\rangle-\left\langle u_{\mu}\left|\partial^{\beta} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial^{\alpha} \hat{H}\right| u_{\mu}\right\rangle}{\left(\epsilon_{\mu}-\epsilon_{\nu}\right)^{2}}<br>\\&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y}\left(\left\langle\partial^{\alpha} u_{\mu} | \partial^{\beta} u_{\mu}\right\rangle-\left\langle\partial^{\beta} u_{\mu} | \partial^{\alpha} u_{\mu}\right\rangle\right) \\&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \operatorname{tr}\left[\hat{P}_{\mu}\left(\partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu}-\partial^{\beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu}\right)\right] \\&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \operatorname{tr} \epsilon_{\alpha \beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu}<br>\end{aligned}<br>$$<br>其中第三个等式的验证是<br>$$<br>\begin{aligned}<br>&amp;\operatorname{tr} \epsilon_{\alpha \beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu}<br>\\&amp;=\operatorname{tr}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right) \epsilon_{\alpha \beta}\left[\partial^{\alpha}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right) \partial^{\beta}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right)\right]<br>\\&amp;=\operatorname{tr}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right) \epsilon_{\alpha \beta}\left[\partial^{\alpha}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}|+| u_{\mu}\right\rangle \partial^{\alpha}\left(\left\langle u_{\mu}\right|\right)\right]\left[\partial^{\beta}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}|+| u_{\mu}\right\rangle \partial^{\beta}\left(\left\langle u_{\mu}\right|\right)\right]<br>\\&amp;=\operatorname{tr}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right) \epsilon_{\alpha \beta}\left[\partial^{\alpha}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}\left|\partial^{\beta}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}\left|+\partial^{\alpha}\left(\left|u_{\mu}\right\rangle\right) \partial^{\beta}\left(\left\langle u_{\mu}\right|\right)\right.\right.\right.\right.\right.<br>\\&amp;\left.+\left|u_{\mu}\right\rangle \partial^{\alpha}\left(\left\langle u_{\mu}\right|\right) \partial^{\beta}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}|+| u_{\mu}\right\rangle \partial^{\alpha}\left(\left\langle u_{\mu}\right|\right)\left|u_{\mu}\right\rangle \partial^{\beta}\left(\left\langle u_{\mu}\right|\right)\right]<br>\\&amp;=\epsilon_{\alpha \beta}\left(\left\langle u_{\mu} | \partial^{\alpha} u_{\mu}\right\rangle\left\langle u_{\mu} | \partial^{\beta} u_{\mu}\right\rangle+\left\langle u_{\mu} | \partial^{\alpha} u_{\mu}\right\rangle\left\langle\partial^{\beta} u_{\mu} | u_{\mu}\right\rangle+\left\langle\partial^{\alpha} u_{\mu} | \partial^{\beta} u_{\mu}\right\rangle+\left\langle\partial^{\alpha} u_{\mu} | u_{\mu}\right\rangle\left\langle\partial^{\beta} u_{\mu} | u_{\mu}\right\rangle\right)<br>\\&amp;=\epsilon_{\alpha \beta}\left\langle\partial^{\alpha} u_{\mu} | \partial^{\beta} u_{\mu}\right\rangle<br>\end{aligned}<br>$$<br>如果我们讨论的是一般的二带模型（two-band model），那么第一陈数的计算可以直接从哈密顿量出发得到，而不需要先解出本征态。一般的二带模型的哈密顿量可以用Pauli矩阵展开为<br>$$<br>\hat{H}(\mathbf{k})=\sum_{i=x, y, z} d_{i}(\mathbf{k}) \hat{\sigma}_{i}<br>$$<br>两个本征态可以表示为 $\left|u_{\pm}\right\rangle$。由此我们可以写出投影算符<br>$$<br>\hat{P}_{\pm}=\left|u_{\pm}\right\rangle\left\langle u_{\pm}\right|=\frac{1}{2}\left(1 \pm \sum_{i} \hat{d}_{i} \hat{\sigma}_{i}\right)<br>$$<br>这是很容易验证的，我们只需要将哈密顿量作用到投影算符上<br>$$<br>\begin{aligned}<br>\hat{P}_{\pm} \hat{H}=\hat{H} \hat{P}_{\pm} &amp;=\frac{1}{2}|\mathbf{d}| \sum_{i} \hat{d}_{i} \hat{\sigma}_{i}+\frac{1}{2}|\mathbf{d}| \sum_{i, j} \hat{d}_{i} \hat{\sigma}_{i} \hat{d}_{j} \hat{\sigma}_{j}<br>\\&amp;=\frac{1}{2}|\mathbf{d}| \sum_{i} \hat{d}_{i} \hat{\sigma}_{i} \pm \frac{1}{2}|\mathbf{d}| \sum_{i, j} \hat{d}_{i} \hat{d}_{j}\left(\mathrm{i} \sum_{k} \epsilon_{i j k} \hat{\sigma}_{k}+\delta_{i j} \hat{\sigma}_{0}\right)<br>\end{aligned}<br>$$<br>其中</p>
+<h3 id="陈数">陈数</h3>
+<p>由此我们可以定义第一陈数（the first Chern number）的概念 <span class="math display">\[
+\begin{aligned}
+C_{\mu}^{\alpha \beta} &amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \sum_{\nu \neq \mu} \frac{\left\langle u_{\mu}\left|\partial^{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial^{\beta} \hat{H}\right| u_{\mu}\right\rangle-\left\langle u_{\mu}\left|\partial^{\beta} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial^{\alpha} \hat{H}\right| u_{\mu}\right\rangle}{\left(\epsilon_{\mu}-\epsilon_{\nu}\right)^{2}}  
+\\&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y}\left(\left\langle\partial^{\alpha} u_{\mu} | \partial^{\beta} u_{\mu}\right\rangle-\left\langle\partial^{\beta} u_{\mu} | \partial^{\alpha} u_{\mu}\right\rangle\right) \\&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \operatorname{tr}\left[\hat{P}_{\mu}\left(\partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu}-\partial^{\beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu}\right)\right] \\&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \operatorname{tr} \epsilon_{\alpha \beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu}
+\end{aligned}
+\]</span> 其中第三个等式的验证是 <span class="math display">\[
+\begin{aligned}
+&amp;\operatorname{tr} \epsilon_{\alpha \beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu} 
+\\&amp;=\operatorname{tr}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right) \epsilon_{\alpha \beta}\left[\partial^{\alpha}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right) \partial^{\beta}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right)\right] 
+\\&amp;=\operatorname{tr}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right) \epsilon_{\alpha \beta}\left[\partial^{\alpha}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}|+| u_{\mu}\right\rangle \partial^{\alpha}\left(\left\langle u_{\mu}\right|\right)\right]\left[\partial^{\beta}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}|+| u_{\mu}\right\rangle \partial^{\beta}\left(\left\langle u_{\mu}\right|\right)\right] 
+\\&amp;=\operatorname{tr}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right) \epsilon_{\alpha \beta}\left[\partial^{\alpha}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}\left|\partial^{\beta}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}\left|+\partial^{\alpha}\left(\left|u_{\mu}\right\rangle\right) \partial^{\beta}\left(\left\langle u_{\mu}\right|\right)\right.\right.\right.\right.\right. 
+\\&amp;\left.+\left|u_{\mu}\right\rangle \partial^{\alpha}\left(\left\langle u_{\mu}\right|\right) \partial^{\beta}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}|+| u_{\mu}\right\rangle \partial^{\alpha}\left(\left\langle u_{\mu}\right|\right)\left|u_{\mu}\right\rangle \partial^{\beta}\left(\left\langle u_{\mu}\right|\right)\right] 
+\\&amp;=\epsilon_{\alpha \beta}\left(\left\langle u_{\mu} | \partial^{\alpha} u_{\mu}\right\rangle\left\langle u_{\mu} | \partial^{\beta} u_{\mu}\right\rangle+\left\langle u_{\mu} | \partial^{\alpha} u_{\mu}\right\rangle\left\langle\partial^{\beta} u_{\mu} | u_{\mu}\right\rangle+\left\langle\partial^{\alpha} u_{\mu} | \partial^{\beta} u_{\mu}\right\rangle+\left\langle\partial^{\alpha} u_{\mu} | u_{\mu}\right\rangle\left\langle\partial^{\beta} u_{\mu} | u_{\mu}\right\rangle\right) 
+\\&amp;=\epsilon_{\alpha \beta}\left\langle\partial^{\alpha} u_{\mu} | \partial^{\beta} u_{\mu}\right\rangle
+\end{aligned}
+\]</span> 如果我们讨论的是一般的二带模型（two-band model），那么第一陈数的计算可以直接从哈密顿量出发得到，而不需要先解出本征态。一般的二带模型的哈密顿量可以用Pauli矩阵展开为 <span class="math display">\[
+\hat{H}(\mathbf{k})=\sum_{i=x, y, z} d_{i}(\mathbf{k}) \hat{\sigma}_{i}
+\]</span> 两个本征态可以表示为 <span class="math inline">\(\left|u_{\pm}\right\rangle\)</span>。由此我们可以写出投影算符 <span class="math display">\[
+\hat{P}_{\pm}=\left|u_{\pm}\right\rangle\left\langle u_{\pm}\right|=\frac{1}{2}\left(1 \pm \sum_{i} \hat{d}_{i} \hat{\sigma}_{i}\right)
+\]</span> 这是很容易验证的，我们只需要将哈密顿量作用到投影算符上 <span class="math display">\[
+\begin{aligned}
+\hat{P}_{\pm} \hat{H}=\hat{H} \hat{P}_{\pm} &amp;=\frac{1}{2}|\mathbf{d}| \sum_{i} \hat{d}_{i} \hat{\sigma}_{i}+\frac{1}{2}|\mathbf{d}| \sum_{i, j} \hat{d}_{i} \hat{\sigma}_{i} \hat{d}_{j} \hat{\sigma}_{j}  
+\\&amp;=\frac{1}{2}|\mathbf{d}| \sum_{i} \hat{d}_{i} \hat{\sigma}_{i} \pm \frac{1}{2}|\mathbf{d}| \sum_{i, j} \hat{d}_{i} \hat{d}_{j}\left(\mathrm{i} \sum_{k} \epsilon_{i j k} \hat{\sigma}_{k}+\delta_{i j} \hat{\sigma}_{0}\right)
+\end{aligned}
+\]</span> 其中</p>
 <ul>
-<li>我们定义了单位矢量 $\hat{d}_{i} \equiv d_{i} /|\mathbf{d}|$ ，并且满足 $\sum_{i} \hat{d}_{i} \hat{d}_{i}=1$</li>
-<li>同时我们还注意到 $\sum_{i, j} \hat{d}_{i} \hat{d}_{j} \epsilon_{i j k} \hat{\sigma}_{k}=(\hat{\mathbf{d}} \times \hat{\mathbf{d}}) \cdot \hat{\vec{\sigma}}=0$</li>
+<li>我们定义了单位矢量 <span class="math inline">\(\hat{d}_{i} \equiv d_{i} /|\mathbf{d}|\)</span> ，并且满足 <span class="math inline">\(\sum_{i} \hat{d}_{i} \hat{d}_{i}=1\)</span></li>
+<li>同时我们还注意到 <span class="math inline">\(\sum_{i, j} \hat{d}_{i} \hat{d}_{j} \epsilon_{i j k} \hat{\sigma}_{k}=(\hat{\mathbf{d}} \times \hat{\mathbf{d}}) \cdot \hat{\vec{\sigma}}=0\)</span></li>
 </ul>
-<p>所以不难看出存在这样的关系式 $\hat{P}_{\pm} \hat{H}=\hat{H} \hat{P}_{\pm}=\pm|\mathbf{d}| \hat{P}_{\pm}$。于是我们可以将上面的trace项直接求出来：<br>$$<br>\begin{aligned} \operatorname{tr} \epsilon_{\alpha \beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu} &amp;=\operatorname{tr}\left(\hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu}-\hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu}\right)<br>\\ &amp;=\frac{1}{8} \sum_{i, j, k} \operatorname{tr}\left[\left(1+\mu \hat{d}_{i} \hat{\sigma}_{i}\right) \partial^{\alpha}\left(1+\mu \hat{d}_{j} \hat{\sigma}_{j}\right) \partial^{\beta}\left(1+\mu \hat{d}_{k} \hat{\sigma}_{k}\right)-(\alpha \leftrightarrow \beta)\right]<br>\\ &amp;=\frac{1}{8} \sum_{i, j, k} \operatorname{tr}\left[\left(1+\mu \hat{d}_{i} \hat{\sigma}_{i}\right)\left(\partial^{\alpha} \hat{d}_{j}\right) \hat{\sigma}_{j}\left(\partial^{\beta} \hat{d}_{k}\right) \hat{\sigma}_{k}-(\alpha \leftrightarrow \beta)\right]<br>\\ &amp;=\frac{1}{8} \mu \sum_{i, j, k} \operatorname{tr}\left(\hat{\sigma}_{i} \hat{\sigma}_{j} \hat{\sigma}_{k}\right) \hat{d}_{i} \partial^{\alpha} \hat{d}_{j} \partial^{\beta} \hat{d}_{k}-(\alpha \leftrightarrow \beta)<br>\\ &amp;=\frac{1}{8} \mu \sum_{i, j, k}\left(2 \mathrm{i} \epsilon_{i j k}\right) \hat{d}_{i} \partial^{\alpha} \hat{d}_{j} \partial^{\beta} \hat{d}_{k}-(\alpha \leftrightarrow \beta)<br>\\ &amp;=\frac{\mathrm{i} \mu}{4} \sum_{i, j, k}\left(\epsilon_{i j k} \hat{d}_{i} \partial^{\alpha} \hat{d}_{j} \partial^{\beta} \hat{d}_{k}-\epsilon_{i j k} \hat{d}_{i} \partial^{\beta} \hat{d}_{j} \partial^{\alpha} \hat{d}_{k}\right)<br>\\ &amp;=\frac{\mathrm{i} \mu}{2} \sum_{i, j, k} \epsilon_{i j k} \hat{d}_{i} \partial^{\alpha} \hat{d}_{j} \partial^{\beta} \hat{d}_{k}<br>\\ &amp;=\frac{\mathrm{i} \mu}{2} \hat{\mathrm{d}} \cdot\left(\partial^{\alpha} \hat{\mathrm{d}} \times \partial^{\beta} \hat{\mathrm{d}}\right) \end{aligned}<br>$$<br>代回到陈数的表达式，我们就得到了计算二带系统陈数的通用表达式<br>$$<br>\begin{aligned}<br>C_{\mu}^{\alpha \beta}&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \frac{\mathrm{i} \mu}{2} \hat{\mathrm{d}} \cdot\left(\partial^{\alpha} \hat{\mathbf{d}} \times \partial^{\beta} \hat{\mathbf{d}}\right)<br>\\&amp;=\frac{-\mu}{4 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \hat{\mathbf{d}} \cdot\left(\partial^{\alpha} \hat{\mathbf{d}} \times \partial^{\beta} \hat{\mathbf{d}}\right)<br>\end{aligned}<br>$$</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Berry phase：<br>$$<br>\gamma_{m 2}(t)=\int_{0}^{t} d t^{\prime}\left\langle m\left(t^{\prime}\right)\left|i \frac{\mathrm{d}}{\mathrm{d} t^{\prime}}\right| m\left(t^{\prime}\right)\right\rangle<br>$$<br>积分里面的部分（乘以i）被定义为Berry联络。引入矢量势 $\vec{A}_{m}(\vec{R})=\left\langle m(\vec{R})\left|i \nabla_{\vec{R}}\right| m(\vec{R})\right\rangle$ 因此 Berry 相可写作<br>$$<br>\gamma_{m 2}(C)=\int_{C} \vec{A}_{m}(\vec{R}) \cdot d \vec{R}=\int_{S} \vec{B}_{m}(\vec{R}) \cdot d \vec{S}<br>$$<br>这里引入的规范势其实为Berry截面上的联络，而规范场强为其截面的曲率，也就是我们所说的Berry曲率。</p>
-<p>Berry联络的旋度就是Berry曲率<br>$$<br>\Omega_{n}=i \nabla_{k} \times\left\langle u_{n}\left|\nabla_{k}\right| u_{n}\right\rangle<br>$$<br>展开<br>$$<br>\overrightarrow{B_{m}}(\vec{R})=i \sum_{n \neq m} \frac{\left\langle m(\vec{R})\left|\left(\nabla_{\vec{R}} \hat{H}(\vec{R})\right)\right| n(\vec{R})\right\rangle \times\left\langle n(\vec{R})\left|\left(\nabla_{\vec{R}} \hat{H}(\vec{R})\right)\right| m(\vec{R})\right\rangle}{\left(E_{m}(\vec{R})-E_{n}(\vec{R})\right)^{2}}<br>$$</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.zhihu.com/question/381097729/answer/1164745113" target="_blank" rel="noopener">https://www.zhihu.com/question/381097729/answer/1164745113</a></p>
+<p>所以不难看出存在这样的关系式 <span class="math inline">\(\hat{P}_{\pm} \hat{H}=\hat{H} \hat{P}_{\pm}=\pm|\mathbf{d}| \hat{P}_{\pm}\)</span>。于是我们可以将上面的trace项直接求出来： <span class="math display">\[
+\begin{aligned} \operatorname{tr} \epsilon_{\alpha \beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu} &amp;=\operatorname{tr}\left(\hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu}-\hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu}\right)
+\\ &amp;=\frac{1}{8} \sum_{i, j, k} \operatorname{tr}\left[\left(1+\mu \hat{d}_{i} \hat{\sigma}_{i}\right) \partial^{\alpha}\left(1+\mu \hat{d}_{j} \hat{\sigma}_{j}\right) \partial^{\beta}\left(1+\mu \hat{d}_{k} \hat{\sigma}_{k}\right)-(\alpha \leftrightarrow \beta)\right]
+\\ &amp;=\frac{1}{8} \sum_{i, j, k} \operatorname{tr}\left[\left(1+\mu \hat{d}_{i} \hat{\sigma}_{i}\right)\left(\partial^{\alpha} \hat{d}_{j}\right) \hat{\sigma}_{j}\left(\partial^{\beta} \hat{d}_{k}\right) \hat{\sigma}_{k}-(\alpha \leftrightarrow \beta)\right] 
+\\ &amp;=\frac{1}{8} \mu \sum_{i, j, k} \operatorname{tr}\left(\hat{\sigma}_{i} \hat{\sigma}_{j} \hat{\sigma}_{k}\right) \hat{d}_{i} \partial^{\alpha} \hat{d}_{j} \partial^{\beta} \hat{d}_{k}-(\alpha \leftrightarrow \beta) 
+\\ &amp;=\frac{1}{8} \mu \sum_{i, j, k}\left(2 \mathrm{i} \epsilon_{i j k}\right) \hat{d}_{i} \partial^{\alpha} \hat{d}_{j} \partial^{\beta} \hat{d}_{k}-(\alpha \leftrightarrow \beta) 
+\\ &amp;=\frac{\mathrm{i} \mu}{4} \sum_{i, j, k}\left(\epsilon_{i j k} \hat{d}_{i} \partial^{\alpha} \hat{d}_{j} \partial^{\beta} \hat{d}_{k}-\epsilon_{i j k} \hat{d}_{i} \partial^{\beta} \hat{d}_{j} \partial^{\alpha} \hat{d}_{k}\right) 
+\\ &amp;=\frac{\mathrm{i} \mu}{2} \sum_{i, j, k} \epsilon_{i j k} \hat{d}_{i} \partial^{\alpha} \hat{d}_{j} \partial^{\beta} \hat{d}_{k}
+\\ &amp;=\frac{\mathrm{i} \mu}{2} \hat{\mathrm{d}} \cdot\left(\partial^{\alpha} \hat{\mathrm{d}} \times \partial^{\beta} \hat{\mathrm{d}}\right) \end{aligned}
+\]</span> 代回到陈数的表达式，我们就得到了计算二带系统陈数的通用表达式 <span class="math display">\[
+\begin{aligned}
+C_{\mu}^{\alpha \beta}&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \frac{\mathrm{i} \mu}{2} \hat{\mathrm{d}} \cdot\left(\partial^{\alpha} \hat{\mathbf{d}} \times \partial^{\beta} \hat{\mathbf{d}}\right)
+\\&amp;=\frac{-\mu}{4 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \hat{\mathbf{d}} \cdot\left(\partial^{\alpha} \hat{\mathbf{d}} \times \partial^{\beta} \hat{\mathbf{d}}\right)
+\end{aligned}
+\]</span></p>
+<h2 id="概述">概述</h2>
+<p>Berry phase： <span class="math display">\[
+\gamma_{m 2}(t)=\int_{0}^{t} d t^{\prime}\left\langle m\left(t^{\prime}\right)\left|i \frac{\mathrm{d}}{\mathrm{d} t^{\prime}}\right| m\left(t^{\prime}\right)\right\rangle
+\]</span> 积分里面的部分（乘以i）被定义为Berry联络。引入矢量势 <span class="math inline">\(\vec{A}_{m}(\vec{R})=\left\langle m(\vec{R})\left|i \nabla_{\vec{R}}\right| m(\vec{R})\right\rangle\)</span> 因此 Berry 相可写作 <span class="math display">\[
+\gamma_{m 2}(C)=\int_{C} \vec{A}_{m}(\vec{R}) \cdot d \vec{R}=\int_{S} \vec{B}_{m}(\vec{R}) \cdot d \vec{S}
+\]</span> 这里引入的规范势其实为Berry截面上的联络，而规范场强为其截面的曲率，也就是我们所说的Berry曲率。</p>
+<p>Berry联络的旋度就是Berry曲率 <span class="math display">\[
+\Omega_{n}=i \nabla_{k} \times\left\langle u_{n}\left|\nabla_{k}\right| u_{n}\right\rangle
+\]</span> 展开 <span class="math display">\[
+\overrightarrow{B_{m}}(\vec{R})=i \sum_{n \neq m} \frac{\left\langle m(\vec{R})\left|\left(\nabla_{\vec{R}} \hat{H}(\vec{R})\right)\right| n(\vec{R})\right\rangle \times\left\langle n(\vec{R})\left|\left(\nabla_{\vec{R}} \hat{H}(\vec{R})\right)\right| m(\vec{R})\right\rangle}{\left(E_{m}(\vec{R})-E_{n}(\vec{R})\right)^{2}}
+\]</span></p>
+<h2 id="参考">参考</h2>
+<p>https://www.zhihu.com/question/381097729/answer/1164745113</p>
 
             </article>
             <hr>
@@ -523,7 +667,24 @@
       };
     </script>
 
-    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
   
 

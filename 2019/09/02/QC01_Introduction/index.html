@@ -6,7 +6,7 @@
 
 
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" type="image/png" href="/img/favicon.png">
   <meta name="viewport"
@@ -48,11 +48,11 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <body>
-  <header style="height: 70vh;">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -205,13 +205,14 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果用量子力学的规则替换二进制逻辑来计算，某些用经典计算机难以攻克的计算任务将得到解决。这就是量子计算的核心问题。</p>
+              <h2 id="前言">前言</h2>
+<p>如果用量子力学的规则替换二进制逻辑来计算，某些用经典计算机难以攻克的计算任务将得到解决。这就是量子计算的核心问题。</p>
 <p>所谓的量子力学的规则，在量子计算的三大核心体现：叠加、量子测量和纠缠。对于超越经典计算机的计算能力起名“量子霸权（quantum supremacy）”。</p>
 <p>运行量子规则的物理实现有：离子阱，超导量子比特，光子，拓扑超导的任意子等。</p>
 <ul>
 <li>2013年5月D-Wave 系统公司宣称NASA和Google共同预定了一台采用512量子位的D-Wave Two量子计算机。</li>
 <li>2017年5月，中国科学院宣布制造出世界首台超越早期经典计算机的光量子计算机。</li>
-<li>2017年7月，哈佛大学米哈伊尔·卢金（Mikhail Lukin）宣布：用激光冷却的原子完成51个量子比特的量子计算机模拟器[24]。 </li>
+<li>2017年7月，哈佛大学米哈伊尔·卢金（Mikhail Lukin）宣布：用激光冷却的原子完成51个量子比特的量子计算机模拟器[24]。</li>
 <li>2019年1月8日，IBM展示了20量子比特的量子计算机IBM Q System One</li>
 </ul>
 <p>需要澄清的一点是，目前没有证明在所有计算领域量子计算机会都比经典计算机有更强的计算能力，所以有一个分领域是研究有哪些算法上，量子计算机比经典计算机有更强的计算能力。目前常见的量子算法有</p>
@@ -219,81 +220,68 @@
 <li>Shor算法：质数分解</li>
 <li>Grover算法：搜索算法</li>
 </ul>
-<h2 id="知识架构"><a href="#知识架构" class="headerlink" title="知识架构"></a>知识架构</h2><ol>
-<li><p>量子比特 Qubit</p>
-</li>
-<li><p>量子门 &amp; 量子电路 Quantum gate &amp; Quantum circuit</p>
-</li>
-<li><p>量子算法 Quantum Algorithms</p>
-</li>
-<li><p>量子编程 Quantum Program </p>
-</li>
-<li><p>量子机器学习 Quantum Machine Learning</p>
-</li>
-<li><p>用拓扑物质构建量子计算机 Quantum Computer with Topological Matter</p>
-</li>
-<li><p>量子信息 Quantum Information</p>
-</li>
+<h2 id="知识架构">知识架构</h2>
+<ol type="1">
+<li><p>量子比特 Qubit</p></li>
+<li><p>量子门 &amp; 量子电路 Quantum gate &amp; Quantum circuit</p></li>
+<li><p>量子算法 Quantum Algorithms</p></li>
+<li><p>量子编程 Quantum Program</p></li>
+<li><p>量子机器学习 Quantum Machine Learning</p></li>
+<li><p>用拓扑物质构建量子计算机 Quantum Computer with Topological Matter</p></li>
+<li><p>量子信息 Quantum Information</p></li>
 </ol>
-<h4 id="量子比特-Qubit"><a href="#量子比特-Qubit" class="headerlink" title="量子比特 Qubit"></a>量子比特 Qubit</h4><p>量子比特的表示 Presentation of a Qubit</p>
+<h4 id="量子比特-qubit">量子比特 Qubit</h4>
+<p>量子比特的表示 Presentation of a Qubit</p>
 <ul>
 <li>狄拉克符号 Dirac notation</li>
 <li>布洛赫球 Bloch sphere (几何图像)</li>
 </ul>
-<h4 id="量子门-amp-量子电路-Quantum-gate-amp-Quantum-circuit"><a href="#量子门-amp-量子电路-Quantum-gate-amp-Quantum-circuit" class="headerlink" title="量子门&amp;量子电路 Quantum gate &amp; Quantum circuit"></a>量子门&amp;量子电路 Quantum gate &amp; Quantum circuit</h4><ol>
-<li>单量子比特门 Gate of Single QuBit</li>
-<li>多量子比特门 Gate of Multi QuBit</li>
-<li>量子电路 Quantum circuit</li>
-</ol>
-<ol>
+<h4 id="量子门量子电路-quantum-gate-quantum-circuit">量子门&amp;量子电路 Quantum gate &amp; Quantum circuit</h4>
+<ol type="1">
+<li><p>单量子比特门 Gate of Single QuBit</p></li>
+<li><p>多量子比特门 Gate of Multi QuBit</p></li>
+<li><p>量子电路 Quantum circuit</p></li>
 <li><p>单量子比特门 Gate of Single Bit</p>
 <ul>
 <li>Hadamard门</li>
 <li>相门 Phase gate (S;T)</li>
 <li>旋转门 XYZ</li>
-</ul>
-</li>
+</ul></li>
 <li><p>多量子比特门 Gate of Multi QuBit</p>
 <ul>
 <li>控制-非门 Contronelled-Not</li>
 <li>控制-U门 Contronelled-U</li>
-</ul>
-</li>
+</ul></li>
 <li><p>量子电路 Quantum circuit</p>
 <ul>
 <li>量子傅里叶变换 Quantum Fourier transform</li>
 <li>量子相位估计 Quantum phase estimation</li>
-</ul>
-</li>
+</ul></li>
 </ol>
-<h4 id="量子算法-Quantum-Algorithms"><a href="#量子算法-Quantum-Algorithms" class="headerlink" title="量子算法 Quantum Algorithms"></a>量子算法 Quantum Algorithms</h4><ol>
-<li><p>基础算法 Basic Algorithms</p>
+<h4 id="量子算法-quantum-algorithms">量子算法 Quantum Algorithms</h4>
+<ol type="1">
+<li>基础算法 Basic Algorithms
 <ul>
 <li>量子傅里叶变换 Quantum Fourier transform</li>
 <li>量子相位估计 Quantum phase estimation</li>
-</ul>
-</li>
-<li><p>Shor算法 Shor’s Algorithm</p>
+</ul></li>
+<li>Shor算法 Shor's Algorithm
 <ul>
 <li>整数分解</li>
-</ul>
-</li>
-<li><p>Grover算法 Grover’s Algorithm</p>
+</ul></li>
+<li>Grover算法 Grover's Algorithm
 <ul>
 <li>搜索算法</li>
-</ul>
-</li>
-<li><p>优化算法 Optimization Algorithms</p>
+</ul></li>
+<li>优化算法 Optimization Algorithms
 <ul>
 <li>HHL algorithm</li>
 <li>Quantum Annealing</li>
-</ul>
-</li>
-<li><p>Amplitude Amplification Algorithm </p>
+</ul></li>
+<li>Amplitude Amplification Algorithm
 <ul>
 <li>to increase the probability of getting an expected result</li>
-</ul>
-</li>
+</ul></li>
 </ol>
 <p>几个算法之间的联系</p>
 <ul>
@@ -301,60 +289,64 @@
 <li>量子相位估计 (Quantum phase estimation)是Shor算法和HHL算法 的基础</li>
 <li>Shor算法是Amplitude Amplification算法 的基础</li>
 </ul>
-<h4 id="量子编程-Quantum-Program"><a href="#量子编程-Quantum-Program" class="headerlink" title="量子编程 Quantum Program"></a>量子编程 Quantum Program</h4><ol>
-<li>Python<ul>
+<h4 id="量子编程-quantum-program">量子编程 Quantum Program</h4>
+<ol type="1">
+<li>Python
+<ul>
 <li>QISKit(IBM )</li>
 <li>HiQ(华为)</li>
-<li>Project $Q$(ETHZ)</li>
+<li>Project <span class="math inline">\(Q\)</span>(ETHZ)</li>
 <li>Cirq (Google)</li>
 <li>PyQuil (Rigetti)</li>
-</ul>
-</li>
-<li>$\mathrm{Q} #$<ul>
+</ul></li>
+<li><span class="math inline">\(\mathrm{Q} \#\)</span>
+<ul>
 <li>QDK (Microsoft)</li>
-</ul>
-</li>
-<li>Julia <ul>
-<li>Yao.jl </li>
-</ul>
-</li>
+</ul></li>
+<li>Julia
+<ul>
+<li>Yao.jl</li>
+</ul></li>
 </ol>
-<h4 id="量子机器学习-Quantum-Machine-Learning"><a href="#量子机器学习-Quantum-Machine-Learning" class="headerlink" title="量子机器学习 Quantum Machine Learning"></a>量子机器学习 Quantum Machine Learning</h4><ol>
-<li>supervised learning(quantum support vector machine (qSVM))<ul>
-<li>Grover’s Search based qSVM</li>
+<h4 id="量子机器学习-quantum-machine-learning">量子机器学习 Quantum Machine Learning</h4>
+<ol type="1">
+<li>supervised learning(quantum support vector machine (qSVM))
+<ul>
+<li>Grover's Search based qSVM</li>
 <li>HHL based qSVM</li>
-</ul>
-</li>
-<li>unsupervised learning<ul>
+</ul></li>
+<li>unsupervised learning
+<ul>
 <li>Clustering: quantum K-means</li>
 <li>Dimention reduction: quantum principle component analysis (qPCA)</li>
-</ul>
-</li>
+</ul></li>
 <li>reinforcement learning</li>
 </ol>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>综合类书籍</p>
-<ol>
-<li>Michael A Nielsen and Isaac Chuang.《Quantum computation and quantum information》, 2002 </li>
-<li>Giuliano Benenti.《Principles of Quantum Computation and Information: Basic Tools and Special Topics》 </li>
+<h2 id="参考文献">参考文献</h2>
+<p>综合类书籍</p>
+<ol type="1">
+<li>Michael A Nielsen and Isaac Chuang.《Quantum computation and quantum information》, 2002</li>
+<li>Giuliano Benenti.《Principles of Quantum Computation and Information: Basic Tools and Special Topics》</li>
 <li>Mikio Nakahara, Tetsuo Ohmi.《Quantum Computing. From Linear Algebra to Physical Realizations 》</li>
 <li>David McMahon. 《Quantum Computing Explained 》</li>
 </ol>
 <p>量子机器学习</p>
-<ol>
+<ol type="1">
 <li>M. Schuld and F. Petruccione.《Supervised learning with quantum computers. Springer》, 2018</li>
 <li>Peter Wittek. 《Quantum machine learning: what quantum computing means to data mining》2014.</li>
 </ol>
 <p>量子编程</p>
-<ol>
+<ol type="1">
 <li>Hidary, J.D. 《Quantum Computing: An Applied Approach》 (2019)</li>
 <li>Vladimir Silva《Practical Quantum Computing for Developers Programming Quantum Rigs in the Cloud using Python, Quantum Assembly Language and IBM QExperience》</li>
-<li>Mingsheng Ying《Foundations of Quantum Programming》 </li>
+<li>Mingsheng Ying《Foundations of Quantum Programming》</li>
 </ol>
 <p>量子计算&amp;拓扑物质</p>
-<ol>
-<li>Stanescu, Tudor D.《Introduction to topological quantum matter  quantum computation》 </li>
+<ol type="1">
+<li>Stanescu, Tudor D.《Introduction to topological quantum matter quantum computation》</li>
 </ol>
-<h3 id="网页"><a href="#网页" class="headerlink" title="网页"></a>网页</h3><p>Qiskit</p>
+<h3 id="网页">网页</h3>
+<p>Qiskit</p>
 <ul>
 <li><a href="https://qiskit.org/textbook/preface.html" target="_blank" rel="noopener">qiskit主页</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/72914632" target="_blank" rel="noopener">主流量子计算机的申请、使用</a></li>
@@ -362,10 +354,8 @@
 </ul>
 <p>ProjectQ</p>
 <ul>
-<li><p><a href="https://blog.csdn.net/m0_37622530/article/details/89852779" target="_blank" rel="noopener">安装ProjectQ并生成量子电路的latex</a></p>
-</li>
-<li><p><a href="https://projectq.readthedocs.io/en/latest/examples.html" target="_blank" rel="noopener">ProjectQ主页</a></p>
-</li>
+<li><p><a href="https://blog.csdn.net/m0_37622530/article/details/89852779" target="_blank" rel="noopener">安装ProjectQ并生成量子电路的latex</a></p></li>
+<li><p><a href="https://projectq.readthedocs.io/en/latest/examples.html" target="_blank" rel="noopener">ProjectQ主页</a></p></li>
 </ul>
 <p>他山之石</p>
 <ul>
@@ -389,9 +379,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/introduction/">introduction</a>
-                    
                       <a class="hover-with-bg" href="/tags/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/tags/introduction/">introduction</a>
                     
                   </div>
                 
@@ -651,7 +641,24 @@
       };
     </script>
 
-    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
   
 
