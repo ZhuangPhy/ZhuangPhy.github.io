@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>Jones polynomial and knot transitions in Hermitian and non-Hermitian topological semimetals - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-16 08:38">
+      September 16, 2020 am
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      51
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>Jones polynomial and knot transitions in Hermitian and non-Hermitian topological semimetals</p>
+<p>[TOC]</p>
+<h3 id="纽结理论">纽结理论</h3>
+<p>纽结理论（Knot theory）是拓扑学的一个分支，研究抽象的绳子缠绕打结的性质。</p>
+<p>为了完成对不同纽结的分类，大量的数学工具被发掘出来，比如（Jones polynomial）。 <span class="math display">\[
+\begin{array}{|l|l|}
+\hline \text { Chern–Simons gauge group  G } &amp;  {\text { Knot polynomial or invariant }} \\
+\hline SO ( N ) &amp; \text { Kauffman polynomial } \\
+\hline SU ( N ) &amp; \text { HOMFLY polynomial } \\
+\hline SU (2) / SO(3)   &amp; \text {Jones polynomial } \\
+\hline U (1) &amp; \text { Winding Number } \\
+\hline
+\end{array}
+\]</span></p>
+<p><span class="math display">\[
+\begin{array}{|l|l|}
+\hline \text { 陈西规范群G } &amp;  {\text { 纽结多项式或不变量 }} \\
+\hline SO ( N ) &amp; \text { 考夫曼多项式 } \\
+\hline SU ( N ) &amp; \text { HOMFLY多项式 } \\
+\hline SU (2) \text { 或SO(3) } &amp; \text { 铺斯多项式 (跟括号多项式有关) } \\
+\hline U (1) &amp; \text { 环绕数 } \\
+\hline
+\end{array}
+\]</span> 3D的Chern–Simons理论生成很多重要的纽结多项式和纽结不变量，Chern–Simons理论描述三维拓扑量子场论，可以描述描述分数量子霍尔效应（FQHE）。所以纽结理论在以下领域是一个重要的数学工具</p>
+<ul>
+<li><strong>拓扑量子场论</strong></li>
+<li><strong>拓扑弦理论</strong></li>
+<li><strong>量子拓扑计算和信息</strong></li>
+</ul>
+<p>杨哲森博士和他的合作者提出：</p>
+<p>用纽结理论的Jones polynomial去分类纽结半金属，包括</p>
+<ul>
+<li>近年发现的受对称性保护的厄米节线(nodal line)半金属</li>
+<li>不受任何对称性保护的非厄米奇异线(exceptional line)半金属</li>
+</ul>
+<p>在这些纽结半金属中，能带的简并会在三维布里渊区中形成丰富结构，比如环，链，或者是非平凡的纽结。如何系统的分类和刻画这些非平凡的物理结构呢？</p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/knot_Dirac.png" srcset="/img/loading.gif" alt="" /><figcaption>knot_Dirac</figcaption>
+</figure>
+<ul>
+<li>对于<strong>陈绝缘体</strong>（Chern insulator）：</li>
+</ul>
+<p>Chern Number的改变可以通过分析在相变点附近的狄拉克方程的质量项得到。在相变点附近，狄拉克质量项控制着布里渊区贝里曲率（Berry curvature）的变化，陈数的改变可以通过计算布里渊区内所有狄拉克点附近的质量项的变化之和求得。</p>
+<ul>
+<li>类似的，对于<strong>纽结半金属</strong>（nodal line semimetals）：</li>
+</ul>
+<p>在纽结相变点附近，节线或者奇异线的局域演化可以和琼斯多项式的整体变化一一对应联系起来。相变点对应的节线存在一些离散的节线相交点，比如数字8可以看作是一个临界点，它有一个节线相交点。通过分析这些相交点附近节线的局域演化，就可以得到对应的琼斯多项式的整体变化。这些变化同时也会和系统的低能物理变化联系起来。</p>
+<p>上述结果也可以推广到<strong>纽结超导体</strong>。</p>
+<ol type="1">
+<li>Introduction and motivation</li>
+<li>Jones polynomial and knot transitions</li>
+<li>Extension of non-Hermitian systems</li>
+</ol>
+<h3 id="introduction-and-motivation">Introduction and motivation</h3>
+<h4 id="knot-theory">Knot theory</h4>
+<p>Knot: an embedding of a circle in <span class="math inline">\(3 D\)</span> space Knot diagram: a projection of the knot, together with the data of over- and under-crossings.</p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915173345624.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915173345624</figcaption>
+</figure>
+<p>Knot theory: a mathematical theory that classifies different knots and links.</p>
+<p>Knot invariant: a quantity defined for each knot which is the same for equivalent knots.</p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/161px-Knot_Unfolding.gif" srcset="/img/loading.gif" alt="" /><figcaption>img</figcaption>
+</figure>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915193129330.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915193129330</figcaption>
+</figure>
+<h4 id="chiral-symmetry-and-nodal-lines">Chiral symmetry and nodal lines</h4>
+<h5 id="topological-nodal-line-semimetals">Topological nodal line semimetals</h5>
+<ul>
+<li>Chiral symmetry</li>
+</ul>
+<p><span class="math display">\[
+\left. S H _{ k } k \right) S ^{-1}=- H ( k )
+\]</span></p>
+<p>where <span class="math inline">\(S =\tau_{z}\)</span> and <span class="math inline">\(H ( k )=\left(\begin{array}{cc}0 &amp; h( k ) \\ h^{\dagger}( k ) &amp; 0\end{array}\right)\)</span></p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915193819296.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915193819296</figcaption>
+</figure>
+<ul>
+<li>Band crossings at <span class="math inline">\(E =0\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{l}
+\operatorname{det}[ H ( k )]=\operatorname{det}[h( k )] \operatorname{det}\left[h^{\dagger}( k )\right]=0 \\
+\operatorname{det}[h( k )]=\operatorname{det}\left[h^{\dagger}( k )\right]^{*}=\gamma^{r}( k )+i \gamma^{i}( k )
+\end{array}
+\]</span></p>
+<p><span class="math display">\[
+3 \text { variables and two constraint equations }
+\\ \Downarrow \\
+\text { solutions are } 1 D \text { lines in } 3 D \text { BZ }
+\\ \Downarrow \\ \text { nodal line }
+\]</span> 参考文献</p>
+<ol type="1">
+<li>A. P. Schnyder et al. Phys. Rev. B 78,195125 ( 2008 )</li>
+<li>A. A. Burkov et al. Phys. Rev. B 84, 235126 (2011)</li>
+<li>Z. Yang et al. Phys. Rev. Lett. 124,186402 ( 2020 )</li>
+</ol>
+<h5 id="topological-charge-windnig-number">Topological charge-windnig number</h5>
+<ul>
+<li>Q matrix</li>
+</ul>
+<p><span class="math inline">\(H ( k )=\left(\begin{array}{cc}0 &amp; h( k ) \\ h^{\dagger}( k ) &amp; 0\end{array}\right)\)</span> <span class="math display">\[
+\begin{aligned}
+\nu &amp;=\frac{i}{2 \pi} \oint_{\Gamma\left( K _{0}\right)} d k \cdot \operatorname{Tr}\left[q^{-1}( k ) \nabla_{ k } q( k )\right] \\
+&amp;=\frac{i}{2 \pi} \oint_{\Gamma\left( K _{0}\right)} d k \cdot \nabla_{ k } \operatorname{Tr}[\ln q( k )] \\
+&amp;=\frac{i}{2 \pi} \oint_{\Gamma\left( K _{0}\right)} d k \cdot \nabla_{ k }(\ln \operatorname{det}[q( k )]) \\
+&amp;=\frac{i}{2 \pi} \oint_{\Gamma\left( K _{0}\right)} d k \cdot \nabla_{ k }(\ln \operatorname{det}[h( k )])
+\end{aligned}
+\]</span> If the winding number is non-zero, the integral path is not contractible so that these nodal lines are topologically protected and can not be gapped in the presence of any weak chiral-symmetric perturbations.</p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915195753664.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915195753664</figcaption>
+</figure>
+<p>参考</p>
+<p>C. Chiu et al. Rev. Mod. Phys. 88, 035005 (2016) Z. Yang et al. Phys. Rev. Lett. 124,186402 (2020)​</p>
+<h5 id="nodal-linkknot-semimetals">Nodal link/knot semimetals</h5>
+<p>These nodal lines can form nontrivial links or knots <span class="math display">\[
+H ( k )=\gamma_{30}( k ) \Gamma_{30}+\gamma_{32}( k ) \Gamma_{32}+\gamma_{20}( k ) \Gamma_{20}+\gamma_{22}( k ) \Gamma_{22}
+\]</span> where <span class="math inline">\(\Gamma_{\mu \nu}=\sigma_{\mu} \otimes \tau_{\nu}, \gamma_{30}( k )=-21 / 8+\cos k_{x}+\cos k_{y}+\cos k_{z}, \gamma_{32}( k )=1 / 2 \sin k_{y}, \gamma_{20}( k )=\lambda+1 / 2 \sin k_{x},\)</span> and <span class="math inline">\(\gamma_{22}( k )=\sin k_{z} .\)</span> The nodal line is determined by <span class="math display">\[
+\begin{aligned}
+\operatorname{det}[h( k )]&amp;:=\gamma^{r}( k )+i \gamma^{i}( k )\\&amp;=\left[\gamma_{20}( k )^{2}+\gamma_{30}( k )^{2}-\gamma_{22}( k )^{2}-\gamma_{32}( k )^{2}\right]+2 i\left[\gamma_{30}( k ) \gamma_{22}( k )-\gamma_{20}( k ) \gamma_{32}( k )\right]\\&amp;=0
+\end{aligned}
+\]</span> <img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915200245177.png" srcset="/img/loading.gif" alt="image-20200915200245177" /></p>
+<h3 id="jones-polynomial-and-knot-transitions">Jones polynomial and knot transitions</h3>
+<h4 id="motivations">Motivations</h4>
+<ul>
+<li><p>Motivation 1: find a suitable topological or knot invariant to classify these semimetals</p></li>
+<li><p>Motivation 2 : the picture of the knot transition</p></li>
+</ul>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/knot_Dirac.png" srcset="/img/loading.gif" alt="" /><figcaption>knot_Dirac</figcaption>
+</figure>
+<p>Local physics determining the global topology</p>
+<ul>
+<li>Motivation 3 : relation to nodal chain semimetalss</li>
+</ul>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915201406084.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915201406084</figcaption>
+</figure>
+<p>参考 Experimental discovery of nodal chains Nature Physics, <span class="math inline">\(14,\)</span> pages, <span class="math inline">\(461-464(2018)\)</span></p>
+<h4 id="our-approach">Our approach</h4>
+<ol type="1">
+<li>For a given critical phase, what kind of knot phases (including the trivial knot phase) can be generated by the perturbation, namely, we need to find a method to systematically write down all the possible generated phase.</li>
+<li>What is the topological invariant of these generated phases, namely, we need to find a knot invariant to classify them.</li>
+<li>We need to consider whether there exist any additional physical constraints on the generated phases.</li>
+</ol>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915201730922.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915201730922</figcaption>
+</figure>
+<h5 id="for-the-first-step-perturbation-generated-phase">For the first step: Perturbation generated phase</h5>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\text { Critical  phase }\\
+&amp; \Downarrow \\
+&amp;\text { Perturbation generated phases }
+\end{aligned}
+\]</span></p>
+<p>since the perturbation is weak, only the local evolutions around the TPs finally determine the linking or knotting properties of the nodal lines. Then, we focus on the touching point, where two nodal lines touch together.</p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915202155670.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915202155670</figcaption>
+</figure>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915202212761.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915202212761</figcaption>
+</figure>
+<p>All possible?</p>
+<h4 id="orientation-of-nodal-lines">Orientation of nodal lines</h4>
+<p>Topological charge v.s. orientations <span class="math display">\[
+\begin{align}
+&amp;H _{0}( k )=h_{0}( k ) \tau_{+}+h_{0}^{\dagger}( k ) \tau_{-} \\
+\nu&amp;=\frac{i}{2 \pi} \oint_{\Gamma\left( K _{0}\right)} d k \cdot \nabla_{ k }\left(\ln \operatorname{det}\left[h_{0}( k )\right]\right) 
+\end{align}
+\]</span> One can assign an orientation to the nodal line which is given by the normal vector of the positive winding number integral path determined by the right-hand rule and centered at <span class="math inline">\(K _{0}\)</span></p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915202518972.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915202518972</figcaption>
+</figure>
+<p>Note: (1). The orientation of nodal lines is important, since the Jones polynomial is only defined for the orientated knots (2). For the nodal lines protected by PT symmetry, the orientation is not well defined due to the <span class="math inline">\(Z _{2}\)</span> charge.</p>
+<h5 id="classification-of-local-evolutions">Classification of local evolutions</h5>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915203126566.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915203126566</figcaption>
+</figure>
+<h5 id="representation-of-generated-phases">Representation of generated phases</h5>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915203331443.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915203331443</figcaption>
+</figure>
+<h5 id="knot-invariant">Knot invariant</h5>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915203453117.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915203453117</figcaption>
+</figure>
+<p><span class="math display">\[
+\text { We need a knot invariant to classify them }
+\]</span> The Jones polynomial <span class="math inline">\(J\)</span> is a topological invariant for oriented links with the following properties: - it takes values in <span class="math inline">\(Z \left[t^{1 / 2}, t^{-1 / 2}\right]\)</span> - it satisfies <span class="math inline">\(J(O)=1,\)</span> where <span class="math inline">\(O\)</span> denotes the unknot, as shown in Fig. <span class="math inline">\(5 .\)</span> it satisfies the skein relation <span class="math display">\[
+t^{-1} J\left(L_{+}\right)-t J\left(L_{-}\right)+\left(t^{-1 / 2}-t^{1 / 2}\right) J\left(L_{0}\right)=0
+\]</span> whenever <span class="math inline">\(L_{+}, L_{-}\)</span> and <span class="math inline">\(L_{0}\)</span> are three oriented links, which have diagrams that are identical except in a small region where they are given as shown in Fig. <span class="math inline">\(6 .\)</span></p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915203836465.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915203836465</figcaption>
+</figure>
+<h4 id="calculation-of-jones-polynomial">Calculation of Jones polynomial</h4>
+<p>The first example we considered is shown in Fig. <span class="math inline">\(7 .\)</span> Obviously, <span class="math inline">\(L_{+000}\)</span> and <span class="math inline">\(L_{-000}\)</span> are both equivalent to an unknot. Hence <span class="math inline">\(J\left(L_{+000}\right)=J\left(L_{-000}\right)=1 .\)</span> Using the skein relation, one can obtain, <span class="math display">\[
+t^{-1}-t+\left(t^{-1 / 2}-t^{1 / 2}\right) J\left(L_{0000}\right)=0
+\]</span> After some simple calculation, we have <span class="math inline">\(J\left(L_{0000}\right)=-t^{1 / 2}-t^{-1 / 2} .\)</span> Hence, the Jones polynomials of single unknot is different from the one of the two separated unknots.</p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915203753814.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915203753814</figcaption>
+</figure>
+<h5 id="second-example">second example</h5>
+<p>The second example is shown in Fig. <span class="math inline">\(8 .\)</span> The skein relation relates the Hopf-link to the unknot. since we know <span class="math inline">\(J\left(L_{+00-}\right)=-t^{1 / 2}-t^{-1 / 2}\)</span> and <span class="math inline">\(J\left(L_{+000}\right)=1 .\)</span> Hence based on the skein relation, <span class="math display">\[
+t^{-1} J\left(L_{+00+}\right)-t\left(-t^{1 / 2}-t^{-1 / 2}\right)+\left(t^{-1 / 2}-t^{1 / 2}\right)=0
+\]</span> One can obtain, the Hopf-link has <span class="math inline">\(J\left(L_{+00+}\right)=-t^{5 / 2}-t^{1 / 2}\)</span></p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915204100490.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915204100490</figcaption>
+</figure>
+<h4 id="generalized-skein-relation">Generalized skein relation</h4>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915204327596.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915204327596</figcaption>
+</figure>
+<h5 id="example">Example</h5>
+<p>The Jones polynomial of all the generated phases are connect by the skein relation. Therefore,</p>
+<ol type="1">
+<li>We can systematically write down the perturbation generated phases of a critical phase.</li>
+<li>We can systematically calculate the Jones polynomials of these generated phases.</li>
+</ol>
+<p>TABLE I. The Jones polynomials represent all the generated phases <span class="math inline">\(L_{n_{1} n_{2} n_{3} n_{4}}\)</span> evolving from the nodal chain in Fig. 2 (a), where <span class="math inline">\(n_{i}^{k}=0, \pm 1 .\)</span> As <span class="math inline">\(\vec{\nabla}_{k} \operatorname{det}\left[h_{0}(k)\right] \neq 0\)</span> at each TP, the evolution is limited and marked by the red color. <span class="math display">\[
+\begin{array}{|l|l|l|}
+\hline \text { Links or knots } &amp; \text { Jones polynomial } &amp; n=\sum_{i=1}^{4} n_{i} \\
+\hline \text { Unknot } &amp; 1 &amp; |n|=1 \\
+\hline \text { Unlink } &amp; -t^{-1 / 2}-t^{1 / 2} &amp; |n|=0 \\
+\hline \text { Hopf-link } &amp; -t^{5 \operatorname{sign}(n) / 2}-t^{\operatorname{sign}(n) / 2} &amp; |n|=2 \\
+\hline \text { Trefoil knot } &amp; -t^{4 \operatorname{sign}(n)}+t^{3 \operatorname{sign}(n)}+t^{\operatorname{sign}(n)} &amp; |n|=3 \\
+\hline \begin{array}{l}
+\text { Solomon&#39;s } \\
+\text { knot }
+\end{array} &amp; \begin{array}{l}
+-t^{9 \operatorname{sign}(n) / 2}-t^{5 \operatorname{sign}(n) / 2}+|n|=4 \\
+t^{3 \operatorname{sign}(n) / 2}-t^{\operatorname{sign}(n) / 2}
+\end{array} &amp; \begin{array}{l}
+n=4 \\
+\end{array} \\
+\hline
+\end{array}
+\]</span> <img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915205048569.png" srcset="/img/loading.gif" alt="image-20200915205048569" /></p>
+<h5 id="knot-transitions">Knot transitions</h5>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/knot_Dirac.png" srcset="/img/loading.gif" alt="" /><figcaption>knot_Dirac</figcaption>
+</figure>
+<h4 id="additional-physical-constraints">Additional physical constraints</h4>
+<p>Now we show that not only the orientations of the nodal lines but also the energy dispersions of TP constrian the possibilities of the local evolutions near the touching point <span class="math display">\[
+\begin{array}{l} 
+H _{0}( k )=h_{0}( k ) \tau_{+}+h_{0}^{\dagger}( k ) \tau_{-} \\
+h_{0}( k )=2 \cos 2 k_{x}+\cos k_{x}+3 \cos k_{y}-3 \cos k_{z}-1 / 10-2 i \sin k_{y} \sin k_{z}
+\end{array}
+\]</span> <img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915205048569.png" srcset="/img/loading.gif" alt="image-20200915205048569" /></p>
+<p>Only the red ones are possible. The reason is that the touching point has linear dispersion.</p>
+<p>Once the TP has linear dispersion, at least, one of <span class="math inline">\(\gamma^{r}(k)\)</span> and <span class="math inline">\(\gamma^{r}(i)\)</span> has linear terms</p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200915205617676.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200915205617676</figcaption>
+</figure>
+<p>Hopf-link semimetal <span class="math display">\[
+\begin{array}{|l|l|l|}
+\hline \text { Links or knots } &amp; \text { Jones polynomial } &amp; n=\sum_{i=1}^{4} n_{i} \\
+\hline \text { Unknot } &amp; 1 &amp; |n|=1 \\
+\hline \text { Unlink } &amp; -t^{-1 / 2}-t^{1 / 2} &amp; |n|=0 \\
+\hline \text { Hopf-link } &amp; -t^{5 \operatorname{sign}(n) / 2}-t^{\operatorname{sign}(n) / 2} &amp; |n|=2 \\
+\hline
+\end{array}
+\]</span> <img src="C:%5CUsers%5CJPZhuang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200915205725042.png" srcset="/img/loading.gif" alt="image-20200915205725042" /> <span class="math display">\[
+\begin{array}{l} 
+H = H _{0}+ H _{1} \\
+H _{1}(k)=\lambda \sin 2 k_{x} \sigma_{y}
+\end{array}
+\]</span></p>
+<h3 id="non-hermitian-degeneracies">Non-Hermitian degeneracies</h3>
+<p>Consider a general multi-band non-Hermitian Hamiltonian <span class="math display">\[
+\begin{align}
+&amp;\hat{H}_{n H}=\sum_{k} \sum_{\mu v}\left[h_{\mu \nu}(k)+i g_{\mu \nu}(k)\right] \hat{c}_{k \mu}^{\dagger} \hat{c}_{k v}\\ &amp; H _{n H}(k)\left|u_{\mu}^{R}(k)\right\rangle=E_{\mu}(k)\left|u_{\mu}^{R}(k)\right\rangle\\ &amp;\left[ H _{n H}(k)\right]_{\mu \nu}=h_{\mu \nu}(k)+i g_{\mu \nu}(k)
+\end{align}
+\]</span> Characteristic equation <span class="math display">\[
+f(E, k )=\operatorname{det}[E- H ( k )]=\prod_{\mu=1}^{m}\left[E-E_{\mu}( k )\right]=0
+\]</span> Non-Hermitian degeneracies <span class="math display">\[
+E_{i}\left( k _{d}\right)=E_{j}\left( k _{d}\right)
+\]</span> The simples case <span class="math inline">\(f(E, k )=E^{2}+b( k ) E+c( k ),\)</span><span class="math inline">\(\Rightarrow \Delta_{f}\left( k _{d}\right)=b^{2}\left( k _{d}\right)-4 c\left( k _{d}\right)=0\)</span> <span class="math inline">\(3 D \longrightarrow\)</span> non-Hermitain dengeracies (do not require any symmetry)</p>
+<p>参考：H. Shen et al. Phys. Rev. Lett. 120,146402 ( 2018 )</p>
+<h4 id="hopf-link-exceptional-lines">Hopf-link exceptional lines</h4>
+<p>Example of Hopf-link <span class="math display">\[
+\begin{align}
+H _{0}( k )&amp;=\sin k_{z} \sigma_{x}+\left(m+\cos k_{x}+\cos k_{y}+\cos k_{z}\right) \sigma_{z}\\
+H _{1}( k )&amp;=\sin k_{x} \sigma_{x}+\sin k_{y} \sigma_{z} \\
+H _{n H}( k )&amp;= H _{0}( k )+i \lambda H _{1}( k )
+\end{align}
+\]</span> <img src="C:%5CUsers%5CJPZhuang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200915210629351.png" srcset="/img/loading.gif" alt="image-20200915210629351" /></p>
+<p>Exceptional point <span class="math inline">\(\left(\begin{array}{ll}0 &amp; 1 \\ 0 &amp; 0\end{array}\right)\)</span></p>
+<p>参考：Z. Yang et al. Phys. Rev. B 99, 081102 (2019) (R)</p>
+<h4 id="generalization-of-our-results">Generalization of our results</h4>
+<p>Genenral m-band systemz <span class="math display">\[
+f(E, k )=\operatorname{det}[E- H ( k )]=\prod_{\mu=1}^{m}\left[E-E_{\mu}( k )\right]=0
+\]</span> Band degeneracy conditoon <span class="math display">\[
+\Delta_{f}\left( k _{d}\right)=\prod_{1 \leq i&lt;j \leq m}\left[E_{i}\left( k _{d}\right)-E_{j}\left( k _{d}\right)\right]^{2}=0
+\]</span> 参考 Z. Yang et al. arXiv:1912.02788</p>
+<p>Two constraint equations <span class="math display">\[
+\begin{align}
+\Delta_{f}( k )&amp;=\Delta_{f}^{r}( k )+i \Delta_{f}^{i}( k )=0 \\ \operatorname{det}[h( k )]&amp;=\operatorname{det}\left[h^{\dagger}( k )\right]^{*}=\gamma^{r}( k )+i \gamma^{i}( k )\\
+\nu&amp;=\frac{i}{2 \pi} \oint_{\Gamma\left(K_{0}\right)} d k \cdot \nabla_{k}\left(\ln \operatorname{det}\left[\Delta_{f}( k )\right]\right) \\ \nu&amp;=\frac{i}{2 \pi} \oint_{\Gamma\left( K _{0}\right)} d k \cdot \nabla_{ k }\left(\ln \operatorname{det}\left[h_{0}( k )\right]\right)
+\end{align}
+\]</span> The share the same mathematical structure. As a result, the discussion in the Hermitian case can be generalzied to the nonHermitain case directly.</p>
+<h2 id="reference">Reference</h2>
+<p><strong><a href="https://arxiv.org/abs/1905.00210" target="_blank" rel="noopener">arXiv:1905.00210</a></strong> Jones polynomial and knot transitions in topological semimetals</p>
+<p><a href="https://www.linkresearcher.com/theses/ca1b165c-5a04-4c04-9acb-a7be5a2b85a2" target="_blank" rel="noopener">给量子半金属系上“中国结”</a></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/09/15/topology04_knot_semetel/">
+                        <span class="hidden-mobile">knot transitions in topological semimetals</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Jones polynomial and knot transitions in Hermitian and non-Hermitian topological semimetals&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
