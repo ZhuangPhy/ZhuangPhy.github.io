@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>Hall Conductance and Chern Numbers - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-18 14:23">
+      September 18, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      107
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<blockquote>
+<p>二维系统的霍尔电导和Berry curvature 在满带的积分有关</p>
+</blockquote>
+<ol type="1">
+<li>推导电流算符(current operators )</li>
+<li>外加电场磁场，分析系统的线性响应(linear response)，由此得到 电流电流关联函数 (current-current correlation)</li>
+<li>具体推导霍尔电导等于Berry curvature 在布里渊区满带的积分</li>
+</ol>
+<p><span class="math display">\[
+\sigma_{x y}=\frac{e^{2}}{h} \frac{1}{2 \pi} \iint d_{k x} d_{k y} F_{x y}(k)
+\]</span></p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(F_{x y}(k)=\frac{\partial A_{y}(k)}{\partial k_{x}}-\frac{\partial A_{x}(k)}{\partial k_{y}}\)</span></li>
+<li><span class="math inline">\(A_{i}=-i \sum_{a \in \text { filled bands }}\left\langle a k \left|\frac{\partial}{\partial k_{i}}\right| a k \right\rangle\)</span></li>
+</ul>
+<h3 id="电流算子">电流算子</h3>
+<p>考虑单体，无相互作用的哈密顿量 <span class="math display">\[
+H=\sum_{i, j, a, \beta} c_{i a}^{\dagger}\left(h_{i j}^{a \beta}-\mu \delta_{i j} \delta_{a \beta}\right) c_{j \beta}
+\]</span> 假设有平移对称性( translational symmetry), 这意味着 <span class="math inline">\(h_{i j}^{a \beta}=h_{i-j}^{a \beta}\)</span>。傅里叶变换: <span class="math display">\[
+c_{j}^{a}=\frac{1}{\sqrt{N}} \sum_{k} e^{i k j} c_{k}^{a}
+\]</span></p>
+<p><span class="math display">\[
+H=\sum_{k} c_{k a}^{\dagger} h_{k}^{a \beta} c_{k \beta}
+\]</span></p>
+<h4 id="连续方程的电流算子">连续方程的电流算子</h4>
+<p>电流满足连续方程： <span class="math display">\[
+\dot{\rho}(x)+\nabla \cdot J (x)=0
+\]</span> 傅里叶变换 <span class="math inline">\(A_{j}=(1 / \sqrt{N}) \sum_{k} e^{i k j} A_{k}\)</span> 到动量空间 <span class="math display">\[
+\rightarrow \dot{\rho}_{q}-i q \cdot J _{q}=0
+\]</span> 其中</p>
+<ul>
+<li><p>密度算符 <span class="math inline">\(\rho(q)=\frac{1}{\sqrt{N}} \sum_{k} c_{k+q}^{\dagger} c_{k}\)</span></p></li>
+<li><p><span class="math inline">\(c_{j}^{\dagger}=(1 / \sqrt{N}) \sum_{k} e^{-i k j} c_{k}^{\dagger}\)</span></p></li>
+</ul>
+<p>连续方程变成 <span class="math display">\[
+-i q \cdot J _{ q }=-\dot{\rho}_{q}=i[\rho, H]=i \frac{1}{\sqrt{N}} \sum_{p, k} h_{p}\left[c_{ k + q }^{\dagger} c_{ k }, c_{p}^{\dagger} c_{p}\right]
+\]</span></p>
+<h4 id="小-q-极限近似">小 <span class="math inline">\(q\)</span> 极限近似</h4>
+<p>小 <span class="math inline">\(q\)</span> 极限的物理含义：</p>
+<p>我们感兴趣的是，低能量，长波长场，不会去分析场对 原子尺度的影响。所以，当场的变化远大于晶格尺度，这个近似就是好的。 <span class="math display">\[
+h_{k+q}-k_{k} \approx \frac{\partial h_{k}}{\partial k } \cdot q
+\]</span> 还有更好的近似，可以对二阶<span class="math inline">\(q\)</span>有效，移动<span class="math inline">\(k \rightarrow k -q / 2\)</span> <span class="math display">\[
+q \cdot J _{ q }=\frac{1}{\sqrt{N}} \sum_{p, k}\left(h_{ k + q }-h_{ k }\right) c_{ k + q }^{\dagger} c_{ k }
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+q \cdot J _{ q } &amp;=\frac{1}{\sqrt{N}} \sum_{p, k}\left(h_{ k +q / 2}-h_{ k -q / 2}\right) c_{ k +q / 2}^{\dagger} c_{ k -q / 2} \\
+&amp;=\frac{1}{\sqrt{N}} \sum_{p, k}\left(\frac{\partial h_{k}}{\partial k } \cdot q \right) c_{ k +\frac{q}{2}}^{\dagger} c_{ k -\frac{q}{2}}+ O \left(q^{2}\right)
+\end{aligned}
+\]</span></p>
+<p>对于小 <span class="math inline">\(q\)</span> ，线性项很重要，我们可以写出 <span class="math display">\[
+J _{ q }=\frac{1}{\sqrt{N}} \sum_{p, k} c_{ k +q / 2}^{\dagger} \frac{\partial h_{k}}{\partial k } c_{ k -q / 2}
+\]</span></p>
+<h4 id="peierls-替换中的电流算子">Peierls 替换中的电流算子</h4>
+<p>外加磁场，哈密顿量的动量算符从 <span class="math inline">\(p\)</span> 变化成 <span class="math inline">\(p-e A\)</span>。我们要问：向量势怎么和晶格哈密顿量耦合的？</p>
+<p>有理论认为是跳跃矩阵元发生变化 <span class="math display">\[
+h_{i j}^{a \beta} \rightarrow h_{i j}^{a \beta} e^{i \int_{j}^{i} A (l) \cdot d l }
+\]</span> 其中 <span class="math inline">\(A\)</span> 是外加电磁场的向量势。</p>
+<p>当向量势 <span class="math inline">\(A\)</span> 变化不大的时候，我们可以近似 <span class="math display">\[
+\begin{aligned}
+\int_{R}^{R^{\prime}} A (s, t) \cdot d s &amp;\approx\left( R ^{\prime}- R \right) \cdot \frac{1}{2}\left( A \left( R ^{\prime}, t\right)+ A ( R , t)\right)\\ &amp; \approx\left( R ^{\prime}- R \right) \cdot \frac{1}{2} A \left(\frac{ R ^{\prime}+ R }{2}, t\right)
+\end{aligned}
+\]</span> 哈密顿量的泰勒展开 <span class="math display">\[
+\begin{aligned}
+H&amp;=\sum_{i, j, a, \beta} c_{i a}^{\dagger} h_{i j}^{a \beta} e^{i \int_{j}^{i} A (l) \cdot d l } c_{j \beta} \\&amp;\approx \sum_{i, j, a, \beta} c_{i a}^{\dagger} h_{i j}^{a \beta}\left(1+i \int_{j}^{i} A (l) \cdot d l \right) c_{j \beta}\\&amp;=H_{0}+H_{\text {ext }}
+\end{aligned}
+\]</span> 平移对称性( translational symmetry)意味着 <span class="math inline">\(h_{i j}=h_{i-j}=h_{r}\)</span>。其中 <span class="math inline">\(r=i-j\)</span>，那么外场项 <span class="math display">\[
+\begin{aligned}
+H_{ ext } &amp;=\sum_{k_{1}, k_{2}, a, \beta} c_{k_{1}, a}^{\dagger} c_{k_{2}, \beta} \frac{1}{N} \sum_{r, j} e^{i\left( k _{2}- k _{1}\right) j -i k _{1} \cdot r } h_{r}^{a \beta} i \int_{j}^{j+r} A (l) \cdot d l \\
+&amp; \approx \sum_{k_{1}, k_{2}, a, \beta} c_{k_{1}, a}^{\dagger} c_{k_{2}, \beta} \frac{1}{N} \sum_{r, j} e^{i\left( k _{2}- k _{1}\right) \cdot j -i k _{1} \cdot r } h_{r}^{a \beta} i r \cdot A \left( j +\frac{ r }{2}\right)
+\end{aligned}
+\]</span> 对外场项哈密顿量进行傅里叶变换 <span class="math inline">\(A_{j}=(1 / \sqrt{N}) \sum_{q} e^{-i q j } A_{q}\)</span> <span class="math display">\[
+H_{ ext }=\frac{1}{\sqrt{N}} \sum_{k_{1}, k_{2}, q, a, \beta} c_{k_{1}, a}^{\dagger} c_{k_{2}, \beta} \delta_{ k _{2}- k _{1}- q } \sum_{r} e^{-i\left( k _{1}+\frac{ q }{2}\right) \cdot r } h_{r}^{a \beta} i r \cdot A _{ q }
+\]</span> 动量平移 <span class="math inline">\(k_{1}+q / 2=k\)</span> 和求导 <span class="math inline">\(h_{k}^{a \beta}=\frac{1}{\sqrt{N}} \sum_{r} e^{i k \cdot r } h_{r}^{a \beta}\)</span>$ = <em>{r} i r e^{i k r } h</em>{r}^{a }$。得到外加场的微扰哈密顿量 <span class="math display">\[
+\begin{aligned}
+H_{ ext }&amp;=\sum_{k, q, a, \beta} c_{k+q / 2, a}^{\dagger} c_{k-q / 2, \beta} \frac{\partial h_{k}^{a \beta}}{\partial k } \cdot A _{-q}\\&amp;=\sum_{q} j _{q} \cdot A _{-q}
+\end{aligned}
+\]</span></p>
+<h3 id="线性响应">线性响应</h3>
+<blockquote>
+<p>外场对系统会产生什么样的影响？</p>
+</blockquote>
+<p>在外场<span class="math inline">\(A(x, t)\)</span>下的通用多粒子系统的哈密顿量 <span class="math display">\[
+\begin{aligned}
+H &amp;=\sum_{i} \frac{1}{2}\left(p_{i}-e A\left(x_{i}, t\right)\right)^{2}+\sum_{i&lt;j} V_{i j} \\
+&amp;=\frac{1}{2} \sum_{i} p_{i}^{2}+\sum_{i&lt;j} V_{i j}-e \sum_{i} \frac{1}{2}\left(p_{i} A\left(x_{i}, t\right)+A\left(x_{i}, t\right) p_{i}\right)+\frac{1}{2} \sum_{i} e^{2} A_{i}^{2}
+\end{aligned}
+\]</span> 定义总电流算符 <span class="math display">\[
+J(x, t)=\frac{1}{2} \sum_{i}\left[\left(p_{i}-e A(x, t)\right) \delta\left(x-x_{i}\right)+\delta\left(x-x_{i}\right)\left(p_{i}-e A(x, t)\right)\right]
+\]</span> 于是哈密顿量可以写成 <span class="math display">\[
+H=H_{0}-e \int d^{3} x \int(\delta A (x, t)) \cdot J
+\]</span> 总电流包含顺磁性和抗磁的贡献 <span class="math display">\[
+J(x, t)=j(x)-n e A(x, t)
+\]</span> 其中 <span class="math inline">\(n=\sum_{i} \delta\left(x-x_{i}\right)\)</span> 是均匀电子密度。</p>
+<p>对于 <span class="math inline">\(A(x, t)\)</span> 一阶项 <span class="math display">\[
+H=H_{0}-e \int d^{3} x A (x, t) \cdot j (x)=H_{0}+H_{ ext }
+\]</span></p>
+<h4 id="电流演化">电流演化</h4>
+<p><span class="math inline">\(\left|E_{N}\right\rangle\)</span> 是哈密顿量 <span class="math inline">\(H_{0}\)</span> 的本征态，随着时间演化 <span class="math display">\[
+i \frac{\partial\left|E_{N}(t)\right\rangle}{\partial t}=H\left|E_{N}(t)\right\rangle
+\]</span> 在时间 <span class="math inline">\(t\)</span> 时候的本征态我们选择写成 <span class="math inline">\(\left|E_{N}(t)\right\rangle=\exp \left(-i H_{0} t\right) U_{ ext }(t)\left|E_{N}\right\rangle\)</span> 带入演化方程 <span class="math display">\[
+\begin{aligned}
+i \frac{\partial U_{ ext }}{\partial t}\left|E_{N}\right\rangle&amp;=\exp \left(i H_{0} t\right) H_{ ext } \exp \left(-i H_{0} t\right) U_{ ext }\left|E_{N}\right\rangle\\&amp;=H_{ ext }(t) U_{ ext }\left|E_{N}\right\rangle
+\end{aligned}
+\]</span> 其中 <span class="math inline">\(U_{ ext }\)</span> 满足积分方程 <span class="math display">\[
+U_{ ext }(t)=1-i \int_{0}^{t} H_{ ext }\left(t^{\prime}\right) U_{ ext }\left(t^{\prime}\right) d t^{\prime}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(H_{ ext }(t)=e^{i H_{0} t} H_{ ext } e^{-i H_{0} t}\)</span></li>
+</ul>
+<p>对于一阶<span class="math inline">\(H_{ ext }\)</span> 看成很小的微扰 <span class="math inline">\(U_{ ext }(t)=1-i \int_{0}^{t} H_{ ext }\left(t^{\prime}\right) d t^{\prime}\)</span>。</p>
+<blockquote>
+<p>目标：</p>
+<p>得到 <span class="math inline">\(t\)</span> 时刻电流基态期望值 <span class="math display">\[
+\left\langle E_{N}(t)| J (x, t)| E_{N}(t)\right\rangle=\left\langle E_{N}(t)| j (x)| E_{N}(t)\right\rangle-\operatorname{neA}(x, t)
+\]</span></p>
+</blockquote>
+<p>基态的时间演化 <span class="math display">\[
+\begin{aligned}
+\left\langle E_{N}(t)| J (x, t)| E_{N}(t)\right\rangle=&amp;\left\langle E_{N}| j (x)| E_{N}\right\rangle \\
+&amp;+i \int_{0}^{t} d t^{\prime}\left\langle E_{N}\left|\left[H_{ ext }\left(t^{\prime}\right), j (x, t)\right]\right| E_{N}\right\rangle-n e A (x, t)\\
+=&amp;\left\langle E_{N}\left|j_{i}(x)\right| E_{N}\right\rangle \\
+&amp;+\int_{-\infty}^{\infty} d t^{\prime} \int d^{3} x^{\prime} \sum_{j} R_{i j}\left(x-x^{\prime}, t-t^{\prime}\right) A_{j}\left(x^{\prime}, t^{\prime}\right)
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(j(x, t)=e^{i H_{0} t} j(x) e^{-i H_{0} t}\)</span> 是电流的演化算符</li>
+<li>响应方程</li>
+</ul>
+<p><span class="math display">\[
+R_{i j}\left(x-x^{\prime}, t-t^{\prime}\right)=-i \theta\left(t-t^{\prime}\right)\left\langle E_{N}\left|\left[j_{i}(x, t), j_{j}\left(x^{\prime}, t^{\prime}\right)\right]\right| E_{N}\right\rangle-n e \delta_{i j} \delta\left(x-x^{\prime}\right) \delta\left(t-t^{\prime}\right)
+\]</span></p>
+<p>响应方程在零温情况，多体基态 <span class="math inline">\(\left|E_{N}\right\rangle=\left|E_{G S}\right\rangle\)</span>。推广到有限温度，初态的概率是 <span class="math inline">\(\exp \left(-\beta E_{i}\right) / Z\)</span>。这里需要修正的是对易子的期望值 <span class="math display">\[
+\left\langle E_{N}\left|\left[j_{i}(x, t), j_{j}\left(x^{\prime}, t^{\prime}\right)\right]\right| E_{N}\right\rangle \rightarrow \frac{\operatorname{Tr}\left\{e^{-\beta H_{0}}\left[j_{i}(x, t), j_{j}\left(x^{\prime}, t^{\prime}\right)\right]\right\}}{Z}
+\]</span></p>
+<p>接下来我们把这些表达式 联系到 时序响应函数(time-ordered response function)，然后是有限温度格林函数(finite-temperature Green's functions)。这些可以通过涨落耗散(fluctuation dissipation)理论求出。</p>
+<h4 id="the-fluctuation-dissipation-theorem">The Fluctuation Dissipation Theorem</h4>
+<p>假设我们可以对角化一个哈密顿量 <span class="math inline">\(H\)</span>，得到完备的本征态集合 <span class="math inline">\(|n\rangle: H|n\rangle=E_{n}|n\rangle\)</span></p>
+<p>关联函数 <span class="math display">\[
+\begin{aligned}
+\langle A(t) B(0)\rangle &amp;=\frac{1}{Z} \sum_{n}\left\langle n\left|e^{-\beta H} e^{i H t} A e^{-i H t} B\right| n\right\rangle \\
+&amp;=\frac{1}{Z} \sum_{n, m}\left\langle n\left|B e^{-\beta H}\right| m\right\rangle\left\langle m\left|e^{i H t} A e^{-i H t}\right| n\right\rangle \\
+&amp;=\frac{1}{Z} \sum_{n, m} e^{-\beta E_{m}+i\left(E_{m}-E_{n}\right) t}\langle n|B| m\rangle\langle m|A| n\rangle
+\end{aligned}
+\]</span> 对关联函数进行傅里叶变换 <span class="math display">\[
+\begin{aligned}
+J_{1}(\omega)&amp;=\int_{-\infty}^{\infty}\langle A(t) B(0)\rangle e^{i \omega t} d t \\
+&amp;=2 \pi Z^{-1} \sum_{m n} e^{-\beta E_{m}}\langle n|B| m\rangle\langle m|A| n\rangle \delta\left(E_{m}-E_{n}+\omega\right)
+\end{aligned}
+\]</span> 类似的，我们可以写出管理函数的另一种时间排序 <span class="math display">\[
+\begin{aligned}
+J_{2}(\omega)&amp;=\int_{-\infty}^{\infty}\langle B(0) A(t)\rangle e^{i \omega t} d t \\
+&amp;=2 \pi Z^{-1} \sum_{m m} e^{-\beta E_{n}}\langle n|B| m\rangle\langle m|A| n\rangle \delta\left(E_{m}-E_{n}+\omega\right)\\&amp;=e^{-\beta \omega} J_{1}(\omega)
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(J_{1}(\omega)\)</span> 和 <span class="math inline">\(J_{2}(\omega)\)</span> 称为频谱函数</li>
+<li>在零温<span class="math inline">\((T=0)\)</span>的情况下，<span class="math inline">\(J_{1}(\omega)\)</span>只有<span class="math inline">\(m=0\)</span>的项才留下了</li>
+</ul>
+<p>延迟格林函数(retarded Green's)可以表示为<span class="math inline">\(J_{1}(\omega)\)</span> 和 <span class="math inline">\(J_{2}(\omega)\)</span>的傅里叶逆变换 <span class="math display">\[
+\begin{aligned}
+G^{R}(t)&amp;=-i \theta(t)\langle[A(t), B(0)]\rangle\\
+&amp;=-i \theta(t) \int_{-\infty}^{\infty} J_{1}(\omega)\left(1-e^{-\beta \omega}\right) e^{-i \omega t} \frac{d \omega}{2 \pi} 
+\end{aligned}
+\]</span> 延迟格林函数(retarded Green's)的傅里叶逆变换 <span class="math display">\[
+\begin{aligned}
+G^{R}(\omega)&amp;=\int_{-\infty}^{\infty} G^{R}(t) e^{i \omega t} d t\\ &amp;=-i \int_{-\infty}^{\infty} J_{1}\left(\omega^{\prime}\right)\left(1-e^{-\beta \omega^{\prime}}\right) \frac{d \omega^{\prime}}{2 \pi} \int_{0}^{\infty} e^{i\left(\omega-\omega^{\prime}+i \eta\right) t} d t \\
+&amp;=\int_{-\infty}^{\infty} \frac{J_{1}\left(\omega^{\prime}\right)}{\omega-\omega^{\prime}+i \eta}\left(1-e^{-\beta \omega^{\prime}}\right) \frac{d \omega^{\prime}}{2 \pi}
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li>我们加了阻尼项 <span class="math inline">\(\eta=0^{+}\)</span> 为了让积分收敛</li>
+<li>在大部分我们考虑的物理下，<span class="math inline">\(J_{1}(\omega)\)</span>是实数，因此在狄拉克表象下</li>
+</ul>
+<p><span class="math display">\[
+\operatorname{Im}\left(G^{R}(\omega)\right)=-\frac{1}{2}\left(1-e^{-\beta \omega}\right) J_{1}(\omega)
+\]</span></p>
+<p>时序格林函数(retarded Green's) <span class="math display">\[
+\begin{aligned}
+G^{T}(t)&amp;=-i\langle T[A(t) B(0)]\rangle\\
+&amp;=-i \int_{-\infty}^{\infty}\left(\theta(t) J_{1}\left(\omega^{\prime}\right)+\theta(-t) J_{2}\left(\omega^{\prime}\right)\right) e^{-i \omega^{\prime} t} \frac{d \omega^{\prime}}{2 \pi}
+\end{aligned}
+\]</span> 时序格林函数的傅里叶变换 <span class="math display">\[
+G^{T}(\omega)=\int_{-\infty}^{\infty} J_{1}\left(\omega^{\prime}\right)\left\{\frac{1}{\omega-\omega^{\prime}+i \eta}-\frac{e^{-\beta \omega^{\prime}}}{\omega-\omega^{\prime}-i \eta}\right\} \frac{d \omega^{\prime}}{2 \pi}
+\]</span> 因此，如果 <span class="math inline">\(J_{1}(\omega)\)</span>是实数，我们有 <span class="math display">\[
+\begin{aligned}
+&amp;\operatorname{Re} G^{T}(\omega)= P \int_{-\infty}^{\infty}\left(1-e^{-\beta \omega^{\prime}}\right) \frac{J_{1}\left(\omega^{\prime}\right)}{\omega-\omega^{\prime}} \frac{d \omega^{\prime}}{2 \pi}\\
+&amp;\operatorname{Im} G^{T}(\omega)=-\frac{1}{2}\left(1+e^{-\beta \omega}\right) J_{1}(\omega)
+\end{aligned}
+\]</span> 而我们又知道 <span class="math inline">\(\operatorname{Im} G^{R}(\omega)=-\frac{1}{2}\left(1-e^{-\beta \omega}\right) J_{1}(\omega)\)</span>，所以 <span class="math display">\[
+\operatorname{Re} G^{R}(\omega)=\operatorname{Re} G^{T}(\omega)
+\]</span></p>
+<p><span class="math display">\[
+\operatorname{Im} G^{R}(\omega)=\tanh \left(\frac{1}{2} \beta \omega\right) \operatorname{Im} G^{T}(\omega)
+\]</span></p>
+<p>在零温，我们有 <span class="math inline">\(\operatorname{Im} G^{R}(\omega)=(\omega) /(|\omega|) \operatorname{Im} G^{T}(\omega)\)</span></p>
+<blockquote>
+<p>现在我们联系电导率</p>
+</blockquote>
+<p>如果 <span class="math inline">\(J_{1}(\omega)\)</span> 是电流-电流 关联函数 <span class="math inline">\(\langle j(t) j(0)\rangle\)</span> 的傅里叶变换，应用 <span class="math display">\[
+J_{a}(\omega)=\sigma_{a \beta}(\omega) E_{\beta}(\omega)=i \omega \sigma(\omega) A_{\beta}(\omega)
+\]</span> 我们得到格林函数和电导率的关系 <span class="math display">\[
+G^{R}(\omega)=i \omega \sigma(\omega)
+\]</span> 因此，频谱函数 和电导率关系 <span class="math display">\[
+J_{1}(\omega)=-\frac{2}{1-e^{-\beta \omega}} \omega \sigma(\omega)
+\]</span></p>
+<h4 id="有限温度格林函数">有限温度格林函数</h4>
+<p>温度函数 <span class="math display">\[
+G^{T}(\sigma)=\langle T[A(\sigma) B(0)]\rangle=\theta(\sigma)\langle A(\sigma) B(0)\rangle+\theta(-\sigma)\langle B(0) A(\sigma)\rangle
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(A(\sigma)=e^{\sigma H} A e^{-\sigma H}\)</span> 是算符 <span class="math inline">\(A\)</span> 的虚时演化算符(imaginary time-evolved operator)</li>
+</ul>
+<p>对于真实时间的关联函数 <span class="math display">\[
+\begin{aligned}
+&amp;\langle A(\sigma) B(0)\rangle=Z^{-1} \sum_{m n} e^{-\beta E_{m}}\langle n|B| m\rangle\langle m|A| n\rangle e^{\sigma\left(E_{m}-E_{n}\right)}\\
+&amp;\langle B(0) A(\sigma)\rangle=Z^{-1} \sum_{m n} e^{-\beta E_{n}}\langle n|B| m\rangle\langle m|A| n\rangle e^{\sigma\left(E_{m}-E_{n}\right)}
+\end{aligned}
+\]</span> 有限温度格林函数 有 特定的周期性，对于玻色子 <span class="math display">\[
+\begin{aligned}
+G^{T}(\sigma-\beta) &amp;=\theta(\beta-\sigma)\langle B(0) A(\sigma-\beta)\rangle \\
+&amp;=Z^{-1} \sum_{m m} e^{-\beta E_{n}-\beta\left(E_{m}-E_{n}\right)}\langle n|B| m\rangle\langle m|A| n\rangle e^{\sigma\left(E_{m}-E_{n}\right)} \\
+&amp;=Z^{-1} \sum_{m m} e^{-\beta E_{m}}\langle n|B| m\rangle\langle m|A| n\rangle e^{\sigma\left(E_{m}-E_{n}\right)}\\
+&amp;=G^{T}(\sigma)
+\end{aligned}
+\]</span> 其中 <span class="math inline">\(O&lt;\sigma&lt;\beta\)</span></p>
+<p>由于这个周期性，可以把 <span class="math inline">\(G^{T}(\sigma)\)</span> 展开成傅里叶级数，级数中的系数 <span class="math display">\[
+\begin{aligned}
+G^{T}\left(\omega_{m}\right) &amp;=\frac{1}{\beta} \int_{0}^{\beta} d \sigma e^{i \omega_{m} \sigma} G^{T}(\sigma) \\
+&amp;=\frac{1}{\beta Z} \sum_{m n}\langle n|B| m\rangle\langle m|A| n\rangle \frac{e^{-\beta E_{n}}-e^{-\beta E_{m}}}{E_{m}-E_{n}+i \omega_{m}}
+\end{aligned}
+\]</span> 其中 <span class="math inline">\(\omega_{m}=\frac{2 \pi m}{\beta}\)</span></p>
+<p>这个系数也是 有限温度格林函数的傅里叶变换，它可以写出 频谱函数的表示 <span class="math display">\[
+G^{T}\left(\omega_{m}\right)=\frac{-1}{\beta} \int_{-\infty}^{\infty}\left(1-e^{-\beta \omega^{\prime}}\right) \frac{J_{1}\left(\omega^{\prime}\right)}{i \omega_{m}-\omega^{\prime}} \frac{d \omega^{\prime}}{2 \pi}
+\]</span> 这意味着 <span class="math inline">\(G^{T}\left(\omega_{m}\right)\)</span> 可以直接从能谱函数中推导出来。因为我们已经证明过 <span class="math inline">\(G^{R}(\omega)=\int_{-\infty}^{\infty}\left(1-e^{-\beta \omega^{\prime}}\right) \frac{J_{1}\left(\omega^{\prime}\right)}{\omega-\omega^{\prime}+i \eta} \frac{d \omega^{\prime}}{2 \pi}\)</span>，只需要把 <span class="math inline">\(i \omega_{m}\)</span> 用 <span class="math inline">\(\omega+i \eta\)</span> 替代。</p>
+<p>我们也可以用 解析延拓 (analytic continuation)的角度来看：<span class="math inline">\(G^{T}\left(\omega_{m}\right)\)</span> 是定义在虚数轴的离散点，但是我们可以从实数轴上所有的 <span class="math inline">\(\omega\)</span> 得到 延迟格林函数(retarded Green's function)</p>
+<h4 id="电流-电流-关联函数-和-电导">电流-电流 关联函数 和 电导</h4>
+<blockquote>
+<p>我们现在已经做好准备，用有限温度格林函数形式的 电流-电流 关联函数，来表示 电导(conductivity) 的一阶线性响应 。</p>
+</blockquote>
+<p>由关系可以知道 电流核函数<span class="math inline">\(R_{i j}^{R}(k, \omega)\)</span> 和 电导率 <span class="math inline">\(\sigma_{i j}(k, \omega)\)</span> 的关系 <span class="math display">\[
+J_{i}(k, \omega)=R_{i j}^{R}(k, \omega) A_{j}(k, \omega)=i \omega \sigma_{i j}(k, \omega) A_{j}(k, \omega)
+\]</span> 对上式进行傅里叶变换，可以得到电流核 <span class="math inline">\(R_{i j}\)</span> 的格林函数表达 <span class="math display">\[
+R_{i j}^{T}\left(q, \sigma-\sigma^{\prime}\right)=\left\langle T\left[j_{i}(q, \sigma) j_{j}\left(-q, \sigma^{\prime}\right)\right]\right\rangle .
+\]</span> 对于 虚时电流算子 <span class="math inline">\(j_{i}(q, \sigma)=e^{\sigma H} j_{i}(q) e^{-\sigma H}\)</span> 我们有 <span class="math display">\[
+j_{i}(q, \sigma)=\sum_{k} c_{k+\frac{q}{2}, a}^{\dagger}(\sigma) \frac{\partial h^{a \beta}(k)}{\partial k_{i}} c_{k-q / 2, \beta}(\sigma)
+\]</span> 其中 <span class="math inline">\(c(\sigma)=e^{\sigma H} c e^{-\sigma H}\)</span>，因为格林函数取决于 <span class="math inline">\(\sigma-\sigma^{\prime}\)</span>，我们可以假设起点是 <span class="math inline">\(\sigma^{\prime}=0\)</span>，于是得到 <span class="math display">\[
+R_{i j}^{T}(q, \sigma)=\sum_{k, p} \frac{\partial h^{a \beta}(k)}{\partial k_{i}} \frac{\partial h^{p} \theta(p)}{\partial p_{j}}\left\langle T\left[c_{k+q / 2, a}^{\dagger}(\sigma) c_{k-q / 2, \beta}(\sigma) c_{p-q / 2, \gamma}^{\dagger} c_{p+q / 2, \theta}\right]\right\rangle
+\]</span> 用维克理论(Wick's theorem)我们可以得到，<span class="math inline">\(\left\langle T\left[c_{k+q / 2, a}^{\dagger}(\sigma) c_{k-q / 2, \beta}(\sigma) c_{p-q / 2, \gamma}^{\dagger} c_{p+q / 2, \theta}\right]\right\rangle=\left\langle c_{k+q / 2, a}^{\dagger}(\sigma) c_{p+q / 2, \theta}\right\rangle\left\langle c_{k-q / 2, \beta}(\sigma) c_{p-q / 2, \gamma}^{\dagger}\right\rangle\)</span> 检验一下傅里叶变换 <span class="math display">\[
+G^{T}(p, \sigma)=\sum_{n} e^{-i \omega_{n} \sigma} G^{T}\left(p, \omega_{n}\right)
+\]</span> 有限温度的格林函数具体表达式 <span class="math display">\[
+G^{T}\left(k, \omega_{n}\right)=\frac{1}{i \omega_{n}-h(k)}
+\]</span> 有了这个，我们可以计算 <span class="math inline">\(R_{i j}^{T}(q, \sigma)\)</span> 的傅里叶变换 <span class="math display">\[
+R_{i j}^{T}\left(q, v_{r}\right)=-\frac{1}{\beta^{2}} \sum_{m, k} \operatorname{Tr}\left[\frac{\partial h(k)}{\partial k_{i}} G^{T}\left(k-\frac{q}{2}, \omega_{m}\right) \frac{\partial h(k)}{\partial k_{j}} G^{T}\left(k+\frac{q}{2}, \omega_{m}-v_{r}\right)\right]
+\]</span> 其中 <span class="math inline">\(1 / \beta^{2}\)</span> 是从傅里叶变换中得到的。</p>
+<p>我们可以从 <span class="math inline">\(-\beta G^{T}\left(\omega_{m}\right)\)</span> 的极限 <span class="math inline">\(i \omega_{m} \rightarrow \omega+i \eta\)</span> 情况下得到 <span class="math inline">\(R_{i j}^{R}(k, \omega)\)</span>。最后能写出电导张量(conductivity tensor) <span class="math display">\[
+\sigma_{i j}(q, \omega)=\frac{R_{i j}^{R}(q, \omega)}{i \omega}
+\]</span> 其中 <span class="math inline">\(R_{i j}^{R}(q, \omega)=Q_{i j}\left(q, i v_{r} \rightarrow \omega+i \eta\right)\)</span></p>
+<h3 id="计算霍尔电导">计算霍尔电导</h3>
+<p>万事俱备，我们已经发展出能力去计算绝缘体的霍尔电导。</p>
+<h4 id="对角化">对角化</h4>
+<p>哈密顿量 <span class="math inline">\(H=\sum_{k} c_{k a}^{\dagger} h_{k}^{a \beta} c_{k \beta}\)</span> 很容易对角化，对应的本征方程 <span class="math display">\[
+h_{k}^{a \beta} u_{\beta k}^{i}=\epsilon_{i}(k) u_{a k}^{i}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(u_{a k}^{i}\)</span> 是本征态</li>
+<li><span class="math inline">\(\epsilon_{i}(k)\)</span> 是本征值，也就是色散关系</li>
+</ul>
+<p>用幺正矩阵 <span class="math inline">\(U^{\dagger} U=U_{a i}^{*} U_{a j}=u_{a}^{* i} u_{a}^{j}=\delta_{i j}\)</span> 去对角化哈密顿量矩阵 <span class="math display">\[
+U^{\dagger} h U=\left(\begin{array}{ccc}
+\epsilon_{1}(k) &amp; 0 &amp; 0 \\
+0 &amp; \ldots &amp; 0 \\
+0 &amp; 0 &amp; \epsilon_{m}(k)
+\end{array}\right)=\epsilon
+\]</span> 于是得到 <span class="math display">\[
+H=\sum_{k} \sum_{a=1}^{m} \epsilon_{l}(k) \gamma_{k, a}^{\dagger} \gamma_{k, a}
+\]</span> 其中</p>
+<ul>
+<li>不同能级 的色散关系 <span class="math inline">\(\epsilon_{l}(k)\)</span></li>
+<li>新基底和旧基底通过幺正矩阵联系 <span class="math inline">\(\gamma_{k, a}=U_{a i}^{\dagger} c_{k i}\)</span></li>
+</ul>
+<h4 id="投影形式的格林函数">投影形式的格林函数</h4>
+<p>因为我们假设系统是绝缘体，所以把费米能级(Fermi level)放在能隙(gap)。因此我们可以把能带用能隙分开</p>
+<ul>
+<li>能隙以下的都是低于零能量，是负能带</li>
+<li>所有负能带是填满的</li>
+</ul>
+<p>于是我们 有了一列不等式 <span class="math display">\[
+\epsilon_{1}(k) \leq \epsilon_{2}(k) \leq \cdots \leq \epsilon_{p}(k)&lt;0&lt;\epsilon_{p+1}(k) \leq \epsilon_{p+2}(k) \leq \cdots \leq \epsilon_{m}(k)
+\]</span> 新的符号标记，并且他们之间有限制 <span class="math inline">\(\epsilon_{G}&lt;0&lt;\epsilon_{E}\)</span></p>
+<ul>
+<li><span class="math inline">\(\epsilon_{G}\)</span> 被占据的基态</li>
+<li><span class="math inline">\(\epsilon_{E}\)</span> 没被占据的空带</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; E_{i}(k, t)=\epsilon_{i}(k)(1-t)+\epsilon_{G} t, \quad 1 \leq i \leq p \\
+&amp;E_{i}(k, t)=\epsilon_{i}(k)(1-t)+\epsilon_{E} t, \quad p&lt;i \leq m
+\end{aligned}
+\]</span></p>
+<p>其中 <span class="math inline">\(t \in [0,1]\)</span></p>
+<p>哈密顿量在绝热演化下保持能隙，没有能带穿越费米能级。我们马上意识到，内插(interpolated)哈密顿量 等价于 最初的哈密顿量。这个结果证实了 霍尔电导 与内插的能级 <span class="math inline">\(E_{i}(k, t)\)</span> 无关。</p>
+<p>我们考虑的内插哈密顿量是 <span class="math display">\[
+h(k, t)=U(k) \operatorname{diag}\left(E_{1}(k, t), \ldots, E_{p}(k, t), E_{p+1}(k, t), \ldots, E_{m}(k, t)\right) U^{\dagger}(k)
+\]</span></p>
+<ul>
+<li>当 <span class="math inline">\(t=1\)</span>，哈密顿量有非常漂亮的性质，空带投影的求和，加上占据带上投影的求和</li>
+</ul>
+<p><span class="math display">\[
+h(k, 1)=\epsilon_{G} \sum_{a=1}^{p}|a, k\rangle\langle a, k|+\epsilon_{G} \sum_{\beta=p+1}^{m}| \beta, k\rangle\langle\beta, k|
+\]</span></p>
+<p>对于投影算符 <span class="math inline">\(|i, k\rangle\langle i, k|=u_{n}^{i} u_{m}^{i *}=P_{n m}^{i}\)</span> 有本征态 <span class="math display">\[
+P^{i} u^{j}=P_{n m}^{i} u_{m}^{j}=u_{n}^{i} u_{m}^{i *} u_{m}^{j}=u_{n}^{i} \delta_{i j}=u^{j} \delta_{i j}
+\]</span> 投影算符的性质</p>
+<ul>
+<li><span class="math inline">\(P_{G}+P_{E}=I\)</span></li>
+<li><span class="math inline">\(P_{G} P_{E}=0\)</span></li>
+<li><span class="math inline">\(P_{G}^{2}=P_{G}\)</span></li>
+<li><span class="math inline">\(P_{E}^{2}=P_{E}\)</span></li>
+</ul>
+<p>这个形式的优点在于系统的格林函数有漂亮的形式 <span class="math display">\[
+G\left(i \omega_{m}, k\right)=\frac{P_{G}(k)}{i \omega_{m}-\epsilon_{G}}+\frac{P_{E}(k)}{i \omega_{m}-\epsilon_{E}}
+\]</span> 于是电流的表达式 <span class="math display">\[
+I=\left(i \omega_{m}-\epsilon_{G} P_{G}-\epsilon_{E} P_{E}\right)\left(\frac{P_{G}(k)}{i \omega_{m}-\epsilon_{G}}+\frac{P_{E}(k)}{i \omega_{m}-\epsilon_{E}}\right)
+\]</span> 可以看出，绝热哈密顿量的电流 <span class="math display">\[
+\frac{\partial h(k, 1)}{\partial k_{i}}=\epsilon_{G} \frac{\partial P_{G}(k)}{\partial k_{i}}+\epsilon_{E} \frac{\partial P_{E}(k)}{\partial k_{i}}=\left(\epsilon_{G}-\epsilon_{E}\right) \frac{\partial P_{G}(k)}{\partial k_{i}}
+\]</span> 用来计算电导率的电流-电流关联子是 <span class="math display">\[
+\begin{aligned}
+Q_{i j}\left(i v_{m}\right)=&amp; \frac{1}{V \beta} \sum_{k, n}\left(\epsilon_{G}-\epsilon_{E}\right)^{2} \\
+&amp; \times \operatorname{Tr}\left(\frac{\partial P_{G}(k)}{\partial k_{i}}\left(\frac{P_{G}(k)}{i\left(\omega_{n}+v_{m}\right)-\epsilon_{G}}+\frac{P_{E}(k)}{i\left(\omega_{m}+v_{m}\right)-\epsilon_{E}}\right) \frac{\partial P_{G}(k)}{\partial k_{j}}\left(\frac{P_{G}(k)}{i \omega_{n}-\epsilon_{G}}+\frac{P_{E}(k)}{i \omega_{n}-\epsilon_{E}}\right)\right)
+\end{aligned}
+\]</span></p>
+<h5 id="投影子代数">投影子代数</h5>
+<p>投影子的性质</p>
+<ul>
+<li><span class="math inline">\(P_{G}\left(\partial_{i} P_{G}\right)=\partial_{i} P_{G}-\left(\partial_{i} P_{G}\right) P_{G}\)</span></li>
+<li><span class="math inline">\(\left(\partial_{i} P_{E}\right) P_{G}=-P_{E} \partial_{i} P_{G}\)</span></li>
+<li><span class="math inline">\(\partial_{i} P_{G}=-\partial_{i} P_{E}\)</span></li>
+<li><span class="math inline">\(\left(\partial_{i} P_{G}\right) P_{G}\left(\partial_{j} P_{G}\right) P_{G}=\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{G}\right) P_{G}-\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{G}\right) P_{G}^{2}=0\)</span></li>
+</ul>
+<p>等价的表示 <span class="math inline">\(G \rightarrow E\)</span></p>
+<ul>
+<li><span class="math inline">\(\left(\partial_{i} P_{G}\right) P_{G}\left(\partial_{j} P_{E}\right) P_{G}=-\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{G}\right) P_{E} P_{G}=0\)</span></li>
+<li><span class="math inline">\(\left(\partial_{i} P_{G}\right) P_{E}\left(\partial_{j} P_{G}\right) P_{E}=-\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{E}\right) P_{G} P_{E}=0\)</span></li>
+<li><span class="math inline">\(\left(\partial_{i} P_{G}\right) P_{G}\left(\partial_{j} P_{G}\right) P_{E}=-\left(\partial_{i} P_{G}\right) P_{G}\left(\partial_{j} P_{E}\right) P_{E}\)</span></li>
+<li><span class="math inline">\(\left(\partial_{i} P_{G}\right) P_{E}\left(\partial_{j} P_{G}\right) P_{G}=-\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{E}\right) P_{G}\)</span></li>
+</ul>
+<p>其中最重要的性质是 <span class="math inline">\(\left(\partial_{i} P_{G}\right) P_{G}\left(\partial_{j} P_{G}\right) P_{G}=0\)</span> 和 <span class="math inline">\(\left(\partial_{i} P_{G}\right) P_{E}\left(\partial_{j} P_{G}\right) P_{E}=0\)</span>，因为可以抵消4个 电流-电流关联函数中的2项。</p>
+<h5 id="matsubara-求和">Matsubara 求和</h5>
+<p>接下来需要 Matsubara 求和，费米分布 <span class="math inline">\(n_{F}(z)=\frac{1}{(\exp \beta z)+1}\)</span> 的极点 <span class="math inline">\(i \omega_{m}=\frac{(2 m+1) \pi}{\beta}\)</span> 是费米频率。 <span class="math display">\[
+\begin{aligned}
+\sum_{n} f\left(i \omega_{n}\right) &amp;=\frac{\beta}{2 \pi i} \int_{C_{1}} d z \frac{1}{e^{\beta z}+1} A(z) \\
+&amp;=\frac{\beta}{2 \pi i} \int_{C_{2}} d z \frac{1}{e^{\beta z}+1} A(z) \\
+&amp;=\beta \frac{1}{e^{\beta z_{i}}+1} \operatorname{Res}\left(A\left(z, z_{i}\right)\right)
+\end{aligned}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(C_{1}\)</span> 是计数逆时针绕 虚轴的次数</li>
+<li><span class="math inline">\(C_{2}\)</span> 是计数绕极点<span class="math inline">\(A(z)\)</span>的次数</li>
+</ul>
+<p>在零温的时候</p>
+<ul>
+<li><span class="math inline">\(\epsilon_{E}&gt;0\)</span> 能级的占据态是 <span class="math inline">\(n_{F}\left(\epsilon_{E}\right)=0\)</span></li>
+<li><span class="math inline">\(\epsilon_{G}&lt;0\)</span> 能级的占据态是 <span class="math inline">\(n_{F}\left(\epsilon_{G}\right)=1\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+Q_{i j}\left(i v_{m}\right)=&amp; \frac{1}{V} \sum_{k}-\left(\epsilon_{G}-\epsilon_{E}\right)^{2} \\
+&amp; \times \operatorname{Tr}\left(\frac{\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{E}\right) P_{E}}{\epsilon_{G}-i v_{m}-\epsilon_{E}}+\frac{\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{E}\right) P_{G}}{\epsilon_{G}+i v_{m}-\epsilon_{E}}\right)
+\end{aligned}
+\]</span></p>
+<p>我们只对电导的反对称部分(the Hall conductivity)感兴趣 <span class="math display">\[
+Q_{i j}\left(i v_{m}\right)=\frac{1}{V} \sum_{k}\left(\epsilon_{G}-\epsilon_{E}\right)^{2} \operatorname{Tr}\left(\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{E}\right) P_{E} \frac{2 i v_{m}}{\left(i v_{m}\right)^{2}+\left(\epsilon_{G}-\epsilon_{E}\right)^{2}}\right)
+\]</span> 为了从温度序得到时序关联子，要用解析延拓，<span class="math inline">\(i v_{m} \rightarrow \omega+i \delta\)</span>。在DC极限下 <span class="math inline">\(\omega \rightarrow 0\)</span> <span class="math display">\[
+\begin{aligned}
+Q_{i j}(\omega \rightarrow 0) &amp;=\lim _{\omega \rightarrow 0} \frac{1}{V} \sum_{k}\left(\epsilon_{G}-\epsilon_{E}\right)^{2} \operatorname{Tr}\left(\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{E}\right) P_{E} \frac{2 \omega}{(\omega+i \delta)^{2}+\left(\epsilon_{G}-\epsilon_{E}\right)^{2}}\right) \\
+&amp;=\frac{2 \omega}{\Omega} \sum_{k} \operatorname{Tr}\left[\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{E}\right) P_{E}\right]
+\end{aligned}
+\]</span></p>
+<h4 id="反对称">反对称</h4>
+<p>求迹 <span class="math display">\[
+\operatorname{Tr}\left[\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{E}\right) P_{E}\right]=\operatorname{Tr}\left[\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{G}\right) P_{G}\right]-\operatorname{Tr}\left[\left(\partial_{i} P_{G}\right)\left(\partial_{i} P_{G}\right)\right]
+\]</span></p>
+<ul>
+<li><p>最后一项关于 <span class="math inline">\(i, j\)</span> 是对称的，所以忽略它。</p></li>
+<li><p>第一项，用布洛赫态，加上tedious代数</p></li>
+</ul>
+<p><span class="math display">\[
+\operatorname{Tr}\left[\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{G}\right) P_{G}\right]=\sum_{a=1}^{m}\left\langle\partial_{i}(a, k)\left|\partial_{j}\right| a, k\right\rangle+\sum_{a, \beta=1}^{m}\left\langle a, k\left|\partial_{i}\right| \beta, k\right\rangle\left\langle\beta, k\left|\partial_{j}\right| a, k\right\rangle
+\]</span></p>
+<p>第二项关于 <span class="math inline">\(i, j\)</span> 是对称的 <span class="math display">\[
+\sum_{a, \beta=1}^{m}\left\langle a, k\left|\partial_{i}\right| \beta, k\right\rangle\left\langle\beta, k\left|\partial_{j}\right| \alpha, k\right\rangle=\sum_{a, \beta=1}^{m}\left\langle\beta, k\left|\partial_{i}\right| a, k\right\rangle\left\langle a, k\left|\partial_{j}\right| \beta, k\right\rangle
+\]</span> 所以忽略它。<span class="math inline">\(\left\langle\partial_{i}(\alpha, k)\left|\partial_{j}\right| \alpha, k\right\rangle\)</span>的反对称部分 <span class="math display">\[
+\epsilon_{i j} \operatorname{Tr}\left[\left(\partial_{i} P_{G}\right)\left(\partial_{j} P_{G}\right) P_{G}\right]=\sum_{a=1}^{m}\left[\left\langle\partial_{i}(a, k)\left|\partial_{j}\right| a, k\right\rangle-\left\langle\partial_{j}(a, k)\left|\partial_{i}\right| a, k\right\rangle\right]
+\]</span> 我们终于到达了结果，霍尔电导(Hall conductivity,) <span class="math display">\[
+\begin{aligned}
+\sigma_{i j \text { Hall }} &amp;=\frac{1}{i \omega} \frac{Q_{i j}(\omega)-i \leftrightarrow j}{2} \\
+&amp;=\frac{1}{V} \sum_{k} \sum_{a=1}^{m}\left\langle\partial_{i}(a, k)\left|\partial_{j}\right| a, k\right\rangle-\left\langle\partial_{j}(a, k)\left|\partial_{i}\right| a, k\right\rangle \\
+&amp;=\frac{1}{\Omega} \sum_{k} \sum_{a=1}^{m}-i\left(\left\langle\partial_{i}(a, k)\left|\partial_{j}\right| a, k\right\rangle-\left\langle\partial_{j}(a, k)\left|\partial_{i}\right| a, k\right\rangle\right) \\
+&amp;=\int \frac{d k_{x} d k_{y}}{(2 \pi)^{2}} \sum_{a=1}^{m}-i\left(\left\langle\partial_{i}(a, k)\left|\partial_{j}\right| a, k\right\rangle-\left\langle\partial_{j}(a, k)\left|\partial_{i}\right| a, k\right\rangle\right)
+\end{aligned}
+\]</span> 只有零频率霍尔电导有拓扑意义。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/">Topological Physics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/Book-TI-SC/">Book TI SC</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/09/15/topology04_knot_semetel/">
+                        <span class="hidden-mobile">knot transitions in topological semimetals</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Hall Conductance and Chern Numbers&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
