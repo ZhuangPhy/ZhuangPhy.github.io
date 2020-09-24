@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>线性响应函数 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2016-09-24 14:23">
+      September 24, 2016 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      120
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="概述">概述</h2>
+<ul>
+<li>响应</li>
+</ul>
+<p>对系统加上外场，或更一般地说，对系统施以某种扰动的话，则系统的一些性质, 如热力学世, 会产生相应的变化, 这就叫响应 (response).</p>
+<ul>
+<li>线性响应</li>
+</ul>
+<p>如果外场 (扰动) 比较小, 则热力学量的变化与外场 (扰动) 成正比, 为线性关系。这就是线性响应。其比例系数 (一般是个函数) 称为线性响应函数 (linear response function）较早的文献中有称之为广义极化率 (generalized susceptibility). 它可以用 格林函数来表达。</p>
+<ol type="1">
+<li>本章我们先推导出系统对外场的线性响应的Kubo 公式（用利用热力学格林函数）</li>
+<li>然后我们介绍另一种方法，松原函数也应该能够达到这个目的.</li>
+<li>最后我们举两个例子
+<ul>
+<li>磁化率</li>
+<li>热导率</li>
+</ul></li>
+</ol>
+<h3 id="线性响应">线性响应</h3>
+<p>推导线性响应公式有两个<strong>前提</strong>：</p>
+<ol type="1">
+<li>一是执动较小, 这儿较小的含义是：由扰动引 起的?贺顿可以作为微挑来处理,</li>
+<li>二是响应能够及时追随扰动。为了做到这一点, 需 要假宾绝热条件, 令执动是缓慢加上去的. 在 <span class="math inline">\(t=-\infty\)</span> 中 时，系统处于平衡态, 或叫做 纯态。哈密顿量为 <span class="math inline">\(H\)</span>.</li>
+</ol>
+<p>对系统加一外场 <span class="math inline">\(~ F\)</span>，设初始条件为 <span class="math inline">\(\boldsymbol{F}(\boldsymbol{x}, t=-\infty)=0\)</span>。如果外场本身并不含时间 <span class="math display">\[
+\boldsymbol{F}(\boldsymbol{x}, t)=\mathbf{e}^{0^{+} t} \boldsymbol{F}(\boldsymbol{x})
+\]</span> 设扰动引起的哈密顿量为 <span class="math display">\[
+\begin{aligned}
+H_{1}&amp;=-\int \mathrm{d} \boldsymbol{x} \boldsymbol{C}(\boldsymbol{x}) \cdot \boldsymbol{F}(\boldsymbol{x}, t)
+\\&amp;=-\sum_{\alpha=1}^{3} \int \mathrm{d} \boldsymbol{x} C_{\alpha}(\boldsymbol{x}) F_{\alpha}(\boldsymbol{x}, t)
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\boldsymbol{C}\)</span> 应是系统本身的某一个物理量.</li>
+<li>由于扰动, 系统内就有一个力学量 <span class="math inline">\(\boldsymbol{D}\)</span> 受到 变化, 变化的是为 <span class="math inline">\(\Delta\boldsymbol{D}\)</span> .</li>
+</ul>
+<p>现在来推导这个变化量的表达式. 注意, 由于这儿的 <span class="math inline">\(\boldsymbol{C}\)</span> 和 $ $ 是系统本身的物理量, 因此都是算符. 外场 <span class="math inline">\(F(t)\)</span> 不是算符. 但表现了 <span class="math inline">\(H_{1}\)</span>随时间 的变化。</p>
+<p>总的哈密顿量为 <span class="math display">\[
+\begin{aligned}
+H_{\mathrm{T}}&amp;=H+H_{1}
+\\&amp;=H-\int \mathrm{d} \boldsymbol{x} \boldsymbol{C}(\boldsymbol{x}) \cdot \boldsymbol{F}(\boldsymbol{x}, t)
+\end{aligned}
+\]</span> 未有扰动时, 系统处于平衡态, 统计算符 <span class="math inline">\(\rho_{0}=\frac{e^{-\beta H}}{Z_{0}}\)</span></p>
+<p>加上扰动时, 统计算符 <span class="math inline">\(\rho(t)=\frac{\mathrm{e}^{-\beta H_{\mathrm{T}}}}{Z}\)</span></p>
+<p>物理量 $ $ 在系综内的统计平均是 <span class="math display">\[
+\begin{aligned}
+\operatorname{tr}\left[\rho_{0} \boldsymbol{D}\right]&amp;=\sum_{n}\left\langle\psi_{n}\left|\rho_{0} \boldsymbol{D}\right| \psi_{n}\right\rangle
+\\&amp;=Z_{0}^{-1} \sum_{n} \mathrm{e}^{-\beta E_{n}}\left\langle\psi_{n}|\boldsymbol{D}| \psi_{n}\right\rangle
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{tr}[\rho(t) \boldsymbol{D}] &amp;=\sum_{n}\left\langle\psi_{n}(t)|\rho(t) \boldsymbol{D}| \psi_{n}(t)\right\rangle
+\\&amp;=Z^{-1} \sum_{n} \mathrm{e}^{-\beta E_{n}(t)}\left\langle\psi_{n}(t)|\boldsymbol{D}| \psi_{n}(t)\right\rangle
+\end{aligned}
+\]</span></p>
+<p>扰动引起 系统内就有一个力学量 <span class="math inline">\(\boldsymbol{D}\)</span> 的变化 <span class="math display">\[
+\overline{\Delta D}=\operatorname{tr}[\rho(t) \boldsymbol{D}]-\operatorname{tr}\left[\rho_{0} \boldsymbol{D}\right]
+\]</span></p>
+<h3 id="kubo-公式">Kubo 公式</h3>
+<p>Kubo 公式说明, 当加上外场 <span class="math inline">\(F\)</span> 后, 相应的物理量 <span class="math inline">\(D\)</span> 的变化与外场成正比, <strong>比例系数</strong> 是 由 <span class="math inline">\(D\)</span> 与另一物理量 <span class="math inline">\(C\)</span> 组成的推迟格林函数 <span class="math inline">\(g_{D C_{\alpha}}^{ R }\left(t, t_{1}\right)\)</span>. <span class="math display">\[
+\begin{aligned}
+\overline{\Delta D}(t) &amp;=-\frac{1}{\mathrm{i} \hbar} \int_{-\infty}^{t} \mathrm{d} t_{1} \sum_{n}\left\langle\psi_{n}\left|\rho_{0}\left[H_{1}^{\mathrm{i}}\left(t_{1}\right), \boldsymbol{D}(t)\right]\right| \psi_{n}\right\rangle \\
+&amp;=\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t_{1} \operatorname{tr}\left\{\rho_{0}\left[H_{1}^{\mathrm{i}}\left(t_{1}\right), \boldsymbol{D}(t)\right]\right\} \\
+&amp;=\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t_{1} \int \mathrm{d} \boldsymbol{x}_{1}\left\langle\left[\boldsymbol{D}(t), \boldsymbol{C}\left(\boldsymbol{x}_{1}, t_{1}\right)\right]\right\rangle \cdot \boldsymbol{F}\left(\boldsymbol{x}_{1}, t_{1}\right) \\
+&amp;=\frac{\mathrm{i}}{\hbar} \sum_{\alpha=1}^{3} \int \mathrm{d} \boldsymbol{x}_{1} \int_{-\infty}^{\infty} \mathrm{d} t_{1} \theta\left(t-t_{1}\right)\left\langle\left[\boldsymbol{D}(t), C_{\alpha}\left(\boldsymbol{x}_{1}, t_{1}\right)\right]\right\rangle F_{\alpha}\left(\boldsymbol{x}_{1}, t_{1}\right) \\
+&amp;=-\frac{1}{\hbar} \sum_{\alpha=1}^{3} \int \mathrm{d} \boldsymbol{x}_{1} \int_{-\infty}^{\infty} \mathrm{d} t_{1} g_{D C_{\alpha}}^{\mathrm{R}}\left(t, t_{1}\right) F_{\alpha}\left(\boldsymbol{x}_{1}, t_{1}\right)
+\end{aligned}
+\]</span></p>
+<p>在频率空间更容易体现出<strong>线性关系</strong>，傅里叶变换 <span class="math display">\[
+\overline{\Delta D}(\omega)=\alpha(\omega) F(\omega)
+\]</span> 其中响应系数 <span class="math display">\[
+\begin{aligned}
+\alpha(\omega) &amp;=\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{\infty} \mathrm{e}^{\mathrm{i} \omega t} \mathrm{d} t \theta(t)\langle[D(t), C(0)]\rangle\\
+&amp;=-\int_{-\infty}^{\infty} \mathrm{e}^{\mathrm{i} \omega t} \mathrm{d} t g_{D C}^{\mathrm{R}}(t)
+\end{aligned}
+\]</span></p>
+<p>此式表明响应系数 <span class="math inline">\(\alpha(\omega)\)</span> 是 <span class="math inline">\(g_{D C}^{ R }(t)\)</span> 的<strong>傅里叶分量</strong>. 所以已知格林函数可求出线性响应函数. 例如</p>
+<ul>
+<li>由电流对电场的 响应可写出电导率.</li>
+<li>由磁化强度对磁场的响应可求磁导率,</li>
+<li>以及热导率, 扩散系数等等.</li>
+</ul>
+<p>因此, 利用格林函数这一手段, 几乎可了解系统的所有物理性质.</p>
+<h2 id="磁化率">磁化率</h2>
+<p>磁化率标志系统的磁化强度对于外磁场的响应.</p>
+<p>外磁场 <span class="math inline">\(H\)</span> 引起的哈密顿量 <span class="math display">\[
+H_{1}=-\int d x M ( x ) \cdot H ( x , t)
+\]</span> 与 <code>Kubo公式</code> 对比 <span class="math display">\[
+\begin{aligned}
+\overline{\Delta D}(t) &amp;=\frac{\mathrm{i}}{\hbar} \sum_{\alpha=1}^{3} \int \mathrm{d} \boldsymbol{x}_{1} \int_{-\infty}^{\infty} \mathrm{d} t_{1} \theta\left(t-t_{1}\right)\left\langle\left[\boldsymbol{D}(t), C_{\alpha}\left(\boldsymbol{x}_{1}, t_{1}\right)\right]\right\rangle F_{\alpha}\left(\boldsymbol{x}_{1}, t_{1}\right) \\
+&amp;=-\frac{1}{\hbar} \sum_{\alpha=1}^{3} \int \mathrm{d} \boldsymbol{x}_{1} \int_{-\infty}^{\infty} \mathrm{d} t_{1} g_{D C_{\alpha}}^{\mathrm{R}}\left(t, t_{1}\right) F_{\alpha}\left(\boldsymbol{x}_{1}, t_{1}\right)
+\end{aligned}
+\]</span> 对应 <span class="math inline">\(F = H , C = M .\)</span> 引起的是磁化强度的变化, <span class="math inline">\(D = M\)</span> <span class="math display">\[
+\begin{aligned}
+\Delta M_{\beta}( x , t) &amp;=\frac{ i }{\hbar} \int_{-\infty}^{\infty} d t^{\prime} \sum_{\alpha=1}^{3} \int d x ^{\prime} H_{\alpha}\left( x ^{\prime}, t^{\prime}\right) \theta\left(t-t^{\prime}\right)\left\langle\left[M_{\beta}( x , t), M_{\alpha}\left( x ^{\prime}, t^{\prime}\right)\right]\right\rangle \\
+&amp;=-\frac{1}{\hbar} \int_{-\infty}^{\infty} d t^{\prime} \sum_{\alpha=1}^{3} \int d x ^{\prime} g_{M_{\beta} M_{\alpha}}^{ R } H_{\alpha}\left( x ^{\prime}, t^{\prime}\right)
+\end{aligned}
+\]</span> 磁化强度 <span class="math inline">\(M\)</span> 之间的推迟格林函数 <span class="math inline">\(g_{M_{\beta} M_{\alpha}}^{R}\)</span> 就是 响应系数：磁化率 <span class="math inline">\(\chi_{\beta \alpha}\)</span></p>
+<h3 id="自旋算符">自旋算符</h3>
+<p>磁化强度 <span class="math inline">\(M\)</span> 常常写成自旋算符 <span class="math inline">\(S\)</span> 的形式 <span class="math inline">\(M =g \mu_{ B } S\)</span> 其中, <span class="math inline">\(g\)</span> 是 <span class="math inline">\(g\)</span> 因子, <span class="math inline">\(\mu_{ B }\)</span> 是玻尔磁子. 将上式写成 <span class="math display">\[
+\begin{aligned}
+\Delta S_{\beta}( x , t) &amp;=\frac{ i }{\hbar} g \mu_{ B } \int_{-\infty}^{\infty} d t^{\prime} \sum_{\alpha=1}^{3} \int d x ^{\prime} H_{\alpha}\left( x ^{\prime}, t^{\prime}\right) \theta\left(t-t^{\prime}\right)\left\langle\left[S_{\beta}( x , t), S_{\alpha}\left( x ^{\prime}, t^{\prime}\right)\right]\right\rangle \\
+&amp;=-\frac{1}{\hbar} g \mu_{ B } \int_{-\infty}^{\infty} d t^{\prime} \sum_{\alpha=1}^{3} \int d x ^{\prime} g_{S_{\beta}}^{ R } S_{\alpha} H_{\alpha}\left( x ^{\prime}, t^{\prime}\right)\\
+&amp;=\sum_{\alpha=1}^{3} \int d x ^{\prime} \int_{-\infty}^{\infty} d t^{\prime} \chi_{\beta \alpha} H_{\alpha}\left( x ^{\prime}, t^{\prime}\right)
+\end{aligned}
+\]</span> 其中 <strong>磁化率</strong> <span class="math inline">\(\chi_{\beta \alpha}=-\frac{g \mu_{B}}{\hbar} g_{S_{\beta} S_{\alpha}}^{R}\)</span>。上面的磁场的线性响应可以写成 <span class="math display">\[
+\left(\begin{array}{c}
+\Delta S_{+} \\
+\Delta S_{-} \\
+\Delta S_{z}
+\end{array}\right)=\int d x ^{\prime} \int_{-\infty}^{\infty} d t^{\prime}\left(\begin{array}{ccc}
+\chi_{++} &amp; \chi_{+-} &amp; \chi_{+z} \\
+\chi_{-+} &amp; \chi_{--} &amp; \chi_{-z} \\
+\chi_{z+} &amp; \chi_{z-} &amp; \chi_{z z}
+\end{array}\right)\left(\begin{array}{c}
+H_{+} \\
+H_{-} \\
+H_{z}
+\end{array}\right)
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(S^{\pm}=S_{x} \pm i S_{y}\)</span></li>
+<li><span class="math inline">\(H_{\pm}=H_{x} \pm i H_{y}\)</span></li>
+</ul>
+<p><strong>磁化率</strong>的分量 <span class="math display">\[
+\chi_{\beta \alpha}=-\frac{g \mu_{ B }}{\hbar} g_{S_{\beta} S_{\alpha}}^{ R }
+\]</span> 具体表达</p>
+<ul>
+<li><span class="math inline">\(\chi^{\sigma_{1} \sigma_{2}}\left(x, x^{\prime}\right)=-\frac{g \mu_{ B }}{2 \hbar} g_{S^{\sigma_{1}} S^{\sigma_{2}}}^{ R }\left(x, x^{\prime}\right)\)</span></li>
+<li><span class="math inline">\(\chi^{\sigma z}\left(x, x^{\prime}\right)=-\frac{g \mu_{ B }}{\hbar} g_{S^{\sigma} S^{z}}^{ R }\left(x, x^{\prime}\right)\)</span></li>
+<li><span class="math inline">\(\chi^{z \sigma}\left(x, x^{\prime}\right)=-\frac{g \mu_{ B }}{\hbar} g_{S^{z} S^{\sigma}}^{ R }\left(x, x^{\prime}\right)\)</span></li>
+<li><span class="math inline">\(\sigma=+,-\)</span></li>
+</ul>
+<h3 id="垂直分量">垂直分量</h3>
+<p>其中 <span class="math inline">\(\chi^{+-}\)</span> 这个分量是受到<strong>特别关注</strong>的, 它表示一个磁矩在受到与它垂直的一个磁 场作用时, 磁矩的响应. （<strong>霍尔电导</strong>）</p>
+<p>作傅里叶变换 <span class="math display">\[
+S^{+}( x )=\sum_{ q } e ^{- i q \cdot x } S^{+}( q )
+\]</span> 得到 <span class="math display">\[
+\begin{aligned}
+\chi^{+-}\left(x, x^{\prime}\right)
+&amp;=-\frac{g \mu_{ B }}{\hbar} g_{S^{+} S^{-}}^{R}\left(x, x^{\prime}\right)\\
+&amp;=-\frac{g \mu_{ B }}{2 \hbar}\left\langle\left[S^{+}( x , t), S^{-}\left( x ^{\prime}, t^{\prime}\right)\right]\right\rangle
+\end{aligned}
+\]</span> 如果 <span class="math inline">\(\chi^{+-}\left(x, x^{\prime}\right)=\chi^{+-}\left( x - x ^{\prime}, t, t^{\prime}\right),\)</span> 那么 <span class="math display">\[
+\begin{aligned}
+\chi^{+-}\left( x - x ^{\prime}, t, t^{\prime}\right) &amp;= i \theta\left(t-t^{\prime}\right) \frac{g \mu_{ B }}{2 \hbar}\left\langle\left[S^{+}\left( x - x ^{\prime}, t\right), S^{-}\left(0, t^{\prime}\right)\right]\right\rangle \\
+&amp;= i \theta\left(t-t^{\prime}\right) \frac{g \mu_{ B }}{2 \hbar} \sum_{ q } e ^{- i q \cdot\left( x - x ^{\prime}\right)}\left\langle\left[S^{+}( q , t), S^{-}\left(0, t^{\prime}\right)\right]\right\rangle \\
+&amp;=\sum_{ q } e ^{- i q \cdot\left( x - x ^{\prime}\right)} \chi^{+-}\left( q , t ; 0, t^{\prime}\right)
+\end{aligned}
+\]</span></p>
+<h3 id="电子的磁化率">电子的磁化率</h3>
+<p>自旋量子数 S 可以取正的整数和半整数. 电子具有 <span class="math inline">\(S=1 / 2\)</span> 的自旋. 电子的磁矩用以下方式来表达: <span class="math display">\[
+S =\left(c_{\uparrow}^{\dagger}, c_{\downarrow}^{\dagger}\right) \sigma \left(\begin{array}{c}
+c_{\uparrow} \\
+c_{\downarrow}
+\end{array}\right)
+\]</span> 写出各个分量</p>
+<ul>
+<li><span class="math inline">\(S_{x}=\frac{1}{2}\left(c_{\uparrow}^{\dagger} c_{\downarrow}+c_{\downarrow}^{\dagger} c_{\uparrow}\right)=\frac{1}{2} \sum_{\sigma} c_{\sigma}^{\dagger} c_{-\sigma}\)</span></li>
+<li><span class="math inline">\(S_{y}=\frac{1}{2 i }\left(c_{\uparrow}^{\dagger} c_{\downarrow}-c_{\downarrow}^{\dagger} c_{\uparrow}\right)=\frac{1}{2 i } \sum_{\sigma} \sigma c_{\sigma}^{\dagger} c_{-\sigma}\)</span></li>
+<li><span class="math inline">\(S_{z}=\sum_{\sigma} \sigma c_{\sigma}^{\dagger} c_{\sigma}\)</span></li>
+<li><span class="math inline">\(S^{\sigma}=c_{\sigma}^{\dagger} c_{-\sigma}\)</span></li>
+</ul>
+<p>其中 <span class="math inline">\(\sigma=+,-,\)</span> 分别对应 <span class="math inline">\(\uparrow\)</span> 和 <span class="math inline">\(\downarrow,\)</span> 相应地, 在求和号中, 取 <span class="math inline">\(\sigma=1\)</span> 和 <span class="math inline">\(-1 .\)</span></p>
+<h4 id="磁矩的傅里叶分量">磁矩的傅里叶分量</h4>
+<p>傅里叶变换得到：磁矩的傅里叶分量 <span class="math display">\[
+S^{\sigma}( q )=\sum_{ q _{1}} c_{\sigma}^{\dagger}\left( q _{1}+ q \right) c_{-\sigma}\left( q _{1}\right)
+\]</span></p>
+<p><span class="math display">\[
+S^{-\sigma}( q )=\sum_{ q _{1}} c_{-\sigma}^{\dagger}\left( q _{1}- q \right) c_{\sigma}\left( q _{1}\right)
+\]</span></p>
+<p>所以 <span class="math inline">\(\chi^{+-}\left(x, x^{\prime}\right)=-\frac{g \mu_{ B }}{2 \hbar}\left\langle\left[S^{+}( x , t), S^{-}\left( x ^{\prime}, t^{\prime}\right)\right]\right\rangle\)</span> 的傅里叶分量为 <span class="math display">\[
+\begin{aligned}
+\chi^{\rho,-\rho}( p , t) &amp;= i \theta(t) \frac{g \mu_{ B }}{2 \hbar}\left\langle\left[S^{\rho}( p , t), S^{-\rho}(- p , 0)\right]\right\rangle \\
+&amp;=\rho i \theta(t) \frac{g \mu_{ B }}{2 \hbar} \sum_{ q _{1}, q _{2}}\left\langle\left[c_{ q _{1}+ p \rho}^{\dagger}(t) c_{ q _{1}-\rho}(t), c_{ q _{2}- p -\rho}^{\dagger} c_{ q _{2} \rho}\right]\right\rangle
+\end{aligned}
+\]</span></p>
+<h4 id="磁化率的增强">磁化率的增强</h4>
+<p>如果电子之间存在库仑相互作用, 电子的哈密顿最 <span class="math display">\[
+H=\sum_{ p \sigma} \varepsilon_{ p } c_{ p \sigma}^{\dagger} c_{ p \sigma}+\frac{U}{2 N} \sum_{ p , p _{1}, q \sigma} c_{ p + q \sigma}^{\dagger} c_{ p \sigma} c_{ p _{1}- q \sigma}^{\dagger} c_{ p _{1} \sigma}
+\]</span> 可以计算得到 <span class="math display">\[
+\chi^{\rho,-\rho}( q ; \omega)=\frac{\chi_{0}^{\rho,-\rho}( q ; \omega)}{1-U \chi_{0}^{\rho,-\rho}( q ; \omega)}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\chi_{0}^{\rho,-\rho}( q ; \omega)=\frac{1}{N} \sum_{ p } \frac{f_{ p -\rho}-f_{ p + q \rho}}{\hbar \omega-\left(\varepsilon_{ p \rho}-\varepsilon_{ p + q ,-\rho}\right)+ i 0^{+}}\)</span> 是无相互作用电子气的磁化率.</li>
+<li>所以 <span class="math inline">\(\chi^{\rho,-\rho}(q ; \omega)=\frac{\chi_{0}^{\rho_{1}-\rho}(q ; \omega)}{1-U \chi_{0}^{\rho,-\rho}(q ; \omega)}\)</span> 说明, 电子之间相互作用导致磁化率的<strong>增强.</strong></li>
+</ul>
+<h4 id="静态磁化率">静态磁化率</h4>
+<p>在顺磁态, 系统不显示磁性. 此时如果无外场, <span class="math inline">\(\varepsilon_{p \rho}=\varepsilon_{p,-\rho}=\varepsilon_{p}\)</span>$ f_{p }=f_{p,-}=$<span class="math inline">\(f_{p},\)</span> 即能级和能级上的占据数与自旋无关.</p>
+<p>无相互作用电子气的磁化率 <span class="math display">\[
+\chi_{0}^{\rho,-\rho}( q ; \omega)=\frac{1}{N} \sum_{ p } \frac{f_{ p -\rho}-f_{ p + q \rho}}{\hbar \omega-\left(\varepsilon_{ p \rho}-\varepsilon_{ p + q ,-\rho}\right)+ i 0^{+}}
+\]</span> 简化为 <span class="math display">\[
+\chi_{0}^{\rho,-\rho}( q ; \omega)=-\frac{g \mu_{ B }}{2 \hbar} \frac{1}{N} \sum_{ p } \frac{f_{ p }-f_{ p + q }}{\hbar \omega-\left(\varepsilon_{ p }-\varepsilon_{ p + q }\right)+ i 0^{+}}
+\]</span></p>
+<ul>
+<li>随 <span class="math inline">\(\omega\)</span> 变化的磁化率称为<strong>动态磁化率</strong>.</li>
+<li><span class="math inline">\(\omega=0\)</span> 的磁化率称为<strong>静态磁化率</strong>.</li>
+</ul>
+<ol type="1">
+<li>在 <span class="math inline">\(\omega \neq 0\)</span> 时, 系统内会有能量损失, 磁化率有虚部, 系统内有阻尼传播.</li>
+<li>在 <span class="math inline">\(\omega=0\)</span> 时, 系统内没有 能量损失, 磁化率无虚部, 系统内有稳定的响应.</li>
+</ol>
+<p>在 <span class="math inline">\(\omega=0\)</span> 时，静态磁化率为 <span class="math display">\[
+\chi_{0}^{\rho,-\rho}( q ; \omega=0)=\frac{1}{N} \sum_{ p } \frac{f_{ p }-f_{ p + q }}{\varepsilon_{ p + q }-\varepsilon_{ p }}
+\]</span> 在零温下 <span class="math display">\[
+\begin{aligned}
+\chi_{0}^{\rho,-\rho}( q ; \omega=0&amp;=\frac{1}{N} \sum_{ p } \frac{\theta\left(\varepsilon_{ F }-\varepsilon_{ p }\right)-\theta\left(\varepsilon_{ F }-\varepsilon_{ p + q }\right)}{\varepsilon_{ p + q }-\varepsilon_{ p }} \\
+&amp;=\frac{1}{N} \sum_{ p \left(\varepsilon_{ p }&lt;\varepsilon_{ F }, \varepsilon p + q &gt;\varepsilon_{ F }\right)} \frac{1}{\varepsilon_{ p + q }-\varepsilon_{ p }}
+\end{aligned}
+\]</span></p>
+<ul>
+<li>这时如果能量 <span class="math inline">\(\varepsilon_{p}\)</span> 和 <span class="math inline">\(\varepsilon_{p+q}\)</span> 都在费米能以下或者都在费米能以上, 则被求和函数值为零.</li>
+<li>如果只有一个在费米能以下, 另一个在费米能以上时, 才不为零.</li>
+</ul>
+<h4 id="磁性相变">磁性相变</h4>
+<ul>
+<li>在有些情况下，系统自发地显现为不稳定。这就是说，有可能出现磁有序态, 它的能量比基态的顺磁态能量要低.</li>
+<li>如果磁化率是无穷大, 显然系统就不稳定。由 <span class="math inline">\(\chi^{\rho,-\rho}( q ; \omega)=\frac{\chi_{0}^{\rho,-\rho}( q ; \omega)}{1-U \chi_{0}^{\rho,-\rho}( q ; \omega)}\)</span> 式, 电子之间有库仑相互作用时的静态磁化率为</li>
+</ul>
+<p><span class="math display">\[
+\chi^{\rho,-\rho}( q ; \omega=0)=\frac{\chi_{0}^{\rho,-\rho}( q ; \omega=0)}{1-U \chi_{0}^{\rho,-\rho}( q ; \omega=0)}
+\]</span></p>
+<p>当电子间的库仑相互作用强到使 <span class="math display">\[
+1-U \chi_{0}^{\rho,-\rho}( q ; \omega=0)=0
+\]</span> 磁化率就成为无穷大, 系统就不稳定, 会出现相变. 从顺磁性的相转变为有自发磁 化的相. 所以, 当电子之间的相互作用大到 <span class="math display">\[
+U \geqslant \frac{1}{\chi_{0}^{\rho,-\rho}( q ; \omega=0)}
+\]</span> 时, 系统一定显示磁性.</p>
+<h4 id="斯通纳判据">斯通纳判据</h4>
+<p>对于 <span class="math inline">\(q \rightarrow 0\)</span> 的情况, 可做更定量的讨论.</p>
+<p>对于能量做泰勒展开. <span class="math display">\[
+f_{p+ q }=f_{ p }+ q \cdot \frac{\partial f_{ p }}{\partial p }+\cdots=f_{ p }+ q \cdot \frac{\partial f_{ p }}{\partial \varepsilon_{ p }} \frac{\partial \varepsilon_{ p }}{\partial p }+\cdots
+\]</span> 费米分布做泰勒展开. <span class="math display">\[
+\varepsilon_{ p + q }=\varepsilon_{ p }+ q \cdot \frac{\partial \varepsilon_{ p }}{\partial p }+\cdots
+\]</span> 那么从 <span class="math inline">\(\chi_{0}^{\rho,-\rho}( q ; \omega=0)=\frac{1}{N} \sum_{ p } \frac{f_{ p }-f_{ p + q }}{\varepsilon_{ p + q }-\varepsilon_{ p }}\)</span> 式, 得到 <span class="math display">\[
+\lim _{q \rightarrow 0} \chi_{0}^{\rho,-\rho}( q ; \omega=0)=\frac{1}{N} \sum_{ p }\left(-\frac{\partial f_{p}}{\partial \varepsilon_{ p }}\right)
+\]</span> 零温下 <span class="math display">\[
+\begin{aligned}
+\lim _{ q \rightarrow 0} \chi_{0}^{\rho,-\rho}( q ; \omega=0)&amp;=-\frac{1}{N} \sum_{ p } \frac{\partial \theta\left(\varepsilon_{ F }-\varepsilon_{ p }\right)}{\partial \varepsilon_{ p }} \\
+&amp;=\frac{1}{N} \sum_{ p } \delta\left(\varepsilon_{ p }-\varepsilon_{ F }\right) \\
+&amp;=N\left(\varepsilon_{ F }\right)
+\end{aligned}
+\]</span> 是费米能处的态密度.</p>
+<p>由此得到零温静态零波矢的不稳定条件 <span class="math inline">\(U \chi_{0}^{\rho_{s}-\rho}(q ; \omega=0)\geqslant 1\)</span> 为 <span class="math display">\[
+U N\left(\varepsilon_{ F }\right)=1
+\]</span> 此条件称为斯通纳 (Stoner) 判据.</p>
+<h2 id="虚时响应">虚时响应</h2>
+<p>前面我们利用热力学格林函数可求出线性响应函数, 以了解外场对系统扰动时 系统内力学量的变化. 松原函数也应该能够达到这个目的.</p>
+<ol type="1">
+<li>求出一个虚时的响应系数 <span class="math inline">\(\alpha_{\tau}(\zeta)\)</span> 的公式;</li>
+<li>是找出 <span class="math inline">\(\alpha_{\tau}(\zeta)\)</span> 与实时响应 系数 <span class="math inline">\(\alpha(\omega)\)</span> 之间的关系.</li>
+</ol>
+<p>将实时改为虚时 <span class="math display">\[
+t \rightarrow-\mathbf{i} \tau
+\]</span></p>
+<p>系统受到一个微扰 <span class="math display">\[
+H_{1}=-C F(\tau)
+\]</span></p>
+<h4 id="线性响应-用松原函数表达">线性响应 用松原函数表达</h4>
+<ul>
+<li>前面我们用薛定谔绘景, 力学量算符不随时间变化, 而 状态随时间变化. 力学量在系综中的平均值随时间的依赖由状态来体现.</li>
+<li>在海森伯 绘景中, 力学量算符随时间变化, 而状态不随时间变化. 力学量在系综中的平均值 随时间的依赖由算符来体现.</li>
+</ul>
+<p>这两种平均值是完全相等的. 一个力学量在<strong>有扰动</strong>系综中的平均值 可以借助于虚时演化算符写成在<strong>无扰动</strong>系综中的平均值. <span class="math display">\[
+\left\langle D_{ H }(\tau)\right\rangle=\frac{\operatorname{tr}\left\{ e ^{-\beta\left(H_{0}-\mu N\right)} T_{\tau}\left[D_{ I }(\tau) U(\beta \hbar, 0)\right]\right\}}{\operatorname{tr}\left[ e ^{-\beta\left(H_{0}-\mu N\right)} U(\beta \hbar, 0)\right]}
+\]</span> 分母中的 <span class="math inline">\(U(\tau, 0)=1-\frac{1}{\hbar} \int_{0}^{\tau} d \tau_{1} H_{ I }^{ i }\left(\tau_{1}\right) U\left(\tau_{1}, 0\right)\)</span> 只取到 右边的第一项. 那么 <span class="math display">\[
+\begin{aligned}
+\left\langle D_{ H }(\tau)\right\rangle&amp;=\operatorname{tr}\left\{\rho_{0} T_{\tau}\left[D_{ I }(\tau) U(\beta \hbar, 0)\right]\right\}\\&amp;=\operatorname{tr}\left[\rho_{0} U(\beta \hbar, \tau) D_{ I }(\tau) U(\tau, 0)\right]
+\\&amp;=\operatorname{tr}\left\{\rho_{0}\left[1-\int_{\tau}^{\beta \hbar} H_{ I }^{ i }\left(\tau_{1}\right) d \tau_{1}\right] D_{ I }(\tau)\left[1-\int_{0}^{\tau} H_{ I }^{ i }\left(\tau_{2}\right) d \tau_{2}\right]\right\}
+\end{aligned}
+\]</span> 其中第一项 <span class="math inline">\(\operatorname{tr}\left[\rho_{0} D_{ I }(\tau)\right]=\operatorname{tr}\left[\rho_{0} D\right]=\langle D\rangle_{0}\)</span> 移到左边成为 <span class="math inline">\(\overline{\Delta D}(\tau) .\)</span> 略去二阶项后成为 <span class="math display">\[
+\begin{aligned}
+\overline{\Delta D}(\tau)=&amp;-\operatorname{tr}\left\{\rho_{0}\left[\int_{\tau}^{\beta \hbar} H_{ I }^{ i }\left(\tau_{1}\right) d \tau_{1} D_{ I }(\tau)+D_{ I }(\tau) \int_{0}^{\tau} H_{ I }^{ i }\left(\tau_{1}\right) d \tau_{1}\right]\right\} \\
+=&amp; \operatorname{tr}\left\{\rho_{0}\left[\int_{0}^{\beta \hbar} \theta\left(\tau_{1}-\tau\right) C_{ I }\left(\tau_{1}\right) F\left(\tau_{1}\right) D_{ I }(\tau) d \tau_{1}\right.\right.\\
+&amp;\left.\left.+D_{ I }(\tau) \int_{0}^{\beta \hbar} \theta\left(\tau-\tau_{1}\right) C_{ I }\left(\tau_{1}\right) F\left(\tau_{1}\right) d \tau_{1}\right]\right\} \\
+=&amp; \operatorname{tr}\left\{\rho_{0} \int_{0}^{\beta \hbar} d \tau_{1} T_{\tau}\left[C_{ I }\left(\tau_{1}\right) D_{ I }(\tau)\right] F\left(\tau_{1}\right)\right\} \\
+=&amp; \int_{0}^{\beta \hbar} d \tau_{1}\left\langle T_{\tau}\left[C\left(\tau_{1}\right) D(\tau)\right]\right\rangle F\left(\tau_{1}\right)
+\end{aligned}
+\]</span> 可以看出线性响应可以用松原函数来表达.</p>
+<h4 id="傅里叶变换">傅里叶变换</h4>
+<p><span class="math inline">\(D\)</span> 和 <span class="math inline">\(C\)</span> 都是可测量的力学量, 有经典极限, 所以应按玻色子算符来处理.</p>
+<p>现在 作傅里叶变换</p>
+<ul>
+<li><span class="math inline">\(\overline{\Delta D}\left( i \xi_{n}\right)=\int_{0}^{\beta \hbar} e ^{ i \xi_{n} \tau} \overline{\Delta D}(\tau) d \tau\)</span></li>
+<li><span class="math inline">\(F(\tau)=\frac{1}{\beta \hbar} \sum_{n=-\infty}^{\infty} F\left( i \xi_{n}\right) e ^{- i \xi_{n} \tau}\)</span></li>
+</ul>
+<p>因 <span class="math inline">\(\tau\)</span> 的取值范围有限, 频率只能取分立值. 又由于等式 右边为一由玻色算符组成的松原函数, 傅里叶展开的频率 只能取偶数 <span class="math inline">\(\zeta_{n}=2 n \pi /(\beta \hbar) .\)</span> 作变换 <span class="math display">\[
+\begin{aligned}
+\overline{\Delta D}\left( i \xi_{n}\right) &amp;=\int_{0}^{\beta \hbar} e ^{ i \xi_{n} \tau} d \tau \int_{0}^{\beta \hbar} d \tau_{1} \frac{1}{\beta \hbar} \sum_{m=-\infty}^{\infty} F\left( i \xi_{m}\right) e ^{- i \xi_{m} \tau_{1}}\left\langle T_{\tau}\left[C\left(\tau_{1}\right) D(\tau)\right]\right\rangle \\
+&amp;=\int_{0}^{\beta \hbar} d \tau_{1} \int_{0}^{\beta \hbar} e ^{ i \xi_{n}\left(\tau-\tau_{1}\right)} d \tau \frac{1}{\beta \hbar} \sum_{m=-\infty}^{\infty} F\left( i \xi_{m}\right) e ^{ i \left(\xi_{n}-\xi_{m}\right) \tau_{1}}\left\langle T_{\tau}\left[C\left(\tau_{1}\right) D(\tau)\right]\right\rangle\\
+&amp;=\int_{0}^{\beta \hbar} e ^{ i \xi_{n} \tau} d \tau\left\langle T_{\tau}[D(\tau) C(0)]\right\rangle F\left( i \xi_{n}\right)
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\tau-\tau_{1}=\tau^{\prime},\)</span> 则松原函数只是“时间差” <span class="math inline">\(\tau^{\prime}\)</span> 的函数而与 <span class="math inline">\(\tau_{1}\)</span> 无关, 对 <span class="math inline">\(\tau_{1}\)</span> 积分得 <span class="math inline">\(\delta_{n m}\)</span></li>
+<li>再对 <span class="math inline">\(m\)</span> 求和得到 <span class="math inline">\(F\left( i \zeta_{n}\right) . \tau\)</span> 和 <span class="math inline">\(\tau_{1}\)</span> 的积分范围是 <span class="math inline">\(0 \sim \beta \hbar .\)</span> 由于 <span class="math inline">\(T_{\tau}\)</span> 的限制, <span class="math inline">\(\tau^{\prime}=\tau\)</span><span class="math inline">\(-\tau_{1}\)</span> 的积分范再仍是 <span class="math inline">\(0 \sim \beta \hbar .\)</span></li>
+<li>响应系数 <span class="math inline">\(a_{\tau}\left(\xi_{n}\right)=\int_{0}^{\beta \hbar} e ^{ i \xi_{n} \tau} d \tau\langle D(\tau) C(0)\rangle\)</span></li>
+</ul>
+<h4 id="响应系数虚时与实时">响应系数(虚时与实时)</h4>
+<p>为了得到和前面 热力学格林函数 求解响应系数 的结果 <span class="math inline">\(\alpha(\omega)=-\sum_{m n} \frac{D_{n m} C_{m n} \rho_{n}}{\omega-\omega_{m n}+i 0^{+}}\left(1-e^{-\beta \hbar \omega_{m n}}\right)\)</span> 相似的表达式，作如下操作</p>
+<ol type="1">
+<li>由于必然有 <span class="math inline">\(\tau&gt;0,\)</span> 所以编时算符 <span class="math inline">\(T_{\tau}\)</span> 可去掉.</li>
+<li>令 <span class="math inline">\(\langle n|C| m\rangle=C_{n m},\langle n|D| m\rangle=D_{n m} / \hbar, E_{m}-E_{n}=\hbar \omega_{n m},\)</span> 对 <span class="math inline">\(d \tau\)</span> 积分后</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha_{\tau}\left( i \xi_{l}\right) &amp;=\int_{0}^{\beta \hbar} e ^{ i \xi_{n} \tau} d \tau\langle D(\tau) C(0)\rangle\\&amp;=\sum_{m n} \rho_{m} \int_{0}^{\beta \hbar} e ^{ i \xi_{l} \tau}\langle m|D(\tau)| n\rangle\langle n|C| m\rangle d \tau \\
+&amp;=\sum_{m n} \rho_{m} D_{m n} C_{n m} \int_{0}^{\beta \hbar} e ^{ i \xi_{l} \tau} e ^{\omega_{m n} \tau} d \tau\\&amp;=\sum_{m n} \rho_{m} D_{m n} C_{n m} \frac{ e ^{ i \xi_{l} \beta \hbar-\omega_{n m} \beta \hbar}-1}{ i \xi_{l}-\omega_{n m}} \\
+&amp;=-\sum_{m n} \rho_{n} D_{n m} C_{m n} \frac{1- e ^{-\beta \hbar \omega_{m n}}}{ i \xi_{l}-\omega_{m n}}
+\end{aligned}
+\]</span></p>
+<p>和Kubo 公式的响应系数 <span class="math inline">\(\alpha(\omega)=-\sum_{m n} \frac{D_{n m} C_{m n} \rho_{n}}{\omega-\omega_{m n}+i 0^{+}}\left(1-e^{-\beta \hbar \omega_{m n}}\right)\)</span> 对比有 <span class="math display">\[
+\alpha_{\tau}\left(\xi_{l}\right)=\alpha\left( i \xi_{l}\right)
+\]</span> 作 <span class="math inline">\(i \zeta_{l} \rightarrow \omega+ i 0^{+}\)</span> 的解析延拓, <span class="math display">\[
+\alpha(\omega)=\alpha_{\tau}\left( i \xi_{l}=\omega+ i 0^{+}\right)
+\]</span></p>
+<h3 id="kubo-公式-另一种表达">Kubo 公式 另一种表达</h3>
+<h4 id="响应系数-另一种表达">响应系数 另一种表达</h4>
+<p>响应系数 <span class="math display">\[
+\begin{aligned}
+\alpha(\omega) &amp;=\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{\infty} \mathrm{e}^{\mathrm{i} \omega t} \mathrm{d} t \theta(t)\langle[D(t), C(0)]\rangle\\
+&amp;=-\int_{-\infty}^{\infty} \mathrm{e}^{\mathrm{i} \omega t} \mathrm{d} t g_{D C}^{\mathrm{R}}(t)
+\end{aligned}
+\]</span> 把响应系数写成另一表达式,以便后面与松原线性响应系数作比较. <span class="math display">\[
+\alpha(\omega)=-\sum_{m n} \frac{D_{n m} C_{m n} \rho_{n}}{\omega-\omega_{m n}+i 0^{+}}\left(1- e ^{-\beta \hbar \omega_{m n}}\right)
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\omega_{m n}=\left(\varepsilon_{m}-\varepsilon_{n}\right) / \hbar\)</span></li>
+<li><span class="math inline">\(\langle m|D| n\rangle=D_{m n}\)</span></li>
+<li><span class="math inline">\(\langle m|C| n\rangle=C_{m n}\)</span></li>
+</ul>
+<h4 id="kubo-公式的另一种表达">Kubo 公式的另一种表达</h4>
+<p><span class="math display">\[
+\begin{aligned}
+\overline{\Delta D}(\boldsymbol{x}, t) &amp;=-\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{e}^{0^{+} t_{1}} \mathrm{d} t_{1} \operatorname{tr}\left\{\rho_{0}\left[H^{\prime}\left(t_{1}\right), \boldsymbol{D}(\boldsymbol{x}, t)\right]\right\} \\
+&amp;=\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{e}^{0^{+} t_{1}} \mathrm{d} t_{1} \operatorname{tr}\left\{\left[H^{\prime}\left(t_{1}\right), \rho_{0}\right] \boldsymbol{D}(\boldsymbol{x}, t)\right\} \\
+&amp;=\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{e}^{0^{+} t_{1}} \mathrm{d} t_{1} \operatorname{tr}\left\{-\mathrm{i} \mathrm{e}^{-\beta H} \int_{0}^{\beta} \mathrm{d} \lambda \frac{\partial}{\partial t_{1}} H^{\prime}\left(t_{1}-\mathrm{i} \lambda\right) \boldsymbol{D}(\boldsymbol{x}, t)\right\} \\
+&amp;=\frac{1}{\hbar} \int_{-\infty}^{t} \mathrm{e}^{0^{+} t_{1}} \mathrm{d} t_{1}\left\langle\int_{0}^{\beta} \mathrm{d} \lambda \frac{\partial}{\partial t_{1}} H^{\prime}\left(t_{1}-\mathrm{i} \lambda\right) \boldsymbol{D}(\boldsymbol{x}, t)\right\rangle
+\end{aligned}
+\]</span></p>
+<h2 id="热导率">热导率</h2>
+<p>热导率反映的是, 系统内部有温度梯度时热量的输运. 我们只考虑线性输运过 程, 温度梯度是一个小量. 系统中每一个体积元内都处于局部平衡的状态. 系统处 于稳态.</p>
+<p>能量的传输应满足守恒定律 <span class="math display">\[
+\frac{\partial}{\partial t} h( x , t)+\nabla \cdot u ( x , t)=0
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(u\)</span> 为能流密度矢量.</li>
+<li><span class="math inline">\(h\)</span> 是能量密度.</li>
+</ul>
+<h4 id="守恒量">守恒量</h4>
+<p>上式右方的时间积分 <span class="math display">\[
+A( x , t)=h( x , t)+\int_{-\infty}^{t} d t^{\prime} \nabla \cdot u \left( x , t^{\prime}\right)
+\]</span> 是个守恒量, 即它对时间的导数为零. <span class="math display">\[
+\begin{aligned}
+\frac{\partial}{\partial t} A( x , t)&amp;=\frac{1}{ i }[A( x , t), H]\\&amp;=\frac{\partial}{\partial t} h( x , t)+\nabla \cdot u ( x , t)\\&amp;=0
+\end{aligned}
+\]</span> 其中 <span class="math inline">\(H=\int d x h( x , t)\)</span> 是系统的哈密顿量</p>
+<p>既然 <span class="math inline">\(A\)</span> 是与时间无关的守恒量，我们可以只取其在 <span class="math inline">\(t=0\)</span> 时刻的值. <span class="math display">\[
+A( x , 0)=A( x )=h( x )+\int_{-\infty}^{0} d t^{\prime} \nabla \cdot u \left( x , t^{\prime}\right)
+\]</span> 其中 <span class="math inline">\(h( x )=h( x , t=0)\)</span></p>
+<h4 id="统计算符">统计算符</h4>
+<p>稳态输运的统计算符是 <span class="math display">\[
+\rho=\frac{1}{Z} \exp \left[-\int d x \beta( x ) A( x )\right]
+\]</span> <strong>注意</strong>, 现在温度是坐标的函数. 配分函数中<strong>不是用的哈密顿量</strong>, 而是用了一个守恒 量. 因为现在哈密顿量是不守恒的.</p>
+<p>当 <span class="math inline">\(u=0,\)</span> 由<span class="math inline">\(A( x , t)=h( x , t)+\int_{-\infty}^{t} d t^{\prime} \nabla \cdot u \left( x , t^{\prime}\right)\)</span> 和 <span class="math inline">\(H=\int d x h( x , t)\)</span> 式, 自然就回到哈密顿量 的形式. <span class="math display">\[
+\begin{aligned}
+\rho&amp;=Z^{-1}\left[ e ^{-\beta H}+ e ^{-\beta H} \int_{0}^{1} d \tau e ^{\tau \beta H} \nabla \beta \cdot \int_{-\infty}^{0} d t^{\prime} \int d x u \left( x , t^{\prime}\right) e ^{-\tau \beta H}\right]
+\\&amp;=Z^{-1} e ^{-\beta H}\left[1+\frac{\nabla \beta}{\beta} \cdot \int_{-\infty}^{0} d t^{\prime} \int_{0}^{\beta} d \lambda \int d x e ^{\lambda H} u \left( x , t^{\prime}\right) e ^{-\lambda H}\right]\\&amp;=Z^{-1} e ^{-\beta H}\left[1-\frac{\nabla T}{T} \cdot \int_{-\infty}^{0} d t^{\prime} \int_{0}^{\beta} d \lambda \int d x u \left( x , t^{\prime}- i \lambda\right)\right]
+\end{aligned}
+\]</span></p>
+<h3 id="能流密度-平均值">能流密度 平均值</h3>
+<p>能流密度的平均值为 <span class="math display">\[
+\begin{aligned}
+\langle u ( x , 0)\rangle&amp;= \operatorname{Tr}(\rho u)\\&amp;=\operatorname{Tr}\left\{Z^{-1} e ^{-\beta H}\left[ u ( x , 0)-\frac{\nabla T}{T} \cdot \int_{-\infty}^{0} d t^{\prime} \int_{0}^{\beta} d \lambda \int d x ^{\prime} u \left( x ^{\prime}, t^{\prime}- i \lambda\right) u ( x , 0)\right]\right\}
+\end{aligned}
+\]</span> 其中 <span class="math inline">\(\operatorname{Tr}\left\{Z^{-1} e ^{-\beta H}[C]\right\}=\langle C\rangle\)</span> 是物理量 <span class="math inline">\(C\)</span> 在平衡系综 <span class="math inline">\(Z^{-1} e ^{-\beta H}\)</span> 中的平均值. 既然是平衡系综, 能流密度在其中的平均值就是零. <span class="math display">\[
+\begin{aligned}
+\langle u ( x , 0)\rangle&amp;= \operatorname{Tr}(\rho u)\\&amp;=\operatorname{Tr}\left\{Z^{-1} e ^{-\beta H}\left[ u ( x , 0)-\frac{\nabla T}{T} \cdot \int_{-\infty}^{0} d t^{\prime} \int_{0}^{\beta} d \lambda \int d x ^{\prime} u \left( x ^{\prime}, t^{\prime}- i \lambda\right) u ( x , 0)\right]\right\}
+\\&amp;=-\left\langle\frac{\nabla T}{T} \cdot \int_{-\infty}^{0} d t^{\prime} \int_{0}^{\beta} d \lambda \int d x ^{\prime} u \left( x ^{\prime}, t^{\prime}- i \lambda\right) u ( x , 0)\right\rangle
+\end{aligned}
+\]</span> 写成形式: <span class="math display">\[
+\left\langle u_{\mu}( x , 0)\right\rangle=-\sum_{\nu} \kappa_{\mu \nu}(\nabla T)_{\nu}
+\]</span> 其中 <span class="math display">\[
+\kappa_{\mu \nu}=\left\langle\frac{1}{T} \int_{-\infty}^{0} d t^{\prime} \int_{0}^{\beta} d \lambda \int d x ^{\prime} u_{\nu}\left( x ^{\prime}, t^{\prime}- i \lambda\right) u_{\mu}( x , 0)\right\rangle
+\]</span> 就是热导率张量</p>
+<h4 id="热导率张量">热导率张量</h4>
+<p>各向同性系统中， <span class="math display">\[
+\kappa_{\mu \nu}=\kappa \delta_{\mu \nu}
+\]</span> 其中 <span class="math display">\[
+\kappa=\frac{1}{3 T} \int_{-\infty}^{0} d t^{\prime} \int_{0}^{\beta} d \lambda \int d x ^{\prime}\left\langle u \left( x ^{\prime}, t^{\prime}- i \lambda\right) \cdot u ( x , 0)\right\rangle
+\]</span></p>
+<p>这个热导率还是坐标的函数. 如果随坐标的变化很小, 就取整个体积的平均值: <span class="math display">\[
+\kappa=\frac{1}{3 V T} \int_{-\infty}^{0} d t^{\prime} \int_{0}^{\beta} d \lambda \int d x \int d x ^{\prime}\left\langle u \left( x ^{\prime}, t^{\prime}- i \lambda\right) \cdot u ( x , 0)\right\rangle
+\]</span> 对时间做分部积分 <span class="math display">\[
+\begin{aligned}
+\int_{-\infty}^{0} d t^{\prime} \int_{0}^{\beta} d \lambda u \left( x ^{\prime}, t^{\prime}- i \lambda\right)=&amp;\int_{-\infty}^{0} d t^{\prime} \int_{0}^{\beta} d \lambda e ^{ i \left(t^{\prime}- i \lambda\right) H} u \left( x ^{\prime}\right) e ^{- i \left( t ^{\prime}- i \lambda\right) H}
+\\=&amp; \int_{0}^{\beta} d \lambda\left\{\left.t^{\prime} e ^{\left( i \iota^{\prime}+\lambda\right) H} u \left( x ^{\prime}\right) e ^{\left(-1 t^{\prime}-\lambda\right) H}\right|_{-\infty} ^{0}\right.\\
+&amp;-\left.\int_{-\infty}^{0} t^{\prime} d \left[ e ^{\left( i t^{\prime}+\lambda\right) H} u \left( x ^{\prime}\right) e ^{\left(- i t^{\prime}-\lambda\right) H}\right]\right\} \\
+=&amp;- i \int_{0}^{\beta} d \lambda \int_{-\infty}^{0} t^{\prime} e ^{\left( i t^{\prime}+\lambda\right) H}\left[H u \left( x ^{\prime}\right)- u \left( x ^{\prime}\right) H\right] e ^{\left(- i t^{\prime}-\lambda\right) H} d t^{\prime} \\
+=&amp;- i \int_{-\infty}^{0} t^{\prime} d t^{\prime}\left\{\int_{0}^{\beta} d \lambda H e ^{\left(i t^{\prime}+\lambda\right) H} u \left( x ^{\prime}\right) e ^{\left(- i t^{\prime}-\lambda\right) H}\right.\\
+&amp;\left.-\int_{0}^{\beta} d \lambda e ^{\left( i t^{\prime}+\lambda\right) H} u \left( x ^{\prime}\right) H e ^{\left(- i t^{\prime}-\lambda\right) H}\right\}
+\end{aligned}
+\]</span></p>
+<h3 id="电子能流密度分析力学法">电子能流密度(分析力学法)</h3>
+<blockquote>
+<p>以下从分析力学来推导电子能流密度的表达式: 得到能流密度用波函数表达的形式</p>
+</blockquote>
+<p>设电子的场算符为 <span class="math inline">\(\psi_{n}(n=1,2,3, \cdots),\)</span> 则系统的拉格朗日密度为 <span class="math inline">\(L\left(\psi_{n}, \nabla \psi_{n}, \dot{\psi}_{n}\right)\)</span>。<span class="math inline">\(\psi_{n}\)</span> 相当于是广义坐标. 由分析力学知道, 场的动量密度为 <span class="math display">\[
+\pi_{n}=\frac{\partial L}{\partial \dot{\psi}_{n}}
+\]</span> 哈密顿密度 (能量密度) 为 <span class="math display">\[
+\begin{aligned}
+h &amp;=\sum_{n} \pi_{n} \dot{\psi}_{n}-L\\&amp;=\sum_{n} \dot{\psi}_{n} \frac{\partial L}{\partial \dot{\psi}_{n}}-L
+\end{aligned}
+\]</span> 现在拉格朗日量满足<strong>欧拉</strong>运动方程 <span class="math display">\[
+\frac{\partial L}{\partial \psi_{n}}=\sum_{i=1}^{3} \frac{\partial L}{\partial x_{i}} \frac{\partial L}{\partial \frac{\partial \psi_{n}}{\partial x_{i}}}-\frac{\partial}{\partial t} \frac{\partial L}{\partial \dot{\psi}_{n}}=0
+\]</span> 由此方程可以推出哈密顿密度的变化率: <span class="math display">\[
+\frac{\partial}{\partial t} h=-\nabla \cdot u
+\]</span> 其中 <span class="math inline">\(u_{i}=\sum_{n}\left[\frac{\partial L}{\partial\left(\frac{\partial \psi_{n}}{\partial x_{i}}\right)} \dot{\psi}_{n}+\frac{\partial L}{\partial \frac{\partial \psi_{n}^{\dagger}}{\partial x_{i}}} \dot{\psi}_{n}^{\dagger}\right]\)</span></p>
+<p>证明 <span class="math display">\[
+\begin{aligned}
+\frac{\partial}{\partial t} h&amp;=\frac{\partial}{\partial t} (\sum_{n} \dot{\psi}_{n} \frac{\partial L}{\partial \dot{\psi}_{n}}-L)
+\\&amp;=-\nabla \cdot \sum_{n}\left[\frac{\partial L}{\partial\left(\frac{\partial \psi_{n}}{\partial x_{i}}\right)} \dot{\psi}_{n}+\frac{\partial L}{\partial \frac{\partial \psi_{n}^{\dagger}}{\partial x_{i}}} \dot{\psi}_{n}^{\dagger}\right]
+\\&amp;=-\nabla \cdot u
+\end{aligned}
+\]</span> 与表示根据能量守恒连续性方程 <span class="math inline">\(\frac{\partial}{\partial t} h( x , t)+\nabla \cdot u ( x , t)=0\)</span> 式对照，<span class="math inline">\(u\)</span> 就是能流密度. 它取决于 <span class="math inline">\(L\)</span> 中 含的 <span class="math inline">\(\psi_{n}\)</span> 的梯度的项. 注意, <span class="math inline">\(\psi_{n}\)</span> 的复量也是独立变量, 这儿将它们明确写出来. 对于 电子系统和电子-声子系统, 只有电子的动能对 <span class="math inline">\(u\)</span> 有贡献. 电子的动能为 <span class="math display">\[
+\begin{aligned}
+T&amp;=\int d x \psi_{n}^{\dagger}( x )\left(-\frac{\nabla^{2}}{2 m}\right) \psi_{n}( x )\\&amp;=\int d x \frac{1}{2 m} \nabla \psi_{n}^{\dagger}( x ) \cdot \nabla \psi_{n}( x )
+\end{aligned}
+\]</span> 因此动能密度为 <span class="math display">\[
+t=\frac{1}{2 m} \nabla \psi_{n}^{\dagger}( x ) \cdot \nabla \psi_{n}( x )
+\]</span> 因为</p>
+<ul>
+<li><span class="math inline">\(\frac{\partial L}{\partial\left(\frac{\partial \psi_{n}}{\partial x_{i}}\right)}=\frac{\partial t}{\partial\left(\frac{\partial \psi_{n}}{\partial x_{i}}\right)}=\frac{1}{2 m} \frac{\partial \psi_{n}^{\dagger}}{\partial x_{i}}\)</span></li>
+<li><span class="math inline">\(\frac{\partial L}{\partial\left(\frac{\partial \psi_{n}^{\dagger}}{\partial x_{i}}\right)}=\frac{\partial t}{\partial\left(\frac{\partial \psi_{n}^{\dagger}}{\partial x_{i}}\right)}=\frac{1}{2 m} \frac{\partial \psi_{n}}{\partial x_{i}}\)</span></li>
+</ul>
+<p>最后得到能流密度用波函数表达的形式 <span class="math display">\[
+u=\sum_{n} \frac{1}{2 m}\left[\dot{\psi}_{n}^{\dagger}( x ) \nabla \psi_{n}( x )+\dot{\psi}_{n}( x ) \nabla \psi_{n}^{\dagger}( x )\right]
+\]</span></p>
+<h4 id="对比">对比</h4>
+<p>注意能流密度和电子的电流密度算符是不同的. <span class="math display">\[
+u=\sum_{n} \frac{1}{2 m}\left[\dot{\psi}_{n}^{\dagger}( x ) \nabla \psi_{n}( x )+\dot{\psi}_{n}( x ) \nabla \psi_{n}^{\dagger}( x )\right]
+\]</span> 由于 <span class="math inline">\(u(x)\)</span> 是电子算符的二次式, 在求其 公原函数 <span class="math display">\[
+P\left( x _{1}- x _{2}, \tau_{1}-\tau_{2}\right)=\left\langle T_{\tau}\left[ u \left( x _{1}, \tau_{1}\right) \cdot u \left( x _{2}, \tau_{2}\right)\right]\right\rangle
+\]</span> 的傅里叶变换的时, 应使用偶数频率.</p>
+<p>还有一点要注意, 场算符本来不含时间, 我们 将它写成含时间, 实际上已经将它写成了海森伯算符. 在目前情况下, 这个时间是 松原函数中的虚时<span class="math inline">\(\tau\)</span>.</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/">Fields of Quantum ManyBody</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/Green-Function/">Green Function</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/linear-response/">linear response</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Green-Function/">Green Function</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%A3%81%E5%8C%96%E7%8E%87/">磁化率</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%83%AD%E5%AF%BC%E7%8E%87/">热导率</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Kubo%E5%85%AC%E5%BC%8F/">Kubo公式</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/09/27/Ftmb_green_05sc/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">超导的格林函数解法</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2012/09/04/QC01_Plto/">
+                        <span class="hidden-mobile">探索的动机</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "线性响应函数&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

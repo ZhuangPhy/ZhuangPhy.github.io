@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>超导的格林函数解法 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2016-09-27 14:23">
+      September 27, 2016 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      10.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      198
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>有两种方式可以求出超导体的格林函数</p>
+<ul>
+<li>松原函数的运动方程</li>
+<li>海森堡算符的运动方程</li>
+</ul>
+<p>弱相互作用超导体中的哈密顿量 <span class="math display">\[
+\begin{aligned}
+H=&amp; \sum_{\alpha} \int \mathrm{d} \boldsymbol{x} \psi_{\alpha}^{\dagger}(\boldsymbol{x})\left(-\frac{1}{2 m} \nabla^{2}\right) \psi_{\alpha}(\boldsymbol{x}) \\
+&amp;+\frac{1}{2} \sum_{\alpha, \beta} \int \mathrm{d} \boldsymbol{x} \mathrm{d} \boldsymbol{x}^{\prime} \psi_{\alpha}^{\dagger}(\boldsymbol{x}) \psi_{\beta}^{\dagger}\left(\boldsymbol{x}^{\prime}\right) V\left(\boldsymbol{x}-\boldsymbol{x}^{\prime}\right) \psi_{\beta}\left(\boldsymbol{x}^{\prime}\right) \psi_{\alpha}(\boldsymbol{x})
+\end{aligned}
+\]</span></p>
+<h2 id="松原函数法">松原函数法</h2>
+<h3 id="二次量子化">1 二次量子化</h3>
+<p>把场算符在 单粒子完备集 上展开：</p>
+<ul>
+<li><span class="math inline">\(\psi_{\alpha}^{\dagger}(\boldsymbol{x})=\sum_{k_{1} }a_{\boldsymbol{k}_{1} \alpha}^{\dagger} \varphi_{\boldsymbol{k}_{1} \alpha}^{*}(\boldsymbol{x})\)</span></li>
+<li><span class="math inline">\(\psi_{\alpha}(\boldsymbol{x})\sum_{k_{1} }a_{\boldsymbol{k}_{2} \alpha} \varphi_{\boldsymbol{k}_{2} \alpha}(\boldsymbol{x})\)</span></li>
+</ul>
+<p>这个基底上的系数 就是 产生湮没算符。</p>
+<p>把哈密顿量用产生湮没算符来表示： <span class="math display">\[
+\begin{aligned}
+H=&amp; \sum_{\boldsymbol{k}_{1} \boldsymbol{k}_{2} \alpha} \int \mathrm{d} \boldsymbol{x} a_{\boldsymbol{k}_{1} \alpha}^{\dagger} \varphi_{\boldsymbol{k}_{1} \alpha}^{*}(\boldsymbol{x})\left(-\frac{1}{2 m} \nabla^{2}\right) a_{\boldsymbol{k}_{2} \alpha} \varphi_{\boldsymbol{k}_{2} \alpha}(\boldsymbol{x}) \\
+&amp;+\frac{1}{2} \sum_{\boldsymbol{k}_{1} \boldsymbol{k}_{2} \boldsymbol{k}_{3} \boldsymbol{k}_{4} \alpha, \beta} \int \mathrm{d} \boldsymbol{x} \mathrm{d} \boldsymbol{x}^{\prime} a_{\boldsymbol{k}_{1} \alpha}^{\dagger} \varphi_{\boldsymbol{k}_{1} \alpha}^{*}(\boldsymbol{x}) a_{\boldsymbol{k}_{2} \beta}^{\dagger} \varphi_{\boldsymbol{k}_{2} \beta}^{*}\left(\boldsymbol{x}^{\prime}\right) \\
+&amp; \cdot V\left(\boldsymbol{x}-\boldsymbol{x}^{\prime}\right) a_{\boldsymbol{k}_{3} \beta} \varphi_{\boldsymbol{k}_{3} \beta}\left(\boldsymbol{x}^{\prime}\right) a_{\boldsymbol{k}_{4} \alpha} \varphi_{\boldsymbol{k}_{4} \alpha}(\boldsymbol{x})
+\end{aligned}
+\]</span> 设单粒子完备集就是平面波 <span class="math inline">\(e^{i k \cdot x}\)</span> , 我们把哈密顿量写成动量空间的形式(空间变量积分掉)。</p>
+<ol type="1">
+<li>第一项</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+H_{0} &amp;=\sum_{\boldsymbol{k}_{1} \boldsymbol{k} \alpha} \int \mathrm{d} \boldsymbol{x} a_{\boldsymbol{k}_{1} \alpha}^{\dagger} \mathrm{e}^{-\mathrm{i} \boldsymbol{k}_{1} \cdot x}\left(-\frac{1}{2 m} \nabla^{2}\right) a_{\boldsymbol{k} \alpha} \mathrm{e}^{\mathrm{i} \boldsymbol{k} \cdot \boldsymbol{x}} \\
+&amp;=\sum_{\boldsymbol{k}_{1} \boldsymbol{k} \alpha} \frac{\boldsymbol{k}^{2}}{2 m} a_{\boldsymbol{k}_{1} \alpha}^{\dagger} a_{\boldsymbol{k} \alpha} \delta_{\boldsymbol{k}_{1}, \boldsymbol{k}_{ }}
+\\&amp;=\sum_{\boldsymbol{k} \alpha} \varepsilon_{\boldsymbol{k}} a_{\boldsymbol{k} \alpha}^{\dagger} a_{\boldsymbol{k} \alpha}
+\end{aligned}
+\]</span></p>
+<p>其中我们符号代换 <span class="math inline">\(\boldsymbol{k}=\boldsymbol{k}_{1}\)</span>，以及利用了积分技巧 <span class="math display">\[
+\begin{aligned}
+\int \mathrm{d} \boldsymbol{x} \mathrm{e}^{-\mathrm{i} \boldsymbol{k}_{1} \cdot x}  \mathrm{e}^{\mathrm{i} \boldsymbol{k} \cdot \boldsymbol{x}}
+&amp;= \int \mathrm{d} \boldsymbol{x} \mathrm{e}^{\mathrm{i} (\boldsymbol{k} -\boldsymbol{k}_{1}) \cdot \boldsymbol{x} }  \\ 
+&amp;= \delta_{\boldsymbol{k}_{1}, \boldsymbol{k}_{ }}
+\end{aligned}
+\]</span></p>
+<ol start="2" type="1">
+<li>第二项</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+H_{1}&amp;=\frac{1}{2} \sum_{\boldsymbol{p} \boldsymbol{k} \boldsymbol{k}_{1} \boldsymbol{k}_{2} \boldsymbol{q} \alpha, \boldsymbol{\beta}} \int \mathrm{d} \boldsymbol{x} \mathrm{d} \boldsymbol{x}^{\prime} a_{\boldsymbol{k}_{1} \alpha}^{\dagger} \mathrm{e}^{-\mathrm{i} \boldsymbol{k}_{1} \cdot \boldsymbol{x}} a_{\boldsymbol{k}_{2} \beta}^{\dagger} \mathrm{e}^{-\mathrm{i} \boldsymbol{k}_{2} \cdot \boldsymbol{x}^{\prime}} \int \mathrm{d} \boldsymbol{k} \mathrm{e}^{\mathrm{i} \boldsymbol{q} \cdot\left(\boldsymbol{x}-\boldsymbol{x}^{\prime}\right)}
+\\&amp; \cdot V(\boldsymbol{q}) a_{\boldsymbol{k}_{3} \beta} \mathrm{e}^{\mathrm{i} \boldsymbol{p} \cdot \boldsymbol{x}^{\prime}} a_{\boldsymbol{k}_{4} \alpha} \mathrm{e}^{\mathrm{i} \boldsymbol{k} \cdot \boldsymbol{x}} \\
+=&amp; \frac{1}{2} \sum_{\boldsymbol{p} \boldsymbol{k} \boldsymbol{k}_{1} \boldsymbol{k}_{2} \boldsymbol{q} \alpha, \beta} V(\boldsymbol{q}) a_{\boldsymbol{k}_{1} \alpha}^{\dagger} a_{\boldsymbol{k}_{2} \beta}^{\dagger} a_{\boldsymbol{p} \beta} a_{\boldsymbol{k} \alpha} \delta_{\boldsymbol{p}, \boldsymbol{k}_{2}+\boldsymbol{q}} \delta_{\boldsymbol{k}, \boldsymbol{k}_{1}-\boldsymbol{q}} \\
+=&amp; \frac{1}{2} \sum_{\boldsymbol{k} p \boldsymbol{q} \alpha, \boldsymbol{\beta}} V(\boldsymbol{q}) a_{\boldsymbol{k}+\boldsymbol{q} \alpha}^{\dagger} a_{\boldsymbol{p}-\boldsymbol{q} \beta}^{\dagger} a_{\boldsymbol{p} \beta} a_{\boldsymbol{k} \alpha}
+\end{aligned}
+\]</span></p>
+<p>其中要注意, <span class="math inline">\(\boldsymbol{q}=0\)</span> 的项表示均匀电子气的相互排斥库仑作用。<span class="math inline">\(\boldsymbol{q}=0\)</span> 和均匀正电荷背 景之间的相互吸引库仑作用正好相互抵消。因此，可以去掉 <span class="math inline">\(\boldsymbol{q}=0\)</span> 的项。而 <span class="math inline">\(\boldsymbol{q} \neq 0\)</span> 的项表亦电子气的非均匀部分，也就是涨落部分之间的相互作用. 这一作用 不但不为零, 而且有可能因为其他因素的影响而成为电子之间的吸引作用。动量空 间的哈密顿量是 <span class="math display">\[
+H=\sum_{\boldsymbol{k} \alpha} \varepsilon_{\boldsymbol{k}} a_{\boldsymbol{k} \alpha}^{\dagger} a_{\boldsymbol{k} \alpha}+\frac{1}{2} \sum_{\boldsymbol{q} \neq 0 \boldsymbol{k} p \alpha, \beta} V(\boldsymbol{q}) a_{\boldsymbol{k}+\boldsymbol{q} \alpha}^{\dagger} a_{\boldsymbol{p}-\boldsymbol{q} \beta}^{\dagger} a_{\boldsymbol{p} \beta} a_{\boldsymbol{k} \alpha}
+\]</span></p>
+<h3 id="南部格林函数">2 南部格林函数</h3>
+<p>在超导相中, 可以出现同时湮没或者同时产生一对相反动量, 相反自旋的电子。 为此, 物理学及南部 (Nambu) 定义了以下的二分量波函数： <span class="math display">\[
+\Psi(\boldsymbol{x}, t)=\left(\begin{array}{c}
+\psi_{\uparrow}(\boldsymbol{x}, t) \\
+\psi_{\downarrow}^{\dagger}(\boldsymbol{x}, t)
+\end{array}\right), \quad \Psi^{\dagger}(t)=\left(\psi_{\uparrow}^{\dagger}(\boldsymbol{x}, t), \psi_{\downarrow}(\boldsymbol{x}, t)\right)
+\]</span> 注意与一般的二分量波函数的区别 <span class="math display">\[
+\Psi(\boldsymbol{x}, t)=\left(\begin{array}{c}
+\psi_{\uparrow}(\boldsymbol{x}, t) \\
+\psi_{\downarrow}(\boldsymbol{x}, t)
+\end{array}\right), \Psi^{\dagger}(\boldsymbol{x}, t)=\left(\psi_{\uparrow}^{\dagger}(\boldsymbol{x}, t), \psi_{\downarrow}^{\dagger}(\boldsymbol{x}, t)\right)
+\]</span> 在动量空间中, 南部波函数为 <span class="math display">\[
+\begin{aligned}
+G_{\mathrm{N}}\left(\boldsymbol{x}_{1} t_{1}, \boldsymbol{x}_{2} t_{2}\right) &amp;=\left\langle\left\langle\Psi\left(\boldsymbol{x}_{1} t_{1}\right) | \Psi^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle \\
+&amp;=\left\langle\left\langle\left(\begin{array}{c}
+\psi_{\uparrow}\left(\boldsymbol{x}_{1} t_{1}\right) \\
+\psi_{\downarrow}^{\dagger}\left(\boldsymbol{x}_{1} t_{1}\right)
+\end{array}\right) |\left(\psi_{\uparrow}^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right), \psi_{\downarrow}\left(\boldsymbol{x}_{2} t_{2}\right)\right)\right\rangle\right\rangle
+\\
+&amp;=\left(\begin{array}{cc}
+\left\langle\left\langle\psi_{\uparrow}\left(\boldsymbol{x}_{1} t_{1}\right) | \psi_{\uparrow}^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle &amp; \left\langle\left\langle\psi_{\uparrow}\left(\boldsymbol{x}_{1} t_{1}\right) | \psi_{\downarrow}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle \\
+\left\langle\left\langle\psi_{\downarrow}^{\dagger}\left(\boldsymbol{x}_{1} t_{1}\right) | \psi_{\uparrow}^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle &amp; \left\langle\left\langle\psi_{\downarrow}^{\dagger}\left(\boldsymbol{x}_{1} t_{1}\right) | \psi_{\downarrow}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle
+\end{array}\right)\\
+&amp;=\left(\begin{array}{cc}
+G_{\uparrow}\left(\boldsymbol{x}_{1} t_{1}, \boldsymbol{x}_{2} t_{2}\right) &amp; F\left(\boldsymbol{x}_{1} t_{1}, \boldsymbol{x}_{2} t_{2}\right) \\
+F^{+}\left(\boldsymbol{x}_{1} t_{1}, \boldsymbol{x}_{2} t_{2}\right) &amp; -G_{\downarrow}\left(\boldsymbol{x}_{2} t_{2}, \boldsymbol{x}_{1} t_{1}\right)
+\end{array}\right)
+\end{aligned}
+\]</span> 非对角元就是 反常格林函数 <span class="math inline">\(F\left(x_{1} t_{1}, x_{2} t_{2}\right)\)</span> 。 <span class="math inline">\(F^{+}\left(\boldsymbol{x}_{1} t_{1}, \boldsymbol{x}_{2} t_{2}\right)\)</span> 表示产生一对电子，<span class="math inline">\(F\left(x_{1} t_{1}, x_{2} t_{2}\right)\)</span> 表示湮没一对电子的过程.</p>
+<h4 id="推迟和超前格林函数">2.1 推迟和超前格林函数</h4>
+<p>相应地, 对角元 对应 推迟和超前格林函数：</p>
+<ul>
+<li>推迟格林函数</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+G^{\mathrm{R}}\left(\boldsymbol{x}_{1} t_{1}, \boldsymbol{x}_{2} t_{2}\right) &amp;=\left\langle\left\langle\Psi\left(\boldsymbol{x}_{1} t_{1}\right) | \Psi^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle^{\mathrm{R}}=-\mathrm{i} \theta\left(t_{1}-t_{2}\right)\left\langle\left\{\Psi\left(\boldsymbol{x}_{1} t_{1}\right), \Psi^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right)\right\}\right\rangle \\
+&amp;=-\mathrm{i} \theta\left(t_{1}-t_{2}\right)\left\langle\left\{\left(\begin{array}{c}
+\psi_{\uparrow}\left(\boldsymbol{x}_{1} t_{1}\right) \\
+\psi_{\downarrow}^{\dagger}\left(\boldsymbol{x}_{1} t_{1}\right)
+\end{array}\right),\left(\psi_{\uparrow}^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right), \psi_{\downarrow}\left(\boldsymbol{x}_{2} t_{2}\right)\right)\right\}\right\rangle \\
+&amp;=-\mathrm{i} \theta\left(t_{1}-t_{2}\right)\left(\begin{array}{cc}
+\left\langle\left\{\psi_{\uparrow}\left(\boldsymbol{x}_{1} t_{1}\right), \psi_{\uparrow}^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right)\right\}\right\rangle &amp; \left\langle\left\{\psi_{\uparrow}\left(\boldsymbol{x}_{1} t_{1}\right), \psi_{\downarrow}\left(\boldsymbol{x}_{2} t_{2}\right)\right\}\right\rangle \\
+\left\langle\left\{\psi_{\downarrow}^{\dagger}\left(\boldsymbol{x}_{1} t_{1}\right), \psi_{\uparrow}^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right)\right\}\right\rangle &amp; \left\langle\left\{\psi_{\downarrow}^{\dagger}\left(\boldsymbol{x}_{1} t_{1}\right), \psi_{\downarrow}\left(\boldsymbol{x}_{2} t_{2}\right)\right\}\right\rangle
+\end{array}\right) \\
+&amp;=\left(\begin{array}{cc}
+\left\langle\left\langle\psi_{\uparrow}\left(\boldsymbol{x}_{1} t_{1}\right) | \psi_{\uparrow}^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle^{\mathrm{R}} &amp; \left\langle\left\langle\psi_{\uparrow}\left(\boldsymbol{x}_{1} t_{1}\right) | \psi_{\downarrow}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle^{\mathrm{R}} \\
+\left\langle\left\langle\psi_{\downarrow}^{\dagger}\left(\boldsymbol{x}_{1} t_{1}\right) | \psi_{\uparrow}^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle^{\mathrm{R}} &amp; \left\langle\left\langle\psi_{\downarrow}^{\dagger}\left(\boldsymbol{x}_{1} t_{1}\right) | \psi_{\downarrow}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle^{\mathrm{R}}
+\end{array}\right)
+\end{aligned}
+\]</span></p>
+<ul>
+<li>超前格林函数</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+G^{A}\left(\boldsymbol{x}_{1} t_{1}, \boldsymbol{x}_{2} t_{2}\right) &amp;=\left\langle\left\langle\Psi\left(\boldsymbol{x}_{1} t_{1}\right) | \Psi^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle^{\mathrm{A}} \\
+&amp;=\left(\begin{array}{cc}
+\left\langle\left\langle\psi_{\uparrow}\left(\boldsymbol{x}_{1} t_{1}\right) | \psi_{\uparrow}^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle^{\mathrm{A}} &amp; \left\langle\left\langle\psi_{\uparrow}\left(\boldsymbol{x}_{1} t_{1}\right) | \psi_{\downarrow}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle^{\mathrm{A}} \\
+\left\langle\left\langle\psi_{\downarrow}^{\dagger}\left(\boldsymbol{x}_{1} t_{1}\right) | \psi_{\uparrow}^{\dagger}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle^{\mathrm{A}} &amp; \left\langle\left\langle\psi_{\downarrow}^{\dagger}\left(\boldsymbol{x}_{1} t_{1}\right) | \psi_{\downarrow}\left(\boldsymbol{x}_{2} t_{2}\right)\right\rangle\right\rangle^{\mathrm{A}}
+\end{array}\right)
+\end{aligned}
+\]</span></p>
+<p>推迟和超前格林函数的关系 <span class="math display">\[
+\left\{\left[G\left(\boldsymbol{x}_{1} t_{1}, \boldsymbol{x}_{2} t_{2}\right)\right]^{\mathrm{A}}\right\}^{+}=\left[G\left(\boldsymbol{x}_{2} t_{2}, \boldsymbol{x}_{1} t_{1}\right)\right]^{\mathrm{R}}
+\]</span></p>
+<h4 id="小于格林函数">2.2 小于格林函数</h4>
+<p><span class="math display">\[
+\begin{aligned}
+G^{&lt;}\left( x _{1} t_{1}, x _{2} t_{2}\right) &amp;= i \left\langle\left\langle\left(\begin{array}{c}
+\psi_{\uparrow}^{\dagger}\left( x _{2} t_{2}\right) \\
+\psi_{\downarrow}\left( x _{2} t_{2}\right)
+\end{array}\right)\left(\psi_{\uparrow}\left( x _{1} t_{1}\right), \psi_{\downarrow}^{\dagger}\left( x _{1} t_{1}\right)\right)\right\rangle\right.\\
+&amp;= i \left(\begin{array}{cc}
+\left\langle\psi_{\uparrow}^{\dagger}\left( x _{2} t_{2}\right) \psi_{\uparrow}\left( x _{1} t_{1}\right)\right\rangle &amp; \left\langle\psi_{\uparrow}^{\dagger}\left( x _{2} t_{2}\right) \psi_{\downarrow}^{\dagger}\left( x _{1} t_{1}\right)\right\rangle \\
+\left\langle\psi_{\downarrow}\left( x _{2} t_{2}\right) \psi_{\uparrow}\left( x _{1} t_{1}\right)\right\rangle &amp; \left\langle\psi_{\downarrow}\left( x _{2} t_{2}\right) \psi_{\downarrow}^{\dagger}\left( x _{1} t_{1}\right)\right\rangle
+\end{array}\right)
+\end{aligned}
+\]</span></p>
+<p>性质:</p>
+<ul>
+<li><span class="math inline">\(\left[G^{&lt;}\left( x _{1} t_{1}, x _{2} t_{2}\right)\right]^{+}=-\left[G\left( x _{2} t_{2}, x _{1} t_{1}\right)\right]^{&lt;}\)</span></li>
+<li>设<span class="math inline">\(G^{&lt;}\)</span>是时间差的函数, 其傅里叶变换满足如下关系:<span class="math inline">\(G^{&lt;}(\omega)=-\left[G^{&lt;}(\omega)\right]^{+}\)</span></li>
+</ul>
+<p>在动量空间中 <span class="math display">\[
+\begin{aligned}
+G_{ N p }\left(t_{1}, t_{2}\right) &amp;=\left\langle\left\langle\Psi_{ p }\left(t_{1}\right) \mid \Psi_{ p }^{\dagger}\left(t_{2}\right)\right\rangle\right\rangle \\
+&amp;=\left\langle\left\langle\left(\begin{array}{c}
+a_{ p \uparrow}\left(t_{1}\right) \\
+a_{- p \downarrow}^{\dagger}\left(t_{1}\right)
+\end{array}\right) \mid\left(a_{ p \uparrow}^{\dagger}\left(t_{2}\right), a_{- p \downarrow}\left(t_{2}\right)\right)\right\rangle\right\rangle \\
+&amp;=\left(\begin{array}{cc}
+\left\langle\left\langle a_{ p \uparrow}\left(t_{1}\right) \mid a_{ p \uparrow}^{\dagger}\left(t_{2}\right)\right\rangle\right\rangle &amp; \left\langle\left\langle a_{ p \uparrow}\left(t_{1}\right) \mid a_{- p \downarrow}\left(t_{2}\right)\right\rangle\right\rangle \\
+\left\langle\left\langle a_{- p \downarrow}^{\dagger}\left(t_{1}\right) \mid a_{ p \uparrow}^{\dagger}\left(t_{2}\right)\right\rangle\right\rangle &amp; \left\langle\left\langle a_{- p \downarrow}^{\dagger}\left(t_{1}\right) \mid a_{- p \downarrow}\left(t_{2}\right)\right\rangle\right\rangle
+\end{array}\right) \\
+&amp;=\left(\begin{array}{c}
+G_{ p \uparrow}\left(t_{1}, t_{2}\right) &amp;F_{ p }\left(t_{1}, t_{2}\right)\\
+F_{ p }^{+}\left(t_{1}, t_{2}\right) &amp; -G_{- p \downarrow}\left(t_{2}, t_{1}\right)
+\end{array}\right)
+\end{aligned}
+\]</span></p>
+<h4 id="南部松原函数">2.3南部松原函数</h4>
+<p>南部表象下的虚时二分量波函数，只要把原来的实时间 <span class="math inline">\(t\)</span> 换成虚时间 <span class="math inline">\(\tau\)</span> 即可. 在 空间表象和动量表象中分别如下： <span class="math display">\[
+\begin{array}{l}
+\Psi(\boldsymbol{x} \tau)=\left(\begin{array}{c}
+\psi_{\uparrow}(\boldsymbol{x} \tau) \\
+\psi_{\downarrow}^{\dagger}(\boldsymbol{x} \tau)
+\end{array}\right), \quad \Psi^{\dagger}(\boldsymbol{x} \tau)=\left(\psi_{\uparrow}^{\dagger}(\boldsymbol{x} \tau), \psi_{\downarrow}(\boldsymbol{x} \tau)\right) \\
+\Psi_{\boldsymbol{p}}(\tau)=\left(\begin{array}{c}
+a_{\boldsymbol{p} \uparrow}(\tau) \\
+a_{-\boldsymbol{p} \downarrow}^{\dagger}(\tau)
+\end{array}\right), \quad \Psi_{\boldsymbol{p}}^{\dagger}(\tau)=\left(a_{\boldsymbol{p} \uparrow}^{\dagger}(\tau), a_{-\boldsymbol{p} \downarrow}(\tau)\right)
+\end{array}
+\]</span> 动量空间的松原函数是 <span class="math display">\[
+\begin{aligned}
+G_{\boldsymbol{p}}\left(\tau_{1}, \tau_{2}\right) &amp;=-\left\langle\left\langle\Psi_{\boldsymbol{p}}\left(\tau_{1}\right) | \Psi_{\boldsymbol{p}}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \\
+&amp;=-\left(\begin{array}{cc}
+\left\langle\left\langle a_{\boldsymbol{p} \uparrow}\left(\tau_{1}\right) | a_{\boldsymbol{p} \uparrow}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle &amp; \left\langle\left\langle a_{\boldsymbol{p} \uparrow}\left(\tau_{1}\right) | a_{-\boldsymbol{p} \downarrow}\left(\tau_{2}\right)\right\rangle\right\rangle \\
+\left\langle\left\langle a_{-\boldsymbol{p} \downarrow}^{\dagger}\left(\tau_{1}\right) | a_{\boldsymbol{p} \uparrow}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle &amp; \left\langle\left\langle a_{-\boldsymbol{p} \downarrow}^{\dagger}\left(\tau_{1}\right) | a_{-\boldsymbol{p} \downarrow}\left(\tau_{2}\right)\right\rangle\right\rangle
+\end{array}\right) \\
+&amp;=\left(\begin{array}{cc}
+G_{\boldsymbol{p} \uparrow}\left(\tau_{1}-\tau_{2}\right) &amp; F_{\boldsymbol{p}}\left(\tau_{1}-\tau_{2}\right) \\
+F_{\boldsymbol{p}}^{+}\left(\tau_{1}-\tau_{2}\right) &amp; -G_{-\boldsymbol{p} \downarrow}\left(\tau_{2}-\tau_{1}\right)
+\end{array}\right)
+\end{aligned}
+\]</span></p>
+<p>定义了这么多格林函数，他们之间是什么关系</p>
+<blockquote>
+<p>原则上, 用热力学格林函数和松原函数处理具体的问题都可以。</p>
+<p>在有限温度情形，解出松原函数之后，利用解析延拓可得到推迟和超前格林函数。</p>
+</blockquote>
+<h3 id="南部松原函数的运动方程">4 南部松原函数的运动方程</h3>
+<p>巨正则系综的形式：<span class="math inline">\(K=H-\mu N\)</span>。算符的运动方程 <span class="math display">\[
+\begin{aligned}
+\hbar \frac{\partial}{\partial \tau} a_{\boldsymbol{p} \sigma}(\tau) &amp;=\mathrm{e}^{\tau K / \hbar}\left[K, a_{\boldsymbol{p} \sigma}\right] \mathrm{e}^{-\tau K / \hbar} \\
+&amp;=-\left(\varepsilon_{\boldsymbol{p}}-\mu\right) a_{\boldsymbol{p} \sigma}(\tau)-\sum_{\boldsymbol{q} \neq 0 \boldsymbol{k} \alpha} V(\boldsymbol{q}) a_{\boldsymbol{k}-\boldsymbol{q} \alpha}^{\dagger}(\tau) a_{\boldsymbol{k} \alpha}(\tau) a_{\boldsymbol{p}-\boldsymbol{q} \sigma}(\tau)
+\end{aligned}
+\]</span> 同理 <span class="math display">\[
+\hbar \frac{\partial}{\partial \tau} a_{p \sigma}^{\dagger}(\tau)=\left(\varepsilon_{p}-\mu\right) a_{p \sigma}^{\dagger}(\tau)-\sum_{q \neq 0 k \alpha} V(q) a_{p+q \sigma}^{\dagger}(\tau) a_{k-q \alpha}^{\dagger}(\tau) a_{k \alpha}(\tau)
+\]</span></p>
+<h4 id="松原函数的运动方程">4.1 松原函数的运动方程</h4>
+<p><span class="math display">\[
+\begin{aligned}
+\hbar \frac{\partial}{\partial \tau_{1}} G_{p \sigma}\left(\tau_{1}, \tau_{2}\right)=&amp;-\hbar \frac{\partial}{\partial \tau}\left[\theta\left(\tau_{1}-\tau_{2}\right)\left\langle a_{p \sigma}\left(\tau_{1}\right) a_{p \sigma}^{\dagger}\left(\tau_{2}\right)\right\rangle\right.\\
+&amp;\left.-\theta\left(\tau_{2}-\tau_{1}\right)\left\langle a_{p \sigma}^{\dagger}\left(\tau_{2}\right) a_{p \sigma}\left(\tau_{1}\right)\right\rangle\right] \\
+=&amp;-\hbar \delta\left(\tau_{1}-\tau_{2}\right)-\left\langle\left\langle\hbar \frac{\partial}{\partial \tau_{1}} a_{p \sigma}\left(\tau_{1}\right) | a_{p \sigma}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \\
+=&amp;-\hbar \delta\left(\tau_{1}-\tau_{2}\right)-\left(\varepsilon_{p}-\mu\right)\left\langle\left\langle a_{p \sigma}\left(\tau_{1}\right) | a_{p \sigma}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \\
+&amp;+\sum_{q \neq 0 k \alpha} V(q)\left\langle\left\langle a_{k-q \alpha}^{\dagger}\left(\tau_{1}\right) a_{k \alpha}\left(\tau_{1}\right) a_{p-q \sigma}\left(\tau_{1}\right) | a_{p \sigma}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle
+\end{aligned}
+\]</span></p>
+<p>最后一项做分解近似，排除 <span class="math inline">\(\boldsymbol{q}=0\)</span> 之后, 有以下几种情况： <span class="math display">\[
+\begin{aligned}
+&amp;\left\langle\left\langle a_{\boldsymbol{k}-\boldsymbol{q} \alpha}^{\dagger}\left(\tau_{1}\right) a_{\boldsymbol{k} \alpha}\left(\tau_{1}\right) a_{\boldsymbol{p}-\boldsymbol{q} \sigma}\left(\tau_{1}\right) | a_{\boldsymbol{p} \sigma}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \\
+=&amp;\left\langle\left\langle a_{\boldsymbol{k}-\boldsymbol{q} \alpha}^{\dagger}\left(\tau_{1}^{+}\right) | a_{\boldsymbol{p}-\boldsymbol{q} \sigma}\left(\tau_{1}\right)\right\rangle\right\rangle\left\langle\left\langle a_{\boldsymbol{k} \alpha}\left(\tau_{1}\right) | a_{p \sigma}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \\
+&amp;+\left\langle\left\langle a_{\boldsymbol{p}-\boldsymbol{q} \sigma}\left(\tau_{1}\right) | a_{\boldsymbol{k} \alpha}\left(\tau_{1}\right)\right\rangle\right\rangle\left\langle\left\langle a_{\boldsymbol{k}-\boldsymbol{q} \alpha}^{\dagger}\left(\tau_{1}\right) | a_{\boldsymbol{p} \sigma}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle
+\end{aligned}
+\]</span></p>
+<ul>
+<li>第一项中, 第一个因子 <span class="math inline">\(\left\langle a_{\boldsymbol{k}-\boldsymbol{q} \alpha}^{\dagger} a_{\boldsymbol{p}-\boldsymbol{q} \sigma}\right\rangle\)</span> 只有在 <span class="math inline">\(k=p, \alpha=\sigma\)</span> 时才不为零。</li>
+<li>第一项中, 第二个因子 <span class="math inline">\(G_{p \sigma}\left(\tau_{1}, \tau_{2}\right)\)</span> 是正常格林函数</li>
+<li>第二项中，是两个反常格林函数，但必须是 <span class="math inline">\(\boldsymbol{k}=-\boldsymbol{p}+\boldsymbol{q}, \alpha=-\sigma\)</span> 分别是</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\left\langle\left\langle a_{\boldsymbol{k}-\boldsymbol{q} \alpha^{\dagger}}\left(\tau_{1}^{+}\right) | a_{\boldsymbol{p}-\boldsymbol{q} \sigma}\left(\tau_{1}\right)\right\rangle\right\rangle\left\langle\left\langle a_{\boldsymbol{k}} \alpha\left(\tau_{1}\right) | a_{\boldsymbol{p} \sigma}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \\
+=&amp; \delta_{\boldsymbol{p}, \boldsymbol{k}} \delta_{\alpha \sigma} n_{\boldsymbol{p}-\boldsymbol{q} \sigma} G_{\boldsymbol{p} \sigma}\left(\tau_{1}, \tau_{2}\right)
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\left\langle\left\langle a_{\boldsymbol{p}-\boldsymbol{q} \sigma}\left(\tau_{1}^{+}\right) | a_{\boldsymbol{k} \alpha}\left(\tau_{1}\right)\right\rangle\right\rangle\left\langle\left\langle a_{\boldsymbol{k}-\boldsymbol{q} \alpha}^{\dagger}\left(\tau_{1}\right) | a_{\boldsymbol{p} \sigma}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \\
+=&amp; \delta_{\boldsymbol{p}-\boldsymbol{q},-k} \delta_{\boldsymbol{\alpha},-\sigma} F_{\boldsymbol{p}-\boldsymbol{q}}(0) F_{\boldsymbol{p}}^{+}\left(\tau_{1}, \tau_{2}\right)
+\end{aligned}
+\]</span></p>
+<p>最后一项成为 <span class="math display">\[
+\begin{aligned}
+&amp; \sum_{\boldsymbol{q} \neq 0 \boldsymbol{k} \alpha} V(\boldsymbol{q})\left\langle\left\langle a_{\boldsymbol{k}-\boldsymbol{q} \alpha}^{\dagger}\left(\tau_{1}\right) a_{\boldsymbol{k} \alpha}\left(\tau_{1}\right) a_{\boldsymbol{p}-\boldsymbol{q} \sigma}\left(\tau_{1}\right) | a_{\boldsymbol{p} \sigma}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \\
+=&amp; \sum_{\boldsymbol{q} \neq 0} V(\boldsymbol{q})\left[n_{\boldsymbol{p}-\boldsymbol{q} \sigma} G_{\boldsymbol{k} \sigma}\left(\tau_{1}, \tau_{2}\right)-F_{\boldsymbol{p}-\boldsymbol{q}}(0) F_{\boldsymbol{p}}^{+}\left(\tau_{1}, \tau_{2}\right)\right]
+\end{aligned}
+\]</span></p>
+<h4 id="能隙gap-function函数">4.2 能隙(Gap Function)函数</h4>
+<p>定义能隙(Gap Function)函数 <span class="math display">\[
+\Delta(\boldsymbol{p})=-\sum_{q \neq 0} V(\boldsymbol{q}) F_{p-\boldsymbol{q}}\left(\tau_{1}-\tau_{2} \rightarrow 0\right)=|\Delta(\boldsymbol{p})| \mathrm{e}^{\mathrm{i} \phi}
+\]</span> 定义自能函数 <span class="math display">\[
+\Sigma(\boldsymbol{p})=-\sum_{\boldsymbol{q} \neq 0} V(\boldsymbol{q}) n_{\boldsymbol{p}-\boldsymbol{q} \sigma}
+\]</span> 能隙(Gap equation)函数一般来说是个复数. 运动方程为 <span class="math display">\[
+\begin{aligned}
+\hbar \frac{\partial}{\partial \tau} G_{\boldsymbol{p} \sigma}\left(\tau_{1}, \tau_{2}\right)=&amp;-\hbar \delta\left(\tau_{1}-\tau_{2}\right)+\left(\varepsilon_{\boldsymbol{p}}-\mu\right) G_{\boldsymbol{p} \sigma}\left(\tau_{1}, \tau_{2}\right) \\
+&amp;-\Sigma(\boldsymbol{p}) G_{\boldsymbol{p} \sigma}\left(\tau_{1}, \tau_{2}\right)+\Delta(\boldsymbol{p}) F_{\boldsymbol{p}}^{+}\left(\tau_{1}, \tau_{2}\right)
+\end{aligned}
+\]</span> 其中自能项 <span class="math inline">\(\Sigma(\boldsymbol{p})\)</span> 在弱耦合理论中被忽略，也可以认为它被合并到动能项里面： <span class="math display">\[
+\varepsilon_{\boldsymbol{p}}-\Sigma(\boldsymbol{p}) \rightarrow \varepsilon_{\boldsymbol{p}}
+\]</span></p>
+<h4 id="反常松原函数的运动方程">4.3 反常松原函数的运动方程</h4>
+<p><span class="math display">\[
+\begin{aligned}
+\hbar \frac{\partial}{\partial \tau_{1}} F_{p}^{+}\left(\tau_{1}, \tau_{2}\right)=&amp;-\frac{\partial}{\partial \tau_{1}}\left[\theta\left(\tau_{1}-\tau_{2}\right)\left\langle a_{-p \downarrow}^{\dagger}\left(\tau_{1}\right) a_{p \uparrow}^{\dagger}\left(\tau_{2}\right)\right\rangle\right.\\
+&amp;\left.-\theta\left(\tau_{2}-\tau_{1}\right)\left\langle a_{p \uparrow}^{\dagger}\left(\tau_{2}\right) a_{-p \downarrow}^{\dagger}\left(\tau_{1}\right)\right\rangle\right] \\
+=&amp;-\left\langle\left\langle\hbar \frac{\partial}{\partial \tau_{1}} a_{-p \downarrow}^{\dagger}\left(\tau_{1}\right) | a_{p \uparrow}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \\
+=&amp;\left(\varepsilon_{p}-\mu\right)\left\langle\left\langle a_{-p \downarrow}^{\dagger}\left(\tau_{1}\right) | a_{p \uparrow}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \\
+&amp;+\sum_{q \neq 0 k \alpha} V(q)\left\langle\left\langle a_{-p+q \downarrow}^{\dagger}\left(\tau_{1}\right) a_{k-q \alpha}^{\dagger}\left(\tau_{1}\right) a_{k \alpha}\left(\tau_{1}\right) | a_{p \uparrow}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle
+\end{aligned}
+\]</span></p>
+<p>最后一项做分解近似 <span class="math display">\[
+\begin{aligned}
+&amp; \sum_{q \neq 0 k \alpha} V(\boldsymbol{q})\left\langle\left\langle a_{-\boldsymbol{p}+\boldsymbol{q} \downarrow}^{\dagger}\left(\tau_{1}\right) a_{\boldsymbol{k}-\boldsymbol{q} \alpha}^{\dagger}\left(\tau_{1}\right) a_{\boldsymbol{k} \alpha}\left(\tau_{1}\right) | a_{\boldsymbol{p} \uparrow}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \\
+=&amp; \sum_{\boldsymbol{q} \neq 0 \boldsymbol{k} \alpha} V(\boldsymbol{q})\left\{\left\langle\left\langle a_{-\boldsymbol{p}+\boldsymbol{q} \downarrow}^{\dagger}\left(\tau_{1}^{\dagger}\right) | a_{\boldsymbol{p}-\boldsymbol{q} \alpha}^{\dagger}\left(\tau_{1}\right)\right\rangle\right\rangle\left\langle\left\langle a_{\boldsymbol{p} \alpha}\left(\tau_{1}\right) | a_{\boldsymbol{p} \uparrow}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \delta_{\alpha \uparrow} \delta_{\boldsymbol{p} k}\right.\\
+&amp;\left.+\left\langle\left\langle a_{-\boldsymbol{p}+\boldsymbol{q} \downarrow}^{\dagger}\left(\tau_{1}^{\dagger}\right) | a_{\boldsymbol{k} \alpha}(\tau)\right\rangle\right\rangle\left\langle\left\langle a_{\boldsymbol{k}-\boldsymbol{q} \alpha}^{\dagger}\left(\tau_{1}\right) | a_{\boldsymbol{p} \uparrow}^{\dagger}\left(\tau_{2}\right)\right\rangle\right\rangle \delta_{\boldsymbol{\alpha}, \downarrow} \delta_{-\boldsymbol{p}, \boldsymbol{k}-\boldsymbol{q}}\right\} \\
+=&amp; \sum_{\boldsymbol{q} \neq 0} V(\boldsymbol{q})\left\{F_{\boldsymbol{p}-\boldsymbol{q}}^{+}(0) G_{\boldsymbol{p} \uparrow}\left(\tau_{1}, \tau_{2}\right)+F_{\boldsymbol{p}}^{+}\left(\tau_{1}, \tau_{2}\right) n_{-\boldsymbol{p}+\boldsymbol{q}} \downarrow\right\} \\
+=&amp; \Delta^{*}(\boldsymbol{p}) G_{\boldsymbol{p} \uparrow}\left(\tau_{1}, \tau_{2}\right)-F_{\boldsymbol{p}}^{+}\left(\tau_{1}, \tau_{2}\right) \Sigma(\boldsymbol{p})
+\end{aligned}
+\]</span> 反常松原函数的运动方程 <span class="math display">\[
+\hbar \frac{\partial}{\partial \tau_{1}} F_{\boldsymbol{p}}^{+}\left(\tau_{1}, \tau_{2}\right)=\left(\varepsilon_{\boldsymbol{p}}-\mu\right) F_{\boldsymbol{p}}^{+}\left(\tau_{1}, \tau_{2}\right)+\Delta^{*}(\boldsymbol{p}) G_{\boldsymbol{p} \uparrow}\left(\tau_{1}, \tau_{2}\right)-F_{\boldsymbol{p}}^{+}\left(\tau_{1}, \tau_{2}\right) \Sigma(\boldsymbol{p})
+\]</span> 自能项 <span class="math inline">\(\Sigma(\boldsymbol{p})\)</span> 合并到动能项里面： <span class="math display">\[
+\varepsilon_{\boldsymbol{p}}-\Sigma(\boldsymbol{p}) \rightarrow \varepsilon_{\boldsymbol{p}}
+\]</span> 由此我们得到一组方程： <span class="math display">\[
+\begin{aligned}
+&amp;\left(-\hbar \frac{\partial}{\partial \tau_{1}}-\xi_{p}\right) G_{p \sigma}\left(\tau_{1}, \tau_{2}\right)+\Delta(\boldsymbol{p}) F_{p}^{+}\left(\tau_{1}, \tau_{2}\right)=\delta\left(\tau_{1}-\tau_{2}\right)\\
+&amp;\left(-\hbar \frac{\partial}{\partial \tau_{1}}+\xi_{p}\right) F_{p}^{+}\left(\tau_{1}, \tau_{2}\right)+\Delta^{*}(\boldsymbol{p}) G_{p \uparrow}\left(\tau_{1}, \tau_{2}\right)=0
+\end{aligned}
+\]</span> 写成矩阵的形式 <span class="math display">\[
+\left(\begin{array}{cc}
+-\hbar \frac{\partial}{\partial \tau_{1}}-\xi_{p} &amp; \Delta(\boldsymbol{p}) \\
+\Delta^{*}(\boldsymbol{p}) &amp; -\hbar \frac{\partial}{\partial \tau_{1}}+\xi_{p}
+\end{array}\right) G_{\mathrm{N}}\left(\boldsymbol{p}, \tau_{1}, \tau_{2}\right)=\hbar \delta\left(\tau_{1}-\tau_{2}\right)\left(\begin{array}{cc}
+1 &amp; 0 \\
+0 &amp; 1
+\end{array}\right)
+\]</span> 对于热力学格林函数，我们可以执照以上同样的路径, 推导出相应的一组方程。 <span class="math display">\[
+\left(\begin{array}{cc}
+-\mathrm{i} \hbar \frac{\partial}{\partial t}+\hbar^{2} \frac{\nabla^{2}}{2 m}+\mu &amp; \Delta \\
+\Delta^{*} &amp; -\mathrm{i} \hbar \frac{\partial}{\partial t}-\hbar^{2} \frac{\nabla^{2}}{2 m}-\mu
+\end{array}\right) G_{p}\left(x, x^{\prime}\right)=\hbar \delta\left(x-x^{\prime}\right)\left(\begin{array}{cc}
+1 &amp; 0 \\
+0 &amp; 1
+\end{array}\right)
+\]</span></p>
+<h3 id="松原函数的运动方程的解">5 松原函数的运动方程的解</h3>
+<p>松原函数的运动方程 <span class="math display">\[
+\left(\begin{array}{cc}-\hbar \frac{\partial}{\partial \tau_{1}}-\xi_{p} &amp; \Delta(\boldsymbol{p}) \\\Delta^{*}(\boldsymbol{p}) &amp; -\hbar \frac{\partial}{\partial \tau_{1}}+\xi_{p}\end{array}\right) G_{\mathrm{N}}\left(\boldsymbol{p}, \tau_{1}, \tau_{2}\right)=\hbar \delta\left(\tau_{1}-\tau_{2}\right)\left(\begin{array}{cc}1 &amp; 0 \\0 &amp; 1\end{array}\right)
+\]</span> 对松原函数做虚时傅里叶变换。 <span class="math display">\[
+G_{\mathrm{N}}\left(\boldsymbol{p}, \tau_{1}-\tau_{2}\right)=\frac{1}{\beta} \sum_{n} \mathrm{e}^{-\mathrm{i} \omega_{n}\left(\tau_{1}-\tau_{2}\right)} G_{\mathrm{N}}\left(\boldsymbol{p}, \mathrm{i} \omega_{n}\right)
+\]</span> 运动方程变成 <span class="math display">\[
+\left(\begin{array}{cc}
+\mathrm{i} \hbar \omega_{n}-\xi_{\boldsymbol{p}} &amp; \Delta(\boldsymbol{p}) \\
+\Delta^{*}(\boldsymbol{p}) &amp; \mathrm{i} \hbar \omega_{n}+\xi_{\boldsymbol{p}}
+\end{array}\right)\left(\begin{array}{cc}
+G_{\boldsymbol{p} \uparrow}\left(\mathrm{i} \omega_{n}\right) &amp; F_{\boldsymbol{p}}\left(\mathrm{i} \omega_{n}\right) \\
+F_{\boldsymbol{p}}^{+}\left(\mathrm{i} \omega_{n}\right) &amp; -G_{-\boldsymbol{p} \downarrow}\left(-\mathrm{i} \omega_{n}\right)
+\end{array}\right)=\hbar\left(\begin{array}{cc}
+1 &amp; 0 \\
+0 &amp; 1
+\end{array}\right)
+\]</span> 运动方程的解：松原函数 <span class="math display">\[
+G_{\mathrm{Np}}\left(\mathrm{i} \omega_{n}\right)=-\frac{1}{\hbar^{2} \omega_{n}^{2}+E_{p^{2}}}\left(\begin{array}{cc}
+\mathrm{i} \hbar \omega_{n}+\xi_{p} &amp; \Delta(p) \\
+\Delta^{*}(p) &amp; -\mathrm{i} \hbar \omega_{n}+\xi_{p}
+\end{array}\right)
+\]</span> 其中<span class="math inline">\(E_{\boldsymbol{p}}=\sqrt{\xi_{\boldsymbol{p}}^{2}+|\Delta(\boldsymbol{p})|^{2}}\)</span></p>
+<h4 id="松原函数的性质">5.1 松原函数的性质</h4>
+<ol type="1">
+<li>反常松原函数是频率的偶函数。</li>
+</ol>
+<p><span class="math display">\[
+F\left(\boldsymbol{p},-\mathrm{i} \omega_{n}\right)=F\left(\boldsymbol{p}, \mathrm{i} \omega_{n}\right)
+\]</span></p>
+<ol start="2" type="1">
+<li>当能院为零, 表示体系无相互作用</li>
+</ol>
+<p><span class="math display">\[
+G_{\mathrm{N} p}\left(\mathrm{i} \omega_{n}\right)=\left(\begin{array}{cc}
+1 /\left(\mathrm{i} \hbar \omega_{n}-\xi_{p}\right) &amp; 0 \\
+0 &amp; -1 /\left(\mathrm{i} \hbar \omega_{n}+\xi_{p}\right)
+\end{array}\right)
+\]</span></p>
+<p>无相互作用系统的反常松原函数 <span class="math inline">\(F_{p}\left(i \omega_{n}\right)\)</span> 确实为零。</p>
+<ol start="3" type="1">
+<li>格林函数的极点就是激发谱。</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+G_{\boldsymbol{p}}\left(\mathrm{i} \omega_{n}\right)&amp;=\frac{\mathrm{i} \hbar \omega_{n}+\xi_{\boldsymbol{p}}}{\hbar^{2} \omega_{n}^{2}+E_{\boldsymbol{p}}^{2}}
+\\&amp;=\frac{1}{2}\left(1+\frac{\xi_{\boldsymbol{p}}}{E_{\boldsymbol{p}}}\right) \frac{1}{\mathrm{i} \hbar \omega_{n}-E_{\boldsymbol{p}}}+\frac{1}{2}\left(1-\frac{\xi_{\boldsymbol{p}}}{E_{\boldsymbol{p}}}\right) \frac{1}{\mathrm{i} \hbar \omega_{n}+E_{\boldsymbol{p}}}
+\end{aligned}
+\]</span></p>
+<p>令 <span class="math display">\[
+u_{\boldsymbol{p}}^{2}=\frac{1}{2}\left(1+\frac{\xi_{\boldsymbol{p}}}{E_{\boldsymbol{p}}}\right), \quad v_{\boldsymbol{p}}^{2}=\frac{1}{2}\left(1-\frac{\xi_{\boldsymbol{p}}}{E_{\boldsymbol{p}}}\right)
+\]</span> 超导体中的凝聚与一般玻色流体中的凝聚性质上是一样的。 <span class="math display">\[
+v_{p}^{2}+u_{p}^{2}=1, \quad u_{p}^{2}-v_{p}^{2}=\frac{\xi_{p}}{E_{p}},\\ \quad 2 u_{p} v_{p}= \sqrt{1-\frac{\xi_{p}^{2}}{E_{p}^{2}}} =\frac{|\Delta(p)|}{E_{p}}
+\]</span> 松原函数和反常松原函数写成 <span class="math display">\[
+\begin{aligned}
+G_{\boldsymbol{p}}\left(\mathrm{i} \omega_{n}\right)&amp;=\frac{u_{p}^{2}}{\mathrm{i} \hbar \omega_{n}-E_{p}}+\frac{v_{p}^{2}}{\mathrm{i} \hbar \omega_{n}+E_{p}}
+\\F_{p}\left(\mathrm{i} \omega_{n}\right)&amp;=-\mathrm{e}^{\mathrm{i} \phi} u_{p} v_{p}\left(\frac{1}{\mathrm{i} \hbar \omega_{n}-E_{p}}-\frac{1}{\mathrm{i} \hbar \omega_{n}+E_{p}}\right)
+\end{aligned}
+\]</span> <span class="math inline">\(v_{p}^{2}，u_{p}^{2}\)</span> 就是格林監数的极点的留数。由格林函数计算谱函数 <span class="math display">\[
+A(\boldsymbol{p}, \omega)=-2 \operatorname{Im} G^{\mathrm{R}}(\boldsymbol{p}, \omega)=2 \pi\left[u_{p}^{2} \delta\left(\omega-E_{p}\right)+v_{p}^{2} \delta\left(\omega+E_{p}\right)\right]
+\]</span></p>
+<ul>
+<li>激发普的能量 <span class="math inline">\(E_{p}=\sqrt{\xi_{p}^{2}+|\Delta(p)|^{2}}\)</span></li>
+<li>能隙函数 <span class="math inline">\(\Delta(\boldsymbol{p})=\Delta\)</span></li>
+</ul>
+<h3 id="一些物理量的计算">6 一些物理量的计算</h3>
+<h4 id="能隙函数的自洽方程">能隙函数的自洽方程</h4>
+<p>激发一个电子的能量至少是 <span class="math inline">\(\Delta\)</span>. 因此在激发态和基态之间有一能隙. 但注意这 一能隙并不是<span class="math inline">\(\Delta\)</span>. 由于超导基态中电子是配对的, 电子只能成对地湮没或者产生. 因 而不能只激发一个电子. 必须在超导态中同时湮没两个电子, 把它们送到激发态上。 假定到达激发态后这两个电子的能量是 <span class="math inline">\(E\left(p_{1}\right)\)</span> 和 <span class="math inline">\(E\left(p_{2}\right)\)</span>, 那么: <span class="math inline">\(E\left(p_{1}\right)+E\left(p_{2}\right)&gt;2 \Delta\)</span> 宝少需要 <span class="math inline">\(2\Delta\)</span>才能实现电子的激发。因此<span class="math inline">\(2\Delta\)</span>才是超导态的真正的能隙。</p>
+<p>假设库仑相互作用的傅里叶分量是常量： <span class="math display">\[
+V(\boldsymbol{p})=\lambda
+\]</span> 把反常松原函数代入能隙函数的定义 <span class="math display">\[
+\begin{aligned}
+\Delta &amp;=-\lambda \sum_{\boldsymbol{q} \neq 0} F_{\boldsymbol{p}-\boldsymbol{q}}\left(\tau_{1}-\tau_{2}=0^{+}\right)=-\lambda \sum_{\boldsymbol{q}} F_{\boldsymbol{q}}\left(\tau_{1}-\tau_{2}=0^{+}\right) \\
+&amp;=\frac{\lambda}{\beta} \frac{1}{(2 \pi)^{3}} \int \mathrm{d} \boldsymbol{p} \sum_{n} F\left(\boldsymbol{p}, \mathrm{i} \omega_{n}\right) \mathrm{e}^{\mathrm{i} \omega_{n} 0^{+}} \\
+&amp;=\frac{\lambda}{\beta} \frac{1}{(2 \pi)^{3}} \int \mathrm{d} \boldsymbol{p} \sum_{n} \mathrm{e}^{\mathrm{i} \omega_{n} 0^{+}} \frac{\Delta}{\hbar^{2} \omega_{n}^{2}+E_{\boldsymbol{p}}^{2}}
+\end{aligned}
+\]</span></p>
+<p>因为我们假设了<span class="math inline">\(\Delta\)</span> 是常量，与动量积分 <span class="math inline">\(\int d p\)</span> 无关，可以提出来，与左边 <span class="math inline">\(\Delta\)</span> 消除 <span class="math display">\[
+\begin{aligned}
+1 &amp;=\frac{\lambda}{\beta} \frac{1}{(2 \pi)^{3}} \int \mathrm{d} \boldsymbol{p} \sum_{n} \mathrm{e}^{\mathrm{i} \omega_{n} 0^{+}} \frac{1}{2 E_{\boldsymbol{p}}}\left(\frac{1}{\mathrm{i} \omega_{n}-E_{\boldsymbol{p}}}-\frac{1}{\mathrm{i} \omega_{n}+E_{\boldsymbol{p}}}\right) \\
+&amp;=-\frac{\lambda}{2(2 \pi)^{3}} \int \mathrm{d} \boldsymbol{p} \frac{1}{E_{\boldsymbol{p}}}\left(\frac{1}{\mathrm{e}^{\beta E_{\boldsymbol{p}}}+1}-\frac{1}{\mathrm{e}^{-\beta E_{\boldsymbol{p}}}+1}\right) \\
+&amp;=\frac{\lambda}{2} \frac{1}{(2 \pi)^{3}} \int \mathrm{d} \boldsymbol{p} \frac{1}{E_{\boldsymbol{p}}} \tanh \frac{\beta E_{\boldsymbol{p}}}{2}
+\end{aligned}
+\]</span> 在第二个等号计算我们用了公式 <span class="math inline">\(\frac{1}{\beta \hbar} \sum_{n=-\infty}^{\infty} F\left(\mathrm{i} \omega_{n}\right)=-\frac{1}{2 \pi \mathrm{i}} \int_{\mathrm{C}} \frac{F(z)}{\mathrm{e}^{\beta \hbar z}+1} \mathrm{d} z\)</span> 求和的是费米子频率 <span class="math inline">\(\omega_{n}=(2 n+1) \pi / \beta\)</span></p>
+<p>现在把对动量的积分换成对能量的积分 <span class="math display">\[
+\frac{1}{(2 \pi)^{3}} \int \mathrm{d} \boldsymbol{p} \rightarrow \int N(\xi) \mathrm{d} \xi=N(0) \int \mathrm{d} \xi
+\]</span> 这儿把态密度用化学势处的态密度来近似. 进一步, 近似成零温时的化学考, 也就是费米能处的态密度. 费米能处的态密度满足 <span class="math inline">\(N(0)=\frac{N k_{\mathrm{F}}}{2 \pi^{2}}\)</span></p>
+<p>一能量是以化学势为零点的, 所以能量可正可负. 把能量的积分上限设为有限值 <span class="math inline">\(\hbar \omega_{\mathrm{D}}\)</span> <span class="math display">\[
+\begin{aligned}
+\frac{\lambda}{2} \frac{1}{(2 \pi)^{3}} \int \mathrm{d} \boldsymbol{p} \frac{1}{E_{\boldsymbol{p}}} \tanh \frac{\beta E_{\boldsymbol{p}}}{2} 
+&amp;=1
+\\
+\lambda N(0) \int_{0}^{\hbar \omega_{\mathrm{D}}} \mathrm{d} \xi \frac{1}{E_{\boldsymbol{p}}} \tanh \frac{\beta E_{\boldsymbol{p}}}{2}&amp;=1
+\\
+\lambda N(0) \int_{0}^{\hbar \omega_{\mathrm{D}}} \mathrm{d} \xi \frac{1}{\sqrt{\xi^{2}+\Delta(T)^{2}}} \tanh \frac{\beta \sqrt{\xi^{2}+\Delta(T)^{2}}}{2}&amp;=1
+\end{aligned}
+\]</span></p>
+<h4 id="零温时的能隙">零温时的能隙</h4>
+<p><span class="math inline">\(T=0\)</span> 时，<span class="math inline">\(\tanh (\beta \sqrt{\xi^{2}+\Delta^{2}(0)} / 2)=1\)</span> <span class="math display">\[
+\begin{aligned}
+\frac{1}{\lambda N(0)} &amp;=\int_{0}^{\hbar \omega_{\mathrm{D}}} \mathrm{d} \xi \frac{1}{\sqrt{\xi^{2}+\Delta^{2}(0)}}=\ln |[\xi+\sqrt{\xi^{2}+\Delta^{2}(0)}]|_{0}^{\hbar \omega_{\mathrm{D}}} \\
+&amp;=\ln \frac{\hbar \omega_{\mathrm{D}}+\sqrt{\hbar^{2} \omega_{\mathrm{D}}^{2}+\Delta^{2}(0)}}{\Delta(0)} \approx \ln \frac{2 \hbar \omega_{\mathrm{D}}}{\Delta(0)}
+\end{aligned}
+\]</span> 我们假设了能量上限远大于 <span class="math inline">\(\Delta(0)\)</span> <span class="math display">\[
+\omega_{\mathrm{D}} \gg \Delta(0)
+\]</span> 此式称为弱耦合极限。由等式 <span class="math inline">\(\frac{1}{\lambda N(0)} = \ln \frac{2 \hbar \omega_{\mathrm{D}}}{\Delta(0)}\)</span> 可以得到零温时的能隙 <span class="math display">\[
+E_{\mathrm{g}}=2 \Delta(0)=4 \hbar \omega_{\mathrm{D}} \mathrm{e}^{-1 / \lambda N(0)}
+\]</span> 这个量随着相互作用强度减弱或者费米能处的态密度的减弱而迅速超于零。</p>
+<h4 id="临界温度">临界温度</h4>
+<p>变量代换 <span class="math inline">\(z=\beta_{\mathrm{C}} \xi / 2, Z=\beta_{\mathrm{C}} \hbar \omega_{\mathrm{D}} / 2\)</span> $$ \begin{aligned}</p>
+<p>&amp;= <em>{0}<sup>{<em>{}}    \ &amp;=</em>{0}</sup>{Z}  z  \&amp;=.[(z)(z)]|</em>{0} ^{Z}-_{0}^{Z}  z(z)(^{2} z) \ &amp;=+ \end{aligned} $$ 其中</p>
+<ul>
+<li>用分部积分</li>
+<li>在第一项中, 可以认为 $Z $ 足够大, 取 <span class="math inline">\(\tanh Z=1\)</span></li>
+<li>在第二项中, 积分收敛很快, 可把上限扩展为无穷大。积分的结果是 <span class="math inline">\(-\ln \frac{4 \mathrm{e}^{\gamma}}{\pi}\)</span></li>
+</ul>
+<p>解出 <span class="math display">\[
+k_{\mathrm{B}} T_{\mathrm{C}}=\frac{2 \mathrm{e}^{\gamma}}{\pi} \hbar \omega_{\mathrm{D}} \mathrm{e}^{-1 / \lambda N(0)}=1.13 \omega_{\mathrm{D}} \mathrm{e}^{-1 / \lambda N(0)}
+\]</span> 零温时的能隙 <span class="math inline">\(E_{\mathrm{g}} =4 \hbar \omega_{\mathrm{D}} \mathrm{e}^{-1 / \lambda N(0)}\)</span> 与 <span class="math inline">\(k_{\mathrm{B}} T_{\mathrm{C}}\)</span> 关系 <span class="math display">\[
+\frac{E_{\mathrm{g}}}{k_{\mathrm{B}} T_{\mathrm{C}}}=2 \pi \mathrm{e}^{-\gamma}=3.52
+\]</span></p>
+<h4 id="能隙随温度的函数">能隙随温度的函数</h4>
+<p>方程 <span class="math display">\[
+\lambda N(0) \int_{0}^{\hbar \omega_{\mathrm{D}}} \mathrm{d} \xi \frac{1}{\sqrt{\xi^{2}+\Delta(T)^{2}}} \tanh \frac{\beta \sqrt{\xi^{2}+\Delta(T)^{2}}}{2}=1
+\]</span> 可以给出 <span class="math inline">\(\Delta(T)\)</span> 能隙随温度的函数，一般温度下, 只能做数值计算。在温度接近 零温 时, 有以下近似表达式： <span class="math display">\[
+\Delta(T)=\Delta(0)-\sqrt{2 \pi \Delta(0) k_{\mathrm{B}} T} \exp \left[-\Delta(0) /\left(k_{\mathrm{B}} T\right)\right], \quad T \ll T_{\mathrm{C}}
+\]</span> 在温度接近 超导转变温度时 <span class="math display">\[
+\begin{aligned}
+\Delta(T) &amp;=\pi k_{\mathrm{B}} T_{\mathrm{C}} \sqrt{\frac{8}{7 \zeta(3)}}\left(1-\frac{T}{T_{\mathrm{C}}}\right)^{1 / 2} \\
+&amp;=3.06 k_{\mathrm{B}} T_{\mathrm{C}}\left(1-\frac{T}{T_{\mathrm{C}}}\right)^{1 / 2}, \quad T_{\mathrm{C}}-T \ll T_{\mathrm{C}}
+\end{aligned}
+\]</span></p>
+<h4 id="激发谱的态密度">激发谱的态密度</h4>
+<p><span class="math display">\[
+\rho(E)=\left(\frac{\mathrm{d} E}{\mathrm{d} \xi}\right)^{-1}=\left(\frac{\xi}{\sqrt{\xi^{2}+|\Delta|^{2}}}\right)^{-1}=\frac{E}{\sqrt{E^{2}-|\Delta|^{2}}}
+\]</span></p>
+<h2 id="平均场近似海森堡运动方程">平均场近似(海森堡运动方程)</h2>
+<p>相互作用部分实空间 <span class="math display">\[
+H_1=\frac{1}{2} \sum_{\alpha, \beta} \int d x d x ^{\prime} \psi_{\alpha}^{\dagger}( x ) \psi_{\beta}^{\dagger}\left( x ^{\prime}\right) V\left( x - x ^{\prime}\right) \psi_{\beta}\left( x ^{\prime}\right) \psi_{\alpha}( x )
+\]</span> 做近似 <span class="math inline">\(V\left( x - x ^{\prime}\right)=-\lambda \delta\left( x - x ^{\prime}\right)\)</span> 则 <span class="math display">\[
+H_{1}=-\frac{\lambda}{2} \sum_{\alpha, \beta} \int d x \psi_{\alpha}^{\dagger}( x ) \psi_{\beta}^{\dagger}( x ) \psi_{\beta}( x ) \psi_{\alpha}( x )
+\]</span> 再做作平均场近似 <span class="math display">\[
+H_{1}=-\frac{\lambda}{2} \sum_{\alpha, \beta} \int d x \left[\left\langle\psi_{\alpha}^{\dagger}( x ) \psi_{\beta}^{\dagger}( x )\right\rangle \psi_{\beta}( x ) \psi_{\alpha}( x )+\psi_{\alpha}^{\dagger}( x ) \psi_{\beta}^{\dagger}( x )\left\langle\psi_{\beta}( x ) \psi_{\alpha}( x )\right\rangle\right]
+\]</span> 只能同时潭没或者产生一对自旋相反的粒子, 在这个约束条件下对自旋求和. <span class="math display">\[
+H_{1}=-\lambda \int d x \left[\left\langle\psi_{\uparrow}^{\dagger}( x ) \psi_{\downarrow}^{\dagger}( x )\right\rangle \psi_{\downarrow}( x ) \psi_{\uparrow}( x )+\psi_{\uparrow}^{\dagger}( x ) \psi_{\downarrow}^{\dagger}( x )\left\langle\psi_{\downarrow}( x ) \psi_{\uparrow}( x )\right\rangle\right]
+\]</span></p>
+<h3 id="平均场">平均场</h3>
+<p>平均场近似的两条路</p>
+<h4 id="道路1">道路1</h4>
+<p>在 <span class="math inline">\(k\)</span> 空间中 <span class="math display">\[
+H=\sum_{ k \alpha} \varepsilon_{ k } a_{ k \alpha}^{\dagger} a_{ k \alpha}+\frac{1}{2} \sum_{ q \neq 0 k p \alpha, \beta } V( q ) a_{ k + q \alpha}^{\dagger} a_{ p - q \beta}^{\dagger} a_{ p \beta} a_{ k \alpha}
+\]</span> 傅里叶变换，<span class="math inline">\(V( q )=-\lambda\)</span> <span class="math display">\[
+H_{1}=-\frac{\lambda}{2} \sum_{ k p q \alpha, \beta} a_{ k + q \alpha}^{\dagger} a_{ p - q \beta}^{\dagger} a_{ p \beta} a_{ k \alpha}
+\]</span> 只取这样的项: <span class="math inline">\(k+q=k_{1}, p-q=-k_{1},\)</span> 这两式相加后, 可以看到, <span class="math inline">\(p =- k\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+H_{1} &amp;=-\frac{\lambda}{2} \sum_{ k p q \alpha, \beta} a_{ k + q \alpha}^{\dagger} a_{ p - q \beta}^{\dagger} a_{ p \beta} a_{ k \alpha} \delta_{ p ,- k } \\
+&amp;=-\frac{\lambda}{2} \sum_{ k q \alpha, \beta} a_{ k + q \alpha}^{\dagger} a_{- k - q \beta}^{\dagger} a_{- k \beta} a_{ k \alpha} \\
+&amp;=-\frac{\lambda}{2} \sum_{ k _{1} k \alpha, \beta} a_{ k _{1} \alpha}^{\dagger} a_{- k _{1} \beta}^{\dagger} a_{- k \beta} a_{ k \alpha}
+\end{aligned}
+\]</span></p>
+<h4 id="道路2">道路2</h4>
+<p><span class="math display">\[
+H_{1}=-\frac{\lambda}{2} \sum_{\alpha, \beta} \int d x \psi_{\alpha}^{\dagger}( x ) \psi_{\beta}^{\dagger}( x ) \psi_{\beta}( x ) \psi_{\alpha}( x )
+\]</span></p>
+<p>做傅里叶变换 <span class="math display">\[
+\begin{aligned}
+H_{1} &amp;=-\frac{\lambda}{2} \sum_{k_{1} k_{2} k_{3} k_{4} \alpha, \beta} \int d x a_{ k _{1} \alpha}^{\dagger} e ^{- i k _{1} \cdot x } a_{ k _{2} \beta}^{\dagger} e ^{- i k _{2} \cdot x } a_{ k _{3} \beta} e ^{ i k _{3} \cdot x } a_{ k _{4} \alpha} e ^{ i k _{4} \cdot x } \\
+&amp;=-\frac{\lambda}{2} \sum_{ k _{1} k _{2} k _{3} k _{4} \alpha, \beta} a_{ k _{1} \alpha}^{\dagger} a_{ k _{2} \beta}^{\dagger} a_{ k _{3} \beta} a_{ k _{4} \alpha} \delta_{ k _{1}+ k _{2}, k _{3}+ k _{4}} \\
+&amp;=-\frac{\lambda}{2} \sum_{ k _{1} k _{3} k _{4} \alpha, \beta} a_{ k _{1} \alpha}^{\dagger} a_{ k _{3}+ k _{4}- k _{1} \beta}^{\dagger} a_{ k _{3} \beta} a_{ k _{4} \alpha}
+\end{aligned}
+\]</span> 再取 <span class="math inline">\(k_{3}=-k_{4},\)</span> 同样得到 <span class="math display">\[
+\begin{aligned}
+H_{1} =-\frac{\lambda}{2} \sum_{ k _{1} k \alpha, \beta} a_{ k _{1} \alpha}^{\dagger} a_{- k _{1} \beta}^{\dagger} a_{- k \beta} a_{ k \alpha}
+\end{aligned}
+\]</span></p>
+<h4 id="能隙">能隙</h4>
+<p>平均场近似: <span class="math display">\[
+\begin{aligned}
+H_{1} &amp;=-\frac{\lambda}{2} \sum_{ k _{1} k \alpha, \beta} a_{ k _{1} \alpha}^{\dagger} a_{- k _{1} \beta}^{\dagger} a_{- k \beta} a_{ k \alpha}\\
+&amp;=-\frac{\lambda}{2} \sum_{ k _{1} k \alpha, \beta}\left(\left\langle a_{ k _{1} \alpha}^{\dagger} a_{- k _{1} \beta}^{\dagger}\right\rangle a_{- k \beta} a_{ k \alpha}+a_{ k _{1} \alpha}^{\dagger} a_{- k _{1} \beta}^{\dagger}\left\langle a_{- k \beta} a_{ k \alpha}\right\rangle\right)
+\end{aligned}
+\]</span> 只能同时潭没或者产生一对自旋相反的粒子. <span class="math display">\[
+\begin{aligned}
+H_{1} &amp;=-\frac{\lambda}{2} \sum_{ k _{1} k \alpha, \beta}\left(\left\langle a_{ k _{1} \alpha}^{\dagger} a_{- k _{1} \beta}^{\dagger}\right\rangle a_{- k \beta} a_{ k \alpha}+a_{ k _{1} \alpha}^{\dagger} a_{- k _{1} \beta}^{\dagger}\left\langle a_{- k \beta} a_{ k \alpha}\right\rangle\right)
+\\&amp;=-\frac{\lambda}{2} \sum_{ k k _{1} \alpha}\left(\left\langle a_{ k _{1} \alpha}^{\dagger} a_{- k _{1}-\alpha}^{\dagger}\right\rangle a_{- k -\alpha} a_{ k \alpha}+a_{ k \alpha}^{\dagger} a_{- k -\alpha}^{\dagger}\left\langle a_{- k _{1}-\alpha} a_{ k _{1} \alpha}\right\rangle\right)
+\end{aligned}
+\]</span> 能隙函数的定义 <span class="math display">\[
+\lambda\left\langle a_{-k \downarrow} a_{k \uparrow}\right\rangle=-\Delta(k) e ^{- i \phi}
+\]</span> 平均场哈密顿量 <span class="math display">\[
+\begin{aligned}
+H_{1} &amp;=-\frac{\lambda}{2} \sum_{ k k _{1} \alpha}\left(\left\langle a_{ k _{1} \alpha}^{\dagger} a_{- k _{1}-\alpha}^{\dagger}\right\rangle a_{- k -\alpha} a_{ k \alpha}+a_{ k \alpha}^{\dagger} a_{- k -\alpha}^{\dagger}\left\langle a_{- k _{1}-\alpha} a_{ k _{1} \alpha}\right\rangle\right)\\
+&amp;=\sum_{k k_{1}}\left(a_{-k \downarrow} a_{k \uparrow} \Delta\left(k_{1}\right) e ^{ i \phi}+a_{k \uparrow}^{\dagger} a_{-k \downarrow}^{\dagger} \Delta\left(k_{1}\right) e ^{- i \phi}\right)
+\end{aligned}
+\]</span> 对 <span class="math inline">\(k _{1}\)</span> 求和 <span class="math inline">\(\Delta=\sum_{k_{1}} \Delta\left( k _{1}\right)\)</span></p>
+<p>由于做了平均场近似现在的 是一个与动量无关的物理量. <span class="math display">\[
+\begin{aligned}
+K &amp;=\sum_{ k \alpha} \xi_{ k \alpha} a_{ k \alpha}^{\dagger} a_{ k \alpha}+\frac{1}{2} \Delta \sum_{ k \alpha}\left(a_{ k \alpha}^{\dagger} a_{- k -\alpha}^{\dagger} e ^{- i \phi}+\text { h.c. }\right) \\
+&amp;=\sum_{ k \alpha} \xi_{ k \alpha} a_{ k \alpha}^{\dagger} a_{ k \alpha}+\Delta \sum_{ k }\left[e^{- i \phi} a_{ k \uparrow}^{\dagger} a_{- k \downarrow}^{\dagger}+ h.c. \right]
+\end{aligned}
+\]</span></p>
+<h3 id="海森堡算符的运动方程">海森堡算符的运动方程</h3>
+<blockquote>
+<p><strong>先计算出海森伯算符的表达式, 然后用它们来组成格林函数.</strong></p>
+</blockquote>
+<p>海森伯算符 <span class="math display">\[
+\begin{aligned}
+i \hbar \frac{\partial}{\partial t} a_{k \sigma}(t) &amp;= e ^{ i K t / \hbar}\left[a_{k \sigma}, K\right] e ^{- i K t / \hbar} \\
+&amp;=\varepsilon_{k \sigma} a_{k \sigma}(t)+\sigma \Delta e ^{- i \phi} a_{-k,-\sigma}^{\dagger}(t) \\
+i \frac{\partial}{\partial t} a_{k \sigma}^{\dagger}(t) &amp;=-\varepsilon_{k \sigma} a_{k \sigma}^{\dagger}(t)-\sigma \Delta e ^{ i \phi} a_{-k,-\sigma}(t)
+\end{aligned}
+\]</span> 求导 <span class="math display">\[
+\begin{aligned}
+-\hbar^{2} \frac{\partial^{2}}{\partial t^{2}} a_{ k \sigma}(t)&amp;=\xi_{ k \sigma}^{2} a_{ k \sigma}(t)+\Delta^{2} a_{ k , \sigma}(t)\\&amp;=\left(\xi_{ k \sigma}^{2}+\Delta^{2}\right) a_{ k , \sigma}(t)
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li>用到 <span class="math inline">\(\xi_{-k-\sigma}=\xi_{k \sigma} .\)</span></li>
+<li>令 <span class="math inline">\(E_{ k \sigma}=\sqrt{\xi_{ k \sigma}^{2}+\Delta^{2}}\)</span></li>
+</ul>
+<h4 id="试探解">试探解</h4>
+<p>方程的解 <span class="math display">\[
+a_{ k \sigma }(t)=A_{ k \sigma} \exp \left( i E_{ k \sigma} t / \hbar\right)+B_{ k \sigma} \exp \left(- i E_{ k \sigma} t / \hbar\right)
+\]</span> 初始条件</p>
+<ul>
+<li><span class="math inline">\(a_{k \sigma}=a_{k \sigma}(0)=A_{k \sigma}+B_{k \sigma}\)</span></li>
+<li><span class="math inline">\(a_{- k -\sigma}^{\dagger}=a_{- k -\sigma}^{\dagger}(0)=A_{- k -\sigma}^{*}+B_{- k -\sigma}^{*}\)</span></li>
+</ul>
+<p>求导 <span class="math display">\[
+i \hbar \frac{\partial}{\partial t} a_{ k \sigma}(t)=-E_{ k \sigma} A_{ k \sigma} \exp \left( i E_{ k \sigma} t / \hbar\right)+E_{ k \sigma} B_{ k \sigma} \exp \left(- i E_{ k \sigma} t / \hbar\right)
+\]</span> 对比 <span class="math inline">\(i \hbar \frac{\partial}{\partial t} a_{ k \sigma}(t)=\varepsilon_{ k \sigma} a_{ k \sigma}(t)+\sigma \Delta e ^{- i \phi} a_{- k ,-\sigma}^{\dagger}(t)\)</span> <span class="math display">\[
+\begin{aligned}
+&amp; E_{ k \sigma}\left[-A_{ k \sigma} \exp \left( i E_{ k \sigma} t / \hbar\right)+B_{ k \sigma} \exp \left(- i E_{ k \sigma} t / \hbar\right)\right] \\
+=&amp; \xi_{ k \sigma} a_{k \sigma}(t)+\sigma \Delta e ^{- i \phi} a_{- k ,-\sigma}^{\dagger}(t) \\
+=&amp; \xi_{ k \sigma}\left[A_{ k \sigma} \exp \left( i E_{ k \sigma} t\right)+B_{ k \sigma} \exp \left(- i E_{ k \sigma} t / \hbar\right)\right] \\
+&amp;+\sigma \Delta e ^{- i \phi}\left[A_{- k -\sigma}^{*} \exp \left(- i E_{ k \sigma} t / \hbar\right)+B_{- k -\sigma}^{*} \exp \left( i E_{ k \sigma} t / \hbar\right)\right]
+\end{aligned}
+\]</span> 两边相同时间指数项的系数 <span class="math display">\[
+\begin{aligned}
+-E_{ k \sigma} A_{ k \sigma}&amp;=\xi_{ k \sigma} A_{ k \sigma}+\sigma \Delta e ^{- i \phi} B_{- k -\sigma}^{*} \\
+E_{ k \sigma} B_{ k \sigma}&amp;=\xi_{ k \sigma} B_{ k \sigma}+\sigma \Delta e ^{- i \phi} A_{- k -\sigma}^{*}
+\end{aligned}
+\]</span> 两式相加 <span class="math display">\[
+-E_{ k \sigma}\left(A_{ k \sigma}-B_{ k \sigma}\right)=\xi_{ k \sigma} a_{ k \sigma}+\sigma \Delta e ^{- i \phi} a_{- k -\sigma}^{\dagger}
+\]</span> 结合 <span class="math inline">\(a_{k \sigma}=a_{k \sigma}(0)=A_{k \sigma}+B_{k \sigma}\)</span> 解出四个系数 <span class="math display">\[
+\begin{aligned}
+A_{ k \sigma}&amp;=\frac{1}{2}\left(1-\frac{\xi_{ k \sigma}}{E_{ k \sigma}}\right) a_{ k \sigma}-\frac{\sigma}{2 E_{ k \sigma}} \Delta e ^{- i \phi} a_{- k -\sigma}^{\dagger}\\
+B_{k \sigma}&amp;=\frac{1}{2}\left(1+\frac{\xi_{k \sigma}}{E_{k \sigma}}\right) a_{k \sigma}+\frac{\sigma}{2 E_{k \sigma}} \Delta e ^{- i \phi} a_{-k-\sigma}^{\dagger}
+\end{aligned}
+\]</span> 定义以下的量</p>
+<ul>
+<li><span class="math inline">\(u_{k \sigma}^{2}=\frac{1}{2}\left(1+\frac{\xi_{k \sigma}}{E_{k \sigma}}\right)\)</span></li>
+<li><span class="math inline">\(v_{ k \sigma}^{2}=\frac{1}{2}\left(1-\frac{\xi_{ k \sigma}}{E_{ k \sigma}}\right)\)</span></li>
+</ul>
+<p>得以下关系</p>
+<ul>
+<li><span class="math inline">\(v_{ k \sigma}^{2}+u_{ k \sigma}^{2}=1\)</span></li>
+<li><span class="math inline">\(u_{ k \sigma}^{2}-v_{ k \sigma}^{2}=\frac{\xi_{ k \sigma}}{E_{ k \sigma}}\)</span></li>
+<li><span class="math inline">\(2 u_{ k \sigma} v_{ k \sigma}=\left(1-\frac{\xi_{ k \sigma}^{2}}{E_{ k \sigma}^{2}}\right)^{1 / 2}=\frac{\Delta}{E_{ k \sigma}}\)</span></li>
+<li><span class="math inline">\(v_{ k \sigma}^{4}=v_{ k \sigma}^{2}-\frac{\Delta^{2}}{4 E_{ k \sigma}^{2}}\)</span></li>
+<li><span class="math inline">\(u_{k \sigma}^{4}=u_{k \sigma}^{2}-\frac{\Delta^{2}}{4 E_{k \sigma}^{2}}\)</span></li>
+</ul>
+<h4 id="最终解">最终解</h4>
+<p>解出海森伯算符的表达式 <span class="math display">\[
+\begin{aligned}
+a_{ k \sigma}(t)=&amp; A_{ k \sigma} e ^{ i E_{ k \sigma} t / \hbar}+B_{ k \sigma} e ^{- i E_{ k \sigma} t / \hbar} \\
+=&amp;\left(v_{ k \sigma}^{2} a_{ k \sigma}-\frac{\sigma \Delta}{2 E_{ k \sigma}} e ^{- i \phi} a_{- k -\sigma}^{\dagger}\right) e ^{ i E_{ k \sigma} t / \hbar} \\
+&amp;+\left(u_{ k \sigma}^{2} a_{k \sigma}+\frac{\sigma \Delta}{2 E_{ k \sigma}} e ^{- i \phi} a_{- k -\sigma}^{\dagger}\right) e ^{- i E_{ k \sigma} t / \hbar} \\
+=&amp;\left(v_{ k \sigma}^{2} e ^{ i E_{ k \sigma} t / \hbar}+u_{ k \sigma}^{2} e ^{- i E_{ k \sigma} t / \hbar}\right) a_{ k \sigma} \\
+&amp;+\frac{\sigma \Delta}{2 E_{ k \sigma}} e ^{- i \phi}\left(- e ^{ i E_{ k \sigma} t / \hbar}+ e ^{- i E_{ k \sigma} t / \hbar}\right) a_{- k -\sigma}^{\dagger}
+\end{aligned}
+\]</span> 简记为 <span class="math display">\[
+a_{ k \sigma}(t)=D_{1} a_{ k \sigma}+\sigma D_{2} a_{- k -\sigma}^{\dagger}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(D_{1}=v_{ k \sigma}^{2} e ^{ i E_{ k \sigma} t / \hbar}+u_{ k \sigma}^{2} e ^{- i E_{ k \sigma} t / \hbar}\)</span></li>
+<li><span class="math inline">\(D_{2}=\frac{\Delta}{2 E_{ k \sigma}} e ^{- i \phi}\left(- e ^{ i E_{ k \sigma} t / \hbar}+ e ^{- i E_{ k \sigma} t / \hbar}\right)\)</span></li>
+</ul>
+<h3 id="推迟格林函数">推迟格林函数</h3>
+<blockquote>
+<p>现在可以用求出的海森伯算符来构造推迟格林函数了。</p>
+</blockquote>
+<p><span class="math display">\[
+g_{k}^{ R }\left(t_{1}, t_{2}\right)=- i \theta\left(t_{1}-t_{2}\right)\left(\begin{array}{ll}
+\left\langle\left[a_{k \uparrow}\left(t_{1}\right), a_{k \uparrow}^{\dagger}\left(t_{2}\right)\right]_{+}\right\rangle &amp; \left\langle\left[a_{k \uparrow}\left(t_{1}\right), a_{-k \downarrow}\left(t_{2}\right)\right]_{+}\right\rangle \\
+\left\langle\left[a_{-k \downarrow}^{\dagger}\left(t_{1}\right), a_{k \uparrow}^{\dagger}\left(t_{2}\right)\right]_{+}\right\rangle &amp; \left\langle\left[a_{-k \downarrow}^{\dagger}\left(t_{1}\right), a_{-k \downarrow}\left(t_{2}\right)\right]_{+}\right\rangle
+\end{array}\right)
+\]</span></p>
+<h4 id="对角矩阵元">对角矩阵元</h4>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\left\langle\left[a_{ k \sigma}\left(t_{1}\right), a_{ k \sigma}^{\dagger}\left(t_{2}\right)\right]_{+}\right\rangle \\
+=&amp;\left\langle\left\{D_{1}\left(t_{1}\right) a_{ k \sigma}+\sigma D_{2}\left(t_{1}\right) a_{- k -\sigma}^{\dagger}, D_{1}^{*}\left(t_{2}\right) a_{ k \sigma}^{\dagger}+\sigma D_{2}^{*}\left(t_{2}\right) a_{- k -\sigma}\right\}\right\rangle \\
+=&amp; D_{1}\left(t_{1}\right) D_{1}^{*}\left(t_{2}\right)+D_{2}\left(t_{1}\right) D_{2}^{*}\left(t_{2}\right)
+\end{aligned}
+\]</span></p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(\left\{a_{- k -\sigma}^{\dagger}, a_{ k \sigma}^{\dagger}\right\}=\left\{a_{ k \sigma}, a_{- k -\sigma}\right\}=0\)</span></li>
+<li><span class="math inline">\(\left\{a_{ k \sigma}, a_{ k \sigma}^{\dagger}\right\}=1\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; D_{1}\left(t_{1}\right) D_{1}^{*}\left(t_{2}\right) \\
+=&amp;\left(v_{k \sigma}^{2} e ^{i E_{k \sigma} t_{1} / \hbar}+u_{k \sigma}^{2} e ^{- i E_{k \sigma} t_{1} / \hbar}\right)\left(v_{k \sigma}^{2} e ^{- i E_{k \sigma} t_{2} / \hbar}+u_{k \sigma}^{2} e ^{ i E_{k \sigma} t_{2} / \hbar}\right) \\
+=&amp; v_{k \sigma}^{2} e ^{i E_{k \sigma}\left(t_{1}-t_{2}\right) / \hbar}+u_{k \sigma}^{2} e ^{- i E_{k \sigma}\left(t_{1}-t_{2}\right) / \hbar} \\
+&amp;-\frac{\Delta^{2}}{4 E_{k \sigma}^{2}}\left[ e ^{ i E_{k \sigma}\left(t_{1}-t_{2}\right) / \hbar}- e ^{ i E_{k \sigma}\left(t_{1}+t_{2}\right) / \hbar}\right.
+\\&amp;\left.- e ^{- i E_{ k \sigma}\left(t_{1}+t_{2}\right) / \hbar}+ e ^{- i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}\right]
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+D_{2}\left(t_{1}\right) D_{2}^{*}\left(t_{2}\right)=&amp; \frac{\Delta^{2}}{4 E_{ k \sigma}^{2}}\left(- e ^{ i E_{ k \sigma} t_{1} / \hbar}+ e ^{- i E_{ k \sigma} t_{1} / \hbar}\right)\left(- e ^{- i E_{ k \sigma} t_{2} / \hbar}+ e ^{ i E_{ k \sigma} t_{2} / \hbar}\right) \\
+=&amp; \frac{\Delta^{2}}{4 E_{ k \sigma}^{2}}\left( e ^{ i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}- e ^{ i E_{ k v}\left(t_{1}+t_{2}\right) / \hbar}\right.\\
+&amp;\left.- e ^{- i E_{ k \sigma}\left(t_{1}+t_{2}\right) / \hbar}+ e ^{- i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}\right)
+\end{aligned}
+\]</span></p>
+<p>所以对角矩阵元 <span class="math display">\[
+D_{1}\left(t_{1}\right) D_{1}^{*}\left(t_{2}\right)+D_{2}\left(t_{1}\right) D_{2}^{*}\left(t_{2}\right)=v_{ k \sigma}^{2} e ^{ i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}+u_{ k \sigma}^{2} e ^{- i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}
+\]</span> 推迟格林函数 <span class="math display">\[
+G^{ R }\left( k , t_{1}-t_{2}\right)=v_{ k \sigma}^{2} e ^{ i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}+u_{ k \sigma}^{2} e ^{- i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}
+\]</span></p>
+<h4 id="非对角矩阵元">非对角矩阵元</h4>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\left\langle\left\{a_{ k \sigma}\left(t_{1}\right), a_{- k -\sigma}\left(t_{2}\right)\right\}\right\rangle \\
+=&amp;\left\langle\left\{D_{1}\left(t_{1}\right) a_{ k \sigma}+\sigma D_{2}\left(t_{1}\right) a_{- k -\sigma}^{\dagger}, D_{1}\left(t_{2}\right) a_{- k -\sigma}-\sigma D_{2}\left(t_{2}\right) a_{ k \sigma}^{\dagger}\right\}\right\rangle \\
+=&amp;\left\langle D_{1}\left(t_{1}\right) D_{1}\left(t_{2}\right)\left\{a_{ k \sigma}, a_{- k -\sigma}\right\}+\sigma D_{2}\left(t_{1}\right) D_{1}\left(t_{2}\right)\left\{a_{- k -\sigma}^{\dagger}, a_{- k -\sigma}\right\}\right.\\
+&amp;\left.-\sigma D_{1}\left(t_{1}\right) D_{2}\left(t_{2}\right)\left\{a_{ k \sigma}, a_{ k \sigma}^{\dagger}\right\}-D_{2}\left(t_{1}\right) D_{2}\left(t_{2}\right)\left\{a_{- k -\sigma}^{\dagger}, a_{ k \sigma}^{\dagger}\right\}\right\rangle \\
+=&amp; \sigma D_{2}\left(t_{1}\right) D_{1}\left(t_{2}\right)-\sigma D_{1}\left(t_{1}\right) D_{2}\left(t_{2}\right)
+\end{aligned}
+\]</span></p>
+<p>系数 <span class="math display">\[
+\begin{aligned}
+D_{1}\left(t_{1}\right) D_{2}\left(t_{2}\right)=&amp;\left(v_{ k \sigma}^{2} e ^{ i E_{ k \sigma}^{t_{1} / \hbar}}+u_{ k \sigma}^{2} e ^{- i E_{ k \sigma}^{t_{1} / \hbar}}\right) \frac{\Delta}{2 E_{ k \sigma}} e ^{- i \phi}\left(- e ^{ i E_{ k \sigma} t_{2} / \hbar}+ e ^{- i E_{ k \sigma} t_{2} / \hbar}\right) \\
+=&amp; \frac{\Delta}{2 E_{ k \sigma}} e ^{- i \phi}\left[v_{ k \sigma}^{2}\left(- e ^{ i E_{ k \sigma}\left(t_{1}+t_{2}\right) / \hbar}+ e ^{ i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}\right)\right.\\
+&amp;\left.+u_{ k \sigma}^{2}\left(- e ^{- i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}+ e ^{- i E_{ k \sigma}\left(t_{1}+t_{2}\right) / \hbar}\right)\right]
+\end{aligned}
+\]</span> 把 <span class="math inline">\(t_{1}\)</span> 和 <span class="math inline">\(t_{2}\)</span> 交换, 就成为 <span class="math inline">\(D_{2}\left(t_{1}\right) D_{1}^{*}\left(t_{2}\right) .\)</span> <span class="math display">\[
+\begin{aligned}
+&amp; D_{1}\left(t_{1}\right) D_{2}\left(t_{2}\right)-D_{1}\left(t_{2}\right) D_{2}\left(t_{1}\right) \\
+=&amp; \frac{\Delta}{2 E_{ k \sigma}} e ^{- i \phi}\left[v_{ k \sigma}^{2}\left(- e ^{ i E_{ k \sigma}\left(t_{1}+t_{2}\right) / \hbar}+ e ^{ i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}\right)\right.\\
+&amp;\left.+u_{ k \sigma}^{2}\left(- e ^{- i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}+ e ^{- i E_{ k \sigma}\left(t_{1}+t_{2}\right) / \hbar}\right)\right] \\
+&amp;-\frac{\Delta}{2 E_{ k \sigma}} e ^{- i \phi}\left[v_{ k \sigma}^{2}\left(- e ^{ i E_{ k \sigma}\left(t_{1}+t_{2}\right) / \hbar}+ e ^{- i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}\right)\right.\\
+&amp;\left.+u_{ k \sigma}^{2}\left(- e ^{ i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}+ e ^{- i E_{ k \sigma}\left(t_{1}+t_{2}\right) / \hbar}\right)\right] \\
+=&amp; \frac{\Delta}{2 E_{ k \sigma}} e ^{- i \phi}\left[ e ^{ i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}- e ^{- i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}\right]
+\end{aligned}
+\]</span> 反常格林函数 <span class="math display">\[
+F^{+}\left( k , t_{1}-t_{2}\right)=\frac{\Delta}{2 E_{ k \sigma}} e ^{- i \phi}\left[ e ^{ i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}- e ^{- i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}\right]
+\]</span></p>
+<h4 id="傅里叶变换">傅里叶变换</h4>
+<p>格林函数 <span class="math display">\[
+\begin{aligned}
+G^{ R }( k , \omega) &amp;=- i \int\left[u_{ k \sigma}^{2} e ^{- i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}+v_{ k \sigma}^{2} e ^{ i E_{ k \sigma}\left(t_{1}-t_{2}\right) / \hbar}\right] e ^{ i \omega\left(t_{1}-t_{2}\right)} \theta\left(t_{1}-t_{2}\right) d \left(t_{1}-t_{2}\right) \\
+&amp;=\frac{u_{ k \sigma}^{2}}{\omega-E_{ k \sigma}+ i 0^{+}}+\frac{v_{ k \sigma}^{2}}{\omega+E_{ k \sigma}+ i 0^{+}}
+\end{aligned}
+\]</span> 反常格林函数 <span class="math display">\[
+F^{+}( p , \omega)=- e ^{ i \phi} \frac{\Delta}{2 E_{ p }}\left[\frac{1}{\hbar \omega-E_{ p }+ i 0^{+}}-\frac{1}{\hbar \omega+E_{ p }+ i 0^{+}}\right]
+\]</span></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/">Fields of Quantum ManyBody</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/Green-Function/">Green Function</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Green-Function/">Green Function</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B9%B3%E5%9D%87%E5%9C%BA%E8%BF%91%E4%BC%BC/">平均场近似</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%B6%85%E5%AF%BC/">超导</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/11/03/topology02_BerryPhase/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Berry Phase</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2016/09/24/Ftmb_green_04LR/">
+                        <span class="hidden-mobile">线性响应函数</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "超导的格林函数解法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
