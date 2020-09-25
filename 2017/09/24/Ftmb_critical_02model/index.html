@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>第 2 章 模型与基本概念 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2017-09-24 14:23">
+      September 24, 2017 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      8.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      101
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>概览</p>
+<ol type="1">
+<li><p>块哈密顿量, 它将在重正化群的 讨论中起重要作用.</p></li>
+<li><p>金兹堡-朗道哈密顿作为块哈密顿的一个粗粘形式而被引入。</p></li>
+</ol>
+<p>为了使基本概念的讨论具体和简单, 以方便的做法引入了几个熟知的模型, 即</p>
+<ul>
+<li>伊辛模型、</li>
+<li>XY 模型、</li>
+<li>海森伯模型</li>
+<li>一般 n 矢量模型</li>
+</ul>
+<p>[TOC]</p>
+<h3 id="模-型-序-列">2.1 模 型 序 列</h3>
+<p>如果我们能够定量同时定性地说明临界现象如何能够用第一性原理从<strong>微观</strong>模 型导出, 我们就有了一个完整的理论.</p>
+<p>然而，在做这样的尝试之前, 我们需要考察 各个模型的优点。在这个考察的过程中, 我们将引出一些基本的想法。 微观模型的判据并不是固定的, 它依赖于所感兴趣的现象。这一点在下面能够 导出临界现象的模型序列中演示。为了具体起见, 我们将讨论限制在给定的晶 体中的铁磁临界现象。</p>
+<h4 id="模型1-万有模型">模型(1): 万有模型</h4>
+<blockquote>
+<p>模型(1)：由库仑力相互作用的电子和原子核。</p>
+</blockquote>
+<p>这肯定是能够导出几乎所有现象, 包括临界现象的微观模型。但作为研究临 界现象的出发点, 这个模型显然是不切实际的。</p>
+<h4 id="模型-2-晶格模型">模型 (2): 晶格模型</h4>
+<blockquote>
+<p>模型 (2): 在一个指定晶格内的具有有效相互作用的电子。</p>
+</blockquote>
+<p>现在, 我们假定晶格结构为已知的, 并且理所当然地认为指定电子-电子相互作用. 能带结构、晶体场等的参数已经由原子物理和固体物理学家基于模型得到。</p>
+<p>这个模型比模型(1) 更适合分析临界现象, 这是由于晶格结构的形成和原子 的内层电子离开临界现象太远. 我们期望这些已经是给定的。</p>
+<p>由于临界现象是电子自旋在大尺度上的集体行为, 除了对于电子自旋之间相 互作用的总体贡献外, 我们或许不需要知道能带结构以及许多细节。这个模型还 可以进一步简化。</p>
+<h4 id="模型3-自旋模型">模型(3): 自旋模型</h4>
+<blockquote>
+<p>模型 (3): 在给定的晶格的每个原胞中放置一个经典自旋, 并指明 自旋之间的 相互作用.</p>
+</blockquote>
+<p>这里, 量子本质、电子运动以及许多模型 (2) 的细节都忽略了。自旋-自旋相 互作用由若干参数指定, 通过使得尽可能模拟模型 (2) 的结论来调整这些参数的值. 这种模拟是非平庸的 , 这些模型中最常用的一些版本, 如伊辛模型和海森伯模型 (会在后面定义这些模型) 是非常粗橙的。然而, 我 们认为重要的物理<strong>在于</strong> <strong>大量</strong>的电子自旋<strong>一起</strong>表现出来的行为。因此在单个原胞上有点粗粒超无关紧要. 这个模型对临界现象而言与模型 (1) 和模型 (2) 同样微观。</p>
+<h4 id="模型-4-块自旋模型">模型 (4): 块自旋模型</h4>
+<blockquote>
+<p>模型 (4): 在每个由 <span class="math inline">\(2 \times 2 \times 2\)</span> 个原胞构成的块上放置一个经典自旋, 并指明 自旋 之间的相互作用。</p>
+</blockquote>
+<p>这在消去细节上比模型(3) 又前进了一步. 这里的每个“自旋”是模型(3) 的8 个自旋的网格。同样, 如果只涉及大尺度的行为, 除了总体效应外, 我们不在意 每个块的细节以及块上自旋之间的相互作用。这个模型显然不比模型 (3) 不微观.</p>
+<h4 id="模型5-更大块上的自旋">模型(5): 更大块上的自旋。</h4>
+<p>代替 <span class="math inline">\(2 \times 2 \times 2\)</span> 的块, 我们可以取 <span class="math inline">\(3 \times 3 \times 3\)</span> 甚至 <span class="math inline">\(10 \times 10 \times 10\)</span> 的块. 在构成更 大的块上我们能够走多远, 同时还能声称是微观模型？这里没有清楚的答案。但 定性而言, 答案是块的尺寸必须远小于临界现象的特征尺寸，即第 1 章讲过的自 旋斑块的平均尺寸。如果我们认为这些自旋斑块在 <span class="math inline">\(T_{ }\)</span> 接近于 <span class="math inline">\(T_{\mathrm{c}}\)</span> 时不断变大, 那么块的尺寸在 T 非常接近于 <span class="math inline">\(T_{\mathrm{c}}\)</span> 时可以取得非常大. 块的构造的想法和应用是由Kadanoff (1966,1967) 给出的。</p>
+<h4 id="模型的选择">模型的选择</h4>
+<p>在上述的模型序列中, 那些我们认为与临界现象无关的细节被逐步消除。当 完成这样的消除过程时, 为了避免巨大的数学上的复杂性, 简化是一个实际上的必要手段。</p>
+<p>通常，模型中的参数由实验数据来确定，因为计算是不实际的。无需指明的是, 例如模型 (1) 中的电子电荷就是由实验确定的. 模型 (2) 中的晶格结构可以用 X 射线散射确定. 对于模型 (3) (5), 我们可以通过拟合在温度不太靠近 <span class="math inline">\(T_{\mathrm{c}}\)</span> 处的 实验数据来定出参数。</p>
+<p>传统上, 临界现象的大多数理论研究始于模型 (3) 的不同版本。我们将主要 考察模型 (5). 金兹堡-朗道模型可以认为是模型 (5) 的一个粗彭版本. 当然, 先介 绍模型 (3) 并演示如何由此推出模型 (4) 和模型 (5) 的方式, 具有示范意义。这就 是本章所用的方式。</p>
+<h3 id="原胞哈密顿的经典模型">2.2 原胞哈密顿的经典模型</h3>
+<h4 id="伊辛模型">2.2.1 伊辛模型</h4>
+<p>每个原胞内有一个自旋变量 <span class="math inline">\(\sigma_{c},\)</span> 它可以衡量原胞 <span class="math inline">\(c\)</span> 的总自旋. 共有 <span class="math inline">\(L^{3}\)</span> 个原胞。</p>
+<p>伊辛模型的原胞哈密顿: <span class="math display">\[
+\hat{H}[\sigma]=\frac{1}{2} J \sum_{c} \sum_{r}^{\prime}\left(\sigma_{c}-\sigma_{c+r}\right)^{2}
+\]</span></p>
+<ul>
+<li>对 <span class="math inline">\(r\)</span> 的求和只对 <span class="math inline">\(c\)</span> 的近邻进行。</li>
+<li>自旋变量只取两个值: <span class="math inline">\(\sigma_{c}=\pm 1\)</span></li>
+</ul>
+<p>自旋与其近邻同向具有比反向更低能量，是对于单轴铁磁体的模拟。</p>
+<p>推广 : <span class="math display">\[
+\hat{H}[\sigma]=\frac{1}{2} J \sum_{c} \sum_{r}^{\prime}\left(\sigma_{c}-\sigma_{c+r}\right)^{2}+\sum_{c} U\left(\sigma_{c}^{2}\right)
+\]</span></p>
+<ul>
+<li>认为每个 <span class="math inline">\(\sigma_{c}\)</span> 是一个连续变量.</li>
+<li>附加的能量 <span class="math inline">\(U\left(\sigma_{c}^{2}\right)\)</span> 很大</li>
+</ul>
+<p>通过调节 <span class="math inline">\(U\left(\sigma_{c}^{2}\right)\)</span> 的形状, 我们可以计人 电子扩展到近邻原胞时能量的增加. 还可以 进一步推广到包含次近邻相互作用以及其他 效应, 我们暂不讨论这些推广。</p>
+<h4 id="x-y-模型和海森伯模型">2.2.2 $ X Y$ 模型和海森伯模型</h4>
+<p>如果没有限定自旋的指向只能沿着某个轴, 而是允许指向任意方向, 我们需 要用下面的矢量来描述每个自旋: <span class="math display">\[
+\sigma _{ c }=\left(\sigma_{1 c }, \sigma_{2 c }, \sigma_{3 c}\right)
+\]</span> 则 <span class="math inline">\(\hat{H}[\sigma]=\frac{1}{2} J \sum_{c} \sum_{r}^{\prime}\left(\sigma_{c}-\sigma_{c+r}\right)^{2}\)</span> 就变为海森伯模型的原胞哈密顿. 它模拟各向同性的铁磁体。注意我们把 <span class="math inline">\(\sigma_{c}\)</span> 当作一个普通矢量, 而不是泡利矩阵.</p>
+<p><span class="math inline">\(X Y\)</span> 模型介于伊辛模型和海森伯模型之间. 它模拟自旋指向基本上在一个平 面内的磁体. 我们可以把 <span class="math inline">\(\sigma_{c}\)</span> 看作一个二分量的矢量 <span class="math inline">\(\left(\sigma_{1 c}, \sigma_{2 c}\right) .\)</span> 原胞哈密顿仍然 具有 <span class="math inline">\(\hat{H}[\sigma]=\frac{1}{2} J \sum_{c} \sum_{r}^{\prime}\left(\sigma_{c}-\sigma_{c+r}\right)^{2}\)</span> 的形式.</p>
+<h4 id="空间维数-d-和自旋维数-n">2.2.3 空间维数 d 和自旋维数 <span class="math inline">\(n\)</span></h4>
+<p>我们引人记号 n 标记自旋矢量 <span class="math inline">\(\sigma_{c}\)</span> 的分量数. 从而</p>
+<ul>
+<li>伊辛模型、</li>
+<li>XY 模型</li>
+<li>海 森伯模型,</li>
+</ul>
+<p>分别对应于 <span class="math inline">\(n=1,2\)</span> 和 3.</p>
+<p>记号 <span class="math inline">\(d\)</span> 用来标记晶体占据的空间维数.</p>
+<ul>
+<li>通 常, <span class="math inline">\(d=3 .\)</span></li>
+<li>对于一个单层的自旋, <span class="math inline">\(d=2 ;\)</span></li>
+<li>对于一个链, <span class="math inline">\(d=1\)</span></li>
+</ul>
+<p>在以后的讨论中, 我们将会考虑 d 和 <span class="math inline">\(n\)</span> 的非物理的值. 由于每个自旋具有 n 个分量, 显然自旋变量的总数是 <span class="math inline">\(n L^{d} .\)</span> 在接下去的讨论中, 我们将把 n 和 d 作为参数, 于是关于伊辛模型、XY 模型或海森伯模型的表述可以通过对 <span class="math inline">\(n\)</span> 和 d 赋以合适的数值而得到</p>
+<h3 id="统-计-力-学">2.3 统 计 力 学</h3>
+<p>在概率论的语言下, <span class="math inline">\(n L^{d}\)</span> 个自旋变量的每一个都是一个随机变量. 这些随机 变量的联合概率分布 P 由统计力学给出: <span class="math display">\[
+P=Z^{-1} e ^{-\hat{H}(\sigma) / T}
+\]</span> 这里 Z 是一个归一化的常数, 称为配分函数: <span class="math display">\[
+Z=\int e ^{-\hat{H}(\sigma) / T} \prod_{i, c} d \sigma_{i c}
+\]</span> 这里乘积对所有原胞和所有分量进行. 这个积分是有 <span class="math inline">\(n L^{d}\)</span> 个变量的多重积分.</p>
+<h4 id="平均值">平均值</h4>
+<p>作为自旋变量的函数的任何一个物理量的平均值, 可以通过对于 P 的积分来计算. 例如 <span class="math display">\[
+\left\langle\sigma_{i a} \sigma_{j a^{\prime}}\right\rangle=\int \sigma_{i a} \sigma_{j a^{\prime}} P \prod_{i, c} d \sigma_{i c}
+\]</span> 自旋矢量的傅里叶分量 <span class="math inline">\(\sigma _{k}\)</span> 将在其后的讨论中起重要作用: <span class="math display">\[
+\sigma_{c}=L^{-d / 2} \sum_{k} e ^{ i k \cdot c} \sigma_{k}
+\]</span></p>
+<p><span class="math display">\[
+\sigma_{k}=L^{-d / 2} \sum_{c} e ^{- i k \cdot c } \sigma_{c}
+\]</span></p>
+<p>对波矢量 <span class="math inline">\(k\)</span> 的求和取第一布里渊区的 <span class="math inline">\(L^{d}\)</span> 个分立值. 由于 <span class="math inline">\(L^{ }\)</span> 是一个非常大的数, 故 <span class="math inline">\(k\)</span> 空间中点的密度 <span class="math inline">\(L^{d}(2 \pi)^{-d}\)</span> 是非常大的.</p>
+<ul>
+<li>我们既可以把原胞哈密顿 <span class="math inline">\(\hat{H}(\sigma)\)</span> 看 作是 <span class="math inline">\(\sigma_{c}\)</span> 的函数</li>
+<li>也可以把它看作是 <span class="math inline">\(\sigma_{k}\)</span> 的函数</li>
+</ul>
+<h4 id="关联函数">关联函数</h4>
+<p>散射实验测量关联函数 <span class="math display">\[
+\left\langle\left|\sigma_{i k}\right|^{2}\right\rangle \equiv G( k )
+\]</span> 如果原胞哈密顿对于自旋变量各向同性, 则它与 <span class="math inline">\(i\)</span> 无关.</p>
+<p>注意到原胞哈密顿对自旋位形的描述达到了最小的距离，即单胞的大小。在 单胞内自旋的变化<strong>超出了</strong>原胞哈密顿的描述. 由式 <span class="math inline">\(\sigma _{ k }=L^{-d / 2} \sum_{ c } e ^{- i k \cdot c } \sigma _{c}\)</span> 定义的 <span class="math inline">\(\sigma_{k},\)</span> 与由式<span class="math inline">\(\sigma_{k}=V^{-1 / 2} \int d ^{3} x e ^{- i k \cdot x} \sigma(x)\)</span> 定义的一样, 足以说明自旋变化在<strong>大于</strong>单胞的尺度上的变化, 且是哈密顿中仅有 的随机变量.</p>
+<h4 id="热力学性质">热力学性质</h4>
+<p>让我们在哈密顿中加一项 <span class="math display">\[
+-h \sum_{c} \sigma_{1 c}
+\]</span> 即在方向 1 加上一个磁场 <span class="math inline">\(h\)</span>. 令单位体积的自由能 <span class="math inline">\(F\)</span> 通过式 <span class="math inline">\(Z=\int e ^{-\hat{H}(\sigma) / T} \prod_{i, c} d \sigma_{i c}\)</span> 定义 <span class="math display">\[
+Z= e ^{-F L^{d} / T}
+\]</span> <span class="math inline">\(F\)</span> 是 <span class="math inline">\(h, T\)</span> 以及指明原胞哈密顿的参量的函数. 一旦知道了 <span class="math inline">\(F\)</span> , 热力学性质就确定 <span class="math display">\[
+\begin{aligned}
+&amp;\text { 熵 } \quad S=-\frac{\partial F}{\partial T}\\
+&amp;\text { 比热 } \quad c=T \frac{\partial S}{\partial T}=-T \frac{\partial^{2} F}{\partial T^{2}}\\
+&amp;\text {磁化 } \quad m=-\left(\frac{\partial F}{\partial h}\right)_{T}\\
+&amp;\text {磁化率 } \quad \chi=\left(\frac{\partial m}{\partial h}\right)_{T}=-\left(\frac{\partial^{2} F}{\partial h^{2}}\right)_{T}
+\end{aligned}
+\]</span> 注意 <span class="math inline">\(\chi / T=G(0)\)</span> 来自 <span class="math inline">\(G( 0 )=\int d ^{3} x \langle[\sigma( x )-\langle\sigma\rangle][\sigma( 0 )-\langle\sigma\rangle]\rangle\)</span> 和 <span class="math inline">\(\chi=\left(\frac{\partial m}{\partial h}\right)_{T}=-\left(\frac{\partial^{2} F}{\partial h^{2}}\right)_{T}\)</span></p>
+<h4 id="奇异性">奇异性</h4>
+<p>这些公式与类似于式 <span class="math inline">\(Z=\int e ^{-\hat{H}(\sigma) / T} \prod_{i, c} d \sigma_{i c}\)</span> 和式 <span class="math inline">\(\left\langle\sigma_{i a} \sigma_{j a^{\prime}}\right\rangle=\int \sigma_{i a} \sigma_{j a^{\prime}} P \prod_{i, c} d \sigma_{i c}\)</span> 的积分一起, 构成一套用于计算的<strong>完备数学框架</strong>. 求得的物理量 是 <span class="math inline">\(h\)</span> 和 <span class="math inline">\(T\)</span> 的函数. 如果这一框架确实描述了自然, 则计算得到的物理量必须与 <strong>观察相符</strong>. 特别地, 观察到的奇异性必须出现在计算结果中.</p>
+<p>原胞哈密顿 <span class="math inline">\(\hat{H}\)</span> 是 <span class="math inline">\(T, h\)</span> 和其他参数的光滑函数, 对于 <span class="math inline">\(\exp (-\hat{H} / T)\)</span> 的积分是 很好定义了的. 奇异性是如何从这些公式中得出来的呢？如果只有有限数目的 自旋, 确实不会出现奇异性。它们只有在自旋变量的数目趋于无限时才会出现. 很难看清这个极限是如何产生奇异性的. 事实上, 解释一个光滑的哈密顿如何在 <span class="math inline">\(L^{d} \rightarrow \infty\)</span> 时的极限下出现奇异性, 就是临界现象理论的基本任务.</p>
+<p>种方法是精确计算然后取 <span class="math inline">\(L^{d} \rightarrow \infty\)</span> 时的极限. 这实际上非常困难. 临界现 象的大部分理论工作用在这个任务上. 这个方向上最早和最重要的进展是伊辛模 型在 d=2 时的昂萨格解。它的重要性在于: 这个解明确和定量地显示了 T_ 附近 观察到的奇异行为, 确实可以通过统计力学规律从一个非奇异的哈密顿得到, 尽 管得到的过程非常复杂. 昂萨格计算积分的技巧得到了推进和进一步的发展. 对 于无法得到精确解的模型，人们也做了广泛的数值计算. <span class="math display">\[
+\begin{array}{c|c|c|c|c|}
+\hline &amp; \text { 空间维数 } d &amp; \text { 序参量维数 } n &amp; \alpha &amp; \beta \\
+\hline \text { 伊辛 } &amp; 2 &amp; 1 &amp; 0^{ O }(\text { 对数 }) &amp; 0.125^{ O } \\
+\hline \text { 海森伯 } &amp; 2 &amp; 3 &amp; &amp; \\
+\hline \text { 伊辛 } &amp; 3 &amp; 1 &amp; 0.013 \pm 0.01 &amp; 0.312_{-0.005}^{+0.002} \\
+\hline X Y, \text { 自旋 } 1 / 2 &amp; 3 &amp; 2 &amp; &amp; \\
+\hline X Y &amp; 3 &amp; 2 &amp; -0.02 \pm 0.03 &amp; \\
+\hline \text { 海森伯, 自旋 } 1 / 2 &amp; 3 &amp; 3 &amp; -0.20 \pm 0.08^{(2)} &amp; \\
+\hline \text { 海森伯 } &amp; 3 &amp; 3 &amp; -0.14 \pm 0.06 &amp; 0.38 \pm 0.03 \\
+\hline \text { 球模型 } &amp; 3 &amp; \infty &amp; -1^{ O } &amp; 0.5^{ O } \\
+\hline
+\end{array}
+\]</span> 表 2.1 列出了一些结果. 尽管这样的数学工作为我们提供了精确的数值和解析信息, 但它不能给出很多物 理理解, 从而对如何取近似无法提供更多启示. 实际情况大致是, 我们或者通过巨 大的数学工作得到精确答案, 或者得到很少甚至是坏的答案. 没有通过较少的工 作量获得近似答案的方案. 这不是我们期望的状况. 我们想要计算的物理量, 如比 热和磁化率, 是温度的奇异函数. 经验告诉我们, 对于奇异函数, 近似方法通常是 不灵的. 进一步, 如观察结果所显示的, 这些奇异函数有一些普适的行为 (见 1.5 节)。由于答案不依赖于细节, 在哈密顿上做近似并不能使问题简化. 我们将不试 图探索精确计算自由能和其他物理量的方法, 这些方法在已有的书和文章中有广 泛的讨论.</p>
+<p>在随后的讨论中, 经典模型仅仅作为研究定性行为的方便基础以及用于重正化群方法.</p>
+<h3 id="块哈密顿和卡丹诺夫少换">2.4 块哈密顿和卡丹诺夫少换</h3>
+<p>前面讨论的原胞哈密顿描述原胞自旋之间的相互作用. 原胞哈密顿的参数集 合了小于原胞尺度上各种细节的效应. 显而易见, 我们可以从原胞哈密顿构造一 个块哈密顿, 描述坏自旋之间的相互作用. 这里我们把晶体划分成立方体块, 每一 块包含 <span class="math inline">\(b^{d}\)</span> 个原胞. 例如, <span class="math inline">\(b=2\)</span> 或 5. 我们定义块自旋为块中的 b ^d 个原胞自旋之 和除以 <span class="math inline">\(b^{d},\)</span> 即块中原胞自旋的平均值. 块哈密顿中的参数集合了 b 个格点常数中 相关细节的效应.</p>
+<blockquote>
+<p><strong>给定了原胞的哈密顿, 我们如何构造块哈密顿？</strong></p>
+</blockquote>
+<h4 id="概率分布">概率分布</h4>
+<p>原则上这是直截了当的. 在 写出答案之前，让我们记住下面的例子所演示的概率论中的一个简单规则。设 <span class="math inline">\(P\left(q_{1}, q_{2}\right)\)</span> 是两个随机变量 <span class="math inline">\(q_{1}, q_{2}\)</span> 的概率分布, 我们定义 <span class="math display">\[
+q=\frac{1}{2}\left(q_{1}+q_{2}\right)
+\]</span> 我们如何构造 <span class="math inline">\(q\)</span> 的概率分布呢？规则是 <span class="math display">\[
+\begin{aligned}
+P^{\prime}(q) &amp;=\int d q_{1} d q_{2} \delta\left(q-\frac{1}{2}\left(q_{1}+q_{2}\right)\right) P\left(q_{1}, q_{2}\right) \\
+&amp;=\left\langle\delta\left(q-\frac{1}{2}\left(q_{1}+q_{2}\right)\right)\right\rangle_{P}
+\end{aligned}
+\]</span> 如果只涉及与 <span class="math inline">\(q\)</span> 相关的平均值, 则 <span class="math inline">\(P^{\prime}(q)\)</span> 与 <span class="math inline">\(P\left(q_{1}, q_{2}\right)\)</span> 的作用完全相同. 例如 <span class="math display">\[
+\left\langle q^{2}\right\rangle=\int d q q^{2} P^{\prime}(q)=\left\langle\frac{\left(q_{1}+q_{2}\right)^{2}}{4}\right\rangle_{P}
+\]</span> 对 <span class="math inline">\(q\)</span> 的积分消除 <span class="math inline">\(\delta\)</span> 函数并把 <span class="math inline">\(q\)</span> 替换为 <span class="math inline">\(\left(q_{1}+q_{2}\right) / 2 .\)</span></p>
+<h4 id="块自旋">块自旋</h4>
+<p>我们用块的中心的坐标 <span class="math inline">\(x\)</span> 来标志块. 如上所述, 块自旋定义为块内的净自旋 除以块内的原胞数: <span class="math display">\[
+\sigma_{x}=b^{-d} \sum_{c}^{x} \sigma_{c}
+\]</span> 这里求和号中的上标 <span class="math inline">\(x\)</span> 表示对块内的 <span class="math inline">\(b^{d}\)</span> 个原胞求和. <span class="math inline">\(\sigma_{x}\)</span> 的分量是 <span class="math inline">\(\sigma_{i x},\)</span> 同前, <span class="math inline">\(i\)</span> 从 1 到 <span class="math inline">\(n .\)</span> 存在 <span class="math inline">\(L^{d} / b^{d}\)</span> 个块自旋. 从而, <span class="math inline">\(\sigma_{x}\)</span> 就是由 <span class="math inline">\(x\)</span> 标记的块内原胞自旋的“均值”如果 <span class="math inline">\(b=1,\)</span> 则块自旋与原胞自旋相同. 如果 <span class="math inline">\(b=L,\)</span> 则块自旋就是整个系统中 原胞自旋的均值. 注意, 我们在这里使用“均值”而没有用“平均”来描述自旋的 和除以自旋数。“平均”这个词将只用于对正则系综的统计平均. 在块的尺寸坛于 无穷时, 也只有在此极限下, 我们期望块自旋的概率分布在平均值处有无穷尖锐 的峰. 按照式 (2.13) 所示的规则, 我们写出块自旋的概率分布 <span class="math inline">\(P^{\prime}(\sigma)\)</span> 如下： <span class="math display">\[
+\begin{aligned}
+P^{\prime}(\sigma) &amp;=\left\langle\prod_{i x} \delta\left(\sigma_{i x}-b^{-d} \sum_{c}{ }^{x} \sigma_{i c}\right)\right\rangle_{P} \\
+&amp; \propto \int e ^{-\hat{H}[\sigma] / T} \prod_{i, x} \delta\left(\sigma_{i x}-b^{-d} \sum_{c}{ }^{x} \sigma_{i c}\right) \prod_{j, c} d \sigma_{j c} \\
+&amp; \equiv e ^{-H[\sigma] / T}
+\end{aligned}
+\]</span> 这里 c 取所有的原胞, <span class="math inline">\(i\)</span> 和 <span class="math inline">\(j\)</span> 从 1 到 <span class="math inline">\(n .\)</span> 块自旋的函数 <span class="math inline">\(H[\sigma]\)</span> 就是需要的块哈密顿. 如果没有 <span class="math inline">\(\delta\)</span> 函数的限制，它就是总的自由能。注意到式 (2.5) 和式 (2.16) 的定义, 我们有 <span class="math display">\[
+Z=\int e ^{-H[\sigma] / T} \prod_{i, x} d \sigma_{i x}
+\]</span> 块自旋 <span class="math inline">\(\sigma_{x}\)</span> 可以描述在最小长度 b 之上的自旋变化, 即块哈密顿 <span class="math inline">\(H\)</span> 的空间分 辨能力为 <span class="math inline">\(b\)</span>, 而原胞哈密顿 央 的空间分辨能力为 1. 块哈密顿的空间分辨能力较 弱. 但是, 如果我们对自旋在小于 <span class="math inline">\(b\)</span> 的尺度上的变化没有兴趣, 那么, 在给出同样 的平均值这一点上, 块哈密顿和原胞哈密顿是<strong>等价</strong>的. 在临界现象的研究中, 我们 仅对自旋在远大于 1 个晶格常数的长波的变化感兴趣.</p>
+<h4 id="块哈密顿">块哈密顿</h4>
+<p>我们可以定义另外一个块哈密顿，它与前面的定义相似但不完全相同。我们 把原胞哈密顿 <span class="math inline">\(\hat{H}[\sigma]\)</span> 通过式 <span class="math inline">\(\sigma_{k}=L^{-d / 2} \sum_{c} e ^{- i k \cdot c} \sigma_{c}\)</span> 用傅里叶分量 <span class="math inline">\(\sigma_{k}\)</span> 写出. 这是一个简单的变量变 换. 这样, <span class="math inline">\(e ^{-\hat{H} / T}\)</span> 为 <span class="math inline">\(n L^{d}\)</span> 个新的随机变量 <span class="math inline">\(\sigma_{i k}\)</span> 的概率分布. 同样, 让我们记住概率 论的一个简单的规则, 这个规则本质上与式 <span class="math inline">\(P^{\prime}(q)=\int d q_{1} d q_{2} \delta\left(q-\frac{1}{2}\left(q_{1}+q_{2}\right)\right) P\left(q_{1}, q_{2}\right)\)</span> 演示的相同. 考虑两个随机变 量的概率分布 <span class="math inline">\(P\left(q_{1}, q_{2}\right) .\)</span> 如果我们只对 <span class="math inline">\(q_{1}\)</span> 感兴趣, 可以积分掉 <span class="math inline">\(q_{2}\)</span> 而得到 <span class="math inline">\(q_{1}\)</span> 的概 <span class="math inline">\(P^{\prime}\left(q_{1}\right)\)</span> <span class="math display">\[
+P^{\prime}\left(q_{1}\right)=\int d q_{2} P\left(q_{1}, q_{2}\right)
+\]</span> 因此, 如果我们只对 <span class="math inline">\(k\)</span> 的幅度小于某个 <span class="math inline">\(\Lambda\)</span> 的 <span class="math inline">\(\sigma_{k}\)</span> 感兴趣, 可以从 <span class="math inline">\(e ^{-\hat{H} / T}\)</span> 中积分掉 所有 <span class="math inline">\(k&gt;\Lambda\)</span> 的那些 <span class="math inline">\(\sigma_{i k}\)</span> <span class="math display">\[
+P^{\prime} \propto \int e ^{-\hat{H}[\sigma] / T} \prod_{i, k&gt;A} d \sigma_{i k} \equiv e ^{-H[\sigma] / T}
+\]</span> 现在, <span class="math inline">\(P^{\prime}\)</span> 是处于半径为 <span class="math inline">\(\Lambda\)</span> 的球内的 <span class="math inline">\(k\)</span> 对应的 <span class="math inline">\(\sigma_{i k}\)</span> 的概率分布. 在下述意义下,</p>
+<ul>
+<li>这 些变量的函数 <span class="math inline">\(H[\sigma]\)</span> 是一个块哈密顿: 没有 <span class="math inline">\(k&gt;\Lambda\)</span> 的傅里叶分量, 自旋在约短于 <span class="math inline">\(2 \pi A^{-1}\)</span> 的尺度上的变化无法指定. 也就是说, <span class="math inline">\(H[\sigma]\)</span> 的空间分辨能力是 <span class="math inline">\(2 \pi \Lambda^{-1} .\)</span></li>
+<li>如果我们指定 <span class="math inline">\(2 \pi \Lambda^{-1}\)</span> 作为块的尺寸 b, 那么对于式 <span class="math inline">\(\int e ^{-\hat{H}[\sigma] / T} \prod_{i, k&gt;A} d \sigma_{i k} \equiv e ^{-H[\sigma] / T}\)</span> 的 <span class="math inline">\(H[\sigma]\)</span> 的解释与由式 <span class="math inline">\(\int e ^{-\hat{H}[\sigma] / T} \prod_{i, k&gt;A} d \sigma_{i k} \equiv e ^{-H[\sigma] / T}\)</span> 定义的 <span class="math inline">\(H[\sigma]\)</span> 的解释相似.</li>
+<li>在式 <span class="math inline">\(\int e^{-\hat{H}[\sigma] / T} \prod_{i, x} \delta\left(\sigma_{i x}-b^{-d} \sum_{c}^{x} \sigma_{i c}\right) \prod_{j, c} d \sigma_{j c}\equiv e ^{-H[\sigma] / T}\)</span> 中, 我们积分掉每个块中的细节, 将 空间分辨能力退化到尺寸 b.</li>
+<li>在式 <span class="math inline">\(\int e ^{-\hat{H}[\sigma] / T} \prod_{i, k&gt;A} d \sigma_{i k} \equiv e ^{-H[\sigma] / T}\)</span> 中, 我们通过积分掉高阶傅里叶分量来 达到同样的效果. 定量上, 两个块哈密顿不是完全相同的. 对于我们的定性讨论, 我们将忽略掉这个差别.</li>
+</ul>
+<h4 id="kadanoff-变换">Kadanoff 变换</h4>
+<p>类似于式 <span class="math inline">\(\sigma_{x}=b^{-d} \sum_{c}^{x} \sigma_{c}\)</span> , 我们定义块自旋 <span class="math display">\[
+\sigma ( x )=L^{-d / 2} \sum_{k&lt;\Lambda} \sigma _{k} e ^{i k \cdot x }
+\]</span> 它指定了直到距离 <span class="math inline">\(b \approx A^{-1}\)</span> 的自旋位形. 定性而言, <span class="math inline">\(\sigma(x)\)</span> 与 <span class="math inline">\(\sigma_{x}\)</span> 相同, 是一个块 内自旋的均值. 通过式 <span class="math inline">\(\int e^{-\hat{H}[\sigma] / T} \prod_{i, k&gt;A} d \sigma_{i k} \equiv e^{-H[\sigma] / T}\)</span> , 由原胞哈密顿 <span class="math inline">\(\hat{H}[\sigma]\)</span> 得到块哈密顿 <span class="math inline">\(H[\sigma]\)</span> 的程序将 称为卡丹诺夫 (Kadanoff) 变换. 我们将把这个程序用符号表示为 <span class="math display">\[
+H[\sigma] / T=K_{b} \hat{H}[\sigma] / T
+\]</span> 这里下标 b 表示块的尺寸是原胞尺寸的 b 倍. 令 <span class="math inline">\(K_{1}=1\)</span></p>
+<h4 id="连续变换">连续变换</h4>
+<p>显而易见, 给定了块哈密顿 <span class="math inline">\(H[\sigma]\)</span>, 我们可以对定义在更大的块上的块自旋构 造块哈密顿 <span class="math inline">\(H^{\prime \prime}[\sigma] .\)</span> 例如, 我们可以合并 2 <span class="math inline">\(^{d}\)</span> 个坏得到一个新的块. 构造新的块哈 密顿的方法与从原胞哈密顿构造老的块哈密顿的方式相同. 这意味着把空间分辨 能力继续下降一个因子 2, 即作用 <span class="math inline">\(K_{2}\)</span>. 我们把合并 <span class="math inline">\(s^{d}\)</span> 个块的操作写为 <span class="math display">\[
+\begin{array}{l}
+H^{\prime \prime}[\sigma] / T=K_{s} H[\sigma] / T \\
+e ^{-H^{\prime \prime}[\sigma] / T}=\int e ^{-H\left[\sigma^{\prime}\right] / T} \prod_{i, x} \delta\left(\sigma_{i x}-s^{-d} \sum_{y}^{x} \sigma_{i y}^{\prime}\right) \prod_{j, y} d \sigma_{j y}^{\prime}
+\end{array}
+\]</span> 这里 <span class="math inline">\(s^{-d} \sum_{y}^{x} \sigma_{i y}^{\prime}\)</span> 是中心位于 <span class="math inline">\(x\)</span> 的新自旋块中 <span class="math inline">\(s^{d}\)</span> 个老块的自旋均值. 相应地, <span class="math inline">\(K_{s}\)</span> 也可以用傅里叶分量来定义： <span class="math display">\[
+e ^{-H^{\prime \prime}[\sigma] / T}=\int e ^{-H[\sigma] / T} \prod_{i, \Delta&gt;k&gt;\Lambda / s} d \sigma_{i k}
+\]</span> 这一结果来自式 <span class="math inline">\(\int e ^{-\hat{H}[\sigma] / T} \prod_{i, k&gt;A} d \sigma_{i k} \equiv e ^{-H[\sigma] / T}\)</span>, 并把截断波数从 <span class="math inline">\(\Lambda\)</span> 下降到 <span class="math inline">\(\Lambda / s .\)</span> 显然 <span class="math display">\[
+K_{s} H[\sigma] / T=K_{s} K_{b} \hat{H}[\sigma] / T=K_{s b} \hat{H}[\sigma] / T
+\]</span> 最后一步是显而易见的, 因为合并 <span class="math inline">\(b^{d}\)</span> 个原胞作为块, 再合并 <span class="math inline">\(s^{d}\)</span> 个块成为大的块 与合并 (sb) <span class="math inline">\(^{d}\)</span> 个原胞成为大的块是相同的. 一般地 <span class="math display">\[
+K_{s} K_{s^{\prime}}=K_{s s^{\prime}}
+\]</span> 卡丹诺夫变换在构造<strong>重正化群</strong>时将起到重要的作用.</p>
+<h4 id="评论">评论</h4>
+<p>让我们对几个技术上的问题做一些评论.</p>
+<p>傅里叶分量 <span class="math inline">\(\sigma_{i k}\)</span> 是复数. 在定义式 (2.19) 和式 (2.24) 中, 对 <span class="math inline">\(d \sigma_{i k}\)</span> 积分时要 小心. 注意到 <span class="math inline">\(\sigma( x )\)</span> 是实数, 于是 <span class="math inline">\(\sigma_{i k}^{*}=\sigma_{i-k} .\)</span> 因而涉及 <span class="math inline">\(\sigma_{i k}\)</span> 和 <span class="math inline">\(\sigma_{i-k}\)</span> 中只有两个实 变量, 即 Re <span class="math inline">\(\sigma_{i k}\)</span> 和 <span class="math inline">\(\operatorname{Im} \sigma_{i k},\)</span> 而不是四个. 像式 (2.19) 和式 (2.24) 这样的积分应该 定义为对于 <span class="math inline">\(\operatorname{Re} \sigma_{i k}\)</span> 和 <span class="math inline">\(\operatorname{Im} \sigma_{i k}\)</span> 的积分, 即对于每一对 <span class="math inline">\(\sigma_{i k}\)</span> 和 <span class="math inline">\(\sigma_{i-k}\)</span> <span class="math display">\[
+d \sigma_{i k} d \sigma_{i-k}= d \left(\operatorname{Re} \sigma_{i k}\right) d \left( Im \sigma_{i k}\right)
+\]</span> 代替分立值, 我们使用连续的自旋变量. 其主要原因是分立的自旋值在卡丹 诺夫变换下基本上变为连续值。例如, 假定每个块自旋可以取值 +1 和 -1. 我们 合并八个块构成新块. 那么新块的自旋, 即八个老自旋的均值, 可以取九个可能的 值: <span class="math inline">\(\pm 1, \pm 6 / 8, \pm 4 / 8, \pm 2 / 8,0 .\)</span> 九个值使得新的块自旋基本上连续.. 与我们的直 觉一致, 粗粒化将摧毁分立性. 进一步, 如果利用连续变量, 则讨论傅里叶变换要 容易一些. 当然, 可以通过修改新块自旋的定义来保持其二值性, 但将失去新的自旋变 量的确切物理含义. 我们将在第 8 章讨论这一点.</p>
+<p>作为总结, 通过模糊化或粗粒化过程, 从原胞哈密顿得到了块哈密顿. 它指定 了在 <span class="math inline">\(b \approx \Lambda^{-1}\)</span> 尺度上的相互作用, 集中了 <span class="math inline">\(b^{d}\)</span> 个原胞自旋的粗略特征. 由式 (2.16) 和式 (2.19), 它依赖于 T, 以及其他指定原胞哈密顿的参数, 如式 (2.1) 和式 (2.9) 中的 J 和 h. 由于下述理由, 这种依赖性是非奇异的: 坏自旋之间的相互作用是 短程的, 这是因为它来自原胞自旋的相互作用, 而原胞自旋的相互作用假定为短 程的. 从而块自旋间的相互作用依赖于有限个, 即约 <span class="math inline">\(b^{d}\)</span> 个, 位于几个块中的原胞 自旋的行为. 我们曾经指出有限个原胞自旋不可能导致奇异行为. 从而块哈密顿 是 T 以及原胞哈密顿的其他参数的光滑函数. 我们在本章的开头演示了模型 (3)(原胞哈密顿) 与模型 (4) 和 (5)(块哈密顿) 之间的关系. 为了得到任意一个从模型 (4) 到 (5)、从模型(3) 到 (4)、从模型 (2) 到 (3) 以及从模型 (1) 到(2) 的明确计算都是非常困难的, 必须做合适的近似. 些明确的计算将在讨论重正化群时给出.</p>
+<h3 id="金兹堡-朗道形式">2.5 金兹堡-朗道形式</h3>
+<p>金兹堡-朗道 (Ginzburg-Landau) 理论在超导理论及其他临界现象中起到了 重要的作用. 它假定了一个块哈密顿的简单形式. 这个简单形式通常写为 <span class="math display">\[
+H[\sigma] / T=\int d ^{d} x \left(a_{0}+a_{2} \sigma^{2}+a_{4} \sigma^{4}+c(\nabla \sigma)^{2}- h \cdot \sigma \right)
+\]</span> 这里 <span class="math display">\[
+\begin{array}{l}
+\sigma^{2} \equiv \sigma( x ) \cdot \sigma ( x ) \equiv \sum_{i=1}^{n}\left[\sigma_{i}(x)\right]^{2} \\
+\sigma^{4} \equiv\left(\sigma^{2}\right)^{2} \\
+(\nabla \sigma)^{2} \equiv \sum_{\alpha=1}^{d} \sum_{i=1}^{n}\left(\frac{\partial \sigma_{i}}{\partial x_{\alpha}}\right)^{2}
+\end{array}
+\]</span> 系数 <span class="math inline">\(a_{0}, a_{2}, a_{4}, c\)</span> 是 <span class="math inline">\(T\)</span> 的函数, <span class="math inline">\(h\)</span> 由外加磁场除以 <span class="math inline">\(T\)</span> 得到.</p>
+<h4 id="傅里叶">傅里叶</h4>
+<p>除了外加磁场 <span class="math inline">\(h,\)</span> 我 们假定系统在自旋空间是各向同性的, 同时, 在位置空间也是各向同性的. 块自旋 <span class="math inline">\(\sigma(x)\)</span> 由式 <span class="math inline">\(\sigma ( x )=L^{-d / 2} \sum_{k&lt;\Lambda} \sigma _{k} e ^{i k \cdot x }\)</span> 定义. 它指明直到距离 <span class="math inline">\(b \approx \Lambda^{-1}\)</span> 的自旋位形. 这个块哈密顿是一 个傅里叶分量 <span class="math inline">\(\sigma _{k}\)</span> 的分立集合的函数： <span class="math display">\[
+\begin{aligned}
+H[\sigma] / T=&amp; a_{0} L^{d}+\sum_{k&lt;\Lambda} \sigma_{k} \cdot \sigma_{-k}\left(a_{2}+c k^{2}\right) \\
+&amp;+L^{-d} \sum_{k k^{\prime} k^{\prime \prime}&lt;\Lambda} a_{4}\left(\sigma_{k} \cdot \sigma_{k^{\prime}}\right)\left(\sigma_{k^{\prime \prime}} \cdot \sigma_{-k-k^{\prime}-k^{\prime \prime}}\right)-L^{d / 2} \sigma_{0} \cdot h
+\end{aligned}
+\]</span> <span class="math inline">\(P= e ^{-H[\sigma] / T}\)</span> 是 <span class="math inline">\(k&lt;\Lambda\)</span> 时 <span class="math inline">\(\sigma_{k}\)</span> 的概率分布. 我们可以写出一个类似的以 <span class="math inline">\(\sigma _{ x }\)</span> 为变 量的块哈密顿: <span class="math display">\[
+H[\sigma] / T=b^{d} \sum_{x}\left[a_{0}+a_{2} \sigma_{x}^{2}+a_{4} \sigma_{x}^{4}+c \frac{b^{-2}}{2} \sum_{y}^{\prime}\left(\sigma_{x}-\sigma_{x+y}\right)^{2}-h \cdot \sigma_{x}\right]
+\]</span> 这里 <span class="math inline">\(\sigma_{x}\)</span> 是式 <span class="math inline">\(\sigma_{x}=b^{-d} \sum_{c}^{x} \sigma_{c}\)</span> 定义的块自旋. 对 <span class="math inline">\(y\)</span> 的求和对坏 <span class="math inline">\(x\)</span> 的 2d 个近邻进行. 在一 阶近似下， <span class="math inline">\(\left( \sigma _{ x + y }- \sigma _{ x }\right) / b\)</span> 是 <span class="math inline">\(\nabla \sigma\)</span></p>
+<h4 id="各项的意义">各项的意义</h4>
+<p>通过式上式，可以容易理解块哈密顿的金兹堡-朗道形式各项的意义. <span class="math inline">\(-h \cdot \sigma_{x}\)</span> 的意义是清楚的，为简单起见可暂时将其忘掉。如果我们丢掉梯度项，即 <span class="math inline">\(\left( \sigma _{ x }- \sigma _{ x +y}\right)^{2}\)</span> 项, 则上式成为 <span class="math display">\[
+b^{d} \sum_{ x } U\left( \sigma _{ x }\right)
+\]</span> 其中 <span class="math display">\[
+U\left(\sigma_{x}\right)=a_{0}+a_{2} \sigma_{x}^{2}+a_{4} \sigma_{x}^{4}
+\]</span> 式 <span class="math inline">\(b^{d} \sum_{x} U\left(\sigma_{x}\right)\)</span> 中的每一项都只依赖于一个块的自旋 <span class="math inline">\(\sigma_{x},\)</span> 也就是每个块的自旋与其他 块自旋统计独立，这是由于概率分布是一个连乘 <span class="math inline">\(\prod \exp \left(-U\left(\sigma_{x}\right)\right) .\)</span> 于是, 我们的 系统由 <span class="math inline">\(L^{d} / b^{d}\)</span> 个无相互作用的块组成. 每个块具有一个有效哈密顿 <span class="math inline">\(b^{d} U\left(\sigma_{x}\right),\)</span> 这 就是块的自旋均值限制为 <span class="math inline">\(\sigma_{x}\)</span> 时块的自由能。如前所述, 因为块内只有有限个原 胞自旋, 这个自由能必为 <span class="math inline">\(\sigma_{x}, T\)</span> 和其他参数的光滑函数. 因而式 <span class="math inline">\(U\left( \sigma _{ x }\right)=a_{0}+a_{2} \sigma_{x}^{2}+a_{4} \sigma _{ x }^{4}\)</span> 就是这 个自由能的级数展开的前几项. 系数 <span class="math inline">\(a_{0}, a_{2}, a_{4}\)</span> 以及没有写出来的高阶系数必为 T 和其他参数的光滑函数. 由于只保留到四阶项, 我们认为金兹堡-朗道形式对于 大的 <span class="math inline">\(\sigma_{x}\)</span> 不是一个好的近似. 如果 <span class="math inline">\(a_{4}\)</span> 为负值, 这个式子一定是没有意义的, 因为 <span class="math inline">\(U\left( \sigma _{ x }\right)\)</span> 在 <span class="math inline">\(\sigma_{ x } \rightarrow \infty\)</span> 时趋于负无穷大, 概率分布 <span class="math inline">\(P \propto \exp (-H[\sigma] / T)\)</span> 将发散.</p>
+<p>当式 <span class="math inline">\(U\left( \sigma _{ x }\right)=a_{0}+a_{2} \sigma_{x}^{2}+a_{4} \sigma _{ x }^{4}\)</span> 中包含梯度项 <span class="math inline">\(\left( \sigma _{ x }- \sigma _{ x +y}\right)^{2}\)</span> 时, 块自旋将不再相互独立. 于是,金兹堡-朗道形式以这个简单的梯度项来描述相邻块之间的相互作用. 对于铁磁 体, 我们期望这个相互作用使得块自旋倾向于与其近邻块的自旋平行。梯度项描 述这一倾向, 其强度由系数 c 确定. 这一项只有在所有的块自旋具有相同值时才 为零. 块自旋之间的差别越大, H/T 越大, 从而概率越小. 我们认为块自旋之间的 相互作用并不是完全由梯度项决定的, 应该还有相邻自旋相乘的高阶项. 总而言之, 金兹堡-朗道形式的块哈密顿是最简单但不是最一般的形式. 最一 般的形式应该包括所有的块自旋乘积的景次. 金兹堡-朗道形式只保留了最低阶 项. 当然, 这个形式可以通过把 <span class="math inline">\(\sigma_{x}^{4}\)</span> 的项丢掉而简化. 但是, 这 是一个过分的简化. 注意我们在块哈密顿中排除了分数景和其他形式的 <span class="math inline">\(\sigma _{ x }\)</span> 的奇异函数. 排除的 理由在于我们假定自旋之间的相互作用是短程的, 从而块自旋中的项描述的是约 <span class="math inline">\(b^{d}\)</span> 个自旋的“局部性质”, 因此必须是 <span class="math inline">\(\sigma_{ x }, h\)</span> 和 <span class="math inline">\(T\)</span> 的光滑函数.</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/">Fields of Quantum ManyBody</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/Modern-Theory-of-Critical-Phenomena/">Modern Theory of Critical Phenomena</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Renormalization-Group/">Renormalization Group</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Ginzburg-Landau/">Ginzburg-Landau</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/09/29/topology01_Introduction/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Topology in Condensed matter Physics</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2016/11/03/topology02_BerryPhase/">
+                        <span class="hidden-mobile">Berry Phase</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "第 2 章 模型与基本概念&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
