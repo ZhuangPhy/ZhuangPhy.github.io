@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.9k 字
+      8.1k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      61
+      99
        分钟
     </span>
   
@@ -243,7 +243,7 @@ G^{R}(\epsilon)=G_{0}^{R}(\epsilon)+G_{0}^{R}(\epsilon) T(\epsilon) G_{0}^{R}(\e
 T(\epsilon)=V+V G_{0}^{R}(\epsilon) V+V G_{0}^{R}(\epsilon) V G_{0}^{R}(\epsilon) V+\ldots
 \]</span> 我们把这个矩阵称为T矩阵。我们可以引入费曼图表示。用单实线表示零级电子传播子，虚线表示有效势，“<span class="math inline">\(\times\)</span>” 表示杂质。取动量表象将矩阵方程展开，则一个典型的散射过程可以表达成图2.1形式。</p>
 <figure>
-<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200925134325687.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200925134325687</figcaption>
+<img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200925134325687.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20200925134325687</figcaption>
 </figure>
 <p>可以由T矩阵得到态密度的变化量 <span class="math display">\[
 \Delta \rho(\epsilon)=\frac{1}{\pi} \operatorname{Im} \frac{\partial}{\partial \epsilon} \ln \operatorname{det} T(\epsilon)
@@ -367,7 +367,7 @@ H=\sum_{\sigma} \epsilon_{d} d_{\sigma}^{\dagger} d_{\sigma}+\sum_{ k , \sigma} 
 <p>那么问题进一步衍生为，如果 <span class="math inline">\(V_{ k } \neq 0\)</span>，则在什么情况下，局域磁矩会在与电子奉合下继续保持。为了回答这个问题，我们可以很自然想到将上述安德森模型进行变换，得到著名的s-d 交换模型。</p>
 <h3 id="s-d-交换模型">s-d 交换模型</h3>
 <p>首 先， 我 们 简 单 介 绍s-d模 型 。 它 首 先 由Zener[1]提 出， 并 随 后由Kasuya[2]从电子互作用形式推导出来。其形式为 <span class="math display">\[
-H_{s d}=\sum_{ k , k ^{\prime}} J_{ k , k ^{\prime}}\left(S^{+} c_{ k , \downarrow}^{\dagger} c_{ k ^{\prime}, \uparrow}+S^{-} c_{ k , \uparrow}^{\dagger} c_{ k ^{\prime}, \downarrow}+S_{z}\left(c_{ k , \uparrow}^{\dagger} c_{ k ^{\prime}, \uparrow}-c_{ k , \downarrow}^{\dagger} c_{ k ^{\prime}, \uparrow}\right)\right)
+H_{s d}=\sum_{ k , k ^{\prime}} J_{ k , k ^{\prime}}\left(S^{+} c_{ k , \downarrow}^{\dagger} c_{ k ^{\prime}, \uparrow}+S^{-} c_{ k , \uparrow}^{\dagger} c_{ k ^{\prime}, \downarrow}+S_{z}\left(c_{ k , \uparrow}^{\dagger} c_{ k ^{\prime}, \uparrow}-c_{ k , \downarrow}^{\dagger} c_{ k ^{\prime}, \downarrow}\right)\right)
 \]</span></p>
 <ul>
 <li>上述哈密顿描述了导带电子的自旋和局域磁矩之间的<strong>交换耦合</strong>。</li>
@@ -389,7 +389,94 @@ H_{n, n^{\prime}}=P_{n} H P_{n^{\prime}}
 \sum_{n^{\prime}} H_{n, n^{\prime}} \phi_{n^{\prime}}=E \phi_{n}
 \]</span> 将上式展开，并约去 <span class="math inline">\(\phi_{0}\)</span>和 <span class="math inline">\(\phi_{2}\)</span> 波函数，可以得到 <span class="math display">\[
 \left[H_{11}+H_{12}\left(E-H_{22}\right)^{-1} H_{21}+H_{10}\left(E-H_{00}\right)^{-1} H_{01}\right] \phi_{1}=E \psi_{1}
+\]</span> 我们先考虑上式中的第二项。首先需要求出 <span class="math inline">\(H_{12}\)</span> ，这可以直接通过投影算符作用 于总哈密顿H得到，接着代回到上式得 <span class="math display">\[
+\begin{aligned}
+  &amp;H_{12}\left(E-H_{22}\right)^{-1} H_{21} \\
+=&amp;-\sum_{ k , k ^{\prime}, \sigma, \sigma^{\prime}} \frac{V_{ k }^{\star} V_{ k ^{\prime}}}{U+\epsilon_{d}-\epsilon_{ k ^{\prime}}}\left(1-\frac{E-\epsilon_{d}-H_{00}}{U+\epsilon_{d}-\epsilon_{ k ^{\prime}}}\right)^{-1} c_{ k , \sigma}^{\dagger} c_{ k ^{\prime}, \sigma^{\prime}} d_{\sigma} d_{\sigma^{\prime}}^{\dagger} n_{d,-\sigma^{\prime}}
+\end{aligned}
+\]</span> 目前为止，得出上式的过程没有作任何近似是<strong>严格</strong>的。</p>
+<h4 id="近似">近似</h4>
+<p>下面我们故意把括号中的第二项丢掉。丢去这项实际上是只保留了从 <span class="math inline">\(n_{d}=1\)</span> 到 <span class="math inline">\(n_{d}=2\)</span> 再回到 <span class="math inline">\(n_{d}=1\)</span> 这种虚激发过程中的最低阶微扰修正。 <span class="math display">\[
+\begin{aligned}
+  H_{12}\left(E-H_{22}\right)^{-1} H_{21}\approx-\sum_{ k , k ^{\prime}, \sigma, \sigma^{\prime}} \frac{V_{ k }^{\star} V_{ k ^{\prime}}}{U+\epsilon_{d}-\epsilon_{ k ^{\prime}}} c_{ k , \sigma}^{\dagger} c_{ k ^{\prime}, \sigma^{\prime}} d_{\sigma} d_{\sigma^{\prime}}^{\dagger} n_{d,-\sigma^{\prime}}
+\end{aligned}
 \]</span></p>
+<ol type="1">
+<li><p>进一步考虑 <span class="math inline">\(\sigma=\downarrow, \sigma^{\prime}=\uparrow\)</span>,并且在 <span class="math inline">\(n_{d}=1\)</span> 的子空间内用<span class="math inline">\(S^{+}\)</span>来代替 <span class="math inline">\(d_{\uparrow}^{\dagger} d_{\downarrow}\)</span>,我们发现上式正对应于s-d交换模型中的第一项 $J_{ k , k ^{}} S^{+} c_{k, }^{} c_{k^{}, } $ 。</p></li>
+<li><p>同理可以证明 <span class="math inline">\(\sigma=\uparrow, \sigma^{\prime}=\downarrow\)</span> 的情形正好对应于s-d交换模型中的第二项 <span class="math inline">\(J_{ k , k ^{\prime}} S^{-} c_{ k , \uparrow}^{\dagger} c_{ k ^{\prime}, \downarrow}\)</span></p></li>
+<li><p><span class="math inline">\(\sigma=\uparrow\)</span>,$^{}=$ 以及 <span class="math inline">\(\sigma=\downarrow, \sigma^{\prime}=\downarrow\)</span> 对应于第三项 <span class="math inline">\(J_{ k , k ^{\prime}} S_{z}\left(c_{k, \uparrow}^{\dagger} c_{k^{\prime}, \uparrow}-c_{k, \downarrow}^{\dagger} c_{k^{\prime}, \downarrow}\right)\)</span></p></li>
+</ol>
+<p><strong>结论</strong></p>
+<blockquote>
+<p>至此，我们从<span class="math inline">\(V_{ k }\)</span>的微扰论的角度，证明了至少在<span class="math inline">\(V_{ k }\)</span>是小量时，可以严格的从安德森模型推导出s-d 交换模型。</p>
+</blockquote>
+<h4 id="历史路径">历史路径</h4>
+<p>另外，历史上首先从安德森模型严格导出s-d交换模型的是Schrieffer 和Wolff[3], 他们采用<strong>正则变化</strong>的方法还得到了安德森模型和s-d交换模型之间的参数关系以及这一变换的<strong>成立条件</strong>: <span class="math display">\[
+J_{ k , k ^{\prime}}=V_{ k }^{\star} V_{ k ^{\prime}}\left(\frac{1}{U+\epsilon_{d}-\epsilon_{ k ^{\prime}}}+\frac{1}{\epsilon_{ k -\epsilon_{d}}}\right)
+\]</span> 上式成立的条件是 <span class="math inline">\(\left|\epsilon_{ k }\right| \ll\left|\epsilon_{d}-\epsilon_{F}\right|\)</span> 以及 <span class="math inline">\(\left|\epsilon_{ k }\right| \ll\left|U+\epsilon_{d}-\epsilon_{F}\right|_{\circ}\)</span></p>
+<p>由上面的过程我们知道，不论通过</p>
+<ul>
+<li>Schrieffer-Wolff变换</li>
+<li>还是通过微扰论</li>
+</ul>
+<p>我们都可以在<strong>一定参数区域范围内</strong>将安德森模型转化为s-d交换模型。因此安德森模型在这个意义下更加<strong>广泛</strong>，它包含了<strong>各种可能的局域轨道情形</strong>。局域轨道可能已经形成局域磁矩也有可能未形成局域磁矩，如果U 很弱它还包含了无互作用的耦合模型，这类似于一个有效散射势的情况。所以，安德森模型的研究会给我们更多可能的物理情况。而s-d交换模型则更加<strong>直接</strong>了当的与近藤效应(Kondo effect)<strong>联系</strong>起来，由于它直接讨论的就是金属中的巡游导带电子和局域磁矩的糊合。这两个模型是研究近藤效应以及其相关衍生问题的最重要的两个模型。下面我们会细致讨论它们的解，以及在拓扑系统中相关理论。</p>
+<h2 id="近藤问题的微扰解">近藤问题的微扰解</h2>
+<h4 id="实验现象的解释尝试">实验现象的解释尝试</h4>
+<p>为解释稀磁合金中电阻极小值点，以及电阻对温度的依赖。</p>
+<ul>
+<li>人们首先考虑到的是<strong>杂质效应</strong>。最简单的处理杂质的一种方案是有效势模型。人们发现，即使考虑多杂质乃至无序的散射势，通过无序平均后的微扰理论或者 玻尔兹曼输运(Boltzmann transport )计算，均发现电子贡献的电阻在低温下不会随着温度而变化。</li>
+<li>如果去考虑<strong>声子</strong>，由于声子随着温度降低显著减少，并且它贡献温度的五次方的电阻，因此声子只能带来电阻关于温度的单调函数依赖关系，不可能给出极小值的抛点。</li>
+<li>后来通过Fe在Nb-Mo 中的电阻和剩余磁矩的对比实验，人们意识到这应当是Fe的局域磁矩在起作用。</li>
+</ul>
+<h3 id="s-d交换模型的微扰">s-d交换模型的微扰</h3>
+<p>近藤基于这个想法，从s-d交换模型出发给出了微扰理论的解释。为论文全面性考虑，我们简要回顾一下他的工作。更详细的推导可参考文献。现在我们要考虑的有导带电子，其哈密顿为 <span class="math display">\[
+H_{0}=\sum_{ k \sigma} \epsilon_{ k } c_{ k \sigma}^{\dagger} c_{ k \sigma}
+\]</span> 以及导带电子和局域磁矩之间的交换耦合 <span class="math display">\[
+H_{s d}=\sum_{ k , k ^{\prime}} J_{ k , k ^{\prime}}\left(S^{+} c_{ k , \downarrow}^{\dagger} c_{ k ^{\prime}, \uparrow}+S^{-} c_{ k , \uparrow}^{\dagger} c_{ k ^{\prime}, \downarrow}+S_{z}\left(c_{ k , \uparrow}^{\dagger} c_{ k ^{\prime}, \uparrow}-c_{ k , \downarrow}^{\dagger} c_{ k ^{\prime}, \uparrow}\right)\right)
+\]</span> 我们<strong>最终的目的</strong>是为了解释电阻极小抛点问题。根据玻尔兹曼输运(Boltzmann transport )方程理论我们知道电阻是和T 矩阵联系起来的。</p>
+<h4 id="t矩阵近似玻恩近似">T矩阵近似(玻恩近似)</h4>
+<p>因此，我们首先去计算T矩阵的矩阵元，然后再去求它模的平方即散射几率幅。这里导带电子的散射算符<span class="math inline">\(V\)</span>就是 <span class="math inline">\(H_{s d}\)</span> 因此T矩阵写至二阶为 <span class="math display">\[
+T=H_{s d}+H_{s d} G_{0} H_{s d}
+\]</span></p>
+<p>我们先计算一阶T矩阵的矩阵元。为简化，我们取局域交换积分 <span class="math inline">\(J_{ k , k ^{\prime}}=J_{\text {。 }}\)</span> 取电子初态和末态分别为 <span class="math inline">\((k,\mu),\left( k ^{\prime}, \mu^{\prime}\right)_{\bullet}\)</span> 局域磁矩的初态和末态分别为自旋 <span class="math inline">\(\alpha\)</span> 和自旋 <span class="math inline">\(\alpha^{\prime}\)</span> 。由于一阶T矩阵为 <span class="math display">\[
+T_{\mu^{\prime}, \alpha^{\prime}, \mu, \alpha}^{(1)}=J \hat{\sigma}_{\mu^{\prime}, \mu} \cdot \hat{S}_{\alpha^{\prime}, \alpha}
+\]</span> 对于四种不同初末态，以及对应矩阵元分别为</p>
+<ul>
+<li><span class="math inline">\(( k \uparrow) \rightarrow\left( k ^{\prime} \uparrow\right)\)</span> 矩阵元 <span class="math inline">\(-J S^{z}\)</span></li>
+<li><span class="math inline">\(( k \uparrow) \rightarrow\left( k ^{\prime} \downarrow\right)\)</span> 矩阵元 <span class="math inline">\(J S^{+}\)</span></li>
+<li><span class="math inline">\(( k \downarrow) \rightarrow\left( k ^{\prime} \uparrow\right)\)</span> 矩阵元 <span class="math inline">\(J S^{-}\)</span></li>
+<li><span class="math inline">\(( k \downarrow) \rightarrow\)</span> $( k ^{} ) $ 矩阵元 <span class="math inline">\(J S^{z}\)</span></li>
+</ul>
+<p><span class="math inline">\(T^{(1)}\)</span> 矩阵的模平方给出散射几率幅。这种一阶T矩阵近似实际上就是玻恩近似。再根据玻尔兹曼输运方程理论，我们知道这一项给出电阻 <span class="math display">\[
+R_{0}=A J^{2} S(S+1)
+\]</span> 这一项与<strong>温度无关</strong>，因此无法说明电阻的极小值点。所以我们需要计算更高阶的T 矩阵。</p>
+<h4 id="二阶t矩阵">二阶T矩阵</h4>
+<p>二阶T矩阵中含有两个 <span class="math inline">\(H_{s d}\)</span>，意味着电子要经过两次散射。因此在初态( <span class="math inline">\(k , \mu)\)</span> 和末态 <span class="math inline">\(\left( k ^{\prime}, \mu^{\prime}\right)\)</span> 之间，必须要考虑中间态 <span class="math inline">\(\left( k ^{\prime \prime}, \mu^{\prime \prime}\right)\)</span> 。对于中间态可能出现两种情况，</p>
+<ul>
+<li>一是中间态未被电子占据，</li>
+<li>二是中间态被电子占据。</li>
+</ul>
+<p>我们假设中间态电子处于热平衡状态，则前者占据的几率为 <span class="math inline">\(1-f_{ k }\)</span> 后者为 <span class="math inline">\(f_{ k }\)</span>。这个占据几率必须在二阶计算中考虑进来，由于费米分布关系和温度有关，因此在二阶计算中会由于这一项的<strong>引入带来新的温度依赖效果</strong>。我们期望这个效果能给出电阻随着温度变化出现极小值的解释。对于第一种情况，若以初态 <span class="math inline">\(( k , \downarrow)\)</span> 到末态 <span class="math inline">\(\left( k ^{\prime}, \downarrow\right)\)</span> 为例，则可以用费曼图表示出散射过程。如图所示</p>
+<p><img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200926101152539.png" srcset="/img/loading.gif" /></p>
+<p>我们用实线表示导带电子传播子，虚线表示局域磁矩的变化过程，波浪线表示两者的奉合。图(a) 则表示一个导带电子<span class="math inline">\(( k , \downarrow)\)</span>散射到中间态 <span class="math inline">\(\left( k ^{\prime \prime}, \uparrow\right)\)</span>,同时局域磁矩自旋下降一，接着中间态<span class="math inline">\(\left( k ^{\prime \prime}, \uparrow\right)\)</span>上的电子散射到<span class="math inline">\(\left( k ^{\prime}, \downarrow\right)\)</span> 同时局域磁矩的自旋上升一。计算二阶散射矩阵在这个过程下的矩阵元得到 <span class="math display">\[
+J^{2} \sum_{ k ^{\prime \prime}} \frac{S^{+} S^{-}}{\epsilon-\epsilon_{ k ^{\prime \prime}}}\left(1-f_{ k ^{\prime \prime}}\right)
+\]</span> 对于第二种情况，中间态已经被占据。所以首先发生的过程必须是中间态电子被散射到末态( <span class="math inline">\(k ^{\prime}, \downarrow\)</span> ) 而留下一个空穴，接着初态电子再散射到中间态，去占据未填满的状态，即与空穴符合。这个过程由图(b)表示。计算这个过程的矩阵元 我们得到， <span class="math display">\[
+J^{2} \sum_{ k ^{\prime \prime}} \frac{S^{-} S^{+}}{\epsilon-\epsilon_{ k ^{\prime \prime}}} f_{ k ^{\prime \prime}}
+\]</span> 上面考虑的过程是初态到中间态或者中间态到末态发生自旋反转。对于无自旋反转过程T矩阵的对角矩阵S ^ 相关项会有贡献。类似上面方法把对角项考虑进来最终我们得到总的二阶T矩阵考虑各种散射初末态后的<strong>总散射振幅</strong> <span class="math display">\[
+T^{(2)}(\epsilon)=J^{2} \sum_{ k ^{\prime \prime}} \frac{S^{z^{2}}+S^{+} S^{-}}{\epsilon-\epsilon_{ k ^{\prime \prime}}}-\left[S^{+}, S^{-}\right] \frac{f_{ k ^{\prime \prime}}}{\epsilon-\epsilon_{ k ^{\prime \prime}}}
+\]</span> - 上式第一项来自于自旋非反转过程 - 第二项来自自旋反转过程</p>
+<p>第一项给出和温度无关的相，而自旋反转过程给出明显的温度依赖。我们重点关心第二项。由于电阻极小是稀磁合金中的普片现象，具体的导带电子能带形式对结果不应有大的影响，我们取一个简化的态密度即认为态密度在能带宽度范围以内是常数 <span class="math inline">\(\rho(\epsilon)=\rho_{F}\)</span> 。对 <span class="math inline">\(k\)</span> 的求和可以化为对 <span class="math inline">\(\epsilon\)</span> 的积分乘以此常数态密度。在 <span class="math inline">\(\epsilon=0\)</span> 时，可以求得 <span class="math display">\[
+J \sum_{ k ^{\prime \prime}} \frac{f_{ k ^{\prime \prime}}}{\epsilon-\epsilon_{ k ^{\prime \prime}}}=J \rho_{F} \ln \frac{k_{B} T}{D}
+\]</span> 至二阶为止总散射矩阵给出的散射几率为 <span class="math inline">\(|T^{(1)}+\left.T^{(2)}\right|^{2}\)</span> 。其中 <span class="math inline">\(\left.|T^{(1)}\right|^{2}\)</span> 我们已经考虑过，它给出常数的零温剩余电阻。更高一阶的修正来自于混合乘积项，它给出 <span class="math display">\[
+J^{3} \rho_{F} \ln \frac{k_{B} T}{D}
+\]</span> 把上式和 <span class="math inline">\(\left|T^{(1)}\right|^{2}\)</span> 结合起来，我们最终得到电阻的表达式 <span class="math display">\[
+R=R_{0}\left(1-4 J \rho_{F} \ln \frac{k_{B} T}{D}+\ldots\right)
+\]</span> - 当 <span class="math inline">\(J&lt;0\)</span> 时，为铁磁交换作用。这时上式是随温度单调增大的。因此对于铁磁交换作用，不会有电阻极小点。 - 但是对于反铁磁交换作用 <span class="math inline">\(J&gt;0\)</span>，上式随着温度的降低而电阻增大。如果把不可忽略的声子的贡献 <span class="math inline">\(A T^{5}\)</span> 加上，则上式恰好会给我们一个极小值点。</p>
+<p>这很好的解释了电阻极小的实现现象。如果考虑有效滚度 <span class="math inline">\(c_{i m p}\)</span> 的磁性杂质（但是杂质之间的耦合不予考虑），则总电阻贡献为 <span class="math display">\[
+R=R_{0}\left(1-4 J \rho_{F} \ln \frac{k_{B} T}{D}\right)+A T^{5}
+\]</span> 由上式可以解出电阻极小值的位置，即 <span class="math display">\[
+T_{\min }=B c_{i m p}^{1 / 5}
+\]</span> 电阻极小正比于杂质浓度的五分之一次方。这个结论也与实验很好的吻合。另外，除了温度极小，人们发现稀磁合金中的磁化率也会有反常效应。局域磁矩如果不和导带电子奉合，那应当满足居里外斯定律。然而，实验发现，在稀磁合金中磁矩在低温下和居里外斯定律有很大偏差，磁矩在低温下逐渐趋于饱和最后等于零。也就是在低温下，局域磁矩不存在。这其实是因为电子和磁矩之间的反铁磁交换作用在低温下倾向于在磁矩附近形成自旋取向与局域磁矩相反的电子，在低温下相反自旋的电子围绕这局域磁矩形成一个屏蔽磁矩的“云"，最终使得局域磁矩被完全屏蔽。这个物理图像是就人们熟知的近藤单态，这一点在后面的章节会详细阐述。</p>
 
             </article>
             <hr>
