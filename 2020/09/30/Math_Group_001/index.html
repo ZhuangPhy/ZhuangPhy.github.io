@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>基于对称性的物理(1/2):Lie群 - JPZ</title>
+  <title>基于对称性的物理(1/2)Lie群 - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      150
+      149
        分钟
     </span>
   
@@ -205,7 +205,9 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h3 id="二维旋转">二维旋转</h3>
+              <p>拓扑入门第一例</p>
+<p>[TOC]</p>
+<h3 id="二维旋转">二维旋转</h3>
 <p>同一个群（对应一种变换）可以作用于不同类对象：圆（几何图形），或者向量。</p>
 <h4 id="矩阵表示变换">矩阵表示变换</h4>
 <p>本节考虑向量，可以用旋转矩阵表示向量的旋转或反射</p>
@@ -229,7 +231,7 @@ P_{x}=\left(\begin{array}{cc}
 1 &amp; 0 \\
 0 &amp; -1
 \end{array}\right)
-\]</span> 将矩阵乘法作为<strong>群乘法</strong> o, 可以验证对于所有的 $, <span class="math display">\[R(\theta), \]</span>P_{x},$$ P_{y}$与 矩阵乘法符合群公理，因而构成一个群，亦即旋转与反射变换<strong>构成一个群</strong>。</p>
+\]</span> 将矩阵乘法作为<strong>群乘法</strong> o, 可以验证对于所有的 <span class="math inline">\(\theta\)</span>，<span class="math inline">\(R(\theta)\)</span>，<span class="math inline">\(P_{x}\)</span>，<span class="math inline">\(P_{y}\)</span> 与 矩阵乘法符合群公理，因而构成一个群，亦即旋转与反射变换<strong>构成一个群</strong>。</p>
 <h4 id="长度不变的变换">长度不变的变换</h4>
 <p>可以用更抽象的方式表达“所有让二维向量长度不变的变换，向量长度就是向量与自身点乘的平方根 <span class="math inline">\((|a|=\sqrt{a \cdot a}) .\)</span> 向量长度在变换 <span class="math inline">\(a \rightarrow a^{\prime}\)</span> 下不变意味着 : <span class="math display">\[
 a^{\prime} \cdot a^{\prime} \stackrel{!}{=} a \cdot a
@@ -292,19 +294,24 @@ O ^{T} O =I\\
 <p>所有单位复数构成一个群，称为<span class="math inline">\(U (1)\)</span> 群。</p>
 </blockquote>
 <p>群乘法即为复数乘法,不难验证它符合群公理。</p>
-<p>为了看出它与之前引入的 O(2), SO(2) 群10的关系，我们将 U(1) 群的条件 一复数的模（长度）为 1 表 示为 <span class="math inline">\(^{17}, \quad \forall U \in U (1)\)</span> <span class="math display">\[
+<p>为了看出它与之前引入的 O(2), SO(2)群的关系，我们将 U(1) 群的条件 一复数的模（长度）为 1 表示为 <span class="math inline">\(\forall U \in U (1)\)</span> <span class="math display">\[
 U ^{*} U =1
-\]</span> 单位复数另一种写法是18： <span class="math display">\[
+\]</span> 单位复数另一种写法是： <span class="math display">\[
 R_{\theta}= e ^{i \theta}=\cos \theta+i \sin \theta
 \]</span> <span class="math inline">\(R_{\theta}\)</span> 的模平方为: <span class="math display">\[
 \begin{aligned}
-R_{\theta}^{*} R_{\theta}&amp;= e ^{-i \theta} e ^{i \theta}\\&amp;=(\cos \theta-i \sin \theta)(\cos \theta+i \sin \theta)\\&amp;=1
+R_{\theta}^{*} R_{\theta}&amp;= e ^{-i \theta} e ^{i \theta}\\
+&amp;=(\cos \theta-i \sin \theta)(\cos \theta+i \sin \theta)\\
+&amp;=1
 \end{aligned}
 \]</span></p>
 <h5 id="例子-1">例子</h5>
 <p>将向量 (3,5) 对应的复数 <span class="math inline">\(z=3+5 i\)</span> 旋转 <span class="math inline">\(90^{\circ}:\)</span> <span class="math display">\[
 \begin{aligned}
-z \rightarrow z^{\prime}&amp;= e ^{i 90^{\circ}} z\\&amp;=(\underbrace{\cos 90^{\circ}}_{=0}+i \underbrace{\sin 90^{\circ}}_{=1})(3+5 i)\\&amp;=i(3+5 i)\\&amp;=3 i-5
+z \rightarrow z^{\prime}&amp;= e ^{i 90^{\circ}} z\\
+&amp;=( \cos 90^{\circ} +i \sin 90^{\circ} )(3+5 i)\\
+&amp;=i(3+5 i)\\
+&amp;=3 i-5
 \end{aligned}
 \]</span></p>
 <ul>
@@ -322,7 +329,8 @@ z \rightarrow z^{\prime}&amp;= e ^{i 90^{\circ}} z\\&amp;=(\underbrace{\cos 90^{
 1=\left(\begin{array}{ll}
 1 &amp; 0 \\
 0 &amp; 1
-\end{array}\right), \quad i =\left(\begin{array}{cc}
+\end{array}\right)
+\quad i =\left(\begin{array}{cc}
 0 &amp; -1 \\
 1 &amp; 0
 \end{array}\right)
@@ -330,13 +338,15 @@ z \rightarrow z^{\prime}&amp;= e ^{i 90^{\circ}} z\\&amp;=(\underbrace{\cos 90^{
 1^{2}=1, \quad i ^{2}=-1, \quad 1 i = i 1= i
 \]</span> 这样单位复数对应的 <span class="math inline">\(2 \times 2\)</span> 实数矩阵为 <span class="math display">\[
 \begin{aligned}
-R_{\theta}&amp;=\cos \theta+i \sin \theta\\&amp;=\cos \theta\left(\begin{array}{cc}
+R_{\theta}&amp;=\cos \theta+i \sin \theta\\
+&amp;=\cos \theta\left(\begin{array}{cc}
 1 &amp; 0 \\
 0 &amp; 1
 \end{array}\right)+\sin \theta\left(\begin{array}{cc}
 0 &amp; -1 \\
 1 &amp; 0
-\end{array}\right)\\&amp;=\left(\begin{array}{cc}
+\end{array}\right)\\
+&amp;=\left(\begin{array}{cc}
 \cos \theta &amp; -\sin \theta \\
 \sin \theta &amp; \cos \theta
 \end{array}\right)
@@ -407,20 +417,23 @@ R_{x}=\left(\begin{array}{ccc}
 1 &amp; 0 &amp; 0 \\
 0 &amp; \cos \theta &amp; -\sin \theta \\
 0 &amp; \sin \theta &amp; \cos \theta
-\end{array}\right) 
-\\
+\end{array}\right)  
+\]</span></p>
+<p><span class="math display">\[
 R_{y}=\left(\begin{array}{ccc}
 \cos \theta &amp; 0 &amp; \sin \theta \\
 0 &amp; 1 &amp; 0 \\
 -\sin \theta &amp; 0 &amp; \cos \theta
 \end{array}\right)
-\\
+\]</span></p>
+<p><span class="math display">\[
 R_{z}=\left(\begin{array}{ccc}
 \cos \theta &amp; -\sin \theta &amp; 0 \\
 \sin \theta &amp; \cos \theta &amp; 0 \\
 0 &amp; 0 &amp; 1
 \end{array}\right)
-\]</span> 类比 <span class="math inline">\(S O (2)\)</span> 群，上面三个矩阵构成了 <span class="math inline">\(S O (3)\)</span> 群的一组<strong>基</strong>。这意味着 <span class="math inline">\(S O (3)\)</span> 中的任意群元（矩阵）都可以写为 <span class="math inline">\(R_{x}, R_{y}, R_{z}\)</span> 的线性组合，且系数唯一。将向量 <span class="math display">\[
+\]</span></p>
+<p>类比 <span class="math inline">\(S O (2)\)</span> 群，上面三个矩阵构成了 <span class="math inline">\(S O (3)\)</span> 群的一组<strong>基</strong>。这意味着 <span class="math inline">\(S O (3)\)</span> 中的任意群元（矩阵）都可以写为 <span class="math inline">\(R_{x}, R_{y}, R_{z}\)</span> 的线性组合，且系数唯一。将向量 <span class="math display">\[
 \vec{v}=\left(\begin{array}{l}
 1 \\
 0 \\
@@ -455,7 +468,9 @@ q=a 1+b i +c j +d k
 ijk=-1
 \]</span> 导出 <span class="math display">\[
 \begin{aligned}
-ijk&amp;=-1 \\ i j\underbrace{ kk }_{=-1}&amp;=- k \\ ij &amp;= k 
+ijk&amp;=-1 \\ 
+i j  kk &amp;=- k \\
+ij &amp;= k 
 \end{aligned}
 \]</span></p>
 <ul>
@@ -622,7 +637,8 @@ g(\epsilon)=I+\epsilon X
 </ul>
 <p>这样一个轻微的小变换作用在对象上几乎舍也不变，有时称 <span class="math inline">\(g(\epsilon)\)</span> 为无穷小变换。把无穷小变换重复许多次就能得到一个有限大小的变换。 <span class="math display">\[
 \begin{aligned}
-h(\theta)&amp;=\underbrace{(I+\epsilon X)(I+\epsilon X) \ldots(I+\epsilon X)}_{k }\\&amp;=(I+\epsilon X)^{k}
+h(\theta)&amp;= (I+\epsilon X)(I+\epsilon X) \ldots(I+\epsilon X)
+\\&amp;=(I+\epsilon X)^{k}
 \end{aligned}
 \]</span> 其中 k 表示无穷小变换重复的次数。</p>
 <h5 id="例子-3">例子</h5>
@@ -655,7 +671,7 @@ e ^{t X} \in G, t \in R
 <p>Lie 群乘法与 Lie 代数结合法则之间的关系由著名的 Baker-Campbell-Hausdorff 公式（以下简称 BCH 公式）给出 <span class="math inline">\(^{39}\)</span> : <span class="math display">\[
 \left. e ^{X} \circ e ^{Y}= e ^{X+Y+\frac{1}{2}[X, Y]+\frac{1}{12}[X,[X, Y]}\right]-\frac{1}{12}[Y,[X, Y]]+\ldots
 \]</span> 其中 $ X, Y g ,$ 即 <span class="math inline">\(X, Y\)</span> 是群 <span class="math inline">\(G\)</span> 的生成元。 <span class="math inline">\(e ^{X}, e ^{Y}\)</span> 是 <span class="math inline">\(G\)</span> 的群元，把它们分别记作 <span class="math inline">\(g, h,\)</span> 这样上式写成: <span class="math display">\[
-\underbrace{g}_{\in G}^{} \circ\underbrace{h}_{\in G}= e ^{X} \circ e ^{Y}=\underbrace{\left. e ^{X+Y+\frac{1}{2}[X, Y]+\frac{1}{12}[X,[X, Y]}\right]-\frac{1}{12}[Y,[X, Y]]+\ldots}_{\in G}
+ {g}  \circ {h} = e ^{X} \circ e ^{Y}= \left. e ^{X+Y+\frac{1}{2}[X, Y]+\frac{1}{12}[X,[X, Y]}\right]-\frac{1}{12}[Y,[X, Y]]+\ldots 
 \]</span> 上式等号右侧是群的一个群元，可见两个群元<span class="math inline">\((g, h)\)</span>相乘可表示为一些 Lie 代数元素的和（再取指数）。上两式出现的新运算 [, ] 称为 Lie 括号，对于矩阵 Lie 群, <span class="math inline">\([X, Y]\)</span> 称为 <span class="math inline">\(X, Y\)</span> 的对易子。 <span class="math display">\[
 [X, Y]=X Y-Y X
 \]</span> 注意 <span class="math inline">\(X Y\)</span> 和 <span class="math inline">\(Y X\)</span> 一般不是 Lie 代数的元素，但它们的差一定是！</p>
@@ -732,14 +748,21 @@ J_{1}=\left(\begin{array}{cc}0 &amp;  \\   &amp; j_{1}\end{array}\right)=\left(\
 \]</span> 计算可得 <span class="math display">\[
 j_{1}^{2}=-1
 \]</span> 接着: <span class="math display">\[
-j_{1}^{3}=\underbrace{j_{1}^{2}}_{=-1} j_{1}=-j_{1}\\ j_{1}^{4}=+1\\ j_{1}^{5}=+j_{1}
+j_{1}^{3}= j_{1}^{2}  j_{1}=-j_{1}\\
+j_{1}^{4}=+1\\ 
+j_{1}^{5}=+j_{1}
 \]</span> 一般情况为: <span class="math display">\[
 j_{1}^{2 n}=(-1)^{n} I\\ j_{1}^{2 n+1}=(-1)^{n} j_{1}
 \]</span> 利用上式可计算 <span class="math inline">\(j_{1}\)</span> 的指数函数的级数展开： <span class="math display">\[
 \begin{aligned}
 R_{1} &amp;= e ^{\phi j_{1}}=\sum_{n=0}^{\infty} \frac{\phi^{n} j_{1}^{n}}{n !} \\
-&amp;=\sum_{n=0}^{\infty} \frac{\phi^{2 n}}{(2 n) !} \underbrace{j_{1}^{2 n}}_{(-1)^{n} I}+\sum_{n=0}^{\infty} \frac{\phi^{2 n+1}}{(2 n+1) !} \underbrace{j_{1}^{2 n+1}}_{(-1)^{n} j_{1}} \\
-&amp;=\underbrace{\left(\sum_{n=0}^{\infty} \frac{\phi^{2 n}}{(2 n) !}(-1)^{n}\right)}_{=\cos \phi} I+\underbrace{\left(\sum_{n=0}^{\infty} \frac{\phi^{2 n+1}}{(2 n+1) !}(-1)^{n}\right)}_{=\sin \phi} j_{1} \\
+&amp;=\sum_{n=0}^{\infty} \frac{\phi^{2 n}}{(2 n) !} 
+{j_{1}^{2 n}}
++\sum_{n=0}^{\infty} \frac{\phi^{2 n+1}}{(2 n+1) !} 
+j_{1}^{2 n+1}
+\\
+&amp;=\left(\sum_{n=0}^{\infty} \frac{\phi^{2 n}}{(2 n) !}(-1)^{n}\right) I+
+\left(\sum_{n=0}^{\infty} \frac{\phi^{2 n+1}}{(2 n+1) !}(-1)^{n}\right)j_{1} \\
 &amp;=\cos \phi\left(\begin{array}{ll}
 1 &amp; 0 \\
 0 &amp; 1
@@ -832,7 +855,7 @@ J_{1}=&amp;\left.\frac{d R_{1}}{d \theta}\right|_{\theta=0}\\&amp;=\left.\frac{d
 <blockquote>
 <p>Lie 代数是一个向量空间 g 配备一个二元运算 <span class="math inline">\([,]: g \times g \rightarrow g ,\)</span> 且二元运算 [, ] 满足如下公理：</p>
 <ul>
-<li><p>双线 $ a, b R$ レ及 $X, Y, Z g <span class="math display">\[,[a X+b Y, Z]=a[X, Z]+\]</span>b[Y, Z],$<span class="math inline">\([Z, a X+b Y]=a[Z, X]+b[Z, Y]\)</span></p></li>
+<li><p>双线 $ a, b R$ 及 <span class="math inline">\(\forall X\)</span>,$ Y$, <span class="math inline">\(Z\in g\)</span>，<span class="math inline">\([a X+b Y, Z]=a[X, Z]+b[Y, Z]\)</span>，<span class="math inline">\([Z, a X+b Y]=a[Z, X]+b[Z, Y]\)</span></p></li>
 <li><p>反交换律: <span class="math inline">\(\forall X, Y \in g ,[X, Y]=-[Y, X]\)</span></p></li>
 <li><p>$ J a c o b i$ 恒等： $ X, Y, Z g ,$<span class="math inline">\([X,[Y, Z]]+[Z,[X, Y]]+[Y,[Z, X]]=0\)</span></p></li>
 </ul>
@@ -924,12 +947,12 @@ a^{2}+b^{2}+c^{2}+d^{2} \stackrel{!}{=} 1
 <p>给定一个 Lie 代数，我们可以通过 Lie 代数的表示来导出它的覆盖群的表示，然后把 Lie 代数元素（生成元）的矩阵表示扮进 e 指数里面就能得到任意群元的矩阵表示。</p>
 <p>这就是 Lie 理论的威力所在。人类通过纯数学就能揭示自然的某些深刻规律。狭义相对论的标准对称群隐藏了一些真相，因为它（尽管常用）不是这一对称性对应的最基本的覆盖群。Poincaré群的覆盖群才是最基本的，我们用它描述自然。</p>
 <p>总结一下 : <span class="math display">\[
-S^{1} \hat{=} U (1)\underbrace{\leftrightarrows}_{\text {一一对应 }}   S O (2)
+S^{1} \hat{=} U (1) {\leftrightarrows}    S O (2)
 \]</span></p>
 <p><span class="math display">\[
-S^{3}\hat{=} S U (2) \underbrace{\longrightarrow}_{\text {二对一 }} S O (3) \hat{=} S^{3} \text { 的一半 }
+S^{3}\hat{=} S U (2) {\longrightarrow}  S O (3) \hat{=} S^{3} \text { 的一半 }
 \]</span></p>
-<p><span class="math inline">\(\Rightarrow S U (2)\)</span> 是 <span class="math inline">\(\operatorname{Lie}\)</span> 代数 $=i <em>{i j k} J</em>{k} $ 的覆盖群，因为 <span class="math inline">\(S^{3}\)</span> 是单连通流形。</p>
+<p><span class="math inline">\(\Rightarrow S U (2)\)</span> 是 <span class="math inline">\(\operatorname{Lie}\)</span> 代数 <span class="math inline">\(\left[J_{i}, J_{j}\right]=i \epsilon_{ijk} J_{k}\)</span> 的覆盖群，因为 <span class="math inline">\(S^{3}\)</span> 是单连通流形。</p>
 <ul>
 <li><strong>衔接</strong></li>
 </ul>
@@ -943,7 +966,7 @@ S^{3}\hat{=} S U (2) \underbrace{\longrightarrow}_{\text {二对一 }} S O (3) \
 <p>同一个群能<strong>作用于</strong>许多不同种类的东西，这一重要事实使我们定义了<strong>表示</strong>的概念:</p>
 <blockquote>
 <p>群 <span class="math inline">\(G\)</span> 的一个表示就是从 <span class="math inline">\(G\)</span> 到某个向量空间 <span class="math inline">\(V\)</span> 上全体线性变换组成的集合的映射，将表示记作 R, 映射 <span class="math display">\[
-R: \underbrace{g}_{\in G} \mapsto R(g)
+R:  {g}  \mapsto R(g)
 \]</span> 其中 <span class="math inline">\(R(g)\)</span> 表示 <span class="math inline">\(V\)</span> 上的某个线性变换。映射 <span class="math inline">\(R\)</span> 必须满足如下条件</p>
 <ul>
 <li><span class="math inline">\(R(e)=I,\)</span> 恒等元对应的线性变换是恒等变换。</li>
@@ -998,7 +1021,7 @@ R \rightarrow R^{\prime}=S^{-1} R S
 R\left(g_{1}\right) R\left(g_{2}\right)=R\left(g_{1} g_{2}\right)
 \]</span> 现在把表示进行相似变换： <span class="math display">\[
 \begin{aligned}
-&amp;S^{-1} R\left(g_{1}\right) \underbrace{S S^{-1}}_{=1} R\left(g_{2}\right) S\\=&amp;S^{-1} R\left(g_{1}\right) R\left(g_{2}\right) S\\=&amp;S^{-1} R\left(g_{1} g_{2}\right) S
+&amp;S^{-1} R\left(g_{1}\right) {S S^{-1}}  R\left(g_{2}\right) S\\=&amp;S^{-1} R\left(g_{1}\right) R\left(g_{2}\right) S\\=&amp;S^{-1} R\left(g_{1} g_{2}\right) S
 \end{aligned}
 \]</span> 上式可得 <span class="math inline">\(S^{-1} R S\)</span> 也是一个表示。如果我们有一个表示，那么就能利用任意可逆矩阵变出好多其他表示，新表示的形式可以更漂亮（比如让它是对角矩阵）。</p>
 <h4 id="不变子空间">不变子空间</h4>
@@ -1040,7 +1063,7 @@ R^{\prime}(g) v=R(g) v, \quad \forall v \in V^{\prime}, g \in G
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Math/">Math</a>
+                      <a class="hover-with-bg" href="/categories/mathematics/">mathematics</a>
                     
                   </div>
                 
@@ -1213,7 +1236,7 @@ R^{\prime}(g) v=R(g) v, \quad \forall v \in V^{\prime}, g \in G
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "基于对称性的物理(1/2):Lie群&nbsp;",
+        "基于对称性的物理(1/2)Lie群&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
