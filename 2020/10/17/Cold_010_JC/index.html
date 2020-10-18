@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>Jaynes-Cummings 模型 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-10-17 14:23">
+      October 17, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      8.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      107
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h3 id="光和物质相互作用">1 光和物质相互作用</h3>
+<p>Jaynes-Cummings 模型是用来描述光和二能级系统相互作用的基本模型。量子范围内对光和物质相互作用的研究，可以追溯到二十世纪上半叶。1913 年波尔提出，原子吸收或者放出光子的条件是原子在两个能级之间跳跃，且能级差为光子能量 <span class="math display">\[
+E_{2}-E_{1}=\hbar \omega
+\]</span> 爱因斯坦在 1916-1917 年接受这一思想并加以发展，引入爱因斯坦系数，在量子范畴内对光的吸收率辐射率加以说明。在同一篇文章中, 伟大的爱因斯坦提出了受激辐射过程，这是激光科学的基础。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201018000541465.png" srcset="/img/loading.gif" /></p>
+<p>原子在两个能级之间的跃迁过程如图所示。</p>
+<ul>
+<li>原子吸收一个光子，并从基态跃迁到激发态。</li>
+<li>原子从激发态跃迁回基态的过程中对外放出一个光子。</li>
+<li>原子基态与激发态之间的能量差等于光子的能量。</li>
+</ul>
+<p>光与原子的相互作用物理过程是这个样子的，那么我们又该怎么来描述这个物理过程呢？在这个物理过程中，还有没有其他的事情发生？接下来我们探究光与原子相互作用的微观描述。</p>
+<h3 id="jaynes-cummings-微观模型">2 Jaynes-Cummings 微观模型</h3>
+<h4 id="简化">简化</h4>
+<p>为了简单描述原子与光子的相互作用，这里我们用二能级系统来简化原子。这个简化是合理的，因为当光子与原子有相互作用时，只有能级差与光子能量相同的两个能级起主要作用，这时我们便可以将原子其他相关度较小的能级去掉，仅保留这两个能级，简化成二能级系统。</p>
+<h4 id="哈密顿量">哈密顿量</h4>
+<p>子与二能级系统的相互作用过程可由 <span class="math inline">\(a^{\dagger} \sigma^{-}+a \sigma^{+}\)</span> 来描述。</p>
+<ul>
+<li><span class="math inline">\(a\left(a^{\dagger}\right)\)</span> 是玻色子潭灭 <span class="math inline">\((\)</span> 产生 <span class="math inline">\()\)</span> 算符，对应着系统吸收一个光子。</li>
+<li><span class="math inline">\(\sigma^{\pm}=\frac{1}{2}\left(\sigma_{x} \mp i \sigma_{y}\right),\)</span> 表示二能级系统从低能级跃迁到高能级（从高能级跃迁到低能级 <span class="math inline">\()\)</span> 。</li>
+</ul>
+<p>则有系统的整体哈密顿量为 <span class="math display">\[
+H=\omega_{0}\left(a^{\dagger} a+\frac{1}{2}\right)+\frac{\omega_{q}}{2} \sigma_{z}+g\left(a^{\dagger} \sigma^{-}+a \sigma^{+}\right)
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\omega_{0}\)</span> 是光子的能量</li>
+<li>$ _{q}$ 是二能级系统的能级差</li>
+<li>$ g$ 是光子与二能级系统的耦合系数</li>
+</ul>
+<p>实际上 Jaynes-Cummings 模型是旋波近似得来的，对于耦合系数 <span class="math inline">\(g\)</span> 很小的情况效果很好。由于自然条件下，光子与二能级系统的塊合确实不强，因此Jaynes-Cummings 模型可以解释很多自然现象。</p>
+<h4 id="对称性">对称性</h4>
+<p>系统的哈密顿量有完美的 <span class="math inline">\(U(1)\)</span> 对称性，这个解很容易得到。我们用</p>
+<ul>
+<li><span class="math inline">\(|n\rangle\)</span> 表示光子的状态，这是个 Fock 态。</li>
+<li><div class="line-block"><span class="math inline">\(\downarrow(\uparrow)\rangle\)</span> 来表示原子处于基态（激发态 <span class="math inline">\()\)</span> 。</div></li>
+</ul>
+<p>由 <span class="math inline">\(U(1)\)</span> 对称性可知，哈密度量在子空间 <span class="math inline">\(|n-1, \uparrow\rangle,|n, \downarrow\rangle\)</span> 是封闭的。在这个子空间内，我们可以得到该哈密顿量对应的矩阵为 <span class="math display">\[
+[H]_{n}=\left(\begin{array}{cc}
+\left(n-\frac{1}{2}\right) \omega_{0}+\frac{\omega_{q}}{2} &amp; \sqrt{n} g \\
+\sqrt{n} g &amp; \left(n+\frac{1}{2}\right) \omega_{0}-\frac{\omega_{q}}{2}
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+[H]_{n}=\left(\begin{array}{cc}
+\left(n-\frac{1}{2}\right) \omega_{0}+\frac{\omega_{q}}{2} &amp; \sqrt{n} g \\
+\sqrt{n} g &amp; \left(n+\frac{1}{2}\right) \omega_{0}-\frac{\omega_{q}}{2}
+\end{array}\right)
+\]</span></p>
+<h4 id="本征解修饰态">本征解:修饰态</h4>
+<p>对角化该矩阵可以得到在这个子空间下，哈密顿量对应的本征态为 <span class="math display">\[
+|n, \pm\rangle=\gamma_{n \pm}|n, \downarrow\rangle+\rho_{n \pm}|n-1, \uparrow\rangle
+\]</span> 式中</p>
+<ul>
+<li><span class="math inline">\(\gamma_{n+}=-\rho_{n-}=\sin \theta_{n}\)</span></li>
+<li>$ <em>{n-}=</em>{n+}=_{n}$</li>
+</ul>
+<p>而且 <span class="math display">\[
+\theta_{n}=\arctan \left(\frac{\sqrt{4 n g^{2}+\Delta^{2}}-\Delta}{2 \sqrt{n} g}\right)
+\]</span> 式中 <span class="math inline">\(\Delta=\omega_{q}-\omega_{0},\)</span> 是系统的失协量。我们称这种本征态为<strong>修饰态（dressed state)</strong> 。</p>
+<p>这些修饰态对应的本正能量分别为 <span class="math display">\[
+E_{n, \pm}=n \omega_{0} \pm \frac{1}{2} \sqrt{4 n g^{2}+\Delta^{2}}
+\]</span> 至此，我们就把哈密顿量2能级完全解了出来。</p>
+<h4 id="时间演化">时间演化</h4>
+<p>Jaynes-Cummings 模型如此简单, 我们不仅仅能求出其定态性质, 对于该模型的时间演化，我们也很容易求出。</p>
+<ul>
+<li>这时我们直接解 Schördinger 方程。 <span class="math inline">\(i \hbar \frac{\partial}{\partial t}|\psi(t)\rangle=\)</span><span class="math inline">\(H|\psi(t)\rangle_{\circ}\)</span></li>
+<li>初始状态我们设为 <span class="math inline">\(|n, \downarrow\rangle,\)</span> 即 <span class="math inline">\(n\)</span> 光子人射态</li>
+</ul>
+<p>这个时候我们看一下系统状态随时间会发生什么变化。由于哈密顿量2.2具有 <span class="math inline">\(U(1)\)</span> 对称性，任意时刻的态函数 <span class="math inline">\(|\psi(t)\rangle=c_{1}(t)|n, \downarrow\rangle+c_{2}(t)|n-1, \uparrow\rangle\)</span> 具有性质 <span class="math display">\[
+\begin{aligned}
+i \dot{c}_{1}(t)=\left(\omega_{0}\left(n+\frac{1}{2}\right)-\frac{\omega_{q}}{2}\right) c_{1}(t)+\sqrt{n} g c_{2}(t) \\
+i \dot{c}_{2}(t)=\left(\omega_{0}\left(n-\frac{1}{2}\right)+\frac{\omega_{q}}{2}\right) c_{2}(t)+\sqrt{n} g c_{1}(t)
+\end{aligned}
+\]</span> 用 <span class="math inline">\(c_{1}(t)=c_{1}(t) e^{-i\left(\omega_{0}\left(n+\frac{1}{2}\right)-\frac{\omega_{q}}{2}\right) t},\)</span>$ c_{2}(t)=c_{2}(t) e^{-i(_{0}(n-)+) t}$ 做迭代，可以得到 <span class="math display">\[
+\begin{aligned}
+i \dot{c}_{1}(t)&amp;=\sqrt{n} g c_{2}(t) e^{-i \Delta t} \\
+i \dot{c}_{2}(t)&amp;=\sqrt{n} g c_{1}(t) e^{i \Delta t}
+\end{aligned}
+\]</span> 联合两个方程得到 <span class="math display">\[
+-\ddot{c}_{2}(t)+i \Delta \dot{c}_{2}(t)-n g^{2} c_{2}(t)=0
+\]</span> 在初始条件 <span class="math inline">\(\left|c_{1}(0)\right|^{2}=1,\left|c_{2}(0)\right|^{2}=0\)</span> 的条件下，可以得到 <span class="math display">\[
+c_{2}(t)=\frac{\Omega_{R}}{\Omega} \sin \left(\frac{\Omega}{2} t\right) e^{i \frac{\Delta}{2} t}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\Omega_{R}=2 \sqrt{n} g\)</span></li>
+<li><span class="math inline">\(\Omega=\sqrt{\Omega_{R}^{2}+\Delta^{2}}\)</span></li>
+</ul>
+<h4 id="rabi-震荡">Rabi 震荡</h4>
+<p>所以<span class="math inline">\(t\)</span> 时刻系统从状态 <span class="math inline">\(|n, \downarrow\rangle\)</span> 跃迁到状态 <span class="math inline">\(|n-1, \uparrow\rangle\)</span> 的概率 <span class="math display">\[
+\left|c_{2}(t)\right|^{2}=\frac{\Omega_{R}^{2}}{\Omega^{2}} \sin ^{2}(\Omega t / 2)
+\]</span> 对这个跃迁概率影响最大的是系数 <span class="math display">\[
+f(\Delta)=\frac{\Omega_{R}^{2}}{\Omega^{2}}=\frac{\Omega_{R}^{2}}{\Omega_{R}^{2}+\Delta^{2}}
+\]</span> 函数图</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201018023835364.png" srcset="/img/loading.gif" /></p>
+<ol type="1">
+<li>当 <span class="math inline">\(\Delta=0\)</span> 时，跃迁的概率最大</li>
+<li>而当 <span class="math inline">\(\Delta\)</span> 偏离 0 时，跃迁的概率会急剧减小。</li>
+</ol>
+<p>这就<strong>解释</strong>了为什么光子能量等于原子系统能级差的时候更容易发生吸收跃迁。</p>
+<p>当失协量 <span class="math inline">\(\Delta\)</span> 很小时，我们可以认为公式 <span class="math inline">\(c_{2}(t)=\frac{\Omega_{R}}{\Omega} \sin \left(\frac{\Omega}{2} t\right) e^{i \frac{\Delta}{2} t}\)</span> 退化为 <span class="math inline">\(c_{2}(t)=\frac{\Omega_{R}}{\Omega} \sin \left(\frac{\Omega}{2} t\right)\)</span> 这表明系统的状态 <span class="math display">\[
+|\psi(t)\rangle=\frac{\Omega_{R}}{\Omega} \sin \left(\frac{\Omega}{2} t\right)|n-1 \uparrow\rangle+i \cos \left(\frac{\Omega}{2} t\right)|n \downarrow\rangle
+\]</span> 会在<span class="math inline">\(|n, \downarrow\rangle,|n-1, \uparrow\rangle\)</span> 两种状态之间震荡。这种震荡叫做 Rabi 震荡。</p>
+<p>当 <span class="math inline">\(\Delta=0\)</span> 时， Rabi 震荡最为明显。Rabi 震荡在核磁共振中有着重要应用。</p>
+<h4 id="共振极限">共振极限</h4>
+<p>当失协量 <span class="math inline">\(\Delta\)</span> 很小时，即 <span class="math inline">\(\Delta \ll g,\)</span> 我们认为系统处在共振极限。共振极限的 Jaynes-Cummings 模型会变的异常简单，其能谱变成 <span class="math display">\[
+E_{n, \pm}=n \omega_{0} \pm \frac{1}{2} \sqrt{4 n g^{2}+\Delta^{2}}\\
+\downarrow
+\\E_{n, \pm}=n \omega_{0}+\sqrt{n} g_{\circ}
+\]</span> 这时的能量对于光子数 <span class="math inline">\(n\)</span> 来说是非线性的，即能级差不再是线性增长。这会带来一个叫做“<strong>光子屏蔽</strong>"的效应。如图所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201018024855049.png" srcset="/img/loading.gif" /></p>
+<p>图中 <span class="math inline">\(\omega_{0}\)</span> 是光子的能量, <span class="math inline">\(\omega_{0}=E_{1-}\)</span> 表示一个光子的时候的最低能量。由图可以看出，两个光子存在时的最低能量要比两个单光子存在时的能量要多。这种非线性效应造成系统更倾向于吸收一个光子。可以利用 Jaynes-Cummings 模型的这种性质，制造出更理想的<strong>单光子发生器</strong>。</p>
+<h4 id="色散极限">色散极限</h4>
+<p>对于 Jaynes-Cummings 模型，除共振极限 <span class="math inline">\(\Delta \ll g\)</span> 外，还有一种极限一色散极限 <span class="math inline">\(g \ll \Delta\)</span> 也同样重要。在色散极限下，哈密顿量可以按 <span class="math inline">\(g / \Delta\)</span> 级数<strong>展开</strong>。省略掉二阶以上的项，可以得到有效哈密顿量 <span class="math display">\[
+H \approx\left(h \omega_{0}+\frac{g^{2}}{\Delta} \sigma_{z}\right)\left(a^{\dagger} a+\frac{1}{2}\right)+\frac{\omega_{q}}{2} \sigma_{z}
+\]</span> 这里的光子与二能级系统的相互作用发生在的<strong>辟裂</strong>项 <span class="math inline">\(g^{2} / \Delta \sigma_{z}\)</span> 中。</p>
+<ul>
+<li>公式中第一项依然是谐振子项</li>
+<li>不过<strong>有效频率</strong>变成了 <span class="math inline">\(\omega_{0}^{\prime}=\omega_{0} \pm g^{2} / \Delta, \pm\)</span> 的选取取决于二能级系统的状态。</li>
+<li>这种依赖于二能级系统状态的光腔频率辟裂在<strong>原子状态的测量</strong>上有着重要应用。</li>
+</ul>
+<p>有效哈密顿量可以进一步改写，得到 <span class="math display">\[
+H \approx \omega_{0}\left(a^{\dagger} a+\frac{1}{2}\right)+\left(\omega_{q}+\frac{2 g^{2}}{\Delta} a^{\dagger} a+\frac{g^{2}}{\Delta}\right) \frac{\sigma_{z}}{2}
+\]</span></p>
+<ul>
+<li>这个公式第一项依然是正常谐振子项</li>
+<li>第二项二能级系统的频率会出现额外效应 - 由光子数决定的”Stark”辟裂以及真空噪声引人的”Lamb”辟裂。</li>
+<li>这个量子“stark" 效应可以被用来<strong>测量光子数</strong>。</li>
+</ul>
+<p>在色散极限的条件下，我们可以将 Jaynes-Cummings 模型的能量做相同的泰 勒展开，省略掉高阶想之后可以得到 <span class="math display">\[
+E_{n, \pm}=\omega_{0} n \pm\left(\Delta+\frac{n g^{2}}{2 \Delta}\right) 。
+\]</span> 这时非线性消失。 不过这时的线性性是有极限存在的。当光子的数量 <span class="math inline">\(n_{c r i} \sim \frac{\Delta^{2}}{4 g^{2}}\)</span> 时 <span class="math inline">\(, \frac{g}{\Delta}\)</span> 高阶相便不能忽略，非线性性会再次出现。</p>
+<h4 id="谐振腔与光子的相互作用">谐振腔与光子的相互作用</h4>
+<blockquote>
+<p>接下来我们证明 Jaynes-Cummings 这个模型描述的有效性。</p>
+</blockquote>
+<p>在腔系统中</p>
+<ul>
+<li>光子的能量我们可以用谐振子模型表示 <span class="math inline">\(H_{p}=\omega_{0}\left(a^{\dagger} a+\frac{1}{2}\right)_{\circ}\)</span></li>
+<li>二能级系统可以用 Pauli矩阵表示 <span class="math inline">\(H_{t}=\frac{\omega_{q}}{2} \sigma_{z}\)</span> 描述 <span class="math inline">\(,\)</span> 这里的 <span class="math inline">\(\sigma_{z}=|\uparrow\rangle\langle\uparrow|-| \downarrow\rangle\left\langle\left.\downarrow\right|_{\circ}\right.\)</span></li>
+</ul>
+<h5 id="相互作用">相互作用</h5>
+<p>光子与二能级系统的相互作用我们这里做半经典处理。<strong>相互作用的物理机制</strong>是电磁波的电场分量与<strong>原子极距</strong>之间的相互作用 <span class="math display">\[
+H_{i}=-\vec{d} \cdot \vec{E}
+\]</span> 公式中 <span class="math inline">\(\vec{d}=\Sigma_{j} e \vec{r}_{j}\)</span> 。我们的原子系统是二能级 系统，可以在这二维的 Hilbert 空间中求出原子极矩的算符形式 <span class="math inline">\(\vec{d}=\sum_{i j} \vec{\mu}_{i j}|i\rangle\langle j|,\)</span> 式中 <span class="math inline">\(i, j \in g, e,\)</span> 表示基态矢量 <span class="math inline">\(|g\rangle\)</span> 与激发态矢量 <span class="math inline">\(|e\rangle, \vec{\mu}_{i j}=\langle i|\vec{d}| j\rangle_{\circ}\)</span></p>
+<h5 id="宇称">宇称</h5>
+<p>因为物理量 <span class="math inline">\(\vec{r}\)</span> 是奇宇称的，所以对于宇称算符 <span class="math inline">\(P,\)</span> 存在 <span class="math inline">\(P^{-1} \vec{d} P=-\vec{d}\)</span> 。而系统是宇称守恒的，所以对于态 <span class="math inline">\(|\psi\rangle\)</span> 有 <span class="math inline">\(P|\psi\rangle=\pm|\psi\rangle_{\circ}\)</span> 因此对于矩阵 <span class="math inline">\(\mu\)</span> 有 <span class="math inline">\(\vec{\mu}_{g g}=\vec{\mu}_{e e}=0,\)</span> <span class="math inline">\(\vec{\mu}_{g e}=\vec{\mu}_{e g}^{*}=\vec{\mu}_{ }\)</span> 。电场的量子化可以得到 <span class="math inline">\(\vec{E}=v a^{\dagger}+v^{*} a_{ }\)</span> 。由此可以得到相互作用的量子形式 <span class="math display">\[
+H_{i}=\left(\vec{\mu} \sigma^{+}+\vec{\mu}^{*} \sigma^{-}\right)\left(\vec{v} a^{\dagger}+\vec{v}^{*} a\right) 。
+\]</span> 如果 <span class="math inline">\(\mu, v\)</span> 是实数，则可以得到 <span class="math display">\[
+H_{i}=g\left(a^{\dagger}+a\right)\left(\sigma^{+}+\sigma^{-}\right)
+\]</span> 式中 <span class="math inline">\(g=\vec{\mu} \cdot \vec{v}_{}\)</span>。 当 <span class="math inline">\(g\)</span> 很小时, 可以忽略掉非 <span class="math inline">\(U(1)\)</span> 对称项，得到 Jaynes-Cummings 模型 <span class="math display">\[
+\begin{aligned}
+H_{J C}&amp;=H_{p}+H_{t}+H_{i}
+\\&amp;=\omega_{0}\left(a^{\dagger} a+\frac{1}{2}\right)+\frac{\omega_{q}}{2} \sigma_{z}+g\left(a^{\dagger} \sigma^{-}+a \sigma^{+}\right)_{0}
+\end{aligned}
+\]</span></p>
+<h5 id="cavity-qed">cavity QED</h5>
+<p>Jaynes-Cummings 模型是腔电动力学(cavity QED )的主要研究模型。</p>
+<p>如公式 <span class="math inline">\(c_{2}(t)=\frac{\Omega_{R}}{\Omega} \sin \left(\frac{\Omega}{2} t\right) e^{i \frac{\Delta}{2} t}\)</span> 所示，二能级系统的跃迁概率随着相互作用时间有个变化，如果这个时间远远小于跃迁周期 <span class="math inline">\(t \ll \frac{4 \pi}{\Omega},\)</span> 那么跃迁的概率 <span class="math inline">\(\left|c_{2}(t)\right|^{2} \sim t^{2}\)</span> 也会非常小。为了让 Rabi 震荡可以出现，在失协量 <span class="math inline">\(\Delta\)</span> 很小的前提下，我们一方面需要增长相互作用时间，一方面需要增强相互作用系数 <span class="math inline">\(g(\)</span> 这是因为 <span class="math inline">\(\Omega \sim g)\)</span>, 达到所谓的<strong>强相互作用极限</strong>。光学腔为我们提供了一个这样的平台。其结构如图所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201018095138978.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>图注释：二能级系统在高品质的腔中。</p>
+<ul>
+<li>绿色圆圈表示二能级系统</li>
+<li>两侧蓝色边缘表示高反射率的腔壁。进人腔体的光，会在漏出之前在两个反射壁之间来回反射，以增加相互作用时间。</li>
+<li><span class="math inline">\(g\)</span> 是二能级系统与光子相互作用系数，</li>
+<li><span class="math inline">\(\kappa\)</span> 是光子的衰减率</li>
+<li><span class="math inline">\(\gamma_{\perp}\)</span> 是腔内光子泄漏到腔外的比率。</li>
+<li><span class="math inline">\(T_{\text {Transit}}\)</span> 是二能级系统被腔捕获的时间。</li>
+</ul>
+</blockquote>
+<h5 id="衰减比率">衰减比率</h5>
+<p>哈密顿量 <span class="math inline">\(H=\omega_{0}\left(a^{\dagger} a+\frac{1}{2}\right)+\frac{\omega_{q}}{2} \sigma_{z}+g\left(a^{\dagger} \sigma^{-}+a \sigma^{+}\right)\)</span> 描述了系统的孤态的性质，而实际中的腔体实验平台，都包含有一些退相干现象。如图，系统的衰减比率 <span class="math inline">\(\kappa_{\circ}\)</span> 在实际的实验平台中，系统的衰减是必要的。因为我们对系统内物理状态的探测，是通过衰减出来的光子性质推测出来的 (只有被腔体放出来的光子我们才可以进行实验探测 <span class="math inline">\()\)</span> 。这些形式都是的量子光学腔成为一个研究量子测量和开放系统的优秀平台。</p>
+<p>如果系统的衰减比率都为零，即系统成为孤立系统时，在腔中放人一个处于激发态的原子, 这个时候原子就会在基态与激发态之间震荡, 并伴随有一个光子的吸收与放出。因为这种震荡是由于真空涨落导致引发的原子受激辐射与吸收，故而被称为 Rabi 真空震荡。如果这个光子在逸出前这种 Rabi 真空震荡可以完成多次，我们就认为这个系统处在 cavity QED 的强耦合合极限。这样的系统可以用Jaynes-Cummings 模型来描述。</p>
+<h3 id="超导量子线路中的相互作用">3 超导量子线路中的相互作用</h3>
+<p>我们可以人为的制造一些器件，其行为表现却像是一个原子一样。我们可以用这些器件来<strong>模拟原子的行为</strong>，也可以将这些器件连起来，来模拟大量原子的量子行为。<strong>超导线路</strong>便是为这个服务的。</p>
+<p>本节会介绍一些基本的超导线路器件，并证明 Jaynes-Cummings 模型可以<strong>描述</strong>这些器件。作为基础，我们这里首先简单介绍一下超导线路里面的基本单元，约瑟夫森结。</p>
+<h4 id="约瑟夫森结">约瑟夫森结</h4>
+<p>约瑟夫森结的结构如图所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201018100721484.png" srcset="/img/loading.gif" /></p>
+<p>它是由两个超导材料 A 和 B 通过绝缘体 C耦合组成。在超导材料中，可以用一个整体波函数 <span class="math inline">\(\psi=\sqrt{\rho} e^{i \theta}\)</span> 描述，式中 <span class="math inline">\(\rho\)</span> 为Cooper pair 密度， <span class="math inline">\(\theta\)</span> 是超导体的相位。由于 <span class="math inline">\(A , B\)</span> 超导体通过一个绝缘体链接在一起，所以两块超导材料中的波函数满足耦合方程组 <span class="math display">\[
+\begin{aligned}
+i \hbar \frac{\partial \psi_{A}}{\partial t} &amp;=E_{A} \psi_{A}+\alpha \psi_{B} \\
+i \hbar \frac{\partial \psi_{B}}{\partial t} &amp;=E_{A} \psi_{B}+\alpha \psi_{A}
+\end{aligned}
+\]</span> 将 <span class="math inline">\(\psi=\sqrt{\rho} e^{i \theta}\)</span> 的表达式带入，可以得到 <span class="math display">\[
+\begin{aligned}
+I &amp;=e \frac{\partial \rho_{B}}{\partial t}=-e \frac{\partial \rho_{A}}{\partial t}=I_{c} \sin \phi \\
+U &amp;=-\frac{1}{2 e}\left(E_{B}-E_{A}\right)=-\frac{\hbar}{2 e} \frac{\partial \theta}{\partial t}
+\end{aligned}
+\]</span> 这组方程被成为约瑟夫森结的基本方程，式中 <span class="math inline">\(I_{c}=e \alpha \sqrt{\rho_{A} \rho_{B}},\)</span> 根据接入电流的特性，会分别得到直流约瑟夫森效应与交流约瑟夫森效应。有这两个基本公式，我们可以得到约瑟夫森结的<strong>能量</strong>公式 <span class="math display">\[
+E=-\int U(t) I(t) d t=E_{c}(1-\cos \phi)
+\]</span> 式中 $E_{c}= $ 。</p>
+<h4 id="cooper-pair-box-哈密顿量">Cooper Pair Box 哈密顿量</h4>
+<p>以这个能量公式为基础，我们再看一个超导线路基本原件-Cooper pair box(CPB) 结构如图所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201018101258260.png" srcset="/img/loading.gif" /></p>
+<p>其结构是将一个超导约瑟夫森结通过一个电容链接到电路上。图中 <span class="math inline">\(C_{0}\)</span> 表示的是外接电容， <span class="math inline">\(C\)</span> 表示约瑟夫森结的电容。由图中的各种参数, 可以得出这个 CPB 系统的整体能量 <span class="math display">\[
+E=\frac{\left(Q-Q_{0}\right)^{2}}{2 C_{ E }}-E_{j} \cos \phi,
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(C_{\Sigma}=C_{0}+C\)</span>是总的电容</li>
+<li>第二项是约瑟夫森结能量。</li>
+<li><span class="math inline">\(Q_{0}\)</span> 是由外电压控制的参数，是一个连续变化的可调参数。</li>
+<li>而 <span class="math inline">\(Q\)</span> 是超导材料的净电量。</li>
+</ul>
+<p>由于材料处于超导态，这个电量指的是 Cooper pair。对于这个能量可以进行量子化，得到哈密顿量 <span class="math display">\[
+H=E_{c}\left(\hat{N}-\frac{n_{g}}{2}\right)^{2}-E_{J} \cos \hat{\phi}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(E_{c}=\frac{4 e^{2}}{C_{\Sigma}}\)</span></li>
+<li>$ n_{g}=$</li>
+<li>$ $ 是 Cooper pair 的数量算符</li>
+<li>$ $ 是相位算符。</li>
+</ul>
+<h5 id="相位表象粒子表象">相位表象&amp;粒子表象</h5>
+<p>Cooper pair 数量和相位差是一对共轭量，即 <span class="math inline">\([\hat{N}, \hat{\phi}]=i_{\circ}\)</span> 我们可以取两种表象 <span class="math inline">\(,\)</span> 一是相位表象，即用 <span class="math inline">\(\phi\)</span> 来表示粒子数 <span class="math inline">\(\hat{N}=-i \frac{\partial}{\partial \phi}\)</span> 。也可以采用粒子数表象，这个时候哈密 顿量的第二项中 <span class="math inline">\(\cos (\hat{\phi})=|n\rangle\langle n|\cos \hat{\phi}| m\rangle\langle m|,\)</span> 即得到哈密顿量新形式 <span class="math display">\[
+H=E_{c} \sum_{n}\left(n-\frac{n_{g}}{2}\right)^{2}|n\rangle\langle n|-E_{J} \sum_{n}(|n\rangle\langle n+1|+| n+1\rangle\langle n|)
+\]</span> 当我们用 CPB 来作为一个<strong>比特</strong>的时候，即在只考虑基态和第一激发态。这个时候哈密顿量可以用 Pauli 矩阵来描述 <span class="math display">\[
+H=-\frac{B_{z}}{2} \sigma_{z}-\frac{B_{x}}{2} \sigma_{x}
+\]</span> 式中</p>
+<ul>
+<li><span class="math inline">\(B_{z}=4 E_{c}\left(1-n_{g}\right)\)</span></li>
+<li>$ B_{x}=E_{J }$</li>
+</ul>
+<p>这正是一个在磁场 <span class="math inline">\(B=B_{x} \vec{x}+B_{z} \vec{z}\)</span> 中的自旋的模型。正如我们之前所说，一个复杂的器件，却可以<strong>表现出一个二能级系统的量</strong> <strong>子性质</strong>。而且其中的参数 <span class="math inline">\(B_{z}\)</span> 是通过外电压可调的。</p>
+<h4 id="可调-cooper-pair-box">可调 Cooper Pair Box</h4>
+<p>除了上述这种最简单的 Cooper pair box 之外，我们还可以把模型复杂化，引入另外一个可调参数磁场。这时的结构如图所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201018102424445.png" srcset="/img/loading.gif" /></p>
+<p>这时约瑟夫森结的能量会变成 <span class="math display">\[
+\begin{aligned}
+E&amp;=-E_{J}\left(\cos \left(\phi+\pi \frac{\phi_{x}}{\phi_{0}}\right)+\cos \left(\phi-\pi \frac{\phi_{x}}{\phi_{0}}\right)\right)\\&amp;=-2 E_{J} \cos \left(\pi \frac{\phi_{x}}{\phi_{0}}\right) \cos \phi_{\circ}
+\end{aligned}
+\]</span> 相同量子化步骤，这时系统的哈密顿量将变为 <span class="math display">\[
+H=-B_{z}\left(V_{g}\right) \sigma_{z}-B_{x}\left(\phi_{x}\right) \sigma_{x}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(B_{z}\left(V_{g}\right)\)</span> 如之前定义</li>
+<li><span class="math inline">\(B_{x}=2 E_{J} \cos \left(\pi \frac{\phi_{x}}{\phi_{0}}\right)\)</span> 也变成了通过外磁场可控的了。</li>
+</ul>
+<p>如此我们用超导量子线路实现了一个<strong>可控的二能级量子系统</strong>。接下来，我们将这个系统连接到一个 “腔" 中，实现 Jaynes-Cummings 模型。</p>
+<h4 id="超导线路构建-jaynes-cummings-模型">超导线路构建 Jaynes-Cummings 模型</h4>
+<p>电路中的“腔"指 LC 震荡电路。故而，我们首先量子化一个 LC 震荡电路。</p>
+<h5 id="量子化-lc-震荡电路">量子化 LC 震荡电路</h5>
+<p>LC 震荡电路的能量很简单 <span class="math display">\[
+E=\frac{q^{2}}{2 C}+\frac{\phi^{2}}{2 L},
+\]</span> 式中</p>
+<ul>
+<li><span class="math inline">\(C\)</span> 是电容</li>
+<li>$ L$ 是电感</li>
+<li><span class="math inline">\(q\)</span> 表示电容两端的电荷量</li>
+<li><span class="math inline">\(q\phi\)</span> 表示电感中的磁通量</li>
+</ul>
+<p>同上的量子化过程，电量和电感是一对正则量，算符化后满足对易关系 <span class="math inline">\([\hat{q}, \hat{\phi}]=i_{\circ}\)</span> 这样，LC 电路的哈密顿量就像极了谐振子的哈密顿量，这样我们可以得到 LC 电路的哈密顿量 <span class="math display">\[
+H=\omega\left(a^{\dagger} a+\frac{1}{2}\right)
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\omega \sim \frac{1}{\sqrt{L C}}\)</span></li>
+<li><span class="math inline">\(a=\frac{1}{\sqrt{2} Z_{c}}\left(\hat{\phi}+i Z_{c} \hat{q}\right)\)</span></li>
+<li>$Z_{c}= $ 是LC 阻抗</li>
+</ul>
+<p>由这些关系 <span class="math inline">\(,\)</span> 我们很容易得到电荷与玻色子算符 <span class="math inline">\(a\)</span> 的关系 <span class="math display">\[
+q=\sqrt{2 Z_{c}}\left(a^{\dagger}+a\right)
+\]</span> 故而 LC 电路的电压算符为 <span class="math inline">\(\hat{V}=\sqrt{\frac{2 L}{C}}\left(a+a^{\dagger}\right)\)</span> 。</p>
+<h5 id="cpb-lc">CPB +LC</h5>
+<p>在公式 <span class="math inline">\(H=E_{c}\left(\hat{N}-\frac{n_{g}}{2}\right)^{2}-E_{J} \cos \hat{\phi}\)</span> 中, 可调参量 <span class="math inline">\(n_{g}=\frac{U_{B} C_{0}}{e}\)</span> 。 如果将 CPB 中加入一个 LC 原件, 这时的外电压变为 <span class="math inline">\(U=U_{B}+V\)</span> 。将公式<span class="math inline">\(q=\sqrt{2 Z_{c}}\left(a^{\dagger}+a\right)\)</span>带入，并且将平方项展开，这样我们就可以得到方程 <span class="math display">\[
+\begin{aligned}
+H_{ }=&amp;H_{CPB}+H_{LC}+H_{c}
+\\=&amp;E_{c}\left(\hat{N}-\frac{n_{g}}{2}\right)^{2}-E_{J} \cos \hat{\phi}\\&amp;+\omega\left(a^{\dagger} a+\frac{1}{2}\right)\\&amp;+\frac{E_{c} C_{0}}{2 e}\left(\hat{N}-\frac{n_{g}}{2}\right) \hat{V}+E_{c}\left(\frac{C_{0} V}{2 e}\right)^{2}
+\end{aligned}
+\]</span> 式中</p>
+<ul>
+<li>前两项是 CPB 的能量</li>
+<li>第三项是 LC 原件的能量</li>
+<li>第四项是 LC 原件与 CPB耦合项, 这几项构成 LC 元件与 CPB 耦合的哈密顿量</li>
+</ul>
+<p>由于公式中最后一项不存在 <span class="math inline">\(\hat{N}\)</span> 依赖，对整个线路的动力学没有影响，我们这里可以将其扬掉。我们控制参数是 <span class="math inline">\(n_{g}=1,\)</span> 这是 CPB 的两个能级为 <span class="math inline">\(|0\rangle,|1\rangle_{\circ}\)</span> 我们用</p>
+<ul>
+<li><span class="math inline">\(|g\rangle=\frac{1}{\sqrt{2}}(|0\rangle-|1\rangle)\)</span> 来标定基态</li>
+<li><span class="math inline">\(|e\rangle=\frac{1}{\sqrt{2}}(|0\rangle-|1\rangle)\)</span> 来标定激发态</li>
+</ul>
+<p>这时哈密顿量变成 <span class="math display">\[
+H=\omega\left(a^{\dagger} a+\frac{1}{2}\right)+\frac{\omega_{q}}{2} \sigma_{z}+g\left(a^{\dagger}+a\right) \sigma_{x}
+\]</span> 式中</p>
+<ul>
+<li><span class="math inline">\(\omega_{q}=-2 E_{J}\)</span></li>
+<li><span class="math inline">\(g=\frac{E_{c} C_{0} \sqrt{L}}{e \sqrt{2 C}}\)</span></li>
+</ul>
+<blockquote>
+<p>至此我们可以看到将 CPB 与 LC 耦合之后，可以用 Rabi 模型来描述。</p>
+</blockquote>
+<p>更进一步的，当塊合系数 <span class="math inline">\(g\)</span> 很小时，我们采用旋波近似, 得到描述超导线路的 Jaynes-Cummings 方程 <span class="math display">\[
+H=\omega\left(a^{\dagger} a+\frac{1}{2}\right)+\frac{\omega_{q}}{2} \sigma_{z}+g\left(a^{\dagger} \sigma^{-}+a \sigma^{+}\right)
+\]</span></p>
+<h3 id="jaynes-cummings-hubbard-模型">4 Jaynes-Cummings-Hubbard 模型</h3>
+<blockquote>
+<p>介绍一个以 Jaynes-Cummings 模型为基础的凝聚态模型，Jaynes Cummings Hubbard(JCH) 模型。</p>
+</blockquote>
+<p>JCH 模型是量子光学与超导量子线路中的基础模型，它描述了在耦合腔链（coupled cavity array <span class="math inline">\(）\)</span> 中强关联光子的性质。JCH 模型与 Bose-Hubbard模型很相似，也会展现出一种 Mott-superfluid 相变。</p>
+<p>这个模型将量子光学和凝聚态物理结合在了一起，成功的用量子光学的方法来进行凝聚态问题（相变）的研究。</p>
+<h4 id="哈密顿量-1">哈密顿量</h4>
+<p>JCH 模型可以描述一串耦合的腔，光子可以在腔与腔之间来回跳动，而且每个腔也会单独耦合一个二能级系统，每个单个的腔与二能级系统，用 Jaynes-Cummings 模型描述。由此，JCH 模型的哈密顿量写成 <span class="math display">\[
+H=\sum_{i} H_{i}^{J C}-\sum_{i, j} t_{i j} a_{i}^{\dagger} a_{j}
+\]</span> 式中</p>
+<ul>
+<li><span class="math inline">\(H_{i}^{J C}\)</span> 表示每个腔与二能级系统耦合成的 Jaynes-Cummings 模型</li>
+<li>角标 <span class="math inline">\(i, j\)</span> 是格点的标识</li>
+<li>第二项是光子在腔体之间的跳跃项，耦合系数由 <span class="math inline">\(t\)</span> 给出。</li>
+</ul>
+<h5 id="等价模型">等价模型</h5>
+<p>我们只考虑最近邻之间的跳跃，因为在我们的研究对象中，其他格点间的跳跃发生概率很小。正如我们之前提到，Jaynes-Cummings 模型中的光与二能级系统的耦合系数 <span class="math inline">\(g\)</span> 使 Jaynes-Cummings 模型的基态变成修饰态，会给系统带来一个非线性效应。在这个观点下，JCH 模型可以认为是<strong>修饰态光子的格点模型</strong>。</p>
+<p>JCH 模型具有 <span class="math inline">\(U(1)\)</span> 对称性，这个模型是粒子数 <span class="math inline">\(N=a^{\dagger} a+\)</span> <span class="math inline">\(\sigma^{+} \sigma^{-}\)</span> 守恒的。由此我们可以引入一个化学势，用来确定系统的粒子数。这样，公式变成 <span class="math display">\[
+H \rightarrow H-\sum_{i} \mu_{i} N
+\]</span> 耦合腔链具有非常丰富的物理。它涉及强关联现象和驱动-耗散系统的相变</p>
+<ul>
+<li>Mott-superfluid 相变光子的类结晶相 (crystalline-like phase)</li>
+<li>类马约拉纳模式 (Majorana-like mode)</li>
+<li>分数量子霍尔效应</li>
+</ul>
+<h4 id="jaynes-cummings-hubbard-模型的量子相变">Jaynes-Cummings-Hubbard 模型的量子相变</h4>
+<p>非线性效应导致的有效斥力</p>
+<p>Jaynes-Cummings 模型是理解光与物质相互作用的基本模型，光与物质的耦合会引发一个非线性效应，并导致一个有效的格点势能。这个势能说明，相同的格点上面的光子相互之间会有一个<strong>有效斥力</strong>。这个效应最明显的<strong>证据</strong>就是我们之前所说的光子屏蔽，即同一时间光腔内只允许存在一个光子,其他的光子会由于有效排斥力被这个光子排斥在光腔之外。这是已经被证明了的效应 。</p>
+<p>不过很快人们就意识到，在多个原子存在的情况下，光子屏蔽效应会很快<strong>衰减掉</strong>。即在一个腔中存在多个二能级系统时, 光子屏蔽效应将不再明显。不过好在 Rebic 证明，在腔中放入单个的二能级原子，系统的光子屏蔽效应会非常明显。</p>
+<h5 id="bose-hubbard模型">Bose-Hubbard模型</h5>
+<p>我们研究的对象与 Bose-Hubbard 模型有些类似。Bose-Hubbard模型描述的是具有强相互作用的玻色子多体问题，其哈密顿量为 <span class="math display">\[
+H^{B H}=U \sum_{i} a_{i}^{\dagger} a_{i}^{\dagger} a a-\sum_{i, j} t_{i j} a_{i}^{\dagger} a_{j}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(i, j\)</span> 格点在格子中的所有位置（在我们的例子中是固定的)</li>
+<li>$ t_{i j}$ 是位置 <span class="math inline">\(i\)</span> 和 <span class="math inline">\(j\)</span> 之间的玻色子的跳跃能量</li>
+<li>U 是粒子之间的有效排斥。</li>
+<li><span class="math inline">\(a_{i}\)</span> 是玻色子潭灭算符。</li>
+</ul>
+<p>在我们的光子原子超晶格中, Jaynes-Cummings 相互作用提供了有效的现场排斥, 跳跃项由空腔之间的渐逝耦合表示。这里需要注意的是，我们的物理系统与 Bose-Hubbard 模型存在根本的<strong>不同</strong>指出：</p>
+<ol type="1">
+<li>有效势能 <span class="math inline">\(U\)</span> 在 Jaynes-Cummings 系统中不是恒定的，而是随着每个腔中光子数量的增加而减小的;</li>
+<li>而且我们这里的守恒粒子已经不是纯玻色子了，而是修饰玻色子，是玻色子与二能级态函数的混合态。</li>
+</ol>
+<h5 id="系统">系统</h5>
+<p>我们要处理的系统如图所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201018125102134.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>图注释： 光子凝聚态的建议模型。示意图显示了光子带隙腔的二维阵列，每个腔包含单个二能级原子（红色圆圈）。光子带陸通过电介质的周期性扰动来描述，在这种情况下由通过溥膜钻出的区域表示，例如通过聚焦离子束。孔与孔之间的间距为 <span class="math inline">\(\lambda / \eta\)</span> 量级，其中 <span class="math inline">\(\lambda\)</span> 是光学波长， <span class="math inline">\(\eta\)</span> 是折射率。膜的厚度产为 <span class="math inline">\(\lambda / 2 \eta,\)</span> 以限制平面内的光。空腔由周期性调制中的缺陷定义，即未钻孔的情况。通过在光子带除结构中引人周期性缺陷阵列，我们可以实现光子带隙腔的晶格：光子带隙腔超晶格。光子可以从一个腔跳到三个最近邻中的任一个，跳跃概率为<span class="math inline">\(t,\)</span> 通过双头箭头示出了一些腔。为了实现光子与光子排斥，我们在每个空腔中插人一个二能级系统，这里用红色圆圈表示。</p>
+</blockquote>
+<p>我们考虑一个光子带隙腔的二维阵列。每个腔包含一个两级原子，与腔模准共振。由于它们的接近而在腔之间的渐逝耦合允许腔内光子跳跃。该配置在图中示意性地描绘，其中我们已经明确地选择每个腔的三个最近邻（协调数z = 3) 。腔之间的渐逝耦合随着距离呈指数下降，因此我们将处理限制在最简单的最近邻相互作用的情况下。我们考虑小型腔体，其体积为 <span class="math inline">\(\lambda^{3}\)</span>, 其中 <span class="math inline">\(\lambda\)</span> 是光的波长，这是光子-原子耦合会很强。</p>
+<p>对于最近邻格点耦合系数 <span class="math inline">\(t_{i j}=t,\)</span> 其他情况<span class="math inline">\(t_{i j}=0,\)</span> 而且每个格点上的化学势都相同。这样做最近邻近似。我们的公式变成 <span class="math display">\[
+H=\sum_{i} H_{i}^{J C}-t \sum_{&lt;i, j&gt;} a_{i}^{\dagger} a_{j}-\mu \sum_{i} N_{i}
+\]</span> 对于图2.8, 我们考虑使用尽可能少的最近邻的网格来实现二维网络，即三个最近邻。但是改变最近邻的数量并不会对我们的结果产生定性影响。</p>
+<h5 id="平均场">平均场</h5>
+<p>接下来我们用平均场的方法处理一下 JCH 模型，通过平均场计算证明<span class="math inline">\(JCH\)</span> 模型中会有一个 Mott-superfluid 的量子相变。</p>
+<p>Fisher 等人对 Bose-Hubbard 模型做了中的相变做了开创新的工作。他们平均场理论定性描述玻色子气体在随机和周期性势场中的 superfluid-insulator 相变。 引入一个超流序参量 <span class="math inline">\(\psi=\left\langle a_{i}\right\rangle,\)</span> 并且认为这个序参量为实数。用平均场近似去掉不同格点之间的耦合 <span class="math display">\[
+a_{i}^{\dagger} a_{j}=\left\langle a_{i}^{\dagger}\right\rangle a_{j}+\left\langle a_{j}\right\rangle a_{i}^{\dagger}-\left\langle a_{i}^{\dagger}\right\rangle\left\langle a_{j}\right\rangle_{\circ}
+\]</span> 这样去耦合的哈密顿量和就可以写成单个格点的求和形式 <span class="math display">\[
+H^{H F}=\sum_{i}\left[H_{i}^{J C}-z t\left(a_{i}^{\dagger}+a_{i}\right)+z t|\psi|^{2}-\mu\left(a_{i}^{\dagger} a_{i}+\sigma_{i}^{+} \sigma_{i}^{-}\right)\right]
+\]</span> 这里的 <span class="math inline">\(z\)</span> 是配位数， 在图表示的图中 <span class="math inline">\(z=3\)</span> 。我们考虑系统的零温特性，采用方法如下所述：计算基态能量 <span class="math inline">\(E_{g}\)</span> 作为序参量 <span class="math inline">\(\psi\)</span> 的函数。我们选取希尔伯特空间的基矢为 <span class="math inline">\(|g, 0\rangle,|e, 0\rangle,|g, 1\rangle,|e, 1\rangle, \ldots .\)</span> 在 <span class="math inline">\(n\)</span> 个有限值处截断， $n_{} $ 其次对角化公式 中哈密顿量矩阵（在截断的基础上）并识别最低特征值 $E_{g} $ 然后增加 nmax 直到 <span class="math inline">\(E_{g}\)</span> s 收签。最后变分 <span class="math inline">\(\psi\)</span> 使 <span class="math inline">\(E_{g}\)</span> 最小然后就得到了 <span class="math inline">\(\psi\)</span> 关于 <span class="math inline">\(t, \omega, \Delta\)</span> 的关系，即相图。 <span class="math display">\[
+H=\sum_{i} H_{i}^{J C}-t \sum_{\langle i, j&gt;} a_{i}^{\dagger} a_{j}-\mu \sum_{i} N_{i}
+\]</span> 为了更清楚的描述，这里我们写出平均场哈密度量的矩阵形式 <span class="math display">\[
+\left[\begin{array}{cccccc}
+0 &amp; 0 &amp; -z t \psi &amp; &amp; \\
+0 &amp; \omega_{q}-\mu &amp; g &amp; -t z \psi &amp; 0 &amp; \\
+-t z \psi &amp; g &amp; \omega_{0}-\mu &amp; 0 &amp; -\sqrt{2} z t \psi &amp; \\
+&amp; -t z \psi &amp; 0 &amp; \omega_{q}+\omega_{0}-2 \mu &amp; \sqrt{2} g &amp; -\sqrt{2} t z \psi &amp; 0 \\
+&amp; 0 &amp; -\sqrt{2} z t \psi &amp; \sqrt{2} g &amp; 2 \omega_{0}-2 \mu &amp; 0 &amp; -\sqrt{3} z t \psi \\
+&amp; &amp; 0 &amp; \omega_{1}+2 \omega_{0}-3 \mu &amp; \sqrt{3} t &amp; \ddots \\
+&amp; &amp; &amp; &amp; \ddots
+\end{array}\right]
+\]</span> 还有一项 <span class="math inline">\(z t|\psi|^{2} I\)</span></p>
+<p>式中对角项对应于 Jaynes-Cummings 哈密顿量的常用块对角线形式，其他非零项是超流体序参数， <span class="math inline">\(I\)</span> 是单位矩阵。求解该矩阵的最小本征值，并通过对最小本征值的变分求得 <span class="math inline">\(\psi\)</span> 与其他参数的关系。</p>
+<h5 id="相变">相变</h5>
+<p>求解本征值，得到平均场情况下 JCH 模型系统的相关物理性质。对于不同的相，序参量 <span class="math inline">\(\psi\)</span> 的取值不同。这个序参量可以理解为超流序参量</p>
+<ul>
+<li>那么当 <span class="math inline">\(\psi=0\)</span> 时，系统处在 Mott 相，其特点是每个格点上的粒子数固定，系统没有粒子数涨落，故而 <span class="math inline">\(\left\langle a_{i}\right\rangle=0\)</span> 恒成立。</li>
+<li>当 <span class="math inline">\(\psi \neq 0\)</span> 时，系统处在 superfluid 相，这时格点上的例子数存在涨落，修饰态光子在格点间的迁移比较容易。</li>
+</ul>
+<p>这样，我们就得到在 <span class="math inline">\(\psi=0\)</span> 和 <span class="math inline">\(\neq 0\)</span> 这两个不同区域的边界处，会发生 Mott-superfluid 相变。如前分析</p>
+<ul>
+<li>当光子-光子耦合（有效排斥 <span class="math inline">\(）\)</span> 超过跳跃时，系统应处于 Mott 项</li>
+<li>而当反过来时，系统将处于 superfluid 相</li>
+</ul>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201018140121204.png" srcset="/img/loading.gif" /></p>
+<p>图（a）中的</p>
+<ul>
+<li>深蓝色区域对应 <span class="math inline">\(\psi=0,\)</span> 即参数处于该区域的系统处在 Mott相。</li>
+<li>白色线条是 <span class="math inline">\(\psi=0\)</span> 到 <span class="math inline">\(\psi \neq 0\)</span> 的临界曲线，对应着系统相变的临界区域。</li>
+<li>白线右边是 <span class="math inline">\(\psi \neq 0\)</span> 区域, 即 superfluid 相区域。</li>
+</ul>
+<p>由于我们考虑的是基态能量，所以处于 Mott 区域的系统，每个格点上出现的修饰光子太均为 <span class="math inline">\(|n,-\rangle 。\)</span> 对应于不同的化学势 <span class="math inline">\(\mu,\)</span> 我们可以计算出该态下每个格点的粒子数，同时将不同 Mott 区域对应的修饰态标在的区域图中。由图我们可以看出不同粒子数对应的 Mott 区域面积不同，并且随着粒子数的增加，面积会极剧压缩，这是因为 JC 模型的有效格点势能，会随着粒子数的增加而减小。</p>
+<p>以上均为平均场下对 JCH 模型的相变分析。其他方法，诸如 Monte-Carlo 或者 DMRG 对这个模型的计算结果，与平均场情况近似，不过更精确的得到了一些临界区域的性质。</p>
+<h3 id="参考">参考</h3>
+<p>《两类量子模型相变及其相关性质的研究》2019 物理所</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Cold-Atom/">Cold Atom</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Cold-Atom/">Cold Atom</a>
+                    
+                      <a class="hover-with-bg" href="/tags/JC-model/">JC model</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%B6%85%E5%AF%BC%E9%87%8F%E5%AD%90%E7%BA%BF%E8%B7%AF/">超导量子线路</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/09/Naphi030_reality/">
+                        <span class="hidden-mobile">文小刚教授的文字摘录</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Jaynes-Cummings 模型&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
