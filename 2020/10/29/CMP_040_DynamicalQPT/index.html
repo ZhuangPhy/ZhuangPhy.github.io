@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>纠缠观点下的动力学量子相变 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201029110742809.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-10-29 14:23">
+      October 29, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      126
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="动力学量子相变简介">1 动力学量子相变简介</h2>
+<h4 id="相变">相变</h4>
+<p>相变是物理学中的重要概念，物质发生热力学相变通常意味着在温度到达 某个临界温度 <span class="math inline">\(T_{c}\)</span> 时，它的性质发生了剧烈的变化，如水在0摄氏度时变成冰。</p>
+<p>而量子相变通常是指发生在零温，由某个参数驱动导致系统基态发生的剧烈变 化，如量子伊辛模型中铁磁和顺磁的转变 ;</p>
+<p>量子相变中还有一类叫拓扑相变， 此时系统的拓扑性质发生剧烈的改变，如KT相变和整数量子霍尔效应。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201028232316394.png" srcset="/img/loading.gif" /></p>
+<h4 id="动力学量子相变">动力学量子相变</h4>
+<p>我们可以借鉴研究平衡态相变方法来定义 动力学相变。我们将系统制备在哈密顿量 <span class="math inline">\(H\left(\lambda_{i}\right)\)</span> 的基态, 其中 <span class="math inline">\(\lambda\)</span> 是一个<strong>可调的参数</strong>，事实上我们就是通过突然的改变这个参数，让系统进行淬火动力学演化，演化的哈密顿量为 <span class="math inline">\(H\left(\lambda_{f}\right),\)</span> 系统的波函数可以写为 <span class="math display">\[
+\left|\phi(t) \right\rangle   =e^{-i H\left(\lambda_{f}\right) t} | \phi_{i}\rangle_{\circ}
+\]</span> 我们定义Loschmidt振幅为 <span class="math display">\[
+G(t)=\langle\phi(t)\left|\phi_{0}\rangle=\langle\phi_{0}\right| e^{-i H\left(\lambda_{f}\right) t} \mid \phi_{0}\rangle
+\]</span> 波函数的交叠。在形式它非常类似于系统的配分函数 <span class="math inline">\(Z=\operatorname{Tr}\left(e^{-\beta H}\right)_{\circ} \quad\)</span> 仿照自由能密度 <span class="math inline">\(f(T)\)</span> 的定义，我们定义淬火过程中的动力学<strong>自由能密度</strong> <span class="math display">\[
+g(t)=-\lim _{N \rightarrow \infty} \frac{1}{N} \log G(t)
+\]</span> 我们知道对于由温度 <span class="math inline">\(\beta\)</span> 驱动的热力学相变，自由能密度 <span class="math inline">\(f(T)\)</span> 或者 它的某一阶导数在相变点 <span class="math inline">\(T_{c}\)</span> 出现非解析的行为，如图所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201029110742809.png" srcset="/img/loading.gif" /></p>
+<p>我们期待在淬火 动力学过程中也存在由时间 <span class="math inline">\(t\)</span> 驱动的相变，当系统含时演化到某临界时间 <span class="math inline">\(t_{c}\)</span> 时， 动力学自由能密度或者它的某阶导数出现非解析行为，我们称之为<strong>动力学量子相变</strong>。</p>
+<h4 id="复平面延拓">复平面延拓</h4>
+<p>为了进一步了解动力学相变, 我们将Loschmidt振幅延拓到复平面 <span class="math inline">\(t \rightarrow\)</span> <span class="math inline">\(t+i \tau\)</span> <span class="math display">\[
+G(z)=\langle\phi_{0}\left|e^{-i H\left(\lambda_{f}\right) z}\right| \phi_{0}\rangle
+\]</span></p>
+<ol type="1">
+<li>当系统自由度N很大时, Loschmidt 振幅满足大偏差标度行为</li>
+</ol>
+<p><span class="math display">\[
+G(z)=e^{-N g(z)}
+\]</span></p>
+<p>其中动力学自由能 <span class="math inline">\(g(z)\)</span> 在热力学极限下有良好的定义。</p>
+<ol start="2" type="1">
+<li>在有限尺寸下，<span class="math inline">\(G(z)\)</span> 是 <span class="math inline">\(z\)</span> 的解析函数， 将它作维尔斯特拉斯展开</li>
+</ol>
+<p><span class="math display">\[
+G(z)=e^{\mu z} \prod_{j}\left(z_{j}-z\right)
+\]</span></p>
+<p>其中 <span class="math inline">\(\mu(z)\)</span> 始终是解析函数</p>
+<p>如图所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201029141530100.png" srcset="/img/loading.gif" /></p>
+<ul>
+<li>有限尺寸下它的零点 <span class="math inline">\(z_{j}\)</span> 是复平面中一些孤立的点，, 它们不可能与时间轴相交，</li>
+<li>然而在热力学极限下，这些孤立 的零点组成了连续的曲线或平面区域，它与时间轴的交点（橘黄色的点）正是配分函数的零点，在这些时刻系统将发生动力学量子相变。</li>
+</ul>
+<p>实际上，这种做法与费舍尔将配分函数中的温度延拓虚温度得到的费舍尔零点， 或者李政道和杨振宁将磁场延拓到虚磁场得到的李-杨零点在思想上 是一致的。</p>
+<p>尽管动力学量子相变是在横场伊辛模型中<strong>被发现</strong>，但是随着研究的深入， 人们发现动力学相变是<strong>非常普遍存在</strong>的，如在</p>
+<ol type="1">
+<li>XY模型</li>
+<li>XXZ模型</li>
+<li>费米Hubbard模型</li>
+<li>拓扑能带系统</li>
+</ol>
+<h4 id="临界现象与标度行为">临界现象与标度行为</h4>
+<blockquote>
+<p>连续相变的一个重要的特征就是在相变点存在临界现象与标度行为</p>
+</blockquote>
+<p>以横场伊辛模型为例，系统哈密顿量为 <span class="math display">\[
+H(h)=\sum_{m}^{N-1} \sigma_{m}^{z} \sigma_{m+1}^{z}-h \sum_{m}^{N} \sigma_{m}^{x}
+\]</span></p>
+<ul>
+<li><p>当 <span class="math inline">\(h / J&gt;1\)</span> 时， 基态处在顺磁相;</p></li>
+<li><p>当 <span class="math inline">\(h / J&lt;1\)</span> 时，基态处在铁磁相。</p></li>
+</ul>
+<p>将系统的初态取为 $J=0 $ 的基态 ，淬火后的哈密顿量取为 <span class="math inline">\(h=0\)</span> 。通过实空间<strong>重整化群变换</strong>的计算发现在复时间平面内<strong>不动点</strong>为</p>
+<ol type="1">
+<li>$K^{*}=0 $ （无穷高温）</li>
+<li><span class="math inline">\(K^{*}=\infty\)</span> (零温)</li>
+<li><span class="math inline">\(K^{*}=i n \pi\)</span></li>
+</ol>
+<p>动力学相变发生的时刻为 <span class="math inline">\(K_{c}=\frac{(2 n+1) \pi}{4},\)</span> 经过两次重整化群变换, 它到达了伊辛模型零温的不稳定不动点 <span class="math inline">\(K_{c} \rightarrow K^{*}=\infty,\)</span> 这表明动力学相变也具有<strong>标度</strong>和普适性。计算标度方程可以得到 <span class="math display">\[
+\operatorname{Re}[g(t)] \sim\left|\frac{t-t_{c}}{t_{c}}\right|
+\]</span> 许多一维的量子系统都具有这种形式的标度行为。不过对于二维系统，标度行为要丰富很多。例如Chern 绝缘体满足时律的非解析行为，而二维伊辛模型 则是对数形式非解析行为。</p>
+<h4 id="动力学相变与平衡态相变的比较">动力学相变与平衡态相变的比较</h4>
+<p>我们知道对于一个在零温发生的量子相变，在有限温度时它将以相变点 <span class="math inline">\(g_{c}\)</span> 为中心张开一个三角形临界区，如图所示。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201029142848976.png" srcset="/img/loading.gif" /></p>
+<p>对于动力学量子相 变， 如果我们将初态取为哈密顿量 <span class="math inline">\(H_{i}\)</span> 的基态，由于我们计算的是 <span class="math inline">\(t\)</span> 时刻波函数与 初始波函数的交叠，这相当于我们在零能量密度（按照初始哈密顿量）时的动力学，如果我们考虑它在有限能量密度的演化，一个有意义的问题是是否存在<strong>类似临界区域?</strong></p>
+<blockquote>
+<p>这个问题<strong>没有一般的答案</strong>，仅对于有长程相互作用的伊辛模型， 实验上发现这个临界区域存在 。</p>
+</blockquote>
+<p>另外一个重要的问题是动力学相变能否用朗道的对称性破缺理论来描述？</p>
+<p>这个问题目前<strong>还没有答案</strong>，在动力学相变中我们也无法有效的定义动力学序参 量。仅有一种<strong>特殊类型例外</strong>，那就是动力学拓扑相变, 利用Loschmidt 振幅 的相位可以得到它的动力学拓扑序参量为Pancharatnam相。</p>
+<h4 id="动力学量子相变的实验实现">动力学量子相变的实验实现</h4>
+<p>动力学量子相变提出三年后,P. Jurcevic等人利用原子模拟技术首次观测到有长程相互作用的横场伊辛模型中的量子相变。他们用 <span class="math inline">\(^{40} Ca ^{+}\)</span> 的两个 态 <span class="math inline">\(\mid S_{\frac{1}{2}}, m \rangle\)</span> 和 <span class="math inline">\(\mid D_{\frac{5}{2}}, m \rangle\)</span> 作为雁自旋 <span class="math inline">\(\mid \downarrow\rangle_{z}\)</span> 和 <span class="math inline">\(\mid \uparrow\rangle_{z},\)</span> 将不同原子间的相互作用 用激光塊合来实现。系统的哈密顿量为 <span class="math display">\[
+H=-J \sum_{i&lt;j}^{N-1} J_{i j} \sigma_{i}^{x} \sigma_{j}^{x}-B \sum_{i}^{N} \sigma_{i}^{N}
+\]</span> 其中 <span class="math inline">\(J_{i j}=J_{i, i+1} /|i-j|^{\alpha},\)</span> 相互作用随距离衰减的速率 <span class="math inline">\(\alpha \in(0,3)\)</span> 可以调控。当外 场B=0时，系统有简并的基态 <span class="math inline">\(\mid \rightarrow \rightarrow \cdots \rightarrow \rangle\)</span> 和 <span class="math inline">\(\mid \leftarrow \leftarrow \cdots \leftarrow \rangle\)</span> 当B很大时系统的基态为 <span class="math inline">\(|\uparrow \uparrow \cdots \uparrow \rangle\)</span></p>
+<ol type="1">
+<li>在 $t=0 <span class="math inline">\(时，系统的初态自旋全部极化到 x 方 向\)</span>|_{i}&gt;=| $</li>
+<li>突然给系统加上外场，系统波函数开始演化</li>
+<li>而Loschmidt echo定义为t时刻系统返回基态流形的机率，因此可以写成</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+L(t)&amp;=L_{\leftarrow}(t)+L_{\rightarrow}(t)\\&amp;=|\langle\leftarrow \leftarrow \cdots \leftarrow| \psi(t)\rangle\left.\right|^{2}+|\langle\rightarrow \rightarrow \cdots \rightarrow| \psi(t)\rangle\left.\right|^{2}
+\end{aligned}
+\]</span></p>
+<ol start="4" type="1">
+<li>动力学自由能为</li>
+</ol>
+<p><span class="math display">\[
+\lambda(t)=-\frac{1}{N} \log L(t)=\min _{\eta=\leftarrow, \rightarrow}-\frac{1}{N} \log L_{\eta}(t)
+\]</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201029144348003.png" srcset="/img/loading.gif" /></p>
+<p>从图中可以看到，第一次发生动力学相变大约在 <span class="math inline">\(\tau \sim 0.85,\)</span> 动力学自由 能出现明显的非解析行为。从内图中也能看到，动力学相变发生的时刻正是 <span class="math inline">\(L_{\rightarrow}(t)=L_{\leftarrow}(t)\)</span> 的时刻。</p>
+<h2 id="一维拓扑系统的淬火动力学">2 一维拓扑系统的淬火动力学</h2>
+<h4 id="二能带系统">二能带系统</h4>
+<p>对于任意的一维二能带系统，动量空间中的哈密顿量可以写成 <span class="math display">\[
+h(k)=d_{0}(k) I + d (k) \cdot \sigma
+\]</span> 其中泡利矩阵 <span class="math inline">\(\sigma\)</span> 作用在雁自旋1/2的空间。这类模型可以描述许多拓扑绝缘体和拓扑超导体模型，例如</p>
+<ol type="1">
+<li>一维Su-Schrieffer-Hegger模型</li>
+<li>p波超 导的Kitaev链等</li>
+</ol>
+<p>其本征值为 <span class="math display">\[
+\epsilon_{\pm}(k)=d_{0}(k) \pm| d (k)|
+\]</span> 本征值对应的本征态分别记为 <span class="math inline">\(\left|\psi_{\pm}(k)\right\rangle_{\circ}\)</span> 它们对应的密度矩阵为 <span class="math display">\[
+\hat{\rho}_{\pm}(k)=\left|\psi_{\pm}(k)\right\rangle\left\langle\psi_{\pm}(k)\right|=\frac{1}{2}[1 \pm \hat{ d }(k) \cdot \sigma ]
+\]</span> 其中 <span class="math inline">\(\hat{ d }(k)=\frac{ d (k)}{| d (k)|}\)</span> 是归一化的Bloch矢量。在由时间反演对称性，粒子空穴对称 性和手征对称性组成的Altland-Zirnbauer分类拓扑分类表中，系统的拓扑不变量有区<span class="math inline">\(Z _{ }\)</span>和<span class="math inline">\(Z _{2}\)</span>两类，它们均可由Bloch矢量 <span class="math inline">\(\hat{ d }(k)\)</span> 求出</p>
+<h4 id="远离平衡态的动力学">远离平衡态的动力学</h4>
+<blockquote>
+<p>现在我们研究系统在远离平衡态的动力学行为。</p>
+</blockquote>
+<p>首先将系统制备成初态哈 密顿量 <span class="math inline">\(h^{i}\)</span> 的基态, 即 <span class="math inline">\(\rho^{i}(k)=\frac{1}{2}\left[1-\hat{ d }^{i}(k) \cdot \sigma\right],\)</span> 然后利用淬火后的哈密顿量 <span class="math inline">\(h^{f}\)</span> 进行 演化，密度矩阵的演化遵循刘维-冯诺依曼方程: <span class="math display">\[
+i \frac{\partial \rho(k, t)}{\partial t}=\left[h^{f}(k), \rho(k, t)\right]
+\]</span> 它的通解为 <span class="math display">\[
+\rho(k, t)=e^{-i h^{f}(k) t} \rho(k, 0) e^{i h^{f}(k) t}
+\]</span> 其中 <span class="math inline">\(\rho(k, 0)=\rho^{i}(k)=\frac{1}{2}\left[1-\hat{ d }^{i}(k) \cdot \sigma \right]_{\circ} \quad\)</span> 如果将t时刻的密度矩阵写为 <span class="math display">\[
+\rho(k, t)=\frac{1}{2}[1-\hat{d}(k, t) \cdot \sigma ]
+\]</span> 直接计算可以得到Bloch矢量合 <span class="math inline">\((k, t)\)</span> 为 <span class="math display">\[
+\hat{ d }(k, t)=\hat{ d }^{i} \cos \left(2\left| d ^{f}\right| t\right)+2 \hat{ d }^{f}\left(\hat{ d }^{i} \cdot \hat{ d }^{f}\right) \sin ^{2}\left(\left| d ^{f}\right| t\right)+\hat{ d }^{i} \times \hat{ d }^{f} \sin \left(2\left| d ^{f}\right| t\right)
+\]</span> 其中 <span class="math inline">\(\hat{ d }^{i}(k)\)</span> 和 <span class="math inline">\(\hat{ d }^{f}(k)\)</span> 分别是初态和末态哈密顿量的Bloch矢量。此式可以理解为对任意动量 <span class="math inline">\(k,\)</span> 从初始时刻开始 <span class="math inline">\(\hat{ d }^{i}(k)\)</span> 绕着 <span class="math inline">\(\hat{ d }^{f}(k)\)</span> 转动。</p>
+<h4 id="拓扑流形">拓扑流形</h4>
+<blockquote>
+<p>接下来我们用密度矩阵 <span class="math inline">\(\rho(t)\)</span> 研究系统动力学演化中的拓扑性质。</p>
+</blockquote>
+<p>为此我们 考虑由动量和时间组成的<strong>复合流形</strong>。</p>
+<ol type="1">
+<li>首先，一维布里渊区流形的拓扑为 <span class="math inline">\(S^{1} ;\)</span></li>
+<li>在动力学演化中每个动量 <span class="math inline">\(k\)</span> 也具有周期 <span class="math inline">\(\frac{\pi}{\left| d ^{f}\right|},\)</span> 如果做一个尺度变换 <span class="math inline">\(t^{\prime}=\frac{t}{| d f|},\)</span> 则时间流形的拓扑也可以看成 <span class="math inline">\(S_{}^{1}\)</span> 。</li>
+<li>因此由动量和时间组成的复合流形的拓扑 为 <span class="math inline">\(T^{2}=S^{1} \times S^{1}\)</span></li>
+</ol>
+<p>如图所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201029150331122.png" srcset="/img/loading.gif" /></p>
+<p>左侧的图:</p>
+<ul>
+<li>中每一个截面对应一个动量，截面内的极角对应于时间。</li>
+<li>橘黄色的 环代表 <span class="math inline">\(k=0\)</span> 和 <span class="math inline">\(2 \pi,\)</span> 它们粘合起来组成了 <span class="math inline">\(T^{2}\)</span> 。</li>
+</ul>
+<p>右侧的图：</p>
+<ul>
+<li>如果动量空间中存在一 些不动点 <span class="math inline">\(k_{1}, k_{2},\)</span> 截面的时间可连续收缩为一个点，动量时间的复合流形变成 系列球面。</li>
+</ul>
+<p>如果动量空间中存在一些不动点满足d <span class="math inline">\(^{i}\left(k_{c}\right)\)</span> 和 <span class="math inline">\(d ^{f}\left(k_{c}\right)\)</span> 平行或反平行，对于这些 <span class="math inline">\(k_{c},\)</span> Bloch矢量除了一个整体的相位将不会演化，因此将这些 <span class="math inline">\(k_{c}\)</span> 称 为不动点。如右图所示的 <span class="math inline">\(k_{1}\)</span> 和 $k_{2} $。 在这些不动点上, 时间轴可以连续的收 缩为一点，将动量时间的复合流形变为了一系列的球面 <span class="math inline">\(S_{ }^{2}\)</span>。 如果布里渊区内有 <span class="math inline">\(N\)</span> 个不动点，则动量时间流形将约化为 <span class="math inline">\(N\)</span> 个球面。之后我们会证明，对于一 些对称性保护的拓扑态，这些不动点是一定存在的。</p>
+<h4 id="动力学拓扑不变量">动力学拓扑不变量</h4>
+<p>对于每一个球面，Bloch矢量 <span class="math inline">\(\hat{ d }(k, t)\)</span> 可以看成由动量时间子流形 <span class="math inline">\(S^{2}\)</span> 到Bloch球 <span class="math inline">\(S^{2}\)</span> 的映射，其拓扑不变量为陈数 <span class="math display">\[
+C_{d y n}^{m}=\frac{1}{4 \pi} \int_{k_{m}}^{k_{m+1}} d k \int_{0}^{\pi} d t^{\prime}\left(\hat{ d } \times \partial_{t^{\prime}} \hat{ d }\right) \cdot \partial_{k}, \hat{ d }
+\]</span> 其中 <span class="math inline">\(m=1,2, \ldots, N\)</span> 表示第 <span class="math inline">\(m\)</span> 个子流形而 <span class="math inline">\(k_{m}\)</span> 表示第 <span class="math inline">\(m\)</span> 个不动点。这里一定有 <span class="math inline">\(k_{N+1}=\)</span><span class="math inline">\(k_{1}+2 \pi_{ }\)</span>。</p>
+<p>为了计算Chern数， 我们将Bloch矢 量. <span class="math inline">\(\hat{ d }(k, t)\)</span> 在新的正交基矢下展开，如图所示:</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201029154553689.png" srcset="/img/loading.gif" /> <span class="math display">\[
+\hat{ d }(k, t)= e _{1}+ e _{2} \cos \left(2 \epsilon_{f} t\right)+ e _{3} \sin \left(2 \epsilon_{f} t\right)
+\]</span> 其中 <span class="math display">\[
+e _{1}=\hat{ d }^{f}\left(\hat{ d }^{i} \cdot \hat{ d }^{f}\right), \quad e _{2}=\hat{ d }^{i}-\hat{ d }^{f}\left(\hat{ d }^{i} \cdot \hat{ d }^{f}\right), \quad e _{3}=\hat{ d }^{i} \times \hat{ d }^{f}
+\]</span> 在这组基失下， Chern数可以写为 <span class="math display">\[
+C_{d y n}=-\frac{1}{4} \int_{k_{m}}^{k_{m+1}} d k\left(2 e _{3} \times e _{2} \cdot \partial_{k} e _{1}-\partial_{k} e _{3} \times e _{2} \cdot e _{1}- e _{3} \times \partial_{k} e _{2} \cdot e _{1}\right)
+\]</span> 将 <span class="math inline">\(\hat{ d }^{i}(k)\)</span> 和 <span class="math inline">\(\hat{ d }^{f}(k)\)</span> 的夹角记作 <span class="math inline">\(\theta(k),\)</span> 并定义正交归一的基失 <span class="math display">\[
+\hat{ e }_{1}=\frac{ e _{1}}{\cos \theta} \quad \hat{ e }_{2}=\frac{ e _{2}}{\sin \theta} \quad \hat{ e }_{3}=\frac{ e _{3}}{\sin \theta}
+\]</span> Chern数可以化简为 <span class="math display">\[
+\begin{aligned}
+C_{d y n}&amp;=-\frac{1}{4} \int_{k_{m}}^{k_{m+1}} d k\left(2 e _{3} \times e _{2} \cdot \partial_{k} e _{1}-\partial_{k} e _{3} \times e _{2} \cdot e _{1}- e _{3} \times \partial_{k} e _{2} \cdot e _{1}\right)\\
+&amp;=-\int_{k_{m}}^{k_{m+1}} d k\left[-\frac{1}{2} \sin \theta \frac{d \theta}{d k}+\frac{1}{4} \sin ^{2} \theta \cos \theta\left(2 \hat{ e }_{3} \times \hat{ e }_{2} \cdot \partial_{k} \hat{ e }_{1}-\partial_{k} \hat{ e }_{3} \times \hat{ e }_{2} \cdot \hat{ e }_{1}-\hat{ e }_{3} \times \partial_{k} \hat{ e }_{2} \cdot \hat{ e }_{1}\right)\right]
+\end{aligned}
+\]</span> 利用以下等式 <span class="math display">\[
+\hat{ e }_{\alpha} \cdot \partial_{k} \hat{ e }_{\alpha}=0, \quad \partial_{k} \hat{ e }_{\alpha} \times \hat{ e }_{\beta} \cdot \hat{ e }_{\gamma}=0
+\]</span> 最终得到Chern数的表达式 <span class="math display">\[
+C_{d y n}^{m}=\frac{1}{2}\left(\cos \theta_{k=k_{m}}-\cos \theta_{k=k_{m+1}}\right)
+\]</span> 可以看出, 第m个Chern数只与第 <span class="math inline">\(m\)</span> 个和第 <span class="math inline">\(m+1\)</span> 个不动点处初末态Bloch<strong>矢量的夹角</strong> <span class="math inline">\(\theta\left(k_{m}\right)\)</span> 和 <span class="math inline">\(\theta\left(k_{m+1}\right)\)</span> 有关。</p>
+<p>如果将初末态哈密顿量在置换 <span class="math inline">\(d ^{i(f)} \rightarrow d ^{f(i)},\)</span> 夹角 <span class="math inline">\(\theta(k)\)</span> 并不改变，因此动 力学的Chern数在初末态哈密顿量置换下具有不变性。此外由于在不动点处 初末态哈密顿量的Bloch矢量是平行或反平行的。容易看出，当合 <span class="math inline">\(d^{i}(k)\)</span> 和 <span class="math inline">\(\hat{ d }^{f}(k)\)</span> 在 <span class="math inline">\(k=k_{m}\)</span> 和 <span class="math inline">\(k=k_{m+1}\)</span> 处同时平行或反平行时 <span class="math inline">\(C_{d y n}^{m}=0,\)</span> 而 <span class="math inline">\(\hat{ d }^{i}(k)\)</span> 和 <span class="math inline">\(\hat{ d }^{f}(k)\)</span> 在 <span class="math inline">\(k=k_{m}\)</span> 和 <span class="math inline">\(k=k_{m+1}\)</span> 处有一个平行而另一个反平行时 <span class="math inline">\(C_{d y n}^{m}=\pm 1_{\circ}\)</span></p>
+<p>对于每一个动量时间的子流形，都有相应的动力学Chern数，它的取值可以 是0, <span class="math inline">\(\pm 1 。\)</span> 这些动力学的拓扑性质与已知的哈密顿量在平衡态拓扑性质有是否 有什么联系？我们将在下一小节介绍。</p>
+<h3 id="动力学拓扑不变量与基态拓扑不变量的关系">动力学拓扑不变量与基态拓扑不变量的关系</h3>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201029205441725.png" srcset="/img/loading.gif" /></p>
+<p>按照标准的AZ拓扑分类，对于一维二能带系统，拓扑非平庸类仅有</p>
+<ul>
+<li>BDI类</li>
+<li>AIII类</li>
+<li>D类</li>
+</ul>
+<ol type="1">
+<li>具有手征对称性，拓扑分类为<span class="math inline">\(Z\)</span>的是
+<ul>
+<li>BDI类</li>
+<li>AIII类</li>
+</ul></li>
+<li>由粒子空穴对称性保护，拓扑分类为$Z_{2} $
+<ul>
+<li>D类</li>
+</ul></li>
+</ol>
+<h4 id="ssh模型拓扑分类为z">SSH模型:拓扑分类为<span class="math inline">\(Z\)</span></h4>
+<p>SSH模型 <span class="math display">\[
+H=\sum_{i}\left[(t+\delta) \hat{c}_{A, i}^{\dagger} \hat{c}_{B, i}+(t-\delta) \hat{c}_{A, i+1}^{\dagger} \hat{c}_{B, i}\right]+h . c .
+\]</span> 在周期边界条件下通过傅 里叶变换，哈密顿量可以写成形式 <span class="math display">\[
+h(k)=d_{0}(k) I + d (k) \cdot \sigma
+\]</span> 其中 <span class="math inline">\(d_{0}=0, d_{x}=(1+\delta)+(1-\delta) \cos k\)</span>,</p>
+<ul>
+<li>当 <span class="math inline">\(\delta&gt;0\)</span> 时系统的基态是拓扑非平庸的</li>
+<li>当 <span class="math inline">\(\delta&lt;0\)</span> 时基态是 拓扑平庸的。在开边界条件下，拓扑非平庸的基态在边界处有简并的零模。</li>
+</ul>
+<p>对于任意的初末态 <span class="math inline">\(\delta^{i}\)</span> 和 <span class="math inline">\(\delta^{f},\)</span> 系统只有两个不动点 <span class="math inline">\(k=0\)</span> 和 <span class="math inline">\(k=\pi_{\circ}\)</span> 布里渊区被分为 <span class="math inline">\(k \in(0, \pi)\)</span> 和 <span class="math inline">\(k \in(\pi, 2 \pi),\)</span> 相对应的动量时间子流形用 <span class="math inline">\(m=1\)</span> 和 <span class="math inline">\(m=2\)</span> 标记。</p>
+<ol type="1">
+<li><p>先考虑 <span class="math inline">\(\delta^{i}\)</span> 和 <span class="math inline">\(\delta^{f}\)</span> 同号的情形。无 论它们是拓扑平庸的还是拓扑非平庸的， Bloch 矢量都满足 <span class="math inline">\(\hat{ d }^{i}(0)=\hat{ d }^{f}(0)\)</span> 和 <span class="math inline">\(\hat{ d }^{i}(\pi)=\hat{ d }^{f}(\pi)_{\circ}\)</span> 跟据 <span class="math display">\[
+C_{d y n}^{m}=\frac{1}{2}\left(\cos \theta_{k=k_{m}}-\cos \theta_{k=k_{m+1}}\right)
+\]</span></p>
+<ul>
+<li>动力学Chern 数为 <span class="math inline">\(C_{d y n}^{1}=C_{d y n}^{2}=0\)</span></li>
+<li>非平庸的Chern数个数为0</li>
+</ul>
+<p>这与初末态缠绕数之差相同。</p></li>
+<li><p>对于 <span class="math inline">\(\delta^{i}\)</span> 和 <span class="math inline">\(\delta^{f}\)</span> 异号的情形，类似的可以得到</p>
+<ul>
+<li><span class="math inline">\(\hat{ d }^{i}(0)=\hat{ d }^{f}(0)\)</span> 动力学Chern数分别为 $ C_{d y n}^{1}=-1$<br />
+</li>
+<li><span class="math inline">\(\hat{d}^{i}(\pi)=-\hat{d}^{f}(\pi)\)</span> 动力学Chern数分别为 <span class="math inline">\(C_{d y n}^{2}=1\)</span> 。</li>
+</ul>
+<p>非平庸Chern数的个数为2， 而初末态缠绕数之差的绝对值是1。因此对于SSH模型有 <span class="math inline">\(M=2\left|n^{i}-n^{f}\right|\)</span>, 符合<strong>定理1</strong>并且非平庸Chern数的个数恰好取到定理中的下界。</p></li>
+</ol>
+<p>根据<strong>推论1</strong>，对于只有两个不动点的系统只需 研究第一个动量时间子流形, 其中 <span class="math inline">\(k \in(0, \pi)_{\circ}\)</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201029211655287.png" srcset="/img/loading.gif" /></p>
+<p>在图中我们展示了不同动量 <span class="math inline">\(k\)</span> 对应的Bloch矢量在一个周期内的演化。每一个圆环对应一个动量，如果将0到 <span class="math inline">\(\pi\)</span> 之间的所有动量都包含在内， 那么Bloch球被包围圈数就是动力学Chern数 <span class="math inline">\(C_{d y n^{\circ}}^{1}\)</span> 图中黑色的虚线是初态Bloch矢量的分布</p>
+<ul>
+<li><ol type="a">
+<li><ol start="2" type="a">
+<li>初态是非平庸的</li>
+</ol></li>
+</ol></li>
+<li><ol start="3" type="a">
+<li><ol start="4" type="a">
+<li>初态是平庸的。</li>
+</ol></li>
+</ol></li>
+<li><ol type="a">
+<li><ol start="3" type="a">
+<li>中，初末态的的拓扑性质是相同的, 可以看到它们在球上的轨迹互相抵消，高献出总的动力学Chern数 <span class="math inline">\(C_{d y n}^{1}=0 ;\)</span></li>
+</ol></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li><ol start="4" type="a">
+<li>中，初末态的的拓扑性质是不同的，所有动量的Bloch 矢量演 化的曲线覆盖整个Bloch 球，贡献出动力学Chern数 <span class="math inline">\(C_{d y n}^{1}=-1_{\circ}\)</span></li>
+</ol></li>
+</ol></li>
+</ul>
+<h4 id="p-wave模型拓扑分类为z_2">p-wave模型:拓扑分类为<span class="math inline">\(Z_{2}\)</span></h4>
+<p>推广的p波超导模型。与原始的Kitaev链相比，这里进一步加入了次近邻格点间的跃迁和配对项。通过Jordan-Wingner变换，它也可以等价于 一个有三体相互作用的推广的伊辛模型。 <span class="math display">\[
+H=\sum_{i}\left(t_{1} c_{i}^{\dagger} c_{i+1}+t_{2} c_{i}^{\dagger} c_{i+2}+\Delta_{1} c_{i} c_{i+1}+\Delta_{2} c_{i} c_{i+2}+h . c .\right)+\sum_{i} 2 \mu c_{i}^{\dagger} c_{i}
+\]</span> 我们可以通过规范变换使得</p>
+<ul>
+<li>近邻配对项 <span class="math inline">\(\Delta_{1}\)</span> 是实数</li>
+<li>次近邻配对项为 <span class="math inline">\(\Delta_{2} \rightarrow \Delta_{2} e^{i \phi}\)</span> 。</li>
+</ul>
+<p>只要 <span class="math inline">\(\phi \neq 0,\)</span> 系统的时间反演对称性和手征对称性都将被破坏而仅保留BdG（Bogoliubov-de-Gennes）形式下一定存在的粒子空穴对称性，根据标准的AZ分类方法，哈密顿量属 于D类。如果系统的基态是拓扑非平庸的，开边界情况下系统边界将存在 零能的Majorana费米子。</p>
+<p>通过傅里叶变换， 哈密顿量可以写成 <span class="math display">\[
+h(k)=d_{0}(k) I + d (k) \cdot \sigma
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(d_{0}=0\)</span></li>
+<li><span class="math inline">\(d_{x}=\)</span><span class="math inline">\(\Delta_{2} \sin \phi \sin 2 k\)</span></li>
+<li><span class="math inline">\(d_{y}=\Delta_{1} \sin k+\Delta_{2} \cos \phi \sin 2 k\)</span></li>
+<li><span class="math inline">\(d_{z}=-t_{1} \cos k-t_{2} \cos 2 k+\mu\)</span></li>
+</ul>
+<h3 id="动力学拓扑分类-与动力学诱导的对称性破缺">动力学拓扑分类 与动力学诱导的对称性破缺</h3>
+<blockquote>
+<p>在以上关于动力学不变量的计算中，我们对时间轴作了尺度变换 <span class="math inline">\(t^{\prime}=\frac{t}{ | d^f |},\)</span> 这实际上<strong>等价于</strong>平衡态拓扑分类中<strong>平带化</strong>过程</p>
+</blockquote>
+<h4 id="动力学拓扑分类">动力学拓扑分类</h4>
+<p>平衡态拓扑分类中<strong>平带化</strong>过程，即我们相当于对哈密顿量 <span class="math display">\[
+H(t)=1-|\Phi(t)\rangle \langle\Phi(t)|
+\]</span> 进行拓扑分类，于是可以利用标准拓扑K-理论得到与AZ分类表<strong>对应</strong>的<strong>动力学拓扑分类表</strong> <span class="math display">\[
+\begin{array}{|c|c|c|c|c|}
+\hline \text { Altland Zirnbauer class } &amp; T &amp; C &amp; S &amp; \text { Classification } \\
+\hline \text { A } &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\text { AIII } &amp; 0 &amp; 0 &amp; 1 &amp; Z \rightarrow 0 \\
+\hline \text { AI } &amp; + &amp; 0 &amp; 0 &amp; 0 \\
+\text { BDI } &amp; + &amp; + &amp; 1 &amp; Z \rightarrow Z_{2} \\
+\text { D } &amp; 0 &amp; + &amp; 0 &amp; Z_{2} \\
+\text { DIII } &amp; - &amp; + &amp; 1 &amp; Z_{2} \rightarrow 0 \\
+\text { AII } &amp; - &amp; 0 &amp; 0 &amp; 0 \\
+\text { CII } &amp; - &amp; - &amp; 1 &amp; 2 Z \rightarrow 0 \\
+\text { C } &amp; 0 &amp; - &amp; 0 &amp; 0 \\
+\text { CI } &amp; + &amp; - &amp; 1 &amp; 0 \\
+\hline
+\end{array}
+\]</span> 但是这里面有两个问题：</p>
+<ol type="1">
+<li>真实的动力学演化过程中，哈密顿量的对称性可能被破坏，因此平带化之后的等效哈密顿量并不能真实的反映波函数<span class="math inline">\(|\Phi (t)\rangle\)</span> 的拓扑性质 ;</li>
+<li>对有能隙的哈密顿量进行分类时，往往要求系统是短程关联的，在 <span class="math inline">\(t=0\)</span> 时 ， 波函数制备为初态哈密顿量的基态，此时系统确实是<strong>短程关联</strong>的，但是随着系统的时间演化，系统关联将以<strong>Lieb-Robinson速度</strong> <span class="math inline">\(v_{L R}\)</span> 传播，随着时间尺度增加（ <span class="math inline">\(L / v_{L R}\)</span> )，系统会产生<strong>长程关联</strong>，等效哈密顿量 <span class="math inline">\(H\)</span> 将不再是局域哈密顿量，此时关于拓扑态的分类也将失效。</li>
+</ol>
+<p>第二个问题容易解决，我们要求动力学分类始终是在有限时间尺度内 <span class="math inline">\(t&lt;\)</span> <span class="math inline">\(L / v_{L R},\)</span> 这时系统还没有“<strong>热化</strong>”。</p>
+<h4 id="动力学诱导的对称性破缺">动力学诱导的对称性破缺</h4>
+<p>而对于第一个问题， <span class="math inline">\(N\)</span>. Cooper证明这涉及到系统的动力学演化过程中对称性。具体来看，对于淬火动力学过程</p>
+<ul>
+<li>如果初末态哈密顿量 <span class="math inline">\(H^{i}\)</span> 和 <span class="math inline">\(H^{f}\)</span> 具有不同的对称性，此时系统初态的对称性在含时演化中将不再保持，这个过程称作直接对称性破缺（Explicit symmetry breaking）;</li>
+<li>如果初末态哈密顿量 <span class="math inline">\(H^{i}\)</span> 和 <span class="math inline">\(H^{f}\)</span> 具有相同的对称性，而初态的对称性在含时演化中仍然可能不再保持，这个过程称作<strong>动力学诱导</strong>的对称性破缺（Dynamically induced symmetry breaking )。</li>
+</ul>
+<p>根据Wigner对量子系统对称性研究，对称性算符只能是幺正或反正的。N. Cooper 证明了</p>
+<ol type="1">
+<li>对于幺正的对称性，初态的对称性在含时演化中将始终保持</li>
+<li>对于反幺正的对称性，初态的对称性在含时演化中将不再保持</li>
+</ol>
+<p>特别的，对拓扑能带系统，两点关联矩阵 <span class="math inline">\(\rho_{m n}=\langle c_{m}^{\dagger} c_{n}\rangle\)</span> 在基态和动力学 过程中分别满足对称性 <span class="math display">\[
+\left\{\begin{array}{l}
+T \rho^{*} T^{\dagger}=\rho \\
+C \rho^{*} C^{\dagger}=1-\rho, \\
+S \rho^{*} S^{\dagger}=1-\rho
+\end{array} \quad\left\{\begin{array}{l}
+T \rho^{*}(t) T^{\dagger}=\rho(-t) \\
+C \rho^{*}(t) C^{\dagger}=1-\rho(t) \\
+S \rho^{*}(t) S^{\dagger}=1-\rho(-t)
+\end{array}\right.\right.
+\]</span> 量子化表象下，粒子空穴对称性是幺正对称性而时间反演对称性和手征对称性是反幺正对称性，因此只有粒子空穴对称性保护的拓扑态在含时演化过程中保 持其拓扑性质。 <span class="math display">\[
+\begin{array}{|c|c|c|c|c|}
+\hline \text { Altland Zirnbauer class } &amp; T &amp; C &amp; S &amp; \text { Classification } \\
+\hline \text { A } &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\text { AIII } &amp; 0 &amp; 0 &amp; 1 &amp; Z \rightarrow 0 \\
+\hline \text { AI } &amp; + &amp; 0 &amp; 0 &amp; 0 \\
+\text { BDI } &amp; + &amp; + &amp; 1 &amp; Z \rightarrow Z_{2} \\
+\text { D } &amp; 0 &amp; + &amp; 0 &amp; Z_{2} \\
+\text { DIII } &amp; - &amp; + &amp; 1 &amp; Z_{2} \rightarrow 0 \\
+\text { AII } &amp; - &amp; 0 &amp; 0 &amp; 0 \\
+\text { CII } &amp; - &amp; - &amp; 1 &amp; 2 Z \rightarrow 0 \\
+\text { C } &amp; 0 &amp; - &amp; 0 &amp; 0 \\
+\text { CI } &amp; + &amp; - &amp; 1 &amp; 0 \\
+\hline
+\end{array}
+\]</span> 表中给出了一维系统动力学分类。与我们上一节关于动力学Chern数的讨论对比</p>
+<ul>
+<li>AIII类由于不存在粒子空穴对称性，动力学拓扑性质将会因色散的存在 <span class="math inline">\(E(k) \neq\)</span> constant 而消失。</li>
+<li>对于BDI 类，尽管时间反演对称性和手征对称性 在含时演化中被破坏，但是粒子空穴对称性始终保持，系统的拓扑分类由Z约 化为<span class="math inline">\(Z _{2}\)</span>。</li>
+<li>对于D类，系统的拓扑态仅由粒子空穴对称性保护，且在动力学过程 中对称性保持不变，其拓扑分类保持不变，仍为 <span class="math inline">\(Z_{2}\)</span> 。</li>
+</ul>
+<h2 id="纠缠谱的动力学">3 纠缠谱的动力学</h2>
+<p>我们知道在平衡态的拓扑物态中存在<strong>体边对应</strong>，即系统在周期边界 条件中的拓扑数等于开边界下无能隙的边界态的数目。相似的，Haldane在非阿贝尔分数量子霍尔效应时可以利用无“能隙”的纠缠谱来<strong>判断</strong>基态的拓扑性 质，后来人们将它推广到</p>
+<ul>
+<li>对称性保护的拓扑态SPT<br />
+</li>
+<li>拓扑绝缘体（拓扑超导体)</li>
+</ul>
+<p>这也可以看成另一种体边对应关系，即对于一个拓扑非平庸态, 它的纠缠谱将在纠缠的边界处有边缘模。</p>
+<h3 id="二次型费米子">二次型费米子</h3>
+<p>假设系统的哈密顿量为费米子二次型 <span class="math display">\[
+H =\sum_{m, n} H_{m, n} c_{m}^{\dagger} c_{n}
+\]</span> 这里用 <span class="math inline">\(m, n\)</span> 表示系统的格点指标，用 <span class="math inline">\(i, \quad j\)</span> 表示子系统的指标，系统的两点关联函数为 <span class="math inline">\(C_{m n}=&lt;c_{m}^{\dagger} c_{n}&gt;_{\circ}\)</span> 按照约化密度矩阵的定义，子系统内两点关联函数需要满足 <span class="math display">\[
+C_{i j}=\operatorname{Tr}\left(\rho_{i j} c_{i}^{\dagger} c_{j}\right)
+\]</span> 对于无相互作用费米子，系统基态的密度矩阵是高斯态，且子系统的约化密度矩阵也是高斯态，即 <span class="math display">\[
+\rho=\frac{1}{Z} e^{-\tilde{H}}
+\]</span> 且 <span class="math inline">\(\tilde{ H }=\sum_{i j} \tilde{H}_{i j} c_{i}^{\dagger} c_{j},\)</span> 其中 <span class="math inline">\(Z=\operatorname{Tr}\left(e^{-\tilde{H}}\right)\)</span> 是配分函数。</p>
+<h4 id="纠缠谱">纠缠谱</h4>
+<p>容易看出此时关联矩阵 <span class="math inline">\(C_{i j}\)</span> 和纠缠哈密顿量矩阵 <span class="math inline">\(\tilde{H}_{i j}\)</span> 可以同时对角化，即 <span class="math display">\[
+C_{i j}=\frac{1}{1+e^{-\tilde{H}_{i j}}}
+\]</span> 如果记</p>
+<ul>
+<li><span class="math inline">\(\epsilon_{k}\)</span> 是<strong>纠缠哈密顿量</strong>的谱</li>
+<li><span class="math inline">\(\zeta_{k}\)</span> 是<strong>关联矩阵</strong>的谱</li>
+</ul>
+<p>通常关联矩阵的谱称为<strong>单粒子纠缠谱</strong>，则它们 $ _{k}$ 和 <span class="math inline">\(\zeta_{k}\)</span> 之间满足关系 <span class="math display">\[
+\zeta_{k}=\frac{1}{1+e^{-\epsilon_{k}}}
+\]</span> 如果系统约化密度矩阵的谱为 <span class="math inline">\(\Lambda_{\alpha},\)</span> 则<strong>多体纠缠谱</strong>定义为 <span class="math display">\[
+\lambda_{\alpha}=-\log \Lambda_{\alpha}
+\]</span> <strong>利用</strong>单粒子纠缠谱可以求出多体纠缠谱为 <span class="math display">\[
+\lambda_{s_{n}}=\prod_{n}\left[\frac{1}{2}+s_{n}\left(\zeta_{n}-\frac{1}{2}\right)\right], \quad s_{n}=\pm 1
+\]</span></p>
+<h4 id="ssh模型的-纠缠演化">SSH模型的 纠缠演化</h4>
+<p>L. Fidkowski指出对于非平庸的拓扑能带系统，在子系统的边界处存在纠缠的零模，即存在一个 <span class="math inline">\(k\)</span> 使得 <span class="math inline">\(\epsilon_{k}=0\)</span> 和 <span class="math inline">\(\zeta_{k}=\frac{1}{2}\)</span> 成立。</p>
+<blockquote>
+<p>一个自然的问题是 动力学拓扑不变量 是否也有<strong>类似</strong>的<strong>体边对应</strong>关系?</p>
+</blockquote>
+<p>Ueda 首先注意到对于动力学拓扑非平庸的态，系统的纠缠谱将在某个时刻 <span class="math inline">\(t_{c}\)</span> 关闭能隙， 出现 <span class="math inline">\(\zeta_{k}\left(t_{c}\right)=\frac{1}{2}\)</span> 的纠缠边界态 。我们以<strong>SSH模型</strong>为例，计算在开边界条件下不同初末态纠缠的演化, 如图所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201029225931818.png" srcset="/img/loading.gif" /></p>
+<p>此时系统尺寸 <span class="math inline">\(L=80,\)</span> 子系统为左侧40个格点。</p>
+<ul>
+<li>从图(a)中 可以看出，当初末态均为拓扑平庸的，单粒子纠缠谱始终是有“能隙”的</li>
+<li>从图 (b) 中可以看出，当初态为拓扑平庸的而末态是拓扑非平庸的，纠细谱 能隙”将在某些时刻关闭，这些“能隙”关闭点处纠缠哈密顿量的本征态是局域在子系统边界的零模。</li>
+<li>在图(c)(d)中，初态均为拓扑非平庸的，纠缠的边界态的“能隙"将在系统关联没有传播到边界前都不会打开。</li>
+<li>图(e)中展示了图(b)中纠缠谱“能隙”首次关闭的时刻 <span class="math inline">\(t=1.56\)</span> 时的所有纠缠谱分布， 可以看到在带隙中间 <span class="math inline">\(\xi=0.5\)</span> 处出现两个模式，在图中用红色的点标记</li>
+<li>两个模式的本征态在空间中的分布如图(f)所示，容易看出它的空间分布局域在子系统纠缠的边界。</li>
+</ul>
+<h3 id="spt中的纠缠演化">SPT中的纠缠演化</h3>
+<p>上一小节，我们分析了拓扑能带系统中动力学拓扑不变量和纠缠谱动力学 的关系。对费米子二次型，由于系统的约化密度矩阵和两点关联矩阵有密切的关系，我们可以通过关联矩阵求出系统的纠缠谱的动力学演化。</p>
+<p>但对一维对称性保护的拓扑态（SPT），这种方法已经<strong>失效</strong>。这一小节以扩展的AKLT模型为例，探究在拓扑相和平庸相之间的淬火时，纠缠谱的动力学演化是否有非平庸的性质。</p>
+<h4 id="aklt模型">AKLT模型</h4>
+<p>对于自旋 <span class="math inline">\(S=1\)</span> 的AKLT模型 ，其哈密顿量为 <span class="math display">\[
+H_{A K L T}=J \sum_{j}\left[S \cdot S_{j+1}+\frac{1}{3}\left(S \cdot S_{j+1}\right)^{2}\right]
+\]</span> 其基态为VBS态，每个自旋 <span class="math inline">\(S=1\)</span> 拆成两个自旋 <span class="math inline">\(S=1 / 2,\)</span> 相邻两个格点的 态，这个基态与反铁磁海森堡模型的基态类似，都属于Haldane 相。它们都可以被看作一维对称性保护的拓扑相。这个拓扑态受到以下三个 对称性保护:</p>
+<ol type="1">
+<li>反射对称性, <span class="math inline">\(S_{j} \rightarrow-S_{j+1}\)</span>;</li>
+<li>时间反演对称性, <span class="math inline">\(S_{j} \rightarrow\)</span> $-S_{j} $</li>
+<li>自旋的旋转对称性 <span class="math inline">\(S_{j, x y} \rightarrow S_{j,-x-y^{\circ}}\)</span></li>
+</ol>
+<p>这三个对称性中的任何一个都保护Haldane相。与拓扑绝缘体和拓扑超导体类似，一维SPT态的纠缠谱也是简并的。</p>
+<p>对于AKLT模型，哈密顿量有非平庸的投影表示</p>
+<ul>
+<li>即对称群 <span class="math inline">\(D_{2}\)</span> 的而二阶上同调群非平庸 <span class="math inline">\(H_{2}\left(D_{2}, U(1)\right)=Z_{2}\)</span> 直积态<strong>对应</strong>与平庸的表示，表示矩阵 <span class="math inline">\(U(g)\)</span> 是单位矩阵 ;</li>
+<li>基态对应于非平庸的表示，表示矩阵 <span class="math inline">\(U(g)\)</span> 是二维的</li>
+<li>又由于 <span class="math inline">\(U(g)\)</span> 与约化密度矩阵对易， 因此AKLT基态的纠缠谱是二重简并的。</li>
+</ul>
+<h4 id="推广的aklt模型">推广的AKLT模型</h4>
+<p>进一步，我们考虑以下推广的AKLT模型， <span class="math display">\[
+H=H_{A K L T}+H_{z z}+H_{i n v}+H_{d}
+\]</span> 其中 <span class="math display">\[
+\begin{aligned}
+H_{z z} &amp;=U \sum_{j}\left(S_{j}^{z} S_{j+1}^{z}\right)^{2} \\
+H_{i n v} &amp;=R \sum_{j}\left[\left(S_{j}^{x} S_{j+1}^{y}\right)^{2}-\left(S_{j}^{y} S_{j+1}^{x}\right)^{2}\right] \\
+H_{d} &amp;=D \sum_{j}\left[S_{j}^{x} S_{j+1}^{z}-S_{j}^{z} S_{j+1}^{x}\right]
+\end{aligned}
+\]</span> 这里</p>
+<ul>
+<li><span class="math inline">\(H_{i n v}\)</span> 破坏了反射对称性</li>
+<li><span class="math inline">\(H_{d}\)</span> 破坏了反射对称性和自旋的旋转对称性。</li>
+</ul>
+<p>我们利用<strong>含时的密度矩阵重整化群</strong>算法（tDMRG）计算纠缠谱的演化 。</p>
+<ol type="1">
+<li>首先利用密度矩阵重整化群算法计算初态哈密顿量 <span class="math inline">\(H^{i}\)</span> 的基态</li>
+<li>由于哈密顿量只包含最近邻相互作用，再可以采用四阶Trotter-Suzuki分解计算波函数在新哈密顿量 <span class="math inline">\(H^{f}\)</span> 下的含时演化，此算法的精度为 <span class="math inline">\(O\left(d t^{3}\right)_{\circ}\)</span></li>
+<li>这里我们固定系统的尺寸 <span class="math inline">\(L=48,\)</span> 含时演化过程中保留态的个数为 <span class="math inline">\(M=40,\)</span> 时间间隔取 为 <span class="math inline">\(d t=0.02\)</span> 。</li>
+</ol>
+<p>利用多体纠缠谱定义式 <span class="math inline">\(\lambda_{\alpha}=-\log \Lambda_{\alpha}\)</span> 可以计算纠缠谱的“能隙” <span class="math display">\[
+\Delta=\lambda_{2}-\lambda_{1}
+\]</span> 的含时演化，如图所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201029232350561.png" srcset="/img/loading.gif" /></p>
+<p>其中</p>
+<ul>
+<li>图 (a)(c) 是从拓扑<strong>非平庸</strong>相到平庸相淬火</li>
+<li>图 (b)(d) 是从拓扑<strong>平庸</strong>相到非平庸相淬火</li>
+<li>图 (a)(b) 中初末态哈密顿量仅有<strong>时间反演</strong>对称性</li>
+<li>图 (c)(d) 中初末态哈密顿量同时具有时间反演对称性和<strong>反射对称性</strong></li>
+</ul>
+<p>由于反射对称性是幺正对称性 而时间反演对称性是反幺正对称性，在含时演化中仅有受到反射对称性保护的拓扑态能够继续存在。</p>
+<ol type="1">
+<li>从(a)中可以看出，纠缠谱的“能隙”会因为反射对称性破坏而<strong>打开</strong>， 这可以<strong>解释</strong>为对动力学诱导的对称性破缺，但在 <span class="math inline">\(t \sim 2.2\)</span> 时“能隙”再次关闭。</li>
+<li>如果反射对称性存在，纠缠的“能隙”在相当长的时间内<strong>不会打开</strong>， 如图(c)所示。</li>
+<li>而如果从拓扑平庸相到非平庸相淬火，则无论反射对称性是否破坏，纠缠谱的“能隙”在 <span class="math inline">\(t \in(0,5)\)</span> 内<strong>都不会关闭</strong>。</li>
+</ol>
+<h2 id="动力学拓扑不变量的实验观测">4 动力学拓扑不变量的实验观测</h2>
+<p>超导Xmon量子比特是研究量子模拟和量子计算的一个非常有前景的实验平 台。这一小节中，我们将介绍由<strong>单量子比特</strong>模拟淬火动力学的过程。通 过测量Bloch矢量的演化进而可以观测动力学拓扑相变 和动力学Chern数。</p>
+<h3 id="模拟的模型-quantum-ising">模拟的模型: Quantum Ising</h3>
+<p>实验模拟的模型为量子伊辛模型 <span class="math display">\[
+H=-J \sum_{j} \sigma_{j}^{x} \sigma_{j+1}^{x}+h \sum_{j} \sigma_{j}^{z}
+\]</span> 零温时系统有两个相</p>
+<ul>
+<li>当 <span class="math inline">\(J / h&lt;1\)</span> 顺磁相，自旋被极化到外场的方向</li>
+<li>当 <span class="math inline">\(J / h&gt;1\)</span> 为铁磁相，<span class="math inline">\(Z_{2}\)</span> 对称性自发破缺从而形成铁磁序。</li>
+</ul>
+<h4 id="宇称">宇称</h4>
+<p>为了方便取能量单元 <span class="math inline">\(J=1\)</span> 。通过Jordan-Wingner 变换 <span class="math display">\[
+\begin{aligned}
+\sigma^{+} &amp;=e^{-i \pi \sum_{k=1}^{j-1} c_{k}^{\dagger} c_{k}} c_{j}^{\dagger} \\
+\sigma^{-} &amp;=e^{i \pi \sum_{k=1}^{j-1} c_{k}^{\dagger} c_{k}} c_{j} \\
+\sigma^{z} &amp;=2 c_{j}^{\dagger} c_{j}-1
+\end{aligned}
+\]</span> 其中 <span class="math inline">\(\sigma^{\pm}=\sigma^{x} \pm i \sigma^{y}\)</span> 为自旋升降算符，而 <span class="math inline">\(c_{j}, c_{j}^{\dagger}\)</span> 满足费米子对易关系。哈密顿量变为 <span class="math display">\[
+H=P^{+} H^{+} P^{+}+P^{-} H^{-} P^{-}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(P^{\pm}=\frac{1}{2}\left[1 \pm \prod_{j=1}^{N} \sigma_{j}^{z}\right]\)</span> 为费米子偶宇称的投影算符</li>
+<li><span class="math inline">\(P=e^{\Sigma_{j} c_{j}^{\dagger} c_{j}}\)</span> 为奇宇称的投影算符</li>
+</ul>
+<p><span class="math display">\[
+H^{\pm}=-\sum_{j}\left(c_{j}^{\dagger} c_{j+1}+c_{l} c_{l+1}+h . c .\right)+h \sum_{j}\left(1-2 c_{j}^{\dagger} c_{j}\right)
+\]</span></p>
+<ol type="1">
+<li>这里奇宇称的部分满足周期性边界条件</li>
+<li>偶宇称的部分满足反周期边界条件。</li>
+</ol>
+<p>由于系统的基态始终是偶宇称，而宇称是守恒量 <span class="math inline">\([H(h), P]=0,\)</span> 因此在动力学演化过程中也<strong>只需考虑</strong>偶宇称的子空间。</p>
+<h4 id="动量空间">动量空间</h4>
+<p>经过傅里叶变换，动量空间的哈密顿量为 <span class="math inline">\(h(k)=d_{0}(k) I+d(k) \cdot \sigma\)</span> 的形式, 其中 <span class="math display">\[
+d_{0}=d_{x}=0\\ d_{y}=\sin k \\ d_{z}=h-\cos k
+\]</span> 这与p波超导的哈密顿量形式一致，其中</p>
+<ul>
+<li>铁磁相 <span class="math inline">\(h&lt;1\)</span> 相当于拓扑超导相</li>
+<li>顺磁相 <span class="math inline">\(h&gt;1\)</span> 相当于 普通超导相</li>
+</ul>
+<p>它们动力学模拟的也应是一致的。</p>
+<h3 id="实验">实验</h3>
+<ol type="1">
+<li>对每一个规定的动量 <span class="math inline">\(k,\)</span> 通过外加脉冲<span class="math inline">\(A_{0} \cos \left(\omega t+\phi_{0}\right)\)</span>制备出初态哈密顿量 <span class="math inline">\(H^{i}\)</span> 的基态</li>
+<li>在时间t改变外加脉冲<span class="math inline">\(A_{k} \cos \left(\omega t+\phi_{k}\right)\)</span>实现淬火过程。</li>
+</ol>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201030001319660.png" srcset="/img/loading.gif" /></p>
+<p>通过态层析测量(state tomography)，进而可以得到Bloch矢量的演化。实验过程中，我们将布里渊区离散为30 个点，这相当于系统尺寸 <span class="math inline">\(L=30,\)</span> 一个时间周期内有70个离散的步长。每一步时间演化的时间为15ns，因此一整个周期的 演化时间为1.05 <span class="math inline">\(\mu s_{\circ}\)</span> 而每一次态层析测量均是5000次单次测量的平均值。与此作为对比，系统的能量他豫时间为 <span class="math inline">\(T_{1}=8.3 \mu s,\)</span> 失相时间为 <span class="math inline">\(T_{2 *}=6.8 \mu s,\)</span> 而spin echo的失相时间为 <span class="math inline">\(T_{2 s e}=11.7 \mu s\)</span> 。</p>
+<h3 id="实验结果">实验结果</h3>
+<h4 id="bloch矢量演化">(1)Bloch矢量演化</h4>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201030010531855.png" srcset="/img/loading.gif" /></p>
+<p>Bloch矢量演化的实验与理论数据：</p>
+<ul>
+<li>图 <span class="math inline">\(( a )-( g )\)</span> 中，我们给出了由铁磁相 <span class="math inline">\(h^{i}=0.2\)</span> 到顺磁相 <span class="math inline">\(h^{f}=1.5\)</span> 在 的浏火动力学演化。</li>
+<li>其中 <span class="math inline">\(( a )-( f )\)</span> 分别对应于动量 <span class="math inline">\(k=0,0.2 \pi, 0.4 \pi\)</span>,<span class="math inline">\(0.6 \pi, 0.8 \pi\)</span> 和 <span class="math inline">\(\pi,\)</span> 而 <span class="math inline">\(( g )\)</span> 中是将它们的Bloch 矢量放到同一个图中。</li>
+<li>与p波超导 的Kieatv链相比，这相当于从拓扑超导相到普通超导相的淬火，动力学Chern 数 <span class="math inline">\(\left|C_{d y n}^{1}\right|=1,\)</span> 这正与我们看到的图(g)中 所有轨迹覆盖Bloch球一圈一致。</li>
+<li>而在在图 <span class="math inline">\(( h )-( n )\)</span> 中，系统是铁磁相 <span class="math inline">\(h^{i}=0.2\)</span> 到顺磁相 <span class="math inline">\(h^{f}=1.5\)</span> 的淬火动力学演化。<span class="math inline">\(( h )-( m )\)</span> 对应的动量与 (f) 相同。</li>
+<li>同样，与Kieatv链相比这相当于从拓扑超导相到拓扑超导相的淬火，初末态位于同一个相中， 因此动力学Chern数 <span class="math inline">\(C_{d y n}^{1}=0,\)</span> 从图（n）中也能够看出， 所有Bloch矢量的轨迹互相抵消，没有覆盖Bloch球。</li>
+</ul>
+<h4 id="动力学拓扑相变与斯格明子">(2) 动力学拓扑相变与斯格明子</h4>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201030011325383.png" srcset="/img/loading.gif" /></p>
+<p>在图中，我们给出动力学自由能密度<span class="math inline">\(f(t)\)</span>的在两个时间周期内的演化。</p>
+<ul>
+<li>从图（a）可以看出如果初末态不在同一个相中，自由能密度在 <span class="math inline">\(t_{c}=0.5 t_{0}\)</span> 出导数不连续，</li>
+<li>在图（b）中初末态在同一个相中，自由能密度是光滑的。</li>
+</ul>
+<p>定义初态Bloch矢量的期望值 <span class="math display">\[
+\begin{aligned}
+\lang\hat{ d }(k, t)\rang&amp;=\lang\phi(k, t)\left|\hat{ d }_{i}\right| \phi(k, t)\rang \\
+&amp;=\hat{ d }(k, t) \cdot \hat{ d }_{i}
+\end{aligned}
+\]</span> 因此我们可以在动量时间组成的二维空间中画出<strong>赝自旋的分布</strong></p>
+<p>如图（c） 所示</p>
+<ul>
+<li>当初末态不在同一个相时，动力学相变发生对应的临界动量 <span class="math inline">\(k_{c}\)</span> 和临界时间 <span class="math inline">\(t_{c}\)</span> 处盒的期望值达到最小值-1，它对应于图中蓝色最深的点，雁自旋的分布围绕它形成一个涡旋。</li>
+<li>如果连续的改变哈密顿量中的参数 <span class="math inline">\(h^{i}\)</span> 和 <span class="math inline">\(h^{f},\)</span> 它们的位置会发生<strong>移动</strong>，而且只要它们在移动不跨过能隙关闭点，这些涡旋就不会消失， 这正是对称性保护的动力学拓扑的体现。</li>
+<li>我们知道对于二维环面上的<strong>非线性- <span class="math inline">\(\sigma\)</span> 模型</strong>，自旋在非平庸拓扑靶流形上的分布存在<strong>孤子</strong>，即斯格明子（Skyrmion）。</li>
+</ul>
+<p>与此类似，现在我们解释动力学Chern数为由动量时间组成的这个非平庸 靶流形上的斯格明子。在图（d）中，初末态位于同一个相，可以看到此时 并不存在斯格明子。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>《低维系统中的拓扑态与其非平衡动力学》2019物理所</p>
+<p>《Dynamical quantum phase transitions: a review》2018 Markus Hey</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Entanglement/">Entanglement</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Dynamical/">Dynamical</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/23/Thesis_030_XYmodel/">
+                        <span class="hidden-mobile">一维XY自旋链模型</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "纠缠观点下的动力学量子相变&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

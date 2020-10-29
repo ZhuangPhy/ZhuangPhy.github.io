@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>Tags - JC model - JPZ</title>
+  <title>JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -42,7 +42,7 @@
 
 
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 90vh;">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -130,7 +130,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/threeboss.jpg') no-repeat center center;
+         style="background: url('/img/timg.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -156,27 +156,83 @@
     
       <div class="container nopadding-md">
         <div class="py-5" id="board"
-          >
+          style=margin-top:0>
           
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">1 posts in total.</p>
-  <hr>
-  
+
+  <div class="row mx-auto index-card">
     
-      
-      <p class="h5">2020</p>
     
-    <a href="/2020/10/17/Cold_010_JC/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Jaynes-Cummings 模型</span>
-      <span style="float: right;">10-17</span>
-    </a>
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2016/09/24/Ftmb_green_04LR/" target="_self">
+          <img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/Green004.png" srcset="/img/loading.gif" alt="线性响应函数">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2016/09/24/Ftmb_green_04LR/">线性响应函数</a>
+
+      <a href="/2016/09/24/Ftmb_green_04LR/" class="index-excerpt">
+        
+        
+          
+        
+        <div>用格林函数计算线性响应的，磁化率，热导率。</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2016-09-24
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Fields-of-Quantum-ManyBody/">Fields of Quantum ManyBody</a>
+            
+              <a href="/categories/Fields-of-Quantum-ManyBody/Green-Function/">Green Function</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/linear-response/">linear response</a>
+            
+              <a href="/tags/Green-Function/">Green Function</a>
+            
+              <a href="/tags/%E7%A3%81%E5%8C%96%E7%8E%87/">磁化率</a>
+            
+              <a href="/tags/%E7%83%AD%E5%AF%BC%E7%8E%87/">热导率</a>
+            
+              <a href="/tags/Kubo%E5%85%AC%E5%BC%8F/">Kubo公式</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </span>
+  </nav>
   
-</div>
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
@@ -269,7 +325,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Tag - JC model&nbsp;",
+        "Dialogue with Nature&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
