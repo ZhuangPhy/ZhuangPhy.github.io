@@ -1041,5 +1041,30 @@
   
   
   
+  <entry>
+    <title>exactly solvable models in condensed matter</title>
+    <link href="/2010/10/30/CMP_080_Exactly_Solvable/"/>
+    <url>/2010/10/30/CMP_080_Exactly_Solvable/</url>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h2 id="动机">动机</h2><p>应用机器学习到物理模型上的时候，往往需要我们已经知道模型的解，才能对比我们的算法是否有效。</p><p>精确可解模型的意义</p><ol type="1"><li>二维伊辛模型的精确解为热力学相变理论提供了无可质疑的佐证，从而结束了人们关于有无热力学相变的纷争；</li><li>一维Hubbard模型的精确解证明了Mott绝缘体及Hubbard能隙的存在；</li><li>海森堡自旋链的精确解直接给出了严格的spinon元激发，从而阐明了多体系统中分数元激发的物理机制。</li></ol><h2 id="文献调研">文献调研</h2><ol type="1"><li>《Exactly Solvable Models in Many-Body Theory》2016 N H Marchand G G N Angilella</li><li>《Exactly Solved Models in Statistical Mechanics》2008 Baxter</li><li>《Statistical Field Theory: An Introduction to Exactly Solved Models in Statistical Physics》 2009 Giuseppe Mussardo</li><li>《Exactly Solved Models: A Journey in Statistical Mechanics Selected Papers with Commentaries (1963–2008)》 Fa Yueh Wu</li><li>《Off-Diagonal Bethe Ansatz for Exactly Solvable Models》Wang, Y</li><li>《Beautiful Models: 70 Years of Exactly Solved Quantum Many-body Problems》2004 Bill Sutherland</li></ol><p>Kitaev的很多工作是exactly solvable的</p><ol type="1"><li><a href="https://arxiv.org/abs/cond-mat/0506438" target="_blank" rel="noopener">Anyons in an exactly solved model and beyond</a></li></ol><h2 id="精确解模型列表">精确解模型列表</h2><p>一维模型</p><ol type="1"><li>一维Hubbard模型</li><li>一维Heisenberg自旋链</li><li>一维自旋梯子模型</li><li>一维Kondo模型</li></ol><p>二维模型</p><ul><li>Ising Model</li><li>Toric Code Model</li></ul><h2 id="可积模型">可积模型</h2><p>求解可积模型的典型方法大致有三种：</p><ul><li><ol type="1"><li>Bethe于1931年提出的坐标Bethe ansatz方法；</li></ol></li><li>(2)上世纪70年代初Baxter发展的T-Q关系方法；</li><li>(3)上世纪70年代末Faddeev学派基于Yang-Baxter方程提出的代数Bethe ansatz方法。</li></ul><h2 id="参考文献">参考文献</h2><ol type="1"><li><a href="https://www.cas.cn/ky/kyjz/201309/t20130930_3943149.shtml" target="_blank" rel="noopener">物理所等在可积模型理论研究中取得进展</a></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Condensed matter Physics</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Model Map</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
   
 </search>
