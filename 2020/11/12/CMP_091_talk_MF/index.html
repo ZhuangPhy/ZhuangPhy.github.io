@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>exactly solvable models in condensed matter - JPZ</title>
+  <title>演讲笔记：铁基超导中的“马约拉纳零模” - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -153,8 +153,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-10-30 23:01">
-      October 30, 2020 pm
+    <time datetime="2020-11-12 13:01">
+      November 12, 2020 pm
     </time>
   </div>
 
@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      398 字
+      683 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      11
        分钟
     </span>
   
@@ -206,50 +206,118 @@
             
             <article class="markdown-body">
               <p>[TOC]</p>
-<h2 id="动机">动机</h2>
-<p>应用机器学习到物理模型上的时候，往往需要我们已经知道模型的解，才能对比我们的算法是否有效。</p>
-<p>精确可解模型的意义</p>
+<p>Outline</p>
 <ol type="1">
-<li>二维伊辛模型的精确解为热力学相变理论提供了无可质疑的佐证，从而结束了人们关于有无热力学相变的纷争；</li>
-<li>一维Hubbard模型的精确解证明了Mott绝缘体及Hubbard能隙的存在；</li>
-<li>海森堡自旋链的精确解直接给出了严格的spinon元激发，从而阐明了多体系统中分数元激发的物理机制。</li>
+<li>Nearly quantized Majorana conductance plateau in an iron-based superconductor</li>
+<li>铁基超导体中的马约拉纳零能模</li>
 </ol>
-<h2 id="文献调研">文献调研</h2>
+<h2 id="nearly-quantized-majorana-conductance-plateau-in-an-iron-based-superconductor">1 Nearly quantized Majorana conductance plateau in an iron-based superconductor</h2>
+<blockquote>
+<p>报告人 (Speaker)：朱诗雨 Shiyu Zhu 物理所</p>
+</blockquote>
 <ol type="1">
-<li>《Exactly Solvable Models in Many-Body Theory》2016 N H Marchand G G N Angilella</li>
-<li>《Exactly Solved Models in Statistical Mechanics》2008 Baxter</li>
-<li>《Statistical Field Theory: An Introduction to Exactly Solved Models in Statistical Physics》 2009 Giuseppe Mussardo</li>
-<li>《Exactly Solved Models: A Journey in Statistical Mechanics Selected Papers with Commentaries (1963–2008)》 Fa Yueh Wu</li>
-<li>《Off-Diagonal Bethe Ansatz for Exactly Solvable Models》Wang, Y</li>
-<li>《Beautiful Models: 70 Years of Exactly Solved Quantum Many-body Problems》2004 Bill Sutherland</li>
+<li>Background</li>
+<li>Half-integer level shift of vortex bound states</li>
+<li>Nearly quantized conductance plateau of MZMs</li>
+<li>Summary and outlook</li>
 </ol>
-<p>Kitaev的很多工作是exactly solvable的</p>
+<h3 id="background">1.1 Background</h3>
+<p><strong>Instruments:</strong> Super Low Temperature and High Magnetic UHV-MBE-STM Systems</p>
+<p><strong>New planform</strong>: <span class="math inline">\(Fe ( Te , Se )\)</span></p>
+<p>之前关于 <span class="math inline">\(Fe ( Te , Se )\)</span> 的结果</p>
 <ol type="1">
-<li><a href="https://arxiv.org/abs/cond-mat/0506438" target="_blank" rel="noopener">Anyons in an exactly solved model and beyond</a></li>
-</ol>
-<h2 id="精确解模型列表">精确解模型列表</h2>
-<p>一维模型</p>
-<ol type="1">
-<li>一维Hubbard模型</li>
-<li>一维Heisenberg自旋链</li>
-<li>一维自旋梯子模型</li>
-<li>一维Kondo模型</li>
-</ol>
-<p>二维模型</p>
+<li><p>证明在 <span class="math inline">\(Fe ( Te , Se )\)</span> 中存在拓扑表面态</p>
 <ul>
-<li>Ising Model</li>
-<li>Toric Code Model</li>
+<li>理论：Z Wang et al. Phys. Rev. B(2015)​ 和 S. C. Zhang et al Phys. Rev. Lett. (2016)</li>
+<li>ARPES实验：P. Zhang et al., Appl. Phys. Lett (2014) 和 P. Zhang ot al, science (2018)</li>
+</ul></li>
+<li><p>2018年，Zero-bias dI/dV in FeTe <span class="math inline">\(_{0.55} Se _{0.45}\)</span> show Majorana zero modes以及其他材料</p>
+<ul>
+<li>(Li,Fe)OHFeSe</li>
+<li><span class="math inline">\(2 M - WS _{2}\)</span></li>
+<li><span class="math inline">\(CaKFe _{4} As _{4}\)</span></li>
+</ul></li>
+</ol>
+<p>实验发现 Two types of vortices on Fe(Te, Se) surface</p>
+<ul>
+<li>With MZMs <span class="math inline">\(\Rightarrow\)</span> Topological vortices</li>
+<li>Without MZMs <span class="math inline">\(\Rightarrow\)</span> Ordinary vortices:</li>
 </ul>
-<h2 id="可积模型">可积模型</h2>
-<p>求解可积模型的典型方法大致有三种：</p>
+<p>只有20%的涡旋中含有零能模</p>
+<p class="note note-success">
+Why not all the vortices hold MZMs?
+</p>
+<h3 id="half-integer-level-shift-of-vortex-bound-states">1.2 Half-integer level shift of vortex bound states</h3>
+<ul>
+<li>拓扑表面态 激发出来的 磁通涡旋准粒子</li>
+<li>bulk band 激发出来的 磁通涡旋准粒子</li>
+</ul>
+<p>The vortex bound states are almost equally spaced in energy.</p>
+<p>Topological and ordinan vortices show integer and half-odd-integer quantized CBSs.</p>
+<ul>
+<li>Topological vortices <span class="math inline">\(\Rightarrow\)</span> 0: 1: 2: 3</li>
+<li>Ordinary vortices <span class="math inline">\(\Rightarrow\)</span> 0.5: 1.5: 2.5: 3.5</li>
+</ul>
+<p>half-odd-integer shift</p>
+<p>需要更多的证据</p>
+<h3 id="nearly-quantized-conductance-plateau-of-mzms">1.3 Nearly quantized conductance plateau of MZMs</h3>
+<p>背景</p>
+<ul>
+<li>Quantized ZPB conductance plateau in nanowires.</li>
+<li>Quantized conductance plateau is the hallmark for Majorana.</li>
+</ul>
+<p>那么在我们的体系中是否有quantized conductance plateau</p>
+<ul>
+<li>Majorana symmetry leads to the resonant Andreev reflection.</li>
+<li>Only MZMs hold quantized conductance plateau.</li>
+</ul>
+<p>测量方式</p>
+<ul>
+<li>沿着中心往外（不随着空间移动和劈裂的零能峰）</li>
+<li>在中心，从高到底（在零能对应的有一段区间dI/dV保持了一段不变的quantized conductance ）</li>
+<li>在中心，从高到底（其他能量对应的dI/dV一直增长 ）</li>
+</ul>
+<p>The ZPBs never split during the measurement. Zero-bias conductance curve shows a plateau value at <span class="math inline">\(0.64 G _{0}\)</span>. Other conductance curves keep increasing with <span class="math inline">\(G _{ N }\)</span>.</p>
+<p>The conductance behaviors of trivial states</p>
+<ul>
+<li>Finite-energy CBSs keep increasing and show no plateau.</li>
+<li>Conductance curves at zero field show no plateau.</li>
+</ul>
+<p class="note note-info">
+One case achieved quantized Others are not ?
+</p>
+<p>1 Instrumental broadening</p>
+<ul>
+<li><strong>Instrumental broadening</strong> varies with the modulation voltage.</li>
+<li><strong>Instrumental broadening</strong> reduces <span class="math inline">\(G_{p}\)</span> from quantized value.</li>
+</ul>
+<p>2 Quasi-particle poisoning</p>
+<ul>
+<li>Conductance plateau values vary form different vortices.</li>
+<li>Conductance plateau values correlated with FWHM of ZPBs.</li>
+<li>Quasiparticle poisoning reduces <span class="math inline">\(G_{p}\)</span> from quantized value.</li>
+</ul>
+<p>Quasi-particle poisoning 会导致峰降低，展宽变宽</p>
+<p>Reversibility and reproducibility of plateau</p>
+<ul>
+<li>Tip and sample states did not change during the measurements.</li>
+</ul>
+<h3 id="summary">Summary</h3>
 <ol type="1">
-<li>Bethe于1931年提出的坐标Bethe ansatz方法；</li>
-<li>上世纪70年代初Baxter发展的T-Q关系方法；</li>
-<li>上世纪70年代末Faddeev学派基于Yang-Baxter方程提出的代数Bethe ansatz方法</li>
+<li>Robust zero-bias peaks and conductance plateau are observed when increasing the tunnel-coupling between tip and the sample.</li>
+<li>CBSs and other trivial states show no plateau feature, which is protected by the Majorana particle-hole symmetry.</li>
+<li>Neatly quantized conductance plateaus are reversible and reproducible. Both the instrumental broadening and the quasiparticle poisoning effect reduce the plateau value from the quantized conductance.</li>
+</ol>
+<p>Outlook</p>
+<ol type="1">
+<li>Further details ...</li>
+<li>MZMs interaction...</li>
+<li>MZMs braiding...</li>
 </ol>
 <h2 id="参考文献">参考文献</h2>
-<ol type="1">
-<li><a href="https://www.cas.cn/ky/kyjz/201309/t20130930_3943149.shtml" target="_blank" rel="noopener">物理所等在可积模型理论研究中取得进展</a></li>
+<ol start="3" type="1">
+<li><a href="https://www.koushare.com/video/meetingVideo?mid=155" target="_blank" rel="noopener">“马约拉纳模型最新进展”国际研讨会</a></li>
+<li><a href="https://www.koushare.com/video/videodetail/1678" target="_blank" rel="noopener">铁基超导体中的马约拉纳零能模</a></li>
 </ol>
 
             </article>
@@ -268,7 +336,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Model-Map/">Model Map</a>
+                      <a class="hover-with-bg" href="/tags/Majoranas/">Majoranas</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Conference/">Conference</a>
                     
                   </div>
                 
@@ -281,9 +351,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/12/CMP_091_talk_MF/">
+                      <a href="/2020/11/13/CMP_090_conf_MF/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">演讲笔记：铁基超导中的“马约拉纳零模”</span>
+                        <span class="hidden-mobile">演讲笔记：Majorana零模&量子计算</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -291,8 +361,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/10/29/CMP_040_DynamicalQPT/">
-                        <span class="hidden-mobile">纠缠观点下的动力学量子相变</span>
+                      <a href="/2020/10/30/CMP_080_Exactly_Solvable/">
+                        <span class="hidden-mobile">exactly solvable models in condensed matter</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -431,7 +501,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "exactly solvable models in condensed matter&nbsp;",
+        "演讲笔记：铁基超导中的“马约拉纳零模”&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

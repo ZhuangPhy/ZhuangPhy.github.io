@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>Notes for Majoranas workshop at KITS - JPZ</title>
+  <title>演讲笔记：Majorana零模&amp;量子计算 - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      2.2k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      32
+      36
        分钟
     </span>
   
@@ -209,7 +209,8 @@
 <p>Outline</p>
 <ol type="1">
 <li>Beyond Zero Bias Peaks of Majoranas</li>
-<li></li>
+<li>Majorana零模和具有拓扑保护的量子计算</li>
+<li>Majorana 费米子调控和编织</li>
 </ol>
 <h2 id="beyond-zero-bias-peaks-of-majoranas">1 Beyond Zero Bias Peaks of Majoranas</h2>
 <blockquote>
@@ -295,9 +296,7 @@ H_{ BdG }=\left(\begin{array}{cccc}
 <p>解 Dirac cone solution 和 序参量 <span class="math display">\[
 \left.\| \Phi_{0}(r)\right\rangle \mid=e^{-\Delta r / \nu}\left(J_{0}\left(r k_{F}\right), J_{1}\left(r k_{F}\right), J_{0}\left(r k_{F}\right), J_{1}\left(r k_{F}\right)\right)
 \]</span> 画出分布可以看出</p>
-<figure>
-<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201113195653923.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20201113195653923</figcaption>
-</figure>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201113195653923.png" srcset="/img/loading.gif" /></p>
 <ol type="1">
 <li>spin <span class="math inline">\(l=0\)</span> (紫色)的分布和spin <span class="math inline">\(l=+1\)</span>(绿色) 不一样</li>
 <li>Size of wave packet: Fermi wavelength <span class="math inline">\(1 / k_{F}=4 n m\)</span></li>
@@ -372,111 +371,139 @@ b
 <p>Spin-down donut-shaped states as Majorana modes</p></li>
 <li><p>Using Majorana for quantum computing is a long way to go</p></li>
 </ul>
-<h2 id="nearly-quantized-majorana-conductance-plateau-in-an-iron-based-superconductor">2 Nearly quantized Majorana conductance plateau in an iron-based superconductor</h2>
+<h2 id="majorana零模和具有拓扑保护的量子计算">2 Majorana零模和具有拓扑保护的量子计算</h2>
 <blockquote>
-<p>报告人 (Speaker)：朱诗雨 Shiyu Zhu 物理所</p>
+<p>报告人 (Speaker)：刘东 清华大学</p>
 </blockquote>
-<ol type="1">
-<li>Background</li>
-<li>Half-integer level shift of vortex bound states</li>
-<li>Nearly quantized conductance plateau of MZMs</li>
-<li>Summary and outlook</li>
-</ol>
-<h3 id="background">2.1 Background</h3>
-<p><strong>Instruments:</strong> Super Low Temperature and High Magnetic UHV-MBE-STM Systems</p>
-<p><strong>New planform</strong>: <span class="math inline">\(Fe ( Te , Se )\)</span></p>
-<p>之前关于 <span class="math inline">\(Fe ( Te , Se )\)</span> 的结果</p>
-<ol type="1">
-<li><p>证明在 <span class="math inline">\(Fe ( Te , Se )\)</span> 中存在拓扑表面态</p>
+<blockquote>
+<p>报告摘要：Topological materials provide a protection from decoherence at the hardware level by using emergent non-Abelian anyons. The simplest non-Abelian anyon involves a defect that binds a Majorana zeroenergy mode. predicted to appear quite naturally in certain superconducting systems. I will review recent progress in the Majorana search, and the challenges in the validation of Majorana devices. Later I will introduce a simple measurement scheme to overcome the problem, and show robust, clear, and universal experimental signatures of Majorana zero modes. I will also discuss a serious type of errors in general topological quantum computation and Majorana qubit. Diabatic corrections only vanish as a power-law function with the length of time for the braid. This power-law behavior can wash out the advantages of topological quantum computation. We found that such diabatic errors can be detected and corrected by applying a sequence of parity measurements.</p>
+</blockquote>
 <ul>
-<li>理论：Z Wang et al. Phys. Rev. B(2015)​ 和 S. C. Zhang et al Phys. Rev. Lett. (2016)</li>
-<li>ARPES实验：P. Zhang et al., Appl. Phys. Lett (2014) 和 P. Zhang ot al, science (2018)</li>
-</ul></li>
-<li><p>2018年，Zero-bias dI/dV in FeTe <span class="math inline">\(_{0.55} Se _{0.45}\)</span> show Majorana zero modes以及其他材料</p>
-<ul>
-<li>(Li,Fe)OHFeSe</li>
-<li><span class="math inline">\(2 M - WS _{2}\)</span></li>
-<li><span class="math inline">\(CaKFe _{4} As _{4}\)</span></li>
-</ul></li>
-</ol>
-<p>实验发现 Two types of vortices on Fe(Te, Se) surface</p>
-<ul>
-<li>With MZMs <span class="math inline">\(\Rightarrow\)</span> Topological vortices</li>
-<li>Without MZMs <span class="math inline">\(\Rightarrow\)</span> Ordinary vortices:</li>
+<li>基本概念介绍</li>
 </ul>
-<p>只有20%的涡旋中含有零能模</p>
-<p class="note note-success">
-Why not all the vortices hold MZMs?
+<ol type="1">
+<li>拓扑量子计算</li>
+<li>Majorana零能模</li>
+</ol>
+<ul>
+<li>Majorana量子器件中的一些问题</li>
+</ul>
+<ol type="1">
+<li>Majorana零模的实验探测-进展</li>
+<li>量子器件中的问题-杂质效应</li>
+<li>量子器件的特征方程</li>
+</ol>
+<ul>
+<li>拓扑量子计算中的基本问题</li>
+</ul>
+<ol type="1">
+<li>辨子操作中的非绝热问题</li>
+<li>简化的量子纠错</li>
+</ol>
+<ul>
+<li>展望未来</li>
+</ul>
+<p class="note note-primary">
+What is next?
 </p>
-<h3 id="half-integer-level-shift-of-vortex-bound-states">2.2 Half-integer level shift of vortex bound states</h3>
+<h3 id="基本概念">1.1 基本概念</h3>
+<p>量子计算的优势：指数信息存储和量子并行加速</p>
+<p>核心：维持多个量子比将的</p>
+<ol type="1">
+<li>量子态叠加</li>
+<li>量子纠缠</li>
+</ol>
+<p>问题和挑战</p>
+<ol type="1">
+<li>量子门误差</li>
+<li>量子退相干</li>
+</ol>
+<p>解决方案</p>
+<ol type="1">
+<li>纠错：物理量子比特 构建 逻辑量子比特（问题是调控非常复杂）example Small Surface Code with 49 Qubits</li>
+<li>传统量子计算之外：拓扑量子计算</li>
+</ol>
+<p>拓扑量子计算</p>
 <ul>
-<li>拓扑表面态 激发出来的 磁通涡旋准粒子</li>
-<li>bulk band 激发出来的 磁通涡旋准粒子</li>
+<li>Kitaev, 1997 Kitaev模型</li>
+<li>非阿贝尔任意子（非局域）构建 <strong>量子比特</strong> （弱退相干）</li>
+<li>任意子的编织构建 <strong>量子逻辑门</strong> （高容错）</li>
 </ul>
-<p>The vortex bound states are almost equally spaced in energy.</p>
-<p>Topological and ordinan vortices show integer and half-odd-integer quantized CBSs.</p>
-<ul>
-<li>Topological vortices <span class="math inline">\(\Rightarrow\)</span> 0: 1: 2: 3</li>
-<li>Ordinary vortices <span class="math inline">\(\Rightarrow\)</span> 0.5: 1.5: 2.5: 3.5</li>
-</ul>
-<p>half-odd-integer shift</p>
-<p>需要更多的证据</p>
-<h3 id="nearly-quantized-conductance-plateau-of-mzms">2.3 Nearly quantized conductance plateau of MZMs</h3>
-<p>背景</p>
-<ul>
-<li>Quantized ZPB conductance plateau in nanowires.</li>
-<li>Quantized conductance plateau is the hallmark for Majorana.</li>
-</ul>
-<p>那么在我们的体系中是否有quantized conductance plateau</p>
-<ul>
-<li>Majorana symmetry leads to the resonant Andreev reflection.</li>
-<li>Only MZMs hold quantized conductance plateau.</li>
-</ul>
-<p>测量方式</p>
-<ul>
-<li>沿着中心往外（不随着空间移动和劈裂的零能峰）</li>
-<li>在中心，从高到底（在零能对应的有一段区间dI/dV保持了一段不变的quantized conductance ）</li>
-<li>在中心，从高到底（其他能量对应的dI/dV一直增长 ）</li>
-</ul>
-<p>The ZPBs never split during the measurement. Zero-bias conductance curve shows a plateau value at <span class="math inline">\(0.64 G _{0}\)</span>. Other conductance curves keep increasing with <span class="math inline">\(G _{ N }\)</span>.</p>
-<p>The conductance behaviors of trivial states</p>
-<ul>
-<li>Finite-energy CBSs keep increasing and show no plateau.</li>
-<li>Conductance curves at zero field show no plateau.</li>
-</ul>
-<p class="note note-info">
-One case achieved quantized Others are not ?
+<p class="note note-danger">
+哪里能找列Majorana零能模
 </p>
-<p>1 Instrumental broadening</p>
-<ul>
-<li><strong>Instrumental broadening</strong> varies with the modulation voltage.</li>
-<li><strong>Instrumental broadening</strong> reduces <span class="math inline">\(G_{p}\)</span> from quantized value.</li>
-</ul>
-<p>2 Quasi-particle poisoning</p>
-<ul>
-<li>Conductance plateau values vary form different vortices.</li>
-<li>Conductance plateau values correlated with FWHM of ZPBs.</li>
-<li>Quasiparticle poisoning reduces <span class="math inline">\(G_{p}\)</span> from quantized value.</li>
-</ul>
-<p>Quasi-particle poisoning 会导致峰降低，展宽变宽</p>
-<p>Reversibility and reproducibility of plateau</p>
-<ul>
-<li>Tip and sample states did not change during the measurements.</li>
-</ul>
-<h3 id="summary-1">Summary</h3>
+<p>系统需要满足的条件</p>
 <ol type="1">
-<li>Robust zero-bias peaks and conductance plateau are observed when increasing the tunnel-coupling between tip and the sample.</li>
-<li>CBSs and other trivial states show no plateau feature, which is protected by the Majorana particle-hole symmetry.</li>
-<li>Neatly quantized conductance plateaus are reversible and reproducible. Both the instrumental broadening and the quasiparticle poisoning effect reduce the plateau value from the quantized conductance.</li>
+<li>Zero energy bound state</li>
+<li>Majorana operator <span class="math inline">\(\gamma=\gamma^{+}\)</span></li>
 </ol>
-<p>Outlook</p>
+<p>Usually quasi-particles carry charge： Particle <span class="math inline">\(c^{\dagger} \neq c\)</span> hole</p>
+<p>所以我们需要一个<code>电荷中性</code>的系统——比如说超导</p>
 <ol type="1">
-<li>Further details ...</li>
-<li>MZMs interaction...</li>
-<li>MZMs braiding...</li>
+<li><span class="math inline">\(\gamma_{E \uparrow}=\int d x\left[u_{E}(x) \psi_{\uparrow}^{\dagger}(x)+v_{E}(x) \psi_{\downarrow}(x)\right]\)</span> s-wave SC quasi-particles carry different spin</li>
+<li>It is impossible to have <span class="math inline">\(\gamma_{E}^{\dagger}=\gamma_{E}\)</span></li>
+<li><span class="math inline">\(\bar{\gamma}_{E}=\int d x\left[u_{E}(x) \psi^{\dagger}(x)+v_{E}(x) \psi(x)\right]\)</span> Unconventional spinless SC 去掉自旋</li>
+<li>Arrange <span class="math inline">\(u_{E}\)</span> and <span class="math inline">\(v_{E} \Rightarrow \gamma_{E}^{\dagger}=\gamma_{E}\)</span></li>
 </ol>
+<h3 id="majorana量子器件中的一些问题">1.2 Majorana量子器件中的一些问题</h3>
+<p>Majorana 的 实验探索手段</p>
+<ol type="1">
+<li>Andreev reflection</li>
+<li>Majorana resonance <span class="math inline">\(G=G_{0}=\frac{2 e^{2}}{h}\)</span> <span class="label label-primary">Ref Law, Lee & Ng , PRL (2009)</span></li>
+<li>Resonant Level <span class="math inline">\(\frac{G}{G_{0}}=\frac{4 \Gamma_{L} \Gamma_{R}}{\left(\Gamma_{L}+\Gamma_{R}\right)^{2}}\)</span></li>
+</ol>
+<p>实验1：Mourik, et al. Science '12, zhang, et al. '16</p>
+<p>Challenges: Very small un-quantized Zero bias peaks are ubiquitous!</p>
+<ul>
+<li>Kondo resonance</li>
+<li>impurity mid-gap states</li>
+<li>other bound states,......</li>
+</ul>
+<p>实验2：Macrus group@Copenhagh...T. Deng. et al. Science 16</p>
+<p>实验3：Kouwenhoven group @ Delft: H. Zhang et al. Nature 2018</p>
+<ul>
+<li>观察到零偏峰量子化</li>
+<li>Tunnel-gate strength：来自非局域效应，很可能是MF</li>
+</ul>
+<h5 id="问题1器件成品率和假阳性信号">问题1：器件成品率和假阳性信号</h5>
+<ol type="1">
+<li>器件成品率不高 <span class="math inline">\(&lt;10 \%\)</span></li>
+<li>假阳性信号
+<ul>
+<li>电子关联效应：Luttinger liquid和超导相邻处出现零偏峰</li>
+<li>杂质效应：出现零偏峰</li>
+</ul></li>
+</ol>
+<p>Disorder in s-wave superconductor</p>
+<ul>
+<li>s-wave超导中的非磁性杂质：Anderson theorem 不会破坏能隙gap</li>
+<li>超导中散射之后进入导体Anderson theorem 失效，需要对这种散射注意</li>
+<li>Zero-energy impurity bound states appear in topological trivial phase! <span class="label label-primary">DEL, Rossi, Lutchyn, PRB ( 2018 ) and in preparation</span></li>
+</ul>
+<h5 id="问题2-特征手段复杂">问题2 特征手段复杂</h5>
+<p>新特征手段的优点</p>
+<ul>
+<li>调控简单</li>
+<li>容易排除假阳性信号</li>
+</ul>
+<p>新特征手段</p>
+<ul>
+<li>Majorana信号过滤器</li>
+<li>Majorana量子点</li>
+</ul>
+<blockquote>
+<p>参考</p>
+<ol type="1">
+<li>D.E.Liu &amp; Baranger, Phys. Rev. B (2011)</li>
+<li>D.E.Liu, Phys. Rev. Lett. (2013).</li>
+<li>D.E.Liu, Levchenko, Lutchyn, Phys. Rev.B (2015) Kim,</li>
+<li>D.E.Liu, Gaidamauskas, Paaske, Flensberg, Lutchyn, Phys. Rev. B (2016)</li>
+</ol>
+</blockquote>
 <h2 id="参考文献">参考文献</h2>
 <ol type="1">
+<li><a href="https://www.koushare.com/video/videodetail/631" target="_blank" rel="noopener">Majorana零模和具有拓扑保护的量子计算–进展和挑战</a></li>
+<li><a href="https://www.koushare.com/video/videodetail/637" target="_blank" rel="noopener">Majorana 费米子调控和编织</a></li>
 <li><a href="https://www.koushare.com/video/meetingVideo?mid=155" target="_blank" rel="noopener">“马约拉纳模型最新进展”国际研讨会</a></li>
 </ol>
 
@@ -515,8 +542,8 @@ One case achieved quantized Others are not ?
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/10/30/CMP_080_Exactly_Solvable/">
-                        <span class="hidden-mobile">exactly solvable models in condensed matter</span>
+                      <a href="/2020/11/12/CMP_091_talk_MF/">
+                        <span class="hidden-mobile">演讲笔记：铁基超导中的“马约拉纳零模”</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -655,7 +682,7 @@ One case achieved quantized Others are not ?
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Notes for Majoranas workshop at KITS&nbsp;",
+        "演讲笔记：Majorana零模&量子计算&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
