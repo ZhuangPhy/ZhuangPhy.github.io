@@ -1052,6 +1052,31 @@
   
   
   <entry>
+    <title>凝聚态物理学</title>
+    <link href="/2016/03/06/CMP_001_CMP/"/>
+    <url>/2016/03/06/CMP_001_CMP/</url>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h2 id="basic-framework-of-condensed-matter">Basic framework of Condensed Matter</h2><p>You need to understand the physical mechanism behind these phenomena at beginning rather than wild calculate Hamiltonian. Most of phenomena can be understand without detailed calculation.</p><h3 id="大基本要素">4大基本要素</h3><ol type="1"><li>disorder无序: Anderson Localization</li><li>dimension低维: Quantum Well</li><li>correlation关联: correlation</li><li>interaction<ul><li>electron-electron interaction电子-电子相互作用: Mott Insulator</li><li>electron-phonon interaction电子-声子相互作用: BCS Superconductor</li><li>electron-spin interaction电子-自旋相互作用: Giant Magnetoresistance</li></ul></li></ol><h3 id="要素组合">要素组合</h3><ul><li><p>无序+低维: Quantum Hall Effect</p></li><li><p>无序+电子-自旋相互作用: Kondo Effect</p></li><li><p>低维+电子-电子相互作用: Luttinger Liquid (1D), Quantum Dot (0D)</p></li><li><p>低维+电子-声子相互作用: Charge Density Wave (2D)</p></li><li><p>电子-电子相互作用+电子-自旋相互作用: Colossal Magnetoresistance</p></li></ul><p>更多</p><ul><li><p>无序+低维+电子-电子相互作用: Fractional Quantum Hall Effect</p></li><li><p>低维+电子-电子相互作用+电子-声子相互作用: High Tc Superconductor</p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Condensed matter Physics</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>introduction</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>独学而无友 则孤陋而寡闻</title>
     <link href="/2016/03/06/IN02_link/"/>
     <url>/2016/03/06/IN02_link/</url>
@@ -1108,7 +1133,7 @@
     <link href="/2012/09/08/IN03_like/"/>
     <url>/2012/09/08/IN03_like/</url>
     
-    <content type="html"><![CDATA[<p>[TOC]</p><p>最近有朋友让我推荐书籍，还有朋友让我推荐电影。想起来每次都想一遍，写一遍，何不整理一下。下次有人问就有地方抄了，嘿嘿嘿。</p>]]></content>
+    <content type="html"><![CDATA[<p>[TOC]</p><p>最近有朋友让我推荐书籍，还有朋友让我推荐电影。想起来每次都想一遍，写一遍，何不整理一下。下次有人问就有地方抄了，嘿嘿嘿。</p><h3 id="影视">影视</h3><p class="note note-primary">《心灵捕手》</p><blockquote><p>如果我和你谈论艺术，想必你已经记住所有艺术书上的摘要并来和我谈，比如米开朗基罗的艺术成就、政治取向等等。但是你无法告诉我站在西斯廷大教堂下面，真实地体味那种震撼的感觉吧？如果我们谈到战争，你可能会引用莎士比亚。但是你不知道什么是战争，感受当你在战场上抱着你即将死去的最好的朋友，看着他咽下最后一口气的刹那，眼中向你流露出的渴望生命的眼神。</p><p>如果我们谈到爱，你可以会给我背十四行诗。但你不会知道，当你看着你心爱的伴侣非常脆弱的时候，感受是什么。你本以为上帝在你手中放了一个安琪儿，这种爱可以超越一切，超越癌症！你不知道为了照顾身患癌症的妻子，在医院里两个月寸步不离是什么感觉。你不会知道什么是真正的“失去”，因为这只有在你爱一件东西胜过爱你自己的时候，你才能体会到。你从来不敢爱任何人，对吗？</p><p>看着你，我并没有看到一个聪明的、自信的男人；我只看到了一个狂妄的、内心恐惧的、懒惰的男孩。威尔，你很天才，没人能否定这一切，甚至没有人会了解你。但是你却因为看到一幅画，就对我的生活妄加评判。</p><p>你是个孤儿，对吧？难道我会因为读过《雾都孤儿》这本书，就会知道你的生活有多艰辛？你的感受是什么？你是谁？这可能吗？我不可能像你去读我写过的书来了解我；除非你愿意敞开你自己，愿意和我交流，不然我无法知道“你是谁”。你不愿意说，是不是？你或许已经被自己可能表露真实的自己给吓到了？……</p></blockquote><h3 id="小说">小说</h3><p class="note note-danger">《三体》</p><blockquote><p>时空无垠地延长， 维度被悄悄埋葬。 歌者在星空的边缘吟唱， 永恒的毁灭乐章。</p><p>在文明挣扎万年的地方， 三颗恒星布撒不恒定的光。 而乐土般的天堂里， 卑微的虫子企图染指神之权杖。</p><p>天真的孩子手握烛棒， 黑暗森林中的穿行， 满眼皆是骸骨与伤。 熄灭的火光蔓延着恐惧与凄凉。</p><p>童话的世界被绘进画里， 被迫远走的游子在时间之外流浪。 在无尽的星河浩渺里， 孤独迷航。</p><p>人类的墓碑， 被印拓在宇宙最低的地方。 永远尘封的文明， 陪葬着二维的太阳。</p><p>正在死去的宇宙， 归零重生的希望， 散逸的死线曲率的逃亡。 宇宙之外的宇宙人性却悄然绽放。 当时间消融了一切印记， 爱情却横跨了亿万年的离殇。</p></blockquote><h3 id="音乐">音乐</h3><h4 id="谭晶">谭晶</h4><p class="note note-warning">《九儿》</p><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=10697496&amp;bvid=BV1yx411v7yx&amp;cid=17665931&amp;page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p class="note note-warning">《赛里木湖的月光》</p><blockquote><p>美丽姑娘唱着歌，歌声飘进我毡房<br />像那清澈的泉水温柔流淌</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=10697496&amp;bvid=BV1yx411v7yx&amp;cid=17665931&amp;page=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p class="note note-success">《达尼亚》</p><blockquote><p>孤魂野鬼天涯</p><p>永远也不能到达的船</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=42586092&amp;bvid=BV1Tb411r72u&amp;cid=74715859&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><h4 id="李健">李健</h4><p class="note note-success">《沧海轻舟》</p><blockquote><p>总有先贤 化星闪闪</p><p>可我宁愿 灯火为伴</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=32710044&amp;bvid=BV1vW411S7sa&amp;cid=57245373&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p class="note note-danger">《绽放》</p><blockquote><p>每一颗水珠已绽放</p><p>在生命最美的地方</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=24972164&amp;bvid=BV1XW411F7ji&amp;cid=42179244&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p class="note note-info">《车站》</p><blockquote><p>车窗外恋人相拥 还在难舍难离 汽笛声突然响起 那姑娘满眼焦急</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=40988737&amp;bvid=BV1Qt411h7Nj&amp;cid=71997142&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><h3 id="时政">时政</h3><blockquote><p>我们这代人往往有很强的鲁迅情怀，即想通过自己的行为来改变中国，当时的我也不例外。当然，在此后的几年，随着阅读面越来越广，我的眼界和想法都发生了很大的改变。我现在最不想当的就是一个救国救民的英雄，或者是一个“国师”。我绝不会觉得社会如果不依照我的主张发展就不会“进步”。我只希望能做好一个学者，为社会学的发展，为中国社会思想的多样性做出一些贡献。</p><p>——赵鼎新</p></blockquote><blockquote><p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话，能做事的做事，能发声的发声，有一分热，发一分光，就令萤火一般，也可以在黑暗里发一点光，不必等候炬火，此后如竟没有炬火，我便是唯一的光。——鲁迅《热风，随感录四十一》</p></blockquote><blockquote><p>“如果天空是黑暗的，那就摸黑生存；如果发出声音是危险的，那就保持沉默；如果自觉无力发光的，那就蜷缩于墙角。但不要习惯了黑暗，就为黑暗辩护；不要为自己的苟且而得意；不要嘲讽那些比自己更勇敢更热情的人们。我们可以卑微如尘土，不可以扭曲如蛀虫。”</p></blockquote>]]></content>
     
     
     <categories>
