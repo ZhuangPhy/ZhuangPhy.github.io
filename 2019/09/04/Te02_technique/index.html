@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.8k 字
+      1.9k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20
+      21
        分钟
     </span>
   
@@ -309,10 +309,8 @@
 <p>方法1：<code>hexo d</code></p>
 <p>方法2：把 pulic文件夹里的所有文件上传到</p>
 <p><a href="https://cloud.tencent.com/developer/article/1632020" target="_blank" rel="noopener">Hexo博客部署到腾讯云服务器</a></p>
-<h4 id="遇到的问题解决方法">遇到的问题&amp;解决方法</h4>
-<ol type="1">
-<li>数学公式的渲染冲突</li>
-</ol>
+<h3 id="遇到的问题解决方法">遇到的问题&amp;解决方法</h3>
+<h4 id="数学公式的渲染冲突">(1)数学公式的渲染冲突</h4>
 <p>Hexo默认使用<code>hexo-renderer-marked</code>来渲染Markdown，但是这个渲染器在解析Latex语法的时候会和Markdown本身的语法符号产生冲突。网上有很多解决冲突的办法，有的需要手动修改一些js文件，有的需要手动转义。这里我推荐最便捷的方法是直接换一个渲染器Pandoc</p>
 <pre><code class="hljs sql">npm <span class="hljs-keyword">uninstall</span> hexo-renderer-marked <span class="hljs-comment">--save</span>
 npm <span class="hljs-keyword">install</span> hexo-renderer-pandoc <span class="hljs-comment">--save</span></code></pre>
@@ -323,13 +321,9 @@ npm <span class="hljs-keyword">install</span> hexo-renderer-pandoc <span class="
 <li><p><a href="https://adores.cc/posts/62947.html" target="_blank" rel="noopener">Hexo和Typora的协调</a></p></li>
 <li><p><a href="https://chaoskey.gitee.io/notes/posts/0000/" target="_blank" rel="noopener">Hugo上协调Typora</a></p></li>
 </ul>
-<ol start="2" type="1">
-<li>公式禁区</li>
-</ol>
+<h4 id="公式禁区">(2)公式禁区</h4>
 <p>在公式底下画一个横的括号简记或者说明，在这个框架下展示还不行。在Typora和一般Latex是可以的。</p>
-<ol start="3" type="1">
-<li>新功能 Tag 插件</li>
-</ol>
+<h4 id="新功能-tag-插件">(3)新功能 Tag 插件</h4>
 <p>Tag 插件让文章更加优美，一些强调性结论可以用这个功能。在 markdown 中加入如下的代码来使用便签：</p>
 <pre><code class="hljs markdown">&#123;% note success %&#125;
 文字 或者 <span class="hljs-code">`markdown`</span> 均可
@@ -348,8 +342,15 @@ npm <span class="hljs-keyword">install</span> hexo-renderer-pandoc <span class="
 </ul>
 <pre><code class="hljs markdown">&#123;% label primary @text %&#125;</code></pre>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"label label-primary"</span>&gt;</span>Label<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
-<p>我们来看一下放<span class="label label-primary">text</span>的效果</p>
-<h4 id="hexo-群友的作品">hexo 群友的作品</h4>
+<p>我们来看一下放{% label primary @text %}的效果</p>
+<h4 id="插入视频和音乐">(4)插入视频和音乐</h4>
+<p>例如：B站视频</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"position: relative; width: 100%; height: 0; padding-bottom: 75%;"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//player.bilibili.com/player.html?aid=32710044&amp;bvid=BV1vW411S7sa&amp;cid=57245373&amp;page=1&amp;high_quality=1"</span> <span class="hljs-attr">scrolling</span>=<span class="hljs-string">"no"</span> <span class="hljs-attr">border</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">frameborder</span>=<span class="hljs-string">"no"</span> <span class="hljs-attr">framespacing</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">allowfullscreen</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"position: absolute; width: 100%; height: 100%; left: 0; top: 0;"</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<ul>
+<li>自适应：自动调节不同环境下的大小</li>
+<li>清晰度调节：<code>&amp;high_quality=1</code></li>
+</ul>
+<h3 id="群友的作品">群友的作品</h3>
 <ol type="1">
 <li><p><a href="https://yuzhangnju.me/" target="_blank" rel="noopener">逃避科研</a></p></li>
 <li><p><a href="https://chatenfrein.github.io/" target="_blank" rel="noopener">理艺双修</a></p></li>
