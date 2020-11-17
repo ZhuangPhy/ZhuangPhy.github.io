@@ -433,6 +433,8 @@
       
       <tag>Topology</tag>
       
+      <tag>文小刚</tag>
+      
     </tags>
     
   </entry>
@@ -797,6 +799,33 @@
   
   
   <entry>
+    <title>数理基础书籍整理</title>
+    <link href="/2018/05/24/IN05_phybook/"/>
+    <url>/2018/05/24/IN05_phybook/</url>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><blockquote><p>以前看了很多书籍推荐来选择学习用书。这么多年过去了，是不是该回首看看这些书给我的真实感受呢？</p></blockquote><h3 id="量子力学">量子力学</h3><h3 id="拓扑">拓扑</h3><ol type="1"><li>《Topological Insulators: Fundamentals and Perspectives》 Frank Ortmann</li><li>《Topological Insulators Dirac Equation in Condensed Matters》 Shun-Qing Shen</li><li>《Berry Phases in Electronic Structure Theory Electric Polarization, Orbital Magnetization and Topological Insulators 》 David Vanderbilt</li><li>《A Short Course on Topological Insulators: Band Structure and Edge States in One and Two Dimensions》 János K. Asbóth</li><li>《Topological insulators and topological superconductors 》B. Andrei Bernevig with Taylor L. Hughes.</li><li><a href="https://topocondmat.org/" target="_blank" rel="noopener">Topology in Condensed matter</a></li></ol><h3 id="格林函数">格林函数</h3><ol type="1"><li><a href="https://github.com/jiyanjiang" target="_blank" rel="noopener">《量子统计的格林函数理论》</a> 季燕江</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Condensed matter Physics</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>introduction</tag>
+      
+      <tag>Book</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>BdG equations in tight-binding Model</title>
     <link href="/2018/04/10/CMP_070_BdG/"/>
     <url>/2018/04/10/CMP_070_BdG/</url>
@@ -901,6 +930,37 @@
   
   
   <entry>
+    <title>拓扑物态中的对称性</title>
+    <link href="/2017/10/02/topology021_symmetry/"/>
+    <url>/2017/10/02/topology021_symmetry/</url>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h2 id="对称算符">对称算符</h2><p>我们考虑三种对称性</p><ol type="1"><li>时间反演对称性 the time-reversal symmetry <span class="math inline">\(( T ),\)</span></li><li>粒子-空穴对称性 particle-hole symmetry <span class="math inline">\(( P ),\)</span></li><li>手征对称性 chiral symmetry <span class="math inline">\(( C )\)</span></li></ol><p>一个系统有某种对称性，数学点的说法就是：系统的<span class="math inline">\(BdG\)</span> （Bogoliubov-de Gennes）哈密顿量 <span class="math inline">\(H(k)\)</span> 在对称算符作用下符合以下条件： <span class="math display">\[\begin{array}{l} T H( k ) T ^{\dagger}=H^{*}(- k ) \\P H( k ) P ^{\dagger}=-H^{T}(- k ) \\C H( k ) C ^{\dagger}=-H( k )\end{array}\]</span> 三种对称性算符的具体形式可以用泡利矩阵写出 <span class="math display">\[\begin{array}{l} T =\sigma_{0} \otimes i \sigma_{y}, \quad T ^{2}=-1 \\P =\sigma_{x} \otimes \sigma_{0}, \quad P ^{2}=1 \\C = P T ^{\dagger}=\left(\sigma_{x} \otimes \sigma_{0}\right)\left(\sigma_{0} \otimes-i \sigma_{y}\right)\end{array}\]</span></p><h2 id="手征对称性-chiral-symmetry">手征对称性 Chiral Symmetry</h2><p>手征对称性 (chiral symmetry) ，也可以称为子晶格对称性 (sublattice symmetry) 。</p><p>假设 <span class="math inline">\(|\psi\rangle\)</span> 为具有手征对称性的哈密顿量的波函数, 对应本征值为 <span class="math inline">\(E,\)</span> 即 <span class="math display">\[\hat{H}|\psi\rangle=E|\psi\rangle\]</span> 那么 <span class="math inline">\(\hat{\Gamma}|\psi\rangle\)</span> 也是该哈密顿量的波函数, 且对应的本征值为 <span class="math inline">\(-E,\)</span> 这是因为 <span class="math display">\[\begin{aligned}\hat{H} \hat{C}|\psi\rangle&amp;=-\hat{C} \hat{H}|\psi\rangle\\&amp;=-\hat{C} E|\psi\rangle\\&amp;=-E \hat{C}|\psi\rangle\end{aligned}\]</span> 其中</p><ul><li>第一步推导用到了 <span class="math inline">\(C H(k) C^{\dagger}=-H(k)\)</span> 手征对称性的定义。</li><li>第一步推导就是求本征值</li></ul><p class="note note-primary">推论：具有于征对称性的体系, 能带是上下对称的。</p><h4 id="例子">例子</h4><p>两能带体系的一般哈密顿量 <span class="math display">\[\begin{aligned}\hat{H}(k)&amp;=d_{0} \sigma_{0}+ d \hat{\sigma}\\&amp;=d_{0} \sigma_{0}+d_{x} \sigma_{x}+d_{y} \sigma_{y}+d_{z} \sigma_{z}\end{aligned}\]</span> 在两能带体系中，手征对称算符可以写为 <span class="math inline">\(\hat{C}=\sigma_{z_{0}}\)</span> 如果哈密顿量满足手征对称性, 有 <span class="math display">\[\sigma_{z} \hat{H} \sigma_{z}=-\hat{H}\]</span> 推导可知, <span class="math inline">\(\sigma_{z}\)</span> 的作用结果是：非对角线的两个元素加上一个负号。所以对角线的元素要符合 <span class="math inline">\(\sigma_{z} \hat{H} \sigma_{z}=-\hat{H}\)</span> 的话就必须等于零 <span class="math display">\[d_{0}=0, \quad d_{z}=0\]</span> 因此 <span class="math inline">\(,\)</span> 具有手征对称性的两带体系哈密顿量写为： <span class="math display">\[\hat{H}(k)=d_{x} \sigma_{x}+d_{y} \sigma_{y}\]</span> 写成矩阵形式： <span class="math display">\[\hat{H}(k)=\left(\begin{array}{cc}0 &amp; h(k) \\h^{*}(k) &amp; 0\end{array}\right), \quad h(k)=d_{x}-i d_{y}\]</span></p><h2 id="粒子-空穴对称性-particle-hole-symmetry">粒子-空穴对称性 Particle-Hole Symmetry</h2><p>粒子-空穴对称性一般出现在超导中。模型的 BdG 哈密顿量为 <span class="math display">\[\hat{H}_{B d G}=\left(\begin{array}{cc}H &amp; \Delta \\-\Delta^{*} &amp; -H^{*}\end{array}\right)\]</span> 该哈密顿量完全满足粒子-空穴对称性。 <span class="math display">\[P H(k) P^{\dagger}=-H^{T}(-k)\]</span> 粒子-空穴对称性算符 <span class="math inline">\(\hat{P}=\sigma_{x} K\)</span>。其中 <span class="math inline">\(\sigma_{x}\)</span> 的作用使得：矩阵对角线的两个元素互换, 非对角线的两个元素互换。此外, 再考虑上取复数算符 <span class="math inline">\(K\)</span> 的作 用。</p><p>假设 <span class="math inline">\(|\psi\rangle\)</span> 为具有粒子-空穴对称性的哈密顿量的波函数，对应本征值为 <span class="math inline">\(E,\)</span> 即 <span class="math display">\[\hat{H}|\psi\rangle=E|\psi\rangle\]</span> 那么 <span class="math inline">\(\hat{P}|\psi\rangle\)</span> 也是该哈密顿量的波函数, 且对应的本征值为 <span class="math inline">\(-E,\)</span> 这是因为 <span class="math display">\[\begin{aligned}\hat{H} \hat{P}|\psi\rangle&amp;=-\hat{P} \hat{H}|\psi\rangle\\&amp;=-\hat{P} E|\psi\rangle\\&amp;=-E \hat{P}|\psi\rangle\end{aligned}\]</span></p><p class="note note-danger">和手征对称性类似，满足粒子-空穴对称性的体系也有上下对称的能带。</p><h2 id="参考文献">参考文献</h2><ol type="1"><li>《Topological insulators and topological superconductors 》B. Andrei Bernevig with Taylor L. Hughes.</li><li><a href="http://www.guanjihuan.com/" target="_blank" rel="noopener">Ji-Huan Guan</a></li></ol><h2 id="附录">附录</h2><p>最早在量子力学课程中就提到不同算符在对称算符下的变化</p><ol type="1"><li>时间反演（Time reversal) : <span class="math display">\[\begin{aligned}\hat{x}^{\prime} &amp;=\hat{T} \hat{x} \hat{T}^{-1}=\hat{x} \\\hat{p}^{\prime} &amp;=\hat{T} \hat{p} \hat{T}^{-1}=-\hat{p} \\\hat{L}^{\prime} &amp;=\hat{T} \hat{L} \hat{T}^{-1}=-\hat{L}\end{aligned}\]</span></li><li>空间反演 (Spatial inversion) :</li></ol><p><span class="math display">\[\begin{array}{l}\hat{x}^{\prime}=\hat{P} \hat{x} \hat{P}^{-1}=-\hat{x} \\\hat{p}^{\prime}=\hat{P} \hat{p} \hat{P}^{-1}=-\hat{p} \\\hat{L}^{\prime}=\hat{P} \hat{L} \hat{P}^{-1}=\hat{L}\end{array}\]</span></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Topological Physics</category>
+      
+      <category>拓扑物态的基础概念</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>对称性</tag>
+      
+      <tag>Topology</tag>
+      
+      <tag>Numerical</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Topology in Condensed matter Physics</title>
     <link href="/2017/09/29/topology01_Introduction/"/>
     <url>/2017/09/29/topology01_Introduction/</url>
@@ -912,12 +972,14 @@
       
       <category>Topological Physics</category>
       
+      <category>拓扑物态的基础概念</category>
+      
     </categories>
     
     
     <tags>
       
-      <tag>Introduction</tag>
+      <tag>introduction</tag>
       
       <tag>Topology</tag>
       
@@ -963,7 +1025,7 @@
     <link href="/2017/09/24/Theise00_write_00/"/>
     <url>/2017/09/24/Theise00_write_00/</url>
     
-    <content type="html"><![CDATA[<p>[TOC]</p><ol type="1"><li>记录一些论文写作技巧</li><li>摘抄一些论文写作的句子</li></ol>]]></content>
+    <content type="html"><![CDATA[<p>[TOC]</p><ol type="1"><li>记录一些论文写作技巧</li><li>摘抄一些论文写作的句子</li></ol><h2 id="工具">工具</h2><ol type="1"><li>Grammarly</li></ol><h2 id="参考">参考</h2><ol type="1"><li><a href="https://www.koushare.com/video/videodetail/5712" target="_blank" rel="noopener">科技论文写作与投稿审稿经验分享(中文版)</a> <a href="https://www.koushare.com/video/videodetail/5710" target="_blank" rel="noopener">英文版</a></li></ol>]]></content>
     
     
     <categories>
@@ -997,12 +1059,12 @@
       
       <category>Topological Physics</category>
       
+      <category>拓扑物态的基础概念</category>
+      
     </categories>
     
     
     <tags>
-      
-      <tag>Introduction</tag>
       
       <tag>Topology</tag>
       
@@ -1160,7 +1222,7 @@
     <link href="/2012/09/08/IN03_like/"/>
     <url>/2012/09/08/IN03_like/</url>
     
-    <content type="html"><![CDATA[<p>[TOC]</p><p>最近有朋友让我推荐书籍，还有朋友让我推荐电影。想起来每次都想一遍，写一遍，何不整理一下。下次有人问就有地方抄了，嘿嘿嘿。</p><h3 id="影视">影视</h3><p class="note note-primary">《心灵捕手》</p><blockquote><p>如果我和你谈论艺术，想必你已经记住所有艺术书上的摘要并来和我谈，比如米开朗基罗的艺术成就、政治取向等等。但是你无法告诉我站在西斯廷大教堂下面，真实地体味那种震撼的感觉吧？如果我们谈到战争，你可能会引用莎士比亚。但是你不知道什么是战争，感受当你在战场上抱着你即将死去的最好的朋友，看着他咽下最后一口气的刹那，眼中向你流露出的渴望生命的眼神。</p><p>如果我们谈到爱，你可以会给我背十四行诗。但你不会知道，当你看着你心爱的伴侣非常脆弱的时候，感受是什么。你本以为上帝在你手中放了一个安琪儿，这种爱可以超越一切，超越癌症！你不知道为了照顾身患癌症的妻子，在医院里两个月寸步不离是什么感觉。你不会知道什么是真正的“失去”，因为这只有在你爱一件东西胜过爱你自己的时候，你才能体会到。你从来不敢爱任何人，对吗？</p><p>看着你，我并没有看到一个聪明的、自信的男人；我只看到了一个狂妄的、内心恐惧的、懒惰的男孩。威尔，你很天才，没人能否定这一切，甚至没有人会了解你。但是你却因为看到一幅画，就对我的生活妄加评判。</p><p>你是个孤儿，对吧？难道我会因为读过《雾都孤儿》这本书，就会知道你的生活有多艰辛？你的感受是什么？你是谁？这可能吗？我不可能像你去读我写过的书来了解我；除非你愿意敞开你自己，愿意和我交流，不然我无法知道“你是谁”。你不愿意说，是不是？你或许已经被自己可能表露真实的自己给吓到了？……</p></blockquote><h3 id="音乐">音乐</h3><h4 id="谭晶">谭晶</h4><p>“我们一直向往追求一种 自由 的状态，因为我们总觉得有很多限制；比如你觉得谭晶吸引人，因为某种程度上我们会觉得她处在某种自由的状态，拥有高超的能力。虽然这种追求向往也许不会有尽头。”</p><p class="note note-warning">《九儿》</p><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=10697496&amp;bvid=BV1yx411v7yx&amp;cid=17665931&amp;page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p></br></p><p class="note note-warning">《赛里木湖的月光》</p><blockquote><p>美丽姑娘唱着歌，歌声飘进我毡房<br />像那清澈的泉水温柔流淌</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=10697496&amp;bvid=BV1yx411v7yx&amp;cid=17665931&amp;page=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p></br></p><p class="note note-success">《达尼亚》</p><blockquote><p>孤魂野鬼天涯</p><p>永远也不能到达的船</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=42586092&amp;bvid=BV1Tb411r72u&amp;cid=74715859&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p></br></p><h4 id="李健">李健</h4><p>李健的很多歌对我来说是“安魂曲”。</p><p></br></p><p class="note note-success">《沧海轻舟》</p><blockquote><p>总有先贤 化星闪闪</p><p>可我宁愿 灯火为伴</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=32710044&amp;bvid=BV1vW411S7sa&amp;cid=57245373&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p></br></p><p class="note note-danger">《绽放》</p><blockquote><p>每一颗水珠已绽放</p><p>在生命最美的地方</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=24972164&amp;bvid=BV1XW411F7ji&amp;cid=42179244&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p></br></p><p class="note note-info">《车站》</p><blockquote><p>车窗外恋人相拥 还在难舍难离 汽笛声突然响起 那姑娘满眼焦急</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=40988737&amp;bvid=BV1Qt411h7Nj&amp;cid=71997142&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p></br></p><h3 id="有趣的语言">有趣的语言</h3><p>B站的up主<code>李好帅</code>写了一篇仿《百年孤独》的文章，梗很多，非常有趣。原文在视频里 <a href="https://www.bilibili.com/video/BV13E411v7kP" target="_blank" rel="noopener">用B站的方式打开《百年孤独》</a></p><blockquote><p>多年以后，面对百万粉丝李好帅，将会回想起第一次在B站上传视频的那个遥远的下午。那时头套里胶水的刺鼻气味还未散去，站在户外拍摄，路人侧目，宛如智障。节目新生伊始，人们还不知如何形容他，支支吾吾说是一个大方头，在说书。节目诞生后的第一条弹幕由五个字组成，包含一条语法错误。这条弹幕在键盘上被敲击出来后，先在屏幕滚动了一遍，然后从屏幕的最左边绕到了屏幕后方，顺着桌子滑到了墙角，等有人开门时跟着窜了出去，来到街道上躲开了车水马龙，沿着路边的道鸭子向李好帅所在的城市方向划去。一位语文老师在路上看到了这条弹幕，侧身驻足，皱了皱眉，又继续向前走。这条弹幕顺着河流一直飘，又翻过了几座高山，上了高速公路。贴在了一辆车的轮胎上，跟着轮胎转了一百四十二万五千六百多圈，终于出了高速，又顺着马路继续向前滚动，来到了李好帅家附近。这条弹幕好几次躲开了野猫的追逐，却被一只麻雀叼到了树上，一阵风袭来，树叶被吹落，这条弹幕就附着在一片树叶上，向李好 帅的窗户飘去。就在李好帅起身关窗的一瞬间，弹幕在树叶上一跃，从即将关闭的窗缝钻进了屋子，悄悄地爬到了显示器后面。等李好帅回身再次坐到电脑前，这条弹幕从显示器右方绕了出来，融入到了屏幕里，滚动在了视频最上方。这时李小帅看到了Simple Read 的这个节目的第一条弹幕，五个字"讲的蛮好的"。而之前那个在路边瞥到了这条弹幕的语文老师，第二天在语文课上花了二十分钟去跟同学们强调语法中“的地得”的用法。</p><p>在B站每一个节目在第一期上传的那一瞬间，都会有一串长长的代码嵌入其中，宛如一本写满了神秘文字的羊皮卷，预言了这个节目的宿命。曾经有粉丝想要破译这串代码，他使用了失传已久的量子波动速读，学习了世界上所有的编程语言。但即便如此，当他面对那一长串代码时，也未能读懂一字一句。这个名叫哔哩哔哩的世界的造物主，曾与一个名叫孤独的魔鬼立下赌约，看谁能从对方手中俘获更多的灵魂。为了帮助世人。对抗孤独，他赋予了人们一件武器“弹幕”，在一串串弹幕中，孤独感被慢慢消解。这位造物主会向那些在对抗孤独中表现出色的up主颁发奖章。当拯救了十万孤独灵魂时，那个奖章是银色的；当拯救的孤独灵魂达到一百万时，那个奖章银色的表面会退去，金黄的底色将呈现出来。然而在这个世界中，孤独的生长从不停歇。每一次人们欢快地打出哈哈哈和233后，孤独感会枯萎殆尽，可夜深人静时又悄然滋长起来。就这样周而复始，如命运轮回般永不停歇的拉锯。</p><p>而李好帅对待孤独的方式有些不同，他从不抗拒孤独，而是把每次袭来的孤独感都一口口吃下去。吃的时候还会拿起一本书一起咀嚼，时间长了，孤独感多了，吃的书也就多了，肚子慢慢大了起来，这也使他鼓鼓的肚腩成为了粉丝们最为津津乐道的标志。他把孤独感和书籍吃进去，又把这份孤独随着书籍说了出来，录制成了节目讲给大家听。就这样一直循环往复，粉丝也渐渐多了起来。</p><p>这期间始终有人尝试破译嵌在 Simple Read 的这个节目中的那一长串代码，但所有人都无功而返，没有人能读出这串代码所揭示的这个节目的宿命和预言。直到节目的第一百万粉丝点击了关注，他开始对这一串代码产生了兴趣，便钻研了起来。他像着了魔一般废寝忘食，每天几乎不睡觉，不停的盯着这段代码苦思冥想。随着没日没夜的研究，他的头发渐渐变得稀疏。身边的朋友都以为他去当程序员了，不时还会向他投去怜悯的目光。但他依旧一言不发，潜心钻研着这段代码。他发现随着他头发的减少，代码逐渐变得清晰了起来。头发掉得越多，代码呈现出来的文字也就越清楚。原来封印这段代码的是来自古老程序员的诅咒。破解这段代码并不在于复杂的计算机语言，而是需要用破解者自己的发量去献祭。直到一天，这位粉丝仅剩了两三根头发，他又坐在了代码前，继续着他的破译。当年把 Simple Read 的第一条弹幕吹进好帅家里的那一阵风又吹了回来，俘获这位粉丝的头顶，最后那几根头发被吹落飘下。可是他并没有理会，因为他眼前的代码终于全部清晰了起来，仿佛一本尘封已久、写满了预言的羊皮卷呈现在他面前。这里预言了 Simple Read 这个节目从诞生到消亡的全部过程。代码的第一句这样写着：</p><p>节目的第一位粉丝语文不及格，最后一位粉丝头发掉光了。他摸了摸自己的头，感觉有点凉，又继续向后读，读到了每一期节目的文案，读到了人们的讨论和转发。他读得如此入神，没有发觉屏幕里 Simple Read 的节目的弹幕和评论开始一条条消失。点赞、投币、收藏和转发图标下的那些数字如电影回放一般快速减少，视频变得越来越模糊，声音变得越来越微弱。他继续向后读，可是看着看着，快到最后他停下了，他发现代码上早已清楚地预言了他此时此刻正在经历的一切。预言了最后一位粉丝正在读这段代码的最后几段，他快速跳过几行，想知道 Simple Read 的这个节目后来怎么样了。但没等到最后，他便已经明白自己不会再看到这个节目，也永远不会再记得这个节目。因为当预言了这个节目命运的代码被最后一位粉丝成功破译时。这段代码和这个节目也将从互联网上抹去，从世人记忆中根除。节目中所说的一切，自永远至永远不会再重复，因为注定汇聚了百万粉丝孤独的节目不会有第二次机会出现在互联网上。</p></blockquote><p></br></p><p class="note note-primary">王小波</p><blockquote><p>在我小的时候，常有一种冰凉的恐怖使我从睡梦中惊醒，我久久地凝视着黑夜。我不明白我为什么会死。到我死时，一切感觉都会停止，我会消失在一片混沌之中。我害怕毫无感觉，宁愿有一种感觉长久存在。哪怕它是疼。</p><p>长大了一点的时候，我开始苦苦思索。我知道宇宙和永恒是无限的，而我自己和一切人一样都是有限的。我非常非常不喜欢这个对比，老想把它否定掉。于是我开始思考是否有一种比人和人类更伟大的意义。想明白了从人的角度看来这种意义是不存在的以后，我面前就出现了一片寂寞的大海。人们所做的一切不过是些死前的游戏……</p><p>在冥想之中长大了以后，我开始喜欢诗。我读过很多诗，其中有一些是真正的好诗。好诗描述过的事情各不相同，韵律也变化无常，但是都有一点相同的东西。它有一种水晶般的光辉，好象是来自星星……真希望能永远读下去，打破这个寂寞的大海。我希望自己能写这样的诗。我希望自己也是一颗星星。如果我会发光，就不必害怕黑暗。如果我自己是那么美好，那么一切恐惧就可以烟消云散。于是我开始存下了一点希望——如果我能做到，那么我就战胜了寂寞的命运。</p><p>但是我好久好久没有动笔写，我不敢拿那么重大的希望去冒险。如果我写出来糟不可言，那么一切都完了。</p><p>我十七岁到南方去插队。旱季里，那儿的天空是蓝湛湛的，站在小竹楼里往四下看，四处的竹林翠绿而又苗条。天上的云彩又洁白又丰腴，缓缓地浮过。我觉得应该试一试。</p><p>开始时候象初恋一样神秘，我想避开别人来试试自己。午夜时分，我从床上溜下来，听着别人的鼻息，悄悄地走到窗前去，在皎洁的月光下坐着想。似乎有一些感受、一些模糊不清的字句，不知写下来是什么样的。在月光下，我用自来水笔在一面镜子上写。写出的字句幼稚得可怕。我涂了又写，写了又涂，直到把镜子涂成暗蓝色，把手指和手掌全涂成蓝色才罢手。回到床上，我哭了。这好象是一个更可怕的噩梦。</p><p>——《爱你就像爱生命》</p></blockquote><p></br></p><h3 id="社论">社论</h3><blockquote><p>我们这代人往往有很强的鲁迅情怀，即想通过自己的行为来改变中国，当时的我也不例外。当然，在此后的几年，随着阅读面越来越广，我的眼界和想法都发生了很大的改变。我现在最不想当的就是一个救国救民的英雄，或者是一个“国师”。我绝不会觉得社会如果不依照我的主张发展就不会“进步”。我只希望能做好一个学者，为社会学的发展，为中国社会思想的多样性做出一些贡献。</p><p>——赵鼎新</p></blockquote><p></br></p><p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201117204317140.png" srcset="/img/loading.gif" style="zoom:50%;" /></p><blockquote><p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话，能做事的做事，能发声的发声，有一分热，发一分光，就令萤火一般，也可以在黑暗里发一点光，不必等候炬火，此后如竟没有炬火，我便是唯一的光。</p><p>——鲁迅《热风，随感录四十一》</p></blockquote><p></br></p><blockquote><p>“如果天空是黑暗的，那就摸黑生存；如果发出声音是危险的，那就保持沉默；如果自觉无力发光的，那就蜷缩于墙角。但不要习惯了黑暗，就为黑暗辩护；不要为自己的苟且而得意；不要嘲讽那些比自己更勇敢更热情的人们。我们可以卑微如尘土，不可以扭曲如蛀虫。”</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>[TOC]</p><p>最近有朋友让我推荐书籍，还有朋友让我推荐电影。想起来每次都想一遍，写一遍，何不整理一下。下次有人问就有地方抄了，嘿嘿嘿。</p><h3 id="影视">影视</h3><p class="note note-primary">《心灵捕手》</p><blockquote><p>如果我和你谈论艺术，想必你已经记住所有艺术书上的摘要并来和我谈，比如米开朗基罗的艺术成就、政治取向等等。但是你无法告诉我站在西斯廷大教堂下面，真实地体味那种震撼的感觉吧？如果我们谈到战争，你可能会引用莎士比亚。但是你不知道什么是战争，感受当你在战场上抱着你即将死去的最好的朋友，看着他咽下最后一口气的刹那，眼中向你流露出的渴望生命的眼神。</p><p>如果我们谈到爱，你可能会给我背十四行诗。但你不会知道，当你看着你心爱的伴侣非常脆弱的时候，感受是什么。你本以为上帝在你手中放了一个安琪儿，这种爱可以超越一切，超越癌症！你不知道为了照顾身患癌症的妻子，在医院里两个月寸步不离是什么感觉。你不会知道什么是真正的“失去”，因为这只有在你爱一件东西胜过爱你自己的时候，你才能体会到。你从来不敢爱任何人，对吗？</p><p>看着你，我并没有看到一个聪明的、自信的男人；我只看到了一个狂妄的、内心恐惧的、懒惰的男孩。威尔，你很天才，没人能否定这一切，甚至没有人会了解你。但是你却因为看到一幅画，就对我的生活妄加评判。</p><p>你是个孤儿，对吧？难道我会因为读过《雾都孤儿》这本书，就会知道你的生活有多艰辛？你的感受是什么？你是谁？这可能吗？我不可能像你去读我写过的书来了解我；除非你愿意敞开你自己，愿意和我交流，不然我无法知道“你是谁”。你不愿意说，是不是？你或许已经被自己可能表露真实的自己给吓到了？……</p></blockquote><h3 id="音乐">音乐</h3><h4 id="谭晶">谭晶</h4><p>“我们一直向往追求一种 自由 的状态，因为我们总觉得有很多限制；比如你觉得谭晶吸引人，因为某种程度上我们会觉得她处在某种自由的状态，拥有高超的能力。虽然这种追求向往也许不会有尽头。”</p><p class="note note-warning">《九儿》</p><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=10697496&amp;bvid=BV1yx411v7yx&amp;cid=17665931&amp;page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p></br></p><p class="note note-warning">《赛里木湖的月光》</p><blockquote><p>美丽姑娘唱着歌，歌声飘进我毡房<br />像那清澈的泉水温柔流淌</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=10697496&amp;bvid=BV1yx411v7yx&amp;cid=17665931&amp;page=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p></br></p><p class="note note-success">《达尼亚》</p><blockquote><p>孤魂野鬼天涯</p><p>永远也不能到达的船</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=42586092&amp;bvid=BV1Tb411r72u&amp;cid=74715859&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p></br></p><h4 id="李健">李健</h4><p>李健的很多歌对我来说是“安魂曲”。</p><p></br></p><p class="note note-success">《沧海轻舟》</p><blockquote><p>总有先贤 化星闪闪</p><p>可我宁愿 灯火为伴</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=32710044&amp;bvid=BV1vW411S7sa&amp;cid=57245373&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p></br></p><p class="note note-danger">《绽放》</p><blockquote><p>每一颗水珠已绽放</p><p>在生命最美的地方</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=24972164&amp;bvid=BV1XW411F7ji&amp;cid=42179244&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p></br></p><p class="note note-info">《车站》</p><blockquote><p>车窗外恋人相拥 还在难舍难离 汽笛声突然响起 那姑娘满眼焦急</p></blockquote><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe src="//player.bilibili.com/player.html?aid=40988737&amp;bvid=BV1Qt411h7Nj&amp;cid=71997142&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe></div><p></br></p><h3 id="有趣的语言">有趣的语言</h3><p>B站的up主<code>李好帅</code>写了一篇仿《百年孤独》的文章，梗很多，非常有趣。原文在视频里 <a href="https://www.bilibili.com/video/BV13E411v7kP" target="_blank" rel="noopener">用B站的方式打开《百年孤独》</a></p><blockquote><p>多年以后，面对百万粉丝李好帅，将会回想起第一次在B站上传视频的那个遥远的下午。那时头套里胶水的刺鼻气味还未散去，站在户外拍摄，路人侧目，宛如智障。节目新生伊始，人们还不知如何形容他，支支吾吾说是一个大方头，在说书。节目诞生后的第一条弹幕由五个字组成，包含一条语法错误。这条弹幕在键盘上被敲击出来后，先在屏幕滚动了一遍，然后从屏幕的最左边绕到了屏幕后方，顺着桌子滑到了墙角，等有人开门时跟着窜了出去，来到街道上躲开了车水马龙，沿着路边的道鸭子向李好帅所在的城市方向划去。一位语文老师在路上看到了这条弹幕，侧身驻足，皱了皱眉，又继续向前走。这条弹幕顺着河流一直飘，又翻过了几座高山，上了高速公路。贴在了一辆车的轮胎上，跟着轮胎转了一百四十二万五千六百多圈，终于出了高速，又顺着马路继续向前滚动，来到了李好帅家附近。这条弹幕好几次躲开了野猫的追逐，却被一只麻雀叼到了树上，一阵风袭来，树叶被吹落，这条弹幕就附着在一片树叶上，向李好 帅的窗户飘去。就在李好帅起身关窗的一瞬间，弹幕在树叶上一跃，从即将关闭的窗缝钻进了屋子，悄悄地爬到了显示器后面。等李好帅回身再次坐到电脑前，这条弹幕从显示器右方绕了出来，融入到了屏幕里，滚动在了视频最上方。这时李小帅看到了Simple Read 的这个节目的第一条弹幕，五个字"讲的蛮好的"。而之前那个在路边瞥到了这条弹幕的语文老师，第二天在语文课上花了二十分钟去跟同学们强调语法中“的地得”的用法。</p><p>在B站每一个节目在第一期上传的那一瞬间，都会有一串长长的代码嵌入其中，宛如一本写满了神秘文字的羊皮卷，预言了这个节目的宿命。曾经有粉丝想要破译这串代码，他使用了失传已久的量子波动速读，学习了世界上所有的编程语言。但即便如此，当他面对那一长串代码时，也未能读懂一字一句。这个名叫哔哩哔哩的世界的造物主，曾与一个名叫孤独的魔鬼立下赌约，看谁能从对方手中俘获更多的灵魂。为了帮助世人。对抗孤独，他赋予了人们一件武器“弹幕”，在一串串弹幕中，孤独感被慢慢消解。这位造物主会向那些在对抗孤独中表现出色的up主颁发奖章。当拯救了十万孤独灵魂时，那个奖章是银色的；当拯救的孤独灵魂达到一百万时，那个奖章银色的表面会退去，金黄的底色将呈现出来。然而在这个世界中，孤独的生长从不停歇。每一次人们欢快地打出哈哈哈和233后，孤独感会枯萎殆尽，可夜深人静时又悄然滋长起来。就这样周而复始，如命运轮回般永不停歇的拉锯。</p><p>而李好帅对待孤独的方式有些不同，他从不抗拒孤独，而是把每次袭来的孤独感都一口口吃下去。吃的时候还会拿起一本书一起咀嚼，时间长了，孤独感多了，吃的书也就多了，肚子慢慢大了起来，这也使他鼓鼓的肚腩成为了粉丝们最为津津乐道的标志。他把孤独感和书籍吃进去，又把这份孤独随着书籍说了出来，录制成了节目讲给大家听。就这样一直循环往复，粉丝也渐渐多了起来。</p><p>这期间始终有人尝试破译嵌在 Simple Read 的这个节目中的那一长串代码，但所有人都无功而返，没有人能读出这串代码所揭示的这个节目的宿命和预言。直到节目的第一百万粉丝点击了关注，他开始对这一串代码产生了兴趣，便钻研了起来。他像着了魔一般废寝忘食，每天几乎不睡觉，不停的盯着这段代码苦思冥想。随着没日没夜的研究，他的头发渐渐变得稀疏。身边的朋友都以为他去当程序员了，不时还会向他投去怜悯的目光。但他依旧一言不发，潜心钻研着这段代码。他发现随着他头发的减少，代码逐渐变得清晰了起来。头发掉得越多，代码呈现出来的文字也就越清楚。原来封印这段代码的是来自古老程序员的诅咒。破解这段代码并不在于复杂的计算机语言，而是需要用破解者自己的发量去献祭。直到一天，这位粉丝仅剩了两三根头发，他又坐在了代码前，继续着他的破译。当年把 Simple Read 的第一条弹幕吹进好帅家里的那一阵风又吹了回来，俘获这位粉丝的头顶，最后那几根头发被吹落飘下。可是他并没有理会，因为他眼前的代码终于全部清晰了起来，仿佛一本尘封已久、写满了预言的羊皮卷呈现在他面前。这里预言了 Simple Read 这个节目从诞生到消亡的全部过程。代码的第一句这样写着：</p><p>节目的第一位粉丝语文不及格，最后一位粉丝头发掉光了。他摸了摸自己的头，感觉有点凉，又继续向后读，读到了每一期节目的文案，读到了人们的讨论和转发。他读得如此入神，没有发觉屏幕里 Simple Read 的节目的弹幕和评论开始一条条消失。点赞、投币、收藏和转发图标下的那些数字如电影回放一般快速减少，视频变得越来越模糊，声音变得越来越微弱。他继续向后读，可是看着看着，快到最后他停下了，他发现代码上早已清楚地预言了他此时此刻正在经历的一切。预言了最后一位粉丝正在读这段代码的最后几段，他快速跳过几行，想知道 Simple Read 的这个节目后来怎么样了。但没等到最后，他便已经明白自己不会再看到这个节目，也永远不会再记得这个节目。因为当预言了这个节目命运的代码被最后一位粉丝成功破译时。这段代码和这个节目也将从互联网上抹去，从世人记忆中根除。节目中所说的一切，自永远至永远不会再重复，因为注定汇聚了百万粉丝孤独的节目不会有第二次机会出现在互联网上。</p></blockquote><p></br></p><p class="note note-primary">王小波</p><blockquote><p>在我小的时候，常有一种冰凉的恐怖使我从睡梦中惊醒，我久久地凝视着黑夜。我不明白我为什么会死。到我死时，一切感觉都会停止，我会消失在一片混沌之中。我害怕毫无感觉，宁愿有一种感觉长久存在。哪怕它是疼。</p><p>长大了一点的时候，我开始苦苦思索。我知道宇宙和永恒是无限的，而我自己和一切人一样都是有限的。我非常非常不喜欢这个对比，老想把它否定掉。于是我开始思考是否有一种比人和人类更伟大的意义。想明白了从人的角度看来这种意义是不存在的以后，我面前就出现了一片寂寞的大海。人们所做的一切不过是些死前的游戏……</p><p>在冥想之中长大了以后，我开始喜欢诗。我读过很多诗，其中有一些是真正的好诗。好诗描述过的事情各不相同，韵律也变化无常，但是都有一点相同的东西。它有一种水晶般的光辉，好象是来自星星……真希望能永远读下去，打破这个寂寞的大海。我希望自己能写这样的诗。我希望自己也是一颗星星。如果我会发光，就不必害怕黑暗。如果我自己是那么美好，那么一切恐惧就可以烟消云散。于是我开始存下了一点希望——如果我能做到，那么我就战胜了寂寞的命运。</p><p>但是我好久好久没有动笔写，我不敢拿那么重大的希望去冒险。如果我写出来糟不可言，那么一切都完了。</p><p>我十七岁到南方去插队。旱季里，那儿的天空是蓝湛湛的，站在小竹楼里往四下看，四处的竹林翠绿而又苗条。天上的云彩又洁白又丰腴，缓缓地浮过。我觉得应该试一试。</p><p>开始时候像初恋一样神秘，我想避开别人来试试自己。午夜时分，我从床上溜下来，听着别人的鼻息，悄悄地走到窗前去，在皎洁的月光下坐着想。似乎有一些感受、一些模糊不清的字句，不知写下来是什么样的。在月光下，我用自来水笔在一面镜子上写。写出的字句幼稚得可怕。我涂了又写，写了又涂，直到把镜子涂成暗蓝色，把手指和手掌全涂成蓝色才罢手。回到床上，我哭了。这好象是一个更可怕的噩梦。</p><p>——《爱你就像爱生命》</p></blockquote><p></br></p><h3 id="社论">社论</h3><blockquote><p>我们这代人往往有很强的鲁迅情怀，即想通过自己的行为来改变中国，当时的我也不例外。当然，在此后的几年，随着阅读面越来越广，我的眼界和想法都发生了很大的改变。我现在最不想当的就是一个救国救民的英雄，或者是一个“国师”。我绝不会觉得社会如果不依照我的主张发展就不会“进步”。我只希望能做好一个学者，为社会学的发展，为中国社会思想的多样性做出一些贡献。</p><p>——赵鼎新</p></blockquote><p></br></p><p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201117204317140.png" srcset="/img/loading.gif" style="zoom:50%;" /></p><blockquote><p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者的话，能做事的做事，能发声的发声，有一分热，发一分光，就令萤火一般，也可以在黑暗里发一点光，不必等候炬火，此后如竟没有炬火，我便是唯一的光。</p><p>——鲁迅《热风，随感录四十一》</p></blockquote><p></br></p><blockquote><p>“如果天空是黑暗的，那就摸黑生存；如果发出声音是危险的，那就保持沉默；如果自觉无力发光的，那就蜷缩于墙角。但不要习惯了黑暗，就为黑暗辩护；不要为自己的苟且而得意；不要嘲讽那些比自己更勇敢更热情的人们。我们可以卑微如尘土，不可以扭曲如蛀虫。”</p></blockquote>]]></content>
     
     
     <categories>
