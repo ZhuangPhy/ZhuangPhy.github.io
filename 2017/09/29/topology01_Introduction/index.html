@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      503 字
+      3.4k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      37
        分钟
     </span>
   
@@ -205,20 +205,160 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h2 id="前言">前言</h2>
+              <p>[TOC]</p>
+<h2 id="前言">前言</h2>
 <p>朗道提出用对称性描述相变，成为物理学家描述的相变的标准理论。整数量子霍尔效应的发现，揭示了对称性不足够描述相变，因此物理学家引入了拓扑来描述相变。</p>
 <p>拓扑早先是描述几何形体在连续变化过程中不变性质的数学概念。当两个形体可以通过连续形变从一个变到另一个的时候，它们属于同一个拓扑类，可以用相同的拓扑不变量来表征。</p>
-<p><br></p>
-
-
-	<div class="row">
-    <embed src="hhttps://pdfhexo.oss-cn-beijing.aliyuncs.com/Condensed%20Matter%20Physics%20lecture%202.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-<p><br></p>
-<h2 id="参考文献">参考文献</h2>
+<h2 id="一些概念的时间序">一些概念的时间序</h2>
+<h3 id="拓扑相变的发现">拓扑相变的发现</h3>
+<blockquote>
+<p>实验上发现平台化霍尔电导，为了解释实验TKNN四位物理学家提出了TKNN数，这是和拓扑学中的陈数有关，由此拓扑概念被引入了凝聚态物理。</p>
+</blockquote>
+<ol type="1">
+<li>平台化霍尔电导的发现</li>
+</ol>
+<p>1980年，测量磁场下“二维电子气”的霍尔电导，发现电导率出现一个个整数台阶 <span class="math display">\[
+\sigma=\frac{I_{\text {channel }}}{V_{\text {Hall }}}=\nu \frac{e^{2}}{h}
+\]</span> <img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/Typical-measurement-of-the-integer-quantum-Hall-effect-The-Hall-resistivity-exhibits.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<ol start="2" type="1">
+<li>Hall 电导的理论解释</li>
+</ol>
+<p>1982年，Thouless等人利用线性响应理论，将Hall 电导写成Berry曲率在整个Brillouin区上的积分 <span class="math display">\[
+\sigma_{x y}=\frac{e^{2}}{h} \frac{1}{2 \pi} \iint d_{k x} d_{k y} F_{x y}(k)
+\]</span> 其中TKNN拓扑不变量（即第一陈数） <span class="math display">\[
+C_{1}=\frac{1}{2 \pi} \int k_{x} \int k_{y} F_{x y}( k )
+\]</span> 这个理论成功 地解释了整数量子霍尔效应中的霍尔电导平台。</p>
+<ol start="3" type="1">
+<li>TKNN理论的拓扑内涵</li>
+</ol>
+<p>1984年，Berry Phase和Berry Curvature概念的提出，让我们重新看TKNN理论中用到的计算电导的公式，立马发现其正是Berry Curvature在整个布里渊区（一个二维流形）上的积分，其值一定是 的整数倍，这个数在数学中通常称为陈数，从而我们便有了陈绝缘体的概念。</p>
+<ol start="4" type="1">
+<li>揭开更宏伟的画卷</li>
+</ol>
+<p>1997年， A. Altland 基于时间反演、手性对称性和粒子空穴对称性给出了多粒子体系的十重分类。发现量子霍尔效应体系中的整数量子霍尔电导的陈数实际上就对应了十重分类中的A类。人们自然就会提问，其他类别又可以对应什么现象呢？</p>
+<h3 id="haldane模型的量子反常hall-效应qah">Haldane模型的量子反常Hall 效应(QAH)</h3>
+<blockquote>
+<p>为了揭示平台化电导的本质，Haldane提出了量子反常Hall 效应(QAH)的Haldane模型。</p>
+<p>因为Haldane模型实验上的难度，所以后来的几年，物理学们先从理论和实验上探究了与量子自旋霍尔效应(QSH)相关的模型。并把拓扑绝缘体的概念推广到3维。</p>
+<p>有了这些工作之后，理论上提出了两种量子反常Hall 效应(QAH)的方案</p>
+<ul>
+<li>量子自旋霍尔效应(QSH)+掺磁性杂质</li>
+<li>3维拓扑绝缘体(3D-TI)+掺磁性杂质</li>
+</ul>
+<p>其中第一种方案得到实验实现。</p>
+</blockquote>
+<ol type="1">
+<li>量子化平台的本质——对称性</li>
+</ol>
+<p>1988年，Haldane意识到，实现量子化平台的本质不是强外磁场，而是时间反演对称性的破缺。外磁场确实可以破坏时间反演对称性，但除此之外还可以是材料本身的磁性造成的。他在石墨烯格子上引 入次近邻的矢量势，而通过格子的磁场仍然为0。在适当的参数调节下，可能存在Chern 数不为0 的态。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/Phase-diagram-of-the-Haldane-model-33-as-a-function-of-the-Aharonov-Bohm-flux-ph.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p>在没外加磁场的情况下实现量子Hall 效应被 称为<strong>量子反常Hall 效应</strong>（QAH）。也常称之为<strong>Chern拓扑绝缘体</strong>。</p>
+<p>由于Haldane模型中人为加入了一些磁通项，并不能与真实的材料体系对应，所以在很长一段时间里，并没有在真实的材料体系中实现内京量子反常霍尔态。</p>
+<ol start="2" type="1">
+<li>拓扑绝缘体&amp;量子自旋霍尔效</li>
+</ol>
+<p>2005年Kane和Mele提出了<span class="math inline">\(Z _{2}\)</span> 拓扑绝缘体的概念并指出了及其与量子自旋霍尔效的关联。量子化的霍尔电导/陈数来自于体系时间反演对称性的破坏。因此对于有时间反演对称性的体系，陈数总是0。但时间反演对称性的存在，可以让我们对所有的能带按照时间反演本征值进行分类。</p>
+<p>祁晓亮，张首晟等人也做出了类似的工作。在此基础上Bernevig, T. L. Hughes, and S.-C. Zhang提出可以在HgTe量子阱结构中实现量子自旋霍尔效应。</p>
+<ol start="3" type="1">
+<li>三维拓扑绝缘体</li>
+</ol>
+<p>2007年，L. Fu, C. L. Kane, and E. J. Mele考虑了量子自旋霍尔效应在三维的推广，并提出了三维拓扑绝缘体的概念。2008年，他们提出了可能实现的该三维拓扑绝缘体的材料。并很快在实验中得以验证。</p>
+<ol start="4" type="1">
+<li>量子反常霍尔效应</li>
+</ol>
+<p>2010年，张首晟，祁晓亮，戴希等人研究如何通过材料本身的磁性而非外磁场得到量子化的霍尔电导平台，即量子反常霍尔效应。他们提出在3DTI中进行磁性掺杂的方法，在2013年由薛其坤团队首次实现了量子反常霍尔效应。</p>
+<h3 id="无能隙体系">无能隙体系</h3>
+<blockquote>
+<p>3维拓扑绝缘体提出后不久，物理学家逐渐关注起 无能隙的体系。</p>
+</blockquote>
+<h3 id="文小刚教授的拓扑序">文小刚教授的“<strong>拓扑序</strong>”</h3>
+<blockquote>
+<p>文小刚教授提出的“<strong>拓扑序</strong>”和拓扑绝缘体的关系？</p>
+</blockquote>
+<ol type="1">
+<li>“<strong>拓扑序</strong>”提出的动机</li>
+</ol>
+<p>1989年的时候，很多人在做高温超导体，其中一个方向是用自旋液体来理解高温超导体。当时文小刚跟Anthony Zee（徐一鸿）和Wilczek一起研究手征自旋液体。</p>
+<p>文小刚发现有许多不同的手征自旋液体，它们可以有完全相同的对称性，这是非常奇怪的现象。因为以前大家公认，朗道对称性理论可以描写所有的物态，但有很多不同手征自旋液体，对称性完全相同，所以不能用朗道对称性破缺理论来区分它们。这就表示，这些手征自旋液体中间有新的序，是不能用对称性来抓住的。</p>
+<ol start="2" type="1">
+<li>为什么取名为“<strong>拓扑序</strong>”</li>
+</ol>
+<p>拓扑序是一种新的物质组织结构，它完全超出了朗道对称性破缺理论，是一种新的物态。因为是一种新的物质态，要起个名字，所以文小刚教授当时就把它叫作“拓扑序”。</p>
+<p>拓扑序跟超弦里的拓扑场论有些关系。拓扑就是这样跑到凝聚态里面去了。以前拓扑不是来描写物质态的，都是用来描写它的缺陷、涡旋之类的。这次是第一次用“拓扑”这个词来描写一个新的物质态。</p>
+<ol start="3" type="1">
+<li>“<strong>拓扑序</strong>”和拓扑绝缘的概念混淆</li>
+</ol>
+<p>简单的说就是：拓扑绝缘体没有拓扑序。其实拓扑绝缘体是一种对称保护物质态，而拓扑序则完全不需要对称性保护。</p>
+<p>这个误解起源于2006年，Kane和Mele发表了一篇题为“Z2拓扑序和量子自旋霍尔效应”（Z2 Topological Order and the Quantum Spin Hall Effect）的文章。这篇文章的题目造成了一些概念上的混乱。</p>
+<p>这篇文章的结论是，即使没有量子自旋霍尔效应，我们也会有非平凡的绝缘体。这一结果非常让人吃惊。这个绝缘体后来被别人叫做“拓扑绝缘体”。这是一篇很重要的文章，它开启了拓扑绝缘体这一非常活跃的领域。</p>
+<p>但文章题目里的“拓扑序”则是误导。“拓扑序”这个概念已经在1989年被清楚地定义了。根据那个定义，拓扑绝缘体没有拓扑序。</p>
+<ol start="4" type="1">
+<li>拓扑序和拓扑绝缘体物理特性的不同</li>
+</ol>
+<p>拓扑序有分数电荷和分数统计的元激发，有演生的规范场。有的拓扑序有破坏不了的零电阻导电表面。这些现象在拓扑绝缘体中都不出现。其实拓扑绝缘体到底有什么物理特性，不是一个简单的问题。很多文章（如维基百科）中讲的拓扑绝缘体的物理特性常常是不正确的。比如有人说拓扑绝缘体的特征是有导电的表面，其实平凡的绝缘体也可以有导电的表面，而拓扑绝缘体的表面有时也可以不导电。其实拓扑绝缘体真正的物理特征是知道的。只不过很多科普文章老是讲那些不是特征的特征。</p>
+<ol start="5" type="1">
+<li>拓扑序早期的“冷落”与兴起</li>
+</ol>
+<p>在最开始的十年里，几乎没有人承认拓扑序是一个有用的概念，没有人理会这方面的工作。幸好拓扑序的一个延伸工作——边界态理论——有和实验可以比较的结果，得到了大家的承认。这里值得一提的是，边界态理论用标准凝聚态物理方法做不出来，需要用共形场论才行。这正好又发挥了文小刚超弦背景的优势。</p>
+<p>2006年以后，有一类超出朗道对称性破缺理论的相—拓扑绝缘体被发现了。拓扑绝缘体和Haldane相一样也是一种对称保护拓扑相。实验很快制造出了这种材料，有很多实验是来实现拓扑绝缘体的。因为与实验有关系，所以有许多人感兴趣。</p>
+<p>拓扑序概念后来被Kitaev应用于量子计算，引入了拓扑量子计算的概念。</p>
+<ol start="6" type="1">
+<li>拓扑序的后续发展</li>
+</ol>
+<p>2006到2010年之间，文小刚教授和Levin、陈谐以及顾正澄的工作揭示了拓扑序的本质就是长程量子纠缠。长程量子纠缠是一个全新的物理现象，它可以导出一大类新的物质态。</p>
+<p>作为一个全新的物理现象，长程量子纠缠需要新的数学来描写，如张量范畴学、群上同调理论等等。为了描写物理体系中的对称性，我们把群论引入到物理学中。为了描写量子材料中的量子纠缠，这次我们又把张量范畴学、群上同调论引入到物理学中。这是数学和物理又一次在深层次上的完美结合。</p>
+<h2 id="逻辑序">逻辑序</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Berry curvature<br/><span class="math inline">\(\Omega(\vec{k})\)</span></td>
+<td>Magnetic field<br/>$ ()$</td>
+</tr>
+<tr class="even">
+<td>Berry connection<br/><span class="math inline">\(\vec{A}(\vec{k})= \langle\psi | i \frac{\partial}{\partial \vec{k}} |\psi\rangle\)</span></td>
+<td>Vector potential<br/><span class="math display">\[ \vec{A}(\vec{r}) \]</span></td>
+</tr>
+<tr class="odd">
+<td>Geometric phase<br/><span class="math display">\[ \oint d \vec{k} \cdot \vec{A}(\vec{k})=\iint d^{2} k \Omega_{z}(\vec{k}) \]</span></td>
+<td>Aharonov-Bohm phase<br/><span class="math display">\[ \oint d \vec{r} \bullet \vec{A}(\vec{r})=\iint d^{2} r B_{z}(\vec{r}) \]</span></td>
+</tr>
+<tr class="even">
+<td>Chern number<br/><span class="math display">\[   \iint d^{2} k \Omega_{z}(\vec{k})=\text { integer } \]</span></td>
+<td>Dirac monopole<br/>$ d^{2} r B_{z}()=$ integer <span class="math inline">\(h / e\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="hall家族">Hall家族</h3>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/21cacec11983a1f5db757a25138b762c_720w.jpg" srcset="/img/loading.gif" /></p>
+<ol type="1">
+<li><p>霍尔效应 Hall effect</p></li>
+<li><p>整数霍尔效应 Quantum Hall effect</p></li>
+</ol>
+<p>1980年，测量磁场下“二维电子气”的霍尔电导，发现电导率出现一个个整数台阶</p>
+<ol start="3" type="1">
+<li><p>分数量子霍尔效应 Quantum Hall effect</p></li>
+<li><p>反常霍尔效应 Anomalous Hall effect</p></li>
+<li><p>量子反常霍尔效应 Quantum Anomalous Hall effect</p></li>
+</ol>
+<p>在没外加磁场的情况下实现量子Hall 效应被 称为量子反常Hall 效应（QAH）。也常称之为Chern拓扑绝缘体。</p>
+<ol start="6" type="1">
+<li>自旋霍尔效应 Spin Hall effect</li>
+<li>量子自旋霍尔效应 Quantum Spin Hall effect</li>
+<li>反常自旋霍尔效应 Anomalous Spin Hall effect</li>
+</ol>
+<h2 id="本文参考">本文参考</h2>
+<ol type="1">
+<li><a href="http://blog.sina.com.cn/s/blog_9f045b310102x163.html" target="_blank" rel="noopener">文小刚：拓扑序概念的提出和发展</a></li>
+<li><a href="http://tech.sina.com.cn/d/i/2016-10-12/doc-ifxwrhpm3011392.shtml" target="_blank" rel="noopener">文小刚获凝聚态物理最高奖巴克利奖:首次引入"拓扑序"概念</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/61559924" target="_blank" rel="noopener">拓扑能带理论·论文导读</a></li>
+<li><a href="https://www.zhihu.com/question/23941483" target="_blank" rel="noopener">andrew shen 什么是分数量子霍尔效应</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/194237287" target="_blank" rel="noopener">The family of Hall effect (霍尔效应家族汇总)</a></li>
+</ol>
+<h2 id="文献导览">文献导览</h2>
 <h3 id="书籍">书籍</h3>
 <ol type="1">
 <li>《Topological Insulators: Fundamentals and Perspectives》 Frank Ortmann</li>
@@ -241,6 +381,7 @@
 <p><a href="https://zhuanlan.zhihu.com/p/44976512" target="_blank" rel="noopener">Lord Hart：拓扑绝缘体回顾（二）拓扑能带论</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/46893192" target="_blank" rel="noopener">Lord Hart：拓扑绝缘体回顾（三）量子自旋霍尔绝缘体</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/48140577" target="_blank" rel="noopener">Lord Hart：拓扑绝缘体回顾（四）三维拓扑绝缘体</a></p>
+<p><a href="https://www.zhihu.com/column/c_107063220" target="_blank" rel="noopener">Weyl半金属，手征反常和axion电动力学</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/138753030" target="_blank" rel="noopener">拓扑数数值计算python入门——能带陈数</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/141902420" target="_blank" rel="noopener">拓扑数数值计算python入门----多能带陈数</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/143794380" target="_blank" rel="noopener">能带理论python入门——从Bloch到Wannier</a></p>
