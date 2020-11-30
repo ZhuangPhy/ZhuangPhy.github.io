@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      2.1k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18
+      36
        分钟
     </span>
   
@@ -263,10 +263,115 @@ k_{x}^{2}+k_{z}^{2}+2 a k_{x}&lt;k_{w}^{2}
 <li><span class="math inline">\(a \equiv A D_{1} / 2 M \sqrt{M^{2}-D_{1}^{2}}\)</span></li>
 </ul>
 <p>从表面态哈密顿量可以看出，这时候给定一个费米能，表面态不再是一个线段，而是在限制条件下的一段曲线，称为费米弧。</p>
+<h2 id="陈数的计算">陈数的计算</h2>
+<p>外尔半金属的拓扑数计算</p>
+<p>现在我们计算 <span class="math inline">\(H( k )= k \cdot \sigma\)</span> 对应的陈数，</p>
+<h3 id="哈密顿量">1哈密顿量</h3>
+<p><span class="math display">\[
+\begin{aligned}
+H( k )&amp;=\pm k \cdot \sigma \\&amp;=\pm\left(k_{x} \sigma_{x}+k_{y} \sigma_{y}+k_{z} \sigma_{s}\right)
+\\&amp;=k_{x}\left(\begin{array}{ll}
+0 &amp; 1 \\
+1 &amp; 0
+\end{array}\right)+k_{y}\left(\begin{array}{cc}
+0 &amp; -i \\
+i &amp; 0
+\end{array}\right)+k_{z}\left(\begin{array}{cc}
+1 &amp; 0 \\
+0 &amp; -1
+\end{array}\right)
+\\&amp;=\left(\begin{array}{cc}
+k_{s} &amp; k_{x}-i k_{y} \\
+k_{x}+i k_{y} &amp; -k_{z}
+\end{array}\right)
+\end{aligned}
+\]</span></p>
+<h3 id="将直角坐标转到球面坐标">2将直角坐标转到球面坐标</h3>
+<span class="math inline">\(k_{x}=k \sin \theta \cos \phi,\)</span>$ k_{y}=k ,<span class="math display">\[ \quad k_{z}=k \cos \theta,$ 其中$ k=| k |, \quad$ 则
+\]</span>
+<span class="math display">\[\begin{aligned}
+H( k )&amp;=\left(\begin{array}{cc}
+k \cos \theta &amp; k \sin \theta \cos \phi-i k \sin \theta \sin \phi \\
+k \sin \theta \cos \phi+i k \sin \theta \sin \phi &amp; -k \cos \theta
+\end{array}\right)
+\\&amp;=\left(\begin{array}{cc}
+k \cos \theta &amp; k \sin \theta e^{-i \phi} \\
+k \sin \theta e^{i \phi} &amp; -k \cos \theta
+\end{array}\right)
+\end{aligned}\]</span>
+<p>$$</p>
+<h3 id="求本征态">3 求本征态</h3>
+<p>哈密顿量对应的久期方程为 <span class="math display">\[
+\left|\begin{array}{cc}
+k \cos \theta-E &amp; k \sin \theta e^{-i \phi} \\
+k \sin \theta e^{i \phi} &amp; -k \cos \theta-E
+\end{array}\right|=0
+\]</span> 解久期方程得到系统的本征值为 <span class="math display">\[
+E=\pm k
+\]</span> 我们解本征值为 <span class="math inline">\(-k\)</span> 对应的本征矢 <span class="math inline">\(\psi=\left(\begin{array}{l}a \\ b\end{array}\right),\)</span> 哈密顿量为 <span class="math display">\[
+\left(\begin{array}{cc}
+k \cos \theta &amp; k \sin \theta e^{-i \phi} \\
+k \sin \theta e^{i \phi} &amp; -k \cos \theta
+\end{array}\right)\left(\begin{array}{l}
+a \\
+b
+\end{array}\right)=-k\left(\begin{array}{l}
+a \\
+b
+\end{array}\right)
+\]</span> 可以解得本征矢为 <span class="math display">\[
+\psi=\left(\begin{array}{c}
+-\sin \frac{\theta}{2} e^{-i \phi} \\
+\cos \frac{\theta}{2}
+\end{array}\right)
+\]</span></p>
+<h3 id="贝里联络">4 贝里联络</h3>
+<p>梯度算符在球坐标中定义为 <span class="math display">\[
+\nabla_{ k }=\frac{\partial}{\partial k} e _{k}+\frac{1}{k} \frac{\partial}{\partial \theta} e _{\theta}+\frac{1}{k \sin \theta} \frac{\partial}{\partial \phi} e _{\phi}
+\]</span> 可以计算系统的贝里联络为 <span class="math display">\[
+\begin{aligned}
+A( k )&amp;=\left\langle\psi\left|i \nabla_{ k }\right| \psi\right\rangle
+\\&amp;=\left\langle\psi\left|i\left(\frac{\partial}{\partial k}, \frac{1}{k} \frac{\partial}{\partial \theta}, \frac{1}{k \sin \theta} \frac{\partial}{\partial \phi}\right)\right| \psi\right\rangle
+\\&amp;=\left(A_{k}, A_{\theta}, A_{\phi}\right)
+\\&amp;=\left(0,0, \frac{\tan \frac{\theta}{2}}{2 k}\right)
+\end{aligned}
+\]</span></p>
+<h3 id="贝里曲率">5 贝里曲率</h3>
+<p>系统的贝里曲率为 <span class="math display">\[
+\begin{aligned}
+&amp;F( k )=\nabla_{ k } \times A( k )\\
+&amp;=\frac{1}{k^{2} \sin \theta}\left(\begin{array}{ccc} 
+e _{k} &amp; q e _{\theta} &amp; k \sin \theta e _{\phi} \\
+\frac{\partial}{\partial k} &amp; \frac{\partial}{\partial \theta} &amp; \frac{\partial}{\partial \phi} \\
+A_{k} &amp; k A_{\theta} &amp; k \sin \theta A_{\phi}
+\end{array}\right)\\
+&amp;=\frac{1}{k \sin \theta}\left[\frac{\partial}{\partial \theta}\left(\sin \theta A_{\phi}\right)-\frac{\partial}{\partial \phi} A_{\theta}\right] e _{k}+\frac{1}{k}\left[\frac{1}{\sin \theta} \frac{\partial}{\partial \phi} A_{k}-\frac{\partial}{\partial k}\left(k A_{\phi}\right)\right] e _{\theta}+\frac{1}{k}\left[\frac{\partial}{\partial k}\left(k A_{\theta}\right)-\frac{\partial}{\partial \theta} A_{k}\right] e _{\phi}\\
+&amp;=\left(\frac{\frac{\tan \frac{\theta}{2}}{2 k}}{k} \cot \theta+\frac{1}{k} \frac{\partial\left(\frac{\tan \frac{\theta}{2}}{2 k}\right)}{\partial \theta}\right) e _{k}-\left(\frac{\tan \frac{\theta}{2}}{\frac{2 k}{k}}+\frac{\partial\left(\frac{\tan \frac{\theta}{2}}{2 k}\right)}{\partial k}\right) e _{\theta}
+\\&amp;=\left(\frac{\tan \frac{\theta}{2}}{2 k^{2}} \cot \theta+\frac{1}{4 k^{2}}\left(\sec ^{2} \frac{\theta}{2}\right)\right) e _{k}-\left(\frac{\tan \frac{\theta}{2}}{2 k^{2}}-\frac{\tan \frac{\theta}{2}}{2 k^{2}}\right) e _{\theta}
+\\&amp;=\frac{1}{2 k^{2}} e _{k}
+\end{aligned}
+\]</span> 小结 <span class="math display">\[
+\begin{aligned}
+F( k )&amp;=\nabla_{ k } \times A( k )
+\\&amp;=\left(F_{k}, F_{\theta}, F_{\phi}\right)\\&amp;=\left(\frac{1}{2 k^{2}}, 0,0\right)
+\end{aligned}
+\]</span></p>
+<h3 id="陈数">6 陈数</h3>
+<p>外尔点对应的陈数为 <span class="math display">\[
+\begin{aligned}
+C&amp;=\frac{1}{2 \pi} \int_{S} F d S
+\\&amp;=\frac{1}{2 \pi} k^{2} \int_{0}^{\pi} \sin \theta d \theta \int_{0}^{2 \pi} d \phi F_{k}
+\\&amp;=\frac{1}{2 \pi} k^{2} \int_{0}^{\pi} \sin \theta d \theta \int_{0}^{2 \pi} d \phi\left(\frac{1}{2 k^{2}}\right)
+\\&amp;=1
+\end{aligned}
+\]</span> 同理，可以计算外尔点 <span class="math inline">\(H( k )=- k \cdot \sigma\)</span> 对应的陈数为 <span class="math display">\[
+C=\frac{1}{2 \pi} \int_{S} F d S=-1
+\]</span></p>
 <h2 id="参考文献">参考文献</h2>
 <ol type="1">
 <li><a href="http://www.guanjihuan.com/archives/6077" target="_blank" rel="noopener">数值 Ji-Huan Guan</a></li>
 <li><a href="https://iopscience.iop.org/article/10.1088/1367-2630/18/5/053039#back-to-top-target" target="_blank" rel="noopener">Linear magnetoconductivity in an intrinsic topological Weyl semimetal</a></li>
+<li>《二维自旋轨道耦合下拓扑半金属的量子模拟》刘聪明 2014 山西大学</li>
 </ol>
 <h2 id="附录">附录</h2>
 <p>在费米能级附近能带有两个交点。</p>
@@ -425,9 +530,9 @@ k_{x}^{2}+k_{z}^{2}+2 a k_{x}&lt;k_{w}^{2}
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2019/08/19/CMP_050_ising/">
+                      <a href="/2018/11/18/topology042_Chern/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">一维Ising模型：经典与量子</span>
+                        <span class="hidden-mobile">外尔半金属（Weyl semimetal）的拓扑数计算</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
