@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>Topological Physics：a Technological Approach - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2018-11-19 13:01">
+      November 19, 2018 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      27
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h3 id="简介">简介</h3>
+<p>目标</p>
+<ul>
+<li>画出能带</li>
+<li>实空间分布</li>
+<li>纠缠熵，纠缠谱</li>
+<li>拓扑数：陈数，缠绕数，charge</li>
+</ul>
+<p>拓扑物态数值计算的一些库</p>
+<ol type="1">
+<li><a href="http://www.physics.rutgers.edu/pythtb/about.html" target="_blank" rel="noopener">Python Tight Binding</a></li>
+<li><a href="https://www.wanniertools.org/" target="_blank" rel="noopener">WannierTools(Home)</a> <a href="http://www.wanniertools.com/index.html" target="_blank" rel="noopener">documentation</a></li>
+</ol>
+<h3 id="一个二维系统的能带">一个二维系统的能带</h3>
+<p><span class="math display">\[
+h(\vec{k})=\sin k_{x} \sigma_{x}+\sin k_{y} \sigma_{y}+\left(m+\cos k_{x}+\cos k_{y}\right) \sigma_{z}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+H &amp;=\sum_{k_{x}, k_{y}}\left(c_{k_{x}, k_{y}, \uparrow}^{+} \quad c_{k_{x}, k_{y}, \downarrow}^{+}\right) h(\vec{k})\left(\begin{array}{c}
+c_{k_{x}, k_{y}, \uparrow} \\
+c_{k_{x}, k_{y}, \downarrow}
+\end{array}\right) \\
+&amp;=\sum_{k_{x}, k_{y}}\left(c_{k_{x}, k_{y}, \uparrow}^{+} \quad c_{k_{x}, k_{y}, \downarrow}^{+}\right)\left(\begin{array}{cc}
+m+\cos k_{x}+\cos k_{y} &amp; \sin k_{x}+i \sin k_{y} \\
+\sin k_{x}-i \sin k_{y} &amp; -\left(m+\cos k_{x}+\cos k_{y}\right)
+\end{array}\right)\left(\begin{array}{c}
+c_{k_{x}, k_{y}, \uparrow} \\
+c_{k_{x}, k_{y}, \downarrow}
+\end{array}\right)
+\\&amp;=\sum_{x, k_{y}}\left(\begin{array}{cc}
+c_{x, k_{y}, \uparrow}^{+} &amp; c_{x, k_{y}, \downarrow}^{+}
+\end{array}\right)\left(\begin{array}{cc}
+m+\cos k_{y} &amp; i \sin k_{y} \\
+-i \sin k_{y} &amp; -\left(m+\cos k_{y}\right)
+\end{array}\right)\left(\begin{array}{l}
+c_{x, k_{y}, \uparrow} \\
+c_{x, k_{y}, \downarrow}
+\end{array}\right)
+\\&amp;\quad +\left[\sum_{x, k_{y}}\left(c_{x, k_{y}, \uparrow}^{+} c_{x, k_{y}, \downarrow}^{+}\right)\left(\begin{array}{cc}
+\frac{1}{2} &amp; \frac{1}{2 i} \\
+\frac{1}{2 i} &amp; -\frac{1}{2}
+\end{array}\right)\left(\begin{array}{c}
+c_{x+1, k_{y}, \uparrow} \\
+c_{x+1, k_{y}, \downarrow}
+\end{array}\right)+ H.C. \right]
+\\&amp;=\left(\begin{array}{cccccc}
+M_{A} &amp; M_{B} &amp; 0 &amp; 0 &amp; 0 &amp; \cdots \\
+M_{B}^{T} &amp; M_{A} &amp; M_{B} &amp; 0 &amp; 0 &amp; \cdots \\
+0 &amp; M_{B}^{T} &amp; M_{A} &amp; M_{B} &amp; 0 &amp; \cdots \\
+0 &amp; 0 &amp; M_{B}^{T} &amp; M_{A} &amp; M_{B} &amp; \cdots \\
+0 &amp; 0 &amp; 0 &amp; M_{B}^{T} &amp; M_{A} &amp; \cdots \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots
+\end{array}\right)
+\\&amp; =\left(\begin{array}{ccc}
+M_{A}\left(x_{1}, k_{y 1}\right) &amp; M_{B}\left(x_{1}, k_{y 1}\right) &amp; 0 &amp; \cdots \\
+M_{A}\left(x_{2}, k_{y 1}\right) &amp; M_{B}\left(x_{2}, k_{y 1}\right) &amp; \cdots \\
+M_{A}\left(x_{3}, k_{y 1}\right) &amp; \cdots \\
+&amp; &amp; \ddots
+\end{array}\right) \bigoplus\left(\begin{array}{cccc}
+M_{A}\left(x_{1}, k_{y 2}\right) &amp; M_{B}\left(x_{1}, k_{y 2}\right) &amp; 0 &amp; \cdots \\
+&amp; M_{A}\left(x_{2}, k_{y 2}\right) &amp; M_{B}\left(x_{2}, k_{y 2}\right) &amp; \cdots \\
+&amp; &amp; M_{A}\left(x_{3}, k_{y 2}\right) &amp; \cdots \\
+&amp; &amp; &amp; &amp; \ddots
+\end{array}\right)
+\\&amp; \quad \bigoplus\left(\begin{array}{ccc}
+M_{A}\left(x_{1}, k_{y 3}\right) &amp; M_{B}\left(x_{1}, k_{y 3}\right) &amp; 0 &amp; \cdots \\
+M_{A}\left(x_{2}, k_{y 3}\right) &amp; M_{B}\left(x_{2}, k_{y 3}\right) &amp; \cdots \\
+&amp; M_{A}\left(x_{3}, k_{y 3}\right) &amp; \cdots \\
+&amp; &amp; \ddots
+\end{array}\right) \bigoplus\left(\begin{array}{cccc}
+M_{A}\left(x_{1}, k_{y 4}\right) &amp; M_{B}\left(x_{1}, k_{y 4}\right) &amp; 0 &amp; \cdots \\
+&amp; M_{A}\left(x_{2}, k_{y 4}\right) &amp; M_{B}\left(x_{2}, k_{y 4}\right) &amp; \cdots \\
+&amp; &amp; M_{A}\left(x_{3}, k_{y 4}\right) &amp; \cdots \\
+&amp; &amp; &amp; &amp; \ddots
+\end{array}\right)
+\\&amp;\quad \oplus \cdots
+\end{aligned}
+\]</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201201125618458.png" srcset="/img/loading.gif" /></p>
+<p>代码</p>
+<pre><code class="hljs matlab">clc
+m=<span class="hljs-number">-1.5</span>;
+Nx=<span class="hljs-number">50</span>;
+Ny=<span class="hljs-number">200</span>;
+kxarray=<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>/Nx*((-Nx/<span class="hljs-number">2</span><span class="hljs-number">-1</span>/<span class="hljs-number">2</span>):<span class="hljs-number">1</span>:(Nx/<span class="hljs-number">2</span><span class="hljs-number">-1</span>/<span class="hljs-number">2</span>));
+kyarray=<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>/Ny*((-Ny/<span class="hljs-number">2</span><span class="hljs-number">-1</span>/<span class="hljs-number">2</span>):<span class="hljs-number">1</span>:(Ny/<span class="hljs-number">2</span><span class="hljs-number">-1</span>/<span class="hljs-number">2</span>));
+MB = <span class="hljs-built_in">zeros</span>(<span class="hljs-number">2</span>*Nx);
+<span class="hljs-keyword">for</span> iky=<span class="hljs-number">1</span>:<span class="hljs-built_in">length</span>(kyarray)
+    ky=kyarray(iky);
+    A1 = m+<span class="hljs-built_in">cos</span>(ky);
+    A2 = <span class="hljs-number">1</span><span class="hljs-built_in">i</span>*<span class="hljs-built_in">sin</span>(ky);
+    A3 = <span class="hljs-number">-1</span><span class="hljs-built_in">i</span>*<span class="hljs-built_in">sin</span>(ky);
+    A4 = -(m+<span class="hljs-built_in">cos</span>(ky));
+    A = [A1,A2;A3,A4];
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span> = <span class="hljs-number">1</span>:Nx
+        MA((<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span><span class="hljs-number">-1</span>):(<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span>),(<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span><span class="hljs-number">-1</span>):(<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span>)) = A;
+    <span class="hljs-keyword">end</span>
+    
+    B1 = <span class="hljs-number">1</span>/<span class="hljs-number">2</span>;
+    B2 = <span class="hljs-number">1</span>/(<span class="hljs-number">2</span>*<span class="hljs-number">1</span><span class="hljs-built_in">i</span>);
+    B3 = <span class="hljs-number">1</span>/(<span class="hljs-number">2</span>*<span class="hljs-number">1</span><span class="hljs-built_in">i</span>);
+    B4 = <span class="hljs-number">-1</span>/<span class="hljs-number">2</span>;
+    B = [B1,B2;B3,B4];
+    
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span> = <span class="hljs-number">1</span>:Nx<span class="hljs-number">-1</span>
+        MB((<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>):(<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>),(<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span><span class="hljs-number">-1</span>):(<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span>)) = B;
+    <span class="hljs-keyword">end</span>
+    
+    H = MA+MB+MB';
+   
+    [V,D] = eig(H);
+    F(:,iky) = <span class="hljs-built_in">diag</span>(D);
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">figure</span>
+<span class="hljs-built_in">plot</span>(kyarray,F,<span class="hljs-string">'k'</span>)</code></pre>
+<p>参考</p>
+<ol type="1">
+<li><p><a href="https://zhuanlan.zhihu.com/p/137065673" target="_blank" rel="noopener">二维格点系统</a></p></li>
+<li><p>博士论文《一维的拓扑绝缘体SSH模型拓扑相和畴壁分数电荷的研究》杨昆仑，南京师范大学。</p></li>
+</ol>
+<h3 id="一维橫场xy模型的缠绕数">一维橫场XY模型的缠绕数</h3>
+<p>参考</p>
+<ol type="1">
+<li><a href="https://zhuanlan.zhihu.com/p/176981511" target="_blank" rel="noopener">一维橫场XY模型的缠绕数</a></li>
+</ol>
+<p>结果</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201201132544239.png" srcset="/img/loading.gif" /></p>
+<pre><code class="hljs matlab"><span class="hljs-comment">%一维橫场XY模型的缠绕数</span>
+
+clear
+N=<span class="hljs-number">10000</span>;
+karray=<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>/(N)*(-(N/<span class="hljs-number">2</span><span class="hljs-number">-1</span>/<span class="hljs-number">2</span>):<span class="hljs-number">1</span>:(N/<span class="hljs-number">2</span><span class="hljs-number">-1</span>/<span class="hljs-number">2</span>));
+ks=karray;
+dk=karray(<span class="hljs-number">2</span>)-karray(<span class="hljs-number">1</span>);
+
+harray=[<span class="hljs-number">0.0</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">1.0</span>];
+gammaarray=[<span class="hljs-number">0</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">1.0</span>];
+
+J=<span class="hljs-number">1</span>;
+
+<span class="hljs-comment">% 方法一（数值求和）</span>
+tic
+<span class="hljs-keyword">for</span> ig=<span class="hljs-number">1</span>:<span class="hljs-built_in">length</span>(gammaarray)
+    <span class="hljs-built_in">gamma</span>=gammaarray(ig);
+    <span class="hljs-keyword">for</span> ih=<span class="hljs-number">1</span>:<span class="hljs-built_in">length</span>(harray)
+        h=harray(ih); 
+        wn(ih,ig)=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> ik=<span class="hljs-number">1</span>:<span class="hljs-built_in">length</span>(karray)
+            k=karray(ik);
+            Bz=J*<span class="hljs-built_in">cos</span>(k)+h;dBz=-J*<span class="hljs-built_in">sin</span>(k);
+            By=J*<span class="hljs-built_in">gamma</span>*<span class="hljs-built_in">sin</span>(k);dBy=J*<span class="hljs-built_in">gamma</span>*<span class="hljs-built_in">cos</span>(k);
+            wn(ih,ig)=wn(ih,ig)+(dk*(Bz*dBy-By*dBz)/(By^<span class="hljs-number">2</span>+Bz^<span class="hljs-number">2</span>))/(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>);
+        <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+<span class="hljs-built_in">disp</span>([<span class="hljs-string">'方法一（数值求和）用时：'</span> num2str(<span class="hljs-built_in">round</span>(toc*<span class="hljs-number">10</span>)/<span class="hljs-number">10</span>) <span class="hljs-string">'s.'</span>])
+<span class="hljs-comment">% 方法一（数值求和）</span>
+clear wn By Bz dBy dBz
+tic
+<span class="hljs-keyword">for</span> ig=<span class="hljs-number">1</span>:<span class="hljs-built_in">length</span>(gammaarray)
+    <span class="hljs-built_in">gamma</span>=gammaarray(ig);
+    <span class="hljs-keyword">for</span> ih=<span class="hljs-number">1</span>:<span class="hljs-built_in">length</span>(harray)
+        h=harray(ih);
+        Bz=J*<span class="hljs-built_in">cos</span>(ks)+h;dBz=-J*<span class="hljs-built_in">sin</span>(ks);
+        By=J*<span class="hljs-built_in">gamma</span>*<span class="hljs-built_in">sin</span>(ks);dBy=J*<span class="hljs-built_in">gamma</span>*<span class="hljs-built_in">cos</span>(ks);
+        wn(ih,ig)=sum(dk*(Bz.*dBy-By.*dBz)./(By.^<span class="hljs-number">2</span>+Bz.^<span class="hljs-number">2</span>))/(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>);
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+<span class="hljs-built_in">disp</span>([<span class="hljs-string">'方法二（矩阵求和）用时：'</span> num2str(<span class="hljs-built_in">round</span>(toc*<span class="hljs-number">10</span>)/<span class="hljs-number">10</span>) <span class="hljs-string">'s.'</span>])
+<span class="hljs-comment">% 方法三 </span>
+clear wn
+tic
+<span class="hljs-keyword">for</span> ig=<span class="hljs-number">1</span>:<span class="hljs-built_in">length</span>(gammaarray)
+    delta1=gammaarray(ig);
+    <span class="hljs-keyword">for</span> ih=<span class="hljs-number">1</span>:<span class="hljs-built_in">length</span>(harray)
+        h=harray(ih);
+        
+        ising=@(x)(((J*<span class="hljs-built_in">cos</span>(x)+h).*(J*<span class="hljs-built_in">gamma</span>*<span class="hljs-built_in">cos</span>(x))-(J*<span class="hljs-built_in">gamma</span>*<span class="hljs-built_in">sin</span>(x)).*(-J*<span class="hljs-built_in">sin</span>(x)))./((J*<span class="hljs-built_in">gamma</span>*<span class="hljs-built_in">sin</span>(x)).^<span class="hljs-number">2</span>+(J*<span class="hljs-built_in">cos</span>(x)+h).^<span class="hljs-number">2</span>))/(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>);
+        wn(ih,ig)=integral(ising,-<span class="hljs-built_in">pi</span>,<span class="hljs-built_in">pi</span>);
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+<span class="hljs-built_in">disp</span>([<span class="hljs-string">'方法三（积分求和）用时：'</span> num2str(<span class="hljs-built_in">round</span>(toc*<span class="hljs-number">10</span>)/<span class="hljs-number">10</span>) <span class="hljs-string">'s.'</span>])</code></pre>
+<h3 id="态密度">态密度</h3>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/114515889" target="_blank" rel="noopener">态密度</a></p>
+<p>二维立方晶格模型的色散关系 <span class="math display">\[
+\varepsilon_{k}=-2 t\left[\cos \left(k_{x}+\cos \left(k_{y}\right)\right]\right.
+\]</span> 态密度定义为单位频率间隔内的状态数 <span class="math display">\[
+g(\varepsilon)=\lim _{\Delta \varepsilon \rightarrow 0} \frac{\Delta n}{\Delta \varepsilon}=\frac{d n}{d \varepsilon}
+\]</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201201134541718.png" srcset="/img/loading.gif" /></p>
+<p>Matlab</p>
+<pre><code class="hljs matlab"><span class="hljs-comment">% DOS 态密度</span>
+<span class="hljs-comment">% tight binding parameters</span>
+<span class="hljs-built_in">eps</span> = <span class="hljs-number">0</span>;
+t = <span class="hljs-number">1</span>;
+
+<span class="hljs-comment">% number of k values per dimension</span>
+lv = <span class="hljs-number">5000</span>;
+<span class="hljs-comment">% number of bins for the DOS</span>
+nbins = <span class="hljs-number">101</span>;
+
+<span class="hljs-comment">% vector of k values</span>
+k=<span class="hljs-built_in">linspace</span>(-<span class="hljs-built_in">pi</span>,<span class="hljs-built_in">pi</span>,lv);
+[kx,ky] = <span class="hljs-built_in">meshgrid</span>(k,k);
+
+<span class="hljs-comment">% calculate the energy</span>
+E = <span class="hljs-built_in">eps</span> - <span class="hljs-number">2</span> * t * (<span class="hljs-built_in">cos</span>(kx)+<span class="hljs-built_in">cos</span>(ky));
+
+<span class="hljs-comment">% bin the energy to get the DOS,what it is in python???</span>
+[DOS, Eval] = hist(E(:),nbins);
+
+<span class="hljs-comment">% 归一化鸭！！！</span>
+DOS = DOS/(Eval(<span class="hljs-number">2</span>)-Eval(<span class="hljs-number">1</span>))/lv.^<span class="hljs-number">2</span>;
+
+<span class="hljs-comment">% 这里把自旋也考虑进来，其实没多大影响。</span>
+<span class="hljs-comment">%DOS = DOS * 2;</span>
+
+<span class="hljs-built_in">plot</span>(Eval,DOS)</code></pre>
+<p>python</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-comment">#parameters</span>
+mu=<span class="hljs-number">0</span>
+t=<span class="hljs-number">1</span>
+kx=<span class="hljs-number">0</span>
+ky=<span class="hljs-number">0</span>
+delta=(<span class="hljs-number">2</span>*np.pi)/<span class="hljs-number">1000</span>
+res=[]
+<span class="hljs-keyword">for</span> kx <span class="hljs-keyword">in</span> np.linspace(-np.pi,np.pi,<span class="hljs-number">1001</span>):
+    <span class="hljs-keyword">for</span> ky <span class="hljs-keyword">in</span> np.linspace(-np.pi,np.pi,<span class="hljs-number">1001</span>):
+        E=mu<span class="hljs-number">-2</span>*t*(np.cos(kx)+np.cos(ky))
+        res.append(E)
+        ky=ky+delta
+        kx=kx+delta
+
+plt.title(<span class="hljs-string">'DOS of 2d TB Model'</span>)
+plt.xlabel(<span class="hljs-string">'E'</span>)
+plt.ylabel(<span class="hljs-string">'DOS'</span>)
+<span class="hljs-comment">#density=Ture for normalization</span>
+plt.hist(res,bins=<span class="hljs-number">1000</span>,density=<span class="hljs-number">1</span>)
+plt.show()</code></pre>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/">Topological Physics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/%E6%8B%93%E6%89%91%E7%89%A9%E6%80%81%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">拓扑物态的基础概念</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Link/">Link</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Code/">Code</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/08/19/CMP_050_ising/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">一维Ising模型：经典与量子</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2018/11/18/topology042_Chern/">
+                        <span class="hidden-mobile">外尔半金属（Weyl semimetal）的拓扑数计算</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Topological Physics：a Technological Approach&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
