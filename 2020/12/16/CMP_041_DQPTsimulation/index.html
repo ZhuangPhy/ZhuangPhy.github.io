@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>用超导量子比特模拟“动力学量子相变” - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201215012613413.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-12-16 08:23">
+      December 16, 2020 am
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      50
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<p>Outline</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201216023713015.png" srcset="/img/loading.gif" /></p>
+<h1 id="reference">Reference:</h1>
+<ol type="1">
+<li><strong>PhysRevApplied.11.044080(2019):</strong> Observation of a Dynamical Quantum Phase Transition by a Superconducting Qubit Simulation</li>
+<li><strong>PhysRevB.97.060304(2018)</strong>: Dynamical topological invariant after a quantum quench</li>
+<li><strong>doi:10.1088/1361-6633/aaaf9a</strong>: Dynamical quantum phase transitions: a review</li>
+<li><strong>Applied Physics Reviews 6, 021318 (2019):</strong> A Quantum Engineer's Guide to Superconducting Qubits</li>
+<li><strong>Doctoral Thesis</strong>: Experimental research on quantum simulation and quantum optics with superconducting Xmon qubit</li>
+<li><strong>Doctoral Thesis</strong>: Low dimensional topological states and its dynamics far from equilibrium</li>
+</ol>
+<h1 id="theoretical-model">1 Theoretical Model</h1>
+<p>We begin with a two-band model with the Hamiltonian written in momentum space <span class="math display">\[
+H=\sum_{k} \Psi_{k}^{\dagger} h(k) \Psi_{k}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\Psi_{k}\)</span> denotes a spinor</li>
+<li><span class="math inline">\(h(k)\)</span> can be expanded in <span class="math inline">\(\hat{\sigma }=\left(\sigma_{x}, \sigma_{y}, \sigma_{z}\right)\)</span> Pauli matrices base</li>
+</ul>
+<p><span class="math display">\[
+h(k)=d_{0}(k)+\hat{d }(k) \cdot \hat{\sigma }
+\]</span></p>
+<p>This model can describe a variety of physically different many-body systems</p>
+<ol type="1">
+<li>SSH model： $ (k)=[(t+t)+(t-t) k,(t-t) k, 0)]$</li>
+<li>Kitaev chain: <span class="math inline">\(\hat{d } (k)=[0, \Delta \sin k,(-\mu / 2-t \cos k)]\)</span></li>
+<li><strong>Transverse field Ising model</strong> : <span class="math inline">\(\hat{d } (k)=[0, \sin k,(h- \cos k)]\)</span></li>
+</ol>
+<p>The eigenvalues of <span class="math inline">\(h(k)\)</span> are given by <span class="math display">\[
+\epsilon_{\pm}(k)=d_{0}(k) \pm| \hat{d } (k)|
+\]</span> The corresponding eigenvectors are denoted by <span class="math inline">\(\left|\phi_{\pm}(k)\right\rangle,\)</span> or written as density matrices <span class="math display">\[
+\begin{aligned}
+\rho_{\pm}(k)&amp;=\left|\phi_{\pm}(k)\right\rangle\left\langle\phi_{\pm}(k)\right|\\&amp;=\frac{1}{2}[1 \pm \hat{ d }(k) \cdot \sigma]
+\end{aligned}
+\]</span></p>
+<h2 id="quench-dynamics">quench dynamics</h2>
+<ol type="1">
+<li>we first prepare the system in the ground state of the initial Hamiltonian <span class="math inline">\(h_{i}(k)\)</span></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+\rho_{i}(k)&amp;=\left|\phi_{i}(k)\right\rangle\left\langle\phi_{i}(k)\right|\\&amp;=\frac{1}{2}\left[1-\hat{ d }_{i}(k) \cdot \sigma\right]
+\end{aligned}
+\]</span></p>
+<ol start="2" type="1">
+<li><p>a sudden quench to the final Hamiltonian <span class="math inline">\(h_{f}(k)\)</span></p></li>
+<li><p>Time evolution of density matrices <span class="math display">\[
+i \frac{\partial \rho(k, t)}{\partial t}=\left[h^{f}(k), \rho(k, t)\right]
+\]</span> the solution <span class="math display">\[
+\begin{aligned}
+\rho(k, t)&amp;=e^{-i h^{f}(k) t} \rho(k, 0) e^{i h^{f}(k) t}\\&amp;=\frac{1}{2}[1-\hat{d}(k, t) \cdot \sigma]
+\end{aligned}
+\]</span></p></li>
+<li><p>geometric picture</p>
+<p>Bloch vector <span class="math display">\[
+\begin{aligned}
+\hat{ d }(k, t) \cdot \sigma&amp;=e^{-i t d _{f}(k) \cdot \sigma}\left[\hat{ d }_{i}(k) \cdot \sigma\right] e^{i t d _{f}(k) \cdot \sigma}\\
+\hat{ d }(k, t)&amp;=\hat{ d }^{i} \cos \left(2\left| d ^{f}\right| t\right)+2 \hat{ d }^{f}\left(\hat{ d }^{i} \cdot \hat{ d }^{f}\right) \sin ^{2}\left(\left| d ^{f}\right| t\right)+\hat{ d }^{i} \times \hat{ d }^{f} \sin \left(2\left| d ^{f}\right| t\right)
+\end{aligned}
+\]</span></p>
+<blockquote>
+<p>the spin precession on the Bloch sphere:</p>
+<p><span class="math inline">\(\hat{ d }_{i}(k)\)</span> rotating around <span class="math inline">\(\hat{ d }_{f}(k)\)</span> with period <span class="math inline">\(\pi /\left| d _{f}(k)\right|\)</span></p>
+</blockquote></li>
+</ol>
+<h2 id="dynamical-topological-invariant">dynamical topological invariant</h2>
+<ul>
+<li><p>In general, the 1D Brillouin zone (BZ) has the topology <span class="math inline">\(S^{1}\)</span>.</p></li>
+<li><p>the topology of time can be viewed as <span class="math inline">\(S^{1}\)</span></p></li>
+</ul>
+<p>hence the total momentum-time manifold has the topology <span class="math inline">\(T^{2}\)</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201215224046372.png" srcset="/img/loading.gif" style="zoom: 50%;" /></p>
+<ul>
+<li><p>If there are two fixed points <span class="math inline">\(k=k_{1}\)</span> and <span class="math inline">\(k_{2},\)</span> the corresponding circle contract to a point, then the momentum-time manifold can be reduced to a series of spheres <span class="math inline">\(S^{2}\)</span>.</p></li>
+<li><p>In general, if there are <span class="math inline">\(N\)</span> fixed points in a BZ, the momentum-time manifold <span class="math inline">\(T^{2}\)</span> can be reduced to <span class="math inline">\(N\)</span> sub-manifolds, each of them has the topology <span class="math inline">\(S^{2}\)</span>.</p></li>
+</ul>
+<p>Now we naturally have a map from each momentum-time sub-manifold to the Bloch vector <span class="math inline">\(\hat{ d }(k, t),\)</span> which is<span class="math inline">\(S^{2} \rightarrow S^{2},\)</span> and then we can define a Chern number <span class="math display">\[
+\begin{aligned}
+C_{d y n}^{m}&amp;=\frac{1}{4 \pi} \int_{k_{m}}^{k_{m+1}} d k \int_{0}^{\pi} d t^{\prime}\left(\hat{ d } \times \partial_{t^{\prime}} \hat{ d }\right) \cdot \partial_{k}, \hat{ d }\\
+&amp;=\frac{1}{2}\left(\cos \theta_{k=k_{m}}-\cos \theta_{k=k_{m+1}}\right)
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(m=1,2, \ldots, N\)</span> denotes the <span class="math inline">\(m\)</span> th sub-manifold</li>
+<li><span class="math inline">\(k_{m}\)</span> denotes the <span class="math inline">\(m\)</span> th fixed point</li>
+<li><span class="math inline">\(k_{N+1}=k_{1}+\)</span> <span class="math inline">\(2 \pi\)</span> is the same point modulo <span class="math inline">\(2 \pi .\)</span></li>
+<li><span class="math inline">\(\theta_{k}\)</span> is the included angle between <span class="math inline">\(\hat{ d }^{i}(k)\)</span> and <span class="math inline">\(\hat{ d }^{f}(k)\)</span></li>
+</ul>
+<blockquote>
+<p>Hence the integral is an integer and it measures how many times the Bloch vectors cover the unit sphere.</p>
+</blockquote>
+<h2 id="examplessh-model">example：SSH Model</h2>
+<p>SSH Model Hamiltonian <span class="math display">\[
+H=\sum_{k} \Psi_{k}^{\dagger} h(k) \Psi_{k}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(h(k)=d_{x} \sigma_{x}+d_{y} \sigma_{y}\)</span></li>
+<li><span class="math inline">\(d_{x}=(1+\delta)+(1-\delta) \cos k\)</span></li>
+<li><span class="math inline">\(d_{y}=(1-\delta) \sin k\)</span></li>
+</ul>
+<p>topological phase</p>
+<ul>
+<li>For <span class="math inline">\(\delta&gt;0\)</span> the half-filled system is <strong>topologically trivial</strong></li>
+<li>For <span class="math inline">\(\delta&lt;0\)</span> the system is <strong>topological</strong></li>
+</ul>
+<p>dynamical topological invariant</p>
+<ul>
+<li>both <span class="math inline">\(\delta^{i}\)</span> and <span class="math inline">\(\delta^{f}\)</span> lie in the same phase, have <span class="math inline">\(C_{d y n}^{1}=C_{d y n}^{2}=0\)</span></li>
+<li>if <span class="math inline">\(\delta^{i}\)</span> and <span class="math inline">\(\delta^{f}\)</span> are in different phases, dynamical topological invariants are <span class="math inline">\(C_{d y n}^{1}=-1\)</span> and <span class="math inline">\(C_{d y n}^{2}=1\)</span></li>
+</ul>
+<p>The evolution of Bloch vector for different momenta</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201215233827191.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<ul>
+<li><ol type="a">
+<li><span class="math inline">\(\delta^{i}=-0.7\)</span> and <span class="math inline">\(\delta^{f}=-0.3 ;\)</span> corresponding to topological cases</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li><span class="math inline">\(\delta^{i}=-0.7\)</span> and <span class="math inline">\(\delta^{f}=0.3 ;\)</span> corresponding to topological cases</li>
+</ol></li>
+<li><span class="math inline">\(( c ) \delta^{i}=0.4\)</span> and <span class="math inline">\(\delta^{f}=0.2 ;\)</span> corresponding to trivial cases.</li>
+<li>$( d ) ^{i}=0.4 <span class="math inline">\(and\)</span>^{f}=-0.2 .$ corresponding to trivial cases.</li>
+</ul>
+<p>The black dotted loop represents the distribution of initial Bloch vectors <span class="math inline">\(\hat{ d }^{i}(k)\)</span></p>
+<ul>
+<li>For <span class="math inline">\(( a )\)</span> and <span class="math inline">\(( c ),\)</span> both <span class="math inline">\(\delta^{i}\)</span> and <span class="math inline">\(\delta^{f}\)</span> lie in the same phase, and the trajectories of different Bloch vectors cancel out each other, giving rise to the dynamical Chern number <span class="math inline">\(C_{d y n}^{1}=0 ;\)</span></li>
+<li>For. <span class="math inline">\(2( b )\)</span> and <span class="math inline">\(( d ), \delta^{i}\)</span> and <span class="math inline">\(\delta^{f}\)</span> lie in different phases, and the trajectories for Bloch vectors of <span class="math inline">\(k \in(0, \pi)\)</span> cover the whole Bloch sphere, corresponding to <span class="math inline">\(C_{d y n}^{1}=-1\)</span></li>
+</ul>
+<blockquote>
+<p>non-trivial dynamical Chern number:</p>
+<p>the trajectories for Bloch vectors of <span class="math inline">\(k \in(0, \pi)\)</span> cover the whole Bloch sphere</p>
+</blockquote>
+<h1 id="superconducting-qubits">2 Superconducting Qubits</h1>
+<h2 id="lc-oscillatorquantum-harmonic-oscillator">LC-oscillator(Quantum Harmonic Oscillator )</h2>
+<p>In LC-oscillator system, energy oscillates between</p>
+<ul>
+<li>electrical energy in the capacitor <span class="math inline">\(C\)</span> <span class="math inline">\(\rightarrow\)</span> associate the electrical energy with the "kinetic energy"</li>
+<li>magnetic energy in the inductor <span class="math inline">\(L\)</span>. <span class="math inline">\(\rightarrow\)</span> the magnetic energy with the "potential energy" of the oscillator</li>
+</ul>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201216001938486.png" srcset="/img/loading.gif" alt="image-20201216001938486" style="zoom:50%;" /></p>
+<p>The Hamiltonian of LC-oscillator <span class="math display">\[
+H=\frac{Q^{2}}{2 C}+\frac{\Phi^{2}}{2 L} \equiv \frac{1}{2} C V^{2}+\frac{1}{2} L I^{2}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(Q(t)\)</span> the charge on the capacitor</li>
+<li><span class="math inline">\(\Phi\)</span> the flux on the inductor</li>
+</ul>
+<p>this Hamiltonian is analogous to that of a mechanical harmonic oscillator <span class="math display">\[
+H=p^{2} / 2 m+m \omega^{2} x^{2} / 2
+\]</span> with</p>
+<ul>
+<li>mass <span class="math inline">\(m=C\)</span></li>
+<li>resonant frequency <span class="math inline">\(\omega=1 / \sqrt{L C}\)</span></li>
+</ul>
+<p>The Hamiltonian described above is <strong>classical</strong>. In order to proceed to a <strong>quantum</strong>-mechanical description of the system, we need to promote the charge and flux coordinates to quantum operators. the quantum operators similarly satisfy a <strong>commutation relation</strong>: <span class="math display">\[
+[\hat{\Phi}, \hat{Q}]=\hat{\Phi} \hat{Q}-\hat{Q} \hat{\Phi}=i \hbar
+\]</span> second quantization <span class="math display">\[
+\begin{aligned}
+\hat{a} &amp;=\left(\hat{\Phi}+i Z_{r} \hat{Q}\right) / \sqrt{2 \hbar \bar{Z}_{r}} \\
+\hat{a}^{\dagger} &amp;=\left(\hat{\Phi}-i Z_{r} \hat{Q}\right) / \sqrt{2 \hbar Z_{r}}
+\end{aligned}
+\]</span> the quantum harmonic oscillator (QHO) Hamiltonian <span class="math display">\[
+H=\hbar \omega_{r}\left(a^{\dagger} a+\frac{1}{2}\right)
+\]</span></p>
+<blockquote>
+<p>since many gate operations depend on frequency selectivity, the equidistant level-spacing of the QHO, we need to add an-harmonicity (or nonlinearity) into our system. In short, we require the transition frequencies <span class="math inline">\(\omega_{ q }^{0 \rightarrow 1}\)</span> and <span class="math inline">\(\omega_{ q }^{1 \rightarrow 2}\)</span> be sufficiently different to be individually adressable.</p>
+</blockquote>
+<h2 id="josephson-junction">Josephson junction</h2>
+<p>To introduce the nonlinearity required to modify the harmonic potential, we use the Josephson junction, which is consists of two or more superconductors coupled by a thin insulating barrier</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201215175731906.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201216005257044.png" srcset="/img/loading.gif" alt="image-20201216005257044" style="zoom: 67%;" /></p>
+<p>modified Hamiltonian <span class="math display">\[
+\hat{H}_{0}=4 E_{C} \hat{n}^{2}-E_{J} \cos \hat{\phi}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\hat{n}\)</span> is the operator corresponding to the number of Cooper pairs tunneled through the Josephson junctions</li>
+<li><span class="math inline">\(\hat{\phi}\)</span> denotes the gauge-invariant phase-difference operator across the Josephson junctions.</li>
+</ul>
+<p>There are three main categories of the quantum superconducting qubit working in different regimes according the ratio of the Josephson energy <span class="math inline">\(E_{J}\)</span> to the charging energy <span class="math inline">\(E_{C}:\)</span></p>
+<p><span class="math inline">\((1)\)</span> charge qubit with <span class="math inline">\(E_{J} / E_{C} \sim 0.1 ;\)</span></p>
+<ol start="2" type="1">
+<li><p>flux qubit with <span class="math inline">\(E_{J} / E_{C} \sim 50 ;\)</span></p></li>
+<li><p>phase qubit <span class="math inline">\(E_{J} / E_{C} \sim 10^{6}\)</span>.</p></li>
+</ol>
+<p>In the regime: <span class="math inline">\(20 \lesssim E_{J} / E_{C} \lesssim 100,\)</span> expanding the potential <span class="math display">\[
+E_{J} \cos (\phi)=\frac{1}{2} E_{J} \phi^{2}-\frac{1}{24} E_{J} \phi^{4}+ O \left(\phi^{6}\right)
+\]</span> an-harmonic oscillator (AHO). <span class="math display">\[
+H=\omega_{ q } a^{\dagger} a+\frac{\alpha}{2} a^{\dagger} a^{\dagger} a a
+\]</span> The anharmonicity is big enough for the addressability of the two lowest energy levels and thus constitutes a qubit(a quantum two-level system) <span class="math display">\[
+\hat{H}_{0}=\frac{1}{2} \hbar \omega \hat{\sigma}_{z}
+\]</span> with</p>
+<ul>
+<li><span class="math inline">\(\omega=2\left(\sqrt{8 E_{J} E_{C}}-E_{C}\right) / \hbar\)</span></li>
+<li><span class="math inline">\(\hat{\sigma}_{z}=|e\rangle\langle e|-| g\rangle\langle g|\)</span></li>
+<li>Here <span class="math inline">\(|g\rangle\)</span> is the ground state of the transmon</li>
+<li>while <span class="math inline">\(|e\rangle\)</span> is its first excited eigenstate.</li>
+</ul>
+<blockquote>
+<p>effectively treat the AHO as a quantum two-level system, thus constitutes a <strong>qubit</strong></p>
+</blockquote>
+<h1 id="experimental-results">3 Experimental results</h1>
+<h2 id="results-1-dynamical-topological-invariant">Results 1: dynamical topological invariant</h2>
+<p>example for demonstration in paper: The transverse-field Ising model <span class="math display">\[
+H_{\text {Ising }}=-\sum_{l} \sigma_{l}^{x} \sigma_{l+1}^{x}+g \sigma_{l}^{z}
+\]</span> where <span class="math inline">\(g\)</span> is the transverse-field strength.</p>
+<p>The spin model can be mapped to the <strong>free-fermion model</strong> by using Jordan-Wigner transformation <span class="math display">\[
+\begin{aligned}
+\sigma_{l}^{z}&amp;=1-2 c_{l}^{\dagger}c_{l}\\\sigma_{l}^{x}&amp;=\prod_{j&lt;l}\left(1-2 c_{j}^{\dagger} c_{j}\right)\left(c_{l}+c_{l}^{\dagger}\right)
+\end{aligned}
+\]</span> The Hamiltonian changes to <span class="math display">\[
+H_{\text {Ising }}=-\sum_{l}\left(c_{l}^{\dagger} c_{l+1}+c_{l}^{\dagger} c_{l+1}^{\dagger}+\text { h.c. }\right)+g\left(1-2 c_{l}^{\dagger} c_{l}\right)
+\]</span> where <span class="math inline">\(d (k)=[0, \sin k,(g-\cos k)],\)</span> It is well known that the model is</p>
+<ul>
+<li>in ferromagnetic phase when <span class="math inline">\(g&lt;1\)</span></li>
+<li>in paramagnetic phase when <span class="math inline">\(g&gt;1\)</span></li>
+</ul>
+<p>In the experiment, we let <span class="math inline">\(g_{i}=0.2,\)</span> which is in the <strong>ferromagnetic</strong> phase regime. The system is suddenly quenched to the final Hamiltonian <span class="math inline">\(h_{f}(k) .\)</span> Here two different strengths of the field are chosen</p>
+<ol type="1">
+<li><span class="math inline">\(g_{f}=1.5\)</span> corresponding to the <strong>paramagnetic</strong> phases</li>
+<li><span class="math inline">\(g_{f}=0.5\)</span> corresponding to the <strong>ferromagnetic</strong> phases</li>
+</ol>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201215012613413.png" srcset="/img/loading.gif" /></p>
+<p>For each value of <span class="math inline">\(k,\)</span> the state is rotated for two cycles on the Bloch sphere, representing time evolution for two periods. The rotation axis is determined by the quench Hamiltonian <span class="math inline">\(h_{f}(k)\)</span>. The path of the state time evolution is presented in Fig</p>
+<h2 id="results-2-rate-function">Results 2: Rate function</h2>
+<p>the rate function of the dynamical free energy <span class="math display">\[
+f(t)=-\frac{1}{N} \sum_{k} \log \left|\left\langle\phi_{i}(k)\left|e^{-i t h_{f}(k)}\right| \phi_{i}(k)\right\rangle\right|^{2}
+\]</span> The nonanalytic behavior of <span class="math inline">\(f(t)\)</span> corresponds to <span class="math inline">\(DQPT\)</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/ropaaaf9af01_hr.jpg" srcset="/img/loading.gif" style="zoom: 50%;" /></p>
+<p>presents the time-dependent rate functions for different <span class="math inline">\(g_{f},\)</span> all with initial parameter <span class="math inline">\(g_{i}=0.2 .\)</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201216014802535.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<ul>
+<li>rate functions <span class="math inline">\(f(t)\)</span> have <strong>sharp peaks</strong> at the critical time <span class="math inline">\(t_{c}\)</span> for <span class="math inline">\(g_{f}=3.5,2.5,1.5&gt;1 ,\)</span> which leads to discontinuity for derivative of <span class="math inline">\(f(t)\)</span> at <span class="math inline">\(t_{c} .\)</span> This phenomenon corresponds to the DQPT.</li>
+<li>rate functions for <span class="math inline">\(g_{f}=0.9,0.8,0.7\)</span> are much more <strong>smooth and no sharp peak</strong> appears, so no discontinuity is expected for derivative of the rate functions. Thus no DQPT happens.</li>
+</ul>
+<p>Results of a <strong>different</strong> number <span class="math inline">\(N\)</span> of modes for <span class="math inline">\(k\)</span>, corresponding to <strong>size</strong> <span class="math inline">\(N\)</span> of the Ising model.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201216015043724.png" srcset="/img/loading.gif" /></p>
+<p>Demonstrating the finite-size effect. As <span class="math inline">\(N\)</span> increases, it approaches the theoretical value for <span class="math inline">\(N \rightarrow \infty\)</span> and demonstrates nonanalytic behavior.</p>
+<h2 id="results-3-skyrmion-lattice">Results 3: Skyrmion lattice</h2>
+<p>the <strong>Loschmidt amplitude</strong> of a two-band system can be written as <span class="math display">\[
+G(t)=\prod_{k}\left[\cos \left(\left| d _{f}(k)\right| t\right)+i \hat{ d }_{i}(k) \cdot \hat{ d }_{f}(k) \sin \left(\left| d _{f}(k)\right| t\right)\right]
+\]</span> The DQPT occurs when the Loschmidt amplitude reaches <strong>zero</strong> at a critical time <span class="math inline">\(t_{c} .\)</span> the existence of zero of <span class="math inline">\(G(t)\)</span> requires that there are at least one critical momentum <span class="math inline">\(k^{*}\)</span> satisfying <span class="math display">\[
+\hat{ d }_{i}\left(k^{*}\right) \cdot \hat{ d }_{f}\left(k^{*}\right)=0
+\]</span> For clarity, we employ the Ising model to elucidate the condition of DQPT. One has, <span class="math display">\[
+\begin{aligned}
+d _{i}(k) \cdot d _{f}(k) &amp;=\sin ^{2} k+\cos ^{2} k-\left(g_{i}+g_{f}\right) \cos k+g_{i} g_{f} \\
+&amp;=0
+\end{aligned}
+\]</span> The solution exists when <span class="math display">\[
+|\cos k|=\left|\frac{1+g_{i} g_{f}}{g_{i}+g_{f}}\right|&lt;1
+\]</span> DQPT​ occurs if and only if the initial Hamiltonian and the final Hamiltonian belong to different phases for the Ising model <span class="math display">\[
+k^{*}=\pm \arccos \left[\left(1+g_{i} g_{f}\right) /\left(g_{i}+g_{f}\right)\right]
+\]</span> a dynamical Chern number can be defined in momentum-time space in a quench process.</p>
+<blockquote>
+<p>The nontrivial dynamical Chern number indicates the emergence of the Skyrmion lattice in the momentum time space.</p>
+</blockquote>
+<p>the emergence of a Skyrmion lattice in momentum-time space for DQPT</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201215142516991.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p>initial parameter <span class="math inline">\(g_{i}=0.2 .\)</span></p>
+<ul>
+<li><span class="math inline">\(g_{f}=1.5\)</span> in Fig. <span class="math inline">\(( c )\)</span> the <strong>emergence of the Skyrmion</strong> lattice in momentum-time space can be seen obviously, which indicates the <strong>nontrivial dynamical Chern number</strong> implying the occurrence of DQPT. The time coordinates of the center of Skyrmion is just the critical time <span class="math inline">\(t_{c} .\)</span></li>
+<li><span class="math inline">\(g_{f}=0.5\)</span> in Fig. <span class="math inline">\(( d )\)</span> While if <span class="math inline">\(g_{i}=0\)</span> and <span class="math inline">\(g_{f}=0.5\)</span> lie in the same phase, the configuration of the Skyrmion lattice does <strong>not appear</strong> , the corresponding dynamical Chern number is trivial. There is no DQPT as shown Fig. <span class="math inline">\(( b )\)</span>.</li>
+</ul>
+<h1 id="take-home-information">4 Take Home information</h1>
+<ol type="1">
+<li>Dynamic precession equal to vector <span class="math inline">\(\hat{ d }_{i}(k)\)</span> rotating in the Bloch sphere</li>
+<li>Dynamic Chern number measures how many times the Bloch vectors of <span class="math inline">\(k \in(0, \pi)\)</span> cover the whole Bloch sphere</li>
+<li>Josephson junction is nonlinearity to modify the harmonic potential, the AHO can be effectively treated as a <strong>qubit</strong></li>
+<li>The nonanalytic behavior of the rate function of the dynamical free energy <span class="math inline">\(f(t)\)</span> corresponds to <span class="math inline">\(DQPT\)</span>. The results of experiment agree well with theoretical calculations.</li>
+<li>The nontrivial dynamical Chern number indicates the emergence of the Skyrmion lattice in the momentum time space.</li>
+</ol>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Dynamical/">Dynamical</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/16/Entenglement_01_introduction/">
+                        <span class="hidden-mobile">多体物理中的量子纠缠</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "用超导量子比特模拟“动力学量子相变”&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
