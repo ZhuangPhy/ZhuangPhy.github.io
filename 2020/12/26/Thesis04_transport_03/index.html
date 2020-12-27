@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>论文笔记：量子玻尔兹曼方程 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-12-26 14:23">
+      December 26, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      106
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<p>论文笔记 Quantum Boltzmann equation of composite fermions interacting with a gauge field</p>
+<p>作者：Yong Baek Kim, Patrick A. Lee, and Xiao-Gang Wen</p>
+<h3 id="参考文献">参考文献</h3>
+<ol type="1">
+<li><a href="https://journals.aps.org/prb/pdf/10.1103/PhysRevB.52.17275" target="_blank" rel="noopener">本篇论文地址</a> <a href="https://arxiv.org/pdf/cond-mat/9504063.pdf" target="_blank" rel="noopener">地址2</a></li>
+</ol>
+<h3 id="摘要">摘要</h3>
+<p>We derive the quantum Boltzmann equation (QBE) of composite fermions at/near the <span class="math inline">\(\nu=1 / 2\)</span> state using the non-equilibrium Green's function technique. The lowest order perturbative correction to the self-energy due to the strong gauge field fluctuations suggests that there is no well defined Landau-quasi-particle. Therefore, we cannot assume the existence of the Landau-quasi-particles a priori in the derivation of the QBE. Using an alternative formulation, we derive the QBE for the generalized Fermi surface displacement which corresponds to the local variation of the chemical potential in momentum space. From this QBE, one can understand in a unified fashion the Fermi-liquid behaviors of the density-density and the current-current correlation functions at <span class="math inline">\(\nu=1 / 2\)</span> (in the long wave length and the low frequency limits) and the singular behavior of the energy gap obtained from the finite temperature activation behavior of the compressibility near <span class="math inline">\(\nu=1 / 2 .\)</span> Implications of these results to the recent experiments are also discussed.</p>
+<h3 id="介绍">介绍</h3>
+<p>since the discovery of the integer (IQH) and fractional quantum Hall (FQH) effects the two-dimensional electron system in strong magnetic fields has often surprised us. Among recent developements, a lot of attention has been given to the appearance of the new metallic state at the filling fraction <span class="math inline">\(\nu=1 / 2[1]\)</span> and the associated Shubnikov-de Haas oscillations of the longitudinal resistance around <span class="math inline">\(\nu=1 / 2[2,3] .\)</span> The similarity between these phenamena near <span class="math inline">\(\nu=1 / 2\)</span> and those of electrons in weak magnetic fields was successfully explained by the composite fermion approach [4]. Using the fermionic Chern-Simons gauge theory of the composite fermions [5,6] , Halperin, Lee, and Read (HLR) developed a theory that describes the new metallic state at <span class="math inline">\(\nu=1 / 2[6]\)</span>.</p>
+<p>A composite fermion is obtained by attaching an even number <span class="math inline">\(2 n\)</span> of flux quanta to an electron, and the transformation can be realized by introducing an appropriate Chern-Simons gauge field. <span class="math inline">\({ }^{4-6}\)</span> At the mean-field level, one takes into account only the average of the statistical magnetic field due to the attached magnetic flux. If the interaction between fermions is ignored, the system can be described as the free fermions in an effective magnetic field <span class="math inline">\(\Delta B=B-B_{1 / 2 n},\)</span> where <span class="math inline">\(B_{1 / 2 n}=2 n n_{e} h c / e\)</span> is the averaged statistical magnetic field, and <span class="math inline">\(n_{e}\)</span> is the density of electrons. Therefore, in mean-field theory, the FQH states with <span class="math inline">\(v=p /(2 n p+1)\)</span> can be described as the IQH states of the composite fermions with <span class="math inline">\(p\)</span> -filled Landau levels occupied in an effective magnetic field <span class="math inline">\(\Delta B .{ }^{4-6}\)</span> In particular, <span class="math inline">\(\Delta B=0\)</span> at the filling fractions <span class="math inline">\(v=1 / 2 n,\)</span> so that the ground state of the system is the filled Fermi sea with a well-defined Fermi wave vector <span class="math inline">\(k_{F} .^{6,7}\)</span> As a result, the Shubnikov-de Haas oscillations near <span class="math inline">\(v=\frac{1}{2}\)</span> can be explained by the presence of a well-defined Fermi wave vector at <span class="math inline">\(v=\frac{1}{2} .^{6}\)</span> The mean-field energy gap of the system with <span class="math inline">\(v=p /(2 p+1)\)</span> in the <span class="math inline">\(p \rightarrow \infty\)</span> limit is given by <span class="math inline">\(E_{g}=e \Delta B / m c,\)</span> where <span class="math inline">\(m\)</span> is the mass of the composite fermions. Note that, in the large- <span class="math inline">\(\omega_{c}\)</span> limit, the finite <span class="math inline">\(m\)</span> is caused by the Coulomb interaction between the fermions. The effective mass <span class="math inline">\(m\)</span> should be chosen such that the Fermi energy <span class="math inline">\(E_{F}\)</span> is given by the Coulomb energy scale.</p>
+<p>There are a number of experiments which show that there is a well-defined Fermi wave vector at <span class="math inline">\(v=\frac{1}{2} .^{8-10}\)</span> They observed the geometrical resonances between the semiclassical orbit of the composite fermions and another length scale artificially introduced to the system near <span class="math inline">\(v=\frac{1}{2}\)</span></p>
+<p>However, it is possible that fluctuations and twoparticle interactions, which are ignored in the mean-field theory, are very important. Note that the density fluctuations correspond to the fluctuations of the statistical magnetic field. Therefore, the density fluctuations above the mean-field state induce the gauge-field fluctuations. <span class="math inline">\({ }^{5,6}\)</span> If the fermions are interacting via a two-particle interaction <span class="math inline">\(v( q )=V_{0} / q^{2-\eta}(1 \leq \eta \leq 2),\)</span> the effects of the gaugefield fluctuations can be modified. In fact, the gauge-field fluctuations become more singular as the interaction range becomes shorter (larger <span class="math inline">\(\eta\)</span> ). The reason is that the <span class="math inline">\(\begin{array}{llll}\text { longer-range } &amp; \text { interaction } &amp; \text { (smaller } &amp; \eta \text { ) suppresses } &amp; \text { more }\end{array}\)</span> effectively the density fluctuations, and thus induces the less singular gauge-field fluctuations. Therefore, it is important to examine whether the mean-field Fermi-liquid state is stable against the gauge-field fluctuations, which also includes the effects of the two-particle interaction.</p>
+<p>One way to study the stability of the mean-field Fermi-liquid state is to examine the low-energy behavior of the self-energy correction induced by the gauge-field fluctuations. It is found that the most singular contribution to the self-energy <span class="math inline">\(\Sigma( k , \omega)\)</span> comes from the transverse part of the gauge-field fluctuations. <span class="math inline">\({ }^{6}{ }^{11}\)</span> The lowest-order perturbative correction to the self-energy (due to the transverse gauge field) has been calculated by several authors. <span class="math inline">\({ }^{6,11}\)</span> It turns out that <span class="math inline">\(\operatorname{Re} \Sigma \sim \operatorname{Im} \Sigma \sim \omega^{2 /(1+\eta)}\)</span> for <span class="math inline">\(1&lt;\eta \leq 2,\)</span> and <span class="math inline">\(\operatorname{Re} \Sigma \sim \omega \ln \omega, \operatorname{Im} \Sigma \sim \omega\)</span> for <span class="math inline">\(\eta=1\)</span> (Coulomb interaction). Thus the Landau criterion for the quasiparticle is violated in the case of <span class="math inline">\(1&lt;\eta \leq 2,\)</span> and the case of <span class="math inline">\(\eta=1\)</span> shows marginal Fermi-liquid behavior. In both cases, the effective mass of the fermions diverges, as <span class="math inline">\(m^{*} / m \propto\left|\xi_{k}\right|^{-(\eta-1) /(\eta+1)} \quad\)</span> for <span class="math inline">\(\quad 1&lt;\eta \leq 2, \quad\)</span> and <span class="math inline">\(\quad\)</span> as <span class="math inline">\(m^{*} / m \propto\left|\ln \xi_{k}\right|\)</span> for <span class="math inline">\(\eta=1,\)</span> where <span class="math inline">\(\xi_{k}=\left(k^{2} / 2 m\right)-\mu,\)</span> and <span class="math inline">\(\mu\)</span> is the chemical potential. <span class="math inline">\({ }^{6}\)</span> In a self-consistent treatment of the self-energy, <span class="math inline">\({ }^{6}\)</span> the energy gap of the system in the presence of a small <span class="math inline">\(\begin{array}{llllll}\text { effective } &amp; \text { magnetic } &amp; \text { field } &amp; \Delta B &amp; \text { can } &amp; \text { be } &amp; \text { determined } &amp; \text { as }\end{array}\)</span> <span class="math inline">\(E_{g} \propto|\Delta B|^{(1+\eta) / 2}\)</span> for <span class="math inline">\(1&lt;\eta \leq 2\)</span> and <span class="math inline">\(E_{g} \propto|\Delta B| /|\ln \Delta B|\)</span> for <span class="math inline">\(\eta=1 .\)</span> Therefore, the energy gap of the system vanishes faster than the mean-field prediction, or, equivalently, the effective mass diverges in a singular way as <span class="math inline">\(v=\frac{1}{2}\)</span> is approached. These results suggest that the effective Fermi velocity of the fermion <span class="math inline">\(v_{F}^{*}\)</span> goes to zero at <span class="math inline">\(v=\frac{1}{2}\)</span> even though the Fermi wave vector <span class="math inline">\(k_{F}\)</span> is finite and the quasiparticles have a very short lifetime <span class="math inline">\(\tau \approx(T /\)</span> <span class="math inline">\(\left.\varepsilon_{F}\right)^{-2 /(1+\eta)}\left(1 / \varepsilon_{F}\right),\)</span> where <span class="math inline">\(T\)</span> is the temperature and <span class="math inline">\(\varepsilon_{F}\)</span> is the Fermi energy. However, a recent magnetic focusing experiment <span class="math inline">\({ }^{10}\)</span> suggests that the fermion has a long lifetime or a long mean free path which seems inconsistent with the above picture.</p>
+<p>since the one-particle Green's function is not gauge invariant, the singular self-energy could be an artifact of the gauge choice. To address this question, we recently examined the lowest-order perturbative corrections to the gauge-invariant <span class="math inline">\(\quad\)</span> density-density and current-current correlation functions. <span class="math inline">\({ }^{12}\)</span> It was found that there are important cancellations between the self-energy corrections 12,13 and the vertex corrections due to the Ward identity. As a result, the density-density and current-current correlation functions show a Fermi-liquid behavior for all ratios of <span class="math inline">\(\omega\)</span> and <span class="math inline">\(v_{F} q \cdot{ }^{12}\)</span> In particular, the edge of the <span class="math inline">\(\begin{array}{lllll}\text { particle-hole } &amp; \text { continuum } &amp; \omega=v_{F} q &amp; \text { is } &amp; \text { essentially } &amp; \text { not }\end{array}\)</span> changed, which may suggest a finite effective mass. From the current-current correlation function, the transport scattering rate (due to the transverse part of the gauge field) is given by <span class="math inline">\(1 / \tau_{ tr } \propto \omega^{4 /(1+\eta)}&lt;&lt;\omega\)</span> after the cancellation (the scattering rate would be much larger, <span class="math inline">\(1 / \tau_{ tr } \propto \omega^{2 /(1+\eta)} \gg \omega,\)</span> had we ignored the vertex correction). <span class="math inline">\({ }^{12}\)</span> Therefore, the fermions have a long transport lifetime, which explains a long free path in the magnetic focusing experiment. <span class="math inline">\(\quad\)</span> From these results, one may suspect whether the divergent mass obtained from the self-energy has any physical meaning.</p>
+<p>However, due to the absence of the underlying quasiparticle picture, we cannot simply conclude that fermions have a finite effective mass associated with the long lifetime which was obtained from the <span class="math inline">\(\operatorname{small}-q\)</span> and <span class="math inline">\(-\omega\)</span>. behaviors of the density-density and current-current correlation functions. In fact, it is found that <span class="math inline">\(2 k_{F}\)</span> response functions show singular behaviors compared to the usual Fermi-liquid theory. <span class="math inline">\({ }^{13}\)</span> We also like to mention that recent experiments on the Shubnikov-de Haas oscillations <span class="math inline">\({ }^{3}\)</span> have observed some features which were interpreted as a sign of the divergent effective mass of the fermions as <span class="math inline">\(v=\frac{1}{2}\)</span> is approached. The experimentally determined effective mass diverges in a more singular way than any theoretical prediction. However, their deter-mination of the effective mass is based on a theory for the noninteracting fermions, and also the disorder effect is very important near <span class="math inline">\(v=\frac{1}{2}\)</span> because the static fluctuations of the density due to the impurities induce an additional static random magnetic field. since there is no satisfactory theory in the presence of disorder, it is difficult to compare the present theory and the experiments.</p>
+<p>In order to answer the question about the effective mass, it is important to examine other gauge-invariant quantities which may potentially show a divergent effective mass. In a recent paper, <span class="math inline">\({ }^{14}\)</span> we calculated the lowest-order perturbative correction to the compressibility with a fixed <span class="math inline">\(\Delta B\)</span>, which shows a thermally activated behavior when the chemical potential lies exactly at the middle of the successive effective Landau levels. It turns out that the corrections to the activation energy gap and the corresponding effective mass are singular, and consistent with previous self-consistent treatment of the selfenergy. <span class="math inline">\({ }^{6}\)</span> Thus it is necessary to understand the apparently different behaviors of the density-density correlation function at <span class="math inline">\(v=\frac{1}{2}\)</span> and the activation energy gap determined from the compressibility near <span class="math inline">\(v=\frac{1}{2}\)</span></p>
+<p>One resolution of the problem was suggested by Stern and Halperin <span class="math inline">\(^{15}\)</span> within the usual Landau-Fermi-liquid theory framework. The idea is that both the effective mass and Landau-interaction function are singular in such a way that they cancel each other in the densitydensity correlation function. Recently, Stern and Halperin <span class="math inline">\(^{15}\)</span> put forward this idea and constructed a Fermiliquid theory of the fermion-gauge system in the case of Coulomb interaction. Even though the use of the Landau-Fermi-liquid theory or equivalently the existence of well-defined quasiparticles can be marginally justified in the case of the Coulomb interaction, we feel that it is necessary to construct a more general framework which applies to the arbitrary two-particle interaction <span class="math inline">\((1&lt;\eta \leq 2\)</span> as well as <span class="math inline">\(\eta=1\)</span>, and allows us to check the validity of the Fermi-liquid theory and to judge when the divergent mass shows up. In particular, it is worthwhile to provide a unified picture for understanding previous theoretical studies. <span class="math inline">\({ }^{16-24}\)</span></p>
+<p>In the usual Fermi-liquid theory, the quantum Boltzmann equation (QBE) of the quasiparticles provides useful information about the low-lying excitations of the system. Our objective is to construct a similar QBE which describes all the low-energy physics of the composite fermion system. One important difficulty we are facing here is that we cannot assume the existence of the quasiparticles <span class="math inline">\(a\)</span> priori in the derivation of the <span class="math inline">\(QBE\)</span>, even though the conventional derivation of the QBE of the Fermi-liquid theory relies on the existence of these quasiparticles. Following closely the work of Prange and Kadanoff <span class="math inline">\(^{25}\)</span> about the electron-phonon system, where there is also no well-defined quasiparticle at temperatures high compared with the Debye temperature, we concentrate on a generalized Fermi-surface displacement which, in our case, corresponds to the local variation of the chemical potential in momentum space. Due to the nonexistence of a well-defined quasiparticle, the usual distribution function <span class="math inline">\(n_{k}\)</span> in the momentum space cannot be described by a closed equation of motion. However, we will see below that the generalized Fermi surface displacement does satisfy a closed equation of motion. This equation of motion will be also called QBE.</p>
+<p>We use the nonequilibrium Green's-function technique <span class="math inline">\(^{26-28}\)</span> to derive the <span class="math inline">\(QBE\)</span> and calculate the generalized Landau-interaction function which has frequency dependence as well as the usual angular dependence due to the retarded nature of the gauge interaction. The <span class="math inline">\(QBE\)</span> at <span class="math inline">\(v=\frac{1}{2}\)</span> consists of three parts. One is the contribution from the self-energy correction which gives the singular mass correction, the other one comes from the generalized Landau-interaction function, and finally it contains the collision integral. These quantities are calculated to the lowest order in the coupling to the gauge field.</p>
+<p>By studying the dynamic properties of the collective modes using the QBE, we find that the smooth fluctuations of the Fermi surface (or the small angular momentum modes) show the usual Fermi-liquid behavior, while the rough fluctuations (or the large angular momentum modes) show the singular behavior determined by the <span class="math inline">\(\begin{array}{llll}\text { singular } &amp; \text { self-energy } &amp; \text { correction. } &amp; \text { Here } &amp; \text { the } &amp; \text { angular }\end{array}\)</span> momentum is the conjugate variable of the angle measured from a given direction in momentum space. There is a forward scattering cancellation between the singular <span class="math inline">\(\begin{array}{llll}\text { self-energy } &amp; \text { correction } &amp; \text { and } \text { the } &amp; \text { singular } &amp; \text { (generalized) }\end{array}\)</span> Landau-interaction function and a similar cancellation exists in the collision integral as far as the small angular momentum modes <span class="math inline">\(l&lt;l_{c}\left(l_{c} \propto \Omega^{-1 /(1+\eta)},\right.\)</span> where <span class="math inline">\(\Omega\)</span> is the small external frequency) are concerned. However, in the case of the large angular momentum modes <span class="math inline">\(l&gt;l_{c},\)</span> the contribution from the Landau-interaction function becomes very small so that the self-energy correction dominates, and the collision integral also cannot be ignored in general. In this case the behaviors of the low-lying modes are very different from those in the Fermi liquids.</p>
+<p>If we ignore the collision integral, it can be shown that the system has numerous collective modes between <span class="math inline">\(\Omega \propto q^{(1+\eta) / 2}(1&lt;\eta \leq 2), \Omega \propto q /|\ln q|(\eta=1),\)</span> and <span class="math inline">\(\Omega=v_{F} q\)</span> while there is the particle-hole continuum below <span class="math inline">\(\Omega \propto q^{(1+\eta) / 2}(1&lt;\eta \leq 2)\)</span> and <span class="math inline">\(\Omega \propto q /|\ln q|(\eta=1) .\)</span> The dis- tinction between these two types of low-lying excitations is obscured by the existence of the collision integral.</p>
+<p>From the above results, we see that the density-density and current-current correlation functions, being dominated by the small angular momentum modes <span class="math inline">\(l&lt;l_{c},\)</span> show the usual Fermi-liquid behavior. On the other hand, the energy gap away from <span class="math inline">\(v=\frac{1}{2}\)</span> is determined by the behaviors of the large angular momentum modes <span class="math inline">\(l&gt;l_{c}\)</span>, so that the singular mass correction shows up in the energy gap of the system.</p>
+<p>The outline of the paper is as follows. In Sec. II, we introduce the model and explain the way we construct the QBE without assuming the existence of the quasiparticles. In Sec. III, the QBE for the generalized distribution function is derived for <span class="math inline">\(\Delta B=0 .\)</span> In Sec. IV, we construct the QBE for the generalized Fermi-surface displacement for <span class="math inline">\(\Delta B=0 .\)</span> We also determine the generalized Landau-interaction function and discuss its consequences. In Sec. <span class="math inline">\(V,\)</span> the <span class="math inline">\(Q B E\)</span> in the presence of a small <span class="math inline">\(\Delta B\)</span> is constructed, and the energy gap of the system is determined. In Sec. VI, we discuss the collective excitations of the system for the cases of <span class="math inline">\(\Delta B=0\)</span> and <span class="math inline">\(\Delta B \neq 0\)</span>. We conclude the paper and discuss the implications of our results to experiments in Sec. VII. We concentrate on the zero-temperature case in the main text and provide the derivation of the QBE at finite temperatures in the Appendix, which requires some special treatments compared to the zero-temperature counterpart.</p>
+<h3 id="缺乏准粒子下的玻尔兹曼方程">缺乏准粒子下的玻尔兹曼方程</h3>
+<p>Two-dimensional electrons interacting via a twoparticle interaction can be transformed to composite fermions interacting via the same two-particle interaction, and also coupled to an appropriate Chern-Simons gauge field which appears due to the statistical magnetic flux quanta attached to each electron. <span class="math inline">\({ }^{5,6}\)</span> The model can be constructed as follows <span class="math inline">\((h=e=c=1)\)</span> <span class="math display">\[
+Z=\int D \psi D \psi^{*} D a_{\mu} e^{i \int d t d^{2} r L }
+\]</span> where the Lagrangian density <span class="math inline">\(L\)</span> is <span class="math display">\[
+\begin{aligned}
+L =&amp; \psi^{*}\left(\partial_{0}+i a_{0}-\mu\right) \psi-\frac{1}{2 m} \psi^{*}\left(\partial_{i}-i a_{i}+i A_{i}\right)^{2} \psi \\
+&amp;-\frac{i}{2 \pi \widetilde{\phi}} a_{0} \varepsilon^{i j} \partial_{i} a_{j} \\
+&amp;+\frac{1}{2} \int d^{2} r^{\prime} \psi^{*}( r ) \psi( r ) v\left( r - r ^{\prime}\right) \psi^{*}\left( r ^{\prime}\right) \psi\left( r ^{\prime}\right)
+\end{aligned}
+\]</span> where <span class="math inline">\(\psi\)</span> represents the fermion field and <span class="math inline">\(\widetilde{\phi}\)</span> is an even number <span class="math inline">\(2 n\)</span> which is the number of flux quanta attached to an electron, and <span class="math inline">\(v( r ) \propto V_{0} / r^{\eta}\)</span> is the Fourier transform of <span class="math inline">\(v( q )=V_{0} / q^{2-\eta}(1 \leq \eta \leq 2)\)</span> which represents the interaction between the fermions. <span class="math inline">\(A\)</span> is the external vector potential <span class="math inline">\((B=\nabla \times A ),\)</span> and we choose the Coulomb gauge <span class="math inline">\(\nabla \cdot a =0\)</span> for the Chern-Simons gauge field. Note that the integration over <span class="math inline">\(a_{0}\)</span> enforces the following constraint: <span class="math display">\[
+\nabla \times a =2 \pi \widetilde{\phi} \psi^{*}( r ) \psi( r )
+\]</span> which represents the fact that <span class="math inline">\(\tilde{\phi}\)</span> number of flux quanta are attached to each electron.</p>
+<p>The saddle point of the action is given by the following conditions: <span class="math display">\[
+\nabla \times\langle a \rangle=2 \pi \tilde{\phi} n_{e}=B_{1 / 2 n} \text { and }\left\langle a_{0}\right\rangle=0
+\]</span> Therefore, at the mean-field level, the fermions see an effective magnetic field <span class="math inline">\((\Delta A = A -\langle a \rangle)\)</span> <span class="math display">\[
+\Delta B=\nabla \times \Delta A =B-B_{1 / 2 n}
+\]</span> which becomes zero at the Landau-level filling factor <span class="math inline">\(v=1 / 2 n .\)</span> The IQH effect of the fermions may appear when the effective Landau-level filling factor <span class="math inline">\(p=2 \pi n_{e} / \Delta B\)</span> becomes an integer. This implies that the real external magnetic field is given by <span class="math inline">\(B=B_{1 / 2 n}+\Delta B\)</span> <span class="math inline">\(=2 \pi n_{e}[(2 n p+1) / p],\)</span> which corresponds to a <span class="math inline">\(FQH\)</span> state of electrons with the filling factor <span class="math inline">\(v=p /(2 n p+1)\)</span></p>
+<p>The fluctuations of the Chern-Simons gauge field, <span class="math inline">\(\delta a_{\mu}=a_{\mu}-\left\langle a_{\mu}\right\rangle,\)</span> can be incorporated as follows: <span class="math display">\[
+Z=\int D \psi D \psi^{*} D \delta a_{\mu} e^{i \int d t d^{2} r L }
+\]</span> where <span class="math display">\[
+\begin{aligned}
+L =&amp; \psi^{*}\left(\partial_{0}+i \delta a_{0}-\mu\right) \psi-\frac{1}{2 m} \psi^{*}\left(\partial_{i}-i \delta a_{i}+i \Delta A_{i}\right)^{2} \psi \\
+-\frac{i}{2 \pi \widetilde{\phi}} \delta a_{0} \varepsilon^{i j} \partial_{i} \delta a_{j} \\
+&amp;+\frac{1}{2(2 \pi \widetilde{\phi})^{2}} \int d^{2} r^{\prime}[\nabla \times \delta a ( r )] \\
+&amp; \quad \times v\left( r - r ^{\prime}\right)\left[\nabla \times \delta a \left( r ^{\prime}\right)\right]
+\end{aligned}
+\]</span> After integrating out the fermions and including gaugefield fluctuations within the random-phase approximation (RPA), <span class="math inline">\({ }^{6}\)</span> the effective action of the gauge field can be obtained as <span class="math display">\[
+S_{ eff }=\frac{1}{2} \int \frac{d^{2} q}{(2 \pi)^{2}} \frac{d \omega}{2 \pi} \delta a_{\mu}^{*}( q , \omega) D_{\mu v}^{-1}( q , \omega, \Delta B) \delta a_{\nu}( q , \omega)
+\]</span> where <span class="math inline">\(D_{\mu v}^{-1}( q , \omega, \Delta B)\)</span> was calculated by several authors. <span class="math inline">\({ }^{6,29,30}\)</span> For our purpose, the <span class="math inline">\(2 \times 2\)</span> matrix form for <span class="math inline">\(D_{\mu v}^{-1}\)</span> is sufficient so that <span class="math inline">\(\mu, v=0,1,\)</span> and 1 represents the direction that is perpendicular to q. In particular, when <span class="math inline">\(\Delta B=0,\)</span> the gauge-field propagator has the following form: <span class="math inline">\({ }^{6}\)</span> <span class="math display">\[
+D_{\mu v}^{-1}( q , \omega)=\left(\begin{array}{cc}
+\frac{m}{2 \pi} &amp; -i \frac{q}{2 \pi \tilde{\phi}} \\
+i \frac{q}{2 \pi \widetilde{\phi}} &amp; -i \gamma \frac{\omega}{q}+\tilde{\chi}(q) q^{2}
+\end{array}\right)
+\]</span> where <span class="math inline">\(\gamma=2 n_{e} / k_{F}\)</span> and <span class="math inline">\(\tilde{\chi}(q)=1 / 24 \pi m+v(q) /(2 \pi \widetilde{\phi})^{2}\)</span> since the most singular contribution to the self-energy correction comes from the transverse part of the gauge field, <span class="math inline">\({ }^{6,11}\)</span> we concentrate on the effect of the transverse gauge-field fluctuations. In the infrared limit, the transverse gauge-field propagator can be taken as <span class="math inline">\(^{12,14}\)</span> <span class="math display">\[
+D_{11}( q , \omega)=\frac{1}{-i \gamma \frac{\omega}{q}+\chi q^{\eta}}
+\]</span> where <span class="math inline">\(\chi=1 / 24 \pi m+V_{0} /(2 \pi \widetilde{\phi})^{2}\)</span> for <span class="math inline">\(\eta=2\)</span> and <span class="math inline">\(\chi=V_{0} /(2 \pi \widetilde{\phi})^{2}\)</span> for <span class="math inline">\(1 \leq \eta&lt;2\)</span></p>
+<p>Before explaining the way we construct the QBE for a fermion-gauge-field system in which there is no welldefined Landau quasiparticle in general, we review the usual derivation of the QBE for a Fermi liquid with welldefined quasiparticles. <span class="math inline">\({ }^{19,21}\)</span> The <span class="math inline">\(QBE\)</span> is nothing but the equation of motion of the fermion distribution function. Therefore, it can be derived from the equation of motion of the nonequilibrium one-particle Green's function. Following Kadanoff and Baym, <span class="math inline">\({ }^{26}\)</span> let us consider the following one-particle Green's function: <span class="math display">\[
+G^{&lt;}\left(x_{1}, x_{2}\right)=i\left\langle\psi^{\dagger}\left(x_{2}\right) \psi\left(x_{1}\right)\right\rangle
+\]</span> where <span class="math inline">\(x_{1}=\left(r_{1}, t_{1}\right)\)</span> and <span class="math inline">\(x_{2}=\left(r_{2}, t_{2}\right) .\)</span> At nonequilibrium, <span class="math inline">\(G^{&lt;}\left(x_{1}, x_{2}\right)\)</span> does not satisfy the translational invariance in space-time, so that it cannot be written as <span class="math inline">\(G^{&lt;}\left(x_{1}-x_{2}\right)\)</span> By the following change of variables: <span class="math display">\[
+\left( r _{ rel }, t_{ rel }\right)=x_{1}-x_{2} \text { and }( r , t)=\left(x_{1}+x_{2}\right) / 2
+\]</span> <span class="math inline">\(G^{&lt;}\left(x_{1}, x_{2}\right)\)</span> can be written as <span class="math display">\[
+\begin{aligned}
+G^{&lt;}\left( r _{ rel }, t_{ rel } ; r , t\right)=i &amp;\left\langle\psi^{\dagger}\left[ r -\frac{ r _{ rel }}{2}, t-\frac{t_{ rel }}{2}\right]\right.\\
+&amp;\left.\times \psi\left[ r +\frac{ r _{ rel }}{2}, t+\frac{t_{ rel }}{2}\right]\right\rangle
+\end{aligned}
+\]</span> By the Fourier transformation for the relative coordinates <span class="math inline">\(t_{\text {rel }}\)</span> and <span class="math inline">\(r _{\text {rel }},\)</span> we obtain <span class="math inline">\(G^{&lt;}( p , \omega ; r , t) .\)</span> At equilibri<span class="math inline">\(um , G^{&lt;}\)</span> can be written as <span class="math inline">\(^{26-28}\)</span> <span class="math display">\[
+G_{0}^{&lt;}( p , \omega)=i f_{0}(\omega) A( p , \omega)
+\]</span> where <span class="math inline">\(f_{0}(\omega)=1 /\left(e^{\omega / T}+1\right)\)</span> is the equilibrium Fermi distribution function and <span class="math inline">\(\left(\Sigma^{R}\right.\)</span> is the retarded self-energy) <span class="math display">\[
+A( p , \omega)=\frac{-2 \operatorname{Im} \Sigma^{R}( p , \omega)}{\left[\omega-\xi_{p}-\operatorname{Re} \Sigma^{R}( p , \omega)\right]^{2}+\left(\operatorname{Im} \Sigma^{R}( p , \omega)\right)^{2}}
+\]</span> In the usual Fermi-liquid theory, <span class="math inline">\(\operatorname{Im} \Sigma^{R}&lt;&lt;\omega,\)</span> so that <span class="math inline">\(A( p , \omega)\)</span> is a peaked function of <span class="math inline">\(\omega\)</span> around <span class="math inline">\(\omega=\xi_{p}+\operatorname{Re} \Sigma^{R}\)</span> In this case, the equilibrium spectral function can be taken <span class="math inline">\(\operatorname{as}^{26-28}\)</span> <span class="math display">\[
+A( p , \omega)=2 \pi \delta\left[\omega-\xi_{p}-\operatorname{Re} \Sigma^{R}( p , \omega)\right]
+\]</span> Using this property, if the system is not far away from equilibrium, one can construct a closed equation for the fermion distribution function <span class="math inline">\(f( p , r , t),^{26-28}\)</span> which is the <span class="math inline">\(\begin{array}{lllll}\text { QBE. } &amp; \text { The } &amp; \text { linearized } &amp; \text { QBE } &amp; \text { of } &amp; \delta f( p , r , t)=f( p , r , t)\end{array}\)</span> <span class="math inline">\(-f_{0}( p ),\)</span> where <span class="math inline">\(f_{0}( p )\)</span> is the equilibrium distribution function, is the <span class="math inline">\(QBE\)</span> of the quasiparticles in the Fermi-liquid theory. From this QBE, the equation of motion for the Fermi-surface deformation, which is defined as <span class="math inline">\(^{26-28}\)</span> <span class="math display">\[
+v(\theta, r , t)=\int d| p | \delta f( p , r , t)
+\]</span> can be also constructed.</p>
+<p>In the case of the fermion-gauge-field system, as mentioned in Sec. I, <span class="math inline">\(\operatorname{Im} \Sigma^{R}(\omega)\)</span> is larger than <span class="math inline">\(\omega(1&lt;\eta \leq 2)\)</span> or comparable to <span class="math inline">\(\omega(\eta=1) ;\)</span> i.e., strictly speaking, there is no well-defined Landau quasiparticle from the viewpoint of perturbation theory. However, Stern and Halperin <span class="math inline">\(^{15}\)</span> showed that, within a self-consistent treatment, the Fermi-liquid theory can be barely applied to the case of Coulomb interaction in the sense that <span class="math inline">\(\operatorname{Re} \Sigma^{R}\)</span> is logarithmically larger than <span class="math inline">\(\operatorname{Im} \Sigma^{R} .\)</span> Note that, in general, <span class="math inline">\(A( p , \omega)\)</span> at equilibrium is no longer a peaked function of <span class="math inline">\(\omega\)</span> in the fermion-gauge-field system. Because of this, <span class="math inline">\(f( p , r , t)\)</span> does not satisfy a closed equation of motion even near the equilibrium. However, if <span class="math inline">\(\Sigma^{R}\)</span> is only a function of <span class="math inline">\(\omega\)</span>, <span class="math inline">\(A( p , \omega)\)</span> is still a well-peaked function of <span class="math inline">\(\xi_{p}\)</span> around <span class="math inline">\(\xi_{p}=0\)</span> for sufficiently small <span class="math inline">\(\omega .^{25}\)</span> This observation leads us to define the following generalized distribution function: <span class="math inline">\({ }^{25}\)</span> <span class="math display">\[
+f(\theta, \omega ; r , t)=-i \int \frac{d \xi_{p}}{2 \pi} G^{&lt;}( p , \omega ; r , t)
+\]</span> where <span class="math inline">\(\theta\)</span> is the angle between <span class="math inline">\(p\)</span> and a given direction. The linearized quantum Boltzmann equation for <span class="math inline">\(\delta f(\theta, \omega ; r , t)=f(\theta, \omega ; r , t)-f_{0}(\omega)\)</span> can be derived, which is analogous to the QBE of the quasiparticles in the usual Fermi-liquid theory. From this QBE, one can also construct the equation of motion for the generalized Fermisurface displacement <span class="math inline">\({ }^{25}\)</span> <span class="math display">\[
+u(\theta, r , t)=\int \frac{d \omega}{2 \pi} \delta f(\theta, \omega ; r , t)
+\]</span> which corresponds to the variation of the local chemical potential in the momentum space. This object can be still well defined even in the absence of a sharp Fermi surface. This is because one can always define a chemical potential in each angle <span class="math inline">\(\theta,\)</span> which is the energy required to put an additional fermion in the direction labeled by <span class="math inline">\(\theta\)</span> in momentum space. In Sec. III, we derive the linearized QBE for the generalized distribution function <span class="math inline">\(\delta f(\theta, \omega ; r , t)\)</span></p>
+<h3 id="广义分布函数的量子玻尔兹曼方程">广义分布函数的量子玻尔兹曼方程</h3>
+<p>In the nonequilibrium Green's-function formulation, the following matrices of the Green's function and the self-energy satisfy Dyson's equation <span class="math inline">\(^{28}\)</span> <span class="math display">\[
+\tilde{G}=\left[\begin{array}{cc}
+G_{t} &amp; -G^{&lt;} \\
+G^{&gt;} &amp; -G_{\bar{t}}
+\end{array}\right] \text { and } \tilde{\Sigma}=\left[\begin{array}{cc}
+\Sigma_{t} &amp; -\Sigma^{&lt;} \\
+\Sigma^{&gt;} &amp; -\Sigma_{\bar{t}}
+\end{array}\right]
+\]</span> where <span class="math display">\[
+\begin{aligned}
+G^{&gt;}\left(x_{1}, x_{2}\right) &amp;=-i\left\langle\psi\left(x_{1}\right) \psi^{\dagger}\left(x_{2}\right)\right\rangle \\
+G^{&lt;}\left(x_{1}, x_{2}\right) &amp;=i\left\langle\psi^{\dagger}\left(x_{2}\right) \psi\left(x_{1}\right)\right\rangle \\
+G_{t}\left(x_{1}, x_{2}\right)&amp;= \Theta\left(t_{1}-t_{2}\right) G^{&gt;}\left(x_{1}, x_{2}\right) \\
+&amp;\quad +\Theta\left(t_{2}-t_{1}\right) G^{&lt;}\left(x_{1}, x_{2}\right) \\
+G_{\bar{t}}\left(x_{1}, x_{2}\right)&amp;= \Theta\left(t_{2}-t_{1}\right) G^{&gt;}\left(x_{1}, x_{2}\right) \\
+&amp;\quad+\Theta\left(t_{1}-t_{2}\right) G^{&lt;}\left(x_{1}, x_{2}\right)
+\end{aligned}
+\]</span> and <span class="math inline">\(\Sigma^{&gt;}, \Sigma^{&lt;}, \Sigma_{t},\)</span> and <span class="math inline">\(\Sigma_{\bar{t}}\)</span> are the associated self-energies. <span class="math inline">\(\Theta(t)=1\)</span> for <span class="math inline">\(t&gt;0\)</span> and zero for <span class="math inline">\(t&lt;0 . G^{R}\)</span> (retarded) and <span class="math inline">\(G^{A}\)</span> (advanced) Green's functions can be expressed in terms of <span class="math inline">\(G_{t}\)</span> (time ordered), <span class="math inline">\(G_{\bar{t}}\)</span> (antitime ordered), <span class="math inline">\(G^{&lt;}\)</span> and <span class="math inline">\(G^{&gt;}\)</span> as follows: <span class="math display">\[
+\begin{array}{l}
+G^{R}=G_{t}-G^{&lt;}=G^{&gt;}-G_{\bar{t}} \\
+G^{A}=G_{t}-G^{&gt;}=G^{&lt;}-G_{\bar{t}}
+\end{array}
+\]</span> Similarly, <span class="math inline">\(\Sigma^{R}\)</span> and <span class="math inline">\(\Sigma^{A}\)</span> are given by <span class="math display">\[
+\begin{array}{l}
+\Sigma^{R}=\Sigma_{t}-\Sigma^{&lt;}=\Sigma^{&gt;}-\Sigma_{\bar{t}} \\
+\Sigma^{A}=\Sigma_{t}-\Sigma^{&gt;}=\Sigma^{&lt;}-\Sigma_{\bar{t}}
+\end{array}
+\]</span> The matrix Green's function satisfies the following equations of motion: <span class="math display">\[
+\begin{aligned}
+\left[i \frac{\partial}{\partial t_{1}}-H_{0}\left( r _{1}\right)\right] \widetilde{G}\left(x_{1}, x_{2}\right)
+&amp;=\delta\left(x_{1}-x_{2}\right) \widetilde{I}+\int d x_{3} \tilde{\Sigma}\left(x_{1}, x_{3}\right) \widetilde{G}\left(x_{3}, x_{2}\right)\\
+\left[-i \frac{\partial}{\partial t_{2}}-H_{0}\left( r _{2}\right)\right] \tilde{G}\left(x_{1}, x_{2}\right) 
+&amp;=\delta\left(x_{1}-x_{2}\right) \tilde{I}+\int d x_{3} \widetilde{G}\left(x_{1}, x_{3}\right) \tilde{\Sigma}\left(x_{3}, x_{2}\right)
+\end{aligned}
+\]</span> where <span class="math display">\[
+H_{0}\left( r _{1}\right)=-\frac{1}{2 m}\left[\frac{\partial}{\partial r _{1}}\right]^{2}-\mu
+\]</span> and <span class="math display">\[
+H_{0}\left( r _{2}\right)=-\frac{1}{2 m}\left[\frac{\partial}{\partial r _{2}}\right]^{2}-\mu
+\]</span> For our purpose, we need only the equation of motion for <span class="math inline">\(G^{&lt;}\)</span> <span class="math display">\[
+\begin{aligned}
+&amp;\left[i \frac{\partial}{\partial t_{1}}+i \frac{\partial}{\partial t_{2}}+\frac{1}{2 m}\left[\frac{\partial}{\partial r _{1}}\right]^{2}-\frac{1}{2 m}\left[\frac{\partial}{\partial r _{2}}\right]^{2}\right] G^{&lt;}\left(x_{1}, x_{2}\right)\\
+=&amp;\int d x_{3}\left[\operatorname{Re} \Sigma^{R}\left(x_{1}, x_{3}\right) G^{&lt;}\left(x_{3}, x_{2}\right)+\Sigma^{&lt;}\left(x_{1}, x_{3}\right) \operatorname{Re} G^{R}\left(x_{3}, x_{2}\right)\right.
+\\&amp;-\operatorname{Re} G^{R}\left(x_{1}, x_{3}\right) \Sigma^{&lt;}\left(x_{3}, x_{2}\right)-G^{&lt;}\left(x_{1}, x_{3}\right) \operatorname{Re} \Sigma^{R}\left(x_{3}, x_{2}\right)
+\\&amp;+\frac{1}{2} \Sigma^{&gt;}\left(x_{1}, x_{3}\right) G^{&lt;}\left(x_{3}, x_{2}\right)-\frac{1}{2} \Sigma^{&lt;}\left(x_{1}, x_{3}\right) G^{&gt;}\left(x_{3}, x_{2}\right)
+\\&amp;\left.-\frac{1}{2} G^{&gt;}\left(x_{1}, x_{3}\right) \Sigma^{&lt;}\left(x_{3}, x_{2}\right)+\frac{1}{2} G^{&lt;}\left(x_{1}, x_{3}\right) \Sigma^{&gt;}\left(x_{3}, x_{2}\right)\right]
+\end{aligned}
+\]</span></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Thesis-and-Paper/">Thesis and Paper</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Thesis-and-Paper/Quantum-transport-and-non-Fermi-liquild/">Quantum transport and non-Fermi liquild</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/paper/">paper</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Quantum-transport/">Quantum transport</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/25/Thesis04_transport_02/">
+                        <span class="hidden-mobile">论文笔记：金属中电声相互作用的输运理论</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "论文笔记：量子玻尔兹曼方程&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

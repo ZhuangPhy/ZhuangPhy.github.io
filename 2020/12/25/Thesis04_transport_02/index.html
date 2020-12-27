@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>论文笔记：金属中电声相互作用的输运理论 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-12-25 14:23">
+      December 25, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      155
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<p>论文笔记 Transport Theory for Electron-Phonon Interactions in Metals</p>
+<p>作者：RICHARD E. PRANGE</p>
+<p>发表时间 1964</p>
+<h3 id="参考文献">参考文献</h3>
+<ol type="1">
+<li><a href="https://journals.aps.org/pr/pdf/10.1103/PhysRev.134.A566?casa_token=-fSszUmqPw4AAAAA%3A4qoUn5q3De807kqpjJ8t30dwEt_xGgLFtgMWuQOuwE-bc2aNO4P5-2UV2rIIm30B8JGbEb95BDQ" target="_blank" rel="noopener">本篇论文地址</a></li>
+</ol>
+<h3 id="摘要">摘要</h3>
+<p>By extending Migdal's approximation for electron-phonon interactions in metals to the nonequilibrium case, it is possible to derive a set of transport equations which are exact to order <span class="math inline">\((m / M)^{1 / 2}\)</span>. This coupled set of equations for the electron and phonon distribution functions is correct even in the situation in which the electronic excitation spectrum has considerable width and structure so that one might not expect <span class="math inline">\(a\)</span> priori that there would be well-defined quasiparticles. Nonetheless, one of the forms of the electronic transport equation is identical to the transport equation suggested by Landau for the case in which the quasiparticle energy is well defined. The transport equations may be written in two different forms: In the first form, the electronic distribution function is labeled by a momentum vector; in the second, the labels are excitation energy and the position on the Fermi surface. Despite the width in the spectrum, the momentum-space form is identical with the Landau quasiparticle theory. The energy space form is slightly simpler because no wave function renormalization constants appear in the definition of the energies or in the scattering matrix elements. In fact, in the case in which there is space dependence but no time dependence this form of the transport equations looks identical to the weak-coupling Boltzmann equations. This identity is used to prove that to the accuracy of the adiabatic approximation the several transport coefficients are completely unchanged by the many-body effects of the electron-phonon interaction. These coefficients, which include the spin diffusivity and the viscosity as well as the ordinary conductivities and all the classical galvanomagnetothermal effects are thus correctly predicted by the standard weak-coupling theory. Many-body effects are also absent in <span class="math inline">\(d n / d \mu\)</span> and the spin susceptibility; however, they do appear in the specific heat and in the response to time-dependent disturbances.</p>
+<h3 id="介绍">介绍</h3>
+<p>It is remarkable that many experiments on manybody systems can be described by the independentparticle model. Especially for metals, it was unclear why many-body effects were not more pronounced, but a number of years ago, Landau, in a famous series of papers, shed a great deal of light on the problem. Landau pointed out that the low-lying excited states of a Fermion system might very well have a natural oneto-one correspondence with the low-lying states of the noninteracting system. On the basis of this correspondence, he was able to obtain the equilibrium properties, and also the transport equations describing situations not far removed from equilibrium. The equations describe a set of weakly interacting quasiparticles. The main difference between this case and the limit of really weak interactions is that the quasiparticles have a modified energy-momentum relation and that there is a modification of the scattering matrix elements.</p>
+<p>The Landau theory is phenomenological, since it introduces unknown functions as phenomenological parameters. Nevertheless, it is of enormous importance, since it catalogs completely the phenomena of the systems that it describes, and since it provides a target for theorists who wish to start from a less phenomenological viewpoint. Several important advances have been made along this line. We mention the work of Luttinger and Nozières, <span class="math inline">\({ }^{2}\)</span> who show that as long as perturbation theory is formally correct, the Landau theory follows. That is, if the formal sum of perturbation series has certain crucial properties shared by individual terms in the series, then the Landau theory holds. Baym and Kadanoff <span class="math inline">\(^{3}\)</span> made rather different arguments based upon the theory of Green's functions.</p>
+<p>The theories of quasiparticles so far mentioned have relied upon the following idea: If one considers an electron of definite momentum near the Fermi surface, one finds that it has a component with well-defined energy, that is, its lifetime is very long. The reason is that the phase space for the possible decay products of the electron is very small, because of the Pauli principle. In this paper, we investigate the question of whether a quasiparticle theory can be said to hold for the system of electrons and phonons. The previously mentioned work has been restricted to a system of Fermions interacting by means of instantaneous forces, as, for example, Coulomb repulsions. There have been suggestions recently that the quasiparticle picture fails for electron-phonon systems. <span class="math inline">\({ }^{4,5}\)</span> Partially, this is a matter of semantics. We shall say that we have a quasiparticle theory if the system is described by a Boltzmann equation of the form suggested by Landau, even though various matrix elements, as well as the energy-momentum relations, are "renormalized." We shall not regard it as a failure of the quasiparticle concept if it turns out that the matrix-element (wave function) renormalization is nontrivial.</p>
+<p>A more profound objection to the use of the quasiparticle concept in the electron-phonon system is that an electron injected into the system with a definite momentum cannot be said to have a definite energy, if this energy is above the Fermi energy by as much as <span class="math inline">\(\omega_{0},\)</span> where <span class="math inline">\(\omega_{0}\)</span> is a typical or maximum phonon energy (the Debye frequency). Such electrons so rapidly emit phonons that their energy cannot be defined. If such comparatively highly excited electronic states are not of importance, there is no difficulty in extending the usual arguments leading to the Landau theory to the electron-phonon case as well. This will be the case provided we consider only perturbations varying slowly enough in space and time, and provided we restrict the temperature to be well below the Debye temperature. On the other hand, if the highly excited states are important, the usual arguments justifying the quasiparticle concept fail.</p>
+<p>There have been a number of previous attempts to justify the Boltzmann equations in the case in which the electron lifetime was not infinitely long. <span class="math inline">\({ }^{6}\)</span> However, all of these attempts have been based on the approximation that the decay processes involve no change in the electronic energy. Thus, the electronic energies have to be at least well defined. In the electron-phonon system, this situation occurs at temperatures well above the Debye temperature. Our theory includes this as a special case.</p>
+<p>There are many ways in which highly excited and short-lived electronic states can be practically obtained. One is to apply a microwave field whose frequency is comparable to the Debye frequency. Another is to apply a magnetic field so strong that the cyclotron frequency is comparable to the Debye frequency. A third is to raise the potential across a tunnel junction to a value of the order of the Debye frequency measured in electron volts. A fourth is to raise the temperature of the metal to the Debye temperature. We have been able to show that in the third and last cases, a quasiparticle theory (with a definite energy-momentum relation) holds and is essentially exact, in spite of the short lifetime of electrons of definite momentum. We shall only treat the "high" temperature case in this paper, since the third case is a trivial extension of the temperature problem.</p>
+<p>The results of this paper are based upon the approximations of Migdal <span class="math inline">\(^{7,8}\)</span> which are believed to involve only errors allowed by the adiabatic (Born-Oppenheimer) approximation. This is not much of a restriction since the adiabatic approximation is always made in any theory of solids. This approximation regards as small the root of the ratio electron mass divided by ion mass. An equivalent small quantity is the ratio of the sound speed to Fermi velocity. Another equivalent parameter is the ratio of maximum phonon frequency (Debye frequency) to typical electron energy (Fermi energy). Although the frequency shale of the phonon system is small in comparison with the electronic frequencies, the wavelength scale is quite comparable. Wavelengths of typical phonons or electrons are comparable with the lattice constants. We shall follow Migdal in exploiting these facts characteristic of the electron-phonon system.</p>
+<p>In the next section we describe the starting point for our calculation, the Migdal approximation for the self-energy in the electron-phonon system and the exact transport theory of Kadanoff and Baym. In the third section the kinetic-energy variable is integrated out of the transport equation so that we may write an equation of motion for an electronic distribution function which depends upon the excitation energy and the direction of the momentum vector. Section IV describes how the energy space equation of motion may be transformed back into momentum space. The resulting transport equation is exactly of the Landau form. In Sec. V, Landau's identifications of the densities and currents of conserved quantities is specialized to the electron-phonon case. The identifications are verified by a comparison with exact expressions for these densities and currents. In the final section we use these identifications and the transport equations in order to evaluate some thermodynamic derivatives and transport coefficients.</p>
+<h3 id="模型">模型</h3>
+<p>The model electron-phonon system which we wish to study has the Hamiltonian <span class="math display">\[
+\begin{array}{r}
+H=\sum_{ k } \epsilon_{ k } c_{ k }^{\dagger} c_{ k }+\frac{1}{2} \sum_{ q } \omega_{ q }^{0}\left(a_{ q }^{\dagger} a_{ q }+a_{- q } a_{- q }^{\dagger}\right) \\
+\quad+\sum_{ k , q } v^{0}( q ) c_{ k + q }^{\dagger} c_{ k }\left(a_{ q }+a_{- q }^{\dagger}\right)
+\end{array}
+\]</span> We have made a number of assumptions in order not to encumber the notation. The electron spin and band indices and the phonon polarization indices have been suppressed. The bare electron-phonon matrix element <span class="math inline">\(v^{9}( q )\)</span> has been taken to depend only on q. It is supposed to have the usual properties and is not necessarily very small. Umklapp processes have been neglected so that "momentum" is conserved. Anharmonic effects (direct phonon-phonon interactions) have been ignored. None of these simplifications is essential to the subsequent argumentation.</p>
+<p>In Eq. (1), <span class="math inline">\(c_{ k }^{\dagger}\)</span> is a creation operator for an electron of momentum <span class="math inline">\(k , \epsilon_{ k }\)</span> is the electron kinetic energy (energy of the Bloch state), and <span class="math inline">\(\omega_{ q }^{0}\)</span> is the zero-order phonon frequency. We work in a box of unit volume and set <span class="math inline">\(\hbar=1 .\)</span> The <span class="math inline">\(a_{ q }\)</span> operator destroys a bare phonon of momentum <span class="math inline">\(q\)</span>.</p>
+<p>A convenient way of proceeding is to introduce at once the physical phonon operators, defined by the transformation <span class="math display">\[
+\alpha_{ q }=u_{ q } a_{ q }+V_{ q } a_{- q }^{\dagger}
+\]</span> The transformation coefficients, which are to be determined self-consistently, are given by the relations <span class="math display">\[
+\begin{array}{c}
+u_{ q }^{2}-V_{ q }^{2}=1 \\
+u_{ q }=u_{- q }, \quad V_{ q }=V_{- q } \\
+u_{ q }^{2}+V_{ q }^{2}=\left(\omega_{ q }^{0} / \omega_{ q }\right)+\left(\Pi_{ q } / \omega_{ q }^{0}\right) \\
+2 u_{ q } V_{ q }=\Pi_{ q } / \omega_{ q }^{0}
+\end{array}
+\]</span> and the relation between <span class="math inline">\(\Pi_{ q }\)</span> and <span class="math inline">\(\omega_{ q }\)</span> is <span class="math display">\[
+\omega_{ q }^{2}=\left(\omega_{ q }^{0}\right)^{2}+2 \Pi_{ q } \omega_{ q }
+\]</span> The frequency <span class="math inline">\(\omega_{ q }\)</span> will turn out to be the renormalized phonon frequency, while the quantity <span class="math inline">\(\Pi_{ q }\)</span> will have the significance of the polarization part. Under this transformation the Hamiltonian becomes <span class="math display">\[
+\begin{aligned}
+H=&amp;\sum_{ k } \epsilon_{ k } c_{ k }^{\dagger} c_{ k }+\frac{1}{2} \sum_{ q } \omega_{ q }\left(\alpha_{ q }^{\dagger} \alpha_{ q }+\alpha_{- q } \alpha_{- q }^{\dagger}\right)
+\\&amp;+\sum_{ k , q } v( q ) c_{ k + q }^{\dagger} c_{ k }\left(\alpha_{ q }+\alpha_{- q }^{\dagger}\right)
+\\&amp;-\frac{1}{2} \sum_{ q } \Pi_{ q }\left(\alpha_{ q }^{\dagger}+\alpha_{- q }\right)\left(\alpha_{ q }+\alpha_{- q }^{\dagger}\right)
+\end{aligned}
+\]</span> We have introduced the renormalized coupling constant <span class="math display">\[
+v( q )^{2}=v^{0}( q )^{2}\left(\omega_{q}^{0} / \omega_{ q }\right)
+\]</span> In order to derive a transport theory, we define, following Ref. 3 , the functions <span class="math inline">\({ }^{9}\)</span> <span class="math display">\[
+\begin{aligned}
+g_{\sigma}^{&gt;}( k , E ; r , t)=&amp; \sum_{ k ^{\prime}} \int d t^{\prime} e^{i E t^{\prime}+i k ^{\prime} \cdot r }\left\langle c_{ k +\frac{1}{ k }^{\prime} \prime^{\prime}, \sigma}\left(t+\frac{1}{2} t^{\prime}\right) c_{ k -\frac{1}{2} k ^{\prime}, \sigma}^{\dagger}\left(t-\frac{1}{2} t^{\prime}\right)\right\rangle
+\end{aligned}
+\]</span></p>
+<blockquote>
+<p>note 9: "Here the averages indicate that the system has been perturbed from an equilibrium distribution in a way analogous to Eq. (8-18) of Ref. 3. However, we differ from this reference in looking only at times <span class="math inline">\(t\)</span> after the disturbance has been shut off. This specialization is made solely to simplify the writing and can easily be removed.</p>
+</blockquote>
+<p><span class="math display">\[
+\begin{aligned}
+g_{\sigma}^{&lt;}( k , E ; r , t)=&amp; \sum_{ k ^{\prime}} \int d t^{\prime} e^{i E t^{\prime}+i k ^{\prime} \cdot r }  \left\langle c_{ k -\frac{1}{2} k ^{\prime}, \sigma}^{\dagger}\left(t-\frac{1}{2} t^{\prime}\right) c_{ k +\frac{1}{2} k ^{\prime}, \sigma}\left(t-\frac{1}{2} t^{\prime}\right)\right\rangle
+\end{aligned}
+\]</span></p>
+<p>which represent, respectively, the local density of electrons and holes with spin quantum number <span class="math inline">\(\sigma\)</span> momentum <span class="math inline">\(k\)</span> and energy <span class="math inline">\(E\)</span> in the neighborhood of the space-time point <span class="math inline">\(r , t\)</span> In the same way, we define <span class="math display">\[
+\begin{aligned}
+r^{&lt;}( q , \omega ; r , t)=\sum_{q^{\prime}} \int &amp; d t^{\prime} e^{i \omega t^{\prime}+i q^{\prime} \cdot r } \left\langle\alpha_{ q -\frac{1}{2} q ^{\prime}}^{\prime}\left(t-\frac{1}{2} t^{\prime}\right) \alpha_{ q +\frac{1}{2} q ^{\prime}}\left(t+\frac{1}{2} t^{\prime}\right)\right\rangle
+\end{aligned}
+\]</span> which gives the local number density of phonons of momentum <span class="math inline">\(q\)</span> and frequency <span class="math inline">\(\omega .\)</span> We shall also need the functions <span class="math display">\[
+\begin{aligned}
+g( k , z) &amp;=\int \frac{d E g^{&gt;}( k , E)+g^{&lt;}( k , E)}{z-E} \\
+&amp;=\int \frac{d E }{2 \pi} \frac{A( k , E) }{z-E}
+\end{aligned}
+\]</span> and <span class="math display">\[
+r( q , z)=\int \frac{d \omega r^{&gt;}( q , \omega)-r^{&lt;}( q , \omega)}{2 \pi}
+\]</span> where <span class="math inline">\(z\)</span> is a complex variable and we have not explicitly indicated the <span class="math inline">\(r _{1} t\)</span> dependence or the spin dependence.</p>
+<p>In the equilibrium case, <span class="math inline">\(g( k , z)\)</span> and <span class="math inline">\(r( q , z)\)</span> are independent of <span class="math inline">\(r , t .\)</span> There, it is more usual to define only the propagator <span class="math inline">\(D\)</span>, given by <span class="math display">\[
+D\left( q , t-t^{\prime}\right)=\frac{1}{2} t\left\langle T\left(\alpha_{ q }(t)+\alpha_{- q }^{\dagger}(t)\right)\left(\alpha_{- q }\left(t^{\prime}\right)+\alpha_{ q }^{\dagger}\left(t^{\prime}\right)\right)\right\rangle
+\]</span> Perturbation theory can be expressed entirely in terms of <span class="math inline">\(D\)</span> in view of the form of the coupling terms in the Hamiltonian. Transport theory can be expressed entirely in terms of <span class="math inline">\(D\)</span> also, but we have chosen to introduce <span class="math inline">\(r\)</span> to make the analogy between the electron and phonon transport equations more transparent. We shall also have to define temporarily the functions <span class="math inline">\(S^{&gt;,&lt;}( q , \omega)\)</span> and <span class="math inline">\(S( q , z)\)</span> by <span class="math display">\[
+\begin{aligned}
+S^{&lt;}( q , \omega)=\sum_{q^{\prime}} \int d t^{\prime} \exp \left(i q ^{\prime} \cdot r +i \omega t^{\prime}\right) \left\langle\alpha_{q-\frac{1}{2} q^{\prime}}^{\dagger}\left(t-\frac{1}{2} t^{\prime}\right) \alpha_{-q-\frac{1}{2} q^{\prime}}^{\dagger}\left(t+\frac{1}{2} t^{\prime}\right)\right\rangle
+\end{aligned}
+\]</span> The functions <span class="math inline">\(S\)</span> will be shown to be negligible when the phonon renormalization is correctly carried out, as must be the case if the phonons are to be successfully interpreted as nearly independent elementary excitations.</p>
+<p>In the equilibrium case, <span class="math inline">\(g( k , z)\)</span> and <span class="math inline">\(r( q , z)\)</span> can be determined with the aid of the Migdal approximation by <span class="math display">\[
+\begin{aligned}
+\left[z-\epsilon_{ k }-\Sigma_{\sigma}( k , z)\right] g_{\sigma}( k , z) &amp;=1 \\
+\left[z-\omega_{ q }-\Pi( q , z)\right] r( q , z)-\Pi( q , z) S( q , z) &amp;=1 \\
+\left[-z-\omega_{ q }-\Pi( q , z)\right] S( q , z)-\Pi( q z) r( q , z) &amp;=0
+\end{aligned}
+\]</span> where <span class="math display">\[
+\begin{aligned}
+\Sigma_{\sigma}( k , z)&amp;=\int \frac{d E}{2 \pi} \frac{\Sigma_{\sigma}^{&gt;}( k , E)+\Sigma_{\sigma}^{&lt;}( k , E)}{z-E}\\
+&amp;=\int \frac{d E}{2 \pi} \frac{\Gamma_{\sigma}( k , E)}{z-E}
+\end{aligned}
+\]</span> and <span class="math display">\[
+\begin{aligned}
+\Pi( q , z)&amp;=\int \frac{d \omega}{2 \pi} \frac{\Pi^{&gt;}( q , \omega)-\Pi^{&lt;}( q , \omega)}{z-\omega}-\Pi_{q}\\
+&amp;=\int \frac{d \omega \gamma( q , \omega)}{2 \pi}-\Pi_{ q }
+\end{aligned}
+\]</span> The widths <span class="math inline">\(\Sigma^{&gt;}\)</span> and <span class="math inline">\(\Pi^{&gt;}\)</span> are given by <span class="math display">\[
+\Sigma_{\sigma}^{&gt;}( k , E)=\int \frac{d^{3} q d \omega}{(2 \pi)^{4}}[v( q )]^{2}\left[r^{&gt;}( q , \omega) +r^{&lt;}(- q ,-\omega)\right] g_{\sigma}^{&gt;}( k - q , E-\omega)
+\]</span> and <span class="math display">\[
+\Pi^{&gt;}( q , \omega)=\sum_{\sigma} \int \frac{d^{3} k d E}{(2 \pi)^{4}}[v(q)]^{2}g_{\sigma}^{&gt;}( k + q , E+\omega) g_{\sigma}^{&lt;}( k , E)
+\]</span> We have already neglected the contribution of <span class="math inline">\(S^{&gt;},&lt;\)</span> in Eq. (12). The mathematical justification for this neglect, as well as for the neglect of <span class="math inline">\(s( q , z)\)</span> in Eq. (9a) will be deferred until after we have had a chance to discuss the structure of <span class="math inline">\(\Pi( q , z) .\)</span> The widths <span class="math inline">\(\Sigma^{&lt;}\)</span> and <span class="math inline">\(\Pi^{&lt;}\)</span> are defined by equations identical to (12) except that <span class="math inline">\(&gt;\)</span> and <span class="math inline">\(&lt;\)</span> are everywhere interchanged.</p>
+<p>The state of thermodynamic equilibrium at temperature <span class="math inline">\(\beta^{-1}\)</span> and chemical potential <span class="math inline">\(\mu\)</span> is described by the solution of Eq. <span class="math inline">\((8)-(13)\)</span> with the subsidiary conditions <span class="math display">\[
+\begin{aligned}
+g^{&lt;}( k , E) &amp;=\exp [-\beta(E-\mu)] g^{&gt;}( k , E) \\
+r^{&lt;}( q , \omega) &amp;=\exp [-\beta \omega] r^{&gt;}( q , \omega)
+\end{aligned}
+\]</span> If we follow the ideas of Ref. 3, we see that when <span class="math inline">\(r^{&gt;}&lt;\)</span> and <span class="math inline">\(g^{&gt;}&lt;\)</span> vary slowly in space and time <span class="math inline">\(( r\)</span> and <span class="math inline">\(t)\)</span> Eqs. <span class="math inline">\((8)-(13)\)</span> remain equally true in the nonequilibrium case if we simply consider all the functions in these equations to depend upon <span class="math inline">\(r\)</span> and <span class="math inline">\(t .\)</span> However, the detailed balancing conditions represented by Eq. (14) fails. These conditions must be replaced by the generalized Boltzmann equations: <span class="math display">\[
+\begin{aligned}
+&amp;\qquad \left[E-\epsilon_{ k }-\operatorname{Re} \sum, g^{&gt;}\right]-\left[\Sigma^{&gt;}, \operatorname{Reg}\right] \\
+&amp;=-\left[E-\epsilon_{k}-\operatorname{Re} \sum, g^{&lt;}\right]+\left[\sum^{&lt;}, \operatorname{Reg}\right] \\
+&amp;=-\sum^{&lt;}( k , E) g^{&gt;}( k , E)+\sum^{&gt;}( k , E) g^{&lt;}( k , E)
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\qquad \left[\omega-\omega_{ q }- Re \Pi, r^{&gt;}\right]-\left[\Pi^{&gt;}, \operatorname{Re} r\right] \\
+&amp;=\left[\omega-\omega_{ q }-\operatorname{Re} \Pi, r^{&lt;}\right]-\left[\Pi I^{&lt;}, \operatorname{Re} r\right] \\
+&amp;=-\Pi^{&gt;}( q , \omega) r^{&lt;}( q , \omega)+\Pi^{&lt;}( q , \omega) r^{&gt;}( q , \omega)
+\end{aligned}
+\]</span> In writing Eqs. (15) and (16), we have used a generalized Poisson bracket notation in which, for Eq. (15), <span class="math display">\[
+[A, B]=\frac{\partial A}{\partial E} \frac{\partial B}{\partial t}-\frac{\partial A}{\partial t} \frac{\partial B}{\partial E}+\nabla_{ r } A \cdot \nabla_{ k } B-\nabla_{ s } B \cdot \nabla_{ r } A
+\]</span> In Eq. (16) the brackets have the same meaning except that for <span class="math inline">\(\partial / \partial E\)</span> we read <span class="math inline">\(\partial / \partial \omega\)</span> and for <span class="math inline">\(\nabla_{ k }\)</span> we read <span class="math inline">\(\nabla_{ q }\)</span>. Finally, in Eqs. (15) and (16) the notation Re means that the complex frequency variables in <span class="math inline">\(g( k , z), r( q , z)\)</span> <span class="math inline">\(\Sigma( k , z),\)</span> and <span class="math inline">\(\Pi( q , z)\)</span> are to be moved onto the real axis and the integrals in Eqs. <span class="math inline">\((6),(7),(10),\)</span> and (11) are to be interpreted in the principal value sense. Thus, for example, <span class="math display">\[
+\operatorname{Reg}=\operatorname{Reg}( k , E ; r , t)= P \int \frac{d E}{2 \pi} \frac{A\left( k , E^{\prime}, r , t\right)}{E-E^{\prime}}
+\]</span></p>
+<h3 id="推导能量空间中的输运方程">推导能量空间中的输运方程</h3>
+<p>To make any progress with the equations of the previous section, we must employ a simplifying feature of this problem first noted by Migdal <span class="math inline">\(^{7}\)</span> and subsequently used by many other authors. <span class="math inline">\({ }^{4,5}\)</span> This simplifying feature results from the fact that all the phonon energies <span class="math inline">\(\omega_{ q }^{0}\)</span> are much smaller than <span class="math inline">\(\mu .\)</span> For this reason, the only electrons which participate in the electron-phonon interaction are those with energies very close to <span class="math inline">\(\mu .\)</span> In fact, we usually need only consider electrons with <span class="math inline">\(|E-\mu|\)</span> and <span class="math inline">\(\left|\epsilon_{ k }-\mu\right|\)</span> of the order of a typical thermal energy <span class="math inline">\(\beta^{-1}\)</span> or a typical phonon energy <span class="math inline">\(\omega_{0}\)</span>.</p>
+<p>The smallness of the phonon energies is reflected in a great sensitivity of <span class="math inline">\(\Sigma( k , z ; r , t)\)</span> to changes in <span class="math inline">\(z .\)</span> In fact, <span class="math display">\[
+\frac{\partial}{\partial z}( k , z)=O \frac{\Sigma( k , z)}{\omega_{0}}
+\]</span> On the other hand, the momenta of the important phonons are quire comparable with electronic momenta. For this reason we cannot expect any corresponding sensitivity of <span class="math inline">\(\Sigma\)</span> to changes in <span class="math inline">\(k\)</span>. We can see that <span class="math display">\[
+\nabla_{ k } \Sigma( k , z)=O\left(\Sigma( k , z) / k_{0}\right)
+\]</span> where <span class="math inline">\(k_{0}\)</span> is the typical electronic momentum, the Fermi momentum. From (20) it follows that <span class="math display">\[
+\frac{\partial}{\partial \epsilon_{ k }} \Sigma( k , z)=O \frac{\Sigma( k , z)}{\mu}
+\]</span> where <span class="math inline">\(\mu\)</span>, the chemical potential, is far larger than <span class="math inline">\(\omega_{0}\)</span>. [We remark that Eqs. (20) and (21) fail for superconductors because a new fundamental length, the coherence length, appears.]</p>
+<p>Because of the insensitivity represented in Eq. (21), we shall consider <span class="math inline">\(\Sigma( k , z ; r , t)\)</span> to be completely independ-ent of <span class="math inline">\(\epsilon_{ k } .\)</span> We replace <span class="math inline">\(k\)</span> in <span class="math inline">\(\Sigma\)</span> by <span class="math inline">\(k _{F}(\hat{k})\)</span> which indicates that we consider <span class="math inline">\(k\)</span> to be confined to the Fermi surface. Therefore it depends only on the unit vector <span class="math inline">\(\hat{k}= k /| k |\)</span>. Henceforth we shall write <span class="math inline">\(\Sigma( k , z ; r , t)\)</span> as <span class="math inline">\(\Sigma(\hat{k}, z ; r , t)\)</span> and consider <span class="math inline">\(\Sigma, \Sigma^{&gt;},\)</span> and <span class="math inline">\(\Sigma^{&lt;}\)</span> to be completely independent of <span class="math inline">\(\epsilon_{ k }\)</span></p>
+<p>This independence enabled Migdal to find <span class="math inline">\(A( k , \omega)\)</span> quite explicitly; it will permit us a considerable simplification of our transport equations. To begin this simplification we notice that Eqs. <span class="math inline">\((6),(10),\)</span> and (15) imply that <span class="math display">\[
+A( k , E ; r , t)=\frac{\Gamma(\hat{k}, E ; r , t)}{\left[E-\epsilon_{ k }-\operatorname{Re} \Sigma(\hat{k}, E, r , t)\right]^{2}+\frac{1}{4}[\Gamma(\hat{k}, E ; r , t)]^{2}}
+\]</span> The function <span class="math inline">\(A,\)</span> in contrast to <span class="math inline">\(\Sigma\)</span> and <span class="math inline">\(\Gamma,\)</span> is strongly peaked in <span class="math inline">\(\epsilon_{ k } .\)</span> It is just this peaking that limits our interest in the dependence of <span class="math inline">\(\Sigma\)</span> on <span class="math inline">\(\epsilon_{ k }\)</span> to values of <span class="math inline">\(\epsilon_{ k }\)</span> in the neighborhood of <span class="math inline">\(E(\sim \mu)\)</span>. Any slowly varying function of <span class="math inline">\(k\)</span> multiplying <span class="math inline">\(A( k , E)\)</span> can be evaluated at <span class="math inline">\(k = k _{F}\)</span> with possible errors of order <span class="math inline">\(\omega_{0} / \mu\)</span> being incurred. since we can see explicitly all the dependence of <span class="math inline">\(A\)</span> upon <span class="math inline">\(\epsilon_{ k }\)</span> in (22), it is possible to compute the area under the peak as <span class="math display">\[
+(2 \pi)^{-1} \int d \epsilon_{ k } A( k , E ; r , t)=1
+\]</span> These properties of <span class="math inline">\(A( k , E, r , t)\)</span> form the keystone of all our subsequent analyses just as their equilibrium analogs served as a keystone of Migdal's paper.</p>
+<p>This method differs from the usual justifications of the Landau theory which are based on the smallness of the width <span class="math inline">\(\Gamma .\)</span> It is well known that <span class="math inline">\(\Gamma\)</span> is negligibly small if the conditions <span class="math inline">\(|E-\mu| \ll \omega_{0}\)</span> and <span class="math inline">\(\beta^{-1} \ll \omega_{0}\)</span> are satisfied. If these conditions are relaxed, as is done in this paper, <span class="math inline">\(A( k , E, r , t)\)</span> will have considerable width and structure when regarded as a function of <span class="math inline">\(E .\)</span> The usual simplification of integrals over <span class="math inline">\(E\)</span> will not then occur. Equation (23) enables us to define a distribution function <span class="math inline">\(f(\hat{k}, E, r , t)\)</span> by <span class="math display">\[
+(2 \pi)^{-1} \int d \epsilon g_{\sigma}&lt;(\epsilon, \hat{k}, E ; r , t)=f_{\sigma}(\hat{k}, E ; r , t)
+\]</span> which is the density of electrons with total energy <span class="math inline">\(E\)</span> with momentum in the direction <span class="math inline">\(\hat{k}\)</span>. From (22) <span class="math display">\[
+(2 \pi)^{-1} \int d \epsilon g_{\sigma}&gt;(\epsilon, \hat{k}, E ; r , t)=1-f_{\sigma}(\hat{k}, E ; r , t)
+\]</span> since, in full thermodynamic equilibrium the condition (14) holds, it follows that in equilibrium, we have <span class="math display">\[
+f(\hat{k}, E)=\{\exp [\beta(E-\mu)]+1\}^{-1}
+\]</span> which is the usual Fermi distribution function. Next we rewrite <span class="math inline">\(\Pi I^{&gt;}&lt;\)</span> and <span class="math inline">\(\Sigma^{&gt;}&lt;\)</span> in terms of the distribution function <span class="math inline">\(f .\)</span> To do this we use the fact that <span class="math display">\[
+\int \frac{d^{3} k}{(2 \pi)^{3}}=\int \frac{d \Omega}{4 \pi} \int d \epsilon N(\epsilon, \hat{k})
+\]</span> where <span class="math inline">\(\int d \Omega\)</span> is a solid angle integration. The <span class="math inline">\(\epsilon\)</span> integral contributes only very near <span class="math inline">\(\epsilon=\mu\)</span>, so that we may replace <span class="math display">\[
+\int \frac{d^{3} k}{(2 \pi)^{3}}=\int \frac{d \Omega}{4 \pi} N_{0}(\hat{k}) \int d \epsilon
+\]</span> where <span class="math display">\[
+N_{0}(\hat{k})=N(\mu, \hat{k})
+\]</span> is the density of states in angle and energy evaluated at the Fermi surface, for electrons of one spin in the noninteracting system. If we make this replacement Eq. (11) implies that <span class="math display">\[
+\begin{array}{r}
+\Sigma^{\prime}(\hat{k}, E)=(4 \pi)^{-1} \int d \Omega^{\prime} d E^{\prime} N_{0}(\hat{k})\left[v\left( k _{F}- k _{F}^{\prime}\right)\right]^{2} \\
+\times\left[1-f\left(\hat{k}^{\prime}, E^{\prime}\right)\right]\left[r^{\prime}\left( k _{F}- k _{F}^{\prime}, E-E^{\prime}\right)\right. \\
+\left.\quad+r^{\prime}\left( k _{F}^{\prime}- k _{F}, E^{\prime}-E\right)\right] \\
+\Sigma^{\prime}(\hat{k}, E)=(4 \pi)^{-1} \int d \Omega^{\prime} d E^{\prime} N_{0}\left(\hat{k}^{\prime}\right)\left[v\left( k _{F}- k _{F}^{\prime}\right)\right]^{2} \\
+\times f\left(\hat{k}^{\prime}, E^{\prime}\right)\left[r^{&lt;}\left( k _{F}- k _{F}^{\prime}, E-E^{\prime}\right)\right. \\
+\left.+r^{&lt;}\left( k _{F}^{\prime}- k _{F}, E^{\prime}-E\right)\right]
+\end{array}
+\]</span> Exactly the same manipulations applied to Eq. (12) give <span class="math display">\[
+\begin{aligned}
+\Pi^{&gt;}( q , \omega)=&amp; \Pi^{&lt;}(- q ,-\omega) \\
+=&amp; \sum_{\sigma}(4 \pi)^{-2} \int d \Omega d \Omega^{\prime} N_{0}(\hat{k}) N_{0}\left(\hat{k}^{\prime}\right) \\
+&amp; \times[v(q)]^{2}(2 \pi)^{4} \delta^{3}\left( k _{F}- k _{F}^{\prime}- q \right) \\
+&amp; \times\left[1-f_{\sigma}(\hat{k}, E+\omega)\right] f_{\sigma}\left(\hat{k}^{\prime}, E\right)
+\end{aligned}
+\]</span> It is worth noting that <span class="math inline">\(\Sigma_{\sigma}&gt;&lt;\)</span> depends only on the density of electrons of one spin, whereas <span class="math inline">\(\Pi^{&gt;},&lt;\)</span> depends on the distribution of both spins in equal measure.</p>
+<p>As is explained in Ref. 8 , Migdal's arguments for the approximation of <span class="math inline">\(\Pi^{&gt;}&lt;\)</span> break down when <span class="math inline">\(q\)</span> is too small, i.e., only those phonons for which <span class="math inline">\(q / k_{0}&gt;\omega_{0} / \mu\)</span> can be treated accurately by the perturbation theory method. This is not a serious drawback because the long-wavelength phonons are few in number and do not contribute appreciably to the electron self-energies, or to transport processes, except in special circumstances. The longwavelength sound waves can be treated <span class="math inline">\(a\)</span> postiori by means of the electron phonon transport equations themselves.</p>
+<p>To find the electronic transport equation we integrate Eq. (15) over <span class="math inline">\(\epsilon .\)</span> Because of Eq. (20) we can neglect <span class="math inline">\(\nabla_{ k } \Sigma\)</span> and <span class="math inline">\(\nabla_{ k } \Sigma^{&lt;}\)</span>. Then Eq. (15) implies <span class="math inline">\(^{11}\)</span> <span class="math display">\[
+\begin{aligned}
+\left[\omega-\epsilon_{k}\right.&amp;-\Sigma(\hat{k}, E), f(\hat{k}, E)]-\left[\Sigma^{&lt;}(\hat{k}, E), \int \frac{d \epsilon}{2 \pi} g(\epsilon, \hat{k}, E)\right] \\
+&amp;=-\Sigma^{&gt;}(\hat{k}, E) f(\hat{k}, E)+\Sigma^{&lt;}(\hat{k}, E)[1-f(\hat{k}, E)]
+\end{aligned}
+\]</span> We can eliminate the term involving <span class="math inline">\(g\)</span> in Eq. (29) if we notice that <span class="math display">\[
+\int \frac{d \epsilon}{2 \pi} g(\epsilon, \hat{k}, E)= O \int \frac{d \epsilon d E^{\prime}}{(2 \pi)^{2}} \frac{A\left(\epsilon, \hat{k}, E^{\prime}\right)}{E-E^{\prime}}=\rho \int \frac{d E^{\prime}}{2 \pi} \frac{1}{E-E^{\prime}}
+\]</span> This is not, strictly speaking, well defined but all derivatives of this object certainly vanish. Therefore, Eq. (29) becomes <span class="math display">\[
+\begin{aligned}
+&amp;\left[1-\frac{\partial}{\partial E} \Sigma_{\sigma}(\hat{k}, E)\right] \frac{\partial}{\partial t} f_{\sigma}(\hat{k}, E)+\frac{\partial \Sigma_{\sigma}}{\partial t}(\hat{k}, E) \frac{\partial f_{\sigma}}{\partial E}(\hat{k}, E) +\left(\nabla_{ k _{F}} \epsilon_{ k _{F}}\right) \cdot \nabla_{ r } f_{\sigma}(\hat{k}, E) \\
+=&amp;-\Sigma_{\sigma}^{&gt;}(\hat{k}, E) f_{\sigma}(\hat{k}, E)+\Sigma_{\sigma}&lt;(\hat{k}, E)\left[1-f_{\sigma}(\hat{k}, E)\right]
+\end{aligned}
+\]</span> when the brackets are evaluated and terms like <span class="math display">\[
+\nabla_{ k } \Sigma \cdot \nabla_{ r } f=O\left[\left(\Sigma / k_{0}\right)\left|\nabla_{ r } f\right|\right]
+\]</span> are neglected. This neglect requires <span class="math inline">\(\Sigma \ll \mu\)</span> which is certainly very well satisfied in the metal.</p>
+<p>The derivation of the phonon transport equation is slightly more complicated. We first study the quantity <span class="math inline">\(\operatorname{Re} \Pi( q \omega),\)</span> given by <span class="math display">\[
+\operatorname{Re\Pi}(q \omega)=\frac{\partial}{2 \pi} \int d \omega^{\prime} \frac{\Pi^{&gt;}\left( q , \omega^{\prime}\right)-\Pi^{&lt;}\left( q , \omega^{\prime}\right)}{\omega-\omega^{\prime}}-\Pi_{ q }
+\]</span> The values of <span class="math inline">\(\omega\)</span> of greatest interest to us are of order <span class="math inline">\(\omega_{0}\)</span>. As Migdal has shown, the values of <span class="math inline">\(\omega^{\prime}\)</span> contributing appreciably to the integral in (31) are much larger, of order <span class="math inline">\(\mu .\)</span> Consequently, the electron distributions on which (31) depends must be evaluated at energies remote from the Fermi energy. Far from the Fermi surface, the electron states are either full or empty, independent of the slight ripples on the Fermi sea which represent the deviation from equilibrium. Indeed, these electron states are uninfluenced by the electronphonon interaction altogether. We may therefore compute <span class="math inline">\(\operatorname{Re} \Pi(q, \omega)\)</span> with great accuracy by using the formula (12) for <span class="math inline">\(\Pi^{&gt;},&lt;(q, \omega)\)</span> and putting for the electron distribution functions in (12), the functions of the noninteracting system at zero temperature.</p>
+<p>It follows from the above arguments that <span class="math inline">\(\operatorname{Re} \Pi( q , \omega)\)</span> is practically independent of frequency, for frequencies of order <span class="math inline">\(\omega_{0}\)</span>. We choose it to vanish by picking <span class="math inline">\(\Pi_{ q }\)</span> to be <span class="math display">\[
+\Pi_{ q }=\frac{\partial}{2 \pi} \int d \omega^{\prime} \frac{\Pi^{&gt;}\left( q , \omega^{\prime}\right)-\Pi^{&lt;}\left( q , \omega^{\prime}\right)}{-\omega^{\prime}}
+\]</span> By this choice, we achieve the relation, valid for all <span class="math inline">\(\omega\)</span>, <span class="math display">\[
+\operatorname{Re\Pi}( q , \omega) / \omega=O\left(\omega_{0}^{2} / \mu^{2}\right)
+\]</span> which allows us to neglect ReII completely. Next we remark that the absorptive part of <span class="math inline">\(\Pi( q , z)\)</span> which we have denoted by <span class="math inline">\(\gamma( q , z),\)</span> is very small. It can be easily computed from Eq. (28) for, the entire frequency range. Migdal has computed this quantity in the equilibrium case, for which it is true that <span class="math display">\[
+\gamma_{\text {equil }}( q , \omega) / \omega=O\left(\omega_{0} / \mu\right)
+\]</span> One finds an additional contribution to <span class="math inline">\(\gamma\)</span> arising from the deviation of the system away from equilibrium. This contribution is easily estimated as <span class="math display">\[
+\gamma_{\text {nonequil }}( q , \omega)=U \omega_{0} / \mu
+\]</span> where <span class="math inline">\(U\)</span> is a certain average displacement in energy of the electron states at the Fermi surface, away from their equilibrium values. This deviation from equilibrium we have assumed is small, so that we have <span class="math inline">\(U \lesssim \omega_{0}\)</span>. It is important to note, and easy to verify, that the frequency dependence of <span class="math inline">\(\gamma\)</span> is entirely contained in the equilibrium term which is simply proportional to <span class="math inline">\(\omega .\)</span> This is the case for the interesting range <span class="math inline">\(|\omega| \ll \mu\)</span></p>
+<p>Thus we conclude that both the dispersive and absorptive parts of <span class="math inline">\(\Pi( q , z)\)</span> are very small. For nearly all purposes, we can completely neglect both. This result immediately justifies the neglect of the function <span class="math inline">\(s( q , z)\)</span> which appears in Eq. <span class="math inline">\((9) .\)</span> If <span class="math inline">\(z\)</span> is allowed to approach a real positive frequency, the correction in Eq. (9a) can be estimated as being of order <span class="math inline">\([\Pi(q w)]^{2} /\)</span> <span class="math inline">\(\left(\omega+\omega_{0}\right),\)</span> which is completely negligible. From Eq. (16) it follows that <span class="math display">\[
+r^{&gt;}( q , \omega)-r^{&lt;}( q , \omega)=\gamma( q , \omega) /\left[\left(\omega-\omega_{q}\right)^{2}+\frac{1}{4} \gamma^{2}\right]
+\]</span> which is strongly peaked as a function of frequency about <span class="math inline">\(\omega_{ q }\)</span>. The peak has an area <span class="math inline">\(2 \pi .\)</span> Thus, we are enabled to define the phonon distribution function as <span class="math display">\[
+N( q ; r , t)=\int \frac{d \omega}{2 \pi}^{&lt;}( q , \omega ; r , t)
+\]</span> and <span class="math display">\[
+N( q ; r , t)+1=\int \frac{d \omega}{2 \pi} r( q , \omega ; r , t)
+\]</span> where the integration is over the peaking of the integrand. Integrating Eq. (16) over the region of the peaking gives at once <span class="math inline">\(\frac{\partial}{\partial t} N( q ; r , t)+\nabla_{ q } \omega_{ q } \cdot \nabla_{ r } N( q ; r , t)\)</span> <span class="math display">\[
+=\Pi^{&lt;}\left(q \omega_{ q }\right)[N( q )+1]-\Pi^{&lt;}\left(q \omega_{ q }\right) N(q)
+\]</span> We are able to drop the term <span class="math inline">\(\left[\Pi^{&lt;}, \operatorname{Re} r\right],\)</span> because <span class="math inline">\(II ^{&lt;},\)</span> is smoothly varying at <span class="math inline">\(\omega=\omega_{ q }\)</span> Equation (35) is the phonon Boltzmann equation. We shall require the form of <span class="math inline">\(r^{&gt;}&lt;( q , \omega)\)</span> for larger values of <span class="math inline">\(\omega-\omega_{q}\)</span> later. It is evident from (33) that we expect these quantities to drop off as <span class="math inline">\(\left(\omega-\omega_{q}\right)^{-2} .\)</span> Direct substitution shows that the relation <span class="math display">\[
+r^{&gt;},&lt;( q , \omega)=-\Pi^{&gt;},&lt;\partial / \partial \omega(\operatorname{Re} r)=\delta r^{&gt;},&lt;
+\]</span> holds for large <span class="math inline">\(\omega-\omega_{ q } .\)</span> The quantity <span class="math inline">\(\operatorname{Re} r\)</span> is <span class="math display">\[
+\operatorname{Re} r=\left(\omega-\omega_{ q }\right) /\left[\left(\omega-\omega_{ q }\right)^{2}+\frac{1}{4} \gamma^{2}\right]
+\]</span> and can be approximated as <span class="math inline">\(P \left(1 /\left(\omega-\omega_{ q }\right)\right)\)</span> in view of the smallness of <span class="math inline">\(\gamma\)</span>.</p>
+<p>Thus, <span class="math inline">\(r^{&gt;}(\omega)\)</span> for example, has approximately a Lorentzian shape, with tails dropping off as <span class="math inline">\(\left(\omega-\omega_{q}\right)^{-2}\)</span>. There is some important structure in the tail, in the neighborhood of zero frequency, since <span class="math inline">\(r^{&gt;}\)</span> must vanish exponentially as <span class="math inline">\(e^{\beta \omega}\)</span> for negative frequency. This structure depends on the deviation of the system from equilibrium. Only the response of the ions represented by the main peak of <span class="math inline">\(r^{&gt;}&lt;\)</span> can truly be considered as a phonon response with a definite energy-momentum relation. The incoherent contribution of <span class="math inline">\(\delta r^{&gt;},&lt;,\)</span> which is rarely important at all, will turn out to give the ionic contribution to the electronic quasiparticles. We shall return to this point later, when we have seen the explicit role played by the line shape.</p>
+<p>The fact that <span class="math inline">\(A( k , E)\)</span> and <span class="math inline">\(r^{&gt;}-r^{&lt;}\)</span> are Lorentzian rather than true <span class="math inline">\(\delta\)</span> functions in the variables <span class="math inline">\(\epsilon_{ k }\)</span> and <span class="math inline">\(\omega\)</span>, respectively, is of no consequence in the calculation of those values of <span class="math inline">\(\Sigma^{&gt;}&lt;\)</span> and <span class="math inline">\(\Pi^{&gt;}&lt;\)</span> which enter the equations of motion, Eqs. (30) and (35). Thus we can immediately write, <span class="math display">\[
+\begin{array}{r}
+\Sigma_{\sigma}&gt;(\hat{k}, E)=2 \pi \int d^{3} q d E^{\prime} \frac{d \Omega^{\prime}}{4 \pi} N_{0}\left(\hat{k}^{\prime}\right)[v( q )]^{2} \delta^{3}\left( k _{F}- k _{F}^{\prime}- q \right) \\
+\times\left[1-f_{\sigma}\left(\hat{k}^{\prime}, E^{\prime}\right)\right]\left\{\delta\left(E-E^{\prime}-\omega_{q}\right)[1+N( q )]\right. \\
+\left.+\delta\left(E-E^{\prime}+\omega_{q}\right) N(- q )\right\}
+\end{array}
+\]</span> and <span class="math display">\[
+\begin{array}{r}
+\Sigma_{\sigma}&lt;(\hat{k}, E)=2 \pi \int d^{3} q d E^{\prime} \frac{d \Omega^{\prime}}{4 \pi} N_{0}\left(\hat{k}^{\prime}\right)[v( q )]^{2} \delta^{3}\left( k _{F}- k _{F}^{\prime}+ q \right) \\
+\times f_{\sigma}\left(\hat{k}^{\prime}, E^{\prime}\right)\left\{\delta\left(E-E^{\prime}+\omega_{q}\right)[1+N( q )]\right. \\
+\left.+\delta\left(E-E^{\prime}-\omega_{ q }\right) N(- q )\right\}
+\end{array}
+\]</span> The self-energy is <span class="math display">\[
+\begin{array}{r}
+\Sigma_{\sigma}(\hat{k}, E)= O \int{d^{3} q d E^{\prime} \frac{d \Omega^{\prime}}{4 \pi} N_{0}[v(q)]^{2} \delta^{3}\left( k _{F}- k _{F}^{\prime}- q \right)} \\
+\times\left\{\frac{f_{\sigma}\left(\hat{k}^{\prime}, E^{\prime}+\omega_{ q }\right)-f_{\sigma}\left(\hat{k}^{\prime}, E^{\prime}-\omega_{ q }\right)}{E-E^{\prime}}\right\}
+\end{array}
+\]</span> Terms proportional to <span class="math inline">\(N( q )\)</span> do not appear in (40) because these terms are proportional to <span class="math display">\[
+O \int d E^{\prime}\left(E-E^{\prime}\right)^{-1}
+\]</span> which vanishes.</p>
+<p>If we now finally collect all our results, the transport equations for the quasiparticle distribution function <span class="math inline">\(N( q )\)</span> and <span class="math inline">\(f\)</span> become <span class="math display">\[
+\begin{aligned}
+&amp;\left[1-\frac{\partial \Sigma_{\sigma}(\hat{k} E)}{\partial E}\right] \frac{\partial f_{\sigma}(\hat{k}, E)}{\partial t}+\frac{\partial \Sigma_{\sigma}(\hat{k} E)}{\partial t} \frac{\partial f_{\sigma}(\hat{k} E)}{\partial E}+\left(\nabla_{ k _{F}} \epsilon_{ k _{F}}\right) \cdot \nabla_{ r } f_{\sigma}(\hat{k}, E) \\
+=&amp;--2 \pi \int d^{3} q \frac{d \Omega^{\prime}}{4 \pi} d E^{\prime} N_{0}[v( q )]^{2} \delta^{3}\left( k _{F}- k _{F}^{\prime}- q \right) \\
+&amp;\times\left\{\delta\left(E-E^{\prime}-\omega_{q}\right)\left([1+N( q )] f_{\sigma}(\hat{k}, E)\left[1-f_{\sigma}\left(\hat{k}^{\prime}, E^{\prime}\right)\right]-N(q)\left[1-f_{\sigma}(\hat{k}, E)\right] f_{\sigma}\left(\hat{k}^{\prime}, E^{\prime}\right)\right)\right.\\
+&amp;\left.+\delta\left(E-E^{\prime}+\omega_{ q }\right)\left([N(- q )] f_{\sigma}(\hat{k}, E)\left[1-f_{\sigma}\left(\hat{k}^{\prime}, E^{\prime}\right)\right]-[1+N(-q)] f_{\sigma}\left(\hat{k}^{\prime}, E^{\prime}\right)\left[1-f_{\sigma}(\hat{k}, E)\right]\right)\right\}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\left[(\partial / \partial t)+\nabla_{ q } \omega_{ q } \cdot \nabla_{ r }\right] N( q ) \\
+=&amp;-(2 \pi)^{4} \sum_{\sigma} \int \frac{d \Omega}{4 \pi} \frac{d \Omega^{\prime}}{4 \pi} N_{0}(\hat{k}) N_{0}\left(\hat{k}^{\prime}\right)[v( q )]^{2} \delta^{3}\left( k _{F}- k _{F}^{\prime}- q \right)\\
+&amp;\times\left\{N( q )\left[1-f_{\sigma}(\hat{k}, E)\right] f \sigma\left( k ^{\prime}, E-\omega_{ q }\right)-[1+N( q )] f_{\sigma}(\hat{k}, E)\left[1-f_{\sigma}\left(\hat{k}^{\prime}, E-\omega_{ q }\right)\right]\right\}
+\end{aligned}
+\]</span> Equations (41) and (42) represent one form of our basic transport equations. Notice that, except for the terms <span class="math inline">\(\partial \Sigma / \partial t\)</span> and <span class="math inline">\(\partial \Sigma / \partial E\)</span> these equations are identical in form with the standard weak-coupling transport equations. <span class="math inline">\({ }^{12}\)</span> The only difference is that where the kinetic-energy variable <span class="math inline">\(\epsilon_{ k }\)</span> appears in the weak-coupling equations the total energy variable <span class="math inline">\(E\)</span> now appears. If the distribution function depends upon space but not upon time, the transport equations are identical to those of the weak-coupling theory.</p>
+<h3 id="输运理论的朗道形式">输运理论的朗道形式</h3>
+<p>We shall refer to Eqs. (41) and (42) as the energyspace or <span class="math inline">\((E\)</span> -space <span class="math inline">\()\)</span> form of the transport equations. This form does not look like the Landau equations for a Fermi liquid because Landau works with the momentum variable <span class="math inline">\(k\)</span> rather than <span class="math inline">\(E .\)</span> In this section, we shall find equations which look similar to Landau's by transforming from <span class="math inline">\(E\)</span> space into <span class="math inline">\(k\)</span> space.</p>
+<p>In order to transform into <span class="math inline">\(k\)</span> space, we begin with a definition of the quasiparticle energy of the Landau theory <span class="math display">\[
+E_{\sigma}( k ; r , t)=\epsilon_{ k }+\Sigma_{\sigma}(E( k ; r , t), \hat{k} ; r , t)
+\]</span> We can define a new variable <span class="math display">\[
+\epsilon_{\sigma}(\hat{k}, E ; r , t)=E_{\sigma}-\Sigma_{\sigma}(E, \hat{k} ; r , t)
+\]</span> which can be used as a basic variable instead of <span class="math inline">\(E\)</span>. This variable clearly has the significance of the local kinetic energy of a quasiparticle with total energy <span class="math inline">\(E\)</span>.</p>
+<p>For the remainder of this section, we assume that for each <span class="math inline">\(\epsilon_{ k }\)</span> there exists a unique <span class="math inline">\(E( k ; r , t)\)</span> which solves Eq. (43). This uniqueness is known to fail in several cases of interest. <span class="math inline">\({ }^{13}\)</span> A k-space distribution function can be defined as <span class="math display">\[
+n_{\sigma}( k ; r , t)=\left.f_{\sigma}(E, \hat{k} ; r , t)\right|_{E=E( k , r , t)}
+\]</span> The transport equations can now be transformed into <span class="math inline">\(k\)</span> space. However, from (43) <span class="math display">\[
+\begin{aligned}
+d E_{\sigma}( k ; r , t)=Z_{\sigma}( k ; r , t)\times\left[d \epsilon_{ k }+\left.d \Sigma_{\sigma}(E, \hat{k} ; r , t)\right|_{E=E_{\sigma}( k , r , t)}\right]
+\end{aligned}
+\]</span> where <span class="math inline">\(d \Sigma\)</span> is to be computed at fixed <span class="math inline">\(E\)</span> and <span class="math display">\[
+Z_{\sigma}( k ; r , t)=\left[1-\left.\frac{\partial \Sigma_{\sigma}}{\partial E}(E, \hat{k} ; r , t)\right|_{E=E_{\sigma}(k, r , t)}\right]^{-1}
+\]</span> This <span class="math inline">\(Z(k)\)</span> is called the wave function renormalization constant. From (46) it follows that <span class="math display">\[
+\begin{array}{l}
+\nabla_{ r } E( k )=Z( k )\left[\nabla_{ r } \Sigma( k , E)\right]_{E=E( k )} \\
+\frac{\partial}{\partial t} E( k )=Z( k )[(\partial / \partial t) \Sigma(\hat{k}, E)]_{E=E( k )} \\
+\nabla_{ k } E( k )=Z( k ) \nabla_{ k } \epsilon_{ k }
+\end{array}
+\]</span> The last relation follows because <span class="math inline">\(\nabla_{ k } \Sigma(\hat{k}, E)\)</span> is negligibly small. Equations (48) may be used to rewrite the transport equations, since <span class="math display">\[
+d n( k )=[d f(\hat{k}, E)+(\partial f / \partial E)(\hat{k}, E) d E(\hat{k})]
+\]</span> where <span class="math inline">\(d f(\hat{k}, E)\)</span> is to be taken at fixed <span class="math inline">\(E\)</span>. After some algebra we discover that the electronic transport equation, Eq. (41), may be expressed in k space as <span class="math display">\[
+\begin{aligned}
+&amp;\left[(\partial / \partial t)+\nabla_{ k } E( k ) \cdot \nabla_{ r }-\nabla_{ r } E( k ) \cdot \nabla_{ k }\right] n( k )
+\\
+=&amp;-Z( k )[ \Sigma^{&gt;}(\hat{k}, E( k )) n( k ) -\Sigma^{&lt;}(\hat{k}, E( k ))[1-n( k )]
+\end{aligned}
+\]</span> which is exactly the Landau form of the transport equation. Notice that we have not assumed that <span class="math inline">\(\Gamma\)</span> is small compared to <span class="math inline">\(\omega_{0}\)</span> or <span class="math inline">\(\beta^{-1}\)</span> in the derivation of this equation. Therefore, we can conclude that the Landau transport equation is valid for all temperatures much lower than the degeneracy temperature. This is a much wider range of validity than we might have guessed a priori.</p>
+<p>To complete the transformation into <span class="math inline">\(k\)</span> space, we rewrite <span class="math inline">\(\Sigma^{&gt;}, \Sigma^{&lt;}, \Pi^{&gt;},\)</span> and <span class="math inline">\(\Pi^{&lt;}\)</span> in terms of <span class="math inline">\(k\)</span> -space variables. From <span class="math inline">\((48 c)\)</span> <span class="math display">\[
+\int \frac{d \Omega}{4 \pi} d E N_{0}(\hat{k})=\int d \epsilon_{ k } \frac{d \Omega}{4 \pi} N_{0} \frac{d E( k )}{d \epsilon_{ k }}=\int \frac{d^{3} k}{(2 \pi)^{3}} Z( k )
+\]</span> Therefore, the collision terms in the Landau-Boltzmann equation may be rewritten with the aid of (41) and (51) as <span class="math display">\[
+\begin{aligned}
+Z( k ) \Sigma^{&gt;}( k , E( k ))&amp;=(2 \pi)^{-2} \int d^{3} q d^{3} k^{\prime}[v( q )]^{2} Z( k ) Z\left( k ^{\prime}\right) \delta^{3}\left( k - k ^{\prime}- q \right)
+\\
+&amp;\times n\left( k ^{\prime}\right)\left\{\delta\left(E( k )-E\left( k ^{\prime}\right)-\omega_{ q }\right) N( q )+\delta\left(E( k )-E\left( k ^{\prime}\right)+\omega_{q}\right)[1+N(- q )]\right\}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+Z( k ) \Sigma^{&lt;}( k , E( k ))&amp;=(2 \pi)^{-2} \int d^{3} q d^{3} k^{\prime}[v( q )]^{2} Z( k ) Z\left( k ^{\prime}\right) \delta^{3}\left( k - k ^{\prime}- q \right)
+\\
+&amp;\times n\left( k ^{\prime}\right)\left\{\delta\left(E( k )-E\left( k ^{\prime}\right)-\omega_{q}\right) N( q )+\delta\left(E( k )-E\left( k ^{\prime}\right)+\omega_{q}\right)[1+N(- q )]\right\}
+\end{aligned}
+\]</span></p>
+<p>These collision terms differ from those of the weakcoupling theory only in the appearance of the exact energies and of the extra factor <span class="math inline">\(Z( k ) Z\left( k ^{\prime}\right)\)</span> in the scattering matrix element. In the weak-coupling theory this factor is replaced by unity.</p>
+<p>In the transformation from <span class="math inline">\(E\)</span> space to <span class="math inline">\(k\)</span> space, the only part of the phonon-transport equation, Eq. (42), that is modified is the collision terms <span class="math inline">\(II ^{&gt;}&lt;\)</span>. These become <span class="math display">\[
+\begin{aligned}
+\Pi&gt;( q , \omega)=&amp; \sum_{\sigma} \int \frac{d^{3} k d^{3} k^{\prime}}{(2 \pi)^{2}}[v( q )]^{2} Z( k ) Z\left( k ^{\prime}\right) \delta^{3}\left( q - k + k ^{\prime}\right) \\
+&amp; \times \delta\left(\omega_{ q }-E( k )+E\left( k ^{\prime}\right)\right) n( k )\left[1-n\left( k ^{\prime}\right)\right] ;(53 a) \\
+\Pi^{&lt;}( q , \omega)=&amp; \sum_{\sigma} \int \frac{d^{3} k d^{3} k^{\prime}}{(2 \pi)^{2}}[v(q)]^{2} Z( k ) Z\left( k ^{\prime}\right) \delta^{3}\left( q - k ^{\prime}+ k \right) \\
+&amp; \times \delta\left(\omega_{ q }-E\left( k ^{\prime}\right)+E( k )\right) n( k )\left[1-n\left( k ^{\prime}\right)\right] . \quad(53 b )
+\end{aligned}
+\]</span> Again the only change from the weak-coupling limit is in the modification of the energies and in the appearance of wave function renormalization constants.</p>
+<p>All of the results of this section could have been derived by making the (unjustified) quasiparticle approximation <span class="math inline">\(^{14}\)</span> <span class="math display">\[
+\begin{array}{l}
+g^{&gt;}( k , E)=2 \pi \delta(\omega-E( k )) Z( k )[1-n( k )] \\
+g^{&lt;}( k , E)=2 \pi \delta(\omega-E( k )) Z( k ) n( k )
+\end{array}
+\]</span> in the basic transport Eqs. (15) and (16). Equations (54) are wrong because <span class="math inline">\(A(k, E)\)</span> has, when <span class="math inline">\(\beta^{-1} \sim \omega_{0},\)</span> considerable structure which is not reflected in the <span class="math inline">\(\delta\)</span> functions. Nonetheless, the quasiparticle theory exists despite the failure of Eq. (54).</p>
+<h3 id="守恒量">守恒量</h3>
+<p>。。。未完待续。。。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Thesis-and-Paper/">Thesis and Paper</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Thesis-and-Paper/Quantum-transport-and-non-Fermi-liquild/">Quantum transport and non-Fermi liquild</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/paper/">paper</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Quantum-transport/">Quantum transport</a>
+                    
+                      <a class="hover-with-bg" href="/tags/non-Fermi-liquild/">non-Fermi liquild</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/12/26/Thesis04_transport_03/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">论文笔记：量子玻尔兹曼方程</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/24/Thesis04_transport_01/">
+                        <span class="hidden-mobile">论文笔记：线性电阻率</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "论文笔记：金属中电声相互作用的输运理论&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
