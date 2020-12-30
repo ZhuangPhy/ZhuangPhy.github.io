@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>Python学习记录 - JPZ</title>
+  <title>由测量控制的混合量子电路中的纠缠熵相变 - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -153,8 +153,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2018-12-18 13:23">
-      December 18, 2018 pm
+    <time datetime="2020-12-29 18:23">
+      December 29, 2020 pm
     </time>
   </div>
 
@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      127 字
+      1.2k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      24
        分钟
     </span>
   
@@ -205,51 +205,54 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201220233720426.png" srcset="/img/loading.gif" /></p>
-<h2 id="python">Python</h2>
-<ol type="1">
-<li><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017105145133280" target="_blank" rel="noopener">廖雪峰python教程</a></li>
-<li><a href="https://notes-by-yangjinjie.readthedocs.io/zh_CN/latest/python/08-Python%E7%BB%83%E4%B9%A0/python%E7%BB%83%E4%B9%A0-000.html" target="_blank" rel="noopener">Python 练习册</a></li>
-</ol>
-<h2 id="学科计算">学科计算</h2>
-<ol type="1">
-<li><a href="https://www.apress.com/gp/book/9781484205532#otherversion=9781484205549" target="_blank" rel="noopener">Numerical Python - A Practical Techniques Approach for Industry</a></li>
-<li>Computational Physics: Problem Solving with Computers
+              <p>[TOC]</p>
+<h2 id="动机">动机</h2>
+<p>Quantum many-body systems under unitary dynamics will generally thermalize $. $</p>
 <ul>
-<li><a href="https://www.eidos.ic.i.u-tokyo.ac.jp/~tau/lecture/computational_physics/docs/computational_physics.pdf" target="_blank" rel="noopener">online open book</a></li>
-<li><a href="https://homepages.uc.edu/~schreihf/uchenry/post/computational-physics/" target="_blank" rel="noopener">A course use this book</a></li>
-<li><a href="https://henryiii.github.io/compclass/IntroToJupyterBook" target="_blank" rel="noopener">course's online Jupyterbook</a></li>
-<li><a href="https://github.com/henryiii/compclass" target="_blank" rel="noopener">course's Github</a></li>
-</ul></li>
-<li><a href="https://asu-compmethodsphysics-phy494.github.io/ASU-PHY494/about/" target="_blank" rel="noopener">Computational Methods in Physics</a></li>
-</ol>
-<h2 id="tensorflow">TensorFlow</h2>
-<ol type="1">
-<li>Google Colab <a href="https://colab.research.google.com/notebooks/welcome.ipynb#scrollTo=GJBs_flRovLc" target="_blank" rel="noopener">使用教程</a></li>
-<li>TensorFlow 教程 <a href="https://www.tensorflow.org/tutorials?hl=zh_cn" target="_blank" rel="noopener">Colab版</a></li>
-</ol>
-<h2 id="pytorch">PyTorch</h2>
-<ol type="1">
-<li><a href="https://pytorch.apachecn.org/docs/1.4/" target="_blank" rel="noopener">PyTorch 1.4 中文文档 &amp; 教程</a>
+<li>But is thermalization inevitable?</li>
+<li>Are there systems in which the thermalization of entanglement entropy is avoidable?</li>
+</ul>
+<p>One example is many-body localization <span class="math inline">\([8,9],\)</span> in which entanglement growth is suppressed by strong quenched disorder. Repeated local measurements provide an alternative approach for taming the growth of entanglement.</p>
 <ul>
-<li>使用 PyTorch 进行深度学习：<a href="https://pytorch.apachecn.org/docs/1.4/4.html" target="_blank" rel="noopener">60 分钟的闪电战</a></li>
-<li>并行和分布式训练</li>
-</ul></li>
-<li><a href="https://pytorch.zhangxiann.com/" target="_blank" rel="noopener">PyTorch 学习笔记</a></li>
-<li>集智俱乐部</li>
-</ol>
-<h2 id="物理模型">物理模型</h2>
+<li>While unitary dynamics tends to increase entanglement,</li>
+<li>local measurements tend to disentangle.</li>
+</ul>
+<p>When measurements are made continually, the steady-state wavefunction should exhibit non-maximal, and non-thermal, entanglement entropy [10]. If measurements are made as frequently as possible, the wavefunction will become localized in the Hilbert space near a trivial product state a <strong>quantum Zeno effect</strong> [11].</p>
 <ol type="1">
-<li>刘学弟
-<ul>
-<li>Github的一个guidance</li>
-<li>硕士论文</li>
-</ul></li>
-<li>何学弟
-<ul>
-<li>模型推道</li>
-</ul></li>
+<li>What happens in the <strong>intermediate regime</strong> when measurements are made at a small but finite rate?</li>
+<li>Can the volume law scaling of entanglement entropy <strong>survive</strong> in the presence of a non-zero rate of measurement?</li>
 </ol>
+<p>These questions are pertinent to our basic understanding of quantum information dynamics.</p>
+<h3 id="近况背景">近况背景</h3>
+<p>Recently, in Refs. <span class="math inline">\([12-14],\)</span> a prototypical <span class="math inline">\((1+1) d\)</span> circuit model with both unitary dynamics and projective measurements was introduced and explored. Local unitary gates acted on all neighboring qubits, while single (or two- qubit measurement gates were sprinkled throughout the circuit, with each space-time point occupied with probability <span class="math inline">\(p,\)</span> representing the strength of the measurements.</p>
+<ol type="1">
+<li>In Ref. [12] it was argued that the volume law entangled phase is destroyed by <strong>arbitrary rare</strong> measurements, for all <span class="math inline">\(p&gt;0,\)</span></li>
+<li>while the authors in Refs. [13,14] presented arguments and numerical evidence for a stable volume law entangled phase, separated from an area law entangled phase at a <strong>critical value</strong> of measurements, <span class="math inline">\(p_{c}&gt;0 .\)</span></li>
+</ol>
+<p>Due to different approaches taken in these papers, a direct comparison was not immediate.</p>
+<h3 id="本次工作的简介">本次工作的简介</h3>
+<p>In this paper, we continue to investigate these hybrid circuit models with unitary-measurement dynamics. Our goal is to further explore and characterize both the nature of the entanglement transition and the properties of the volume law entangled phase in the presence of weak measurements. A central focus is on generic circuits with randomness in both the unitary gates and in the locations of the measurement gates. The least constrained model we consider is a "random Haar circuit", with 2qubit unitaries taken from the Haar measure [15,16] and single qubit measurements randomly scattered across the circuit <span class="math inline">\([12,13] .\)</span> However, the high entanglement in the volume law phase poses formidable numerical challenges even in one dimension. We thus will largely study "random Clifford circuits" with the Haar unitaries replaced by random two-qubit Clifford unitaries, and the single qubit measurements restricted to the Pauli group $[17-$19]. Such Clifford circuits can be efficiently simulated on a classical computer, enabling us to perform extensive large scale numerical studies.</p>
+<h3 id="一些结论">一些结论</h3>
+<p>We draw several conclusions from our data in the random Clifford circuit:</p>
+<ol type="1">
+<li>At long times, measurements reduce the entanglement entropy from maximal, and the <strong>steady-state</strong> entanglement fluctuates weakly over time and over circuit realizations, <strong>independent of the initial conditions</strong>. These "typical" steady states are nonthermal, qualitatively distinct from thermal states.</li>
+<li>The volume law phase <strong>persists</strong> when measurements are infrequent, consistent with results from Refs. <span class="math inline">\([13,14] .\)</span> The algebraic structure of the Clifford dynamics provides a convenient framework for characterizing the entanglement structure of these wavefunctions, revealing an unusual scaling form of the entanglement entropy, namely <span class="math inline">\(S_{A}=\alpha \ln |A|+\)</span> <span class="math inline">\(s|A|\)</span> for a contiguous subsystem <span class="math inline">\(A .\)</span> The sub-leading logarithm is exposed by analyzing the length distributions of the "stabilizers"- mutually commuting Pauli string (eigen)operators of the Clifford wavefunctions with unit eigenvalue. The stabilizer distribution is "bimodal", consisting of a power law distribution of "short" stabilizers that contribute to the logarithm, and "long stabilizers" with length <span class="math inline">\(\ell \approx L / 2\)</span> giving the volume law piece <span class="math inline">\((L\)</span> being the system size <span class="math inline">\() .\)</span> This logarithmic correction is conjectured to be a generic feature of volume law steady states in the presence of measurements.</li>
+<li>The "<strong>entanglement transition</strong>", from volume law to area law states <span class="math inline">\([13,14],\)</span> occurs when the weight under the "long stabilizer" peak at <span class="math inline">\(\ell \approx L / 2\)</span> vanishes continuously upon approaching <span class="math inline">\(p_{c}\)</span> from below. Remarkably, the power law tail of "short" stabilizers remains, implying a purely logarithmic form for the entanglement entropy right at the critical point, <span class="math inline">\(p=p_{c} .\)</span> The entanglement transition exhibits <strong>conformal symmetry</strong> of the mutual information at criticality, and we extract several critical exponents. In particular, we find that in all the models we study, the mutual information between two small regions separated by a large distance, <span class="math inline">\(r\)</span>, scales as <span class="math inline">\(1 / r^{4}\)</span>. Off criticality the mutual information decays exponentially.</li>
+<li>We explore the fluctuations of certain spin-spin correlation functions across the transition, and find that they are enhanced at the critical point, mimicking the mutual information.</li>
+</ol>
+<p>We establish the generality of these results by exploring models with imposed spatial symmetry constraints specifically Clifford circuits with the unitaries periodic in space and time (Floquet) and/or the measurement locations periodic in space and time. All models are found to exhibit a measurement-driven entanglement transition, with similar exponents and similar behavior of the stabilizer length distribution as in the random Clifford circuit. Apparently the randomness in the unitaries and measurement locations are inessential, with the remaining stochasticity in the measurement outcomes sufficient to account for the presence and universality of the entanglement transition.</p>
+<h3 id="超越clifford">超越Clifford</h3>
+<p>Going beyond Clifford, we implement a full quantum simulation of <strong>more general circuit</strong> models for systems with size up to <span class="math inline">\(L=20\)</span> qubits. Both random Haar circuits and (non-Clifford) Floquet circuits exhibit behavior consistent with their Clifford counterparts. We also explore models with (non-projective) "generalized measurements", with each and every qubit being measured at each time step, and find evidence for an entanglement transition, with accessible exponents being consistent with the Clifford circuits. Of particular interest is a space-time translationally symmetric Floquet model with generalized measurements, which exhibits an entanglement transition where the only stochasticity is in the results of the quantum measurements.</p>
+<p>Motivated by the remarkable consistency between all of our different models, we conjecture that generic hybrid circuits have a volume law phase with logarithmic correction for weak enough measurements, and exhibit an entanglement transition in a single universality class.</p>
+<h3 id="文章架构">文章架构</h3>
+<p>Our paper is organized as follows. In Sec. II we define the circuit models of interest. Extensive numerical results for Clifford circuits are reported in Sec. III and IV. In particular, Sec. III contains evidence for the phase transition in entanglement entropy, and allows characterization of the volume-law phase in terms of stabilizers. Sec. IV is devoted to a detailed analysis of the critical behavior of the entanglement transition. In Sec. V, we systematically explore Clifford circuit models with space and time symmetries imposed, either in the unitaries or the measurement locations - or both. In Sec. VI, we consider more generic non-Clifford circuits, establishing complementary results via a full quantum simulation for smaller systems. We close with discussions in Section VII.</p>
+<p>Finally, in Appendix A we review Clifford circuits and define the stabilizer length distribution, and detail measurement and unitary Clifford dynamics - beyond the steady state <span class="math inline">\(-\)</span> in Appendix <span class="math inline">\(B\)</span>.</p>
+<h2 id="模型">模型</h2>
+<p><img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201230022559192.png" srcset="/img/loading.gif" /></p>
+<h2 id="参考文献">参考文献</h2>
+<ul>
+<li>《Measurement-driven entanglement transition in hybrid quantum circuits》<a href="https://arxiv.org/pdf/1901.08092.pdf" target="_blank" rel="noopener">arxiv1901.08092</a></li>
+</ul>
 
             </article>
             <hr>
@@ -259,7 +262,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Computational/">Computational</a>
+                      <a class="hover-with-bg" href="/categories/Entanglement/">Entanglement</a>
                     
                   </div>
                 
@@ -267,9 +270,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Link/">Link</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Numerical/">Numerical</a>
+                      <a class="hover-with-bg" href="/tags/Entanglement/">Entanglement</a>
                     
                   </div>
                 
@@ -282,18 +283,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2019/08/15/Math_integral_002/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">The Gaussian Integral</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2018/12/16/CP_01_introduction/">
-                        <span class="hidden-mobile">计算科学与编程</span>
+                      <a href="/2020/12/26/Thesis04_transport_03/">
+                        <span class="hidden-mobile">论文笔记：量子玻尔兹曼方程</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -432,7 +427,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Python学习记录&nbsp;",
+        "由测量控制的混合量子电路中的纠缠熵相变&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
