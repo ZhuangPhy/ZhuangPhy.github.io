@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>量子计算基础：从量子比特到量子线路 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2019-09-03 14:23">
+      September 3, 2019 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      125
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h3 id="前言">前言</h3>
+<ol type="1">
+<li><p>量子比特 Qubit</p></li>
+<li><p>量子门 Quantum gate</p></li>
+<li><p>量子电路 Quantum circuit</p></li>
+</ol>
+<h4 id="量子比特-qubit">量子比特 Qubit</h4>
+<p>量子比特的表示 Presentation of a Qubit</p>
+<ul>
+<li>狄拉克符号 Dirac notation</li>
+<li>布洛赫球 Bloch sphere (几何图像)</li>
+</ul>
+<h4 id="量子门量子电路-quantum-gate-quantum-circuit">量子门&amp;量子电路 Quantum gate &amp; Quantum circuit</h4>
+<ol type="1">
+<li><p>单量子比特门 Gate of Single QuBit</p></li>
+<li><p>多量子比特门 Gate of Multi QuBit</p></li>
+<li><p>量子电路 Quantum circuit</p></li>
+<li><p>单量子比特门 Gate of Single Bit</p>
+<ul>
+<li>Hadamard门</li>
+<li>相门 Phase gate (S;T)</li>
+<li>旋转门 XYZ</li>
+</ul></li>
+<li><p>多量子比特门 Gate of Multi QuBit</p>
+<ul>
+<li>控制-非门 Contronelled-Not</li>
+<li>控制-U门 Contronelled-U</li>
+</ul></li>
+<li><p>量子电路 Quantum circuit</p>
+<ul>
+<li>量子傅里叶变换 Quantum Fourier transform</li>
+<li>量子相位估计 Quantum phase estimation</li>
+</ul></li>
+</ol>
+<h3 id="参考文献">参考文献</h3>
+<p>综合类书籍</p>
+<ol type="1">
+<li>Michael A Nielsen and Isaac Chuang.《Quantum computation and quantum information》, 2002</li>
+<li>Giuliano Benenti.《Principles of Quantum Computation and Information: Basic Tools and Special Topics》</li>
+<li>Mikio Nakahara, Tetsuo Ohmi.《Quantum Computing. From Linear Algebra to Physical Realizations 》</li>
+<li>David McMahon. 《Quantum Computing Explained 》</li>
+</ol>
+<p>Quantum Gate &amp; Circuit</p>
+<p>Sets of logic gates can be connected together to construct digital circuits.</p>
+<p>[TOC]</p>
+<h3 id="classical-logic-gates.">1. classical logic gates.</h3>
+<h4 id="not-gate">NOT gate</h4>
+<p>the NOT gate simply flips or inverts the value of the input bit. That is, if the input to the gate is a 0 , the output is a 1 , and if the input is a 1, the output is a <span class="math inline">\(0 .\)</span> We can write down the action of the NOT gate schematically as <span class="math display">\[
+\begin{array}{l}
+0 \mapsto 1 \\
+1 \mapsto 0
+\end{array}
+\]</span></p>
+<h4 id="truth-table">truth table</h4>
+<p>In more complicated situations we will need a more systematic way to write down the action of a gate. This is done using a truth table, which is a table that lists the inputs together with the corresponding outputs of the gate. For a NOT gate, this is very easy to do. We write the values of the single input bit on the left side of the table and the corresponding outputs on the right: <span class="math display">\[
+\begin{array}{l|l}
+\text { Input } &amp; \text { NOT } \\
+\hline 0 &amp; 1 \\
+\hline 1 &amp; 0
+\end{array}
+\]</span> Now we will consider more complicated operations that are applied to pairs of bits. There are several two input gates, including</p>
+<ul>
+<li>the OR gate,</li>
+<li>the AND gate,</li>
+<li>the exclusive-OR (XOR) gates.</li>
+</ul>
+<h3 id="single-qubit-gates">2. single qubit gates</h3>
+<p>A gate can be thought of as an <strong>abstraction</strong> that represents information processing. Now that we have a basic idea of how bits can be processed using logic gates, let's</p>
+<h4 id="gate-and-operator">gate and operator</h4>
+<p>since quantum gates are just unitary operators, we'll often go back and forth between the words gate and operator - so keep in mind they mean the <strong>same thing</strong> in this context. <span class="math display">\[
+gate = operator
+\]</span> Recall that a unitary operator <span class="math inline">\(U\)</span> is one where the adjoint is equal to the inverse, meaning <span class="math inline">\(U^{\dagger}=U^{-1} .\)</span> The defining relation for a unitary operator is thus <span class="math display">\[
+U U^{\dagger}=U^{\dagger} U=I
+\]</span> In addition, if <span class="math inline">\(H\)</span> is a Hermitian operator, then <span class="math inline">\(U=e^{i H t}\)</span> is unitary.</p>
+<h4 id="matrices-represent-of-gate">matrices represent of gate</h4>
+<p>Recall that quantum operators can be represented by matrices. A quantum gate with <span class="math inline">\(n\)</span> inputs and outputs can be represented by a matrix of degree <span class="math inline">\(2^{n}\)</span>. For a single qubit, we require a matrix of degree <span class="math inline">\(2^{1}=2 .\)</span> That is, a quantum gate acting on a single qubit will be a <span class="math inline">\(2 \times 2\)</span> unitary matrix. A two-qubit gate can be implemented with a matrix of degree <span class="math inline">\(2^{2}=4\)</span> or a <span class="math inline">\(4 \times 4\)</span> matrix.</p>
+<p>Following the procedure used when thinking about classical logic gates, we begin by examining the simplest gate possible, the quantum NOT gate. It turns out that we have already come across the quantum NOT gate-in fact we've already seen many of the single qubit gates. The NOT operation can be implemented with the <span class="math inline">\(X\)</span> Pauli matrix. It never hurts to review, so let's go back and write out a few basics. The standard or computational basis states are given by <span class="math display">\[
+|0\rangle=\left(\begin{array}{l}
+1 \\
+0
+\end{array}\right), \quad|1\rangle=\left(\begin{array}{l}
+0 \\
+1
+\end{array}\right)
+\]</span> The Pauli <span class="math inline">\(X\)</span> matrix, which we will often refer to as the NOT operator, is given in matrix form in the standard or computational basis as <span class="math display">\[
+X=U_{N O T}=\left(\begin{array}{ll}
+0 &amp; 1 \\
+1 &amp; 0
+\end{array}\right)
+\]</span> Hence we have <span class="math display">\[
+\begin{array}{l}
+U_{N O T}|0\rangle=\left(\begin{array}{ll}
+0 &amp; 1 \\
+1 &amp; 0
+\end{array}\right)\left(\begin{array}{l}
+1 \\
+0
+\end{array}\right)=\left(\begin{array}{l}
+0 \\
+1
+\end{array}\right)=|1\rangle \\
+U_{N O T}|1\rangle=\left(\begin{array}{ll}
+0 &amp; 1 \\
+1 &amp; 0
+\end{array}\right)\left(\begin{array}{l}
+0 \\
+1
+\end{array}\right)=\left(\begin{array}{l}
+1 \\
+0
+\end{array}\right)=|0\rangle
+\end{array}
+\]</span> So with respect to the standards or computational basis, the <span class="math inline">\(X\)</span> matrix acts as a NOT operator. The action of a NOT gate on an arbitrary state <span class="math inline">\(|j\rangle\)</span> can be written using the <span class="math inline">\(\mathrm{XOR}\)</span> operation as <span class="math display">\[
+X|j\rangle=|j \oplus 1\rangle
+\]</span> To see how this works, recall the exclusive OR returns 1 if one or the other of the inputs are <span class="math inline">\(1,\)</span> but 0 otherwise. Hence, if <span class="math inline">\(j=0,\)</span> then <span class="math inline">\(X|0\rangle=|0 \oplus 1\rangle=|1\rangle .\)</span> Meanwhile, if <span class="math inline">\(j=1,\)</span> then <span class="math inline">\(X|1\rangle=|1 \oplus 1\rangle=|0\rangle\)</span></p>
+<h4 id="example">Example</h4>
+<p>The NOT operator takes |0<span class="math inline">\(\mapsto|1\rangle\)</span> and <span class="math inline">\(|1\rangle \mapsto|0\rangle .\)</span> Describe the unitary operator that will implement the NOT operation in outer product form, and find its matrix representation with respect to the basis <span class="math display">\[
+|+\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{l}
+1 \\
+1
+\end{array}\right), \quad|-\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{c}
+1 \\
+-1
+\end{array}\right)
+\]</span></p>
+<hr />
+<p><strong>Solution</strong></p>
+<p>In the standard or computational basis, the matrix representation of the NOT operator is given by <span class="math inline">\((8.3) .\)</span> We can also write this as <span class="math display">\[
+X=\left(\begin{array}{cc}
+\langle 0|X| 0\rangle &amp; \langle 0|X| 1\rangle \\
+\langle 1|X| 0\rangle &amp; \langle 1|X| 1\rangle
+\end{array}\right)
+\]</span> You can see that this will work if <span class="math display">\[
+X=|0\rangle\langle 1|+| 1\rangle\langle 0|
+\]</span> (check it). Then the action of the operator on the standard or computational basis states is <span class="math display">\[
+\begin{aligned}
+X|0\rangle &amp;=(|0\rangle\langle 1|+| 1\rangle\langle 0|)|0\rangle \\
+&amp;=|0\rangle\langle 1 | 0\rangle+|1\rangle\langle 0 | 0\rangle \\
+&amp;=|1\rangle
+\end{aligned}
+\]</span> and <span class="math display">\[
+\begin{aligned}
+X|1\rangle &amp;=(|0\rangle\langle 1|+| 1\rangle\langle 0|)|1\rangle \\
+&amp;=|0\rangle\langle 1 | 1\rangle+|1\rangle\langle 0 | 1\rangle \\
+&amp;=|0\rangle
+\end{aligned}
+\]</span> where we have used the orthonormality of the basis states. To find the representation of the NOT operator in the <span class="math inline">\(\{|+\rangle,|-\rangle\}\)</span> basis, we need to find the unitary transformation connecting this basis with the standard or computational basis. That is, we need to find a matrix with components given by <span class="math display">\[
+U_{\text {trans}}=\left(\begin{array}{cc}
+\langle+| 0\rangle &amp; \langle+| 1\rangle \\
+\langle-| 0\rangle &amp; \langle-| 1\rangle
+\end{array}\right)
+\]</span> We know already the representation of the <span class="math inline">\(\{|+\rangle,|-\rangle\}\)</span> states in the standard or computational basis: <span class="math display">\[
+|+\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{l}
+1 \\
+1
+\end{array}\right), \quad|-\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{c}
+1 \\
+-1
+\end{array}\right)
+\]</span> So it's a simple matter to compute each matrix component: <span class="math display">\[
+\begin{array}{l}
+\langle+| 0\rangle=\frac{1}{\sqrt{2}}(1 \quad 1)\left(\begin{array}{l}
+1 \\
+0
+\end{array}\right)=\frac{1}{\sqrt{2}} \\
+\langle+| 1\rangle=\frac{1}{\sqrt{2}}(1 \quad 1)\left(\begin{array}{l}
+0 \\
+1
+\end{array}\right)=\frac{1}{\sqrt{2}} \\
+\langle-| 0\rangle=\frac{1}{\sqrt{2}}(1 \quad-1)\left(\begin{array}{l}
+1 \\
+0
+\end{array}\right)=\frac{1}{\sqrt{2}} \\
+\langle-| 1\rangle=\frac{1}{\sqrt{2}}(1 \quad-1)\left(\begin{array}{l}
+1 \\
+0
+\end{array}\right)=-\frac{1}{\sqrt{2}}
+\end{array}
+\]</span> Hence the transformation matrix between the two bases is given by <span class="math display">\[
+U_{\text {trans}}=\frac{1}{\sqrt{2}}\left(\begin{array}{cc}
+1 &amp; 1 \\
+1 &amp; -1
+\end{array}\right)=H
+\]</span></p>
+<h4 id="hadamard-matrix">Hadamard matrix</h4>
+<p>Hence the transformation matrix between the two bases is given by <span class="math display">\[
+U_{\text {trans}}=\frac{1}{\sqrt{2}}\left(\begin{array}{cc}
+1 &amp; 1 \\
+1 &amp; -1
+\end{array}\right)=H
+\]</span> This matrix is nothing other than the Hadamard matrix <span class="math inline">\(H .\)</span> For this reason the <span class="math inline">\(\{|+\rangle,|-\rangle\}\)</span> basis is sometimes called the Hadamard basis. Now we can apply this unitary transformation to the matrix representation of the NOT gate to find its representation with respect to the Hadamard basis. It is easy to verify that <span class="math inline">\(H=H^{\dagger}=H^{-1},\)</span> so the unitary transformation that takes NOT from the standard or computational basis to the <strong>Hadamard basis</strong> is just <span class="math display">\[
+\begin{aligned}
+U_{N O T}^{H} &amp;=H U_{N O T} H=\frac{1}{2}\left(\begin{array}{cc}
+1 &amp; 1 \\
+1 &amp; -1
+\end{array}\right)\left(\begin{array}{cc}
+0 &amp; 1 \\
+1 &amp; 0
+\end{array}\right)\left(\begin{array}{cc}
+1 &amp; 1 \\
+1 &amp; -1
+\end{array}\right) \\
+&amp;=\frac{1}{2}\left(\begin{array}{cc}
+1 &amp; 1 \\
+1 &amp; -1
+\end{array}\right)\left(\begin{array}{cc}
+1 &amp; -1 \\
+1 &amp; 1
+\end{array}\right) \\
+&amp;=\left(\begin{array}{cc}
+1 &amp; 0 \\
+0 &amp; -1
+\end{array}\right)
+\end{aligned}
+\]</span></p>
+<h4 id="example-1">Example</h4>
+<p>A rotation matrix by an angle <span class="math inline">\(\gamma\)</span> is given by <span class="math display">\[
+R(\gamma)=\left(\begin{array}{cc}
+\cos \gamma &amp; -\sin \gamma \\
+\sin \gamma &amp; \cos \gamma
+\end{array}\right)
+\]</span> Describe the action of this operator on a qubit <span class="math inline">\(|\psi\rangle=\cos \theta|0\rangle+\sin \theta|1\rangle\)</span></p>
+<p><strong>Solution</strong></p>
+<p>The rotation matrix acts on the state as follows: <span class="math display">\[
+R(\gamma)|\psi\rangle=\left(\begin{array}{cc}
+\cos \gamma &amp; -\sin \gamma \\
+\sin \gamma &amp; \cos \gamma
+\end{array}\right)\left(\begin{array}{c}
+\cos \theta \\
+\sin \theta
+\end{array}\right)=\left(\begin{array}{c}
+\cos \gamma \cos \theta-\sin \gamma \sin \theta \\
+\sin \gamma \cos \theta+\cos \gamma \sin \theta
+\end{array}\right)
+\]</span> Now recall some basic trig identities: <span class="math display">\[
+\begin{array}{l}
+\cos (\alpha+\beta)=\cos \alpha \cos \beta-\sin \alpha \sin \beta \\
+\sin (\alpha+\beta)=\sin \alpha \cos \beta+\cos \alpha \sin \beta
+\end{array}
+\]</span> So the rotated state can be written as <span class="math display">\[
+\left|\psi^{\prime}\right\rangle=\left(\begin{array}{c}
+\cos (\gamma+\theta) \\
+\sin (\gamma+\theta)
+\end{array}\right)=\cos (\gamma+\theta)|0\rangle+\sin (\gamma+\theta)|1\rangle
+\]</span></p>
+<h4 id="bloch-sphere">Bloch sphere</h4>
+<p>Consider the Bloch sphere picture. The rotation operator has rotated the state vector relative to the <span class="math inline">\(z\)</span> axis by the angle <span class="math inline">\(\gamma\)</span>. More specifically for those who like a more concrete interpretation, the rotation operator has altered the relative length of each probability amplitude. If the original qubit were measured, the probability that we find the system in the state <span class="math inline">\(|0\rangle\)</span> is given by <span class="math inline">\(\cos ^{2} \theta\)</span> while the probability that we find the system in the state $|1$is given by <span class="math inline">\(\sin ^{2} \theta .\)</span> If we rotate the state before measurement, then these probabilities are changed to <span class="math inline">\(\cos ^{2}(\gamma+\theta)\)</span> and <span class="math inline">\(\sin ^{2}(\gamma+\theta)\)</span> respectively. <span class="math display">\[
+\begin{array}{l}
+\cos ^{2} \theta \mapsto \cos ^{2}(\gamma+\theta) \\
+\sin ^{2} \theta \mapsto \sin ^{2}(\gamma+\theta)
+\end{array}
+\]</span></p>
+<h3 id="single-qubit-gatesnew-representation">3. single qubit gates(new representation )</h3>
+<h4 id="pauli-matrices-z">Pauli matrices Z</h4>
+<p>The other Pauli matrices, being unitary <span class="math inline">\(2 \times 2\)</span> matrices, are also valid single-qubit gates. The <span class="math inline">\(Z\)</span> operator is sometimes called the phase flip gate because it takes a qubit <span class="math inline">\(|\psi\rangle=\alpha|0\rangle+\beta|1\rangle\)</span> into a state <span class="math inline">\(\left|\psi^{\prime}\right\rangle=\alpha|0\rangle-\beta|1\rangle .\)</span> This is easy to see using the matrix representation: <span class="math display">\[
+Z|\psi\rangle=\left(\begin{array}{cc}
+1 &amp; 0 \\
+0 &amp; -1
+\end{array}\right)\left(\begin{array}{l}
+\alpha \\
+\beta
+\end{array}\right)=\left(\begin{array}{c}
+\alpha \\
+-\beta
+\end{array}\right)
+\]</span> We can also show the phase flip using the outer product representation, where we have <span class="math inline">\(Z=|0\rangle\langle 0|-| 1\rangle\langle 1|\)</span> <span class="math display">\[
+\begin{aligned}
+Z|\psi\rangle &amp;=(|0\rangle\langle 0|-| 1\rangle\langle 1|)(\alpha|0\rangle+\beta|1\rangle) \\
+&amp;=\alpha|0\rangle\langle 0 | 0\rangle+\beta|0\rangle\langle 0 | 1\rangle-\alpha|1\rangle\langle 1 | 0\rangle-\beta|1\rangle\langle 1 | 1\rangle \\
+&amp;=\alpha|0\rangle-\beta|1\rangle
+\end{aligned}
+\]</span> It's fairly easy to see that generally we can represent the action of the <span class="math inline">\(Z\)</span> gate by <span class="math display">\[
+Z|j\rangle=(-1)^{j}|j\rangle
+\]</span></p>
+<h4 id="example-phase-shift-operator">example: phase shift operator</h4>
+<p>Describe the action of the phase shift gate when considering the <strong>Bloch sphere representation</strong> of a qubit.</p>
+<p><strong>Solution</strong></p>
+<p>We write the qubit as <span class="math display">\[
+|\psi\rangle=\cos \theta|0\rangle+e^{i \phi} \sin \theta|1\rangle
+\]</span> The phase shift operator (using an angle <span class="math inline">\(\gamma\)</span> ) can be written in outer product notation as follows: <span class="math display">\[
+P=|0\rangle\left\langle 0\left|+e^{i \gamma}\right| 1\right\rangle\langle 1|
+\]</span> Hence <span class="math display">\[
+\begin{aligned}
+P|\psi\rangle &amp;=\left(|0\rangle\left\langle 0\left|+e^{i \gamma}\right| 1\right\rangle\langle 1|\right)\left(\cos \theta|0\rangle+e^{i \phi} \sin \theta|1\rangle\right) \\
+&amp;=\cos \theta|0\rangle+e^{i(\gamma+\phi)} \sin \theta|1\rangle
+\end{aligned}
+\]</span> Therefore we see that the phase shift operator takes the azimuthal angle <span class="math inline">\(\phi \rightarrow \phi+\gamma\)</span></p>
+<hr />
+<h4 id="special-case-of-the-phase-shift">special case of the phase shift</h4>
+<p>We have seen that the <span class="math inline">\(Z\)</span> gate is a <strong>special case</strong> of the phase shift operator where we take the angle to be <span class="math inline">\(\pi\)</span>. There are other special cases of interest.</p>
+<ul>
+<li>$=/ 2 $</li>
+</ul>
+<p>The first of these is when we take <span class="math inline">\(\theta=\pi / 2 .\)</span> By Euler's identity, <span class="math inline">\(e^{i \pi / 2}=\cos (\pi / 2)+i \sin (\pi / 2)=i\)</span> The resulting gate is called the <span class="math inline">\(S\)</span> gate, which has the matrix representation in the standard or computational basis given by <span class="math display">\[
+S=\left(\begin{array}{ll}
+1 &amp; 0 \\
+0 &amp; i
+\end{array}\right)
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\theta=\pi / 4 .\)</span></li>
+</ul>
+<p>If we let <span class="math inline">\(\theta=\pi / 4,\)</span> then we have the <span class="math inline">\(\pi / 8\)</span> or <span class="math inline">\(T\)</span> gate: <span class="math display">\[
+T=\left(\begin{array}{cc}
+1 &amp; 0 \\
+0 &amp; e^{i \pi / 4}
+\end{array}\right)=e^{i \pi / 8}\left(\begin{array}{cc}
+e^{-i \pi / 8} &amp; 0 \\
+0 &amp; e^{i \pi / 8}
+\end{array}\right)
+\]</span> Of course, we have already seen the Hadamard matrix: <span class="math display">\[
+H=\frac{1}{\sqrt{2}}\left(\begin{array}{cc}
+1 &amp; 1 \\
+1 &amp; -1
+\end{array}\right)
+\]</span></p>
+<h4 id="example-hadamard-operator">example: Hadamard operator</h4>
+<p>Write the Hadamard matrix in outer product form (using the standard or computational basis) and describe its action on the basis states <span class="math inline">\(\{|0\rangle,|| 1\rangle\}\)</span></p>
+<p><strong>Solution</strong></p>
+<p>The matrix representation given in (8.15) can be rewritten as <span class="math display">\[
+H \doteq\left(\begin{array}{cc}
+\langle 0|H| 0\rangle &amp; \langle 0|H| 1\rangle \\
+\langle 1|H| 0\rangle &amp; \langle 1|H| 1\rangle
+\end{array}\right)
+\]</span> Comparing this to <span class="math inline">\((8.15),\)</span> we see that the outer product representation of the <strong>Hadamard operator</strong> must be <span class="math display">\[
+H=\frac{1}{\sqrt{2}}(|0\rangle\langle 0|+| 0\rangle\langle 1|+| 1\rangle\langle 0|-| 1\rangle\langle 1|)
+\]</span> Now let's see how the Hadamard operator acts on <span class="math inline">\(|0\rangle\)</span> : <span class="math display">\[
+\begin{aligned}
+H|0\rangle &amp;=\frac{1}{\sqrt{2}}(|0\rangle\langle 0|+| 0\rangle\langle 1|+| 1\rangle\langle 0|-| 1\rangle\langle 1|)|0\rangle \\
+&amp;=\frac{1}{\sqrt{2}}(|0\rangle\langle 0 | 0\rangle+|0\rangle\langle 1 | 0\rangle+|1\rangle\langle 0 | 0\rangle-|1\rangle\langle 1 | 0\rangle) \\
+&amp;=\frac{|0\rangle+|1\rangle}{\sqrt{2}}
+\end{aligned}
+\]</span> Similarly we find that <span class="math display">\[
+H|1\rangle=\frac{|0\rangle-|1\rangle}{\sqrt{2}}
+\]</span> Therefore the action of the Hadamard gate on the standard or computational basis states is to map the {|0,|1} states into the superposition states <span class="math display">\[
+\left\{\frac{|0\rangle+|1\rangle}{\sqrt{2}}, \frac{|0\rangle-|1\rangle}{\sqrt{2}}\right\}
+\]</span></p>
+<hr />
+<h4 id="general-hadamard-gate">general Hadamard gate</h4>
+<p>In general, the Hadamard gate takes the state <span class="math inline">\(|\psi\rangle=\alpha|0\rangle+\beta|1\rangle\)</span> into the state <span class="math display">\[
+H|\psi\rangle=\left(\frac{\alpha+\beta}{\sqrt{2}}\right)|0\rangle+\left(\frac{\alpha-\beta}{\sqrt{2}}\right)|1\rangle
+\]</span> This means that the probability of finding the qubit in the state |0is changed from <span class="math display">\[
+|\alpha|^{2} \text { to }\left|\frac{\alpha+\beta}{\sqrt{2}}\right|^{2}=\left(\frac{\alpha^{*}+\beta^{*}}{\sqrt{2}}\right)\left(\frac{\alpha+\beta}{\sqrt{2}}\right)=\frac{1}{2}\left(|\alpha|^{2}+|\beta|^{2}+\operatorname{Re}\left(\alpha \beta^{*}\right)\right)
+\]</span> and similarly for the probability of finding the system in the |1state. We can regroup the terms in (8.17) to give another interpretation of the output of a Hadamard gate: <span class="math display">\[
+H|\psi\rangle=\alpha \frac{|0\rangle+|1\rangle}{\sqrt{2}}+\beta \frac{|0\rangle-|1\rangle}{\sqrt{2}}=\alpha|+\rangle+\beta|-\rangle
+\]</span> That is, the Hadamard gate has turned a state that, with respect to the standard or computational basis, had the probability <span class="math inline">\(|\alpha|^{2}\)</span> of finding the system in the state |0and the probability <span class="math inline">\(|\beta|^{2}\)</span> of finding the system in the state |1into a state that has the probability <span class="math inline">\(|\alpha|^{2}\)</span> of finding the system in the state <span class="math inline">\(|+\rangle\)</span> and the probability <span class="math inline">\(|\beta|^{2}\)</span> of finding the system in the state <span class="math inline">\(|-\rangle\)</span></p>
+<h3 id="exponentiation">4. exponentiation</h3>
+<p>Now let's consider the construction of more single-qubit gates using exponentiation. If a matrix <span class="math inline">\(U\)</span> is unitary and Hermitian, then <span class="math display">\[
+\exp (-i \theta U)=\cos \theta I-i \sin \theta U
+\]</span> This is very easy to prove, which we do in the next example.</p>
+<hr />
+<h4 id="proof-gate-as-exponentiation">Proof: gate as exponentiation</h4>
+<p>Prove that if an operator <span class="math inline">\(U\)</span> is unitary and Hermitian, then <span class="math inline">\(\exp (-i \theta U)=\cos \theta I-i \sin \theta U\)</span></p>
+<p><strong>Solution</strong></p>
+<p>If a matrix or operator <span class="math inline">\(U\)</span> is unitary, then <span class="math display">\[
+U U^{\dagger}=U^{\dagger} U=I
+\]</span> If the operator is also Hermitian, then Combining these two relations yields <span class="math display">\[
+U^{2}=U U=U U^{\dagger}=I
+\]</span> So we have <span class="math display">\[
+\exp (-i \theta U)=I-i \theta U+(-i)^{2} \frac{\theta^{2}}{2 !} U^{2}+(-i)^{3} \frac{\theta^{3}}{3 !} U^{3}+(-i)^{4} \frac{\theta^{4}}{4 !} U^{4}+(-i)^{5} \frac{\theta^{5}}{5 !} U^{5}+\cdots
+\]</span> since <span class="math inline">\(U^{2}=I\)</span> and <span class="math inline">\(i^{2}=-1,\)</span> this relation becomes <span class="math display">\[
+\begin{aligned}
+\exp (-i \theta U) &amp;=\left(I-\frac{\theta^{2}}{2 !} I+\frac{\theta^{4}}{4 !} I-\cdots\right)-i \theta U+i \frac{\theta^{3}}{3 !} U-i \frac{\theta^{5}}{5 !} U+\cdots \\
+&amp;=\left(1-\frac{\theta^{2}}{2 !}+\frac{\theta^{4}}{4 !}-\cdots\right) I-i\left(\theta-\frac{\theta^{3}}{3 !}+\frac{\theta^{5}}{5 !}+\cdots\right) U \\
+&amp;=\cos \theta I-\sin \theta U
+\end{aligned}
+\]</span></p>
+<h4 id="exponentiating-a-given-matrix">exponentiating a given matrix</h4>
+<p>By exponentiating a given matrix, we can come up with more gates. In fact we can create rotation operators to represent rotation about the <span class="math inline">\(x, y,\)</span> and <span class="math inline">\(z\)</span> axes on the Bloch sphere by exponentiating the Pauli matrices. These are given by <span class="math display">\[
+\begin{array}{l}
+R_{x}(\gamma)=e^{-i \gamma X / 2}=\left(\begin{array}{cc}
+\cos \left(\frac{\gamma}{2}\right) &amp; -i \sin \left(\frac{\gamma}{2}\right) \\
+-i \sin \left(\frac{\gamma}{2}\right) &amp; \cos \left(\frac{\gamma}{2}\right)
+\end{array}\right) \\
+R_{y}(\gamma)=e^{-i \gamma Y / 2}=\left(\begin{array}{cc}
+\cos \left(\frac{\gamma}{2}\right) &amp; -\sin \left(\frac{\gamma}{2}\right) \\
+\sin \left(\frac{\gamma}{2}\right) &amp; \cos \left(\frac{\gamma}{2}\right)
+\end{array}\right) \\
+R_{z}(\gamma)=e^{-i \gamma Z / 2}=\left(\begin{array}{cc}
+e^{-i \gamma / 2} &amp; 0 \\
+0 &amp; e^{i \gamma / 2}
+\end{array}\right)
+\end{array}
+\]</span> Z–Y DECOMPOSITION</p>
+<p>Given a single-qubit operator <span class="math inline">\(U,\)</span> we can find real numbers <span class="math inline">\(a, b, c, d\)</span> such that <span class="math display">\[
+U=e^{i a} R_{z}(b) R_{y}(c) R_{z}(d)
+\]</span></p>
+<h3 id="circuit-diagram-of-gate">5. circuit diagram of gate</h3>
+<p>We can represent the action of a quantum gate by drawing a circuit diagram. Each unitary operator or gate is represented by a block with lines (or "wires") used to represent input and output.</p>
+<p><img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200329114737249.png" srcset="/img/loading.gif" alt="image-20200329114737249" style="zoom:50%;" /></p>
+<p><img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200329114914978.png" srcset="/img/loading.gif" alt="image-20200329114914978" style="zoom:50%;" /></p>
+<h3 id="two-qubit-gates">6. two-qubit gates</h3>
+<h4 id="controlled-gates">controlled gates</h4>
+<p>We are ready to move to the case of two-qubit gates. In this section the notion of a controlled gate will allow us to implement an if - else type of construct with a quantum gate. Consider a controlled classical gate. We include a control bit <span class="math inline">\(C .\)</span></p>
+<ul>
+<li>If <span class="math inline">\(C=0,\)</span> then the gate does nothing, but</li>
+<li>if <span class="math inline">\(C=1,\)</span> then the gate performs some specified action.</li>
+</ul>
+<p>Controlled quantum (or controlled unitary) gates work in a similar fashion, using a control qubit to determine <strong>whether or not</strong> a specified unitary action is applied to a target qubit.</p>
+<p>When working with two-qubit gates, we consider their action with respect to two-qubit states. Recall from our discussion of tensor products in Chapter 4 that these are states of the form <span class="math inline">\(|a\rangle \otimes|b\rangle\)</span>, which can be written more simply as <span class="math inline">\(|a\rangle|b\rangle\)</span> or <span class="math inline">\(|a b\rangle\)</span>. If we know the action of an operator on states <span class="math inline">\(|a b\rangle\)</span>, then we can find its matrix representation. The matrix representation of a two-qubit gate can be calculated using <span class="math display">\[
+U \doteq\left(\begin{array}{cccc}
+\langle 00|U| 00\rangle &amp; \langle 00|U| 01\rangle &amp; \langle 00|U| 10\rangle &amp; \langle 00|U| 11\rangle \\
+\langle 01|U| 00\rangle &amp; \langle 01|U| 01\rangle &amp; \langle 01|U| 10\rangle &amp; \langle 01|U| 11\rangle \\
+\langle 10|U| 00\rangle &amp; \langle 10|U| 01\rangle &amp; \langle 10|U| 10\rangle &amp; \langle 10|U| 11\rangle \\
+\langle 11|U| 00\rangle &amp; \langle 11|U| 01\rangle &amp; \langle 11|U| 10\rangle &amp; \langle 11|U| 11\rangle
+\end{array}\right)
+\]</span></p>
+<h4 id="controlled-not-gate">controlled NOT gate</h4>
+<p>The first two-qubit gate we will meet is the controlled NOT or CNOT gate.</p>
+<p>The first input to a controlled not gate acts as the control qubit. Using the notation developed in Chapter 4 for tensor product states, the action of a CNOT gate can be described in terms of the XOR operation as follows: <span class="math display">\[
+|a, b\rangle \rightarrow|a, b \oplus a\rangle
+\]</span> If the control qubit is $|0 $ , then nothing happens to the target qubit. If the control qubit is $|1 $ , then the NOT or <span class="math inline">\(X\)</span> matrix is applied to the target cubit. The possible input states to the CNOT gate are <span class="math inline">\(|00\rangle,|01\rangle,|10\rangle,\)</span> and <span class="math inline">\(|11\rangle,\)</span> and the action of the CNOT gate on these states is <span class="math display">\[
+\begin{array}{l}
+|00\rangle \mapsto|00\rangle \\
+|01\rangle \mapsto|01\rangle \\
+|10\rangle \mapsto|11\rangle \\
+|11\rangle \mapsto|10\rangle
+\end{array}
+\]</span> <img src="C:\Users\JPZhuang\AppData\Roaming\Typora\typora-user-images\image-20200329130731859.png" srcset="/img/loading.gif" alt="image-20200329130731859" style="zoom:50%;" /></p>
+<ul>
+<li>matrix representation of controlled NOT gate</li>
+</ul>
+<p>To write the matrix representation of the controlled NOT gate, we have to do it with respect to the states <span class="math inline">\(|00\rangle,|01\rangle,|10\rangle,\)</span> and <span class="math inline">\(|11\rangle .\)</span> The matrix will be a <span class="math inline">\(4 \times 4\)</span> matrix. The matrix representation of this gate is given by <span class="math display">\[
+C N=\left(\begin{array}{llll}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right)
+\]</span></p>
+<ul>
+<li>If we use Dirac notation,</li>
+</ul>
+<p>the outer product representation of the controlled NOT is <span class="math display">\[
+C N=|00\rangle\langle 00|+| 01\rangle\langle 01|+| 10\rangle\langle 11|+| 11\rangle\langle 10|
+\]</span></p>
+<h4 id="example-dirac-notation">example: Dirac notation</h4>
+<p>Using Dirac notation, find the action of the controlled NOT gate when the control bit is <span class="math inline">\(| 1\rangle\)</span> and the target qubit is given by <span class="math inline">\(|0\rangle,|1\rangle\)</span> and <span class="math inline">\(\alpha|0\rangle+\beta|1\rangle .\)</span></p>
+<p><strong>Solution</strong></p>
+<ul>
+<li>In the first case, <span class="math inline">\(C N\)</span> will act on the state <span class="math inline">\(|10\rangle .\)</span> Using <span class="math inline">\((8.29),\)</span> we have</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+C N|10\rangle &amp;=(|00\rangle\langle 00|+| 01\rangle\langle 01|+| 10\rangle\langle 11|+| 11\rangle\langle 10|)|10\rangle \\
+&amp;=|00\rangle\langle ||00 10\rangle+|01\rangle\langle ||01 10\rangle+|10\rangle\langle ||11 10\rangle+|11\rangle\langle ||10 10\rangle
+\end{aligned}
+\]</span></p>
+<p>To calculate each of the inner products, we use the rule for calculating inner products given in (4.8): <span class="math display">\[
+\langle a b|c d=\langle a | c\rangle\langle b | d\rangle
+\]</span> Hence <span class="math display">\[
+\begin{aligned}
+\langle 00 | 10\rangle &amp;=\langle 0 | 1\rangle\langle 0 | 0\rangle=0 \\
+\langle 01 | 10\rangle &amp;=\langle 0 | 1\rangle\langle 1 | 0\rangle=0 \\
+\langle 11 | 10\rangle &amp;=\langle 1 | 1\rangle\langle 1 | 0\rangle=0 \\
+\langle 10 | 10\rangle &amp;=\langle 1 | 1\rangle\langle 0 | 0\rangle=1
+\end{aligned}
+\]</span> We conclude that <span class="math display">\[
+C N|10\rangle=|11\rangle
+\]</span></p>
+<ul>
+<li>When the target qubit is $|1$, we have</li>
+</ul>
+<p>When the target qubit is $|1$ , we have <span class="math display">\[
+\begin{aligned}
+C N|11\rangle &amp;=(|00\rangle\langle 00|+| 01\rangle\langle 01|+| 10\rangle\langle 11|+| 11\rangle\langle 10|)|11\rangle \\
+&amp;=|00\rangle\langle ||00 11\rangle+|01\rangle\langle ||01 11\rangle+|10\rangle\langle ||11 11\rangle+|11\rangle\langle ||10 11\rangle \\
+&amp;=|10\rangle
+\end{aligned}
+\]</span> So we've confirmed that the controlled NOT gate flips the target qubit when the control bit is $|1$. Now we can use what we've learned to find the action on the target qubit when it's in the state <span class="math inline">\(\alpha|0\rangle+\beta|1\rangle .\)</span> In this case <span class="math display">\[
+C N(\alpha|10\rangle+\beta|11\rangle)=\alpha C N|10\rangle+\beta C N|11\rangle=\alpha|11\rangle+\beta|10\rangle
+\]</span> Therefore the <span class="math inline">\(C N\)</span> takes <span class="math inline">\(\alpha|0\rangle+\beta|1\rangle\)</span> to <span class="math inline">\(\beta|0\rangle+\alpha|1\rangle\)</span> when the control bit is $|1$</p>
+<h4 id="example-generate-bell-states.">example: generate Bell states.</h4>
+<p>Describe a circuit that will generate the Bell states.</p>
+<p><strong>Solution</strong></p>
+<p>we learned that the Bell states are given by <span class="math display">\[
+\begin{aligned}
+&amp;\left|\beta_{00}\right\rangle=\frac{|00\rangle+|11\rangle}{\sqrt{2}}\\
+&amp;\left|\beta_{01}\right\rangle=\frac{|01\rangle+|10\rangle}{\sqrt{2}}\\
+&amp;\left|\beta_{10}\right\rangle=\frac{|00\rangle-|11\rangle}{\sqrt{2}}\\
+&amp;\left|\beta_{11}\right\rangle=\frac{|01\rangle-|10\rangle}{\sqrt{2}}
+\end{aligned}
+\]</span> To see how we can draw a circuit to generate these states, consider the action of the CNOT gate when the control qubit is in a superposition state. <span class="math display">\[
+\begin{aligned}
+C N(|00\rangle+|10\rangle)=&amp;(|00\rangle\langle 00|+| 01\rangle\langle 01|+| 10\rangle\langle 11|+| 11\rangle\langle 10|)(|00\rangle+|10\rangle) \\
+=&amp;|00\rangle\langle ||00 00\rangle+|01\rangle\langle ||01 00\rangle+|10\rangle\langle ||11 00\rangle+|11\rangle\langle ||10 00\rangle \\
+&amp;+|00\rangle\langle ||00 10\rangle+|01\rangle\langle ||01 10\rangle+|10\rangle\langle ||11 10\rangle+|11\rangle\langle ||10 10\rangle \\
+=&amp;|00\rangle+|11\rangle
+\end{aligned}
+\]</span> The Bell state <span class="math inline">\(\left|\beta_{a b}\right\rangle\)</span> can be written as <span class="math display">\[
+\left|\beta_{a b}\right\rangle=\frac{|0, b\rangle+(-1)^{a}|1, \bar{a}\rangle}{\sqrt{2}}
+\]</span> where <span class="math inline">\(\bar{a}\)</span> represents <span class="math inline">\(N O T a\)</span></p>
+<ul>
+<li>controlled-Hadamard gate.</li>
+</ul>
+<p>The action of the controlled Hadamard gate is as follows: If the control qubit is $|0$, nothing happens to the target qubit. If the control qubit is $|1$, then we apply a Hadamard gate to the target qubit. The matrix representation of the controlled Hadamard gate is <span class="math display">\[
+C H=\left(\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; \frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+0 &amp; 0 &amp; \frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{array}\right)
+\]</span> The Dirac notation representation of this operator is <span class="math display">\[
+C H=|00\rangle\langle 00|+| 01\rangle \langle 01 |+\frac{1}{\sqrt{2}}(|10\rangle\langle 10|+| 10\rangle\langle 11|+| 11\rangle\langle 10|-| 11\rangle\langle 11|)  
+\]</span></p>
+<h4 id="example-action-of-ch-gate">example: action of CH gate</h4>
+<p>Find the action of the CH gate using Metrics and Dirac notation when the input states are <span class="math inline">\(|01\rangle\)</span> and <span class="math inline">\(|11\rangle .\)</span></p>
+<p><strong>Solution</strong></p>
+<p>Using the matrix representation of the CH gate, we need to write out the states |01and <span class="math inline">\(|11\rangle .\)</span> From (4.9) the column <strong>vector representation</strong> of these states are <span class="math display">\[
+|01\rangle=\left(\begin{array}{l}
+1 \\
+0
+\end{array}\right) \otimes\left(\begin{array}{l}
+0 \\
+1
+\end{array}\right)=\left(\begin{array}{l}
+0 \\
+1 \\
+0 \\
+0
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+|11\rangle=\left(\begin{array}{l}
+0 \\
+1
+\end{array}\right) \otimes\left(\begin{array}{l}
+0 \\
+1
+\end{array}\right)=\left(\begin{array}{l}
+0 \\
+0 \\
+0 \\
+1
+\end{array}\right)
+\]</span></p>
+<p>We should find that applied to the state |01, the <span class="math inline">\(C H\)</span> gate <strong>does nothing</strong>, since the control qubit is set to <span class="math inline">\(0 .\)</span> We have <span class="math display">\[
+C H|01\rangle=\left(\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; \frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+0 &amp; 0 &amp; \frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{array}\right)\left(\begin{array}{l}
+0 \\
+1 \\
+0 \\
+0
+\end{array}\right)=\left(\begin{array}{l}
+0 \\
+1 \\
+0 \\
+0
+\end{array}\right)=|01\rangle
+\]</span> In the second case, we have <span class="math display">\[
+C H|11\rangle=\left(\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; \frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} \\
+0 &amp; 0 &amp; \frac{1}{\sqrt{2}} &amp; \frac{-1}{\sqrt{2}}
+\end{array}\right)\left(\begin{array}{l}
+0 \\
+0 \\
+0 \\
+1
+\end{array}\right)=\left(\begin{array}{c}
+0 \\
+0 \\
+\frac{1}{\sqrt{2}} \\
+\frac{-1}{\sqrt{2}}
+\end{array}\right)
+\]</span> Hence the target qubit has been taken into the state <span class="math inline">\(|0\rangle-|1\rangle / \sqrt{2} .\)</span> Now let's redo the calculations using Dirac notation. For the first state, we have <span class="math display">\[
+\begin{aligned}
+C H|01\rangle=&amp;\left[|00\rangle\langle 00|+| 01\rangle\left\langle 01\left|+\frac{1}{\sqrt{2}}(|10\rangle\langle 10|+| 10\rangle\langle 11|+| 11\rangle\langle 10|-| 11\rangle\langle 11|)\right] | 01\right\rangle\right.\\
+=&amp;|00\rangle\langle ||00 01\rangle+|01\rangle\langle ||01 01\rangle+\frac{1}{\sqrt{2}}(|10\rangle\langle ||10 01\rangle+|10\rangle\langle ||11 01\rangle+|11\rangle\langle ||10 01\rangle\\
+&amp;-|11\rangle\langle ||11 01\rangle)=|01\rangle
+\end{aligned}
+\]</span> For the second state, we find that <span class="math display">\[
+\begin{aligned}
+C H|11\rangle=&amp;\left[|00\rangle\langle 00|+| 01\rangle\left\langle 01\left|+\frac{1}{\sqrt{2}}(|10\rangle\langle 10|+| 10\rangle\langle 11|+| 11\rangle\langle 10|-| 11\rangle\langle 11|)\right] | 01\right\rangle\right.\\
+=&amp;\left.|00\rangle\langle ||00 11\rangle+|01\rangle\langle ||01 11\rangle+\frac{1}{\sqrt{2}}(|10\rangle\langle ||10 11\rangle+|10|\rangle|1| 1\right\rangle+|11\rangle\langle ||10 01\rangle \\
+&amp;-|11\rangle\langle ||11 11\rangle)=\frac{|10\rangle-|11\rangle}{\sqrt{2}}
+\end{aligned}
+\]</span></p>
+<h4 id="cloning-machine.">cloning machine.</h4>
+<p>We wish to investigate the use of the <strong>controlled NOT gate</strong> as a cloning machine. Specifically can it clone the state <span class="math inline">\(a|0\rangle-b|1\rangle ?\)</span> Begin by supposing that the superposition state given by <span class="math inline">\(a|0\rangle-b|1\rangle\)</span> is used as the control qubit and that the <strong>target qubit</strong> is given by <span class="math inline">\(|1\rangle .\)</span> Then consider the case where the target qubit is <span class="math inline">\(|0\rangle .\)</span></p>
+<p><strong>Solution</strong></p>
+<p>First let's write down what the <strong>output state</strong> would be if the gate could clone the state. If it could, then it would make a copy of <span class="math inline">\(a|0\rangle-b|1\rangle\)</span>, and the output state would be the product state given by <span class="math display">\[
+(a|0\rangle-b|1\rangle) \otimes(a|0\rangle-b|1\rangle) =a^{2}|00\rangle-a b|01\rangle-b a|10\rangle+b^{2}|11\rangle
+\]</span> The input state is <span class="math display">\[
+(a|0\rangle-b|1\rangle) \otimes|1\rangle=a|01\rangle-b|11\rangle
+\]</span> The controlled NOT gate acts on this state as follows: <span class="math display">\[
+C N(a|01\rangle-b|11\rangle)=a C N|01\rangle-b C N|11\rangle=a|01\rangle-b|10\rangle
+\]</span> You can see that <span class="math inline">\(a|01\rangle-b|10\rangle \neq (a|0\rangle-b|1\rangle) \otimes(a|0\rangle-b|1\rangle) .\)</span> If the target qubit is <span class="math inline">\(|0\rangle,\)</span> then we have <span class="math display">\[
+C N(a|00\rangle-b|10\rangle)=a C N|00\rangle-b C N|10\rangle=a|00\rangle-b|11\rangle
+\]</span> This state is also not equal to the product state <span class="math inline">\(a|0\rangle-b|1\rangle \otimes a|0\rangle-b|1\rangle\)</span>, so we aren't any closer to cloning the state. This example shows that the CN gate can't clone, in general. Can you think of any specific states that the CN gate might clone?</p>
+<h3 id="gate-decomposition">7. gate decomposition</h3>
+<p>A large part of working with quantum circuits is decomposing an arbitrary controlled unitary operation <span class="math inline">\(U\)</span> into a series of single-qubit operations and controlled NOT gates. This procedure is illustrated schematically in Figure</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200329181605008.png" srcset="/img/loading.gif" alt="image-20200329181605008" style="zoom:50%;" /></p>
+<p>The figure shows some arbitrary controlled-U operation. An equivalent circuit, consisting of two controlled NOT gates and the single-qubit gates <span class="math inline">\(A, B,\)</span> and <span class="math inline">\(C,\)</span> will result in the same output. To illustrate how circuits can be manipulated, we have the common example illustrated in</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200329181636576.png" srcset="/img/loading.gif" alt="image-20200329181636576" style="zoom:50%;" /></p>
+<p>We want to prove that a controlled NOT gate can be written in terms of two Hadamard gates and a controlled Z gate.</p>
+<h4 id="decomposing-cnot-gate">decomposing CNOT gate</h4>
+<p>To derive this result, we start by recalling the resolution of the identity operator in Dirac notation. We denote the projection operators onto the $|1 $ and $|0$ states by <span class="math display">\[
+\begin{array}{l}
+P_{0}=|0\rangle\langle 0| \\
+P_{1}=|1\rangle\langle 1|
+\end{array}
+\]</span> Then we write the identity operator as <span class="math display">\[
+I=|0\rangle\langle 0|+| 1\rangle\langle 1|=P_{0}+P_{1}
+\]</span> Now consider the <span class="math inline">\(+X\)</span> state: <span class="math display">\[
+|+\rangle=\frac{|0\rangle+|1\rangle}{\sqrt{2}}
+\]</span> The projection operator onto this state is <span class="math display">\[
+P_{+}=|+\rangle \langle+ |=\frac{1}{2}(|0\rangle\langle 0|+| 0\rangle\langle 1|+| 1\rangle\langle 0|+| 1\rangle\langle 1|) 
+\]</span> Now recall the Dirac notation representations for the <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> operators and how they relate <span class="math display">\[
+\begin{aligned}
+X &amp;=|0\rangle\langle 1|+| 1\rangle\langle 0|=P_{+}-P_{-} \\
+Z &amp;=|0\rangle\langle 0|-| 1\rangle\langle 1|=P_{0}-P_{1}
+\end{aligned}
+\]</span></p>
+<h4 id="decomposing-cnot-gate-2">decomposing CNOT gate 2</h4>
+<p>In the exercises you will show that the controlled NOT matrix can be generated from <span class="math inline">\(P_{0} \otimes I+P_{1} \otimes X .\)</span> So we start here and use (8.43): <span class="math display">\[
+P_{0} \otimes I+P_{1} \otimes X=P_{0} \otimes\left(P_{+}+P_{-}\right)+P_{1} \otimes X
+\]</span> Next we use ( 8.44 ) to write <span class="math inline">\(X\)</span> in terms of the same projection operators, giving <span class="math inline">\(P_{0} \otimes\left(P_{+}+P_{-}\right)+P_{1} \otimes\left(P_{+}-P_{-}\right)=\left(P_{0}+P_{1}\right) \otimes P_{+}+\left(P_{0}-P_{1}\right) \otimes P_{-}\)</span> From (8.39) and (8.45) we see that this is just <span class="math display">\[
+I \otimes P_{+}+\left(P_{0}-P_{1}\right) \otimes P_{-}=I \otimes P_{+}+Z \otimes P_{-}
+\]</span> From (8.16) in Dirac notation the Hadamard operator is <span class="math display">\[
+H=\frac{1}{\sqrt{2}}(|0\rangle\langle 0|+| 0\rangle\langle 1|+| 1\rangle\langle 0|-| 1\rangle\langle 1|)
+\]</span> Notice that <span class="math display">\[
+\begin{aligned}
+P_{0} H &amp;=(|0\rangle\langle 0|) \frac{1}{\sqrt{2}}(|0\rangle\langle 0|+| 0\rangle\langle 1|+| 1\rangle\langle 0|-| 1\rangle\langle 1|) \\
+&amp;=\frac{1}{\sqrt{2}}(|0\rangle\langle 0|+| 0\rangle\langle 1|)
+\end{aligned}
+\]</span> So we have <span class="math display">\[
+H P_{0} H=\frac{1}{\sqrt{2}}(|0\rangle\langle 0|+| 0\rangle\langle 1|+| 1\rangle\langle 0|-| 1\rangle\langle 1|) \frac{1}{\sqrt{2}}(|0\rangle\langle 0|+| 0\rangle\langle 1|)
+\]</span></p>
+<p><span class="math display">\[
+\begin{array}{l}
+=\frac{1}{2}(|0\rangle\langle 0|+| 0\rangle\langle 1|+| 1\rangle\langle 0|+| 1\rangle\langle 1|) \\
+=P_{+}
+\end{array}
+\]</span></p>
+<p>This means that <span class="math display">\[
+I \otimes P_{+}=I \otimes H P_{0} H=(I \otimes H)\left(I \otimes P_{0} H\right)=(I \otimes H)\left(I \otimes P_{0}\right)(I \otimes H)
+\]</span> It can also be shown that <span class="math display">\[
+Z \otimes P_{-}=(I \otimes H)\left(Z \otimes P_{1}\right)(I \otimes H)
+\]</span> Putting the two results together, we can rewrite (8.46) as <span class="math display">\[
+\begin{aligned}
+I \otimes P_{+}+Z \otimes P_{-} &amp;=(I \otimes H)\left(I \otimes P_{0}\right)(I \otimes H)+(I \otimes H)\left(Z \otimes P_{1}\right)(I \otimes H) \\
+&amp;=(I \otimes H)\left(I \otimes P_{0}+Z \otimes P_{1}\right)(I \otimes H)
+\end{aligned}
+\]</span> This is the circuit shown on the right-hand side of Figure <span class="math inline">\(8.7 .\)</span> What this tells us is to first apply the operation that leaves the first qubit alone and applies a Hadamard gate to the second qubit, then apply the controlled <span class="math inline">\(Z\)</span> gate, and finally apply another Hadamard gate to the second qubit only.</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/">量子计算基础</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Quantum-Computation/">Quantum Computation</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/09/04/QC202_quanumFouier/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">量子傅里叶</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2019/09/02/QC01_Introduction/">
+                        <span class="hidden-mobile">量子计算导论</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "量子计算基础：从量子比特到量子线路&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
