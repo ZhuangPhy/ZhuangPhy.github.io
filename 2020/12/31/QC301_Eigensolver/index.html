@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.8k 字
+      2.3k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      23
+      29
        分钟
     </span>
   
@@ -225,7 +225,7 @@
 </ol>
 <h2 id="文1变分量子态本征求解器">文1：变分量子态本征求解器</h2>
 <p>变分量子特征提取器（VQE）一般用于确定某一类特定矩阵（如厄米矩阵）的基态。</p>
-<p>本文主要考虑的是<strong>矩阵为密度算子</strong>的情形。作者通过变分量子态特征提取器（VQSE）<strong>Variational Quantum State Eigensolver</strong>（和VQE类似）来学习量子态 <span class="math inline">\(\rho\)</span> 的最大特征值和门序列 V 来制备相应的特征向量。VQSE 通过在对角化和优化之间建立联系来定义代价函数 <span class="math inline">\(C =\operatorname{Tr}\left(\rho^{*}{ }{ H }\right)\)</span>，其中 H 是非退化的哈密顿算符。需要说明的是：VQSE 只需要 <span class="math inline">\(\rho\)</span> 的一份拷贝，因此可以很好地与近期量子设备兼容。</p>
+<p>本文主要考虑的是<strong>矩阵为密度算子</strong>的情形。作者通过变分量子态特征提取器（VQSE）<strong>Variational Quantum State Eigensolver</strong>（和VQE类似）来学习量子态 <span class="math inline">\(\rho\)</span> 的最大特征值和门序列 V 来制备相应的特征向量。VQSE 通过在对角化和优化之间建立联系来定义代价函数 <span class="math inline">\(C =\operatorname{Tr}\left(\rho^{*}{ }{ H }\right)\)</span>，其中 <span class="math inline">\(H\)</span> 是非退化的哈密顿算符。需要说明的是：VQSE 只需要 <span class="math inline">\(\rho\)</span> 的一份拷贝，因此可以很好地与近期量子设备兼容。</p>
 <p>作者论证了两个 VQSE 的应用：</p>
 <ol type="1">
 <li>主成分分析</li>
@@ -299,7 +299,7 @@ H_{L}= 1 -\sum_{j=1}^{n} r_{j} Z_{j}
 H(t) \equiv(1-f(t)) H_{L}+f(t) H_{G}(t)
 \]</span> 其中</p>
 <ul>
-<li><span class="math inline">\(f ( t )\)</span> 是一个实值函数满足 <span class="math inline">\(f (0)=0,\)</span>$ f (1)=1, $<span class="math inline">\(t \in[0,1]_{\circ}\)</span></li>
+<li><span class="math inline">\(f ( t )\)</span> 是一个实值函数，满足 <span class="math inline">\(f (0)=0,\)</span>$ f (1)=1, $<span class="math inline">\(t \in[0,1]\)</span></li>
 </ul>
 <p>定义与时间相关的全局哈密顿量： <span class="math display">\[
 H_{G}(t) \equiv 1 -\sum_{i=1}^{m} q_{i}\left| z _{i}(t)\right\rangle\left\langle z _{i}(t)\right|
@@ -309,7 +309,32 @@ H_{G}(t) \equiv 1 -\sum_{i=1}^{m} q_{i}\left| z _{i}(t)\right\rangle\left\langle
 </ul>
 <h2 id="ansatz">3 Ansatz</h2>
 <p>拟设 (Ansatz) 是对 <span class="math inline">\(V (\theta)\)</span> 的初始化</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210101134211107.png" srcset="/img/loading.gif" /></p>
+<p>图2.</p>
+<ul>
+<li><ol type="a">
+<li><span class="math inline">\(V\)</span> ( <span class="math inline">\(\theta\)</span> ) 分层硬件相关的拟设。拟设的一层由作用在相邻比特上的两比特门 <span class="math inline">\(B _{\mu}\left(\theta_{\mu}\right)\)</span> 构成。</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>每一个块B <span class="math inline">\(_{\mu}\left(\theta_{\mu}\right)\)</span> 有很多种选择。</li>
+</ol></li>
+</ul>
+<p>如图2所示，本文采用的拟设是分层硬件相关的拟设, 为固定 L 层只能作用在相邻比特的两比特门 <span class="math inline">\(B \mu(\theta \mu)\)</span> 构成。注意到需要训练的参数 <span class="math inline">\(\theta\)</span> 跟 <span class="math inline">\(n\)</span> 和 <span class="math inline">\(L\)</span> 是线性相关的。</p>
 <h2 id="数值实现">4 数值实现</h2>
+<h4 id="用vqse进行主成分分析">4.1用VQSE进行主成分分析</h4>
+<p>本文比较了用全局代价函数 <span class="math inline">\(C _{ G }(\theta),\)</span> 局部最优代价函数 <span class="math inline">\(C _{ L }(\theta),\)</span> 以及适定性代价函数的结果。图3显示了用 VQSE 来估计对于 <span class="math inline">\(n =4,6,8\)</span> 三种量子态的第 6 大特征值的三种代价函数比较。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210101134552445.png" srcset="/img/loading.gif" /></p>
+<p>图3: 成功概率1/ <span class="math inline">\(\varepsilon_{\lambda}\)</span>. 图中实现了(a) <span class="math inline">\(n =4\)</span> (b) <span class="math inline">\(n =6\)</span> (c) <span class="math inline">\(n =8\)</span> 量子比特的VQSE。</p>
+<ul>
+<li><span class="math inline">\(n =4\)</span> 时, 由图中可以得到在1/ <span class="math inline">\(\varepsilon_{\lambda}\)</span> 小于 <span class="math inline">\(10^{8}\)</span> 时，局部和适定性哈密顿量性能相同，但当1/ <span class="math inline">\(\varepsilon_{\lambda}\)</span> 大于10 <span class="math inline">\(^{8}\)</span> 时，局部测量最好。</li>
+<li>当 <span class="math inline">\(n =6\)</span> 和8时，随着1/ <span class="math inline">\(\varepsilon_{\lambda}\)</span> 的增大，适定性哈密顿量表现最优。</li>
+</ul>
+<p>以上3个图中x轴都是log规模</p>
+<h4 id="降低误差-error-mitigation">4.2 降低误差 (error mitigation)</h4>
+<p>由于现阶段量子计算机是有噪音的，所有制备态的电路得到的都是混合态 <span class="math inline">\(\rho\)</span> 。假定 <span class="math inline">\(\rho\)</span> 的最大特征值对应特征向量 <span class="math inline">\(|\psi\rangle,\)</span> 则 VQSE 可以用于再纯化 <span class="math inline">\(\rho\)</span> 和 <span class="math inline">\(|\psi\rangle_{\circ}\)</span> 这是因为当 <span class="math inline">\(V\)</span> ( <span class="math inline">\(\theta\)</span> ) 的电路深度很浅时，可以通过比较 <span class="math inline">\(\rho\)</span> 和 <span class="math inline">\(|\psi\rangle\)</span> 的保真度来得到含噪音的态 <span class="math inline">\(\sigma\)</span> 和 <span class="math inline">\(|\psi\rangle\)</span> 的更高保真度的估计, 于是可以通过态制备电路为VQSE特征向量制备电路来降低误差。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210101142737798.png" srcset="/img/loading.gif" /></p>
+<p>图4. 代价函数值和保真度和迭代次数的比较。通过VQSE对3比特的W态制备的电路进行错误降低。</p>
+<p>图4是通过运行 VQSE 得到的关于态 <span class="math inline">\(\sigma\)</span> 和 <span class="math inline">\(|\psi\rangle\)</span> 的平均代价函数和平均保真度，由图中可以看出代价函数值随着迭代次数的增加逐渐降低。</p>
 <h2 id="文2-迭代量子辅助本征求解器">文2: 迭代量子辅助本征求解器</h2>
 <h2 id="量子辅助特征求解器">1量子辅助特征求解器</h2>
 <h2 id="参考文献">参考文献</h2>

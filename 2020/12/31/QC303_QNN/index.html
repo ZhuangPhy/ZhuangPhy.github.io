@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      492 字
+      849 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      9
        分钟
     </span>
   
@@ -207,7 +207,12 @@
             <article class="markdown-body">
               <p>[TOC]</p>
 <h2 id="参考">参考</h2>
-<p>量子计算漫谈 - <a href="https://mp.weixin.qq.com/s?__biz=MzU2NzM2Nzg1OA==&amp;mid=2247485912&amp;idx=1&amp;sn=0be1d10932837ae38868093ef7f65b47&amp;chksm=fc9f0805cbe881136418bf284e764c19bc3ef60b16deaf84bc1e03b989ed653d9b0968b3536f&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">量子卷积神经网络简介</a> arXiv:2009.09423 - <a href="https://mp.weixin.qq.com/s?__biz=MzU2NzM2Nzg1OA==&amp;mid=2247486312&amp;idx=1&amp;sn=c4286284d483d8059ee421a82917a4f6&amp;chksm=fc9f0ab5cbe883a3e4ad69c5233199d428e59da2c9a252e5359c88b8c80a21688bf297383eb8&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">量子神经网络的能力</a> arXiv: 2011.00027 - <a href="https://mp.weixin.qq.com/s?__biz=MzU2NzM2Nzg1OA==&amp;mid=2247485446&amp;idx=1&amp;sn=711c8f71585690d6969129c06b0fa93b&amp;chksm=fc9f09dbcbe880cd57d7902eebd23ff218e8eb9940d4d46bb453d7918a2097261206a7667b3d&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">量子vs经典：生成模型学习能力比较</a> arXiv: 2007.14451</p>
+<p>量子计算漫谈</p>
+<ol type="1">
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU2NzM2Nzg1OA==&amp;mid=2247485912&amp;idx=1&amp;sn=0be1d10932837ae38868093ef7f65b47&amp;chksm=fc9f0805cbe881136418bf284e764c19bc3ef60b16deaf84bc1e03b989ed653d9b0968b3536f&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">量子卷积神经网络简介</a> arXiv:2009.09423</li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU2NzM2Nzg1OA==&amp;mid=2247486312&amp;idx=1&amp;sn=c4286284d483d8059ee421a82917a4f6&amp;chksm=fc9f0ab5cbe883a3e4ad69c5233199d428e59da2c9a252e5359c88b8c80a21688bf297383eb8&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">量子神经网络的能力</a> arXiv: 2011.00027</li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU2NzM2Nzg1OA==&amp;mid=2247485446&amp;idx=1&amp;sn=711c8f71585690d6969129c06b0fa93b&amp;chksm=fc9f09dbcbe880cd57d7902eebd23ff218e8eb9940d4d46bb453d7918a2097261206a7667b3d&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">量子vs经典：生成模型学习能力比较</a> arXiv: 2007.14451</li>
+</ol>
 <h2 id="前言">前言</h2>
 <h2 id="文1量子卷积神经网络简介">文1：量子卷积神经网络简介</h2>
 <p>卷积神经网络 (Convolutional Neural Network, CNN) 是一种在计算机视觉领域中非常受欢迎的模型，它能够很好地利用数据的关联信息。但是当CNN模型太大时，网络就难以进行有效学习。量子卷积神经网络 (Quantum Convolutional Neural Network, QCNN) 利用量子系统生成卷积网络模型，来改善现有的学习效果。</p>
@@ -226,6 +231,10 @@
 <li>重复使用上述的卷积层和池化层；</li>
 <li>当量子系统的规模足够小时，可以利用全连接层来输出分类问题的结果；</li>
 </ol>
+<h4 id="mera">MERA</h4>
+<p>满足此结构的模型可以利用多尺度纠缠重整化方法 (MERA)，MERA 原本 是为了有效模仿多体量子态系统而设计的, 通过在每一个深度门都增加一 个 <span class="math inline">\(|0\rangle\)</span> 的量子比特使得整体量子系统的维数呈指数增加。而QCNN可以反 方向地使用MERA，这样就可以如图中所示减少量子系统的维数，从而适 用于QCNN生成特征图。</p>
+<h4 id="量子纠错">量子纠错</h4>
+<p>此外, Cong 等提出的量子卷积神经网络 [1] 可以利用量子纠错 (Quantum Error Correction, QEC) 来提高计算性能。在 MERA 中每一个标签都可 以用一个量子态 来代表, 由于 QCNN 需要反方向利用 MERA，如果输入 的数据可以生成量子态 <span class="math inline">\(|\psi\rangle,\)</span> 就可以记录相应的标签, 否则如果输入数据 无法生成量子态 <span class="math inline">\(\left|\psi^{\prime}\right\rangle,\)</span> 就说明对应的量子态没有被记录。对于由输入数据 可以生成的量子态 <span class="math inline">\(|\psi\rangle,\)</span> 在池化层中测量的结果为 <span class="math inline">\(|0\rangle_{\circ}\)</span> 否则, 对于量子 态 <span class="math inline">\(\left|\psi^{\prime}\right\rangle,\)</span> 测量结果为 <span class="math inline">\(|1\rangle\)</span> , 这时利用纠错, 对 <span class="math inline">\(|1\rangle\)</span> 周围的量子比特应用附 加的量子门来改正结果。这种方法可以通过生成确定性的测量结果来提高 计算性能。</p>
 <h2 id="参考文献">参考文献</h2>
 
             </article>
