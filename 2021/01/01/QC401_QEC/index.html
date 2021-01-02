@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>量子纠错 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-01-01 14:23">
+      January 1, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      76
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考">参考</h2>
+<ol type="1">
+<li><a href="https://www2.physics.ox.ac.uk/sites/default/files/ErrorCorrectionSteane06.pdf" target="_blank" rel="noopener">A Tutorial on Quantum Error Correction</a> Andrew M. Steane</li>
+</ol>
+<h2 id="介绍">1 介绍</h2>
+<p>Quantum error correction (QEC) comes from the marriage of quantum mechanics with the classical theory of error correcting codes. Error correction is a central concept in classical information theory, and quantum error correction is similarly foundational in quantum information theory. Both are concerned with the fundamental problem of communication, and/or information storage, in the presence of noise. The codewords which arise in QEC are also interesting objects in their own right, displaying rich forms of entanglement.</p>
+<p>This introduction will concentrate on the essential ideas of QEC and on the construction and use of quantum error correcting codes. The motivation is that although QEC is now quite a well established subject, it remains only vaguely understood by many people interested in quantum information and computing, or little studied by students learning it, because it appears to require mathematical knowledge they do not possess, and to be limited in application. Introductions tend to stay at the level of singleerror-correcting codes, and single-qubit encoding codes, but this is a mistake because some of the essential properties only emerge when multiple errors and encoding of multiple qubits are considered. The mathematical methods are elegant and fairly easy to acquire, they are probably essential tools for anyone wishing to think of good ways to manipulate multi-qubit systems.</p>
+<p>An important area only briefly touched on in this tutorial is the physics of noise, and the fidelity that can be achieved via QEC methods. This is important because it underlies much of what we think can actually be achieved by quantum information processing in the future. A further important subject closely connected to QEC is that of fault-tolerant methods. They are not discussed here (for introductory discussions see [1,2,3,4])</p>
+<p>Error correction is especially important in quantum computers, because efficient quantum algorithms make use of large scale quantum interference, which is fragile, i.e. sensitive to imprecision in the computer and to unwanted coupling between the computer and the rest of the world <span class="math inline">\([5,6,8,7] .\)</span> This makes large scale quantum computation so difficult as to be practically impossible unless error correction methods are used <span class="math inline">\([1,2,9] .\)</span> Indeed, before quantum error correction was discovered, it seemed that this fragility would forbid large scale quantum computation. The ability to correct a quantum computer efficiently without disturbing the coherence of the computation is highly non-intuitive, and was thought more or less impossible. The discovery of powerful error correction methods therefore caused much excitement, since it converted large scale quantum computation from a practical impossibility to a possibility.</p>
+<p>The first quantum error correcting codes were discovered independently by Shor [10] and Steane <span class="math inline">\([11] .\)</span> Shor proved that 9 qubits could be used to protect a single qubit against general errors, while Steane described a general code construction whose simplest example does the same job using 7 qubits (see section 7.2 ). A general theory of quantum error correction dates from subsequent papers of Calderbank and Shor [12] and Steane [13] in which general code constructions, existence proofs, and correction methods were given. Knill and Laflamme [14] and Bennett et. al. [15] provided a more general theoretical framework, describing requirements for quantum error correcting codes (section 5.3 ), and measures of the fidelity of corrected states. They, and independently Ekert and Macchiavello [16] and Gottesman [17] derived the quantum Hamming bound (section 5.4 ). The close relationship between entanglement purification [19,18] and quantum error correction was discussed by Bennett et. al. <span class="math inline">\([15] .\)</span> They, and independently Laflamme et. al. [20] discovered the perfect 5 qubit code (section 5.2 ).</p>
+<p>The important concept of the stabilizer (section 5.2 ) is due to Gottesman [17] and independently Calderbank et. al. [21]; this yielded many useful insights into the subject, and permitted many new codes to be discovered <span class="math inline">\([17,21,22,23,24] .\)</span> Stabilizer methods will probably make a valuable contribution to other areas in quantum information physics. The quantum MacWilliams identities were discovered by Shor and Laflamme <span class="math inline">\([25],\)</span> these provide further important constraints on codes and fidelity measures. The idea of recursively encoding and encoding again was explored by Knill and Laflamme <span class="math inline">\([26],\)</span> and Aharonov and BenOr <span class="math inline">\([27] .\)</span> This uses more quantum resources in a hierarchical way, to permit communication over arbitrarily long times or distances. Van Enk et. al. [28] have discussed quantum communication over noisy channels using a realistic model of trapped atoms and high-quality optical cavities, and recursive techniques for systems in which two-way classical communication is possible have been discussed. since these early works, quantum code constructions have been discussed by many authors, and general questions about the information capacity of noisy channels have been settled, see [29] for a review.</p>
+<p>The organisation of the article is as follows. Section 2 is very basic, it introduces the 3 -bit code for the absolute beginner. Sections 3 and 4 cover classical coding theory, linear vector spaces and so on. They can be omitted by readers familiar with classical error correction, but are needed by those not familiar with it in order to progress beyond the most simple quantum codes later on. Sections 5 and 6 contain the main meat of the article. They introduce the basic concepts of noise and errors, the mathematics of error operators and stabilizers, and the elements of quantum error correction coding (the construction and behaviour of codes). Section 7 then goes into the code construction and the error correction process in more detail, for the benefit of students wishing to acquire as much physical insight as possible; the other sections can stand alone without it. Section 8 is very brief and incomplete but nevertheless necessary to complete the foundations: it discusses some aspects of the physics of noise which we need in order to understand to what extent QEC will be successful in practice.</p>
+<h2 id="三比特码">2 三比特码</h2>
+<p>We will begin by analysing in detail the workings of the most simple quantum error correcting code. Exactly what is meant by a quantum error correcting code will become apparent.</p>
+<p>Suppose a source A wishes transmit quantum information via a noisy communication channel to a receiver B. Obviously the channel must be noisy in practice since no channel is perfectly noise-free. However, in order to do better than merely sending quantum bits down the channel, we must know something about the noise. For this introductory section, the following properties will be assumed: the noise acts on each qubit independently, and for a given qubit has an effect chosen at random between leaving the qubit's state unchanged (probability <span class="math inline">\(1-p\)</span> ) and applying a Pauli <span class="math inline">\(\sigma_{x}\)</span> operator (probability <span class="math inline">\(p&lt;1 / 2\)</span> ). This is a very artificial type of noise, but once we can correct it, we will find that our correction can also offer useful results for much more realistic types of noise.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210102213917168.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>Figure</p>
+<ol type="1">
+<li>Simple example illustrating the principles of quantum error correction. Alice wishes to transmit a single-qubit state <span class="math inline">\(|\phi\rangle=a|0\rangle+b|1\rangle\)</span> to Bob through a channel which introduces <span class="math inline">\(\sigma_{x}\)</span> errors <span class="math inline">\((|0\rangle \leftrightarrow|1\rangle)\)</span> randomly. Alice prepares two further qubits in the state <span class="math inline">\(|0\rangle,\)</span> represented by a small circle. She then encodes her single qubit into a joint state of three qubits, by two controlled-not operations. These three qubits are sent to Bob. At the receiving end, Bob recovers the joint state by extracting a syndrome, and correcting on the basis of this syndrome. The correction is a <span class="math inline">\(\sigma_{x}\)</span> operation applied to one (or none) of the qubits. Finally, a decoding operation disentangles one qubit from the others, giving Bob a single qubit in the state <span class="math inline">\(|\phi\rangle\)</span> with probability <span class="math inline">\(1-O\left(p^{2}\right)\)</span>.</li>
+</ol>
+</blockquote>
+<p>The simplest quantum error correction method is summarised in fig. 1. We adopt the convention of calling the source Alice and the receiver Bob. The state of any qubit that Alice wishes to transmit can be written without loss of generality <span class="math inline">\(a|0\rangle+b|1\rangle .\)</span> Alice prepares two further qubits in the state <span class="math inline">\(|0\rangle,\)</span> so the initial state of all three is <span class="math inline">\(a|000\rangle+b|100\rangle .\)</span> Alice now operates a controlled-not gate from the first qubit to the second, producing <span class="math inline">\(a|000\rangle+b|110\rangle,\)</span> followed by a controlled-not gate from the first qubit to the third, producing <span class="math inline">\(a|000\rangle+b|111\rangle .\)</span> Finally, Alice sends all three qubits down the channel.</p>
+<p>Bob receives the three qubits, but they have been acted on by the noise in the channel. Their state is one of the following: state <span class="math inline">\(\quad\)</span> probability <span class="math display">\[
+\begin{array}{ll}
+a|000\rangle+b|111\rangle &amp; (1-p)^{3} \\
+a|100\rangle+b|011\rangle &amp; p(1-p)^{2} \\
+a|010\rangle+b|101\rangle &amp; p(1-p)^{2} \\
+a|001\rangle+b|110\rangle &amp; p(1-p)^{2} \\
+a|110\rangle+b|001\rangle &amp; p^{2}(1-p) \\
+a|101\rangle+b|010\rangle &amp; p^{2}(1-p) \\
+a|011\rangle+b|100\rangle &amp; p^{2}(1-p) \\
+a|111\rangle+b|000\rangle &amp; p^{3}
+\end{array}
+\]</span> Bob now introduces two more qubits of his own, prepared in the state <span class="math inline">\(|00\rangle .\)</span> This extra pair of qubits, referred to as an ancilla, is not strictly necessary, but makes error correction easier to understand and becomes necessary when fault-tolerant methods are needed. Bob uses the ancilla to gather information about the noise. He first carries out controlled-noTs from the first and second received qubits to the first ancilla qubit, then from the first and third received qubits to the second ancilla bit. The total state of all five qubits is now <span class="math display">\[
+\begin{array}{cc}
+\text { state } &amp; \text { probability } \\
+(a|000\rangle+b|111\rangle)|00\rangle &amp; (1-p)^{3} \\
+(a|100\rangle+b|011\rangle)|11\rangle &amp; p(1-p)^{2} \\
+(a|010\rangle+b|101\rangle)|10\rangle &amp; p(1-p)^{2} \\
+(a|001\rangle+b|110\rangle)|01\rangle &amp; p(1-p)^{2} \\
+(a|110\rangle+b|001\rangle)|01\rangle &amp; p^{2}(1-p) \\
+(a|101\rangle+b|010\rangle)|10\rangle &amp; p^{2}(1-p) \\
+(a|011\rangle+b|100\rangle)|11\rangle &amp; p^{2}(1-p) \\
+(a|111\rangle+b|000\rangle)|00\rangle &amp; p^{3}
+\end{array}
+\]</span> Bob measures the two ancilla bits in the basis <span class="math inline">\(\{|0\rangle,|1\rangle\} .\)</span> This gives him two classical bits of information. This information is called the error syndrome, since it helps to diagnose the errors in the received qubits. Bob's next action is as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th>measured syndrome</th>
+<th>action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>00</td>
+<td>do nothing</td>
+</tr>
+<tr class="even">
+<td>01</td>
+<td>apply <span class="math inline">\(\sigma_{x}\)</span> to third qubit</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>apply <span class="math inline">\(\sigma_{x}\)</span> to second qubit</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>apply <span class="math inline">\(\sigma_{x}\)</span> to first qubit</td>
+</tr>
+</tbody>
+</table>
+<p>Suppose for example that Bob's measurements give 10 (i.e. the ancilla state is projected onto |10<span class="math inline">\()\)</span>. Examining eq. ( 2 ), we see that the state of the received qubits must be either <span class="math inline">\(a|010\rangle+b|101\rangle\)</span> (probability <span class="math inline">\(\left.p(1-p)^{2}\right)\)</span> or <span class="math inline">\(a|101\rangle+b|010\rangle\)</span> (probability <span class="math inline">\(\left.p^{2}(1-p)\right)\)</span>. since the former is more likely, Bob corrects the state by applying a Pauli <span class="math inline">\(\sigma_{x}\)</span> operator to the second qubit. He thus obtains either <span class="math inline">\(a|000\rangle+b|111\rangle\)</span> (most likely or <span class="math inline">\(a|111\rangle+b|000\rangle .\)</span> Finally, to extract the qubit which Alice sent, Bob applies controlled-nOT from the first qubit to the second and third, obtaining either <span class="math inline">\((a|0\rangle+b|1\rangle)|00\rangle\)</span> or <span class="math inline">\((a|1\rangle+b|0\rangle)|00\rangle .\)</span> Therefore Bob has either the exact qubit sent by Alice, or Alice's qubit operated on by <span class="math inline">\(\sigma_{x} .\)</span> Bob does not know which he has, but the important point is that the method has a probability of success greater than <span class="math inline">\(1-p\)</span>. The correction is designed to succeed whenever either no or just one qubit is corrupted by the channel, which are the most likely possibilities. The failure probability is the probability that at least two qubits are corrupted by the channel, which is <span class="math inline">\(3 p^{2}(1-p)+p^{3}=3 p^{2}-2 p^{3},\)</span> i.e. less than <span class="math inline">\(p(\)</span> as long as <span class="math inline">\(p&lt;1 / 2)\)</span>. To summarise, Alice communicates a single general qubit by expressing its state as a joint state of three qubits, which are then sent to Bob. Bob first applies error correction, then extracts a single qubit state. The probability that he fails to obtain Alice's original state is <span class="math inline">\(O\left(p^{2}\right),\)</span> whereas it would have been <span class="math inline">\(O(p)\)</span> if no error correction method had been used. We will see later that with more qubits the same basic ideas lead to much more powerful noise suppression, but it is worth noting that we already have quite an impressive result: by using just three times as many qubits, we reduce the error probability by a factor <span class="math inline">\(\sim 1 / 3 p,\)</span> i.e. a factor <span class="math inline">\(\sim 30\)</span> for <span class="math inline">\(p=0.01, \sim 300\)</span> for <span class="math inline">\(p=0.001,\)</span> and so on.</p>
+<h2 id="二元场和离散向量空间">3 二元场和离散向量空间</h2>
+<p>In order to generalise the above ideas, we will need to understand the theory of classical error correcting codes, and this section provides some mathematical preliminaries.</p>
+<p>Classical error correction is concerned with classical bits, not quantum states. The mathematical treatment is based on the fact that linear algebraic operations such as addition and multiplication can be consistently defined using finite rather than infinite sets of integers, by using modular arithmetic. The simplest case, that of modulo 2 arithmetic, will cover almost everything in this article. The addition operation is defined by <span class="math inline">\(0+0=0,0+1=1+0=1,1+1=0 .\)</span> The set {0,1} is a group under this operation, since 0 is the identity element, both elements are their own inverse and the operation is associative. The set {0,1} is also a group under multiplication, with identity element 1. Furthermore, we can also define division (except division by zero) and subtraction, and the commutative and distributive laws hold. These properties together define a finite field, also called a Galois field. Thus the set {0,1} is referred to as the field <span class="math inline">\(GF (2),\)</span> where addition and multiplication are as defined.</p>
+<p>A string of <span class="math inline">\(n\)</span> bits is considered to be a vector of <span class="math inline">\(n\)</span> components, for example 011 is the vector <span class="math inline">\((0,1,1) .\)</span> Vector addition is carried out by the standard method of adding components, for example <span class="math display">\[
+\begin{aligned}
+(0,1,1)+(1,0,1)&amp;=(0+1,1+0,1+1)
+\\&amp;=(1,1,0)
+\end{aligned}
+\]</span> It is easy to see that this operation is equivalent to the exclusive-or operation <span class="math inline">\(\oplus\)</span> carried out bitwise between the binary strings: <span class="math inline">\(011 \oplus 101=110 .\)</span> Note that <span class="math inline">\(u+u \equiv 0\)</span> and <span class="math inline">\(u-v=u+v(\)</span> prove by adding <span class="math inline">\(v\)</span> to both sides <span class="math inline">\()\)</span></p>
+<p>We can define the inner product (or scalar product) by the standard rule of multiplying corresponding components, and summing the results: <span class="math inline">\((1,1,0,1) \cdot(1,0,0,1)=1+0+0+1=0 .\)</span> Note that all the arithmatic is done by the rules of the Galois field, so the final answer is only ever 0 or <span class="math inline">\(1 .\)</span> The inner product is also called a parity check or check sum since it indicates whether the second vector 'satisfies' the parity check specified by the first vector (or equivalently whether the first vector satisfies the parity check specified by the second). To satisfy a parity check <span class="math inline">\(u,\)</span> a vector <span class="math inline">\(v\)</span> must have an even number of 1 's at the positions (coordinates) specified by the 1 's in <span class="math inline">\(u\)</span>. If <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are row vectors then <span class="math inline">\(u \cdot v=u v^{T}\)</span> where <span class="math inline">\(T\)</span> is the transpose operation.</p>
+<p>The number of non-zero components of a binary vector <span class="math inline">\(u\)</span> is important in what follows, and is called the weight (or Hamming weight), written wt <span class="math inline">\((u) .\)</span> For example, wt <span class="math inline">\((0001101)=3 .\)</span> The number of places (coordinates) where two vectors differ is called the Hamming distance between the vectors; the distance between <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> is equal to <span class="math inline">\(wt (u+v)\)</span></p>
+<p>There are <span class="math inline">\(2^{n}\)</span> vectors of <span class="math inline">\(n\)</span> components (stated in other language, there are <span class="math inline">\(2^{n} n\)</span> -bit words). This set of vectors forms a linear vector space, sometimes called Hamming space. It is a discrete vector space since vector components are are only ever equal to 0 or <span class="math inline">\(1 .\)</span> The vectors point to the vertices of a square lattice in <span class="math inline">\(n\)</span> dimensions. The space is spanned by any set of <span class="math inline">\(n\)</span> linearly independent vectors. The most obvious set which spans the space is <span class="math display">\[
+\{1000 \cdots 00,0100 \cdots 00,0010 \cdots 00, \ldots, 0000 \cdots 01\}
+\]</span> There are subspaces within Hamming space. A linear subspace <span class="math inline">\(C\)</span> is any set of vectors which is closed under addition, ie <span class="math inline">\(u+v \in C \forall u, v \in C .\)</span> For example the set 0000,0011,1100,1111 is a <span class="math inline">\(2^{2}\)</span> linear subspace of the <span class="math inline">\(2^{4}\)</span> Hamming space. A linear subspace containing <span class="math inline">\(2^{k}\)</span> vectors is spanned by <span class="math inline">\(k\)</span> linearly independent vectors (for example 0011 and 1100 in the case just given). Any linear subspace is thus completely specified by its generator matrix <span class="math inline">\(G,\)</span> which is just the matrix whose <span class="math inline">\(k\)</span> rows are any <span class="math inline">\(k\)</span> vectors which span the space. We can always linearly combine rows to get an equivalent generator matrix, for example <span class="math display">\[
+G=\left(\begin{array}{l}
+0011 \\
+1100
+\end{array}\right)=\left(\begin{array}{l}
+0011 \\
+1111
+\end{array}\right)
+\]</span> The minimum distance <span class="math inline">\(d\)</span> of a subspace is the smallest Hamming distance between any two members of the subspace. If the two closest vectors are <span class="math inline">\(u\)</span> and <span class="math inline">\(v,\)</span> then <span class="math inline">\(d=\operatorname{wt}(u+v) .\)</span> For the case of a linear space, <span class="math inline">\(w=u+v\)</span> is also a member of the space. From this we deduce that the minimum distance of a linear space is equal to the smallest weight of a non-zero member of the space. This fact is useful in calculating the value of <span class="math inline">\(d\)</span>, since it is much easier to find the minimum weight than to evaluate all the distances in the space.</p>
+<p>Now, if <span class="math inline">\(u \cdot v=0\)</span> and <span class="math inline">\(u \cdot w=0\)</span> then <span class="math inline">\(u \cdot(v+w)=0 .\)</span> From this it follows, that if all the rows of a generator satisfy the parity check <span class="math inline">\(u,\)</span> then all so do all the vectors in the subspace. Any given parity check <span class="math inline">\(u\)</span> divides Hamming space exactly in half, into those vectors which satisfy <span class="math inline">\(u\)</span> and those that do not. Therefore, the <span class="math inline">\(2^{k}\)</span> vectors of a linear subspace in <span class="math inline">\(2^{n}\)</span> Hamming space can satisfy at most <span class="math inline">\(n-k\)</span> linearly independent parity checks. These parity checks together form the parity check matrix <span class="math inline">\(H,\)</span> which is another way to define the linear subspace. <span class="math inline">\(H\)</span> has <span class="math inline">\(n\)</span> columns and <span class="math inline">\(n-k\)</span> rows. For any given subspace, the check and generator matrices are related by <span class="math display">\[
+H G^{T}= 0
+\]</span> where <span class="math inline">\(G^{T}\)</span> is the transpose of <span class="math inline">\(G,\)</span> and <span class="math inline">\(0\)</span> is the <span class="math inline">\((n-k) \times k\)</span> zero matrix. The simple error correction method described in the previous section is based around the very simple binary vector space 000,111 . Its generator matrix is <span class="math inline">\(G=(111)\)</span> and the parity check matrix is <span class="math display">\[
+H=\left(\begin{array}{l}
+110 \\
+101
+\end{array}\right)
+\]</span> A useful relationship enables us to derive each of <span class="math inline">\(H\)</span> and <span class="math inline">\(G\)</span> from the other. It is always possible to convert <span class="math inline">\(G\)</span> to the form <span class="math inline">\(G=\left(I_{k}, A\right)\)</span> where <span class="math inline">\(I_{k}\)</span> is the <span class="math inline">\(k \times k\)</span> identity matrix, and <span class="math inline">\(A\)</span> is the rest of <span class="math inline">\(G(\operatorname{so} A\)</span> is <span class="math inline">\(k \times n-k)\)</span> To do the conversion we can linearly combine rows of <span class="math inline">\(G,\)</span> and if necessary swap columns of <span class="math inline">\(G .\)</span> Once we have the right form for <span class="math inline">\(G,\)</span> then <span class="math inline">\(H\)</span> can be written down immediately, it is <span class="math inline">\(H=\left(A^{T}, I_{n-k}\right)\)</span>.</p>
+<p>The last concept which we will need in what follows is that of the <span class="math inline">\(d u a l .\)</span> The dual space <span class="math inline">\(C^{\perp}\)</span> is the set of all vectors <span class="math inline">\(u\)</span> which have zero inner product with all vectors in <span class="math inline">\(C, u \cdot v=0 \forall v \in C .\)</span> It is simple to deduce that the parity check matrix of <span class="math inline">\(C\)</span> is the generator matrix of <span class="math inline">\(C^{\perp}\)</span> and vice versa. If <span class="math inline">\(H=G\)</span> then <span class="math inline">\(C=C^{\perp}\)</span>, such spaces are termed self-dual.</p>
+<p>The notation <span class="math inline">\((n, m, d)\)</span> is a shorthand for a set of <span class="math inline">\(m n\)</span> -bit vectors having minimum distance <span class="math inline">\(d\)</span>. For linear vector spaces, the notation <span class="math inline">\([n, k, d]\)</span> is used, where <span class="math inline">\(k\)</span> is now the dimension of the vector space, so it contains <span class="math inline">\(2^{k}\)</span> vectors.</p>
+<p>Let us conclude this section with another example of a linear binary vector space which will be important in what follows. It is a [7,4,3] space discovered by Hamming <span class="math inline">\([30] .\)</span> The generator matrix is <span class="math display">\[
+G=\left(\begin{array}{l}
+1010101 \\
+0110011 \\
+0001111 \\
+1110000
+\end{array}\right)
+\]</span> so the sixteen members of the space are <span class="math display">\[
+\begin{array}{llll}
+0000000 &amp; 1010101 &amp; 0110011 &amp; 1100110 \\
+0001111 &amp; 1011010 &amp; 0111100 &amp; 1101001 \\
+1110000 &amp; 0100101 &amp; 1000011 &amp; 0010110 \\
+1111111 &amp; 0101010 &amp; 1001100 &amp; 0011001
+\end{array}
+\]</span> these have been written in the following order: first the zero vector, then the first row of <span class="math inline">\(G .\)</span> Next add the second row of <span class="math inline">\(G\)</span> to the two vectors so far obtained, then add the third row to the four vectors previously obtained, and so on. We can see at a glance that the minimum distance is 3 since the minimum non-zero weight is <span class="math inline">\(3 .\)</span> The parity check matrix is <span class="math display">\[
+H=\left(\begin{array}{l}
+1010101 \\
+0110011 \\
+0001111
+\end{array}\right)
+\]</span> It is simple to confirm that <span class="math inline">\(H G^{T}= 0\)</span>. Note also that since <span class="math inline">\(H\)</span> is made of rows of <span class="math inline">\(G,\)</span> this code contains its dual: <span class="math inline">\(C^{\perp} \in C\)</span>.</p>
+<h2 id="经典纠错">4 经典纠错</h2>
+<p>Classical error correction is a large subject, a full introduction may be found in many readily available textbooks <span class="math inline">\([31,32,33,34] .\)</span> In order to keep the present discussion reasonably self-contained, a minimal set of ideas is given here. These will be sufficient to guide us in the construction of quantum error correcting codes.</p>
+<p>Classical communication can be considered without loss of generality to consist in the communication of strings of binary digits, i.e. the binary vectors introduced in the previous section. A given binary vector, also called a binary word, which we wish to send from <span class="math inline">\(A\)</span> to <span class="math inline">\(B,\)</span> is called a message. A noisy communication channel will corrupt the message, but since the message <span class="math inline">\(u\)</span> is a binary vector the only effect the noise can have is to change it to some other binary vector <span class="math inline">\(u^{\prime} .\)</span> The difference <span class="math inline">\(e=u^{\prime}-u\)</span> is called the error vector. Error correction consists in deducing <span class="math inline">\(u\)</span> from <span class="math inline">\(u^{\prime}\)</span>.</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/Quantum-Error-Correction/">Quantum Error Correction</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Quantum-Computation/">Quantum Computation</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/31/QC302_graph/">
+                        <span class="hidden-mobile">图论问题的量子计算处理</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "量子纠错&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
