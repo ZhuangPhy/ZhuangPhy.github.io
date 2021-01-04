@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.9k 字
+      4.4k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      76
+      82
        分钟
     </span>
   
@@ -209,7 +209,25 @@
 <h2 id="参考">参考</h2>
 <ol type="1">
 <li><a href="https://www2.physics.ox.ac.uk/sites/default/files/ErrorCorrectionSteane06.pdf" target="_blank" rel="noopener">A Tutorial on Quantum Error Correction</a> Andrew M. Steane</li>
+<li><a href="https://www.sohu.com/a/389599660_348129" target="_blank" rel="noopener">容错量子计算导论</a></li>
 </ol>
+<h2 id="导论">导论</h2>
+<p>量子比特因受到噪声的影响易失去量子特性。要在现实中实现量子计算机，需要在纠错保护下进行量子逻辑门操控。</p>
+<p>我们先看一下在经典通讯中，如何使用纠错码来保护处于噪声信道中的信号：</p>
+<ul>
+<li>[n, k, d] 码：我们对 k 个比特进行编码得到 n 个编码，<strong>汉明距离</strong>（Hamming distance） d 衡量了合法的编码之间的比特的差异个数。</li>
+<li>因此只要错误的比特数小于等于 d，那错误就可以被监测到，而当错误的比特数小于 d/2 则可以被纠正。</li>
+</ul>
+<p>多个噪声物理量子比特（noisy physical qubit）被编码到一个稳定的逻辑量子比特（robust logical qubit）中。</p>
+<h4 id="拓扑码topological-code">拓扑码（Topological Code）</h4>
+<p>构造局域的稳定子测量来避免远程的量子比特的交互</p>
+<ol type="1">
+<li><strong>Toric code</strong>：拓扑码的先驱者，由 Kitaev首先提出。</li>
+<li><strong>Surface code</strong>：在二维（2D）晶格中实现，并且仅需要与最邻近（NN）的格点进行交互，我们将其称为 2DNN 特性。除了 2DNN 特性以外，它还具有较低的阈值，因此它所属的编码簇成为了容错量子计算中标准模式的一部分。目前，它的许多变体正在被发展，是一个较为活跃的技术。</li>
+<li><strong>Color code</strong>：一个基于3-可着色晶格（colorable lattice）的拓扑编码簇，它的目的是对 Surface codes 进行改进。</li>
+<li><strong>Topological qubits</strong>：主要由微软开发的一种平行（parallel）方法，其目的是在硬件上使用拓扑纠错。</li>
+</ol>
+<p>拓扑码的一个显著的有优点在于，人们可以通过增加单位晶胞（unit cell）的大小，来提升检错和纠错的容量。然而，随着编码容量的增大，“解码”的任务必将会对量子态造成干扰（non-trivial measurement），因而<strong>设计有效的解码算法成为拓扑码最重要的任务。</strong></p>
 <h2 id="介绍">1 介绍</h2>
 <p>Quantum error correction (QEC) comes from the marriage of quantum mechanics with the classical theory of error correcting codes. Error correction is a central concept in classical information theory, and quantum error correction is similarly foundational in quantum information theory. Both are concerned with the fundamental problem of communication, and/or information storage, in the presence of noise. The codewords which arise in QEC are also interesting objects in their own right, displaying rich forms of entanglement.</p>
 <p>This introduction will concentrate on the essential ideas of QEC and on the construction and use of quantum error correcting codes. The motivation is that although QEC is now quite a well established subject, it remains only vaguely understood by many people interested in quantum information and computing, or little studied by students learning it, because it appears to require mathematical knowledge they do not possess, and to be limited in application. Introductions tend to stay at the level of singleerror-correcting codes, and single-qubit encoding codes, but this is a mistake because some of the essential properties only emerge when multiple errors and encoding of multiple qubits are considered. The mathematical methods are elegant and fairly easy to acquire, they are probably essential tools for anyone wishing to think of good ways to manipulate multi-qubit systems.</p>

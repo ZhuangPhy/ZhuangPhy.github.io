@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>离散动力系统:线性非线性 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2017-03-15 17:23">
+      March 15, 2017 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      40
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="first-order-difference-equations">First-Order Difference Equations</h2>
+<p>A recurrence relation can be defined by a difference equation of the form <span class="math display">\[
+x_{n+1}=f\left(x_{n}\right)
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(x_{n+1}\)</span> is derived from <span class="math inline">\(x_{n}\)</span> and <span class="math inline">\(n=0,1,2,3, \ldots .\)</span></li>
+<li>If one starts with an initial value, say, <span class="math inline">\(x_{0},\)</span> then iteration of <span class="math inline">\(x_{n+1}=f\left(x_{n}\right)\)</span>leads to a sequence of the form</li>
+</ul>
+<p><span class="math display">\[
+\left\{x_{i}: i=0 \text { to } \infty\right\}=\left\{x_{0}, x_{1}, x_{2}, \ldots, x_{n}, x_{n+1}, \ldots\right\}
+\]</span> In applications, one would like to know how this sequence can be interpreted in physical terms. Equations of the form <span class="math inline">\(x_{n+1}=f\left(x_{n}\right)\)</span> are called first-order difference equations because the suffices differ by one.</p>
+<h4 id="example">Example</h4>
+<p>The difference equation used to model the interest in a bank account compounded once per year is given by <span class="math display">\[
+x_{n+1}=\left(1+\frac{3}{100}\right) x_{n}, \quad n=0,1,2,3, \ldots
+\]</span> Find a general solution and determine the balance in the account after 5 years given that the initial deposit is 10,000 dollars and the interest is compounded annually.</p>
+<p><strong>Solution.</strong></p>
+<p>Using the recurrence relation <span class="math display">\[
+\begin{array}{c}
+x_{1}=\left(1+\frac{3}{100}\right) \times 10,000 \\
+x_{2}=\left(1+\frac{3}{100}\right) \times x_{1}=\left(1+\frac{3}{100}\right)^{2} \times 10,000
+\end{array}
+\]</span> and, in general, <span class="math display">\[
+x_{n}=\left(1+\frac{3}{100}\right)^{n} \times 10,000
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(n=0,1,2,3, \ldots\)</span></li>
+<li>Given that <span class="math inline">\(x_{0}=10,000\)</span> and <span class="math inline">\(n=5,\)</span> the balance after 5 years will be <span class="math inline">\(x_{5}=11,592.74\)</span> dollars.</li>
+</ul>
+<h4 id="theorem">Theorem</h4>
+<p>The general solution of the first-order linear difference equation <span class="math display">\[
+x_{n+1}=m x_{n}+c, \quad n=0,1,2,3, \ldots
+\]</span> is given by <span class="math display">\[
+x_{n}=m^{n} x_{0}+\left\{\begin{array}{ll}
+\frac{m^{n}-1}{m-1} c \text { if } m \neq 1 \\
+n c &amp; \text { if } m=1
+\end{array}\right.
+\]</span> <strong>Proof.</strong></p>
+<p>Applying the recurrence relation <span class="math display">\[
+\begin{array}{c}
+x_{1}=m x_{0}+c \\
+x_{2}=m x_{1}+c=m^{2} x_{0}+m c+c \\
+x_{3}=m x_{2}+c=m^{3} x_{0}+m^{2} c+m c+c
+\end{array}
+\]</span> and the pattern in general is <span class="math display">\[
+x_{n}=m^{n} x_{0}+\left(m^{n-1}+m^{n-2}+\ldots+m+1\right) c
+\]</span> Using geometric series <span class="math display">\[
+m^{n-1}+m^{n-2}+\ldots+m+1=\frac{m^{n}-1}{m-1}
+\]</span> provided that <span class="math inline">\(m \neq 1\)</span> If <span class="math inline">\(m=1,\)</span> then the sum of the geometric sequence is <span class="math inline">\(n .\)</span> This concludes the proof of Theorem 1 . Note that if <span class="math inline">\(|m|&lt;1,\)</span> then <span class="math inline">\(x_{n} \rightarrow \frac{c}{1-m}\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>.</p>
+<h2 id="second-order-linear-difference-equations">Second-Order Linear Difference Equations</h2>
+<p>Recurrence relations involving terms whose suffices differ by two are known as second-order linear difference equations. The general form of these equations with constant coefficients is <span class="math display">\[
+a x_{n+2}=b x_{n+1}+c x_{n}
+\]</span> Theorem <span class="math inline">\(2 .\)</span> The general solution of the second-order recurrence relation (2.3) is <span class="math display">\[
+x_{n}=k_{1} \lambda_{1}^{n}+k_{2} \lambda_{2}^{n}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(k_{1}, k_{2}\)</span> are constants</li>
+<li><span class="math inline">\(\lambda_{1} \neq \lambda_{2}\)</span> are the roots of the quadratic equation <span class="math inline">\(a \lambda^{2}-b \lambda-c=0 .\)</span></li>
+</ul>
+<p>If <span class="math inline">\(\lambda_{1}=\lambda_{2},\)</span> then the general solution is of the form <span class="math display">\[
+x_{n}=\left(k_{3}+n k_{4}\right) \lambda_{1}^{n}
+\]</span> Note that when <span class="math inline">\(\lambda_{1}\)</span> and <span class="math inline">\(\lambda_{2}\)</span> are complex, the general solution can be expressed as <span class="math display">\[
+\begin{aligned}
+x_{n}&amp;=k_{1} \lambda_{1}^{n}+k_{2} \lambda_{2}^{n}\\
+&amp;=k_{1}\left(r e^{i \theta}\right)^{n}+k_{2}\left(r e^{-i \theta}\right)^{n}\\
+&amp;=r^{n}(A \cos (n \theta)+B \sin (n \theta))
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are constants.</li>
+</ul>
+<p>When the eigenvalues are complex, the solution oscillates and is real.</p>
+<h2 id="the-leslie-model">The Leslie Model</h2>
+<p><strong>Assumptions</strong>: The females are divided into <span class="math inline">\(n\)</span> age classes; thus, if <span class="math inline">\(N\)</span> is the theoretical maximum age attainable by a female of the species, then each age class will span a period of <span class="math inline">\(\frac{N}{n}\)</span> equally spaced, days, weeks, months, years, etc. The population is observed at regular discrete time intervals which are each equal to the length of one age class. Thus, the <span class="math inline">\(k\)</span> th time period will be given by <span class="math inline">\(t_{k}=\frac{k N}{n}\)</span>. Define <span class="math inline">\(x_{i}^{(k)}\)</span> to be the number of females in the <span class="math inline">\(i\)</span> th age class after the <span class="math inline">\(k\)</span> th time period. Let <span class="math inline">\(b_{i}\)</span> denote the number of female offspring born to one female during the <span class="math inline">\(i\)</span> th age class, and let <span class="math inline">\(c_{i}\)</span> be the proportion of females which continue to survive from the <span class="math inline">\(i\)</span> th to the <span class="math inline">\((i+1)\)</span> st age class.</p>
+<p>Working with the female population as a whole, the following sets of linear equations can be derived. The number of females in the first age class after the <span class="math inline">\(k\)</span> th time period is equal to the number of females born to females in all <span class="math inline">\(n\)</span> age classes between the time <span class="math inline">\(t_{k-1}\)</span> and <span class="math inline">\(t_{k} ;\)</span> thus, <span class="math display">\[
+x_{1}^{(k)}=b_{1} x_{1}^{(k-1)}+b_{2} x_{2}^{(k-1)}+\ldots+b_{n} x_{n}^{(k-1)}
+\]</span> The number of females in the <span class="math inline">\((i+1)\)</span> st age class at time <span class="math inline">\(t_{k}\)</span> is equal to the number of females in the <span class="math inline">\(i\)</span> th age class at time <span class="math inline">\(t_{k-1}\)</span> who continue to survive to enter the <span class="math inline">\((i+1)\)</span> st age class; hence, <span class="math display">\[
+x_{i+1}^{(k)}=c_{i} x_{i}^{(k-1)}
+\]</span> Equations of the above form can be written in matrix form, and so <span class="math display">\[
+\left(\begin{array}{c}
+x_{1}^{(k)} \\
+x_{2}^{(k)} \\
+x_{3}^{(k)} \\
+\vdots \\
+x_{n}^{(k)}
+\end{array}\right)=\left(\begin{array}{ccccc}
+b_{1} &amp; b_{2} &amp; b_{3} &amp; \cdots &amp; b_{n-1} &amp; b_{n} \\
+c_{1} &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
+0 &amp; c_{2} &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+0 &amp; 0 &amp; 0 &amp; \cdots &amp; c_{n-1} &amp; 0
+\end{array}\right)\left(\begin{array}{c}
+x_{1}^{(k-1)} \\
+x_{2}^{(k-2)} \\
+x_{3}^{(k-1)} \\
+\vdots \\
+x_{n}^{(k-1)}
+\end{array}\right)
+\]</span> OI <span class="math display">\[
+X^{(k)}=L X^{(k-1)}, \quad k=1,2, \ldots
+\]</span> where <span class="math inline">\(X \in \Re^{n}\)</span> and the matrix <span class="math inline">\(L\)</span> is called the Leslie matrix. Suppose that <span class="math inline">\(X^{(0)}\)</span> is a vector giving the initial number of females in each of the <span class="math inline">\(n\)</span> age classes, then <span class="math display">\[
+\begin{array}{c}
+X^{(1)}=L X^{(0)} \\
+X^{(2)}=L X^{(1)}=L^{2} X^{(0)} \\
+\vdots \\
+X^{(k)}=L X^{(k-1)}=L^{k} X^{(0)}
+\end{array}
+\]</span> Therefore, given the initial age distribution and the Leslie matrix <span class="math inline">\(L,\)</span> it is possible to determine the female age distribution at any later time interval.</p>
+<h2 id="the-logistic-map">The Logistic Map</h2>
+<p>the logistic map given by <span class="math display">\[
+x_{n+1}=f_{\mu}\left(x_{n}\right)=\mu x_{n}\left(1-x_{n}\right)
+\]</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210104221201780.png" srcset="/img/loading.gif" /></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210104221226810.png" srcset="/img/loading.gif" /></p>
+<h2 id="gaussian-map">Gaussian Map</h2>
+<p>The Gaussian Map is a type of nonlinear one-dimensional iterative map <span class="math display">\[
+G(x)=e^{-\alpha x^{2}}+\beta
+\]</span></p>
+<p><span class="math display">\[
+x_{n+1}=G\left(x_{n}\right)
+\]</span></p>
+<p>additional phenomena may be described as</p>
+<ul>
+<li>period bubblings,</li>
+<li>period undoublings,</li>
+<li>bistability.</li>
+</ul>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210104222630558.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>Possible intersections of the Gaussian function with the diagonal</p>
+</blockquote>
+<h2 id="hénon-maps">Hénon Maps</h2>
+<p><span class="math display">\[
+\begin{array}{l}
+x_{n+1}=1+y_{n}-\alpha x_{n}^{2} \\
+y_{n+1}=\beta x_{n}
+\end{array}
+\]</span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(\alpha&gt;0\)</span> and <span class="math inline">\(|\beta|&lt;1 .\)</span><br />
+</li>
+<li>The map is a simple model for the Poincaré map of the Lorenz system.</li>
+<li>The Hénon map displays periodicity, mixing, and sensitivity to initial conditions.</li>
+<li>The system can also display hysteresis and bistability can be observed in the bifurcation diagrams.</li>
+</ul>
+<p>Suppose that the discrete nonlinear system <span class="math display">\[
+x_{n+1}=P\left(x_{n}, y_{n}\right), \quad y_{n+1}=Q\left(x_{n}, y_{n}\right)
+\]</span> has a fixed point at <span class="math inline">\(\left(x_{1}, y_{1}\right),\)</span> where <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are at least quadratic in <span class="math inline">\(x_{n}\)</span> and <span class="math inline">\(y_{n}\)</span></p>
+<p>The fixed point can be transformed to the origin, and the nonlinear terms can be discarded after taking a Taylor series expansion. The Jacobian matrix is given by <span class="math display">\[
+J\left(x_{1}, y_{1}\right)=\left.\left(\begin{array}{ll}
+\frac{\partial P}{\partial x} &amp; \frac{\partial P}{\partial y} \\
+\frac{\partial Q}{\partial x} &amp; \frac{\partial Q}{\partial y}
+\end{array}\right)\right|_{\left(x_{1}, y_{1}\right)}
+\]</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210104223228751.png" srcset="/img/loading.gif" /></p>
+<h4 id="hyperbolic">hyperbolic</h4>
+<p><strong>Definition 4</strong> Suppose that the Jacobian has eigenvalues <span class="math inline">\(\lambda_{1}\)</span> and <span class="math inline">\(\lambda_{2} .\)</span> A fixed point is called hyperbolic if both <span class="math inline">\(\left|\lambda_{1}\right| \neq 1\)</span> and <span class="math inline">\(\left|\lambda_{2}\right| \neq 1 .\)</span> If either <span class="math inline">\(\left|\lambda_{1}\right|=1\)</span> or <span class="math inline">\(\left|\lambda_{2}\right|=1,\)</span> then the fixed point is called nonhyperbolic.</p>
+<h2 id="applications">Applications</h2>
+<h4 id="economics.">Economics.</h4>
+<p>The gross national product (GNP) measures economic activity based on labor and production output within a country. Consider the following simple growth model investigated by Day: <span class="math display">\[
+k_{t+1}=\frac{s\left(k_{t}\right) f\left(k_{t}\right)}{1+\lambda}
+\]</span> where <span class="math inline">\(k_{t}\)</span> is the capital-labor ratio, <span class="math inline">\(s\)</span> is the savings ratio function, <span class="math inline">\(f\)</span> is the per capita production function, and <span class="math inline">\(\lambda\)</span> is the natural rate of population growth. In one case considered by Day, <span class="math display">\[
+s(k)=\sigma, \quad f(k)=\frac{B k^{\beta}(m-k)^{\gamma}}{(1+\lambda)}
+\]</span> where <span class="math inline">\(\beta, \gamma, m&gt;0 .\)</span> This leads to the following discrete dynamical system: <span class="math display">\[
+k_{t+1}=\sigma \frac{B k_{t}^{\beta}\left(m-k_{t}\right)^{\gamma}}{(1+\lambda)}
+\]</span> which can be thought of as a highly simplified model for the GNP of a country.</p>
+<h4 id="nonlinear-optics.">Nonlinear Optics.</h4>
+<p>When modeling the intracavity field of a laser in a bulk cavity ring under the assumption that saturable absorption can be ignored, Hammel et al. obtained the following complex one-dimensional difference equation relating the field amplitude, say, <span class="math inline">\(E_{n+1},\)</span> at the <span class="math inline">\((n+1)\)</span> st cavity pass to that of a round trip earlier: <span class="math display">\[
+E_{n+1}=A+B E_{n} \exp \left[i\left(\phi-\frac{C}{1+\left|E_{n}\right|^{2}}\right)\right]
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\phi\)</span> is a phase angle</li>
+<li><span class="math inline">\(A, B, C\)</span> are all constant.</li>
+</ul>
+<p>This mapping can also be thought of as two-dimensional (one-dimensional complex). Splitting <span class="math inline">\(E_{n}\)</span> into its real and imaginary parts <span class="math display">\[
+\begin{array}{l}
+x_{n+1}=A+B\left[x_{n} \cos (\theta)-y_{n} \sin (\theta)\right] \\
+y_{n+1}=B\left[x_{n} \sin (\theta)+y_{n} \cos (\theta)\right]
+\end{array}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\theta=\left(\phi-\frac{C}{1+\left|E_{n}\right|^{2}}\right) .\)</span></li>
+</ul>
+<p>These two Equations are known as Ikeda mappings.</p>
+<ul>
+<li>Electromagnetic waves</li>
+<li>optical resonators</li>
+</ul>
+<p>are dealt with in some detail in Chap. 5</p>
+<h4 id="neural-networks.">Neural Networks.</h4>
+<p>According to Pasemann and Stollenwerk [14], the activity of a recurrent two-neuron module shown in Fig.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210104223829320.png" srcset="/img/loading.gif" /></p>
+<p>at time <span class="math inline">\(n\)</span> is given by the vector <span class="math inline">\(x _{ n }=\left(x_{n}, y_{n}\right)^{T} .\)</span> The discrete dynamical system used to model the neuromodule is given by <span class="math display">\[
+\begin{array}{l}
+x_{n+1}=\theta_{1}+w_{11} \sigma\left(x_{n}\right)+w_{12} \sigma\left(y_{n}\right) \\
+y_{n+1}=\theta_{2}+w_{21} \sigma\left(x_{n}\right)
+\end{array}
+\]</span> where <span class="math inline">\(\sigma\)</span> defines the sigmoidal transfer function defining the output of a neuron <span class="math display">\[
+\sigma(x)=\frac{1}{1+e^{-x}}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\theta_{1}\)</span> and <span class="math inline">\(\theta_{2}\)</span> are the neuron biases;</li>
+<li>the <span class="math inline">\(w_{i j}\)</span> are weights;</li>
+<li>the index <span class="math inline">\(i\)</span> indicates the neuron destination for that weight;</li>
+<li>the index <span class="math inline">\(j\)</span> represents the source of the signal fed to the neuron.</li>
+</ul>
+<p>The author and Bandar [ 11 ] consider a simple neuromodule subject to feedback. Neural networks are dealt with in some detail in Chap. 18 .</p>
+<h2 id="references">References</h2>
+<ol type="1">
+<li>Dynamical Systems with Applications using MATLAB</li>
+<li><a href="https://github.com/springer-math/Dynamical-Systems-with-Applications-using-MATLAB" target="_blank" rel="noopener">MATLAB code</a></li>
+<li><a href="https://github.com/springer-math/dynamical-systems-with-applications-using-python" target="_blank" rel="noopener">python code</a></li>
+</ol>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/mathematics/">mathematics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/mathematics/Dynamical/">Dynamical</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Dynamical/">Dynamical</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ODE/">ODE</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/05/16/ML_01_introduction/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">机器学习概览</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2016/11/04/topology021_symmetry/">
+                        <span class="hidden-mobile">拓扑物态中的对称性</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "离散动力系统:线性非线性&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
