@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>测量诱导相变中的量子纠错 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-01-05 18:23">
+      January 5, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      70
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="摘要">摘要</h2>
+<p>We analyze the dynamics of entanglement entropy in a generic quantum many-body open system from the perspective of quantum information and error corrections. We introduce a random unitary circuit model with intermittent projective measurements, in which the degree of information scrambling by the unitary and the rate of projective measurements are independently controlled. This model displays two stable phases, characterized by the volume-law and area-law scaling entanglement entropy in steady states. The transition between the two phases is understood from the point of view of quantum error correction: the chaotic unitary evolution protects quantum information from projective measurements that act as errors. A phase transition occurs when the rate of errors exceeds a threshold that depends on the degree of information scrambling. We confirm these results using numerical simulations and obtain the phase diagram of our model. Our work shows that information scrambling plays a crucial role in understanding the dynamics of entanglement in an open quantum system and relates the entanglement phase transition to changes in quantum channel capacity.</p>
+<h2 id="近况背景">近况背景</h2>
+<p>A generic unitary evolution of a quantum many-body system scrambles information. Any local degrees of freedom that are initially in an unentangled state become increasingly more entangled with the rest of the system, making the information encoded in them effectively unrecoverable <span class="math inline">\([1-3] . \quad\)</span> The scrambling dynamics <span class="math inline">\([4-7],\)</span> evidenced by the growth of the entanglement entropy toward an extensive value <span class="math inline">\([8-11],\)</span> underlies the rich complexity of quantum dynamics and the fact that simulating it is beyond the capability of classical computers.</p>
+<p>In a realistic system, however, unitary dynamics is often interspersed by occasional measurements of local observables made by external observers either controlled or accidental. This process disentangles the measured degrees of freedom from the rest of the system, which may reduce the entanglement entropy. Thus, it is natural to ask under what conditions the growth of entanglement is tamed to a point allowing efficient classical simulations of the quantum dynamics [12,13] .</p>
+<p>This question has been addressed in a number of recent works. In the special case of noninteracting fermions, quantum states with volume scaling entanglement (volume-law phase) are unstable to any small rate of measurements in local occupation basis, leading to steady states in which the entropy only scales with the boundary area of a region (area-law phase) <span class="math inline">\([14] .\)</span> However, the corresponding behavior in generic interacting systems appears to be much more subtle and has not been fully understood. On the one hand, Refs. <span class="math inline">\([15-17]\)</span> suggested that the interplay between the unitary dynamics and measurements can lead to a transition between two distinct phases: for sufficiently small measurement rates, the system remains stable in the volume-law phase, while it undergoes a transition into an area-law phase as the rate exceeds a certain critical value. On the other hand, in its early version, Ref. [17] pointed out that this phase transition cannot be explained by a simple competition between rates of entanglement growth and measurements, as it would always predict the area-law phase for nonzero measurement rates.</p>
+<p>In this Letter, we show that a central ingredient for understanding the entanglement phase transition is the effective quantum error correction enabled by scrambling unitary dynamics. Using simple concepts from quantum information theory, we provide new insight on the mechanism that drives the phase transition. Naively, the phase transition seems to hinge on the competition between the rate of entanglement generation by unitary gates and that of disentanglement by measurements. If this perspective is true, the volume-law phase is unstable against an arbitrarily small rate of measurements since the competition is fundamentally not symmetric. Given a bipartition, a local unitary gate may change the entanglement only when it acts nontrivially across the boundary of two subsystems. In contrast, the effect of the measurements could be nonlocal: by disentangling all of the measured qubits inside a subsystem, the rate of entanglement reduction may be extensive. Thus, measurements would always overwhelm the entanglement generation and destabilize the volume-law phase. Here, we argue that this is not the case when information scrambling is taken into account.</p>
+<p>Our key observation is that nonlocal effects of sparse measurements are greatly suppressed due to the natural quantum error correction (QEC) property of scrambling dynamics. If quantum information is sufficiently scrambled by unitary evolution, correlations between two subsystems are hidden in highly nonlocal degrees of freedom and cannot be revealed by any local measurements. In such case, sparse local measurements, despite their extensive number, cannot decrease the entanglement entropy significantly. To illustrate this point and quantify the condition under which the entanglement is robustly protected against local measurements, we improve and apply the quantum decoupling theorem to a specially constructed toy model <span class="math inline">\([18,19],\)</span> showing the stability of the volume-law phase. We find that the mechanism of the protection is equivalent to that of the QEC scheme <span class="math inline">\([18-\)</span> 20]. Motivated by this understanding, we introduce a new model and analyze its dynamics both analytically and numerically to obtain the phase diagram. Furthermore, we establish an exact relation between the steadystate entanglement entropy and the quantum channel capacity of quantum dynamics.</p>
+<p>Protection against measurement.-We now illustrate how entanglement can be protected against measurements using a well-studied toy example from quantum information theory <span class="math inline">\([19,21-23] .\)</span> Consider a system of <span class="math inline">\(2 N\)</span> qubits <span class="math inline">\((N \gg 1)\)</span> as shown in Fig. 1. Initially, the two halves of the system, <span class="math inline">\(A\)</span> and <span class="math inline">\(B,\)</span> share <span class="math inline">\(\gamma N\)</span> Bell pairs <span class="math inline">\((0&lt;\gamma&lt;1),\)</span> which control the amount of the entanglement between the two. The two subsystems are evolved independently with unitaries <span class="math inline">\(U_{A}\)</span> and <span class="math inline">\(U_{B},\)</span> respectively. We assume <span class="math inline">\(U_{A}\)</span> is a random unitary drawn from the Haar distribution (or any unitary 2 -design), and <span class="math inline">\(U_{B}\)</span> can be arbitrary. Following this evolution, a fraction <span class="math inline">\(p\)</span> of the qubits in <span class="math inline">\(A\)</span> is measured. The pertinent question is by how much these measurements reduce the entanglement between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. We shall show that under a certain condition the change of entanglement entropy due to the measurements vanishes in the thermodynamic limit even though an extensive number of qubits are being disentangled. Note that this result can be generalized to incorporate measurements performed on both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> by sequentially analyzing the effect of measurements.</p>
+<p>We first simplify the problem. since <span class="math inline">\(U_{B}\)</span> does not affect the entanglement, we may replace <span class="math inline">\(B\)</span> with its minimal effective degrees of freedom <span class="math inline">\(\tilde{B}\)</span> entangled with <span class="math inline">\(A,\)</span> i.e., the original <span class="math inline">\(\gamma N\)</span> entangled qubits. Also, we divide <span class="math inline">\(A\)</span> into two parts: subsystem <span class="math inline">\(A_{1}\)</span> refers to the unmeasured qubits and subsystem <span class="math inline">\(A_{2}\)</span> contains the measured ones. We now apply the decoupling theorem <span class="math inline">\([19,21-23]\)</span> to this setup, which will imply that, for a sufficiently small measurement fraction <span class="math inline">\(p,\)</span> the reduced density matrix of <span class="math inline">\(A_{2}\)</span> and <span class="math inline">\(\tilde{B}\)</span> approximately factorizes <span class="math display">\[
+E _{U_{A}}\left[\left\|\rho_{A_{2} \tilde{B}}\left(U_{A}\right)-\rho_{A_{2}}^{\max } \otimes \rho_{\tilde{B}}\right\|_{1}\right] \leq 2^{-(1-2 p-\gamma) N / 2}
+\]</span> Here, the left-hand side denotes the distance, in the <span class="math inline">\(L_{1}\)</span> norm, between the exact density matrix <span class="math inline">\(\rho_{A_{2} \tilde{B}}\)</span> and a factorized one where <span class="math inline">\(\rho_{A_{2}}^{\max }\)</span> is the maximally mixed state on the measured part <span class="math inline">\(A_{2} . \quad E _{U}[\cdot]\)</span> represents averaging over the random unitaries. The inequality implies that the measured qubits are effectively decoupled from <span class="math inline">\(\tilde{B}\)</span> for <span class="math inline">\(N \gg 1,\)</span> provided that the number of unmeasured qubits <span class="math inline">\(A_{1}\)</span> is more than half of the total system <span class="math inline">\(A \tilde{B},\)</span> or equivalently <span class="math display">\[
+\gamma+p&lt;\frac{1}{2}(1+\gamma)
+\]</span> or simply <span class="math inline">\(\gamma&lt;1-2 p .\)</span> If this inequality is satisfied, then any observable in <span class="math inline">\(A_{2}\)</span> contains no information about <span class="math inline">\(\tilde{B}\)</span> and vice versa. Therefore, measuring one subsystem does not affect the other, up to an error exponentially small in <span class="math inline">\(N\)</span>. In particular, any projection (due to measurements) acting on <span class="math inline">\(A_{2}\)</span> does not alter <span class="math inline">\(\rho_{\tilde{B}},\)</span> and the entanglement entropy of subsystem <span class="math inline">\(B\)</span> is unchanged. In fact, one can show that even the initial <span class="math inline">\(\gamma N\)</span> Bell pairs can be reconstructed by local operations in <span class="math inline">\(A_{1}\)</span> with an exponentially good precision [20].</p>
+<p>The inequality in Eq. (2) is enough to prove the stability of volume-law scaling of the entanglement entropy in the presence of extensive number of measurements. However, it is not tight. This is because in deriving the inequality we assumed that qubits in <span class="math inline">\(A_{2}\)</span> are discarded (i.e., qubit loss errors , whereas in our situation they are projectively measured, leaving their measurement outcomes as accessible classical information. In [24], we develop an improved decoupling equality, in which the measurement outcomes from <span class="math inline">\(A_{2}\)</span> are treated as accessible information. This leads to a tight bound <span class="math display">\[
+\gamma&lt;1-p
+\]</span> in the limit <span class="math inline">\(N \rightarrow \infty\)</span>. This inequality can be saturated by typical Haar random unitaries. An intuitive way to understand this new result is to realize that the measurement processes of <span class="math inline">\(p N\)</span> qubits involve entangling those qubits with an equal number of auxiliary qubits representing the environment (or classical measurement devices). These additional degrees of freedom effectively add to the right-hand side of Eq. (2), i.e., <span class="math inline">\(\gamma+p&lt;(1+\gamma+p) / 2,\)</span> leading to the tight bound.</p>
+<p>So far, we have considered an ideal situation where the Bell pairs are hidden over the entire Hilbert space via a nonlocal unitary. However, we emphasize that such information scrambling is a generic property of quantum dynamics even in local systems <span class="math inline">\([8-11,25] .\)</span> In such cases, we expect that the amount of entanglement reduction is governed by the competition between the rate of effective information scrambling and that of projective measurements.</p>
+<p>Model and phase diagram.- Having understood the mechanism to protect the entanglement against measurements through scrambling, we turn to study a local <span class="math inline">\(1 D\)</span> model in which the rates of effective information scrambling and measurements can be tuned independently.</p>
+<p>Our model consists of a chain of <span class="math inline">\(L\)</span> blocks, each containing a fixed number, <span class="math inline">\(m \gg 1,\)</span> of qubits, as illustrated in Fig. <span class="math inline">\(2( a ) .\)</span> In each time step <span class="math inline">\(t,\)</span> the system is evolved by a network of random unitaries <span class="math inline">\(U_{d}(i, t)\)</span> acting on pairs of neighboring blocks at <span class="math inline">\(i\)</span> and <span class="math inline">\(i+1,\)</span> supplemented by projective measurements. Crucially, the unitaries <span class="math inline">\(U_{d}(i, t)\)</span> are constructed from an internal network consisting of <span class="math inline">\(d\)</span> layers of independent random 2 -qubit gates (drawn from any unitary 2 -design). Thus, the parameter <span class="math inline">\(d\)</span> controls the degree of information scrambling within a single <span class="math inline">\(U_{d}(i, t),\)</span> which becomes maximally scrambling in the limit <span class="math inline">\(d / m \gg 1\)</span>. In this limit the distribution of <span class="math inline">\(U_{d}(i, t)\)</span> approaches a unitary 2 -design over <span class="math inline">\(U \left(2^{2 m}\right)[25] .\)</span> After applications of the <span class="math inline">\(U_{d}(i, t)\)</span> on pairs of blocks, a fraction <span class="math inline">\(p\)</span> of the qubits in each block is randomly chosen to be measured in the computational basis [26]. We note that the special case of our model, <span class="math inline">\(d=1,\)</span> is closely related to the previously studied ones <span class="math inline">\([15-17]\)</span>.</p>
+<p>Before obtaining a quantitative phase diagram from numerical simulations [Fig. $2( e )],$ one can already predict the stability of volume-law phase in the limit <span class="math inline">\(m \gg 1\)</span> and <span class="math inline">\(d / m \gg 1 .\)</span> Consider the unitary evolution <span class="math inline">\(U_{d}(i, t)\)</span> for a pair of blocks. If we identify the pair of blocks as subsystem <span class="math inline">\(A\)</span> and the rest of the system as <span class="math inline">\(B,\)</span> we can use the decoupling inequality as discussed above. As long as the average entropy per qubit <span class="math inline">\(\gamma\)</span> satisfies the criteria in Eq. (3), the measured qubits contain almost no information about the rest of the system (up to corrections exponentially small in <span class="math inline">\(m\)</span> ). Here, the entanglement reduction is suppressed by information scrambling within the blocks. Over multiple time steps, quantum information becomes scrambled over a larger region, further protecting the entanglement from measurements. Thus we expect a stable volume-law phase in this regime.</p>
+<p>We can also make a definitive statement about the other extreme of small <span class="math inline">\(d\)</span> and high measurement rate. For example, consider <span class="math inline">\(d=1, m \gg 1\)</span> and <span class="math inline">\(p=1-1 / m .\)</span> In this case there is no room for scrambling; thus, the probability that a single qubit becomes entangled to other qubits at distance <span class="math inline">\(x\)</span> away (in units of qubit blocks) is exponentially suppressed as <span class="math inline">\(\sim(1 / m)^{m x}\)</span> because the information encoded in the qubit needs to propagate without being projected at least <span class="math inline">\(\sim m x\)</span> time steps. This implies area-law entanglement [14]. Therefore, we expect a phase transition between the two extreme cases.</p>
+<p>We now complement the theoretical arguments with, a numerical simulation of the half-chain entanglement entropy <span class="math inline">\(S(t)\)</span> starting from the initial state <span class="math inline">\(\left|\Psi_{0}\right\rangle=|0\rangle^{\otimes m L}\)</span> We construct the unitary operators <span class="math inline">\(U_{d}(i, t)\)</span> from random 2-qubit Clifford gates drawn from a uniform distribution instead of taking Haar random unitaries. Such <span class="math inline">\(U_{d}(i, t)\)</span> still approaches a unitary 2 -design as <span class="math inline">\(d\)</span> increases [24] ; hence, this simplification does not affect our predictions, while allowing scalable numerical simulation [2730]. Furthermore, the wave function evolved under Clifford gates always exhibits a flat entanglement spectrum with respect to any bipartition. Thus, different measures of entanglement entropy, e.g. von Neumann versus Rényi entropies, yield the same value. In the following, we focus on <span class="math inline">\(m=11\)</span>.</p>
+<p>We first consider a strongly scrambling regime, <span class="math inline">\(d /(2 m) \gtrsim 1,\)</span> where the unitary network within a single block effectively acts as a random <span class="math inline">\(2^{2 m} \times 2^{2 m}\)</span> unitary <span class="math inline">\([24,25] .\)</span> We test if the scrambling property of individual blocks leads to the robust volume-law entanglement of the entire system. Figures <span class="math inline">\(2( b )\)</span> and <span class="math inline">\(2( c )\)</span> show the detailed dynamics of the entanglement entropy for two different system sizes. Clearly, the entropy rescaled by the subsystem size exhibits a strict linear growth until it saturates to a constant value. The convergence of these values confirms the volume-law scaling of the entropy [24]. Moreover, we can directly compute how much the entanglement entropy changes, <span class="math inline">\(\Delta S_{\text {meas }}(t),\)</span> following projective measurements in each time step. Figure <span class="math inline">\(2( c )\)</span> confirms our prediction that in the strongly scrambling regime <span class="math inline">\(d /(2 m) \gtrsim 1\)</span> and <span class="math inline">\(m \gg 1,\)</span> the entanglement is unchanged by measurements until it reaches a saturation value set by the maximal entanglement that can be protected by the scrambling dynamics [31]. Once saturated, the entanglement added by the unitary gates pushes the entropy above the threshold of the decoupling theorem and it is reduced back to the saturation value by the subsequent measurements. Thus, upon reaching the saturation value we see a jump of <span class="math inline">\(\Delta S_{\text {meas }}\)</span> from near zero to a negative value. We further note that the saturation value approaches its maximum, <span class="math inline">\(1-p,\)</span> as <span class="math inline">\(m\)</span> is increased in this regime [Fig. $2( d )] .$ This is natural since our tight bound in Eq. (3) becomes exact when <span class="math inline">\(m \rightarrow \infty,\)</span> and it predicts that each qubit on average contributes <span class="math inline">\(\gamma=1-p\)</span> to the global entanglement. We note that this analysis does not hold in the weakly scrambling regime <span class="math inline">\(d /(2 m) \lesssim 1,\)</span> e.g., <span class="math inline">\(d=3, m=11[\)</span> Fig. <span class="math inline">\(2( d )]\)</span></p>
+<p>We now turn to the phase transition that occurs when <span class="math inline">\(d\)</span> is decreased or <span class="math inline">\(p\)</span> is increased. From numerical simulations, we compute the half-chain entanglement per qubit and tripartite mutual information in the steady state for various <span class="math inline">\(L\)</span> and <span class="math inline">\(p\)</span> for a fixed <span class="math inline">\(d[24] .\)</span> We perform a finite size scaling analysis in order to extract the critical measurement fraction <span class="math inline">\(p_{c}\)</span> as well as the correlation length critical exponent <span class="math inline">\(\nu[15,32] .\)</span> By repeating the analysis for various values of <span class="math inline">\(d\)</span>, we obtain a two-dimensional phase diagram shown in Fig. <span class="math inline">\(2( e ) .\)</span> We find that the fitted critical exponent <span class="math inline">\(\nu\)</span> has a universal value around 1.2 independent of <span class="math inline">\(d\)</span> and <span class="math inline">\(m,\)</span> suggesting the universality of the transition [24]. When <span class="math inline">\(d=1\)</span> the extracted critical value <span class="math inline">\(p_{c} \approx 0.16\)</span> is consistent with previously reported results <span class="math inline">\([16,33] .\)</span> More importantly, we find that the volume-law entangled phase extends to a higher measurement fraction, as <span class="math inline">\(d\)</span> increases to <span class="math inline">\(\sim m,\)</span> and then saturates for <span class="math inline">\(d /(2 m) \gtrsim 1\)</span>.</p>
+<p>Discussion. - The existence of the stable volume-law phase has a direct interpretation in terms of QEC for quantum communications <span class="math inline">\([18],\)</span> where the primary goal is to devise an encoding scheme to transfer the maximum amount of quantum information over a noisy or lossy channel. The maximum amount of coherent quantum information that can be transmitted through such a channel is called the quantum channel capacity <span class="math inline">\(Q [19,34]\)</span>. Previously, one of the most important applications of the decoupling theorem had been to show that, by using a random unitary encoding, it is possible to asymptotically transfer <span class="math inline">\(1-2 p\)</span> logical qubits per physical qubit over a lossy channel in which a fraction <span class="math inline">\(p\)</span> of the physical qubits is lost <span class="math inline">\([19] .\)</span> In our settings, the projective measurements are distinguished from qubit loss errors since their measurement outcomes are available as classical information. This allows achieving a higher quantum channel capacity <span class="math inline">\(1-p\)</span> that we prove using a new decoupling inequality <span class="math inline">\([24] .\)</span></p>
+<p>The connection between the quantum channel capacity and the volume-law phase can be made more precise in two different settings. In the specific setting of our <span class="math inline">\(1 D\)</span> model, we considered the capacity within a pair of neighboring qubit blocks. Here, the quantum information we wish to protect is quantified by the entanglement entropy between the qubit blocks and the rest of the system. The random unitary circuit is equivalent to repeated encoding of the information without explicit decoding. since this encoding scheme can protect <span class="math inline">\(\sim(1-p) 2 m\)</span> logical qubits in each pair of <span class="math inline">\(m\)</span> -qubit blocks <span class="math inline">\([24],\)</span> we expect that our system should exhibit a stable volume-law scaling of entanglement supported by those logical qubits.</p>
+<p>In a more general setting, we consider the entire system dynamics as a quantum channel and investigate its quantum channel capacity <span class="math inline">\(Q .\)</span> To this end, we take the input state to be entangled with an auxiliary reference such that its reduced density matrix is <span class="math inline">\(\rho_{\text {in. }}\)</span> Then, we ask how much entanglement with the reference can be recovered from the combination of the output system density matrix <span class="math inline">\(\rho_{\text {out }}\)</span> and a set of classical measurement outcomes after a long time evolution. This can be quantified by the coherent information <span class="math inline">\(I _{c}\left( N , \rho_{\text {in }}\right)[35] .\)</span> For a quantum channel <span class="math inline">\(N\)</span> consisting of unitary evolution interspersed with measurements (in any positive-operator valued measures), we show that [24] <span class="math display">\[
+Q =\max _{\rho_{\text {in }}} I _{c}\left( N , \rho_{\text {in }}\right)=\max _{\rho_{\text {in }}}\left\langle S\left(\rho_{\text {out }}\right)\right\rangle
+\]</span> where <span class="math inline">\(\left\langle S\left(\rho_{\text {out }}\right)\right\rangle\)</span> is the von Neumann entropy of <span class="math inline">\(\rho_{\text {out }},\)</span> averaged over all possible measurement outcomes during the time evolution. We note that the first equality in Eq. (4) is not generically valid, but it holds for a class of so-called degradable quantum channels that include our cases <span class="math inline">\([19,34,35] .\)</span> Using the second equality, we establish an exact connection between quantum channel capacity and the average entropy of a system undergoing any unitary evolution interspersed by measurements. A similar connection was first suggested in a recent paper by Gullans and Huse [32] .</p>
+<p>In Ref. <span class="math inline">\([32],\left\langle S\left(\rho_{\text {out }}\right)\right\rangle\)</span> for the maximally mixed initial state was shown to undergo a phase transition, which coincides with the entanglement phase transition for pure initial states. Specifically, in the volume-law phase, <span class="math inline">\(\left\langle S\left(\rho_{\text {out }}\right)\right\rangle\)</span> remains extensive at late time, while in the area-law phase, it rapidly approaches a value of order one. This transition was dubbed the purification phase transition [32]. The equivalence between the purification and entanglement phase transitions has later been established analytically for local Haar random unitary circuits with measurements [36]. Therefore, Eq. (4) also builds a quantitative connection between the quantum channel capacity and the entanglement phase transition. We note that, in random circuit models studied in Refs. <span class="math inline">\([15,16,32,36,37],\)</span> the channel <span class="math inline">\(N\)</span> itself is random, whose average <span class="math inline">\(I _{c}\)</span> is maximized for the maximally mixed input, furthering the connection [24] .</p>
+<p>We note that, after we conjectured the relation between the quantum channel capacity and entanglement phase transition in the earlier preprint version of this paper, Ref. [32] provided the first quantitative evidence, proving that the single-shot quantum channel capacity is upper bounded by the average entropy of the output and showed that the stabilizer circuit saturates the bound. In this new version, we further prove a generic equality between output entropy and quantum channel capacity by considering the classical information in measurement outcomes as part of the channel.</p>
+<h2 id="补充材料">补充材料</h2>
+<h2 id="参考文献">参考文献</h2>
+<ul>
+<li>《Quantum Error Correction in Scrambling Dynamics and Measurement-Induced Phase Transition》<a href="https://export.arxiv.org/pdf/1903.05124" target="_blank" rel="noopener">arxiv1903.05124</a></li>
+</ul>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Entanglement/">Entanglement</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Entanglement/">Entanglement</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/02/CS_03_Complexity/">
+                        <span class="hidden-mobile">计算复杂性</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "测量诱导相变中的量子纠错&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

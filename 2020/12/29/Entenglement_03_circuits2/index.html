@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      978 字
+      3.5k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19
+      65
        分钟
     </span>
   
@@ -243,10 +243,141 @@ S \sim \ell^{d}
 <li>If the system exhibits <strong>many-body localization</strong>, then the growth of entanglement will be logarithmic in time, <span class="math inline">\(S \sim \log t .\)</span></li>
 <li>In contrast, a <strong>generic thermalizing</strong> system will feature an initially ballistic <strong>(i.e. linear) entanglement growth</strong>, eventually approaching a <strong>volume law</strong>, as expected for a thermal system.</li>
 </ol>
+<h4 id="unitary-projective-竞争">unitary projective 竞争</h4>
 <p>(各种unitary演化情况下纠缠的演化：有没有守恒量，周期性驱动等等)Recently, studies have taken place on the growth of quantum entanglement under <strong>generic unitary</strong> time evolution, demonstrating in detail the linear growth of mean entanglement entropy, as well as determining the form of fluctuations around the mean. <span class="math inline">\(^{1}\)</span> Subsequent analyses have studied both entanglement growth and spreading of local operators under random unitary time evolution, both with and without conservation laws. <span class="math inline">\(^{2-7}\)</span> Similar work has also been done in the context of Floquet and Hamiltonian time evolution. <span class="math inline">\(^{8-16}\)</span></p>
 <p>(unitary演化的反面，projective测量可以降低纠缠)But while unitary dynamics generically leads to the growth of entanglement, there is another more drastic type of time evolution which can decrease the entanglement of a quantum system. Under certain conditions, such as interaction with a macroscopic classical object, a quantum mechanical system can rapidly <strong>evolve into an eigenstate</strong> of a specific operator, such that the resulting time evolution appears to be a non-unitary projection. Such a process is referred to as a <strong>projective measurement</strong>. When the system is projected into an eigenstate of a local operator, the corresponding local degree of freedom is disentangled from the rest of the system, resulting in a decrease in overall entanglement. In this way, projective measurements can remove some of the entanglement created by more generic unitary time evolution.</p>
-<p>since unitary time evolution and projective measurements have opposite effects on entanglement, <strong>it is natural to ask</strong> how a physical system behaves when both types of evolution play a prominent role. For example, a system could be subjected to a continuous series of measurements, as can be accomplished with superconducting qubits. <span class="math inline">\({ }^{17-19}\)</span> As another <strong>potential physical realization</strong>, it has been proposed by M. Fisher that Posner molecules may play a role in quantum information processing <strong>in the brain</strong>. <span class="math inline">\(^{20-22}\)</span> As these molecules bind and unbind, they undergo joint unitary-projective dynamics, generating entanglement between different molecules.</p>
-<p>In such a system with joint unitary-projective evolution, it is not obvious how the presence of projective measurements modifies the behavior of a purely unitary system. It seems clear that measurement should decrease the steady-state entanglement entropy of the system. But by how much? <span class="math inline">\(A\)</span> prior <span class="math inline">\(i\)</span>, one possibility is that measurements might simply decrease the coefficient of the resulting volume law entanglement entropy. In contrast, recent numerical investigations have indicated that a sufficient amount of measurements can limit entanglement entropy to area law scaling, behavior which is normally associated with ground states or many-body localized eigenstates. For example, simulations of free fermion systems subject to continuous monitoring has indicated that an arbitrarily low rate of measurement is sufficient to keep the system in a state of low entanglement. <span class="math inline">\({ }^{23} A\)</span> hydrodynamic explanation for this behavior was also advanced.</p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210105194507551.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210105194507551</figcaption>
+</figure>
+<blockquote>
+<p>FIG.1 Unitary-projective time evolution can be modeled via a quantum circuit consisting of alternating layers of unitary and projective operators acting on a set of local degrees of freedom. The grey rectangles represent local unitary operators which generate entanglement between adjacent degrees of freedom, while the purple squares represent local projective measurements which remove entanglement from the system.</p>
+</blockquote>
+<p>(一个增加entanglement，一个减小entanglement，很自然去问两者的竞争，这个动力学竞争的过程可能发生在大脑)since unitary time evolution and projective measurements have opposite effects on entanglement, <strong>it is natural to ask</strong> how a physical system behaves when both types of evolution play a prominent role. For example, a system could be subjected to a continuous series of measurements, as can be accomplished with superconducting qubits. <span class="math inline">\({ }^{17-19}\)</span> As another <strong>potential physical realization</strong>, it has been proposed by M. Fisher that Posner molecules may play a role in quantum information processing <strong>in the brain</strong>. <span class="math inline">\(^{20-22}\)</span> As these molecules bind and unbind, they undergo joint unitary-projective dynamics, generating entanglement between different molecules.</p>
+<p>(测量对entanglement entropy的下降到底起到多少作用？只是降低增长速度，还是只要有测量就可以限制到面积定律)In such a system with joint unitary-projective evolution, it is not obvious how the presence of projective measurements modifies the behavior of a purely unitary system. It seems clear that measurement should decrease the steady-state entanglement entropy of the system. But by <strong>how much</strong>?</p>
+<ul>
+<li>A prior <span class="math inline">\(i\)</span>, one possibility is that measurements might simply <strong>decrease the coefficient</strong> of the resulting volume law entanglement entropy.</li>
+<li>In contrast, recent numerical investigations have indicated that a <strong>sufficient</strong> amount of measurements can <strong>limit</strong> entanglement entropy to area law scaling, behavior which is normally associated with ground states or many-body localized eigenstates.</li>
+</ul>
+<p>For example, simulations of free fermion systems subject to continuous monitoring has indicated that an <strong>arbitrarily low rate</strong> of measurement is sufficient to keep the system in a state of low entanglement. ${ }^{23} $ A hydrodynamic explanation for this behavior was also advanced.</p>
+<p>(不同测量概率 <span class="math inline">\(f\)</span> 下纠缠熵的增减行为，分析出存在相变点)More recently, multiple groups have investigated more generic unitary-projective time evolution, implemented in the language of quantum circuits. <span class="math inline">\({ }^{30-32}\)</span> Specifically, one can consider time evolution via a circuit consisting of alternating layers of unitary and projective operators, as depicted in Figure <span class="math inline">\(1 .\)</span> If every site were measured during each projective step, then the system would be continually reset to a tensor product state and no entanglement would ever be built up. The more interesting scenario is when the local measurements are sparse. Consider projective evolution in which each site has probability <span class="math inline">\(f\)</span> to be measured at each time step. Equivalently, a randomly distributed fraction <span class="math inline">\(f\)</span> of the sites are measured at every step.</p>
+<ul>
+<li>As <span class="math inline">\(f \rightarrow 1,\)</span> with every site being constantly measured, it is clear that the effects of projection dominate those of the unitary time evolution, and <strong>no significant entanglement</strong> should build up.</li>
+<li>But for <span class="math inline">\(f \ll 1\)</span>, there are far more unitary than projective operators in the circuit, indicating that the unitary evolution should proceed largely unaffected by projection, driving the system towards volume law entanglement entropy.</li>
+<li>Consistent with this expectation, <strong>two independent groups</strong> have confirmed that such a model exhibits a <strong>transition</strong> from a high-entanglement volume-law phase at low <span class="math inline">\(f\)</span> to a low entanglement area-law phase at <span class="math inline">\(f\)</span> close to <span class="math inline">\(1 .^{30-32}\)</span></li>
+</ul>
+<h4 id="文章结构">文章结构</h4>
+<p>In this work, we analytically investigate several models in which the effects of measurements on entanglement can be explicitly studied.</p>
+<h4 id="toy-models">1. toy models</h4>
+<p>（用一个很简单的模型，简单到可以得到精确解，又足够抓住增减纠缠的两个主要角色。结果显示：长程贝尔配对被摧毁，系统主要是短程贝尔配对，这就是系统保持面积定律的原因）We begin in Section II by constructing <strong>toy models</strong> for entanglement dynamics under unitary-projective evolution.</p>
+<ol type="1">
+<li>We first consider a simple model of Bell pair dynamics which illustrates <strong>how measurements can limit</strong> entanglement entropy to area law scaling.</li>
+<li>The model is simple enough to allow an <strong>exact calculation</strong> of the dynamics of entanglement entropy.</li>
+<li>Nevertheless, it <strong>captures</strong> a crucial piece of physics which determines the interplay between the two types of dynamics: local unitary evolution primarily creates short range entanglement, while projective measurements can destroy entanglement on any length scale.</li>
+<li>The <strong>result</strong> is that the system is dominated by <strong>small Bell pairs</strong>, leading to an area law for entanglement entropy. By continually <strong>removing long-range</strong> entanglement from the system, projective measurements are able to keep the entire system in a state of unusually low entanglement.</li>
+<li>We also investigate the dynamics of entanglement, finding an overshoot phenomenon, whereby at intermediate times entanglement entropy exceeds its steady state value.</li>
+</ol>
+<h4 id="稳定子">2 稳定子</h4>
+<p>(这个相变可以被一个叫stabilizer generators稳定子的量描述，推导了稳定子的微分方程，可以预测相变)With these toy models in hand, we move on to test our intuition in more concrete situations with <strong>analytically tractable dynamics</strong>. First, in Section III, we consider Clifford evolution in a qubit system, in which the unitary layers of the dynamics have random operators drawn only from the set of <strong>Clifford gates.</strong></p>
+<ol type="1">
+<li>While this is <strong>not a universal</strong> set of gates, Clifford evolution allows for a <strong>convenient description</strong> of entanglement spreading in terms of an effective hydrodynamics.</li>
+<li>We show that random Clifford evolution <strong>exhibits</strong> an area-to-volume law <strong>transition</strong> at a finite critical measurement rate.</li>
+<li>This transition can be <strong>characterized</strong> in terms of the size of <strong>stabilizer generators</strong>, which are relatively small for high measurement rates, then jump to the size of the system at low measurement rates.</li>
+<li>We derive a <strong>differential equation governing</strong> the stabilizer size distribution. This differential equation <strong>predicts</strong> the existence of both area and volume-law phases, as well as a critical point with a logarithmic area-law violation.</li>
+<li>We also propose a hydrodynamic description for entanglement growth within the area-law phase.</li>
+</ol>
+<h4 id="分隔界">3 分隔界</h4>
+<p>这部分研究另一个模型</p>
+<ul>
+<li>熵在一些情况下可以映射到统计力学问题</li>
+<li>交界越长，平均纠缠熵越高</li>
+<li>任何比例的测量都会导致面积定律</li>
+</ul>
+<p>In Section IV, we investigate another type of analytically tractable model in the form of two Floquet random circuits with large on-site Hilbert space dimension.</p>
+<ol type="1">
+<li>In these circuits, the Renyi- <span class="math inline">\(\alpha\)</span> entropies for <span class="math inline">\(\alpha \geq 2\)</span> can be <strong>mapped to emergent statistical mechanics</strong> problems, which amount to enumerating minimal-length domain wall diagrams.</li>
+<li>The longer the lengths of the <strong>domain walls</strong> in these diagrams are, <strong>the higher</strong> the averaged entanglement entropy of these circuits will be.</li>
+<li>In the regime at infinite <span class="math inline">\(q\)</span> and finite but arbitrarily large <span class="math inline">\(L\)</span>, an area-law saturation of higher Renyi entropies results from the fact that projective measurements can provide effectively <span class="math inline">\(L\)</span> "free" segments of domain walls, along which no amount of entanglement entropy is associated. This indicates an area-law phase for <strong>any finite measurement rate</strong>, consistent with the Bell pair model. However, the <strong>conclusions are sensitive to</strong> the order of limits, and a different order of limits may allow for an area-to-volume law transition at a finite critical measurement rate.</li>
+</ol>
+<h4 id="一般性讨论">4 一般性讨论</h4>
+<p>In Section <span class="math inline">\(V ,\)</span> we present certain <strong>general arguments</strong> constraining the form of entanglement entropy in the presence of measurements.</p>
+<ol type="1">
+<li><p>We find that, while an area law entanglement entropy can exist without any special extra structure, a volume law entanglement entropy can <strong>only exist</strong> in the presence of a subleading correction.</p></li>
+<li><p>While the results in this section are all for Von Neumann entropy, Renyi entropies <span class="math inline">\(S_{n}\)</span> with <span class="math inline">\(n&gt;1\)</span> are all upper bounded by Von Neumann entropy, so these results serve as useful upper bounds on all higher Renyi entropies.</p></li>
+<li><p>Finally, in Section VI, we summarize our results and outline certain future directions of investigation opened by our work.</p>
+<p>Note: A previous version of this manuscript made the erroneous claim that area-law entanglement entropy was generically present for any nonzero measurement rate. This is true in some models (which constitute a particular universality class) but is not true for all models. This mistake has been corrected in the more detailed analysis of the present version, the results of which supersede all previous versions.</p></li>
+</ol>
+<h2 id="玩具模型">玩具模型</h2>
+<p>A. Bell Pair Model</p>
+<h4 id="模型规则">模型规则</h4>
+<p>介绍Bell Pair Model是什么样子</p>
+<ul>
+<li>最多两个比特纠缠</li>
+<li>或者这个比特和系统都没有联系</li>
+</ul>
+<p>In order to build intuition for unitary-projective dynamics, it is useful to construct a toy model which captures some of the important physical features. To this end, we first focus on a particularly simple form of entanglement. We consider states which can be fully described in terms of Bell pairs,</p>
+<ol type="1">
+<li>maximally entangled two qubit states, such as a spin singlet. In other words, we study a system of qubits in which each qubit is either maximally entangled with another qubit</li>
+<li>or is completely disentangled from the system (see Figure 2).</li>
+</ol>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210105203354546.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>FIG.2 We study a qubit system in which each qubit either forms a maximally entangled Bell pair with another qubit (represented by an oval) or is completely disentangled from the rest of the system.</p>
+</blockquote>
+<p>For such a system, we can <strong>easily obtain</strong> the entanglement entropy by <strong>counting</strong> the number of Bell pairs which are cut by a given partition. While such Bell pair configurations are a restricted class of states, this model will <strong>provide important intuition</strong> as to how measurements can restrict entanglement entropy to area law scaling. All Renyi entropies are equal for this model.</p>
+<p>(对增长纠缠的操作做详细规定)To build unitary-projective dynamics into the toy model, we must consider the effects of both types of operators on Bell pairs.</p>
+<ol type="1">
+<li><p>We first consider applying a layer of local unitary operators, as in Figure 1. Such a <strong>layer of operators</strong> will result in entanglement between neighboring qubits which were previously disentangled from the rest of the system.</p></li>
+<li><p>Consistent with the <strong>restrictions</strong> of our toy model, we take this entanglement to be <strong>maximal</strong>.</p>
+<ul>
+<li><p>In other words, local unitary operators can generate Bell pairs between previously unentangled neighboring qubits.</p></li>
+<li><p>When a unitary operator acts on a qubit which was already in a Bell pair, it can move one end of the Bell pair to an adjacent site, which may cause the Bell pair to <strong>grow or shrink</strong> in size.</p></li>
+</ul></li>
+</ol>
+<p>Bell pairs can move through one another. Starting from a state with mostly small Bell pairs ( <span class="math inline">\(i . e .\)</span> a state of low entanglement), generic local unitary time evolution will cause Bell pairs to increase in size, leading to the growth of entanglement for generic spatial partitions.</p>
+<p>(对减少纠缠的操作做详细规定)While local unitary operations tend to increase entanglement, via creating small Bell pairs which subsequently grow in size, the projective portion of the time evolution has a radically different effect. Performing a projective measurement on a qubit has the effect of disentangling it from the rest of the system.</p>
+<ul>
+<li>If that qubit happened to be in a Bell pair with another qubit, that Bell pair is destroyed by the measurement. Notably, this mechanism for Bell pair destruction is equally effective for Bell pairs of any size, since a local measurement on either qubit is sufficient to destroy a Bell pair, <strong>regardless of the distance</strong> to the other qubit.</li>
+</ul>
+<p>The model thereby captures the expected interplay between unitary and projective dynamics:</p>
+<ul>
+<li>creation of <strong>short-range</strong> entanglement (and its subsequent growth) by unitary operators,</li>
+<li>coupled with removal of entanglement at all length scales by projective measurements.</li>
+</ul>
+<p>（产生短程纠缠，移除任意路程的纠缠，如此往复，系统将只剩下短程纠缠）</p>
+<h4 id="分布函数的方程">分布函数的方程</h4>
+<p>Combining these two types of physical processes, we can now very easily write down a set of equations governing the time evolution of the distribution <span class="math inline">\(P(x)\)</span> on the spatial size <span class="math inline">\(x\)</span> of Bell pairs. At each time step, the local unitaries cause a given Bell pair to</p>
+<ul>
+<li>either grow (with probability <span class="math inline">\(p_{g}\)</span> ),</li>
+<li>shrink (with probability <span class="math inline">\(p_{s}\)</span> ),</li>
+<li>or remain the same size (with probability <span class="math inline">\(\left.\left(1-p_{g}-p_{s}\right)\right) .\)</span></li>
+</ul>
+<p>We also take a fraction <span class="math inline">\(0&lt;\tilde{f}&lt;1\)</span> of the Bell pairs to be destroyed, i.e. be reset to zero size, where <span class="math inline">\(\tilde{f}=2 f-f^{2}\)</span> is the probability of the Bell pair being measured on at least one of its two sites. Away from <span class="math inline">\(x=0,\)</span> the time evolution equation for <span class="math inline">\(P(x)\)</span> takes the form: <span class="math display">\[
+\begin{aligned}
+\partial_{t} P(x)=&amp;-P(x)+(1-\tilde{f})\left[p_{s} P(x+1)\right. \\
+&amp;+\left.p_{g} P(x-1)+\left(1-p_{g}-p_{s}\right) P(x)\right]
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li>the time step (defined by one layer of unitaries and one layer of projectors) is taken to be <span class="math inline">\(1 .\)</span></li>
+<li>The probabilities <span class="math inline">\(p_{g}\)</span> and <span class="math inline">\(p_{s}\)</span> will not depend on the rate of external measurement, and therefore have no <span class="math inline">\(\tilde{f}\)</span> dependence.</li>
+<li>We also neglect any nonlinearities of this equation, such that the probabilities can be taken to be independent of <span class="math inline">\(P(x)\)</span>. The probabilities can, however, generically depend on the size <span class="math inline">\(x\)</span>.</li>
+</ul>
+<p>We can now take the continuum limit of the above time evolution equation to obtain: <span class="math display">\[
+\partial_{t} P=-(1-\tilde{f}) \gamma \partial_{x} P-\tilde{f} P
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\gamma=p_{g}-p_{s}\)</span> is the difference in probabilities for growing and shrinking of a Bell pair.</li>
+<li>The first term on the right, which is the only term present at <span class="math inline">\(f=0\)</span> (i.e. pure unitary evolution), would lead to uni-directional propagation of waves in the distribution, with the direction of propagation depending on the sign of <span class="math inline">\(\gamma\)</span>.</li>
+<li>However, the second term on the right, arising from the projective measurements, causes the distribution to decay, preventing entanglement from propagating very far from <span class="math inline">\(x=0\)</span>. To have a steady state solution, with <span class="math inline">\(\partial_{t} P(x)=0,\)</span> the distribution must satisfy:</li>
+</ul>
+<p><span class="math display">\[
+\partial_{x} P=-\frac{\tilde{f}}{\gamma(1-\tilde{f})} P
+\]</span> If we take <span class="math inline">\(\gamma\)</span> to be approximately independent of <span class="math inline">\(x,\)</span> then we immediately obtain: <span class="math display">\[
+P(x) \sim e^{-\lambda x}
+\]</span> where <span class="math inline">\(\lambda=\tilde{f} / \gamma(1-\tilde{f}) .\)</span> Note that we have not needed to make use of the details of what happens to the distribution at <span class="math inline">\(x=0,\)</span> i.e. the details of Bell pair creation at small scales, which only serves to determine the behavior near the origin.</p>
+<p>We see that the steady state solution of the joint unitary-projective time evolution is dominated by small Bell pairs, such that the system is mostly short-range entangled. This makes intuitive sense, in that long-range entanglement is being constantly removed from the system by projective measurements, while the entanglement resulting from local unitary evolution is only being created on short scales. We can directly calculate the typical entanglement entropy of the system. For example, consider a one-dimensional system, which we partition into two half-lines. A qubit at a distance <span class="math inline">\(x\)</span> from the cut will contribute one bit (i.e. <span class="math inline">\(\ln 2\)</span> ) to the entanglement entropy if it is a member of a Bell pair of size at least <span class="math inline">\(x\)</span>, and if that Bell pair extends in the direction of the cut. Summing contributions from all qubits on one side of the partition, we obtain: <span class="math display">\[
+S \sim \int_{0}^{\infty} d x \int_{x}^{\infty} d x^{\prime} P\left(x^{\prime}\right) \sim \text { constant }
+\]</span></p>
 
             </article>
             <hr>
