@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>Naive Lie theory - JPZ</title>
+  <title>Python学习记录 - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -153,8 +153,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-03-15 17:23">
-      March 15, 2020 pm
+    <time datetime="2018-12-18 13:23">
+      December 18, 2018 pm
     </time>
   </div>
 
@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      764 字
+      127 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      1
        分钟
     </span>
   
@@ -205,63 +205,51 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>[TOC]</p>
-<h4 id="geometric-met-algebraic">geometric met algebraic</h4>
-<p>When the plane is viewed as the plane <span class="math inline">\(\mathbb{C}\)</span> of complex numbers, <strong>rotation</strong> about <span class="math inline">\(O\)</span> through angle <span class="math inline">\(\theta\)</span> is the same as multiplication by the number <span class="math display">\[
-e^{i \theta}=\cos \theta+i \sin \theta
-\]</span> The <strong>set</strong> of all such numbers is the unit circle or 1 - dimensional sphere <span class="math display">\[
-\mathbb{S}^{1}=\{z:|z|=1\}
-\]</span> Thus <span class="math inline">\(\mathbb{S}^{1}\)</span> is not only a geometric object, but also an algebraic structure;</p>
-<pre><code class="hljs pgsql"><span class="hljs-keyword">not</span> <span class="hljs-keyword">only</span> a geometric <span class="hljs-keyword">object</span>, but <span class="hljs-keyword">also</span> an algebraic structure</code></pre>
-<h4 id="simplest-example-of-lie-group">simplest example of Lie group</h4>
-<p>in this case a group, under the operation of complex number multiplication. Moreover, the multiplication operation <span class="math inline">\(e^{i \theta_{1}} \cdot e^{i \theta_{2}}=e^{i\left(\theta_{1}+\theta_{2}\right)},\)</span> and the inverse operation <span class="math inline">\(\left(e^{i \theta}\right)^{-1}=e^{i(-\theta)},\)</span> depend <strong>smoothly</strong> on the parameter <span class="math inline">\(\theta .\)</span> This makes <span class="math inline">\(\mathbb{S}^{1}\)</span> an example of what we call a Lie group.</p>
-<h4 id="interesting-example-of-lie-group-mathrmsu2">interesting example of Lie group <span class="math inline">\(\mathrm{SU}(2)\)</span></h4>
-<p>To obtain a more interesting Lie group, we define the four-dimensional algebra of quaternions (四元数) and the three-dimensional sphere <span class="math inline">\(S^{3}\)</span> of unit quaternions.</p>
-<blockquote>
-<p>Under quaternion multiplication, <span class="math inline">\(S^{3}\)</span> is a noncommutative Lie group known as <span class="math inline">\(\mathrm{SU}(2),\)</span> closely related to the group of <strong>space rotations.</strong></p>
-</blockquote>
-<h3 id="rotations-of-the-plane">Rotations of the plane</h3>
-<h4 id="represent-geometric-by-algebraic">represent geometric by algebraic</h4>
-<p>A rotation of the plane <span class="math inline">\(\mathbb{R}^{2}\)</span> about the origin <span class="math inline">\(O\)</span> through angle <span class="math inline">\(\theta\)</span> is a linear transformation <span class="math inline">\(R_{\theta}\)</span> that sends the basis vectors <span class="math inline">\((1,0)\)</span> and <span class="math inline">\((0,1)\)</span> to <span class="math inline">\((\cos \theta,\)</span> <span class="math inline">\(\sin \theta) \text { and }(-\sin \theta, \cos \theta)\)</span></p>
-<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200315112938278.png" srcset="/img/loading.gif" alt="image-20200315112938278" style="zoom: 33%;" /></p>
-<p>It follows by linearity that <span class="math inline">\(R_{\theta}\)</span> sends the general vector <span class="math display">\[
-(x, y)=x(1,0)+y(0,1) \quad \text { to } \quad(x \cos \theta-y \sin \theta, x \sin \theta+y \cos \theta)
-\]</span> and that <span class="math inline">\(R_{\theta}\)</span> is represented by the matrix <span class="math display">\[
-\left(\begin{array}{cc}
-\cos \theta &amp; -\sin \theta \\
-\sin \theta &amp; \cos \theta
-\end{array}\right)
-\]</span> We also call this matrix <span class="math inline">\(R_{\theta}\)</span>. Then applying the rotation to <span class="math inline">\((x, y)\)</span> is the same as multiplying the column vector <span class="math inline">\(\left(\begin{array}{l}x \\ y\end{array}\right)\)</span> on the left by matrix <span class="math inline">\(R_{\theta},\)</span> because <span class="math display">\[
-R_{\theta}\left(\begin{array}{l}
-x \\
-y
-\end{array}\right)=\left(\begin{array}{cc}
-\cos \theta &amp; -\sin \theta \\
-\sin \theta &amp; \cos \theta
-\end{array}\right)\left(\begin{array}{l}
-x \\
-y
-\end{array}\right)=\left(\begin{array}{l}
-x \cos \theta-y \sin \theta \\
-x \sin \theta+y \cos \theta
-\end{array}\right)
-\]</span> since we apply matrices from the left, applying <span class="math inline">\(R_{\varphi}\)</span> then <span class="math inline">\(R_{\theta}\)</span> is the same as applying the <strong>product matrix</strong> <span class="math inline">\(R_{\theta} R_{\varphi} .\)</span> (Admittedly, this matrix happens to equal <span class="math inline">\(R_{\varphi} R_{\theta}\)</span> because both equal <span class="math inline">\(R_{\theta+\varphi} .\)</span> But when we come to space rotations the order of the matrices will be important.)</p>
-<p>Thus we can represent the <strong>geometric operation</strong> of combining successive rotations by the <strong>algebraic operation</strong> of multiplying matrices.</p>
-<p class="note note-primary">
-represent the geometric operation of combining successive rotations by the algebraic operation of multiplying matrices
-</p>
-<p>The <strong>main aim of this book</strong> is to generalize this idea, that is</p>
-<p class="note note-primary">
-to study groups of linear transformations by representing them as matrix groups.
-</p>
-<h4 id="smoothness-of-matrix-group-so2">smoothness of matrix group SO(2)</h4>
-<p>For the moment one can view a <strong>matrix group</strong> as a set of matrices that includes, along with any two members <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the matrices <span class="math inline">\(A B, A^{-1},\)</span> and <span class="math inline">\(B^{-1}\)</span>. Later (in Section 7.2 ) we impose an <strong>extra condition</strong> that ensures "<strong>smoothness</strong>" of matrix groups, but <strong>the precise</strong> meaning of smoothness need not be considered yet. For those who cannot wait to see a definition, we give one in the subsection below - but be warned that its meaning will not become completely clear until Chapters 7 and 8 .</p>
-<blockquote>
-<p>The matrices <span class="math inline">\(R_{\theta},\)</span> for all angles <span class="math inline">\(\theta,\)</span> form a group called the <strong>special orthogonal</strong> group SO(2).</p>
-</blockquote>
-<p>The reason for calling rotations "orthogonal transformations" will emerge in Chapter <span class="math inline">\(3,\)</span> where we generalize the idea of rotation to the <span class="math inline">\(n\)</span> -dimensional space <span class="math inline">\(\mathbb{R}^{n}\)</span> and define a group <span class="math inline">\(\mathrm{SO}(n)\)</span> for each dimension <span class="math inline">\(n .\)</span> In this chapter we are concerned mainly with the groups <span class="math inline">\(\mathrm{SO}(2)\)</span> and <span class="math inline">\(\mathrm{SO}(3),\)</span> which are typical in some ways, but also exceptional in having an alternative description in terms of higher-dimensional "numbers." Each rotation <span class="math inline">\(R_{\theta}\)</span> of <span class="math inline">\(\mathbb{R}^{2}\)</span> can be represented by the complex number <span class="math display">\[
-z_{\theta}=\cos \theta+i \sin \theta
-\]</span> because if we multiply an arbitrary point <span class="math inline">\((x, y)=x+i y\)</span> by <span class="math inline">\(z_{\theta}\)</span> we get</p>
+              <p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201220233720426.png" srcset="/img/loading.gif" /></p>
+<h2 id="python">Python</h2>
+<ol type="1">
+<li><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017105145133280" target="_blank" rel="noopener">廖雪峰python教程</a></li>
+<li><a href="https://notes-by-yangjinjie.readthedocs.io/zh_CN/latest/python/08-Python%E7%BB%83%E4%B9%A0/python%E7%BB%83%E4%B9%A0-000.html" target="_blank" rel="noopener">Python 练习册</a></li>
+</ol>
+<h2 id="学科计算">学科计算</h2>
+<ol type="1">
+<li><a href="https://www.apress.com/gp/book/9781484205532#otherversion=9781484205549" target="_blank" rel="noopener">Numerical Python - A Practical Techniques Approach for Industry</a></li>
+<li>Computational Physics: Problem Solving with Computers
+<ul>
+<li><a href="https://www.eidos.ic.i.u-tokyo.ac.jp/~tau/lecture/computational_physics/docs/computational_physics.pdf" target="_blank" rel="noopener">online open book</a></li>
+<li><a href="https://homepages.uc.edu/~schreihf/uchenry/post/computational-physics/" target="_blank" rel="noopener">A course use this book</a></li>
+<li><a href="https://henryiii.github.io/compclass/IntroToJupyterBook" target="_blank" rel="noopener">course's online Jupyterbook</a></li>
+<li><a href="https://github.com/henryiii/compclass" target="_blank" rel="noopener">course's Github</a></li>
+</ul></li>
+<li><a href="https://asu-compmethodsphysics-phy494.github.io/ASU-PHY494/about/" target="_blank" rel="noopener">Computational Methods in Physics</a></li>
+</ol>
+<h2 id="tensorflow">TensorFlow</h2>
+<ol type="1">
+<li>Google Colab <a href="https://colab.research.google.com/notebooks/welcome.ipynb#scrollTo=GJBs_flRovLc" target="_blank" rel="noopener">使用教程</a></li>
+<li>TensorFlow 教程 <a href="https://www.tensorflow.org/tutorials?hl=zh_cn" target="_blank" rel="noopener">Colab版</a></li>
+</ol>
+<h2 id="pytorch">PyTorch</h2>
+<ol type="1">
+<li><a href="https://pytorch.apachecn.org/docs/1.4/" target="_blank" rel="noopener">PyTorch 1.4 中文文档 &amp; 教程</a>
+<ul>
+<li>使用 PyTorch 进行深度学习：<a href="https://pytorch.apachecn.org/docs/1.4/4.html" target="_blank" rel="noopener">60 分钟的闪电战</a></li>
+<li>并行和分布式训练</li>
+</ul></li>
+<li><a href="https://pytorch.zhangxiann.com/" target="_blank" rel="noopener">PyTorch 学习笔记</a></li>
+<li>集智俱乐部</li>
+</ol>
+<h2 id="物理模型">物理模型</h2>
+<ol type="1">
+<li>刘学弟
+<ul>
+<li>Github的一个guidance</li>
+<li>硕士论文</li>
+</ul></li>
+<li>何学弟
+<ul>
+<li>模型推道</li>
+</ul></li>
+</ol>
 
             </article>
             <hr>
@@ -271,9 +259,7 @@ z_{\theta}=\cos \theta+i \sin \theta
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/mathematics/">mathematics</a>
-                    
-                      <a class="hover-with-bg" href="/categories/mathematics/%E6%9D%8E%E4%BB%A3%E6%95%B0/">李代数</a>
+                      <a class="hover-with-bg" href="/categories/Computational/">Computational</a>
                     
                   </div>
                 
@@ -281,9 +267,9 @@ z_{\theta}=\cos \theta+i \sin \theta
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Lie/">Lie</a>
+                      <a class="hover-with-bg" href="/tags/Link/">Link</a>
                     
-                      <a class="hover-with-bg" href="/tags/Geometry/">Geometry</a>
+                      <a class="hover-with-bg" href="/tags/Numerical/">Numerical</a>
                     
                   </div>
                 
@@ -296,9 +282,9 @@ z_{\theta}=\cos \theta+i \sin \theta
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/09/10/topology03_topological_from_tricode/">
+                      <a href="/2019/08/15/Math_041_integral/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">topological in toric-code models</span>
+                        <span class="hidden-mobile">The Gaussian Integral</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -306,8 +292,8 @@ z_{\theta}=\cos \theta+i \sin \theta
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/02/24/Thesis01_Kodon_02/">
-                        <span class="hidden-mobile">杂质模型及其微扰理论</span>
+                      <a href="/2018/12/16/CS_01_introduction/">
+                        <span class="hidden-mobile">计算科学与编程</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -446,7 +432,7 @@ z_{\theta}=\cos \theta+i \sin \theta
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Naive Lie theory&nbsp;",
+        "Python学习记录&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>计算复杂性 - JPZ</title>
+  <title>纠缠动力学：幺与测量 - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -153,8 +153,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2021-01-02 13:23">
-      January 2, 2021 pm
+    <time datetime="2020-12-29 19:23">
+      December 29, 2020 pm
     </time>
   </div>
 
@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      224 字
+      978 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      19
        分钟
     </span>
   
@@ -205,20 +205,48 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h2 id="参考">参考</h2>
+              <p>[TOC]</p>
+<p>参考文献</p>
 <ol type="1">
-<li><a href="https://theory.cs.princeton.edu/complexity/" target="_blank" rel="noopener">Computational Complexity: A Modern Approach</a></li>
-<li><a href="https://www.cxyxiaowu.com/1984.html" target="_blank" rel="noopener">看动画轻松理解时间复杂度</a></li>
-<li><a href="https://www.bilibili.com/video/BV1254y1r71T?p=3" target="_blank" rel="noopener">算法设计与分析</a> 屈婉玲教授 北京大学MOOC</li>
+<li><a href="https://arxiv.org/pdf/1808.05949.pdf" target="_blank" rel="noopener">Unitary-projective entanglement dynamics</a></li>
 </ol>
-<h2 id="动机">动机</h2>
-<p>对于同一个问题，使用不同的算法，也许最终得到的结果是一样的，比如排序就有前面的十大经典排序和几种奇葩排序，虽然结果相同，但在过程中消耗的资源和时间却会有很大的区别</p>
-<p>那么我们应该如何去衡量不同算法之间的优劣呢？</p>
-<p>主要还是从算法所占用的「时间」和「空间」两个维度去考量。</p>
+<h2 id="摘要">摘要</h2>
+<p>Starting from a state of low quantum entanglement, local unitary time evolution increases the entanglement of a quantum many-body system. In contrast, local projective measurements disentangle degrees of freedom and decrease entanglement. We study the interplay of these competing tendencies by considering time evolution combining both unitary and projective dynamics.</p>
+<ol type="1">
+<li>We begin by constructing a toy model of <strong>Bell pair dynamics</strong> which demonstrates that measurements can keep a system in a state of low <span class="math inline">\((i . e .\)</span> area law <span class="math inline">\()\)</span> entanglement, in contrast with the volume law entanglement produced by generic pure unitary time evolution.</li>
+<li>While the simplest Bell pair model has area law entanglement for any measurement rate, as seen in certain non-interacting systems, we show that <strong>more generic models</strong> of entanglement can feature an area-to-volume law transition at a critical value of the measurement rate, in agreement with recent numerical investigations.</li>
+<li>As a concrete example of these ideas, we analytically investigate <strong>Clifford evolution</strong> in qubit systems which can exhibit an entanglement transition. We are able to identify stabilizer size distributions characterizing the area law, volume law and critical 'fixed points.'</li>
+<li>We also discuss <strong>Floquet random circuits</strong>, where the answers depend on the order of limits - one order of limits yields area law entanglement for any non-zero measurement rate, whereas a different order of limits allows for an area law - volume law transition.</li>
+<li>Finally, we provide a rigorous argument that a system subjected to projective measurements can only exhibit a volume law entanglement entropy if it also features a subleading correction term, which provides a universal signature of projective dynamics in the high-entanglement phase.</li>
+</ol>
+<h2 id="背景">背景</h2>
+<p>The notion of quantum entanglement is a unifying theme across numerous areas of modern physics,</p>
+<ol type="1">
+<li>from the study of solid state systems</li>
+<li>to the study of black holes.</li>
+</ol>
+<p>In a condensed matter context, entanglement</p>
+<ol type="1">
+<li>not only provides a window into the study of quantum ground states,</li>
+<li>but also is an important tool in characterizing the approach to thermal equilibrium (or the lack thereof).</li>
+</ol>
+<p>For example, the entanglement entropy of a ground state or a many-body localized state usually obeys an area law <span class="math display">\[
+S \sim \ell^{d-1},
+\]</span> where</p>
 <ul>
-<li>时间维度：是指执行当前算法所消耗的时间，我们通常用「时间复杂度」来描述。</li>
-<li>空间维度：是指执行当前算法需要占用多少内存空间，我们通常用「空间复杂度」来描述。</li>
+<li><span class="math inline">\(\ell\)</span> is the linear size of the partition.</li>
 </ul>
+<p>In contrast, the entanglement entropy of a generic thermalizing state at a non-zero temperature is given by a volume law <span class="math display">\[
+S \sim \ell^{d}
+\]</span> While such static entanglement signatures are useful, there is also a great deal of <strong>information contained</strong> in the dynamics of entanglement. Consider preparing a system in a tensor product state, for example by performing a quantum quench.</p>
+<ol type="1">
+<li>If the system exhibits <strong>many-body localization</strong>, then the growth of entanglement will be logarithmic in time, <span class="math inline">\(S \sim \log t .\)</span></li>
+<li>In contrast, a <strong>generic thermalizing</strong> system will feature an initially ballistic <strong>(i.e. linear) entanglement growth</strong>, eventually approaching a <strong>volume law</strong>, as expected for a thermal system.</li>
+</ol>
+<p>(各种unitary演化情况下纠缠的演化：有没有守恒量，周期性驱动等等)Recently, studies have taken place on the growth of quantum entanglement under <strong>generic unitary</strong> time evolution, demonstrating in detail the linear growth of mean entanglement entropy, as well as determining the form of fluctuations around the mean. <span class="math inline">\(^{1}\)</span> Subsequent analyses have studied both entanglement growth and spreading of local operators under random unitary time evolution, both with and without conservation laws. <span class="math inline">\(^{2-7}\)</span> Similar work has also been done in the context of Floquet and Hamiltonian time evolution. <span class="math inline">\(^{8-16}\)</span></p>
+<p>(unitary演化的反面，projective测量可以降低纠缠)But while unitary dynamics generically leads to the growth of entanglement, there is another more drastic type of time evolution which can decrease the entanglement of a quantum system. Under certain conditions, such as interaction with a macroscopic classical object, a quantum mechanical system can rapidly <strong>evolve into an eigenstate</strong> of a specific operator, such that the resulting time evolution appears to be a non-unitary projection. Such a process is referred to as a <strong>projective measurement</strong>. When the system is projected into an eigenstate of a local operator, the corresponding local degree of freedom is disentangled from the rest of the system, resulting in a decrease in overall entanglement. In this way, projective measurements can remove some of the entanglement created by more generic unitary time evolution.</p>
+<p>since unitary time evolution and projective measurements have opposite effects on entanglement, <strong>it is natural to ask</strong> how a physical system behaves when both types of evolution play a prominent role. For example, a system could be subjected to a continuous series of measurements, as can be accomplished with superconducting qubits. <span class="math inline">\({ }^{17-19}\)</span> As another <strong>potential physical realization</strong>, it has been proposed by M. Fisher that Posner molecules may play a role in quantum information processing <strong>in the brain</strong>. <span class="math inline">\(^{20-22}\)</span> As these molecules bind and unbind, they undergo joint unitary-projective dynamics, generating entanglement between different molecules.</p>
+<p>In such a system with joint unitary-projective evolution, it is not obvious how the presence of projective measurements modifies the behavior of a purely unitary system. It seems clear that measurement should decrease the steady-state entanglement entropy of the system. But by how much? <span class="math inline">\(A\)</span> prior <span class="math inline">\(i\)</span>, one possibility is that measurements might simply decrease the coefficient of the resulting volume law entanglement entropy. In contrast, recent numerical investigations have indicated that a sufficient amount of measurements can limit entanglement entropy to area law scaling, behavior which is normally associated with ground states or many-body localized eigenstates. For example, simulations of free fermion systems subject to continuous monitoring has indicated that an arbitrarily low rate of measurement is sufficient to keep the system in a state of low entanglement. <span class="math inline">\({ }^{23} A\)</span> hydrodynamic explanation for this behavior was also advanced.</p>
 
             </article>
             <hr>
@@ -228,7 +256,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Computational/">Computational</a>
+                      <a class="hover-with-bg" href="/categories/Entanglement/">Entanglement</a>
                     
                   </div>
                 
@@ -236,9 +264,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Computational/">Computational</a>
-                    
-                      <a class="hover-with-bg" href="/tags/CS/">CS</a>
+                      <a class="hover-with-bg" href="/tags/Entanglement/">Entanglement</a>
                     
                   </div>
                 
@@ -251,12 +277,18 @@
                   <div class="post-prev col-6">
                     
                     
+                      <a href="/2020/12/30/Thesis05_semimetals_01/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">非对称系统中的外尔近藤半金属</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2021/01/01/QC401_QEC/">
-                        <span class="hidden-mobile">量子纠错</span>
+                      <a href="/2020/12/29/Entenglement_03_circuits/">
+                        <span class="hidden-mobile">由测量控制的混合量子电路中的纠缠熵相变</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -395,7 +427,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "计算复杂性&nbsp;",
+        "纠缠动力学：幺与测量&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

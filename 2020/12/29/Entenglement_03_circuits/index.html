@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.6k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24
+      32
        分钟
     </span>
   
@@ -248,7 +248,44 @@
 <p>Our paper is organized as follows. In Sec. II we define the circuit models of interest. Extensive numerical results for Clifford circuits are reported in Sec. III and IV. In particular, Sec. III contains evidence for the phase transition in entanglement entropy, and allows characterization of the volume-law phase in terms of stabilizers. Sec. IV is devoted to a detailed analysis of the critical behavior of the entanglement transition. In Sec. V, we systematically explore Clifford circuit models with space and time symmetries imposed, either in the unitaries or the measurement locations - or both. In Sec. VI, we consider more generic non-Clifford circuits, establishing complementary results via a full quantum simulation for smaller systems. We close with discussions in Section VII.</p>
 <p>Finally, in Appendix A we review Clifford circuits and define the stabilizer length distribution, and detail measurement and unitary Clifford dynamics - beyond the steady state <span class="math inline">\(-\)</span> in Appendix <span class="math inline">\(B\)</span>.</p>
 <h2 id="模型">模型</h2>
+<p>Consider first the prototypical quantum circuit model, shown in Fig. 1, with <span class="math inline">\(L\)</span> qubits arranged on a onedimensional chain. The circuit dynamics is composed of two parts</p>
+<ul>
+<li><ol type="i">
+<li>the background unitary evolution</li>
+</ol></li>
+<li><ol start="2" type="i">
+<li>measurements made on selected qubits scattered throughout the system.</li>
+</ol></li>
+</ul>
 <p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201230022559192.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>FIG.1 The random circuit model with random measurements. In this circuit, the unitaries are arranged in a bricklayer fashion, while the single qubit <span class="math inline">\(Z\)</span>-measurements are positioned randomly in space and time. We depict the Poissonian arrangement in this figure, for which the measurements take place at each available space-time site independently with probability <span class="math inline">\(p .\)</span> For a circuit with <span class="math inline">\(L\)</span> qubits and with depth <span class="math inline">\(D,\)</span> there are <span class="math inline">\(L D\)</span> such available sites.</p>
+</blockquote>
+<h4 id="unitary部分的具体">unitary部分的具体</h4>
+<p>The background unitary time evolution of the <span class="math inline">\(L\)</span> qubit wavefunction is determined by applications of local unitary gates which are arranged in a bricklayer pattern, such that the geometry of the circuit is periodic in both space and time.</p>
+<ol type="1">
+<li>The local unitaries act on <strong>neighboring</strong> pairs of qubits.</li>
+<li>Each discrete time cycle of the circuit consists of <strong>two layers</strong>, and each layer has <span class="math inline">\(L / 2\)</span> two-qubit unitary gates, acting on all the odd links in the first layer, and all the even links in the second.</li>
+<li>We primarily consider circuits with <strong>periodic spatial boundary conditions</strong>, except in Appendix <span class="math inline">\(B\)</span> where circuits with open boundary condition are more convenient.</li>
+</ol>
+<p>We define the depth of a circuit to be the number of unitary layers, and denote it by <span class="math inline">\(D .\)</span> Therefore, a circuit with depth <span class="math inline">\(D\)</span> has <span class="math inline">\(T=D / 2\)</span> time cycles. The circuit as a whole can be regarded as a unitary transformation in the Hilbert space of many-body wavefunctions on <span class="math inline">\(L\)</span> qubits, <span class="math display">\[
+U_{T}=\prod_{t=0}^{T-1} U(t)
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(U(t)\)</span> is the time evolution operator for the <span class="math inline">\(t\)</span> -th time cycle,</li>
+</ul>
+<p><span class="math display">\[
+U(t)=\left(\prod_{x \text { odd }} U_{(x, x+1), 2 t+1}\right)\left(\prod_{x \text { even }} U_{(x, x+1), 2 t}\right)
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(U_{(x, x+1), d}\)</span> is the gate on link <span class="math inline">\((x, x+1)\)</span> at depth <span class="math inline">\(d\)</span>.</li>
+</ul>
+<p>Under the action of a unitary gate, the wavefunction transforms as, <span class="math display">\[
+|\psi\rangle \rightarrow U_{(x, x+1), d}|\psi\rangle
+\]</span> so that the wavefunction at arbitrary time <span class="math inline">\(T\)</span> is <span class="math display">\[
+|\psi(T)\rangle=U_{T}|\psi(0)\rangle
+\]</span></p>
+<h4 id="non-unitary部分">non-unitary部分</h4>
 <h2 id="参考文献">参考文献</h2>
 <ul>
 <li>《Measurement-driven entanglement transition in hybrid quantum circuits》<a href="https://arxiv.org/pdf/1901.08092.pdf" target="_blank" rel="noopener">arxiv1901.08092</a></li>
@@ -283,9 +320,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/30/Thesis05_semimetals_01/">
+                      <a href="/2020/12/29/Entenglement_03_circuits2/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">非对称系统中的外尔近藤半金属</span>
+                        <span class="hidden-mobile">纠缠动力学：幺与测量</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     

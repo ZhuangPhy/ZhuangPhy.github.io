@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      242 字
+      2.6k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      38
        分钟
     </span>
   
@@ -220,6 +220,60 @@
 </ol>
 </blockquote>
 <h2 id="文献导览">文献导览</h2>
+<p><strong>量子线路</strong>由一系列量子门组成以实现幺正变换操作。一般用来做量子计算， 譬如可以进行量子 Fourier 变换。</p>
+<p>在做经典信息处理时，一些<strong>随机算法</strong>得到 大量应用，人们自然会想在处理量子信息时，随机量子态及随机幺正变换会有什么帮助，于是对随机量子线路的研究应运而生。</p>
+<ul>
+<li>臂如 R. Oliveira 等发现可以用随机量子门在多项式时间内有效地<strong>得到纠缠态</strong>。</li>
+<li>C. Dankert 等用随机量子线路设计出刻画量子信息处理<strong>保真度</strong>的有效且无偏的方法, 对 <span class="math inline">\(n\)</span> 量子比特，只需要 <span class="math inline">\(O(n)\)</span> 规模的量子线路且无需任何辅助比特;</li>
+<li>P. Hayden 及 W. Brown 等发现随机量子线路中存在快速的量子信息 <strong>scrambling</strong> 。</li>
+</ul>
+<p>近来人们在随机量子线路中研究<strong>算符的演化</strong>, 探讨其中<strong>纠缠的传播</strong> 引入随机测量等，我们接下来对此做简要介绍。</p>
+<h4 id="模型">模型</h4>
+<p>我们所要考虑的随机量子线路如图所示</p>
+<p><img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201031101824088.png" srcset="/img/loading.gif" /></p>
+<p>一维开边界的格点模型，格点长度为 <span class="math inline">\(L\)</span>, 每一格点处拥有一个量子比特。在相邻格点上施加两量子比特的量子门操作，于是在时间方向上可以把两层看作一个周期，每层有 <span class="math inline">\(L / 2\)</span> 个量子门。 这些量子门分为两类</p>
+<ul>
+<li>灰色的表示做幺正操作 <span class="math inline">\(U,\)</span> 即</li>
+</ul>
+<p><span class="math display">\[
+|\psi\rangle \rightarrow U|\psi\rangle
+\]</span></p>
+<ul>
+<li>蓝色的表示做幺正操作之前先做投影测量 <span class="math inline">\(P_{\alpha},\)</span> 称为幺正-投影量子门</li>
+</ul>
+<p><span class="math display">\[
+|\psi\rangle \rightarrow U \frac{P_{a}|\psi\rangle}{\| P_{\alpha}|\psi\rangle \|}
+\]</span></p>
+<p>其中 <span class="math inline">\(\left\{P_{\alpha}\right\}\)</span> 为正交完备的投影算符，即 <span class="math inline">\(P_{\alpha} P_{\beta}=P_{\alpha} \delta_{\alpha \beta}\)</span>，$ <em>{} P</em>{}=1$ 。这两类量子门中的幻正操作 <span class="math inline">\(U\)</span> 一般从随机 Haar 或随机 Clifford 群中随机选取，而这两类群是用来研究混屯不可积系统的<strong>最小模型</strong>。</p>
+<p><strong>结果</strong></p>
+<p>幺正-投影量子门在空间和时间上以概率 <span class="math inline">\(p\)</span> 随机出现，即对任一方块，其为幺正-投影量子门的概率为 <span class="math inline">\(p,\)</span> 为幺正量子门的概率为 <span class="math inline">\(1-p\)</span>。当 <span class="math inline">\(p=0\)</span> 时此模型回到幺正随机量子线路。</p>
+<h4 id="纠缠熵在幺正演化中的volume-law">纠缠熵在幺正演化中的volume law</h4>
+<p>在对幺正随机量子线路的研究中，人们发现随系统的演化， 纠缠熵先随时间线性增长，随后按照体积律（volume law）达到饱和 <span class="math inline">\(^{[265-268]} 。\)</span></p>
+<blockquote>
+<p>[265] Nahum A, Ruhman J, Vijay S, et al. Quantum entanglement growth under random unitary dynamics[ $]$. Physical Review <span class="math inline">\(X, 2017,7(3): 031016\)</span>. [266] von Keyserlingk C W, Rakovszky T, Pollmann F, et al. Operator hydrodynamics, OTOCs, and entanglement growth in systems without conservation laws[ <span class="math inline">\(J\)</span> ] . Phys. Rev. X, 2018,8 : 021013 [267] Khemani V, Vishwanath A, Huse D A. Operator spreading and the emergence of dissipative hydrodynamics under unitary evolution with conservation laws[J $]$. Physical Review <span class="math inline">\(X, 2018\)</span>, <span class="math inline">\(8(3): 031057\)</span> [268] Nahum A, Vijay S, Haah J. Operator spreading in random unitary circuits[J]. Phys. Rev. X, 2018,8: 021014</p>
+</blockquote>
+<h4 id="纠缠熵在投影量子门演化中的area-law">纠缠熵在投影量子门演化中的area law</h4>
+<p>尚若 <span class="math inline">\(p=1,\)</span> Y. <span class="math inline">\(Li\)</span> 等发现测量强烈抑制纠缠熵的增长，使其以面积律 (area law) 达到饱和，他们称此时系统处于量子 Zeno 相 <span class="math inline">\(^{[271]}\)</span> 。</p>
+<blockquote>
+<p>[271] Li Y, Chen X, Fisher M P. Quantum Zeno effect and the many-body entanglement transition [J]. Physical Review B, <span class="math inline">\(2018,98(20): 205136\)</span>.</p>
+</blockquote>
+<h4 id="纠缠熵相变">纠缠熵相变</h4>
+<p>自然地，我们可以发现 <span class="math inline">\(p\)</span> 从 0 逐渐增加到 1，纠缠熵将从以体积律趋于饱和，变成以面积律趋于饱和，中间在某 一 <span class="math inline">\(p\)</span> 值处发生相变 <span class="math inline">\(^{[269-272]}\)</span> 。</p>
+<blockquote>
+<p>[269] Chan A, Nandkishore R M, Pretko M, et al. Unitary-projective entanglement dynamics[J]. arXiv preprint arXiv:1808.05949v3, 2018. [270] Skinner B, Ruhman J, Nahum A. Measurement-induced phase transitions in the dynamics of entanglement [J] arXiv preprint arXiv:1808.05953, 2018 . [271] Li Y, Chen X, Fisher M P. Quantum Zeno effect and the many-body entanglement transition [J] Physical Review <span class="math inline">\(B , 2018,98(20): 205136\)</span> [272] Li Y, Chen X, Fisher M. Measurement-driven entanglement transition in hybrid quantum circuits [J] arXiv preprint arXiv:1901.08092, 2019.</p>
+</blockquote>
+<h4 id="量子纠错观点下的纠缠熵相变">量子纠错观点下的纠缠熵相变</h4>
+<p>近来人们用量子纠错的观点来理解此相变</p>
+<ul>
+<li>将随机测量看作量子信息出错</li>
+<li>随机幺正演化对此信息起保护作用</li>
+</ul>
+<p>但随着 <span class="math inline">\(p\)</span> 的增 加，错误率达到某一间值，抑制了信息 scrambling，从而发生量子相变 <span class="math inline">\(^{[273]}\)</span> 。</p>
+<blockquote>
+<p>[273] Choi S, Bao Y, Qi X L, et al. Quantum error correction and entanglement phase transition in random unitary circuits with projective measurements[J]. arXiv preprint <a href="https://export.arxiv.org/pdf/1903.05124" target="_blank" rel="noopener">arXiv:1903.05124, 2019</a></p>
+</blockquote>
+<h4 id="非幺正随机量子线路">非幺正随机量子线路</h4>
+<p>随机量子线路较离散量子行走拥有更多的物理自由度，因而也蕴含更丰富的物理现象。特别地，我们可以在随机量子线路中考虑非幺正演化，研究其中纠缠熵的传播等基本物理学问题。目前人们对这方面的认识还不够深入，其中的一个原因或许是我们还不能分析清楚非幺正演化在其中所起的作用，以及其与量子测量、量子相干性、量子纠缠等基本量子力学问题之间的关系。我们希望通过 在此类系统中构建一套完整的非幺正量子力学理论，类似我们介绍过的双正交基量子力学，来系统地描述其中波函数的演化，然后讨论其中纠缠熵的传播。</p>
 <h3 id="code">code</h3>
 <p>matlab</p>
 <ol type="1">
@@ -234,7 +288,75 @@
 <p>Cirq is a Python library for writing, manipulating, and optimizing quantum circuits and running them against quantum computers and simulators.</p></li>
 <li><p><a href="https://github.com/sboixo/GRCS" target="_blank" rel="noopener">(GRCS)Random quantum circuits</a></p></li>
 </ol>
-<h2 id="参考文献">参考文献</h2>
+<p>Book</p>
+<p>《Holographic Entanglement Entropy》 Mukund Rangamani Tadashi Takayanagi</p>
+<h2 id="在读文献">在读文献</h2>
+<p>测量-演化 角度下的纠缠动力学</p>
+<ol type="1">
+<li><a href="https://arxiv.org/pdf/1901.08092.pdf" target="_blank" rel="noopener">Measurement-driven entanglement transition in hybrid quantum circuits</a></li>
+<li><a href="https://arxiv.org/pdf/1808.05949.pdf" target="_blank" rel="noopener">Unitary-projective entanglement dynamics</a></li>
+<li><a href="https://arxiv.org/pdf/2005.03052.pdf" target="_blank" rel="noopener">Measurement-Driven Phase Transition within a Volume-Law Entangled Phase</a></li>
+</ol>
+<p>量子纠错 Quantum Error Correction</p>
+<ol type="1">
+<li><a href="https://export.arxiv.org/pdf/1903.05124" target="_blank" rel="noopener">Quantum Error Correction in Scrambling Dynamics and Measurement-Induced Phase Transition</a></li>
+<li><a href="https://arxiv.org/pdf/1906.03669.pdf" target="_blank" rel="noopener">Eigenstate Thermalization Hypothesis and Approximate Quantum Error Correction</a></li>
+</ol>
+<h4 id="quantum-error-correction-in-scrambling-dynamics-and-measurement-induced-phase-transition">Quantum Error Correction in Scrambling Dynamics and Measurement-Induced Phase Transition</h4>
+<p><a href="https://export.arxiv.org/pdf/1903.05124" target="_blank" rel="noopener">Quantum Error Correction in Scrambling Dynamics and Measurement-Induced Phase Transition</a></p>
+<p>We analyze the dynamics of entanglement entropy in a generic quantum many-body open system from the perspective of quantum information and error corrections. We introduce a random unitary circuit model with intermittent projective measurements, in which the degree of information scrambling by the unitary and the rate of projective measurements are independently controlled. This model displays two stable phases, characterized by the volume-law and area-law scaling entanglement entropy in steady states. The transition between the two phases is <strong>understood from the point of view of quantum error correction</strong>:</p>
+<ol type="1">
+<li>the chaotic unitary evolution protects quantum information from projective measurements that <strong>act as errors</strong>.</li>
+<li>A phase transition occurs when the <strong>rate of errors exceeds</strong> a threshold that depends on the degree of information scrambling.</li>
+</ol>
+<p>We confirm these results using numerical simulations and obtain the phase diagram of our model. Our work shows that <strong>information scrambling plays a crucial role</strong> in understanding the dynamics of entanglement in an open quantum system and relates the entanglement phase transition to changes in quantum channel capacity.</p>
+<p>从这篇文章中认识到Information Scrambling的重要性，但是什么是Information Scrambling我并不了解，因此我搜索到以下文献</p>
+<ol type="1">
+<li><a href="https://thesis.library.caltech.edu/13644/7/Zhang_Yongliang_2020.pdf" target="_blank" rel="noopener">Information Scrambling in Quantum Many-Body Systems</a>
+<ul>
+<li>加州理工一个中国留学生2020的博士论文</li>
+<li>out-of-time-ordered correlators (OTOC)</li>
+</ul></li>
+<li><a href="https://arxiv.org/pdf/1909.11887.pdf" target="_blank" rel="noopener">Information Scrambling in Quantum Neural Networks</a>
+<ul>
+<li>尤亦庄，沈汇涛，翟荟</li>
+</ul></li>
+<li><a href="https://arxiv.org/pdf/1903.02651.pdf" target="_blank" rel="noopener">Information Scrambling and Loschmidt Echo</a>
+<ul>
+<li>Loschmidt Echo</li>
+</ul></li>
+<li><a href="https://iopscience.iop.org/article/10.1088/2058-9565/ab8ebb#back-to-top-target" target="_blank" rel="noopener">Quantum scrambling and the growth of mutual information</a>
+<ul>
+<li>out-of-time-ordered correlators (OTOC)</li>
+</ul></li>
+</ol>
+<h4 id="information-scrambling-in-quantum-neural-networks">Information Scrambling in Quantum Neural Networks</h4>
+<p><a href="https://arxiv.org/pdf/1909.11887.pdf" target="_blank" rel="noopener">Information Scrambling in Quantum Neural Networks</a></p>
+<p>The quantum neural network is one of the promising applications for near-term noisy intermediate-scale quantum computers. A quantum neural network <strong>distills</strong> the information from the input wavefunction into the output qubits. In this Letter, we show that this process can also be <strong>viewed from the opposite direction</strong>:</p>
+<ul>
+<li>the quantum information in the output qubits is <strong>scrambled</strong> into the input.</li>
+<li>This observation motivates us to use the <strong>tripartite information</strong>, a quantity recently developed to characterize information scrambling, to diagnose the training dynamics of quantum neural networks.</li>
+<li>We empirically find strong <strong>correlation</strong> between the dynamical behavior of the tripartite information and the <strong>loss function</strong> in the training process, from which we identify that the training process has two stages for randomly initialized networks.</li>
+</ul>
+<p>In the early stage, the network performance improves rapidly and the tripartite information increases linearly with a universal slope, meaning that the neural network becomes less scrambled than the random unitary. In the latter stage, the network performance improves slowly while the tripartite information decreases. We present evidences that the network constructs local correlations in the early stage and learns large-scale structures in the latter stage. We believe this two-stage training dynamics is universal and is applicable to a wide range of problems. Our work <strong>builds bridges</strong> between two research subjects of quantum neural networks and information scrambling, which opens up a new perspective to understand quantum neural networks.</p>
+<h4 id="measurement-driven-phase-transition-within-a-volume-law-entangled-phase">Measurement-Driven Phase Transition within a Volume-Law Entangled Phase</h4>
+<p><a href="https://arxiv.org/pdf/2005.03052.pdf" target="_blank" rel="noopener">Measurement-Driven Phase Transition within a Volume-Law Entangled Phase</a></p>
+<p>We identify a phase transition between two kinds of volume-law entangled phases in non-local but few-body unitary dynamics with local projective measurements.</p>
+<ol type="1">
+<li>In one phase, a finite fraction of the system belongs to a fully-entangled state, one for which no subsystem is in a pure state,</li>
+<li>while in the second phase, the steady-state is a product state over extensively many, finite subsystems.</li>
+</ol>
+<p>We study this "separability" transition in a family of solvable models in which we <strong>analytically determine the transition point</strong>, the evolution of certain entanglement properties of interest, and relate this to a mean-field percolation transition. since the entanglement entropy density does not distinguish these phases, we introduce the <strong>entangling power</strong> (which measures whether local measurements outside of two finite subsystems can boost their mutual information) as an <strong>order parameter</strong>, after considering its behavior in tensor network states, and numerically studying its behavior in a model of Clifford dynamics with measurements.</p>
+<p>We argue that in our models, the separability transition coincides with a transition in the computational "hardness" of classically determining the output probability distribution for the steady-state in a certain basis of product states. A prediction for this distribution, which is accurate in the separable phase, and should deviate from the true distribution in the fully-entangled phase, provides a possible benchmarking task for quantum computers.</p>
+<h4 id="information-scrambling-in-quantum-many-body-systems">Information Scrambling in Quantum Many-Body Systems</h4>
+<p><a href="https://thesis.library.caltech.edu/13644/7/Zhang_Yongliang_2020.pdf" target="_blank" rel="noopener">Information Scrambling in Quantum Many-Body Systems</a></p>
+<p><strong>A closed quantum system never forgets its initial state</strong>, but the encoded information can get scrambled and become inaccessible without measuring a large fraction of all the system degrees of freedom.</p>
+<p>This scrambling can be diagnosed by studying the spatial spreading of initially local operators under the Heisenberg time evolution, and the decay of the out-of-time-ordered correlators (OTOC).</p>
+<ol type="1">
+<li>What <strong>insights</strong> can <strong>OTOCs provide to understand</strong> the dynamics of quantum many-body systems?</li>
+<li>What are the characteristic <strong>behaviors</strong> of OTOCs during the time evolution?</li>
+<li>How is information <strong>scrambling affected</strong> by the dissipation in open quantum many-body systems?</li>
+</ol>
 
             </article>
             <hr>
