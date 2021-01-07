@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>Archives - JPZ</title>
+  <title>JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -42,7 +42,7 @@
 
 
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -130,7 +130,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/sub_page.jpg') no-repeat center center;
+         style="background: url('/img/timg.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -143,6 +143,10 @@
           </div>
 
           
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -152,27 +156,73 @@
     
       <div class="container nopadding-md">
         <div class="py-5" id="board"
-          >
+          style=margin-top:0>
           
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">81 posts in total.</p>
-  <hr>
-  
+
+  <div class="row mx-auto index-card">
     
-      
-      <p class="h5">2017</p>
     
-    <a href="/2017/11/24/Ftmb_path_02relation/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">路径积分与其他方法的联系</span>
-      <span style="float: right;">11-24</span>
-    </a>
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2012/09/06/IN02_book/" target="_self">
+          <img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_yakisa/home_20200910150340.jpg" srcset="/img/loading.gif" alt="我的书房">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2012/09/06/IN02_book/">我的书房</a>
+
+      <a href="/2012/09/06/IN02_book/" class="index-excerpt">
+        
+        
+          
+        
+        <div>我有一个书房，面朝大海，春暖花开。</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2012-09-06
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Introduction/">Introduction</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E6%B4%BB/">生活</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/8/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
+    </span>
+  </nav>
   
-</div>
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
@@ -265,7 +315,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Archive&nbsp;",
+        "Dialogue with Nature&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

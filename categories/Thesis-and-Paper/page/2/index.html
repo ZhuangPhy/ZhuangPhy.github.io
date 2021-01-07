@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>Archives - JPZ</title>
+  <title>Categories - Thesis and Paper - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -42,7 +42,7 @@
 
 
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -130,7 +130,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/sub_page.jpg') no-repeat center center;
+         style="background: url('/img/black.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -160,19 +160,31 @@
                 
 
 <div class="list-group">
-  <p class="h4">81 posts in total.</p>
+  <p class="h4">11 posts in total.</p>
   <hr>
   
     
       
-      <p class="h5">2017</p>
+      <p class="h5">2012</p>
     
-    <a href="/2017/11/24/Ftmb_path_02relation/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">路径积分与其他方法的联系</span>
-      <span style="float: right;">11-24</span>
+    <a href="/2012/09/14/Thesis00_journal_note/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">论文笔记导览</span>
+      <span style="float: right;">09-14</span>
     </a>
   
 </div>
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/categories/Thesis-and-Paper/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/categories/Thesis-and-Paper/">1</a><span class="page-number current">2</span>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
@@ -265,7 +277,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Archive&nbsp;",
+        "Category - Thesis and Paper&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
