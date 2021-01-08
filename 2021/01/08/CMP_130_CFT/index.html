@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>共形场论 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-01-08 13:01">
+      January 8, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      94
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<p>《<a href="https://arxiv.org/pdf/1509.05769.pdf" target="_blank" rel="noopener">Heavy Fermions and the Kondo Lattice</a>: a 21st Century Perspective》Piers Coleman</p>
+<p>[TOC]</p>
+<p>参考</p>
+<p>《Statistical Field Theory: An Introduction to Exactly Solved Models in Statistical Physics》</p>
+<h3 id="introduction">Introduction</h3>
+<p>In the previous chapters we have seen that, coming close to a critical point, the correlation length of a statistical system diverges and consequently there are fluctuations on all possible scales. In such a regime, the properties of the statistical systems can be efficiently described by a quantum field theory. Right at the critical point, the correlation length is infinite: the corresponding field theory is therefore massless and becomes invariant under a dilation of the length-scales <span class="math display">\[
+x_{a} \rightarrow \lambda x_{a}
+\]</span> Under this transformation the fields <span class="math inline">\(\Phi_{i}\)</span> associated to the order parameters transform as <span class="math display">\[
+\Phi_{i} \rightarrow \lambda^{d_{i}} \Phi_{i}
+\]</span> where <span class="math inline">\(d_{i}\)</span> here denote their anomalous dimensions. Finding the spectrum of the anomalous dimensions is a central problem of the theory: in fact, from Chapter 8 we know that they determine the critical exponents of the various thermodynamic quantities. The singularities of these thermodynamic functions are associated to the fixed points of the renormalization group. In turn, in the vicinity of the fixed points there is a surface of instability that is spanned by the relevant operators present at the fixed points. In order to determine all fixed points and the spectrum of the operators nearby, A. Polyakov has put forward the hypothesis that the critical fluctuations are invariant under the set of conformal transformations. These transformations have the distinguished property of stretching locally the lengths of the vectors but leaving their relative angles invariant. It is important to stress that in systems with local interactions that are invariant under translations and rotations, the invariance under a global dilatation automatically implies an invariance under the conformal transformations. From this point of view, the classification of the fixed points of the renormalization group is equivalent to finding all possible quantum field theories with conformal symmetry. It is worth emphasizing that the construction of such theories is based on an approach that is completely different from the lagrangian formalism that is usually used in quantum field theory and that was discussed in Chapter 7 . The approach that we present in this chapter is based on the algebra of local fields. We assume first of all the existence of a basis of local operators that include among others the order parameters. Secondly, we make the hypothesis that any other quantity, such as products of order parameters, can be expanded in terms of the local operators of the basis. In this way, one is naturally led to introduce the concept of the Operator Product Expansion (OPE) and its corresponding algebra.</p>
+<p>In this chapter we study the general properties of these conformal invariant theories, pointing out the peculiar aspects that arise in two dimensions. The next chapter will be devoted to the analysis of an important class of two-dimensional conformal field theories, the so-called minimal models: their remarkable property is to have an operatorial algebra that closes within a finite number of conformal families. Other aspects of two-dimensional conformal theories will be the subject of subsequent chapters.</p>
+<h3 id="the-algebra-of-local-fields">2 The Algebra of Local Fields</h3>
+<p>The main goal of a quantum field theory is the determination of the correlation functions <span class="math display">\[
+G\left(x_{1}, x_{2}, \ldots, x_{n}\right)=\left\langle A_{1}\left(x_{1}\right) A_{2}\left(x_{2}\right) \ldots A_{n}\left(x_{n}\right)\right\rangle
+\]</span> where <span class="math inline">\(A_{i}\left(x_{i}\right)\)</span> are regular local functions that, for simplicity, we will assume are constructed in terms of only one fundamental field <span class="math inline">\(\varphi(x) .\)</span> Below we consider the euclidean formulation of the theory and our definition of the vacuum expectation values is provided by the functional integral, with Boltzmann weight given by the action <span class="math inline">\(S[\varphi]\)</span> of the field <span class="math inline">\(\varphi\)</span> <span class="math display">\[
+G\left(x_{1}, \ldots, x_{n}\right) \equiv \frac{1}{Z} \int D \varphi A_{1}\left(x_{1}\right) \ldots A_{n}\left(x_{n}\right) e^{-S[\varphi]}
+\]</span> The correct normalization is ensured by the partition function <span class="math inline">\(Z\)</span> <span class="math display">\[
+Z=\int D \varphi e^{-S[\varphi]}
+\]</span> In order to clarify the important concept of the algebra of the local field, it is useful to initially consider the free bosonic field <span class="math inline">\(\phi(x)\)</span>. In this case, using <span class="math inline">\(\phi(x)\)</span> and the normal ordered product of its powers, <span class="math inline">\({ }^{1}\)</span> we can define the local scalar densities <span class="math display">\[
+\phi(x),: \phi^{2}(x):,: \phi^{3}(x):, \ldots: \phi^{n}(x):
+\]</span> In a euclidean <span class="math inline">\(D\)</span> -dimensional space-time, the scalar field <span class="math inline">\(\phi(x)\)</span> has dimension equal to <span class="math inline">\(d_{\varphi}=(D-2) / 2\)</span> (in mass units) and the dimensions of the composite fields <span class="math inline">\((10.2 .2)\)</span> are given by <span class="math inline">\(^{2}\)</span> <span class="math display">\[
+d_{\phi}, 2 d_{\phi}, 3 d_{\phi}, \ldots, n d_{\phi}
+\]</span> as is easily seen by applying Wick's theorem. For instance <span class="math display">\[
+\left\langle: \phi^{2}(x):: \phi^{2}(y):\right\rangle=2[\langle\phi(x) \phi(y)\rangle]^{2}
+\]</span> and the singularity <span class="math inline">\(1 / r^{2 d_{\phi}}\)</span> of the correlator <span class="math inline">\(\langle\phi(x) \phi(y)\rangle\)</span> for <span class="math inline">\(r=\left|x_{1}-x_{2}\right| \rightarrow 0\)</span>, gives rise to <span class="math display">\[
+\left\langle: \phi^{2}(x):: \phi^{2}(y):\right\rangle \sim \frac{1}{r^{4 d_{\phi}}}
+\]</span> An analogous result holds for the composite operators : <span class="math inline">\(\phi^{n}(x):\)</span>, so that we arrive at the sequence of dimensions <span class="math inline">\((10.2 .3) .\)</span></p>
+<p>The set of fields <span class="math inline">\(\left\{: \phi^{n}(x):\right\},\)</span> to which we have to add the identity operator <span class="math inline">\(I \equiv \phi^{0}\)</span> can be used to express any other regular density <span class="math inline">\(A(x)\)</span> of the free bosonic field. This is done by the series expansion of <span class="math inline">\(A(x)\)</span> <span class="math display">\[
+A(x)=\sum_{n=0}^{\infty} a_{n}: \phi^{n}(x):
+\]</span> Basis of local operators. As in the free case, we make the hypothesis that there is a similar set of fields also in the interacting theories. Namely, we assume the existence of a numerable set of fields <span class="math inline">\(^{3} \varphi_{i}(x)\)</span>, that are eigenvectors of the dilation operator, whose dimensions are defined by the condition <span class="math display">\[
+\varphi_{i}(x)=\lambda^{d_{i}} \varphi_{i}(\lambda x)
+\]</span> Moreover, we assume that any other operator can be expressed as a linear combination of the fields above: <span class="math display">\[
+A(x)=\sum_{n=0}^{\infty} a_{n} \varphi_{n}(x)
+\]</span> Basis of local operators. As in the free case, we make the hypothesis that there is a similar set of fields also in the interacting theories. Namely, we assume the existence of a numerable set of fields <span class="math inline">\(^{3} \varphi_{i}(x),\)</span> that are eigenvectors of the dilation operator, whose dimensions are defined by the condition <span class="math display">\[
+\varphi_{i}(x)=\lambda^{d_{i}} \varphi_{i}(\lambda x)
+\]</span> Moreover, we assume that any other operator can be expressed as a linear combination of the fields above: <span class="math display">\[
+A(x)=\sum_{n=0}^{\infty} a_{n} \varphi_{n}(x)
+\]</span> At the critical point, the propagator of these operators is <span class="math display">\[
+D _{i j}\left(x_{1}-x_{2}\right) \equiv\left\langle\varphi_{i}\left(x_{1}\right) \varphi_{j}\left(x_{2}\right)\right\rangle=\frac{ A _{i j}}{\left|x_{1}-x_{2}\right|^{d_{i}+d_{j}}}
+\]</span> where the numerical constant <span class="math inline">\(A _{i j}\)</span> expresses their normalization. In an interactive theory, however, the dimensions <span class="math inline">\(d_{i}\)</span> are not expressed in a simple way as in the free theory. As a matter of fact, one of the fundamental problems is the determination of their values.</p>
+<p>It is worth saying that the validity of the operatorial identity <span class="math inline">\((10.2 .6),\)</span> as well as other identities of similar nature that we will meet later on, has to be understood in a weak sense: this means that it can be used straighforwardly in expressions that involve correlation functions but it can give rise to inconsistencies if interpreted strictly as an operatorial identity (see Problem 1). So, for instance, to calculate the correlation function <span class="math inline">\(\langle A(x) B(y) \ldots C(z)\rangle,\)</span> we can use the expansion <span class="math inline">\((10.2 .6)\)</span> to express any of these fields - say <span class="math inline">\(A(x)\)</span> - arriving in this way at the expression <span class="math display">\[
+\langle A(x) B(y) \ldots C(z)\rangle=\sum_{n=0}^{\infty} a_{n}\left\langle\varphi_{n}(x) B(y) \ldots C(z)\right\rangle
+\]</span> In the vicinity of the critical point, the theory has a mass scale <span class="math inline">\(m\)</span> that is a small quantity (it is related to the correlation length <span class="math inline">\(\xi\)</span> by the relation <span class="math inline">\(\xi=m^{-1}\)</span> ), and the vacuum expectation values of the fields <span class="math inline">\(\varphi_{n}\)</span> can be expressed as <span class="math display">\[
+\left\langle\varphi_{n}(x)\right\rangle=\mu_{n} m^{d_{n}}
+\]</span> where <span class="math inline">\(\mu_{n}\)</span> are dimensionless quantities. At the critical point <span class="math inline">\(m \rightarrow 0\)</span> and all fields <span class="math inline">\(\varphi_{n}(x)\)</span> <span class="math inline">\((n=1,2, \ldots),\)</span> but the identity operator, have zero expectation value <span class="math display">\[
+\left\langle\varphi_{n}(x)\right\rangle=0, \quad n=1,2, \ldots
+\]</span> Operator algebra. So far we have discussed the operatorial expressions that refer to a given point. Consider now the product of two fluctuating fields <span class="math inline">\(A\left(x_{1}\right) B\left(x_{2}\right)\)</span> placed at two distinct points. If their separation is much less than the correlation length <span class="math inline">\(\xi\)</span> of the system, in particular if we consider the limit <span class="math inline">\(x_{1} \rightarrow x_{2}\)</span>, it is a natural hypothesis that the properties of this composite operator become those of a local operator, so that it can be expanded in the same basis <span class="math inline">\(\varphi_{n}\)</span> given above: <span class="math display">\[
+A\left(x_{1}\right) B\left(x_{2}\right)=\sum_{k=0}^{\infty} \beta\left(x_{1}, x_{2}\right) \varphi_{k}\left(x_{2}\right)
+\]</span> where the coefficients <span class="math inline">\(\beta\left(x_{1}, x_{2}\right)\)</span> contain the dependence on the coordinates <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span>. If we specialize this relation to the case in which both <span class="math inline">\(A\left(x_{1}\right)\)</span> and <span class="math inline">\(B\left(x_{2}\right)\)</span> are themselves members of the basis, we arrive at the operator algebra <span class="math display">\[
+\varphi_{p}\left(x_{1}\right) \varphi_{q}\left(x_{2}\right)=\sum_{r=0}^{\infty} C_{p q}^{r}\left(x_{1}, x_{2}\right) \varphi_{r}\left(x_{2}\right)
+\]</span> The function <span class="math inline">\(C_{p q}^{r}\left(x_{1}, x_{2}\right)\)</span> can be further constrained. If the system is invariant under translations, it can only depend on the separation <span class="math inline">\(\left|x_{1}-x_{2}\right|\)</span> of the two points. At the critical point, the system is also invariant under the scale transformation <span class="math inline">\(x \rightarrow \lambda x\)</span> and, for the transformation law of the fields <span class="math inline">\(\varphi_{n},\)</span> it is easy to see that <span class="math inline">\(C_{p q}^{r}\left(\left|x_{1}-x_{2}\right|\right)\)</span> is a homogeneous function of degree <span class="math inline">\(d_{r}-d_{p}-d_{q} .\)</span> Hence, it can be written as <span class="math display">\[
+C_{p q}^{r}\left(x_{1}, x_{2}\right)=c_{p q}^{r} \frac{1}{\left|x_{1}-x_{2}\right|^{d_{p}+d_{q}-d_{r}}}
+\]</span> where <span class="math inline">\(c_{p q}^{r}\)</span> are pure numbers, known as the structure constants of the operator algebra.</p>
+<p>To summarize, the hypothesis of an algebra of the local fields consists of: (i) the existence of a basis made of scaling operators <span class="math inline">\(\varphi_{i}(x)\)</span> with dimensions <span class="math inline">\(d_{i}\)</span>; (ii) the validity of the operatorial algebra <span class="math display">\[
+\varphi_{p}\left(x_{1}\right) \varphi_{q}\left(x_{2}\right)=\sum_{r=0}^{\infty} c_{p q}^{r} \frac{1}{\left|x_{1}-x_{2}\right|^{d_{p}+d_{q}-d_{r}}} \varphi_{r}\left(x_{2}\right)
+\]</span> which holds at the critical point of the theory. The solution of the field theories that describe the fixed points of the renormalization group consists of finding the spectrum of the dimensions <span class="math inline">\(d_{i}\)</span> of the scaling fields, together with the set of structure constants <span class="math inline">\(c_{p q}^{r}:\)</span> once all these quantities are known, one can compute in principle any other correlation functions (see Problem 2).</p>
+<p>Some consequences. Note that there are some immediate consequences of the operator algebra: first of all, to be consistent, the algebra <span class="math inline">\((10.2 .13)\)</span> has to be associative. Consider the four-point correlation functions of the fields <span class="math inline">\(\varphi_{i}(x)\)</span> shown in Fig. 10.1 : <span class="math display">\[
+G_{i j k l}\left(x_{1}, x_{2}, x_{3}, x_{4}\right)=\left\langle\varphi_{i}\left(x_{1}\right) \varphi_{j}\left(x_{2}\right) \varphi_{k}\left(x_{3}\right) \varphi_{l}\left(x_{4}\right)\right\rangle
+\]</span> As shown in Fig. 10.2 , using the operator algebra this correlator can be computed in two equivalent ways:</p>
+<ul>
+<li>expanding the product <span class="math inline">\(\varphi_{i}\left(x_{1}\right) \varphi_{i}\left(x_{2}\right)\)</span> and then contracting the resulting field <span class="math inline">\(\varphi_{m}\left(x_{2}\right)\)</span> with the field <span class="math inline">\(\varphi_{n}\left(x_{4}\right)\)</span> that comes from an analogous expansion of the product <span class="math inline">\(\varphi_{k}\left(x_{3}\right) \varphi_{l}\left(x_{4}\right)\)</span> (with a sum over the intermediate indices <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> );</li>
+<li>alternatively, expanding the two pairs <span class="math inline">\(\varphi_{i}\left(x_{1}\right) \varphi_{k}\left(x_{3}\right)\)</span> and <span class="math inline">\(\varphi_{j}\left(x_{2}\right) \varphi_{l}\left(x_{4}\right),\)</span> with a final sum over the indices of the propagators of the resulting fields.</li>
+</ul>
+<p>The equivalence of these two procedures is known as the duality symmetry of the four-point correlation function. It corresponds to the associativity condition of the operatorial algebra and consists of the infinite number of constraints <span class="math display">\[
+\sum_{m, n} C_{i j}^{m}\left(x_{1}-x_{2}\right) D _{m, n}\left(x_{2}-x_{4}\right) C_{k l}^{n}\left(x_{3}-x_{4}\right)=\sum_{m, n} C_{i k}^{m}\left(x_{1}-x_{3}\right) D _{m, n}\left(x_{3}-x_{4}\right) C_{j l}^{n}\left(x_{2}-x_{4}\right)
+\]</span> <img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210108140656433.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>Four-point correlation functions of the scaling fields.</p>
+</blockquote>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210108140731875.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>Fig. 10.2 Duality of the four-point correlation function that corresponds to the associativity condition of the algebra (10.2.13).</p>
+</blockquote>
+<p>Using the expressions <span class="math inline">\((10.2 .7)\)</span> and <span class="math inline">\((10.2 .12),\)</span> this set of equations can be in principle enforced to determine all the scaling dimensions <span class="math inline">\(d_{i}\)</span> and the structure constants <span class="math inline">\(c_{p q}^{r}\)</span> of the algebra. For this reason they are known as conformal bootstrap equations: <span class="math inline">\(^{5}\)</span> if we were able to solve them, the dynamical data would be determined self-consistently from the theory itself. They were proposed originally by A. Polyakov as an alternative approach to solve the quantum field theories of the critical points. Unfortunately their direct solution proved to be extremely difficult and not much progress has been achieved by their analysis. An important step forward can instead be obtained by studying the important consequences of an additional symmetry of the fixed points, namely the conformal symmetry.</p>
+<h3 id="conformal-invariance">3 Conformal Invariance</h3>
+<p>At the critical point, a statistical system is invariant under a global dilatation of the length-scale, <span class="math inline">\(x \rightarrow \lambda x\)</span>. Consider now two subsystems, separated by a distance <span class="math inline">\(L\)</span> considerably larger than their linear dimension <span class="math inline">\(l\)</span> : in this case, it is obvious that the fluctuations will be more uncorrelated when the ratio <span class="math inline">\(L / l\)</span> becomes large as in Fig. 10.3 . However, near the critical point, there does not exist any length-scale and the ratio above can be made arbitrarily large. In this way we arrive at the conclusion that the two subsystems are statistically independent, i.e. that the system is not only invariant under a global dilatation but also under the local scale transformations <span class="math display">\[
+x \rightarrow \lambda(x) x
+\]</span> also called conformal transformations. The previous considerations can be formulated as a theorem, developed originally by A. Polyakov: <span class="math inline">\(^{6}\)</span> a physical system with local interactions that is invariant under translations, rotations, and a global dilatation, is also automatically invariant under the larger class of conformal transformations. Before presenting the detailed analysis of this important result, it is useful to discuss the main properties of conformal transformations.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210108140929622.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>Fig. 10.3 Subsystems of linear dimension l separated by a distance <span class="math inline">\(L \gg l\)</span>.</p>
+</blockquote>
+<p>By definition, a conformal transformation of the coordinates <span class="math inline">\(x \rightarrow x^{\prime}\)</span> is an invertible mapping that leaves invariant the metric tensor <span class="math inline">\(g_{\mu, \nu}(x)\)</span> up to a local scale factor <span class="math display">\[
+g_{\mu \nu}^{\prime}\left(x^{\prime}\right)=\Lambda(x) g_{\mu \nu}(x)
+\]</span> It is useful to characterize the infinitesimal form of such transformations: using the tensor properties of the metric <span class="math inline">\(g_{\mu, \nu}(x),\)</span> under the transformation <span class="math display">\[
+x^{\mu} \rightarrow x^{\prime \mu}=x^{\mu}+\epsilon^{\mu}(x)
+\]</span> we have <span class="math display">\[
+g_{\mu \nu} \rightarrow g_{\mu \nu} \rightarrow g_{\mu \nu}+\left(\partial_{\mu} \epsilon_{\nu}(x)+\partial_{\nu} \epsilon_{\mu}(x)\right)
+\]</span> If we now impose the conformal invariance of the metric, eqn <span class="math inline">\((10.3 .2),\)</span> we have <span class="math display">\[
+\partial_{\mu} \epsilon_{\nu}(x)+\partial_{\nu} \epsilon_{\mu}(x)=\rho(x) g_{\mu \nu}
+\]</span> where the local function <span class="math inline">\(\rho(x)\)</span> can be easily determined by taking the trace of both terms of this expression <span class="math display">\[
+\rho(x)=\frac{2}{D} \partial \cdot \epsilon
+\]</span> where <span class="math inline">\(D\)</span> is the dimension of the space. If we now take the limit of a flat euclidean space, with the usual metric <span class="math inline">\(\delta_{\mu \nu}=\operatorname{diag}(1,1, \ldots, 1),\)</span> we obtain the differential equations that characterize the infinitesimal conformal transformations <span class="math display">\[
+\partial_{\mu} \epsilon_{\nu}(x)+\partial_{\nu} \epsilon_{\mu}(x)=\frac{2}{D} \partial \cdot \epsilon \delta_{\mu \nu}
+\]</span> Note that from these equations it follows that <span class="math display">\[
+\left[\delta_{\mu \nu} \square+(D-2) \partial_{\mu} \partial_{\nu}\right] \partial \cdot \epsilon=0
+\]</span> The two previous equations imply that the third derivative of <span class="math inline">\(\epsilon\)</span> must vanish, so that <span class="math inline">\(\epsilon\)</span> can be at most a quadratic function of <span class="math inline">\(x .\)</span> Hence we have the following cases:</p>
+<ul>
+<li>If <span class="math inline">\(\epsilon\)</span> is of zero order in <span class="math inline">\(x\)</span> <span class="math display">\[
+\epsilon^{\mu}=a^{\mu}
+\]</span> we recover the usual translation transformations.</li>
+<li>If <span class="math inline">\(\epsilon\)</span> is of first order in <span class="math inline">\(x\)</span>, there are two different situations: <span class="math display">\[
+\epsilon^{\mu}=\omega^{\mu \nu} x^{\nu}
+\]</span> with <span class="math inline">\(\omega^{\mu \nu}\)</span> an antisymmetric tensor <span class="math inline">\(\omega^{\mu \nu}=-\omega^{\nu \mu},\)</span> or <span class="math display">\[
+\epsilon^{\mu}=\lambda x^{\nu}
+\]</span> The first case corresponds to rotations while the second one is associated to the global dilatation.</li>
+<li>When <span class="math inline">\(\epsilon\)</span> is a quadratic function of <span class="math inline">\(x\)</span> one has <span class="math display">\[
+\epsilon^{\mu}=b^{\mu} x^{2}-2 x^{\mu} b \cdot x
+\]</span> Its finite form gives rise to the so-called special conformal transformation <span class="math display">\[
+\frac{x^{\prime \mu}}{x^{\prime 2}}=\frac{x^{\mu}}{x^{2}}+b^{\mu}
+\]</span> This can be interpreted as the result of an inversion plus a translation. Since in <span class="math inline">\(D\)</span> -dimensional euclidean space there are <span class="math inline">\(D\)</span> translation axes and <span class="math inline">\(D(D-1) / 2\)</span> possible rotations, it is easy to see that the set of all conformal transformations forms a group, with the number of generators equal to <span class="math display">\[
+\frac{(D+1)(D+2)}{2}
+\]</span> All these transformations can be characterized by a very simple geometrical property: they translate, rotate, or stretch the vectors placed at a given point but leave invariant their relative angle.</li>
+</ul>
+<p>Constraints on correlation functions. It is instructive to study the constraints on the functional form of the scalar functions <span class="math inline">\(G\left(x_{1}, \ldots, x_{N}\right)\)</span> that are conformally invariant. To be invariant under translations and rotations, these functions can only depend on the relative distances <span class="math inline">\(\left|x_{i}-x_{j}\right| .\)</span> Furthermore, to be invariant under a dilatation, the dependence on the distances can only be through their ratio, such as <span class="math display">\[
+\frac{\left|x_{i}-x_{j}\right|}{\left|x_{k}-x_{l}\right|}
+\]</span> Since under the special conformal transformation <span class="math inline">\((10.3 .11)\)</span> we have <span class="math display">\[
+\left|x_{i}^{\prime}-x_{j}^{\prime}\right|=\frac{\left|x_{i}-x_{j}\right|}{\left(1+2 b \cdot x_{i}+b^{2} x_{i}^{2}\right)\left(1+2 b \cdot x_{j}+b^{2} x_{j}^{2}\right)}
+\]</span> it is evident that, for <span class="math inline">\(N \leq 3,\)</span> it is impossible to define conformally invariant transformations of the distances and therefore, in this case, the only conformally invariant functions with <span class="math inline">\(N \leq 3\)</span> variables are only the constants. On the contrary, for <span class="math inline">\(N \geq 4,\)</span> by using four different points, we can define the so-called harmonic ratios <span class="math display">\[
+R_{i k m n} \equiv \frac{\left|x_{i}-x_{k}\right|\left|x_{m}-x_{n}\right|}{\left|x_{i}-x_{m}\right|\left|x_{k}-x_{n}\right|}
+\]</span> These quantities are invariant under all conformal transformations. For <span class="math inline">\(N\)</span> points the number of independent harmonic ratios is <span class="math inline">\(N(N-3) / 2\)</span> and any arbitrary function of them is consequently conformally invariant.</p>
+<h4 id="polyakovs-theorem">3.2 Polyakov's Theorem</h4>
+<p>Let us now present the theorem due to Polyakov on the conformal symmetry of physical systems with local interactions that are invariant under translations, rotations, and a global dilatation. Its proof is simple.</p>
+<p>Due to the locality of the theory, there exists a local field <span class="math inline">\(T_{\mu \nu}(x),\)</span> called the stressenergy tensor, <span class="math inline">\({ }^{7}\)</span> defined by the variation of the local action <span class="math inline">\(S[\varphi]\)</span> under the transformation <span class="math inline">\((10.3 .3)\)</span> <span class="math display">\[
+\delta S=\frac{1}{(2 \pi)^{D-1}} \int d^{D} x T_{\mu \nu}(x) \partial^{\mu} \epsilon^{\nu}(x)
+\]</span> Let's derive the equations fulfilled by the stress-energy tensor for the conformal invariance of the theory, expressed by the condition <span class="math inline">\(\delta S=0\)</span>. The translation invariance implies the conservation law <span class="math display">\[
+\partial_{\mu} T^{\mu \nu}(x)=0
+\]</span> obtained by integrating eqn (10.3.14) by parts and using the invariance of <span class="math inline">\(S\)</span> under an arbitrary variation of the parameter <span class="math inline">\(a^{\mu}\)</span> in the expression <span class="math inline">\((10.3 .7)\)</span> for <span class="math inline">\(\epsilon\)</span>. The rotational invariance implies that the stress-energy tensor is symmetric with respect to its indices <span class="math display">\[
+T^{\mu \nu}(x)=T^{\nu \mu}(x)
+\]</span> as can be seen by substituting in eqn (10.3.14) the transformation (10.3.8). The invariance under dilatation, given by the transformation <span class="math inline">\((10.3 .9),\)</span> finally leads to a zero trace condition <span class="math display">\[
+T_{\mu}^{\mu}(x)=0
+\]</span> In view of eqns <span class="math inline">\((10.3 .15),(10.3 .16),\)</span> and <span class="math inline">\((10.3 .17),\)</span> the action is automatically invariant under the conformal transformations that satisfy eqn <span class="math inline">\((10.3 .5)\)</span>.</p>
+<h3 id="quasi-primary-fields">4 Quasi-Primary Fields</h3>
+<p>The conformal invariance of a statistical system at a critical point permits us to prove a series of important results on the correlation functions of a special class of its operators. These operators are called quasi-primary and in this section they will be denoted as <span class="math inline">\(Q_{n}(x) .\)</span> They have the property of transforming under a generic conformal mapping as <span class="math display">\[
+Q_{n}(x)=\left|\frac{\partial x^{\prime}}{\partial x}\right|^{d_{n} / D} Q_{n}\left(x^{\prime}\right)
+\]</span> where <span class="math inline">\(\left|\frac{\partial x^{\prime}}{\partial x}\right|\)</span> is the Jacobian of the mapping. For the transformations associated to the translations and rotations we have <span class="math display">\[
+\left|\frac{\partial x^{\prime}}{\partial x}\right|=1
+\]</span> while for the dilatation and the special conformal transformations we have, respectively, <span class="math display">\[
+\left|\frac{\partial x^{\prime}}{\partial x}\right|=\lambda^{D}, \quad\left|\frac{\partial x^{\prime}}{\partial x}\right|=\frac{1}{\left(1+2 b \cdot x+b^{2} x^{2}\right)^{D}}
+\]</span> The transformation law <span class="math inline">\((10.4 .1)\)</span> of the primary fields is obviously more specific than the simple scaling law <span class="math inline">\((10.2 .5)\)</span> and therefore it imposes more restrictive conditions on the correlation functions of these fields. They satisfy the equation <span class="math display">\[
+\left\langle Q_{1}\left(x_{1}\right) Q_{2}\left(x_{2}\right) \ldots Q_{n}\left(x_{n}\right)\right\rangle=\left|\frac{\partial x^{\prime}}{\partial x}\right|_{x=x_{1}}^{d_{1} / D} \cdots\left|\frac{\partial x^{\prime}}{\partial x}\right|_{x=x_{n}}^{d_{1} / D}\left\langle Q_{1}\left(x_{1}^{\prime}\right) Q_{2}\left(x_{2}^{\prime}\right) \ldots Q_{n}\left(x_{n}^{\prime}\right)\right\rangle
+\]</span> Let us consider the two-point correlation functions <span class="math display">\[
+G_{a b}^{(2)}\left(x_{1}, x_{2}\right)=\left\langle Q_{a}\left(x_{1}\right) Q_{b}\left(x_{2}\right)\right\rangle
+\]</span> Due to the translation and rotational invariance, it depends on the relative distance <span class="math inline">\(\left|x_{1}-x_{2}\right| .\)</span> The dilatation invariance implies that <span class="math inline">\(G_{a b}^{(2)}\)</span> behaves as <span class="math inline">\(\left|x_{1}-x_{2}\right|^{-d_{a}-d_{b}}\)</span> Finally, using the invariance under the special conformal transformation (10.3.11), we arrive at the condition <span class="math display">\[
+\delta G_{a b}^{(2)}=-\left[d_{a}\left(b \cdot x_{1}\right)+d_{b}\left(b \cdot x_{2}\right)\right] G_{a b}^{(2)}
+\]</span> This implies that <span class="math inline">\(G_{a b}^{(2)}\left(\left|x_{1}-x_{2}\right|\right)\)</span> is different from zero only when <span class="math inline">\(d_{a}=d_{b} .\)</span> Hence, the two-point correlation functions of the quasi-primary fields satisfy an orthogonality condition. By an appropriate normalization of these fields, their general expression is then <span class="math display">\[
+\left\langle Q_{a}\left(x_{1}\right) Q_{b}\left(x_{2}\right)\right\rangle=\frac{\delta_{a b}}{\left|x_{1}-x_{2}\right|^{2 d_{a}}}
+\]</span> Consider now the three-point correlation functions of the quasi-primary fields <span class="math display">\[
+G_{a b c}^{(3)}\left(x_{1}, x_{2}, x_{3}\right)=\left\langle Q_{a}\left(x_{1}\right) Q_{b}\left(x_{2}\right) Q_{c}\left(x_{3}\right)\right\rangle
+\]</span> As usual, the invariance under translations and rotations implies that this correlator depends on the relative distances <span class="math inline">\(x_{i j} \equiv\left|x_{i}-x_{j}\right|(i, j=1,2,3) .\)</span> The invariance under the infinitesimal transformations of eqn (10.3.11) gives rise to the homogeneous equations <span class="math display">\[
+\frac{1}{2} \sum_{i&lt;j} x_{i j} \frac{\partial G^{(3)}}{\partial x_{i j}}\left[\left(b \cdot x_{i}\right)+\left(b \cdot x_{j}\right)\right]=-\sum_{i} d_{i}\left(b \cdot x_{i}\right) G^{(3)}
+\]</span> whose solution is given by <span class="math display">\[
+\left\langle Q_{a}\left(x_{1}\right) Q_{b}\left(x_{2}\right) Q_{c}\left(x_{3}\right)\right\rangle=\frac{C_{a b c}}{x_{12}^{d_{3}-d_{1}-d_{2}} x_{13}^{d_{2}-d_{1}-d_{3}} x_{23}^{d_{1}-d_{2}-d_{3}}}
+\]</span> The numerical constant <span class="math inline">\(C_{a b c}\)</span> cannot be fixed by the conformal invariance. However, using the orthogonality condition <span class="math inline">\((10.4 .5),\)</span> it is easy to see that it coincides with the structure constant <span class="math inline">\(c_{a b c}\)</span> of the algebra <span class="math inline">\((10.2 .13),\)</span> relative to these three fields.</p>
+<p>In conclusion, thanks to the conformal invariance, one can determine the exact expression of the two- and three-point correlation functions of the quasi-primary operators. The same is not true for the higher point correlation functions. In this case, in fact, the <span class="math inline">\(N\)</span> -point correlation functions can have an arbitrary dependence on the <span class="math inline">\(N(N-3) / 2\)</span> harmonic ratios. For instance, the general form of the four-point function can be expressed as <span class="math display">\[
+G^{(4)}\left(x_{1}, x_{2}, x_{3}, x_{4}\right)=F\left(\frac{x_{12} x_{34}}{x_{13} x_{24}}, \frac{x_{12} x_{34}}{x_{23} x_{41}}\right) \prod_{i&lt;j} x_{i j}^{-\left(d_{i}+d_{j}\right)+d / 2}
+\]</span> with <span class="math inline">\(d=\sum_{i=1}^{4} d_{i}\)</span> whereas <span class="math inline">\(F\)</span> is an arbitrary function of the two independent harmonic ratios. For <span class="math inline">\(D \neq 2\)</span> and in the absence of additional information, the explicit expression of <span class="math inline">\(F\)</span> cannot be determined. As we will see in the next sections, this goal can, however, be achieved when <span class="math inline">\(D=2\)</span>.</p>
+<h3 id="two-dimensional-conformal-transformations">5 Two-dimensional Conformal Transformations</h3>
+<p>Let's consider in more detail the conformal transformations in a euclidean space when <span class="math inline">\(D=2 .\)</span> In this case, something remarkable happens: in fact, eqns <span class="math inline">\((10.3 .5)\)</span> become <span class="math display">\[
+\partial_{1} \epsilon_{1}=\partial_{2} \epsilon_{2}, \quad \partial_{1} \epsilon_{2}=-\partial_{2} \epsilon_{1}
+\]</span> i.e. the Cauchy-Riemann conditions relative to the functions of a complex variable! In other words, if we introduce the notation <span class="math display">\[
+\begin{array}{l}
+\epsilon(z)=\epsilon_{1}+i \epsilon_{2} \\
+\bar{\epsilon}(\bar{z})=\epsilon_{1}-i \epsilon_{2}
+\end{array}
+\]</span> and consider the new variables <span class="math display">\[
+z=x_{1}+i x_{2}
+\]</span> <span class="math display">\[
+\bar{z}=x_{1}-i x_{2}
+\]</span> in two dimensions the conformal transformations coincide with the analytic mappings of the complex plane <span class="math display">\[
+z \rightarrow f(z), \quad \bar{z} \rightarrow \bar{f}(\bar{z})
+\]</span> <img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210108141534767.png" srcset="/img/loading.gif" /></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CFT/">CFT</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/07/CMP_120_HeavyFermions/">
+                        <span class="hidden-mobile">从现在的角度看 重费米子和近藤晶格</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "共形场论&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
