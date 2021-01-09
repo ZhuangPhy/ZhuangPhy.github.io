@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>数理基础书籍整理 - JPZ</title>
+  <title>非平衡格林函数下的输运理论 - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -153,8 +153,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2018-05-24 14:23">
-      May 24, 2018 pm
+    <time datetime="2016-09-27 15:23">
+      September 27, 2016 pm
     </time>
   </div>
 
@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      656 字
+      625 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11
+      8
        分钟
     </span>
   
@@ -206,131 +206,76 @@
             
             <article class="markdown-body">
               <p>[TOC]</p>
-<blockquote>
-<p>以前看了很多书籍推荐来选择学习用书。这么多年过去了，是不是该回首看看这些书给我的真实感受呢？</p>
-</blockquote>
-<h3 id="多体场论">多体场论</h3>
+<h3 id="section"></h3>
+<h2 id="模型">1 模型</h2>
+<h3 id="哈密顿量">哈密顿量</h3>
+<p>有一个中心散射区, 连接着几根导线. 这一系统的哈密顿 量写为 <span class="math display">\[
+H=\sum_{\beta} H_{\beta}+H_{ C }+H_{ T }
+\]</span> 这一哈密顿基包含三部分.</p>
+<h4 id="第一部分">第一部分</h4>
+<p>第一部分表示<strong>导线</strong>. 下标 <span class="math inline">\(\beta\)</span> 标记第 <span class="math inline">\(\beta\)</span> 根导线. <span class="math display">\[
+H_{\beta}=H_{\beta 1}+H_{\beta 2}+H_{\beta 3}
+\]</span></p>
 <ol type="1">
-<li><a href="https://book.douban.com/subject/11530550/" target="_blank" rel="noopener">《Introduction to Many-Body Physics》</a> Piers Coleman</li>
-<li><a href="https://book.douban.com/subject/12043231/" target="_blank" rel="noopener">《Field Theories of Condensed Matter Physics》</a> Eduardo Fradkin</li>
-<li><a href="https://book.douban.com/subject/10749409/" target="_blank" rel="noopener">《多体系统的量子场论》</a> 文小刚</li>
-<li><a href="https://book.douban.com/subject/30165819/" target="_blank" rel="noopener">《Quantum Field Theory and Condensed Matter》</a> Shankar</li>
-<li><a href="https://book.douban.com/subject/4730467/" target="_blank" rel="noopener">《Many Particle Physics》</a> Gerald D. Mahan</li>
-<li><a href="https://book.douban.com/subject/4125896/" target="_blank" rel="noopener">《Condensed Matter Field Theory》</a> Alexander Altland / Ben D. Simons</li>
-<li><a href="https://book.douban.com/subject/30482579/" target="_blank" rel="noopener">《Modern condensed matter physics》</a> Steven M. Girvin / Kun Yang 2019</li>
+<li>第一项：导线</li>
 </ol>
-<h3 id="统计力学">统计力学</h3>
-<ol type="1">
-<li><a href="https://book.douban.com/subject/2882921/" target="_blank" rel="noopener">《Statistical Physics of Fields》</a> Kardar</li>
-<li><a href="https://book.douban.com/subject/2040020/" target="_blank" rel="noopener">《Quantum Phase Transitions》</a> Subir Sachdev</li>
-<li><a href="https://book.douban.com/subject/27619837/" target="_blank" rel="noopener">《临界现象的现代理论》</a> 马上庚</li>
-</ol>
-<h3 id="量子力学">量子力学</h3>
-<ol type="1">
-<li><a href="https://book.douban.com/subject/25954720/" target="_blank" rel="noopener">《量子力学》三卷</a> Cohen-Tannoudji</li>
-<li><a href="https://book.douban.com/subject/2187612/" target="_blank" rel="noopener">《Principles of Quantum Mechanics》</a> Shankar</li>
-</ol>
-<h3 id="拓扑">拓扑</h3>
-<ol type="1">
-<li>《Topological Insulators: Fundamentals and Perspectives》 Frank Ortmann</li>
-<li>《Topological Insulators Dirac Equation in Condensed Matters》 Shun-Qing Shen</li>
-<li>《Berry Phases in Electronic Structure Theory Electric Polarization, Orbital Magnetization and Topological Insulators 》 David Vanderbilt</li>
-<li>《A Short Course on Topological Insulators: Band Structure and Edge States in One and Two Dimensions》 János K. Asbóth</li>
-<li>《Topological insulators and topological superconductors 》B. Andrei Bernevig with Taylor L. Hughes.</li>
-<li><a href="https://topocondmat.org/" target="_blank" rel="noopener">Topology in Condensed matter</a></li>
-</ol>
-<h3 id="格林函数">格林函数</h3>
-<ol type="1">
-<li><a href="https://book.douban.com/subject/3072476/" target="_blank" rel="noopener">《凝聚态物理的格林函数理论》</a> 王怀玉 2008</li>
-<li><a href="https://book.douban.com/subject/10237120/" target="_blank" rel="noopener">《Green's Functions for Solid State Physics》</a> Doniach 1998</li>
-<li><a href="https://book.douban.com/subject/2862268/" target="_blank" rel="noopener">《Green's Functions in Quantum Physics》</a> Eleftherios N. Economou 2006</li>
-<li><a href="https://github.com/jiyanjiang" target="_blank" rel="noopener">《量子统计的格林函数理论》</a> 季燕江</li>
-</ol>
-<h3 id="几何">几何</h3>
-<ol type="1">
-<li><a href="https://book.douban.com/subject/1220147/" target="_blank" rel="noopener">《曲线与曲面的微分几何》</a> Manfredo Do Carmo</li>
-<li><a href="https://book.douban.com/subject/1768683/" target="_blank" rel="noopener">《Geometry, Topology and Physics》</a> Mikio Nakahara</li>
-<li><a href="https://book.douban.com/subject/2234922/" target="_blank" rel="noopener">《现代几何学》三卷</a> 杜布洛文 / С. П. 诺维可夫 / А. Т. 福明柯</li>
-<li><a href="https://book.douban.com/subject/30158718/" target="_blank" rel="noopener">《微分几何》</a> 陈维桓</li>
-</ol>
-<h3 id="超导">超导</h3>
-<ol type="1">
-<li><a href="https://book.douban.com/subject/2874066/" target="_blank" rel="noopener">《Superconductivity Of Metals And Alloys》</a> P. G. De Gennes</li>
-</ol>
-<h3 id="非平衡态">非平衡态</h3>
-<ol type="1">
-<li><a href="https://book.douban.com/subject/12043253/" target="_blank" rel="noopener">《Nonequilibrium Many-Body Theory of Quantum Systems》</a> Stefanucci, Gianluca; Van Leeuwen, Robert; 2013</li>
-</ol>
-<h3 id="强关联">强关联</h3>
+<p><span class="math display">\[
+H_{\beta 1}=\sum_{k \sigma} \varepsilon_{\beta k \sigma}^{0} a_{\beta k \sigma}^{\dagger} a_{\beta k \sigma}
+\]</span></p>
+<p>其中</p>
 <ul>
-<li>《Strongly Correlated Systems: TherereticilMethod》Adolfo Avella
-<ol type="1">
-<li>Density Functional Theory: A Personal View</li>
-<li>Projected Wavefunctions and High <span class="math inline">\(T_{ c }\)</span> Superconductivity in Doped Mott Insulators</li>
-<li>The Pseudoparticle Approach to Strongly Correlated Electron Systems.</li>
-<li>The Composite Operator Method (COM)</li>
-<li>LDA +GTB Method for Band Structure Calculations in the Strongly Correlated Materials.</li>
-<li>Projection Operator Method</li>
-<li>Dynamical Mean-Field Theory.</li>
-<li>Cluster Perturbation Theory</li>
-<li>Dynamical Cluster Approximation</li>
-<li>Self-Energy-Functional Theory</li>
-<li>Cluster Dynamical Mean Field Theory</li>
-<li>Functional Renormalization Group for Interacting Many-Fermion Systems on Two-Dimensional Lattices</li>
-<li>Two-Particle-Self-Consistent Approach for the Hubbard Model</li>
-</ol></li>
-<li>《Strongly Correlated Systems Numerical Methods》Adolfo Avella
-<ol type="1">
-<li>Ground State and Finite Temperature Lanczos Methods</li>
-<li>The Density Matrix Renormalization Group</li>
-<li>Matrix Product State Algorithms: DMRG, TEBD and Relatives.</li>
-<li>Quantum Criticality with the Multi-scale Entanglement Renormalization Ansatz</li>
-<li>The Time-Dependent Density Matrix Renormalization Group</li>
-<li>Loop Algorithm.</li>
-<li>Stochastic Series Expansion Quantum Monte Carlo.</li>
-<li>Variational Monte Carlo and Markov Chains for Computational Physics</li>
-<li>Coupled Cluster Theories for Strongly Correlated Molecular Systems</li>
-<li>Diagrammatic Monte Carlo and Worm Algorithm Techniques.</li>
-<li>Fermionic and Continuous Time Quantum Monte Carlo</li>
-</ol></li>
-<li>《Computational Many-Particle Physics》H. Fehske
-<ol type="1">
-<li>Molecular Dynamics</li>
-<li>Classical Monte Carlo</li>
-<li>Kinetic Modelling</li>
-<li>Semiclassical Approaches</li>
-<li>Ouantum Monte Carlo</li>
-<li>Ab-Initio Methods in Physics and Chemistry</li>
-<li>Effective Field Approaches</li>
-<li>Iterative Methods for Sparse Eigenvalue Problems</li>
-<li>The Density Matrix Renormalisation Group:</li>
-<li>Concepts of High Performance Computing</li>
-</ol></li>
+<li>紧束缚哈密顿量经过傅里叶变换成为波矢空间的形式. 在波矢空间, 它是对角化的.</li>
+<li>下标 <span class="math inline">\(\sigma\)</span> 表示电子的自旋. 如果是铁磁性的导线, 自旋朝上和朝下的能级不同.</li>
 </ul>
-<h3 id="系列">系列</h3>
-<ol type="1">
-<li>Fundamentals of the Physics of Solids
+<ol start="2" type="1">
+<li>第二项：外场</li>
+</ol>
+<p><span class="math display">\[
+H_{\beta 2}=\sum_{ k \sigma} V_{\beta}(t) a_{\beta k \sigma}^{\dagger} a_{\beta k \sigma}
+\]</span></p>
+<p>其中</p>
 <ul>
-<li>Volume 1: Structure and Dynamics</li>
-<li>Volume 2: Electronic Properties</li>
-<li>Volume 3: Normal, Broken-Symmetry, and Correlated Systems</li>
-</ul></li>
+<li>因为外加直流偏压和附加含时<strong>外场</strong> <span class="math inline">\(V_{\beta}(t)\)</span> 引起的单粒子能级的移动.</li>
+<li>注意, 在外场下, 系统处于非平衡态.</li>
+</ul>
+<ol start="3" type="1">
+<li>第三项：超导导线</li>
 </ol>
-<h3 id="矩阵">矩阵</h3>
-<ol type="1">
-<li>《矩阵论》方保镕</li>
-<li>《矩阵计算》Gene H. Golub</li>
-</ol>
-<h3 id="动力学微分方程">动力学微分方程</h3>
-<ol type="1">
-<li>《微分方程、动力系统与混沌导论》</li>
-<li>《Dynamical Systems with Applications using Python》</li>
-<li>《Dynamical Systems with Applications using Matlab》</li>
-</ol>
-<h3 id="参考">参考</h3>
-<ol type="1">
-<li><a href="https://www.douban.com/doulist/38034409/?start=0&amp;sort=seq&amp;playable=0&amp;sub_type=" target="_blank" rel="noopener">凝聚态理论代表性书籍</a></li>
-</ol>
+<p><span class="math display">\[
+H_{\beta 3}=\sum_{k}\left[\Delta_{\beta}(t) a_{\beta k \uparrow}^{\dagger} a_{\beta,-k \downarrow}^{\dagger}+ h.c. \right]
+\]</span></p>
+<p>其中</p>
+<ul>
+<li>表示导线是超导的.</li>
+</ul>
+<p>随着时间变化的超导能隙函数 <span class="math display">\[
+\Delta_{\beta}(t)=\Delta_{\beta}^{0} e ^{- i \phi_{\beta}} \exp \left[-2 i \int_{0}^{t} d t_{1} V_{\beta}\left(t_{1}\right)\right]
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\Delta_{\beta}^{0}\)</span> 为 <span class="math inline">\(\beta\)</span> 导线的超导能隙</li>
+<li><span class="math inline">\(e ^{- i \phi_{\beta}}\)</span> 为超导相因子</li>
+<li>是含时因子 <span class="math inline">\(\exp \left[-2 i \int_{0}^{t} d t_{1} V_{\beta}\left(t_{1}\right)\right]\)</span> 起源于超导序参量 <span class="math inline">\(\left\langle a_{\beta k \uparrow}^{\dagger} a_{\beta,-k \downarrow}^{\dagger}\right\rangle\)</span> 的含时部分</li>
+</ul>
+<h4 id="第二部分">第二部分</h4>
+<p><span class="math inline">\(H_{ C }\)</span> 代表中心散射区, 它由若干带有自旋的格点构成. 其中可以包含格点间的</p>
+<ul>
+<li>跃迁</li>
+<li>电子 - 电子间相互作用等,</li>
+</ul>
+<p>因此能够描写一大类介观结构, 如</p>
+<ul>
+<li>量子点、</li>
+<li>量子点阵、</li>
+<li>碳纳米管、</li>
+<li>有机分子等.</li>
+</ul>
+<p>中心区的产生和潘没算符用 <span class="math inline">\(c\)</span> 表示. 我们先笠统地 把中心散射区的哈密顿量写为 <span class="math display">\[
+H_{ C }=H_{ C }\left[\left\{c_{i \sigma}, c_{i \sigma}^{\dagger}\right\}\right]
+\]</span> 其中的下标 <span class="math inline">\(i\)</span> 可以是标记中心区的能级, 也可能是格点.</p>
+<p><span class="math inline">\(H_{T}\)</span> 是中心区与电极导线之间的隧穿耦合 <span class="math display">\[
+H_{ T }=\sum_{\beta i k \sigma}\left[v_{\beta i k \sigma}^{0} a_{\beta k \sigma}^{\dagger} c_{i \sigma}+ h.c. \right]
+\]</span> 其中隧穿矩阵元 <span class="math inline">\(v_{\beta i k \sigma}^{0}\)</span> 可以带有一个复相位, 即它可以是复数.</p>
+<h3 id="幺正变换">幺正变换</h3>
 
             </article>
             <hr>
@@ -340,7 +285,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/">Fields of Quantum ManyBody</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/Green-Function/">Green Function</a>
                     
                   </div>
                 
@@ -348,9 +295,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/introduction/">introduction</a>
+                      <a class="hover-with-bg" href="/tags/Green-Function/">Green Function</a>
                     
-                      <a class="hover-with-bg" href="/tags/Book/">Book</a>
+                      <a class="hover-with-bg" href="/tags/Transport/">Transport</a>
                     
                   </div>
                 
@@ -363,9 +310,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2018/06/12/CMP_101_Fermi_Liquid/">
+                      <a href="/2016/11/01/topology01_Introduction/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">费米液体(2/4)：现象法</span>
+                        <span class="hidden-mobile">Topology in Condensed matter Physics</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -373,8 +320,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2018/04/10/CMP_070_BdG/">
-                        <span class="hidden-mobile">BdG equations in tight-binding Model</span>
+                      <a href="/2016/09/27/Ftmb_green_05sc/">
+                        <span class="hidden-mobile">超导的格林函数解法</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -513,7 +460,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "数理基础书籍整理&nbsp;",
+        "非平衡格林函数下的输运理论&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
