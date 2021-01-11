@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>Naive Lie theory - JPZ</title>
+  <title>二维拓扑Larkin-Ovchinnikov相 - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -153,8 +153,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-03-15 17:23">
-      March 15, 2020 pm
+    <time datetime="2020-03-18 13:23">
+      March 18, 2020 pm
     </time>
   </div>
 
@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      764 字
+      899 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      10
        分钟
     </span>
   
@@ -205,63 +205,52 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>[TOC]</p>
-<h4 id="geometric-met-algebraic">geometric met algebraic</h4>
-<p>When the plane is viewed as the plane <span class="math inline">\(\mathbb{C}\)</span> of complex numbers, <strong>rotation</strong> about <span class="math inline">\(O\)</span> through angle <span class="math inline">\(\theta\)</span> is the same as multiplication by the number <span class="math display">\[
-e^{i \theta}=\cos \theta+i \sin \theta
-\]</span> The <strong>set</strong> of all such numbers is the unit circle or 1 - dimensional sphere <span class="math display">\[
-\mathbb{S}^{1}=\{z:|z|=1\}
-\]</span> Thus <span class="math inline">\(\mathbb{S}^{1}\)</span> is not only a geometric object, but also an algebraic structure;</p>
-<pre><code class="hljs pgsql"><span class="hljs-keyword">not</span> <span class="hljs-keyword">only</span> a geometric <span class="hljs-keyword">object</span>, but <span class="hljs-keyword">also</span> an algebraic structure</code></pre>
-<h4 id="simplest-example-of-lie-group">simplest example of Lie group</h4>
-<p>in this case a group, under the operation of complex number multiplication. Moreover, the multiplication operation <span class="math inline">\(e^{i \theta_{1}} \cdot e^{i \theta_{2}}=e^{i\left(\theta_{1}+\theta_{2}\right)},\)</span> and the inverse operation <span class="math inline">\(\left(e^{i \theta}\right)^{-1}=e^{i(-\theta)},\)</span> depend <strong>smoothly</strong> on the parameter <span class="math inline">\(\theta .\)</span> This makes <span class="math inline">\(\mathbb{S}^{1}\)</span> an example of what we call a Lie group.</p>
-<h4 id="interesting-example-of-lie-group-mathrmsu2">interesting example of Lie group <span class="math inline">\(\mathrm{SU}(2)\)</span></h4>
-<p>To obtain a more interesting Lie group, we define the four-dimensional algebra of quaternions (四元数) and the three-dimensional sphere <span class="math inline">\(S^{3}\)</span> of unit quaternions.</p>
-<blockquote>
-<p>Under quaternion multiplication, <span class="math inline">\(S^{3}\)</span> is a noncommutative Lie group known as <span class="math inline">\(\mathrm{SU}(2),\)</span> closely related to the group of <strong>space rotations.</strong></p>
-</blockquote>
-<h3 id="rotations-of-the-plane">Rotations of the plane</h3>
-<h4 id="represent-geometric-by-algebraic">represent geometric by algebraic</h4>
-<p>A rotation of the plane <span class="math inline">\(\mathbb{R}^{2}\)</span> about the origin <span class="math inline">\(O\)</span> through angle <span class="math inline">\(\theta\)</span> is a linear transformation <span class="math inline">\(R_{\theta}\)</span> that sends the basis vectors <span class="math inline">\((1,0)\)</span> and <span class="math inline">\((0,1)\)</span> to <span class="math inline">\((\cos \theta,\)</span> <span class="math inline">\(\sin \theta) \text { and }(-\sin \theta, \cos \theta)\)</span></p>
-<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200315112938278.png" srcset="/img/loading.gif" alt="image-20200315112938278" style="zoom: 33%;" /></p>
-<p>It follows by linearity that <span class="math inline">\(R_{\theta}\)</span> sends the general vector <span class="math display">\[
-(x, y)=x(1,0)+y(0,1) \quad \text { to } \quad(x \cos \theta-y \sin \theta, x \sin \theta+y \cos \theta)
-\]</span> and that <span class="math inline">\(R_{\theta}\)</span> is represented by the matrix <span class="math display">\[
-\left(\begin{array}{cc}
-\cos \theta &amp; -\sin \theta \\
-\sin \theta &amp; \cos \theta
-\end{array}\right)
-\]</span> We also call this matrix <span class="math inline">\(R_{\theta}\)</span>. Then applying the rotation to <span class="math inline">\((x, y)\)</span> is the same as multiplying the column vector <span class="math inline">\(\left(\begin{array}{l}x \\ y\end{array}\right)\)</span> on the left by matrix <span class="math inline">\(R_{\theta},\)</span> because <span class="math display">\[
-R_{\theta}\left(\begin{array}{l}
-x \\
-y
-\end{array}\right)=\left(\begin{array}{cc}
-\cos \theta &amp; -\sin \theta \\
-\sin \theta &amp; \cos \theta
-\end{array}\right)\left(\begin{array}{l}
-x \\
-y
-\end{array}\right)=\left(\begin{array}{l}
-x \cos \theta-y \sin \theta \\
-x \sin \theta+y \cos \theta
-\end{array}\right)
-\]</span> since we apply matrices from the left, applying <span class="math inline">\(R_{\varphi}\)</span> then <span class="math inline">\(R_{\theta}\)</span> is the same as applying the <strong>product matrix</strong> <span class="math inline">\(R_{\theta} R_{\varphi} .\)</span> (Admittedly, this matrix happens to equal <span class="math inline">\(R_{\varphi} R_{\theta}\)</span> because both equal <span class="math inline">\(R_{\theta+\varphi} .\)</span> But when we come to space rotations the order of the matrices will be important.)</p>
-<p>Thus we can represent the <strong>geometric operation</strong> of combining successive rotations by the <strong>algebraic operation</strong> of multiplying matrices.</p>
-<p class="note note-primary">
-represent the geometric operation of combining successive rotations by the algebraic operation of multiplying matrices
-</p>
-<p>The <strong>main aim of this book</strong> is to generalize this idea, that is</p>
-<p class="note note-primary">
-to study groups of linear transformations by representing them as matrix groups.
-</p>
-<h4 id="smoothness-of-matrix-group-so2">smoothness of matrix group SO(2)</h4>
-<p>For the moment one can view a <strong>matrix group</strong> as a set of matrices that includes, along with any two members <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the matrices <span class="math inline">\(A B, A^{-1},\)</span> and <span class="math inline">\(B^{-1}\)</span>. Later (in Section 7.2 ) we impose an <strong>extra condition</strong> that ensures "<strong>smoothness</strong>" of matrix groups, but <strong>the precise</strong> meaning of smoothness need not be considered yet. For those who cannot wait to see a definition, we give one in the subsection below - but be warned that its meaning will not become completely clear until Chapters 7 and 8 .</p>
-<blockquote>
-<p>The matrices <span class="math inline">\(R_{\theta},\)</span> for all angles <span class="math inline">\(\theta,\)</span> form a group called the <strong>special orthogonal</strong> group SO(2).</p>
-</blockquote>
-<p>The reason for calling rotations "orthogonal transformations" will emerge in Chapter <span class="math inline">\(3,\)</span> where we generalize the idea of rotation to the <span class="math inline">\(n\)</span> -dimensional space <span class="math inline">\(\mathbb{R}^{n}\)</span> and define a group <span class="math inline">\(\mathrm{SO}(n)\)</span> for each dimension <span class="math inline">\(n .\)</span> In this chapter we are concerned mainly with the groups <span class="math inline">\(\mathrm{SO}(2)\)</span> and <span class="math inline">\(\mathrm{SO}(3),\)</span> which are typical in some ways, but also exceptional in having an alternative description in terms of higher-dimensional "numbers." Each rotation <span class="math inline">\(R_{\theta}\)</span> of <span class="math inline">\(\mathbb{R}^{2}\)</span> can be represented by the complex number <span class="math display">\[
-z_{\theta}=\cos \theta+i \sin \theta
-\]</span> because if we multiply an arbitrary point <span class="math inline">\((x, y)=x+i y\)</span> by <span class="math inline">\(z_{\theta}\)</span> we get</p>
+              <p>参考文献</p>
+<ul>
+<li>《拓扑态的理论研究》</li>
+<li><a href="https://arxiv.org/pdf/1708.00600.pdf" target="_blank" rel="noopener">Topological Larkin-Ovchinnikov phase and Majorana zero mode chain in bilayer superconducting topological insulator films</a></li>
+</ul>
+<p>[TOC]</p>
+<h2 id="电子输运性质的研究历史">电子输运性质的研究历史</h2>
+<p>在凝聚态物理中，磁性和 超导是两个非常基本的问题。并且两者之间的相互作用会导致有趣的结果。与普通的BCS超导理论不一样，磁性可以诱导出带有<strong>有限动量的超导配对</strong>。</p>
+<ul>
+<li>配对函数中，如果带有一个动量Q, 这是Fulde-Ferrell（FF）态</li>
+<li>如果带有多个动量 <span class="math inline">\(Q_{i}(i=1,2, \ldots),\)</span> 这是Larkin-Ovchinnikov（LO）态</li>
+</ul>
+<p>随后，理论上在各种体系对FFLO态进行研究 [155-157]。并且，已经有很多<strong>实验证据</strong>:</p>
+<ul>
+<li>研究重费米子超导[158: 159],</li>
+<li>研究有机超导体[160]，</li>
+<li>超薄晶体Al薄膜"161]，</li>
+<li>以及冷原子体系1162]。</li>
+</ul>
+<p>最近，在超导和磁性共存的体系还有更多的进展，即实现拓扑超导相[33;53;56;163-165]，它会有无能隙的边缘态或者束缚在涡旋中的马约拉纳零模（MZM）。MZM是非常有趣的，我们在上一章已经讨论过MZM的探测; 并且MZM可以作为拓扑量子计算的基石[32 ; 110]</p>
+<h4 id="动机">动机</h4>
+<p>由于有限动量的超导配对和拓扑超导体，两者都要求实现磁性和 超导的共存。于是，我们就可以问 这样的问题: 这两者都是可能同时被实现。我们还可以思考:</p>
+<ul>
+<li>（1）在FF或者LO相中，是否存在拓扑超导态;</li>
+<li>（2）如何找到一个实验可以实现的体系，探测拓扑FF或者拓扑LO态;</li>
+<li>（3）再这样的拓扑FF或者LO相中，对应的无能隙边界态是怎么样的。</li>
+</ul>
+<p>这三个问题就是我们这个工作的动机。</p>
+<p>此外，已经有一些理论上的进展。例如，人们理论上研究了二维的拓扑FF态, 这个态可以用Chern数来刻画，并且在边界上有chiral的马约拉纳模：这可能可以在冷原子中实现 <span class="math inline">\(166-169]\)</span> 。还有，最近的理论研究表明在拓扑平庸的LO相中考虑半-浴旋，可以得到束溥的MZM <span class="math inline">\(^{[170]}\)</span></p>
+<p>基于上述的研究背景以及我们的研究动机，在我们的工作中，我们探究一种新的二维 拓扑LO相; 并且我们发现它可以在超导拓扑绝缘体涛膜中实现。</p>
+<h2 id="理论模型和参数选择">理论模型和参数选择</h2>
+<p>我们考虑一个拓扑绝缘体薄膜系统，上下表面的拓扑表面态会塊合在一起。低能物理的相关哈密顿量 <span class="math inline">\(171 ; 172]\)</span> 可以表示为， <span class="math display">\[
+H _{0}=\int d r \tilde{c}^{\dagger}( r )\left[m \tau_{x}+v \tau_{z}\left(\hat{p}_{y} \sigma_{x}-\hat{p}_{x} \sigma_{y}\right)+B_{x} \sigma_{x}\right] \tilde{c}( r )
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\tilde{c}=\left(\hat{c}_{t, \uparrow}, \hat{c}_{t, l}, \hat{c}_{b, \uparrow}, \hat{c}_{b, \downarrow}\right)^{ T }\)</span> 代表电子的渔灭算符,</li>
+<li><span class="math inline">\(\left(\hat{p}_{x}, \hat{p}_{y}\right)\)</span> 是平面内的动量算符,</li>
+<li><span class="math inline">\(v\)</span> 是费米速度，</li>
+<li><span class="math inline">\(\sigma\)</span> 和 <span class="math inline">\(\tau\)</span> 都是Pauli矩阵，分别表示自旋和赝自旋（上下表面）自由度。</li>
+</ul>
+<p>在上面的哈密顿</p>
+<ul>
+<li>第二项是Dirac哈密顿量，代表上下两个拓扑表面态;</li>
+<li>第三项代表Zeeman相互作用，即电子的自旋和沿面内方向的外磁场之间的耦合。</li>
+</ul>
+<p>为了书写方便，我们已经把 <span class="math inline">\(\hbar\)</span> 吸收到费米速度 <span class="math inline">\(v\)</span> 里，把 <span class="math inline">\(g \mu_{B}\)</span> 吸收到 <span class="math inline">\(B_{x}\)</span> 中。</p>
 
             </article>
             <hr>
@@ -271,9 +260,9 @@ z_{\theta}=\cos \theta+i \sin \theta
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/mathematics/">mathematics</a>
+                      <a class="hover-with-bg" href="/categories/Thesis-and-Paper/">Thesis and Paper</a>
                     
-                      <a class="hover-with-bg" href="/categories/mathematics/%E6%9D%8E%E4%BB%A3%E6%95%B0/">李代数</a>
+                      <a class="hover-with-bg" href="/categories/Thesis-and-Paper/%E6%8B%93%E6%89%91%E6%80%81%E7%9A%84%E7%90%86%E8%AE%BA%E7%A0%94%E7%A9%B6/">拓扑态的理论研究</a>
                     
                   </div>
                 
@@ -281,9 +270,7 @@ z_{\theta}=\cos \theta+i \sin \theta
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Lie/">Lie</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Geometry/">Geometry</a>
+                      <a class="hover-with-bg" href="/tags/Majoranas/">Majoranas</a>
                     
                   </div>
                 
@@ -296,9 +283,9 @@ z_{\theta}=\cos \theta+i \sin \theta
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/03/18/Thesis07_TSC_01/">
+                      <a href="/2020/09/10/topology03_topological_from_tricode/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">拓扑物态及量子输运和Ginzburg-Landau理论</span>
+                        <span class="hidden-mobile">topological in toric-code models</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -306,8 +293,8 @@ z_{\theta}=\cos \theta+i \sin \theta
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/02/24/Thesis01_Kodon_02/">
-                        <span class="hidden-mobile">杂质模型及其微扰理论</span>
+                      <a href="/2020/03/18/Thesis07_TSC_01/">
+                        <span class="hidden-mobile">拓扑物态及量子输运和Ginzburg-Landau理论</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -446,7 +433,7 @@ z_{\theta}=\cos \theta+i \sin \theta
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Naive Lie theory&nbsp;",
+        "二维拓扑Larkin-Ovchinnikov相&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

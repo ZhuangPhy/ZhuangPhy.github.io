@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>Naive Lie theory - JPZ</title>
+  <title>拓扑物态及量子输运和Ginzburg-Landau理论 - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -153,8 +153,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-03-15 17:23">
-      March 15, 2020 pm
+    <time datetime="2020-03-18 11:23">
+      March 18, 2020 am
     </time>
   </div>
 
@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      764 字
+      1.8k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      23
        分钟
     </span>
   
@@ -205,63 +205,130 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>[TOC]</p>
-<h4 id="geometric-met-algebraic">geometric met algebraic</h4>
-<p>When the plane is viewed as the plane <span class="math inline">\(\mathbb{C}\)</span> of complex numbers, <strong>rotation</strong> about <span class="math inline">\(O\)</span> through angle <span class="math inline">\(\theta\)</span> is the same as multiplication by the number <span class="math display">\[
-e^{i \theta}=\cos \theta+i \sin \theta
-\]</span> The <strong>set</strong> of all such numbers is the unit circle or 1 - dimensional sphere <span class="math display">\[
-\mathbb{S}^{1}=\{z:|z|=1\}
-\]</span> Thus <span class="math inline">\(\mathbb{S}^{1}\)</span> is not only a geometric object, but also an algebraic structure;</p>
-<pre><code class="hljs pgsql"><span class="hljs-keyword">not</span> <span class="hljs-keyword">only</span> a geometric <span class="hljs-keyword">object</span>, but <span class="hljs-keyword">also</span> an algebraic structure</code></pre>
-<h4 id="simplest-example-of-lie-group">simplest example of Lie group</h4>
-<p>in this case a group, under the operation of complex number multiplication. Moreover, the multiplication operation <span class="math inline">\(e^{i \theta_{1}} \cdot e^{i \theta_{2}}=e^{i\left(\theta_{1}+\theta_{2}\right)},\)</span> and the inverse operation <span class="math inline">\(\left(e^{i \theta}\right)^{-1}=e^{i(-\theta)},\)</span> depend <strong>smoothly</strong> on the parameter <span class="math inline">\(\theta .\)</span> This makes <span class="math inline">\(\mathbb{S}^{1}\)</span> an example of what we call a Lie group.</p>
-<h4 id="interesting-example-of-lie-group-mathrmsu2">interesting example of Lie group <span class="math inline">\(\mathrm{SU}(2)\)</span></h4>
-<p>To obtain a more interesting Lie group, we define the four-dimensional algebra of quaternions (四元数) and the three-dimensional sphere <span class="math inline">\(S^{3}\)</span> of unit quaternions.</p>
+              <p>参考文献</p>
+<ul>
+<li>《拓扑态的理论研究》</li>
+</ul>
+<p>[TOC]</p>
+<h2 id="介观系统的输运理论">介观系统的输运理论</h2>
+<p>在本章节，我们介绍介观系统的输运计算[57]。例如，</p>
+<ul>
+<li>我们在研究拓扑绝缘体中的无序效应，我们就需要可以计算纵向电导，然后分析局域化长度;</li>
+<li>我们还可以研究拓扑超导体中马约拉纳零模诱导的Andreev反射。</li>
+</ul>
+<p>下面，我们介绍在研究输运问题中常用的Landauer-Büttiker理论。</p>
+<h3 id="landauer-büttiker公式">Landauer-Büttiker公式</h3>
+<p>在介观系统，人们通 常使用Landauer-Büttiker公式来计算材料的输运性质。在试验测量中，把电极连接到样品上，然后在电极上加上电压差，最后测量两个电极之间的电流，就得到两个电极之间的电导。对于介观系统，它保持相位相干性（任何退相干的小效果都被忽略）。对于电极，它是良导体以及处于平衡态。在理论上，对于两个电极问题，Landauer发现两个电极之间的电导公式是 <span class="math inline">\(G=\frac{e^{2}}{h} M T,\)</span> 这里T 是电子从一个电极到另一个电极的平均透射概率; <span class="math inline">\(M\)</span> 是电极中电子的模式数目; 对手多个电极问题（大于两个）,Büttiker指出，两个电极之间的电流和电压差没有固定的关系。如图2.3所示，我们考虑N个电极。每个电极的电流和电压分别标记为: <span class="math inline">\(I_{p}\)</span> 和 <span class="math inline">\(V_{p}\)</span> (指标p代表第p个电极)。</p>
+<p>利用Landauer-Büttiker公式，电流和电压之间的关系为: <span class="math display">\[
+\begin{aligned}
+I_{p} &amp;=\sum_{q} G_{p q}\left(V_{p}-V_{q}\right) \\
+G_{p q} &amp;=\frac{e^{2}}{h} T_{q p}
+\end{aligned}
+\]</span> 其中，</p>
+<ul>
+<li><span class="math inline">\(T_{q p}\)</span> 是透射矩阵的元素，表示电极q和电极p之间的透射概率，见图2.3。</li>
+</ul>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210111013830613.png" srcset="/img/loading.gif" /></p>
 <blockquote>
-<p>Under quaternion multiplication, <span class="math inline">\(S^{3}\)</span> is a noncommutative Lie group known as <span class="math inline">\(\mathrm{SU}(2),\)</span> closely related to the group of <strong>space rotations.</strong></p>
+<p>图2.3 电极和样品的示意图。</p>
 </blockquote>
-<h3 id="rotations-of-the-plane">Rotations of the plane</h3>
-<h4 id="represent-geometric-by-algebraic">represent geometric by algebraic</h4>
-<p>A rotation of the plane <span class="math inline">\(\mathbb{R}^{2}\)</span> about the origin <span class="math inline">\(O\)</span> through angle <span class="math inline">\(\theta\)</span> is a linear transformation <span class="math inline">\(R_{\theta}\)</span> that sends the basis vectors <span class="math inline">\((1,0)\)</span> and <span class="math inline">\((0,1)\)</span> to <span class="math inline">\((\cos \theta,\)</span> <span class="math inline">\(\sin \theta) \text { and }(-\sin \theta, \cos \theta)\)</span></p>
-<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200315112938278.png" srcset="/img/loading.gif" alt="image-20200315112938278" style="zoom: 33%;" /></p>
-<p>It follows by linearity that <span class="math inline">\(R_{\theta}\)</span> sends the general vector <span class="math display">\[
-(x, y)=x(1,0)+y(0,1) \quad \text { to } \quad(x \cos \theta-y \sin \theta, x \sin \theta+y \cos \theta)
-\]</span> and that <span class="math inline">\(R_{\theta}\)</span> is represented by the matrix <span class="math display">\[
-\left(\begin{array}{cc}
-\cos \theta &amp; -\sin \theta \\
-\sin \theta &amp; \cos \theta
-\end{array}\right)
-\]</span> We also call this matrix <span class="math inline">\(R_{\theta}\)</span>. Then applying the rotation to <span class="math inline">\((x, y)\)</span> is the same as multiplying the column vector <span class="math inline">\(\left(\begin{array}{l}x \\ y\end{array}\right)\)</span> on the left by matrix <span class="math inline">\(R_{\theta},\)</span> because <span class="math display">\[
-R_{\theta}\left(\begin{array}{l}
-x \\
-y
-\end{array}\right)=\left(\begin{array}{cc}
-\cos \theta &amp; -\sin \theta \\
-\sin \theta &amp; \cos \theta
+<p>我们运用Landauer-Büttiker公式，来分析拓扑态（例如QH, QAH, QSH）的边界态的电导。</p>
+<h4 id="qh的情况">QH的情况</h4>
+<p>下面我们分析一下QH的情况，并考虑边界上只有一个手性态，它沿着逆时针方向运动（同样适用于QAH的分析）。我们连接4个电极到样品上，电极之间的非零的透射概率系数有: <span class="math inline">\(T_{41}=T_{24}=T_{32}=T_{13}=1\)</span> （其他电极之间的透射概率为零 <span class="math inline">\()\)</span> 。因此, <strong>电流和电压</strong>之间的关系为: <span class="math display">\[
+\left(\begin{array}{l}
+I_{1} \\
+I_{2} \\
+I_{3} \\
+I_{4}
+\end{array}\right)=\frac{e^{2}}{h}\left(\begin{array}{cccc}
+1 &amp; 0 &amp; -1 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; -1 \\
+0 &amp; -1 &amp; 1 &amp; 0 \\
+-1 &amp; 0 &amp; 0 &amp; 1
 \end{array}\right)\left(\begin{array}{l}
-x \\
-y
-\end{array}\right)=\left(\begin{array}{l}
-x \cos \theta-y \sin \theta \\
-x \sin \theta+y \cos \theta
+V_{1} \\
+V_{2} \\
+V_{3} \\
+V_{4}
 \end{array}\right)
-\]</span> since we apply matrices from the left, applying <span class="math inline">\(R_{\varphi}\)</span> then <span class="math inline">\(R_{\theta}\)</span> is the same as applying the <strong>product matrix</strong> <span class="math inline">\(R_{\theta} R_{\varphi} .\)</span> (Admittedly, this matrix happens to equal <span class="math inline">\(R_{\varphi} R_{\theta}\)</span> because both equal <span class="math inline">\(R_{\theta+\varphi} .\)</span> But when we come to space rotations the order of the matrices will be important.)</p>
-<p>Thus we can represent the <strong>geometric operation</strong> of combining successive rotations by the <strong>algebraic operation</strong> of multiplying matrices.</p>
-<p class="note note-primary">
-represent the geometric operation of combining successive rotations by the algebraic operation of multiplying matrices
-</p>
-<p>The <strong>main aim of this book</strong> is to generalize this idea, that is</p>
-<p class="note note-primary">
-to study groups of linear transformations by representing them as matrix groups.
-</p>
-<h4 id="smoothness-of-matrix-group-so2">smoothness of matrix group SO(2)</h4>
-<p>For the moment one can view a <strong>matrix group</strong> as a set of matrices that includes, along with any two members <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the matrices <span class="math inline">\(A B, A^{-1},\)</span> and <span class="math inline">\(B^{-1}\)</span>. Later (in Section 7.2 ) we impose an <strong>extra condition</strong> that ensures "<strong>smoothness</strong>" of matrix groups, but <strong>the precise</strong> meaning of smoothness need not be considered yet. For those who cannot wait to see a definition, we give one in the subsection below - but be warned that its meaning will not become completely clear until Chapters 7 and 8 .</p>
-<blockquote>
-<p>The matrices <span class="math inline">\(R_{\theta},\)</span> for all angles <span class="math inline">\(\theta,\)</span> form a group called the <strong>special orthogonal</strong> group SO(2).</p>
-</blockquote>
-<p>The reason for calling rotations "orthogonal transformations" will emerge in Chapter <span class="math inline">\(3,\)</span> where we generalize the idea of rotation to the <span class="math inline">\(n\)</span> -dimensional space <span class="math inline">\(\mathbb{R}^{n}\)</span> and define a group <span class="math inline">\(\mathrm{SO}(n)\)</span> for each dimension <span class="math inline">\(n .\)</span> In this chapter we are concerned mainly with the groups <span class="math inline">\(\mathrm{SO}(2)\)</span> and <span class="math inline">\(\mathrm{SO}(3),\)</span> which are typical in some ways, but also exceptional in having an alternative description in terms of higher-dimensional "numbers." Each rotation <span class="math inline">\(R_{\theta}\)</span> of <span class="math inline">\(\mathbb{R}^{2}\)</span> can be represented by the complex number <span class="math display">\[
-z_{\theta}=\cos \theta+i \sin \theta
-\]</span> because if we multiply an arbitrary point <span class="math inline">\((x, y)=x+i y\)</span> by <span class="math inline">\(z_{\theta}\)</span> we get</p>
+\]</span> 此外，我们需要考虑电流<strong>守恒</strong>公式: <span class="math inline">\(I_{1}+I_{2}+I_{3}+I_{4}=0_{\circ}\)</span> 并且，我们设置 <span class="math inline">\(V_{4}=0\)</span> 。所以，上述公式简化为，, <span class="math display">\[
+\left(\begin{array}{l}
+I_{1} \\
+I_{2} \\
+I_{3}
+\end{array}\right)=\frac{e^{2}}{h}\left(\begin{array}{ccc}
+1 &amp; 0 &amp; -1 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; -1 &amp; 1
+\end{array}\right)\left(\begin{array}{l}
+V_{1} \\
+V_{2} \\
+V_{3}
+\end{array}\right)
+\]</span> 另外，电阻矩阵的定义是电导矩阵的<strong>逆矩阵</strong>。因此， <span class="math display">\[
+R=\left(\begin{array}{lll}
+R_{11} &amp; R_{12} &amp; R_{13} \\
+R_{21} &amp; R_{22} &amp; R_{23} \\
+R_{31} &amp; R_{32} &amp; R_{33}
+\end{array}\right)=\frac{h}{e^{2}}\left(\begin{array}{lll}
+1 &amp; 1 &amp; 1 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 1
+\end{array}\right)
+\]</span> 最后，我们利用上面的公式来 计算QH的</p>
+<ul>
+<li>Hall电阻</li>
+<li>和纵向电阻</li>
+</ul>
+<h4 id="hall电阻">Hall电阻</h4>
+<p>首先，我们先计算Hall电阻：在电极3和电极4上加上电压，然后测量电极1 和 电极2 之间的电流。 因此 <span class="math inline">\(V_{4}=0\)</span> 和 <span class="math inline">\(I_{1}=-I_{2 \circ}\)</span> 所以, Hall电阻定义成 <span class="math display">\[
+R_{H}=\frac{V_{3}-V_{4}}{I_{1}}
+\]</span> 根据电流和电压之间的关系, 我们知道: <span class="math display">\[
+V_{3}=R_{31} I_{1}+R_{32} I_{2} 
+\]</span> 所以 <span class="math display">\[
+R_{H}=R_{31}-R_{32}=-\frac{h}{e^{2}}
+\]</span></p>
+<h4 id="纵向电阻">纵向电阻</h4>
+<p>然后，我们来计算纵向电阻：在电极1和电极4上加上电压，然后测量电极2和电极3之间的电流。因为 <span class="math inline">\(V_{4}=0\)</span> 和 <span class="math inline">\(I_{3}=-I_{2},\)</span> 以及 <span class="math inline">\(V_{1}=R_{12} I_{2}+R_{13} I_{3 \circ}\)</span> 所以, 纵向电阻 <span class="math display">\[
+R_{L}=R_{12}-R_{13}=0
+\]</span> 总而言之, 当我们测量QH的边界态的时候，Hall电阻是量子化的（<span class="math inline">\(\frac{h}{e^{2}}\)</span>） 纵向电导等于0</p>
+<h4 id="求解透射矩阵">求解透射矩阵</h4>
+<p>然后，我们来考虑一般性输运问题。关键的问题就是如何求解透射矩阵 <span class="math inline">\(T_{q p^{\circ}}\)</span> 我们可以计算散射矩阵（S-矩阵）来解决这个问题。比如我们考虑两个电极之间的电子运输，那么S-矩阵是， <span class="math display">\[
+S=\left(\begin{array}{ll}
+r &amp; t^{\prime} \\
+t &amp; r^{\prime}
+\end{array}\right)
+\]</span> 其中， <span class="math inline">\(r\)</span> 是反射矩阵， <span class="math inline">\(t\)</span> 是两个电极之间的透射矩阵; <span class="math inline">\(r^{\prime}\)</span> 和 <span class="math inline">\(t^{\prime}\)</span> 是反方向的反射和透射矩阵。有很多办法可以计算S-矩阵。下面我们介绍如何用格林函数的方法， 即Fisher-Lee公式 <span class="math inline">\(^{\{58]}\)</span>, <span class="math display">\[
+S_{n m, q p}=-\delta_{n m} \delta_{q p}+\frac{i \hbar}{a} \sqrt{v_{n q} v_{m p}} \sum_{q_{i}, p_{j}} \chi_{n}^{*}\left(q_{i}\right) G_{q p}^{R}\left(q_{i}, p_{j}\right) \chi_{m}\left(p_{j}\right)
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(n(m)\)</span> 表示电极 <span class="math inline">\(q(p)\)</span> 中的导电通道（本质上是电极 中费密面附近电子的模式数目);</li>
+<li><span class="math inline">\(q_{i}\)</span> 是电极q中的晶格位置;</li>
+<li><span class="math inline">\(v_{n q}\)</span> 是电极q中的电子的纵向速度</li>
+<li>$ _{n}$ 是波函数;</li>
+<li><span class="math inline">\(a\)</span> 是晶格常数;</li>
+</ul>
+<p><span class="math inline">\(G_{q p}^{R}\left(q_{i}, p_{j}\right)\)</span> 是延迟格林函，即从电极q中的晶格位置i到电板p中的晶格位置j的传播子，定义 为 <span class="math display">\[
+G^{R / A}(E)=\frac{1}{E-H \pm i \eta}
+\]</span> 其中</p>
+<ul>
+<li>H是整体哈密顿量（包含样品种电极）;</li>
+<li><span class="math inline">\(\eta\)</span> 是无限小的正数;</li>
+<li><span class="math inline">\(E\)</span> 是入射电子能量。</li>
+</ul>
+<p><span class="math inline">\(G^{R / A}\)</span> 是延迟/超前格林函数: <span class="math inline">\(\left(G^{R}\left(q_{i}, p_{j}\right)\right)^{*}=G^{A}\left(p_{j}, q_{i}\right)_{\circ}\)</span> 并且，透射矩阵跟格林函数的关系,可以写成简洁的形式: <span class="math display">\[
+T_{q \neq p}=\sum_{n m}\left|s_{n m, q p}\right|^{2}=\operatorname{Tr}\left[\Gamma_{q} G^{R} \Gamma_{p} G^{A}\right]
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\Gamma_{q}\left(q_{i}, q_{i}^{\prime}\right)=\chi_{n}\left(q_{i}\right) \frac{\hbar v_{n q}}{a} \chi_{n}^{*}\left(q_{i}^{\prime}\right)\)</span> 表示电极和 样品之间的耦合</li>
+</ul>
+<p>在本文中，我们考虑样品的哈密顿量通常为紧束溥模型。具体的计算方法将在下一个章节介绍。</p>
+<h3 id="迭代green-函数方法">迭代Green 函数方法</h3>
+<p>对于二维体系，我们往往需要考虑尺寸比较大的紧束缚模型。并且，对一个维度很大 的矩阵求逆，在数值计算上需要花费很大的内存和计算时间。有两个解决办法:</p>
+<ol type="1">
+<li>第一个办法就是采用稀疏矩阵技术，这个方法依赖于具体的问题;</li>
+<li>第二个办法就是迭代格林函数的方法，这个办法原则上可以运用于任何输运问题</li>
+</ol>
 
             </article>
             <hr>
@@ -271,9 +338,9 @@ z_{\theta}=\cos \theta+i \sin \theta
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/mathematics/">mathematics</a>
+                      <a class="hover-with-bg" href="/categories/Thesis-and-Paper/">Thesis and Paper</a>
                     
-                      <a class="hover-with-bg" href="/categories/mathematics/%E6%9D%8E%E4%BB%A3%E6%95%B0/">李代数</a>
+                      <a class="hover-with-bg" href="/categories/Thesis-and-Paper/%E6%8B%93%E6%89%91%E6%80%81%E7%9A%84%E7%90%86%E8%AE%BA%E7%A0%94%E7%A9%B6/">拓扑态的理论研究</a>
                     
                   </div>
                 
@@ -281,9 +348,7 @@ z_{\theta}=\cos \theta+i \sin \theta
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Lie/">Lie</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Geometry/">Geometry</a>
+                      <a class="hover-with-bg" href="/tags/Transport/">Transport</a>
                     
                   </div>
                 
@@ -296,9 +361,9 @@ z_{\theta}=\cos \theta+i \sin \theta
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/03/18/Thesis07_TSC_01/">
+                      <a href="/2020/03/18/Thesis07_TSC_02/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">拓扑物态及量子输运和Ginzburg-Landau理论</span>
+                        <span class="hidden-mobile">二维拓扑Larkin-Ovchinnikov相</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -306,8 +371,8 @@ z_{\theta}=\cos \theta+i \sin \theta
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/02/24/Thesis01_Kodon_02/">
-                        <span class="hidden-mobile">杂质模型及其微扰理论</span>
+                      <a href="/2020/03/15/Math_021_Lie/">
+                        <span class="hidden-mobile">Naive Lie theory</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -446,7 +511,7 @@ z_{\theta}=\cos \theta+i \sin \theta
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Naive Lie theory&nbsp;",
+        "拓扑物态及量子输运和Ginzburg-Landau理论&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
