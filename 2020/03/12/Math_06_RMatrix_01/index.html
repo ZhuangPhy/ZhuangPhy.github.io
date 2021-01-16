@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>随机矩阵 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-03-12 17:23">
+      March 12, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      8.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      163
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h2 id="参考">参考</h2>
+<ol type="1">
+<li>Introduction to Random Matrices Theory and Practice</li>
+</ol>
+<p>[TOC]</p>
+<h2 id="getting-started">1 Getting Started</h2>
+<h3 id="random-matrix">Random matrix</h3>
+<p>生成随机矩阵：</p>
+<ul>
+<li><span class="math inline">\(N \times N\)</span>个矩阵元素，每个是根据Gaussian高斯概率分布随机取样生成的实数。</li>
+<li>为了得到实数本征值，构造对称矩阵。<span class="math inline">\(H_{s}=\frac{1}{2}\left(H+H^{T}\right)\)</span></li>
+<li>根据矩阵的不同类型，可以分为
+<ul>
+<li>GOE (Gaussian Orthogonal Ensemble)</li>
+<li>Gaussian Unitary (GUE) 幺矩阵</li>
+<li>Gaussian Symplectic (GSE) 辛矩阵</li>
+</ul></li>
+</ul>
+<h4 id="sampling">sampling</h4>
+<p>Let us start with a quick warm-up. We now produce a <span class="math inline">\(N \times N\)</span> matrix <span class="math inline">\(H\)</span> whose entries are independently sampled from a <strong>Gaussian probability density function (pdf)</strong> <span class="math inline">\(^{1}\)</span> with mean 0 and variance 1 . One such matrix for <span class="math inline">\(N=6\)</span> might look like this: <span class="math display">\[
+H=\left(\begin{array}{cccccc}
+1.2448 &amp; 0.0561 &amp; -0.8778 &amp; 1.1058 &amp; 1.1759 &amp; 0.7339 \\
+-0.1854 &amp; 0.7819 &amp; -1.3124 &amp; 0.8786 &amp; 0.3965 &amp; -0.3138 \\
+-0.4925 &amp; -0.6234 &amp; 0.0307 &amp; 0.8448 &amp; -0.2629 &amp; 0.7013 \\
+0.1933 &amp; -1.5660 &amp; 2.3387 &amp; 0.4320 &amp; -0.0535 &amp; 0.2294 \\
+-1.0143 &amp; -0.7578 &amp; 0.3923 &amp; 0.3935 &amp; -0.4883 &amp; -2.7609 \\
+-1.8839 &amp; 0.4546 &amp; -0.4495 &amp; 0.0972 &amp; -2.6562 &amp; 1.3405
+\end{array}\right)
+\]</span> Any time we try, we end up with a different matrix: we call all these <strong>matrices samples</strong> or <strong>instances</strong> of our ensemble. The <span class="math inline">\(N\)</span> eigenvalues are in general complex numbers (try to compute them for <span class="math inline">\(H\)</span> !).</p>
+<h4 id="symmetrize-goe">symmetrize (GOE)</h4>
+<p>To get real eigenvalues, the first thing to do is to <strong>symmetrize</strong> our matrix. Recall that a real symmetric matrix has <span class="math inline">\(N\)</span> real eigenvalues. We will not deal much with ensembles with complex eigenvalues in this book <span class="math inline">\(^{2}\)</span> <span class="math display">\[
+H_{s}=\frac{1}{2} \left(H+H^{T}\right)
+\]</span> Now the symmetric sample <span class="math inline">\(H_{s}\)</span> looks like this: <span class="math display">\[
+H_{s}=\left(\begin{array}{cccccc}
+1.2448 &amp; -0.0646 &amp; -0.6852 &amp; 0.6496 &amp; 0.0807 &amp; -0.5750 \\
+-0.0646 &amp; 0.7819 &amp; -0.9679 &amp; -0.3436 &amp; -0.1806 &amp; 0.0704 \\
+-0.6852 &amp; -0.9679 &amp; 0.0307 &amp; 1.5917 &amp; 0.0647 &amp; 0.1258 \\
+0.6496 &amp; -0.3436 &amp; 1.5917 &amp; 0.4320 &amp; 0.1700 &amp; 0.1633 \\
+0.0807 &amp; -0.1806 &amp; 0.0647 &amp; 0.1700 &amp; -0.4883 &amp; -2.7085 \\
+-0.5750 &amp; 0.0704 &amp; 0.1258 &amp; 0.1633 &amp; -2.7085 &amp; 1.3405
+\end{array}\right)
+\]</span> whose six eigenvalues are now all real <span class="math display">\[
+\{-2.49316,-1.7534,0.33069,1.44593,2.38231,3.42944\}
+\]</span> Congratulations! You have produced your first random matrix drawn from the so-called <strong>GOE (Gaussian Orthogonal Ensemble)</strong>... a classic - more on this name later.</p>
+<h4 id="complex-number">complex number</h4>
+<p>You can now do several things: for example, you can make the entries complex or quaternionic instead of real.</p>
+<p>In order to have <strong>real eigenvalues</strong>, the corresponding matrices need to be <strong>hermitian and self-dual</strong> respectively <span class="math inline">\(^{3}\)</span> - better have a look at one example of the former, for <span class="math inline">\(N\)</span> as small as <span class="math inline">\(N=2\)</span> <span class="math display">\[
+H_{h e r}=\left(\begin{array}{cc}
+0.3252 &amp; 0.3077+0.2803 \mathrm{i} \\
+0.3077-0.2803 \mathrm{i} &amp; -1.7115
+\end{array}\right)
+\]</span> You have just met the <strong>Gaussian Unitary (GUE)</strong> and <strong>Gaussian Symplectic (GSE)</strong> ensembles, respectively and are surely already wondering who invented these names.</p>
+<h3 id="statistical-properties">1.2 statistical properties</h3>
+<p>生成 <span class="math inline">\(T\)</span> 个矩阵，每个矩阵 <span class="math inline">\(N\)</span> 个本征值，画出这些本征值的直方图</p>
+<p>Although single instances can sometimes be also useful, exploring the <strong>statistical properties</strong> of an ensemble typically requires collecting data from <strong>multiple samples</strong>.</p>
+<p>We can indeed now generate <span class="math inline">\(T\)</span> such matrices, collect the <span class="math inline">\(N\)</span> (real) eigenvalues for each of them, and then produce a <strong>normalized histogram</strong> of the full set of <span class="math inline">\(N \times T\)</span> eigenvalues.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200308220759642.png" srcset="/img/loading.gif" alt="image-20200308220759642" style="zoom: 50%;" /></p>
+<h3 id="random-variables">1.3 Random variables</h3>
+<h4 id="pdf">pdf</h4>
+<p>a random variable <span class="math inline">\(X\)</span>, we say that <span class="math inline">\(\rho(x)\)</span> is the <strong>probability density function' (pdf)</strong> of <span class="math inline">\(X\)</span> if <span class="math display">\[
+\int_{a}^{b} d x \rho(x)
+\]</span> is the probability that <span class="math inline">\(X\)</span> takes value in the interval <span class="math inline">\((a, b) \subseteq \sigma\)</span></p>
+<p>In practice, sample your random variable <strong>many times</strong> and produce a normalized histogram of the outcomes. The pdf <span class="math inline">\(\rho(x)\)</span> is nothing but the <strong>histogram profile</strong> as the number of samples gets sufficiently large.</p>
+<h4 id="moments">moments</h4>
+<p>The average of <span class="math inline">\(X\)</span> is <span class="math inline">\(\langle X\rangle=\int d x \rho(x) x\)</span> and higher <strong>moments</strong> are defined as <span class="math display">\[
+\left\langle X^{n}\right\rangle=\int d x \rho(x) x^{n}
+\]</span> The variance is <span class="math inline">\(\operatorname{Var}(X)=\left\langle X^{2}\right\rangle-(\langle X\rangle)^{2},\)</span> which is a measure of how broadly spread around the mean the pdf is.</p>
+<h4 id="jpdf">jpdf</h4>
+<p>The cumulative distribution function <span class="math inline">\(F(x)\)</span> is the probability that <span class="math inline">\(X\)</span> is smaller or equal to <span class="math inline">\(x, F(x)=\int_{-\infty}^{x} d y \rho(y) .\)</span> Clearly, <span class="math inline">\(F(x) \rightarrow 0\)</span> as <span class="math inline">\(x \rightarrow-\infty\)</span> and <span class="math inline">\(F(x) \rightarrow 1\)</span> as <span class="math inline">\(x \rightarrow+\infty\)</span></p>
+<p>If we have two (continuous) random variables <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span>, they must be described by a <strong>joint probability density function (jpdf)</strong> <span class="math inline">\(\rho\left(x_{1}, x_{2}\right) .\)</span> Then, the quantity <span class="math display">\[
+\int_{a}^{b} d x_{1} \int_{c}^{d} d x_{2} \rho\left(x_{1}, x_{2}\right)
+\]</span> gives the probability that the first variable <span class="math inline">\(X_{1}\)</span> is in the interval ( <span class="math inline">\(a, b\)</span> ) and the other <span class="math inline">\(X_{2}\)</span> is, simultaneously, in the interval <span class="math inline">\((c, d)\)</span>.</p>
+<h4 id="factorized">factorized</h4>
+<p>When the jpdf is factorized, i.e. is the product of two density functions, <span class="math display">\[
+\rho\left(x_{1}, x_{2}\right)=\rho_{1}\left(x_{1}\right) \rho_{2}\left(x_{2}\right)
+\]</span> the variables are said to be <strong>independent</strong>, otherwise they are dependent. When, in addition, we also have <span class="math inline">\(\rho_{1}(x)=\rho_{2}(x),\)</span> the random variables are called i.i.d. (independent and identically distributed).</p>
+<h4 id="marginal-pdf">marginal pdf</h4>
+<p>In any case, <span class="math inline">\(\rho\left(x_{1}\right)=\int \rho\left(x_{1}, x_{2}\right) d x_{2}\)</span> is the <strong>marginal pdf</strong> of <span class="math inline">\(X_{1}\)</span> when considered independently of <span class="math inline">\(X_{2}\)</span></p>
+<p>The above discussion can be generalized to an arbitrary number <span class="math inline">\(N\)</span> of random variables. Given the jpdf <span class="math inline">\(\rho\left(x_{1}, \ldots, x_{N}\right),\)</span> the quantity <span class="math inline">\(\rho\left(x_{1}, \ldots, x_{N}\right) d x_{1} \cdots d x_{N}\)</span> is the probability that we find the first variable in the interval <span class="math inline">\(\left[x_{1}, x_{1}+d x_{1}\right],\)</span> the second in the interval <span class="math inline">\(\left[x_{2}, x_{2}+d x_{2}\right],\)</span> etc. The marginal pdf <span class="math inline">\(\rho(x)\)</span> that the first variable will be in the interval <span class="math inline">\([x, x+d x]\)</span> (ignoring the others) can be computed as <span class="math display">\[
+\rho(x)=\int d x_{2} \cdots \int d x_{N} \rho\left(x, x_{2}, \ldots, x_{N}\right)
+\]</span></p>
+<h2 id="value-the-eigenvalue">2 Value the eigenvalue</h2>
+<p>这一节主要讨论</p>
+<ul>
+<li>两个本征值之间距离s 的期望值 <span class="math inline">\(p(s)\)</span></li>
+<li>Wigner's surmise 告诉我们：两个本征值之间距离s 会聚集，但是太近了会排斥彼此</li>
+<li>两个随机变量 <span class="math inline">\((X_{j},X_{k})\)</span> 之间距离（gaps），的期望值 <span class="math inline">\(\hat{p}_{N}(\hat{S})\)</span></li>
+<li>经过积分，归一化，取大数极限，我们得到 <span class="math inline">\(\hat{p}_{N}(\hat{s})=e^{-\hat{s}}\)</span> 是指数下降，说明是吸引（attract）不是排斥（repel）</li>
+</ul>
+<p>we start discussing the eigenvalues of random matrices</p>
+<h3 id="appetizer-wigners-surmise">2.1 Appetizer: Wigner’s surmise</h3>
+<p>Consider a <span class="math inline">\(2 \times 2\)</span> GOE matrix <span class="math display">\[
+H_{S}=\left(\begin{array}{ll}
+x_{1} &amp; x_{3} \\
+x_{3} &amp; x_{2}
+\end{array}\right)
+\]</span> with <span class="math inline">\(x_{1}, x_{2} \sim N(0,1)\)</span> and <span class="math inline">\(x_{3} \sim N(0,1 / 2) .\)</span></p>
+<blockquote>
+<p>What is the pdf <span class="math inline">\(p(s)\)</span> of the spacing <span class="math inline">\(s=\lambda_{2}-\lambda_{1}\)</span> between its two eigenvalues <span class="math inline">\(\left(\lambda_{2}&gt;\lambda_{1}\right) ?\)</span></p>
+</blockquote>
+<h4 id="eigenvalues">eigenvalues</h4>
+<p>The two eigenvalues are random variables, given in terms of the entries by the roots of the characteristic polynomial <span class="math display">\[
+\lambda^{2}-\operatorname{Tr}\left(H_{s}\right) \lambda+\operatorname{det}\left(H_{s}\right)=0
+\]</span> therefore <span class="math display">\[
+\lambda_{1,2}=\frac{1}{2}\left(x_{1}+x_{2} \pm \sqrt{\left(x_{1}-x_{2}\right)^{2}+4 x_{3}^{2}}\right) 
+\]</span></p>
+<p><span class="math display">\[
+s=\lambda_{2}-\lambda_{1}=\sqrt{\left(x_{1}-x_{2}\right)^{2}+4 x_{3}^{2}}
+\]</span></p>
+<h4 id="expectations-value">Expectations value</h4>
+<p><span class="math display">\[
+p(s)=\int_{-\infty}^{\infty} d x_{1} d x_{2} d x_{3} \frac{e^{-\frac{1}{2} x_{1}^{2}}}{\sqrt{2 \pi}} \frac{e^{-\frac{1}{2} x_{2}^{2}}}{\sqrt{2 \pi}} \frac{e^{-x_{3}^{2}}}{\sqrt{\pi}} \delta(s-\sqrt{\left(x_{1}-x_{2}\right)^{2}+4 x_{3}^{2}})
+\]</span></p>
+<p>Changing variables <span class="math display">\[
+\left\{\begin{array}{ll}
+x_{1}-x_{2} &amp; =r \cos \theta \\
+2 x_{3} &amp; =r \sin \theta \\
+x_{1}+x_{2} &amp; =\psi
+\end{array} \quad \Rightarrow \quad\left\{\begin{array}{ll}
+x_{1} &amp; =\frac{r \cos \theta+\psi}{2} \\
+x_{2} &amp; =\frac{\psi-r \cos \theta}{2} \\
+x_{3} &amp; =\frac{r \sin \theta}{2}
+\end{array}\right.\right.
+\]</span> computing the corresponding <strong>Jacobian</strong> <span class="math display">\[
+\begin{aligned}
+J&amp;=\operatorname{det}\left(\begin{array}{ccc}
+\frac{\partial x_{1}}{\partial r} &amp; \frac{\partial x_{1}}{\partial \theta} &amp; \frac{\partial x_{1}}{\partial \psi} \\
+\frac{\partial x_{2}}{\partial r} &amp; \frac{\partial x_{2}}{\partial \theta} &amp; \frac{\partial x_{2}}{\partial \psi} \\
+\frac{\partial x_{3}}{\partial r} &amp; \frac{\partial x_{3}}{\partial \theta} &amp; \frac{\partial x_{3}}{\partial \psi}
+\end{array}\right)
+\\
+&amp;=\operatorname{det}\left(\begin{array}{ccc}
+\cos \theta / 2 &amp; -r \sin \theta / 2 &amp; 1 / 2 \\
+-\cos \theta / 2 &amp; r \sin \theta / 2 &amp; 1 / 2 \\
+\sin \theta / 2 &amp; r \cos \theta / 2 &amp; 0
+\end{array}\right)=-r / 4
+\end{aligned}
+\]</span> one obtains <span class="math display">\[
+\begin{aligned}
+p(s) &amp;=\frac{1}{8 \pi^{3 / 2}} \int_{0}^{\infty} \operatorname{dr} r \delta(s-r) \int_{0}^{2 \pi} d \theta \int_{-\infty}^{\infty} d \psi e^{-\frac{1}{2}\left[\left(\frac{r \cos \theta+\psi}{2}\right)^{2}+\left(\frac{-r \cos \theta+\psi}{2}\right)^{2}+\frac{r^{2} \sin ^{2} \theta}{2}\right]} \\
+&amp;=\frac{\sqrt{4 \pi} s}{8 \pi^{3 / 2}} \int_{0}^{2 \pi} d \theta e^{-\frac{1}{2}\left[\frac{s^{2} \cos 2 \theta}{2}+\frac{s^{2} \sin ^{2} \theta}{2}\right]}
+\\
+&amp;=\frac{\frac{s}{2}-s^{2} / 4}{2} \cdot e^{2 \pi}
+\end{aligned}
+\]</span></p>
+<h4 id="wigners-surmise-rescale">Wigner's surmise (rescale)</h4>
+<p>It is often convenient to rescale this pdf and define <span class="math display">\[
+\bar{p}(s)=\langle s\rangle p(\langle s\rangle s)
+\]</span> where <span class="math inline">\(\langle s\rangle=\int_{0}^{\infty} d s p(s) s\)</span> is the mean level spacing. Upon this rescaling, <span class="math inline">\(\int_{0}^{\infty} \bar{p}(s) d s=\int_{0}^{\infty} s \bar{p}(s) d s=1 .\)</span> For the GOE as above, show that <span class="math display">\[
+\bar{p}(s)=\frac{\pi s}{2} \cdot e^{-\frac{1}{4}\pi s^{2}}
+\]</span> which is called <strong>Wigner's surmise'</strong>, whose plot is shown</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200309063855433.png" srcset="/img/loading.gif" alt="image-20200309063855433" style="zoom:50%;" /></p>
+<p>In spite of its simplicity, this is actually a quite deep result:</p>
+<ul>
+<li>it tells us that the probability of sampling two eigenvalues 'very close' to each other ( <span class="math inline">\(s \rightarrow 0\)</span> ) is very small:</li>
+<li>it is as if each eigenvalue 'felt' the presence of the other and tried to <strong>avoid</strong> it (but not too much)!</li>
+<li>A bit like birds perching on an electric wire, or parked cars on a street: not too close, <strong>not too far apart</strong>. If this metaphor does not win you over, check this out [1].</li>
+</ul>
+<h3 id="eigenvalues-as-correlated-random-variables">2.2 Eigenvalues as correlated random variables</h3>
+<p>In the previous Chapter, we met the <span class="math inline">\(N\)</span> real eigenvalues <span class="math inline">\(\left\{x_{1}, \ldots, x_{N}\right\}\)</span> of a random matrix <span class="math inline">\(H .\)</span> These eigenvalues are random variables described by a jpdf <span class="math inline">\(^{2} \rho\left(x_{1}, \ldots, x_{N}\right)\)</span></p>
+<blockquote>
+<p>Question. What does the jpdf of eigenvalues <span class="math inline">\(\rho\left(x_{1}, \ldots, x_{N}\right)\)</span> of a random matrix ensemble look like?</p>
+</blockquote>
+<p>The important (generic) feature is that the <span class="math inline">\(\left\{x_{i}\right\}\)</span> 's are <strong>not independent</strong>: their jpdf does <strong>not in general factorize</strong>. The most striking incarnation of this property is the so-called <strong>level repulsion</strong> (as in Wigner's surmise): the eigenvalues of random matrices generically repel each other, while independent variables do not - as we show in the following section.</p>
+<h3 id="compare-with-the-spacings-between-i.i.d.s">2.3 Compare with the spacings between i.i.d.'s</h3>
+<ul>
+<li>两个随机变量 <span class="math inline">\((X_{j},X_{k})\)</span> 之间距离（gaps），的期望值 <span class="math inline">\(\hat{p}_{N}(\hat{S})\)</span></li>
+<li>经过积分，归一化，取大数极限，我们得到 <span class="math inline">\(\hat{p}_{N}(\hat{s})=e^{-\hat{s}}\)</span> 是指数下降，说明是吸引（attract）不是排斥（repel）</li>
+</ul>
+<p>Consider i.i.d. real random variables <span class="math inline">\(\left\{X_{1}, \ldots, X_{N}\right\}\)</span> drawn from a parent pdf <span class="math inline">\(p_{X}(x)\)</span> defined over a support <span class="math inline">\(\sigma .\)</span> The corresponding colf is <span class="math inline">\(F(x) .\)</span></p>
+<h4 id="conditional-probability">conditional probability</h4>
+<p>We wish to compute the <strong>conditional probability</strong> density function <span class="math inline">\(p_{N}\left(s | X_{j}=x\right)\)</span> that, given that one of the random variables <span class="math inline">\(X_{j}\)</span> takes a value around <span class="math inline">\(x\)</span>, there is another random variable <span class="math inline">\(X_{k}(k \neq j)\)</span> around the position <span class="math inline">\(x+s,\)</span> and no other variables lie in between. In other word, <strong>a gap</strong> of size <span class="math inline">\(s\)</span> exists <strong>between two random variables</strong>, one of which <strong>sits around</strong> <span class="math inline">\(x .\)</span></p>
+<p>The claim is <span class="math display">\[
+p_{N}\left(s | X_{j}=x\right)=p_{X}(x+s)[1+F(x)-F(x+s)]^{N-2}
+\]</span> The reasoning goes as follows:</p>
+<ul>
+<li>one of the variables sits around <span class="math inline">\(x\)</span> already,</li>
+<li>so we have <span class="math inline">\(N-1\)</span> variables left to play with.</li>
+<li>One of these should sit around <span class="math inline">\(x+s,\)</span> and the pdf for this event is <span class="math inline">\(p_{X}(x+s) .\)</span></li>
+<li>The remaining <span class="math inline">\(N-2\)</span> variables need to sit either to the left of <span class="math inline">\(x\)</span> - and this happens with probability <span class="math inline">\(F(x)\)</span> - or to the right of <span class="math inline">\(x+s\)</span> - and this happens with probability <span class="math inline">\(1-F(x+s)\)</span></li>
+</ul>
+<h4 id="gap-s-between-two-adjacent-particles">gap s between two adjacent particles</h4>
+<p>Now, the probability of a gap <span class="math inline">\(s\)</span> between two adjacent particles, conditioned on the position <span class="math inline">\(x\)</span> of one variable, but irrespective of which variable this is is obtained by the law of total probability <span class="math display">\[
+\begin{aligned}
+p_{N}(s | \text { any } X=x)&amp;=\sum_{j=1}^{N} p_{N}\left(s | X_{j}=x\right) \operatorname{Prob}\left(X_{j}=x\right)\\
+&amp;=N p_{N}\left(s | X_{j}=x\right) p_{X}(x)
+\end{aligned}
+\]</span> To obtain the probability of a gap <span class="math inline">\(s\)</span> between any two adjacent random variables, no longer conditioned on the position of one of the variables, we should simply integrate over <span class="math inline">\(x\)</span> <span class="math display">\[
+\begin{aligned}
+p_{N}(s)&amp;=\int_{\sigma} d x p_{N}(s | \text { any } X=x)\\
+&amp;=N \int_{\sigma} d x p_{N}\left(s | X_{j}=x\right) p_{X}(x)
+\end{aligned}
+\]</span></p>
+<h4 id="normalized">normalized</h4>
+<p>let us verify that <span class="math inline">\(p_{N}(s)\)</span> is correctly normalized, namely <span class="math inline">\(\int_{0}^{\infty} d s p_{N}(s)=1 .\)</span> We have <span class="math display">\[
+\int_{0}^{\infty} d s p_{N}(s)=N \int_{0}^{\infty} d s \int_{\sigma} d x p_{X}(x+s)[1+F(x)-F(x+s)]^{N-2} p_{X}(x)
+\]</span> Changing variables <span class="math inline">\(F(x+s)=u\)</span> in the <span class="math inline">\(s\)</span> -integral, and using <span class="math inline">\(F(+\infty)=1\)</span> and <span class="math inline">\(d u=F^{\prime}(x+s) d s=p_{X}(x+s) d s\)</span> get <span class="math display">\[
+\int_{0}^{\infty} d s p_{N}(s)=N \int_{\sigma} d x p_{X}(x) {\int_{F(x)}^{1} d u[1+F(x)-u]^{N-2}} 
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\frac{1-F(x)^{N-1}}{N-1}=\int_{F(x)}^{1} d u[1+F(x)-u]^{N-2}\)</span></li>
+</ul>
+<p>Setting now <span class="math inline">\(F(x)=v\)</span> and using <span class="math inline">\(d v=F^{\prime}(x) d x=p_{X}(x) d x,\)</span> we have <span class="math display">\[
+\int_{0}^{\infty} d s p_{N}(s)=\frac{N}{N-1} \int_{0}^{1} d v\left(1-v^{N-1}\right)=1
+\]</span></p>
+<p>简化版 <span class="math display">\[
+\begin{aligned}
+\int_{0}^{\infty} d s p_{N}(s)&amp;=N \int_{0}^{\infty} d s \int_{\sigma} d x p_{X}(x+s)[1+F(x)-F(x+s)]^{N-2} p_{X}(x) 
+\\&amp;
+= N \int_{\sigma} d x p_{X}(x)  {\int_{F(x)}^{1} d u[1+F(x)-u]^{N-2}} 
+\\&amp;
+=\frac{N}{N-1} \int_{0}^{1} d v\left(1-v^{N-1}\right)
+\\&amp;
+=1
+\end{aligned}
+\]</span></p>
+<p>其中</p>
+<ul>
+<li>积分 <span class="math inline">\(\int_{F(x)}^{1} d u[1+F(x)-u]^{N-2}=\frac{1-F(x)^{N-1}}{N-1}\)</span></li>
+</ul>
+<h4 id="limit-approximation-after-scaling-factor">limit approximation after scaling factor</h4>
+<p>As there are <span class="math inline">\(N\)</span> variables, it makes sense to perform the 'local' change of variables <span class="math inline">\(s=\hat{s} /\left(N p_{X}(x)\right)\)</span> and consider the limit <span class="math inline">\(N \rightarrow \infty\)</span>. The reason for choosing the scaling factor <span class="math inline">\(N p_{X}(x)\)</span> is that their typical spacing around the point <span class="math inline">\(x\)</span> will be precisely of order <span class="math inline">\(\sim 1 /\left(N p_{X}(x)\right)\)</span> : increasing <span class="math inline">\(N,\)</span> more and more variables need to occupy roughly the same space, therefore their typical spacing goes down. The same happens locally around points <span class="math inline">\(x\)</span> where there is a higher chance to find variables, i.e. for a higher <span class="math inline">\(p_{X}(x)\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+p_{N}\left(s | X_{j}=x\right)&amp;=p_{X}(x+s)[1+F(x)-F(x+s)]^{N-2}
+\\
+p_{N}\left(s=\frac{\hat{s}}{N p_{X}(x)} | X_{j}=x\right)&amp;=p_{X}\left(x+\hat{s} / N p_{X}(x)\right)\left[1+F(x)-F\left(x+\hat{s} / N p_{X}(x)\right)\right]^{N-2}
+\\&amp;
+\approx p_{X}(x) e^{-\hat{s}}
+\end{aligned}
+\]</span> probability distribution of gaps $$ \begin{aligned} <em>{N } </em>{N}() &amp;:=<em>{N } p</em>{N}(s=)  \ &amp;=N  <em>{} d x p</em>{X}(x) e<sup>{-} \ &amp;=e</sup>{-}</p>
+<p>\end{aligned} $$</p>
+<h3 id="jpdf-of-eigenvalues-of-gaussian-matrices">2.4 Jpdf of eigenvalues of Gaussian matrices</h3>
+<p>The jpdf of eigenvalues of a <span class="math inline">\(N \times N\)</span> Gaussian matrix is given by <span class="math display">\[
+\rho\left(x_{1}, \ldots, x_{N}\right)=\frac{1}{\mathcal{Z}_{N, \beta}} e^{-\frac{1}{2} \sum_{i=1}^{N} x_{i}^{2}} \prod_{j&lt;k}\left|x_{j}-x_{k}\right|^{\beta}
+\]</span> where normalization constant enforcing <span class="math inline">\(\int_{\mathrm{R}^{N}} d x \rho\left(x_{1}, \ldots, x_{N}\right)=1\)</span> <span class="math display">\[
+\mathcal{Z}_{N, \beta}=(2 \pi)^{N / 2} \prod_{j=1}^{N} \frac{\Gamma(1+j \beta / 2)}{\Gamma(1+\beta / 2)}
+\]</span> <span class="math inline">\(\beta=1,2,4\)</span> is called the Dyson index<span class="math inline">\(^{5} .\)</span> Henceforth, <span class="math inline">\(d x=\Pi_{j=1}^{N} d x_{j} .\)</span> Note that the eigenvalues are considered to be unordered here.</p>
+<h4 id="proof">proof</h4>
+<h2 id="classified-material">3 classified material</h2>
+<h3 id="count-on-dirac">3.1 Count on Dirac</h3>
+<blockquote>
+<p>Question From the jpdf of eigenvalues <span class="math inline">\(\rho\left(x_{1}, \ldots, x_{N}\right),\)</span> how do I compute the shape of the histograms of the <span class="math inline">\(N \times T\)</span> eigenvalues as in Fig. 1.1, for <span class="math inline">\(T\)</span> sufficiently large?</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200308220759642.png" srcset="/img/loading.gif" alt="image-20200308220759642" style="zoom: 50%;" /></p>
+<p>To cut a long story short, all you have to do is to take the marginal <span class="math display">\[
+\rho(x)=\int \cdots \int d x_{2} \cdots d x_{N} \rho\left(x, x_{2}, \ldots, x_{N}\right)
+\]</span> and this function will reproduce the histogram profile you are after for any finite N. Note that <span class="math inline">\(\rho(x)\)</span> is correctly normalized to <span class="math inline">\(1,\)</span> as your histogram is.</p>
+</blockquote>
+<h3 id="proof-spectral-density">proof: spectral density</h3>
+<p>task: define a <strong>counting function</strong> <span class="math inline">\(n(x)\)</span> such that <span class="math inline">\(\int_{a}^{b} n\left(x^{\prime}\right) d x^{\prime}\)</span> gives the fraction of eigenvalues <span class="math inline">\(x_{i}\)</span> between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> <span class="math display">\[
+n(x)=\frac{1}{N} \sum_{i=1}^{N} \delta\left(x-x_{i}\right)
+\]</span> the (normalized) sum of a set of "spikes" at the location <span class="math inline">\(x_{i}\)</span> of each eigenvalue. Using the following property of the delta function <span class="math display">\[
+\int_{\mathcal{J}} d x \delta\left(x-x_{0}\right) f(x)=f\left(x_{0}\right)
+\]</span> If <span class="math inline">\(H\)</span> is now a random matrix, the function <span class="math inline">\(n(x)\)</span> becomes a random measure on the real line -a function of <span class="math inline">\(x\)</span> that changes from one realization of <span class="math inline">\(H\)</span> to another. The average of it over the set of random eigenvalues <span class="math inline">\(\left\{x_{1}, \ldots, x_{N}\right\}\)</span> becomes interesting now <span class="math inline">\(^{3}\)</span> <span class="math display">\[
+\begin{aligned}
+\langle n(x)\rangle &amp;:=\int \cdots \int d \boldsymbol{x} \rho\left(x_{1}, \ldots, x_{N}\right) n(x)
+\\&amp;
+=\frac{1}{N} \sum_{i=1}^{N} \int \cdots \int d x \rho\left(x_{1}, \ldots, x_{N}\right) \delta\left(x-x_{i}\right)
+\\&amp;=\rho(x)
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><p><span class="math inline">\(\rho(x)=\int \cdots \int d x_{2} \cdots d x_{N} \rho\left(x, x_{2}, \ldots, x_{N}\right)\)</span> is the marginal density of <span class="math inline">\(\rho .\)</span></p></li>
+<li><p><span class="math inline">\(\rho\left(x_{1}, \ldots, x_{N}\right)\)</span> is symmetric upon the exchange <span class="math inline">\(x_{i} \rightarrow x_{j} .\)</span></p></li>
+</ul>
+<p>The quantity <span class="math inline">\(\langle n(x)\rangle=\rho(x)\)</span> has many names: most often, it is called the (average) <strong>spectral density</strong>. Fig. 3.1 helps you visualize how <span class="math inline">\(T=4\)</span> sets of <span class="math inline">\(N=8\)</span> randomly located "spikes" conspire to produce the continuous shape <span class="math inline">\(\rho(x)=\langle n(x)\rangle\)</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200309083444879.png" srcset="/img/loading.gif" alt="image-20200309083444879" style="zoom:50%;" /></p>
+<h4 id="spectral-density-for-gaussian-ensemble">Spectral density for Gaussian ensemble</h4>
+<blockquote>
+<p>Question. If <span class="math inline">\(N\)</span> becomes very large, what does the spectral density <span class="math inline">\(\rho(x)\)</span> for the Gaussian ensemble look like?</p>
+</blockquote>
+<p>Gaussian ensemble <span class="math display">\[
+\rho\left(x_{1}, \ldots, x_{N}\right)=\frac{1}{\mathcal{Z}_{N, \beta}} e^{-\frac{1}{2} \sum_{i=1}^{N} x_{i}^{2}} \prod_{j&lt;k}\left|x_{j}-x_{k}\right|^{\beta}
+\]</span> spectral density <span class="math display">\[
+\rho(x)=\int d x_{2} \cdots d x_{N} \rho\left(x, x_{2}, \ldots, x_{N}\right)
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\lim _{N \rightarrow \infty} \sqrt{\beta N} \rho(\sqrt{\beta N} x)&amp;=\rho_{\mathrm{SC}}(x) \\
+&amp;=\frac{1}{\pi} \sqrt{2-x^{2}}
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\rho_{\mathrm{SC}}(x)=\frac{1}{\pi} \sqrt{2-x^{2}}\)</span> has a <strong>semicircular</strong> - or rather, semielliptical - shape. This is called <strong>Wigner's semicircle law.</strong></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200309084119498.png" srcset="/img/loading.gif" alt="image-20200309084119498" style="zoom:50%;" /></p>
+<h4 id="rescaling-factor">Rescaling factor</h4>
+<blockquote>
+<p>Question. What is the meaning of the unexpected rescaling factor <span class="math inline">\(\sqrt{\beta N} ?\)</span></p>
+</blockquote>
+<p>This means that the histograms of eigenvalues for larger and larger <span class="math inline">\(N\)</span> become concentrated over the interval <span class="math inline">\([-\sqrt{2 \beta N}, \sqrt{2 \beta N}]\)</span>, in agreement with our numerical findings in Fig. <span class="math inline">\(1.1 .\)</span> The points <span class="math inline">\(\pm \sqrt{2 \beta N}\)</span> are called <strong>(spectral) edges.</strong></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200308220759642.png" srcset="/img/loading.gif" alt="image-20200308220759642" style="zoom: 50%;" /></p>
+<ol type="1">
+<li>The edges are growing with <span class="math inline">\(\sqrt{N}\)</span> - bigger matrices have a wider range of eigenvalues, can you explain why?</li>
+</ol>
+<p>To get histograms that do not become wider and wider with <span class="math inline">\(N,\)</span> we need to divide each eigenvalue by <span class="math inline">\(\sqrt{\beta N}\)</span> before histogramming. This is what we do in Fig. <span class="math inline">\(3.2,\)</span> using the very same eigenvalues collected to produce Fig. <span class="math inline">\(1.1 .\)</span> You can see that the histograms for different <span class="math inline">\(\beta\)</span> s nicely collapse on top of each other, reproducing an almost perfect semielliptical shape between <span class="math inline">\(-\sqrt{2}\)</span> and <span class="math inline">\(\sqrt{2}\)</span>.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200309084119498.png" srcset="/img/loading.gif" alt="image-20200309084119498" style="zoom:50%;" /></p>
+<blockquote>
+<p>矩阵越大，分布范围 <span class="math inline">\([-\sqrt{2 \beta N}, \sqrt{2 \beta N}]\)</span> 越广，分布的边界是以速度 <span class="math inline">\(\sqrt{N}\)</span> 增长，所以我们重新标记规模<span class="math inline">\(\sqrt{\beta N}\)</span>，布范围 <span class="math inline">\([-\sqrt{2 }, \sqrt{2 }]\)</span></p>
+</blockquote>
+<p>（2）The edges are at <span class="math inline">\(\pm \sqrt{2 \beta N}\)</span> for the jpdf <span class="math inline">\(\rho\left(x_{1}, \ldots, x_{N}\right)=\frac{1}{z_{N, \beta}} e^{-\frac{1}{2} \sum_{i=1}^{N} x_{i}^{2}} \prod_{j&lt;k}\left|x_{j}-x_{k}\right|^{\beta}\)</span></p>
+<p>if you put ad hoc extra factors in the exponential, like <span class="math inline">\(\exp \left(-(N / 2) \sum_{i} x_{i}^{2}\right),\)</span> the edges are fixed - they do not grow with <span class="math inline">\(N\)</span> - at <span class="math inline">\(\pm \sqrt{2 \beta}\)</span></p>
+<ol start="3" type="1">
+<li>The edges of the semicircle are called <strong>soft</strong>: for large but finite <span class="math inline">\(N,\)</span> there is always a nonzero probability of sampling eigenvalues <strong>exceeding the edge points</strong>.</li>
+</ol>
+<p>For example, for a GOE matrix <span class="math inline">\(10 \times 10,\)</span> you have a tiny but nonzero probability to sample eigenvalues larger than <span class="math inline">\(\sqrt{2 \beta N} \approx 4.47 \ldots\)</span></p>
+<p>Other ensembles have spectral densities with <strong>hard edges</strong> - this means impenetrable walls, which the eigenvalues can <strong>never cross</strong>.</p>
+<h3 id="laymans-classification">3.2 Layman's classification</h3>
+<blockquote>
+<p>Can we classify these ensembles according to simple features?</p>
+</blockquote>
+<p>在这节我们考虑两类矩阵：</p>
+<ul>
+<li>与秩无关</li>
+<li>旋转对称</li>
+</ul>
+<p>我们发现，唯一一种同时具有两个性质的系综是高斯系综（Gaussian ensemble）</p>
+<h4 id="independent-entries">Independent entries:</h4>
+<p>矩阵的秩和随机数无关</p>
+<p>Independent entries: the first group on the left gathers matrix models whose entries are independent random variables - modulo the symmetry requirements. Random matrices of this kind are usually called <strong>Wigner matrices.</strong></p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>in this category, you may find <strong>adjacency matrices of random graphs</strong> [6],</li>
+<li>or matrices with independent <strong>power-law entries</strong> (so-called <strong>Lévy matrices</strong> [7]),</li>
+<li>and <strong>power-law</strong> banded matrices [8]</li>
+</ul>
+<h4 id="rotational-invariance">Rotational invariance:</h4>
+<p>Rotational invariance: the second group on the right is characterized by the so-called rotational invariance. In essence, this property means that any two matrices that <strong>are related via a similarity transformation</strong> <span class="math inline">\(^{4} H^{\prime}=U H U^{-1}\)</span> occur in the ensemble with the same probability <span class="math display">\[
+\rho[H] d H_{11} \cdots d H_{N N}=\rho\left[H^{\prime}\right] d H_{11}^{\prime} \cdots d H_{N N}^{\prime}
+\]</span> This requires the following two conditions:</p>
+<p>（1）<span class="math inline">\(\rho[H]=\rho\left[U H U^{-1}\right]\)</span> This means that the jpdf of the entries retains the same functional form before and after the transformation. This imposes a severe constraint on the allowable functional forms thanks to Weyl's lemma [9], which states that <span class="math inline">\(\rho[H]\)</span> can only be a function of the traces of the first <span class="math inline">\(N\)</span> powers of <span class="math inline">\(H\)</span> <span class="math display">\[
+\rho[H]=\varphi\left(\operatorname{Tr} H, \operatorname{Tr} H^{2}, \ldots, \operatorname{Tr} H^{N}\right)
+\]</span> since <span class="math inline">\(\operatorname{Tr} H^{n}=\operatorname{Tr}\left(U H U^{-1}\right)^{n}\)</span> by the cyclic property of the trace, the <span class="math inline">\(\Leftarrow\)</span> implication is trivial.</p>
+<p>（2）<span class="math inline">\(d H_{11} \cdots d H_{N N}=d H_{11}^{\prime} \cdots d H_{N N}^{\prime},\)</span> i.e. the flat Lebesgue measure is invariant under conjugation by U. This is a classical result.</p>
+<p>The rotational invariance property in essence means that the <strong>eigenvectors are not that important</strong>, as we can rotate our matrices as freely as we wish, and still leave their statistical weight unchanged.</p>
+<h4 id="intersection-between-the-two-classes">intersection between the two classes</h4>
+<p>What about the intersection between the two classes? It turns out that it contains only the Gaussian ensemble <span class="math inline">\(^{5}\)</span>.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200309093429006.png" srcset="/img/loading.gif" alt="image-20200309093429006" style="zoom:50%;" /></p>
+<p>This is a consequence of a theorem by Porter and Rosenzweig [3]. And is bad news, isn't it? We have to make a choice:</p>
+<ul>
+<li>if we insist that the ensemble has independent entries, then eigenvectors <strong>do matter.</strong></li>
+<li>If we require a high level of rotational symmetry, then the <strong>entries get necessarily correlated.</strong></li>
+</ul>
+<p><strong>No free lunch (beyond the Gaussian)!</strong></p>
+<h4 id="rotational-invariance-of-gaussian-ensemble">Rotational invariance of Gaussian ensemble</h4>
+<p>the jpdf of entries in the upper triangle <span class="math display">\[
+\rho\left(\left(H_{s}\right)_{11}, \ldots,\left(H_{s}\right)_{N N}\right)=\prod_{i=1}^{N}\left[\exp \left(-\left(H_{s}\right)_{i i}^{2} / 2\right) / \sqrt{2 \pi}\right] \prod_{i&lt;j}\left[\exp \left(-\left(H_{s}\right)_{i j}^{2}\right) / \sqrt{\pi}\right]
+\]</span> you can rewrite this jpdf as <span class="math display">\[
+\rho\left[H_{s}\right] \propto \exp \left(-\frac{1}{2} \operatorname{Tr}\left(H_{s}^{2}\right)\right)
+\]</span> For example,</p>
+<p>for <span class="math inline">\(2 \times 2\)</span> real symmetric matrix <span class="math display">\[
+H_{s}=\left(\begin{array}{ll}
+a &amp; b \\
+b &amp; c
+\end{array}\right)
+\]</span></p>
+<ul>
+<li>the trace of <span class="math inline">\(H_{s}\)</span> is <span class="math inline">\(a+c,\)</span></li>
+<li>the trace of <span class="math inline">\(H_{s}^{2}\)</span> is <span class="math inline">\(a^{2}+c^{2}+2 b^{2}\)</span></li>
+</ul>
+<p>rotational invariance property is much easier to see: <span class="math display">\[
+\operatorname{Tr}\left(H_{s}^{\prime 2}\right)=\operatorname{Tr}\left(H_{s}^{2}\right)
+\]</span> where a similarity transformation <span class="math inline">\(H_{s}^{\prime}=U H_{s} U^{-1}\)</span></p>
+<h2 id="the-fluid-semicircle">4 The fluid semicircle</h2>
+<p>In this Chapter, we set up a statistical mechanics formalism to compute Wigner’s semicircle law for Gaussian matrices. You will learn here the so-called “Coulomb gas technique”.</p>
+<ul>
+<li>鉴于Gaussian matrices的重要性，我们要计算它的Wigner’s semicircle law。</li>
+<li>但是积分太难了，为此我们引入一种方法“Coulomb gas technique”.</li>
+<li></li>
+</ul>
+<h3 id="coulomb-gas">4.1 Coulomb gas</h3>
+<h4 id="jpdf-for-the-gaussian-ensemble">jpdf for the Gaussian ensemble</h4>
+<blockquote>
+<p>高斯系综 的联合概率分布函数的表示</p>
+<p>得到的结果和统计力学非常相似，有partition function，有指数Gibbs-Boltzmann weight</p>
+</blockquote>
+<p>The Coulomb gas (or fluid) technique is usually attributed to <strong>Dyson</strong> [16].</p>
+<p>Actually, a few years before, <strong>Wigner</strong> had already used it for the derivation of the semicircle law [17].</p>
+<p>Take the jpdf for the Gaussian ensemble</p>
+<p><span class="math display">\[
+\rho\left(x_{1}, \ldots, x_{N}\right)=\frac{1}{z_{N, \beta}} e^{-\frac{1}{2} \sum_{i=1}^{N} x_{i}^{2}} \prod_{j&lt;k}\left|x_{j}-x_{k}\right|^{\beta}
+\]</span> and rescale the eigenvalues as <span class="math inline">\(x_{i} \rightarrow x_{i} \sqrt{\beta N}\)</span></p>
+<p>The normalization constant now reads ：set $ C_{N, }=()^{N+N(N-1) / 2} $</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathcal{Z}_{N, \beta}&amp;=C_{N, \beta} \int_{\mathbb{R}^{N}} \prod_{j=1}^{N} d x_{j} e^{-\frac{\beta}{2} N \Sigma_{i=1}^{N} x_{i}^{2}} \prod_{j&lt;k}\left|x_{j}-x_{k}\right|^{\beta}
+\\&amp;=C_{N, \beta} \int_{\mathbb{R}^{N}} \prod_{j=1}^{N} d x_{j} e^{-\beta N^{2} \mathcal{V}[x]}
+\end{aligned}
+\]</span> where the energy term in the exponent is</p>
+<p><span class="math display">\[
+\mathcal{V}[\boldsymbol{x}]=\frac{1}{2 N} \sum_{i} x_{i}^{2}-\frac{1}{2 N^{2}} \sum_{i \neq j} \ln \left|x_{i}-x_{j}\right|
+\]</span> The factor <span class="math inline">\(1 / 2\)</span> in front of the logarithmic term is due to the symmetrization from <span class="math inline">\(i&lt;j\)</span> to <span class="math inline">\(i \neq j\)</span></p>
+<p>We have just exponentiated the product <span class="math inline">\(\prod_{j&lt;k}\)</span>, and obtained a <strong>canonical partition function</strong>'!</p>
+<h4 id="gibbs-boltzmann-weight">Gibbs-Boltzmann weight</h4>
+<p>The Gibbs-Boltzmann weight <span class="math display">\[
+ e^{-\beta N^{2} V[X]} 
+\]</span> corresponds to a thermodynamical fluid of particles with positions <span class="math inline">\(\left\{x_{1}, \ldots, x_{N}\right\}\)</span> on a line, in equilibrium at "<strong>inverse temperature</strong>" <span class="math inline">\(\beta\)</span> under the effect of <strong>competing interactions</strong>: a quadratic (single-particle) potential (see fig. 4.1 ), and a repulsive (all-to-all) logarithmic term. The fluid is "static", as there is no kinetic term in <span class="math inline">\(v[x]\)</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20200310123424767.png" srcset="/img/loading.gif" alt="image-20200310123424767" style="zoom: 33%;" /></p>
+<p>Figure 4.1: Sketch of the quadratic confining potential, which prevents the particles from escaping towards too <span class="math inline">\(\pm \infty\)</span></p>
+<p>The presence of the pre-factor <span class="math inline">\(\beta N^{2}\)</span> shows - at least formally - that the <strong>limit</strong> <span class="math inline">\(N \rightarrow \infty\)</span> is a simultaneous thermodynamic and zero-temperature limit.</p>
+<p>A standard thermodynamic argument tells us how to find the <strong>equilibrium positions</strong> at zero temperature of the particles (eigenvalues) under such interactions: all we need to do is to minimize the free energy <span class="math display">\[
+ F=-(1 / \beta) \ln Z_{N, \beta} 
+\]</span> of this system. The calculation greatly simplifies in the limit $N $</p>
+<h4 id="why-coulomb">Why Coulomb</h4>
+<blockquote>
+<p>Question. Why is this called a "Coulomb" gas?</p>
+</blockquote>
+<p>Decause we have a logarithmic interaction among charged particles. More precisely, we have a <span class="math inline">\(2 \mathrm{D}\)</span> "fluid" of charges constrained to a line. We know that in <span class="math inline">\(2 \mathrm{D}\)</span> the electrostatic potential generated by a point charge is proportional to the logarithm of the distance from it - while in <span class="math inline">\(3 \mathrm{D},\)</span> this potential is inversely proportional to the distance, and in <span class="math inline">\(1 \mathrm{D}\)</span> is proportional to the distance. Therefore, a 2D charged fluid confined to a line is not quite the same as a <span class="math inline">\(1 \mathrm{D}\)</span> fluid!</p>
+<p>A simple way to see this is by using Gauss's law, with a single charge <span class="math inline">\(q\)</span> sitting at the origin on a <span class="math inline">\(2 \mathrm{D}\)</span> plane. If we enclose the charge in a 1 -sphere <span class="math inline">\(S\)</span> (i.e. a circle), then we must have <span class="math inline">\(\int_{S} E \cdot n \propto q,\)</span> where <span class="math inline">\(n\)</span> is the normal vector to the circle. If you assume that the electric field <span class="math inline">\(E\)</span> is rotationally symmetric, i.e. <span class="math inline">\(E=E(r) \hat{r},\)</span> this turns into <span class="math inline">\(E(r) 2 \pi r \propto q,\)</span> implying that <span class="math display">\[
+E(r) \propto \frac{q }{r} \quad \rightarrow {V}[{r}]=\int_{S} E \cdot n= \ln r
+\]</span> Integrating a field that goes like <span class="math inline">\(1 / r\)</span> gives you a logarithmic potential.</p>
+<h3 id="do-it-yourself">4.2 Do it yourself</h3>
+<blockquote>
+<p>So, our goal is to find the free energy <span class="math inline">\(F=-(1 / \beta) \ln Z_{N, \beta}\)</span> for a large number of particles <span class="math inline">\(N \rightarrow \infty .\)</span> As in many branches of physics, "larger is easier". We now provide a "<strong>continuum</strong>" description of the fluid, based on the following steps.</p>
+</blockquote>
+<p>这节的目标是找到 粒子数是大数时候的 free energy，因此我们可以用连续方式来描述 库伦流体</p>
+<h4 id="introduce-a-counting-function">(1)Introduce a counting function</h4>
+<p>Define first a normalized one-point counting function <span class="math display">\[
+n(x)=\frac{1}{N} \sum_{i=1}^{N} \delta\left(x-x_{i}\right)
+\]</span> This is a random function, satisfying <span class="math inline">\(\int_{\mathbb{R}} d x n(x)=1\)</span> and <span class="math inline">\(n(x) \geq 0\)</span> everywhere. For finite <span class="math inline">\(N,\)</span> this is just a <strong>collection of "spikes"</strong> at the location of each eigenvalue. However, for large <span class="math inline">\(N,\)</span> it is natural to assume that it will become a <strong>smooth</strong> function of <span class="math inline">\(x .\)</span> We will always work under this assumption?</p>
+<blockquote>
+<p><span class="math inline">\(n(x)\)</span> is nothing but the limit for <span class="math inline">\(\varepsilon \rightarrow 0^{+}\)</span> of a nascent delta function <span class="math inline">\(n_{\varepsilon}(x)=\frac{1}{N} \sum_{i=1}^{N} \frac{e^{-\left(x-x_{i}\right)^{2} / 4 \varepsilon}}{2 \sqrt{\pi \varepsilon}}\)</span></p>
+</blockquote>
+<h4 id="coarse-graining-procedure">(2)Coarse-graining procedure</h4>
+<blockquote>
+<p>粗粒化：在分布函数里插入一个归一化的泛函</p>
+</blockquote>
+<p>Instead of directly <strong>summing - or rather integrating</strong> - over all configurations of eigenvalues <span class="math inline">\(\left\{x_{1}, \ldots, x_{N}\right\}\)</span> which in stat-mech we would call <strong>micro-states</strong> of our fluid, we first fix a certain one-point profile <span class="math inline">\(n(x)\)</span> (nonnegative, smooth and normalized).</p>
+<ul>
+<li>Sketch your favorite function over <span class="math inline">\(\mathbb{R}\)</span> and call it <span class="math inline">\(n(x)\)</span> - whatever you like, really, provided it is non-negative, smooth and normalized.</li>
+<li>Then, we sum over all microstates <span class="math inline">\(\left\{x_{1}, \ldots, x_{N}\right\}\)</span> compatible with your sketch <span class="math inline">\(n(x)\)</span> - in a sense to be made clearer.</li>
+<li>Finally, we sum over all possible (non-negative, smooth and normalized <span class="math inline">\(n(x)\)</span> you might have come up with in the first place.</li>
+</ul>
+<p>This <strong>coarse-graining</strong> (粗粒化) procedure can be put on slightly cleaner grounds introducing the following representation of unity as a functional integral <span class="math display">\[
+1=\int \mathcal{D}[n(x)] \delta\left[n(x)-\frac{1}{N} \sum_{i=1}^{N} \delta\left(x-x_{i}\right)\right]
+\]</span> which enforces the definition ( 4.4 ). The functional integral runs (so to speak) over all possible normalized, non-negative and smooth functions <span class="math inline">\(n(x) .\)</span> See [18] for more details on functional integrations.</p>
+<p>Inserting this representation of unity inside the multiple integral ( 4.2 ) and exchanging the order of integrations, we end up with <span class="math display">\[
+\begin{aligned}
+\mathcal{Z}_{N, \beta}
+&amp;=C_{N, \beta} \int_{\mathbb{R}^{N}} \prod_{j=1}^{N} d x_{j} e^{-\beta N^{2} \mathcal{V}[x]}
+\\
+&amp;=C_{N, \beta} \int \mathcal{D}[n(x)] \int_{\mathbb{R}^{N}} \prod_{j=1}^{N} d x_{j} e^{-\beta N^{2} \mathcal{V}|x|} \delta\left[n(x)-\frac{1}{N} \sum_{i=1}^{N} \delta\left(x-x_{i}\right)\right]
+\end{aligned}
+\]</span></p>
+<h4 id="convert-sums-into-integrals">(3) Convert sums into integrals</h4>
+<blockquote>
+<p>we will get this <span class="math display">\[
+\begin{aligned}
+\mathcal{V}[\boldsymbol{x}]&amp;=\frac{1}{2 N} \sum_{i} x_{i}^{2}-\frac{1}{2 N^{2}} \sum_{i \neq j} \ln \left|x_{i}-x_{j}\right|\\
+\mathcal{V}[n(x)]&amp;=\frac{1}{2} \int_{\mathbb{R}} d x x^{2} n(x)-\frac{1}{2} \iint_{\mathbb{R}^{2}} d x d x^{\prime} n(x) n\left(x^{\prime}\right) \ln \left|x-x^{\prime}\right|+\frac{1}{2 N} \int_{\mathbb{R}} d x n(x) \ln \Delta(x)
+\end{aligned}
+\]</span></p>
+</blockquote>
+<p>Using the identities <span class="math display">\[
+\begin{aligned}
+\sum_{i=1}^{N} f\left(x_{i}\right) &amp;=N \int_{\mathbb{R}} n(x) f(x) d x \\
+\sum_{i, j=1}^{N} g\left(x_{i}, x_{j}\right) &amp;=N^{2} \iint_{\mathbb{R}^{2}} d x d x^{\prime} n(x) n\left(x^{\prime}\right) g\left(x, x^{\prime}\right)
+\end{aligned}
+\]</span> we can rewrite the two terms in the energy <span class="math inline">\(\mathcal{V}[\boldsymbol{x}]=\frac{1}{2 N} \sum_{i} x_{i}^{2}-\frac{1}{2 N^{2}} \sum_{i \neq j} \ln \left|x_{i}-x_{j}\right|\)</span> as $$ \begin{aligned} V[]&amp;= <em>{i=1}^{N} x</em>{i}^{2}\ &amp;= N _{} n(x) x^{2} d x</p>
+<p>\end{aligned} $$</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\quad \frac{1}{2 N^{2}} \sum_{i \neq j} \ln \left|x_{i}-x_{j}\right|
+\\ 
+&amp;=\frac{1}{2 N^{2}}\left[\sum_{i, j} \ln \left|x_{i}-x_{j}\right|-\sum_{i} \ln \Delta\left(x_{i}\right)\right]
+\\ 
+&amp;=\frac{1}{2 N^{2}} \times N^{2} \iint_{\mathbb{R}^{2}} d x d x^{\prime} n(x) n\left(x^{\prime}\right) \ln \left|x-x^{\prime}\right|-\frac{1}{2 N^{2}} \times N \int_{\mathbb{R}} d x n(x) \ln \Delta(x)
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\Delta(x)\)</span> is a position-dependent <strong>short-distance cutoff</strong>.</p>
+<blockquote>
+<p>What does this mean?</p>
+</blockquote>
+<p>Note that in the limit <span class="math inline">\(\varepsilon \rightarrow 0^{+},\)</span> the double integral <span class="math inline">\(\iint_{\mathbb{R}^{2}} d x d x^{\prime} n_{\varepsilon}(x) n_{\varepsilon}\left(x^{\prime}\right) \ln \left|x-x^{\prime}\right|\)</span> is <strong>divergent</strong>. This physically corresponds to the <strong>infinite-energy contribution</strong> originated by two neighboring charges getting "too close" to each other (the term <span class="math inline">\(\left.i=j \text { in the sum } \Sigma_{i, j} \ln \left|x_{i}-x_{j}\right|\right) .\)</span> The term <span class="math inline">\(\int_{\mathbb{R}} d x n_{\varepsilon}(x) \ln \Delta(x)\)</span> for <span class="math inline">\(\varepsilon \rightarrow 0^{+}\)</span></p>
+<h4 id="mathcalvboldsymbolx-rightarrow-mathcalvnx">(4) <span class="math inline">\(\mathcal{V}[\boldsymbol{x}] \rightarrow \mathcal{V}[n(x)]\)</span></h4>
+<p>Note that the sums over eigenvalues <span class="math inline">\(\left\{x_{1}, \ldots, x_{N}\right\}\)</span> have been expressed through the counting function <span class="math inline">\(n(x),\)</span> which - with a slight abuse of notation - will denote from now on its smooth limit as <span class="math inline">\(N \rightarrow \infty\)</span></p>
+<p>Therefore we can write <span class="math display">\[
+\begin{aligned}\mathcal{Z}_{N, \beta}&amp;=C_{N, \beta} \int \mathcal{D}[n(x)] \int_{\mathbb{R}^{N}} \prod_{j=1}^{N} d x_{j} e^{-\beta N^{2} \mathcal{V}|x|} \delta\left[n(x)-\frac{1}{N} \sum_{i=1}^{N} \delta\left(x-x_{i}\right)\right]
+\\
+&amp;=C_{N, \beta} \int \mathcal{D}[n(x)] e^{-\beta N^{2} \mathcal{V}[n(x)]} {\int_{\mathbb{R}^{N}} \prod_{j=1}^{N} d x_{j} \delta\left[n(x)-\frac{1}{N} \sum_{i=1}^{N} \delta\left(x-x_{i}\right)\right]} 
+\end{aligned}
+\]</span> where <span class="math display">\[
+I_{N}[n(x)]=\int_{ R ^{N}} \prod_{j=1}^{N} d x_{j} \delta\left[n(x)-\frac{1}{N} \sum_{i=1}^{N} \delta\left(x-x_{i}\right)\right]
+\]</span></p>
+<p><span class="math display">\[
+\mathcal{V}[n(x)]=\frac{1}{2} \int_{\mathbb{R}} d x x^{2} n(x)-\frac{1}{2} \iint_{\mathbb{R}^{2}} d x d x^{\prime} n(x) n\left(x^{\prime}\right) \ln \left|x-x^{\prime}\right|+\frac{1}{2 N} \int_{\mathbb{R}} d x n(x) \ln \Delta(x)
+\]</span></p>
+<h4 id="evaluate-the-integral-i_nnx-for-large-n">(5) Evaluate the integral <span class="math inline">\(I_{N}[n(x)]\)</span> for large <span class="math inline">\(N\)</span></h4>
+<p>We now have to evaluate <span class="math display">\[
+I_{N}[n(x)]=\int_{\mathbb{R}^{N}} \prod_{j=1}^{N} d x_{j} \delta\left[n(x)-\frac{1}{N} \sum_{i=1}^{N} \delta\left(x-x_{i}\right)\right]
+\]</span> in the limit <span class="math inline">\(N \rightarrow \infty\)</span></p>
+<p>It is quite easy to give a <strong>physical interpretation</strong> of this multiple integral.</p>
+<blockquote>
+<p>It is basically <strong>counting how many microstates</strong> - microscopic configurations of the fluid charges - are compatible with a <strong>given macrostate</strong> the density profile <span class="math inline">\(n(x)\)</span>.</p>
+</blockquote>
+<p>We know from standard statistical mechanics arguments that the logarithm of this number should be proportional to the entropy of the fluid. Let us see how.</p>
+<p>Introducing a 'functional' analogue of the standard integral representation for the delta function we can write <span class="math display">\[
+\begin{aligned}
+I_{N}[n(x)] &amp;=\int \mathcal{D}[\hat{n}(x)] \int_{\mathbb{R}^{N}} \prod_{j=1}^{N} d x_{j} \exp \left[\mathrm{i} N \int d x n(x) \hat{n}(x)-\mathrm{i} \int d x \hat{n}(x) \sum_{i=1}^{N} \delta\left(x-x_{i}\right)\right] \\
+&amp;=\int \mathcal{D}[\hat{n}(x)] \exp \left[\mathrm{i} N \int d x n(x) \hat{n}(x)\right]\left[\int_{\mathbb{R}} d y e^{-\mathrm{i} \int d x \hat{n}(x) \delta(x-y)}\right]^{N} \\
+&amp;=\int \mathcal{D}[\hat{n}(x)] e^{N S[\hat{n}(x) | n(x)]}
+\end{aligned}
+\]</span> where <span class="math inline">\(S[\hat{n}(x) | n(x)]=\mathrm{i} \int d x n(x) \hat{n}(x)+\log \int_{\mathbb{R}} d y e^{-\mathrm{i} \hat{n}(y)}\)</span></p>
+<p>This type of integrals <strong>is music to the statistical physicist's ears</strong>! It is of the form <span class="math inline">\(\int d(\cdot) \exp [\Lambda f(\cdot)],\)</span> with <span class="math inline">\(\Lambda \equiv N\)</span> a very large parameter. Hence it can be evaluated with a Laplace (or saddle-point) approximation <span class="math inline">\([20] .\)</span></p>
+<p>Finding the critical point of the action <span class="math inline">\(S[\hat{n}(x) | n(x)]\)</span> <span class="math display">\[
+0=\frac{\delta S}{\delta \hat{n}(x)}=\mathrm{i} n(x)-\mathrm{i} \frac{e^{-i \hat{n}(x)}}{\int_{\mathbb{R}} d y e^{-\mathrm{i} \hat{n}(y)}}
+\]</span> from which we obtain <span class="math display">\[
+e^{-i \hat{n}(x)}=n(x) \int_{\mathbb{R}} d y e^{-i \hat{n}(y)} \Rightarrow i \hat{n}(x)=-\ln n(x)-\log \int_{\mathbb{R}} d y e^{-i \hat{n}(y)}
+\]</span> where we <strong>ignore</strong> spurious phases (recall that in the complex field Log exp(z) may not just be equal to <span class="math inline">\(z !\)</span> ) that would make the action evaluated at the saddle-point complex. Substituting , we obtain <span class="math display">\[
+\begin{aligned}
+I_{N}[n(x)] &amp;=\int \mathcal{D}[\hat{n}(x)] e^{N S[\hat{n}(x) | n(x)]}\\
+I_{N}[n(x)] &amp;\sim \exp \left[-N \int d x n(x) \ln n(x)\right]
+\end{aligned}
+\]</span> to leading order in <span class="math inline">\(N .\)</span> As expected, the term inside square brackets has precisely the form of the Shannon entropy of the density <span class="math inline">\(n(x)\)</span></p>
+<h4 id="evaluate-deltax">(6) Evaluate <span class="math inline">\(\Delta(x)\)</span></h4>
+<p>A standard, physically motivated argument - going back to Dyson for charges on a ring -posits that <span class="math inline">\(\Delta(x)\)</span> the so-called self-energy term (The short-distance cutoff)- should be taken of the form <span class="math display">\[
+\Delta(x) \approx \frac{c}{N n(x)}
+\]</span></p>
+<ul>
+<li><p>as the higher the density of particles around <span class="math inline">\(x,\)</span> the smaller the average distance between them <span class="math inline">\(^{4}\)</span>.</p></li>
+<li><p>Also, <span class="math inline">\(N\)</span> charges spread over a distance of <span class="math inline">\(\mathcal{O}(1)\)</span> have a mean spacing <span class="math inline">\(\sim \mathcal{O}(1 / N)\)</span>, and this justifies the <span class="math inline">\(1 / N\)</span> factor. This argument, however plausible, does not seem to have been made rigorous yet, though.</p></li>
+</ul>
+<p>Note, in particular, that the constant <span class="math inline">\(c\)</span> in <span class="math display">\[\Delta(x) \approx \frac{c}{N n(x)}\]</span> cannot be fixed by this simple heuristic argument. While conceptually quite important (see e.g. [ 21] ), this missing bit will prove rather inconsequential in the following.</p>
+<h4 id="final-expression">(7) Final expression</h4>
+<p>the partition function eventually reads <span class="math display">\[
+\begin{aligned}
+\mathcal{Z}_{N, \beta}&amp;=C_{N, \beta} \int \mathcal{D}[n(x)] e^{-\beta N^{2} \mathcal{V}[n(x)]} \int_{\mathbb{R}^{N}} \prod_{j=1}^{N} d x_{j} \delta\left[n(x)-\frac{1}{N} \sum_{i=1}^{N} \delta\left(x-x_{i}\right)\right]n(x)
+\\
+&amp;\simeq C_{N, \beta} \int \mathcal{D}[n(x)] e^{-\beta N^{2} \mathcal{F}_{0}[n(x)]+\frac{\beta}{2} N \ln N+\left(\frac{\beta}{2}-1\right) N \mathcal{F}_{1}[n(x)]-\frac{\beta}{2} N \ln c+o(N)}
+\end{aligned}
+\]</span> where <span class="math display">\[
+\begin{aligned}\mathcal{F}_{0}[n(x)] &amp;=\frac{1}{2} \int d x x^{2} n(x)-\frac{1}{2} \iint d x d x^{\prime} n(x) n\left(x^{\prime}\right) \ln \left|x-x^{\prime}\right| \\\mathcal{F}_{1}[n(x)] &amp;=\int d x n(x) \ln n(x)\end{aligned}
+\]</span> Note that the term <span class="math inline">\((\beta / 2) N \ln N\)</span> is essentially independent of the potential, and can be <strong>absorbed into</strong> the overall normalization constant. The <span class="math inline">\(\mathcal{O}(N)\)</span> contribution is composed by</p>
+<ul>
+<li><ol type="i">
+<li>the self-energy term</li>
+</ol></li>
+<li><ol start="2" type="i">
+<li>the entropic term</li>
+</ol></li>
+<li><ol start="3" type="i">
+<li>a contribution coming from the unknown constant <span class="math inline">\(c\)</span> in <span class="math inline">\(\Delta(x) \approx \frac{c}{N n(x)}\)</span></li>
+</ol></li>
+</ul>
+<h4 id="flash-forward-cross-check-with-finite--n-result">(8) Flash-forward: cross-check with finite- <span class="math inline">\(N\)</span> result</h4>
+<p>We now cheat a bit. Let us use some information we will actually prove later, namely that the equilibrium density of the fluid is Wigner's semicircle law <span class="math inline">\(n^{\star}(x) \equiv \rho_{\mathrm{SC}}(x)=\frac{1}{\pi} \sqrt{2-x^{2}}\)</span> Inserting the semicircle law into ( 4.21) and ( 4.22) - and evaluating the corresponding integrals - we obtain <span class="math display">\[
+\begin{aligned}\mathcal{F}_{0}[n(x)] &amp;=\frac{1}{2} \int d x x^{2} n(x)-\frac{1}{2} \iint d x d x^{\prime} n(x) n\left(x^{\prime}\right) \ln \left|x-x^{\prime}\right| \\
+\mathcal{F}_{0}\left[n^{\star}(x)\right]&amp;=\frac{3}{8}+\frac{\ln 2}{4}n(x)\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathcal{F}_{1}[n(x)] &amp;=\int d x n(x) \ln n(x)
+\\
+\mathcal{F}_{1}\left[n^{\star}(x)\right]&amp;=\frac{1}{2}(1-\ln (2)-2 \ln (\pi))
+\end{aligned}
+\]</span></p>
+<p>Therefore, the partition function (4.20) reads for large <span class="math inline">\(N\)</span> <span class="math display">\[
+\begin{aligned}
+\mathcal{Z}_{N, \beta} &amp; \simeq C_{N, \beta} \int \mathcal{D}[n(x)] e^{-\beta N^{2} \mathcal{F}_{0}[n(x)]+\frac{\beta}{2} N \ln N+\left(\frac{\beta}{2}-1\right) N \mathcal{F}_{1}[n(x)]-\frac{\beta}{2} N \ln c+o(N)} \\
+&amp; \approx C_{N, \beta} e^{-\beta N^{2} \mathcal{F}_{0}\left[n^{\star}(x)\right]+\frac{\beta}{2} N \ln N+\left(\frac{\beta}{2}-1\right) N \mathcal{F}_{1}\left[n^{\star}(x)\right]-\frac{\beta}{2} N \ln c+o(N)} \\
+&amp; \approx \exp \left[\frac{\beta}{4} N^{2} \ln N+a_{\beta} N^{2}+\frac{1}{2}\left(1+\frac{\beta}{2}\right) N \ln N+b_{\beta} N+o(N)\right]
+\end{aligned}
+\]</span> where we used the easy asymptotics <span class="math display">\[
+\ln C_{N, \beta} \sim \frac{\beta}{4} N^{2} \ln N+\frac{\beta}{4}(\ln \beta) N^{2}+\frac{1-\beta / 2}{2} N \ln N+\frac{(1-\beta / 2) \ln \beta}{2} N
+\]</span> The constants <span class="math inline">\(a_{\beta}\)</span> and <span class="math inline">\(b_{\beta}\)</span> are given as follows: <span class="math display">\[
+\begin{aligned}
+a_{\beta} &amp;=\frac{\beta}{4} \ln \beta-\beta \mathcal{F}_{0}\left[n^{\star}(x)\right] \\
+b_{\beta} &amp;=\left(\frac{\beta}{2}-1\right) \mathcal{F}_{1}\left[n^{\star}(x)\right]+\frac{1-\beta / 2}{2} \ln \beta-\frac{\beta}{2} \ln c
+\end{aligned}
+\]</span></p>
+<h5 id="check-mean-field">check mean-field</h5>
+<blockquote>
+<p>Can we check that this result is plausible?</p>
+</blockquote>
+<p>Note that for <span class="math inline">\(\beta=2\)</span>, the partition function <span class="math inline">\(Z_{N, \beta=2}\)</span> from ( 2.16 ) has a particularly simple expression at finite <span class="math inline">\(N\)</span> <span class="math display">\[
+z_{N, \beta=2}=(2 \pi)^{N / 2} G(N+2)
+\]</span> where <span class="math inline">\(G(x)\)</span> is a Barnes G-function <span class="math inline">\(^{5}\)</span>. Hence, if everything was done correctly, the large- <span class="math inline">\(N\)</span> asymptotics of (4.29) should precisely match the large- <span class="math inline">\(N\)</span> behavior ( 4.25 ).</p>
+<p>Let us check. Using known asymptotics of the Barnes G-function, we deduce that <span class="math display">\[
+\ln Z_{N, \beta=2} \sim \frac{1}{2} N^{2} \ln N-\frac{3}{4} N^{2}+N \ln N+N(\ln (2 \pi)-1)+\mathcal{O}(1)
+\]</span> which coincides (up to the term <span class="math inline">\(N\)</span> ln <span class="math inline">\(N\)</span> included) with the asymptotics of <span class="math inline">\(\mathcal{Z}_{N, \beta}\)</span> in ( 4.25) once <span class="math inline">\(\beta\)</span> is set to <span class="math inline">\(2 .\)</span> This check should convince you that the "mean-field" approach - based on a continuum description of the charged fluid of eigenvalues - is indeed capable of capturing the first three terms of the free energy, and only fails at the level of <span class="math inline">\(\mathcal{O}(N)\)</span> contributions - as the renormalized self-energy term cannot be precisely determined by a simple-minded scaling argument.</p>
+<h4 id="whats-next">(9) What's next</h4>
+<p>Let us recap what we have done so far.</p>
+<ul>
+<li>The normalization constant <span class="math inline">\(Z_{N, \beta}\)</span> of the Gaussian model has been re-interpreted as the canonical partition function of a 2D static fluid of charged particles confined on a line, in equilibrium at inverse temperature <span class="math inline">\(\beta .\)</span></li>
+<li>For a large number of particles, among all possible configurations, the fluid will choose the one that minimizes its free energy, i.e. the logarithm of this partition function.</li>
+<li>The partition function has been written as a functional integral over the space of normalized counting functions <span class="math inline">\(n(x),\)</span> see (4.20).</li>
+</ul>
+<p>For large <span class="math inline">\(N\)</span>, it lends itself to a saddle-point evaluation, which will be carried out in the next Chapter.</p>
+<h2 id="saddle-point-of-view">5 Saddle-point-of-view</h2>
+<h2 id="time-for-a-change">6 Time for a change</h2>
+<blockquote>
+<p>how to compute the jpdf of eigenvalues for random matrix models</p>
+</blockquote>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/mathematics/">mathematics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/mathematics/Random-Matrices/">Random Matrices</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Random-Matrices/">Random Matrices</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/03/15/Math_021_Lie/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Naive Lie theory</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/02/24/Thesis01_Kodon_02/">
+                        <span class="hidden-mobile">杂质模型及其微扰理论</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "随机矩阵&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

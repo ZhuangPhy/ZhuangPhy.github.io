@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.6k 字
+      3k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      30
+      36
        分钟
     </span>
   
@@ -236,6 +236,58 @@
 </ul>
 <p>图床就是一个在网络上存储图片的地方，目的是为了节省本地服务器空间，加快网站的图片打开速度。</p>
 <p>网上有很多免费的图床，但是考虑到长久性，我选择了付费的阿里云oss来搭建自己的图床。</p>
+<h4 id="云上latex">云上latex</h4>
+<h5 id="动机">动机</h5>
+<p>overleaf 是一款在线编辑latex文档的工具，相比于传统latex的优点</p>
+<ol type="1">
+<li>多人协作方便</li>
+<li>本地搭建latex环境比较复杂</li>
+<li>编译过程对于一些错误可以纠正</li>
+</ol>
+<p>但是免费账号只限制2人修改权限，所以在个人服务器上面搭建overleaf</p>
+<ol type="1">
+<li>免费</li>
+<li>数据安全</li>
+</ol>
+<h5 id="操作">操作</h5>
+<ul>
+<li>替换阿里云yum源</li>
+</ul>
+<pre><code class="hljs jboss-cli">wget -O <span class="hljs-string">/etc/yum.repos.d/CentOS-Base.repo</span> http:<span class="hljs-string">//mirrors.aliyun.com/repo/Centos-7.repo</span> <span class="hljs-comment">#下载阿里源 </span>
+yum makecache  <span class="hljs-comment">#生成仓库缓存</span></code></pre>
+<ul>
+<li>安装docker</li>
+</ul>
+<pre><code class="hljs cmake">yum <span class="hljs-keyword">install</span> docker -y</code></pre>
+<ul>
+<li>启动docker</li>
+</ul>
+<pre><code class="hljs sql">systemctl <span class="hljs-keyword">start</span> docker  <span class="hljs-comment">#启动docker</span>
+systemctl <span class="hljs-keyword">enable</span> docker <span class="hljs-comment">#开机启动docker</span>
+systemctl <span class="hljs-keyword">status</span> docker <span class="hljs-comment">#查看docker状态</span></code></pre>
+<ul>
+<li>DaoCloud加速器</li>
+</ul>
+<p>DaoCloud加速器 是广受欢迎的 Docker 工具，解决了国内用户访问 Docker Hub 缓慢的问题。DaoCloud 加速器结合国内的 CDN 服务与协议层优化，成倍的提升了下载速度。(或者使用阿里云加速镜像)</p>
+<pre><code class="hljs vim">curl -sSL http<span class="hljs-variable">s:</span>//<span class="hljs-built_in">get</span>.daocloud.io/daotools/set_mirror.<span class="hljs-keyword">sh</span> | <span class="hljs-keyword">sh</span> -s http://f1361db2.<span class="hljs-keyword">m</span>.daocloud.io</code></pre>
+<ul>
+<li>设置好加速镜像重启docker</li>
+</ul>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart docker</span></code></pre>
+<p>拉取ShareLaTeX镜像</p>
+<pre><code class="hljs nginx"><span class="hljs-attribute">docker</span> pull sharelatex/sharelatex</code></pre>
+<p>安装docker-compose</p>
+<pre><code class="hljs cmake">yum <span class="hljs-keyword">install</span> docker-compose -y</code></pre>
+<ul>
+<li>使用docker-compose.yml文件安装</li>
+</ul>
+<p>参考</p>
+<ol type="1">
+<li><a href="https://blog.csdn.net/CYS_zxcvbnm/article/details/106139505" target="_blank" rel="noopener">阿里云服务器部署ShareLaTex(Overleaf)</a></li>
+<li><a href="https://www.bilibili.com/read/cv6547551/" target="_blank" rel="noopener">部署私有在线Latex编辑器:Overleaf/sharelatex，写毕设神器</a></li>
+<li><a href="https://www.f-xj.cn/post/overleaf/" target="_blank" rel="noopener">Overleaf搭建</a></li>
+<li><a href="https://github.com/Chancing0/ShareLaTeX_aliclound_CentOS7.4/blob/main/README.md" target="_blank" rel="noopener">ShareLaTeX aliclound CentOS7.4</a></li>
+</ol>
 <ul>
 <li><p>云桌面</p></li>
 <li><p>参考</p></li>
@@ -243,18 +295,45 @@
 <p><a href="https://www.zhihu.com/question/40854395" target="_blank" rel="noopener">自己拥有一台服务器可以做哪些很酷的事情？</a></p>
 <p><a href="https://xiaoyou66.com/" target="_blank" rel="noopener">跟着小游学网站(个人网站)</a></p>
 <p><a href="https://space.bilibili.com/343147393" target="_blank" rel="noopener">跟着小游学网站(B站)</a></p>
+<h4 id="阿里云">阿里云</h4>
+<ol type="1">
+<li><a href="https://developer.aliyun.com/plan/grow-up" target="_blank" rel="noopener">学习成长路线</a>
+<ul>
+<li><a href="https://developer.aliyun.com/course/70?spm=a2c6h.19776329.J_1495128370.2.658b3d8054Wccy" target="_blank" rel="noopener">7天玩转云服务器</a></li>
+<li><a href="https://developer.aliyun.com/course/55?spm=a2c6h.19776329.J_1495128370.3.658b3d8054Wccy" target="_blank" rel="noopener">云数据库MySQL版快速上手教程</a></li>
+</ul></li>
+</ol>
 <h4 id="腾讯云">腾讯云</h4>
 <p><a href="https://cloud.tencent.com/guide" target="_blank" rel="noopener">腾讯云入门中心</a></p>
 <p><a href="https://cloud.tencent.com/document/product/213/2764" target="_blank" rel="noopener">配置 Windows 云服务器</a></p>
 <p><a href="https://cloud.tencent.com/developer/article/1532672" target="_blank" rel="noopener">服务器运行 jupyter notebook</a></p>
 <p><a href="https://cloud.tencent.com/developer/article/1632020" target="_blank" rel="noopener">Hexo博客部署到腾讯云服务器</a></p>
 <p><a href="https://cloud.tencent.com/developer/article/1185253" target="_blank" rel="noopener">如何在腾讯云COS部署HEXO博客</a></p>
-<h3 id="网盘">网盘</h3>
+<h4 id="网盘">网盘</h4>
 <p>为了防止电脑丢失造成巨大的破坏，把数据分布多备份是很好的习惯。</p>
 <ul>
 <li><a href="https://account.teambition.com/login" target="_blank" rel="noopener">阿里的teambition</a></li>
 </ul>
 <p>除了云盘，移动硬盘也很有必要，存储大体积数据。</p>
+<h4 id="mathpix">mathpix</h4>
+<ol type="1">
+<li>自己用人工智能的方式python+ tensorflow自己训练识别</li>
+<li>Mathpix API接口，免费1000次每个月，用极低的价格使用更高次数</li>
+</ol>
+<h5 id="latex-ocr">LaTeX OCR</h5>
+<ol type="1">
+<li>LaTeX OCR的<a href="https://github.com/LinXueyuanStdio/LaTeX_OCR" target="_blank" rel="noopener">GitHub</a></li>
+<li><a href="https://github.com/yeayee/LaTeX_OCR_PRO" target="_blank" rel="noopener">forke之后</a>怎么使用</li>
+<li><a href="https://guillaumegenthial.github.io/image-to-latex.html" target="_blank" rel="noopener">Seq2Seq</a> for LaTeX generation</li>
+<li>Show, Attend and Tell: Neural Image Caption Generation with Visual Attention <a href="https://arxiv.org/abs/1502.03044" target="_blank" rel="noopener">arXiv:1502.03044 (cs)</a></li>
+</ol>
+<h5 id="api">API</h5>
+<ol type="1">
+<li><a href="https://github.com/Mathpix/api-examples" target="_blank" rel="noopener">API-examples</a></li>
+<li><a href="https://blog.csdn.net/weixin_44984664/article/details/105242426?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-8.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-8.control" target="_blank" rel="noopener">调用Mathpix API</a></li>
+<li><a href="https://blog.csdn.net/dxlove520520/article/details/105446303" target="_blank" rel="noopener">API和Quicker自制</a></li>
+</ol>
+<p><a href="https://www.147xz.com/xiazai/60127.html" target="_blank" rel="noopener">破解版</a> ？</p>
 <h2 id="电子技术">2 电子技术</h2>
 <h4 id="gpu">GPU</h4>
 <p>最早对GPU的认识就是一个用来处理图形的处理器。在16年掀起的机器学习浪潮中，知道了GPU在机器学习领域拥有很强的优势。</p>
@@ -403,7 +482,7 @@ light
 <li>自适应：自动调节不同环境下的大小</li>
 <li>清晰度调节：<code>&amp;high_quality=1</code></li>
 </ul>
-<h4 id="section">(5)</h4>
+<h4 id="文章加密">(5) 文章加密</h4>
 <h3 id="群友的作品">群友的作品</h3>
 <ol type="1">
 <li><a href="https://yuzhangnju.me/" target="_blank" rel="noopener">逃避科研</a></li>
@@ -421,13 +500,27 @@ light
 <li><a href="https://www.ethanideas.url.tw/" target="_blank" rel="noopener">悟理</a></li>
 <li><a href="https://www.secice.cn/" target="_blank" rel="noopener">做安全的</a></li>
 </ol>
+<p>其他博客</p>
+<ol type="1">
+<li><a href="http://blog.udn.com/MengyuanWang/article" target="_blank" rel="noopener">王孟源的部落格</a>　</li>
+</ol>
 <h3 id="其他框架">其他框架</h3>
 <ul>
 <li>mediawiki <a href="http://tcs.nju.edu.cn/wiki/index.php/Main_Page" target="_blank" rel="noopener">例子南京大学</a></li>
+<li>Vercel + Hexo 搭建博客</li>
+<li><a href="https://www.serverless.com/" target="_blank" rel="noopener">Serverless</a>
+<ul>
+<li>用 <span class="math inline">\(AWS\)</span> 的 Lambda <span class="math inline">\(+\)</span> DynamoDB <span class="math inline">\(+ S 3\)</span></li>
+</ul></li>
 </ul>
 <p>在线markdown平台，多人协作</p>
 <ul>
 <li><a href="https://hackmd.io/" target="_blank" rel="noopener">hackmd</a></li>
+<li><a href="https://b3log.org/vditor/?utm_source=ld246.com" target="_blank" rel="noopener">Vditor</a>
+<ul>
+<li><a href="https://gitee.com/wk6999/vditor" target="_blank" rel="noopener">社区</a></li>
+</ul></li>
+<li><a href="https://zhuanlan.zhihu.com/p/24884324" target="_blank" rel="noopener">R Markdown</a></li>
 </ul>
 <h2 id="数值计算">5 数值计算</h2>
 <ol type="1">
