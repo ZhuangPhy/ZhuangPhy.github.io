@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>纠缠动力学中的测量诱导相变 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-01-18 18:23">
+      January 18, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      114
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<p>动机</p>
+<ul>
+<li>映射到渗流模型 To obtain a simple heuristic picture for the entangling-disentangling transition, we first construct a toy model that describes the zeroth Rényi entropy in discrete time. We solve this model exactly by mapping it to an optimization problem in classical percolation.</li>
+<li>文章中高频词汇 percolation</li>
+</ul>
+<p>参考</p>
+<ul>
+<li><a href="https://arxiv.org/pdf/1808.05953.pdf" target="_blank" rel="noopener">Measurement-Induced Phase Transitions in the Dynamics of Entanglement</a></li>
+</ul>
+<h2 id="摘要">摘要</h2>
+<p>We define dynamical universality classes for many-body systems whose unitary evolution is punctuated by projective measurements. In cases where such measurements occur randomly at a finite rate <span class="math inline">\(p\)</span> for each degree of freedom, we show that the system has two dynamical phases: 'entangling' and 'disentangling'. The former occurs for <span class="math inline">\(p\)</span> smaller than a critical rate <span class="math inline">\(p_{c},\)</span> and is characterized by volume-law entanglement in the steady-state and 'ballistic' entanglement growth after a quench. By contrast, for <span class="math inline">\(p&gt;p_{c}\)</span> the system can sustain only area-law entanglement. At <span class="math inline">\(p=p_{c}\)</span> the steady state is scale-invariant and, in <span class="math inline">\(1+1 D\)</span>, the entanglement grows logarithmically after a quench.</p>
+<p>To obtain a simple heuristic picture for the entangling-disentangling transition, we first construct a toy model that describes the zeroth Rényi entropy in discrete time. We solve this model exactly by mapping it to an optimization problem in classical percolation.</p>
+<p>The generic entangling-disentangling transition can be diagnosed using the von Neumann entropy and higher Rényi entropies, and it shares many qualitative features with the toy problem. We study the generic transition numerically in quantum spin chains, and show that the phenomenology of the two phases is similar to that of the toy model, but with distinct 'quantum' critical exponents, which we calculate numerically in <span class="math inline">\(1+1 D\)</span>.</p>
+<p>We examine two different cases for the unitary dynamics: Floquet dynamics for a nonintegrable Ising model, and random circuit dynamics. We obtain compatible universal properties in each case, indicating that the entangling-disentangling phase transition is generic for projectively measured many-body systems. We discuss the significance of this transition for numerical calculations of quantum observables in many-body systems.</p>
+<h2 id="近况背景">近况背景</h2>
+<p>When left unobserved, quantum systems tend to evolve toward states of higher entanglement [1-18]. Unitary evolution of a many-body wavefunction, with a Hamiltonian or with quantum gates, typically drives it towards a state with volume-law scaling for the entanglement entropies of subsystems. By contrast, local measurements can reduce the entanglement in a quantum system by collapsing degrees of freedom. A measurement of a single spin-1/2, say, leaves that spin in a definite spin state, and disentangles it from the rest of the system.</p>
+<p>What happens to the entanglement in a quantum system when measurements occur repeatedly during the evolution at a fixed rate? For simplicity, let us model the local measurements as occurring at random times and locations, at a nonzero rate <span class="math inline">\(p\)</span> per degree of freedom. Do such measurements collapse the many-body wavefunction into something close to a product state, with area law entanglement, or can volume law entanglement survive?</p>
+<p>Here we answer this question for the simplest type of measurement, which is a projective measurement of a discrete degree of freedom. We show that both types of dynamics can occur, leading to volume-law or area-law entanglement, depending on the value of the measurement rate <span class="math inline">\(p .\)</span> These two distinct dynamical phases, 'entangling' and 'disentangling', are separated by a continuous phase transition at a finite value of <span class="math inline">\(p=p_{c}\)</span> (Fig. 1).</p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210117235907609.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210117235907609</figcaption>
+</figure>
+<blockquote>
+<p>FIG.1 Phase diagram as a function of <span class="math inline">\(p,\)</span> the rate at which measurements are made for each degree of freedom. Arrows indicate renormalization group flow.</p>
+</blockquote>
+<p>(We call the latter phase 'disentangling' because if a finite system is initiated in a volume-law entangled state, the dynamics will eventually reduce the entanglement to area law.)</p>
+<p>In this paper we introduce two versions of this transition: the 'generic' entanglement phase transition and a toy model for it that is amenable to exact analysis. We show in later parts of the paper that the 'generic' transition occurs in models that are not fine-tuned, including physically sensible ones, and that it affects the dynamics of the von Neumann entanglement entropy and of certain equal-time correlation functions. First, however, we address the toy model for the transition in depth. While the toy model is in a different universality class from the generic transition, it captures many qualitative features of the phase diagram and the transition remarkably well.</p>
+<p>The toy model is an exact description of the dynamics of the zeroth Rényi entanglement entropy <span class="math inline">\(\left(S_{0}\right)\)</span> in a system with discrete-time dynamics that has a circuit</p>
+<h2 id="模型和设置">模型和设置</h2>
+<h2 id="零阶rényi熵和经典优化">零阶Rényi熵和经典优化</h2>
+<h2 id="通用动力学相变">通用动力学相变</h2>
+<p>零阶Rényi熵是约化矩阵的非零本征值之和，在微扰之下可以不连续变化，所以我们一般不认为它是有意义的物理变量。</p>
+<p>The zeroth Rényi entropy of entanglement between a subsystem and its exterior, <span class="math inline">\(S_{0},\)</span> counts the number <span class="math inline">\(N\)</span> of nonzero eigenvalues of the reduced density matrix: <span class="math display">\[
+S_{0}=\log _{2} N 
+\]</span> Since arbitrarily small eigenvalues are counted, <span class="math inline">\(S_{0}\)</span> can change <strong>discontinuously</strong> in response to a small perturbation, and as a result we do not usually think of it as a physically significant quantity. Still, in an idealized system it can be a useful conceptual starting point for thinking about the von Neumann and higherorder entanglement entropies. <span class="math inline">\(^{8}\)</span></p>
+<p>计算零阶Rényi熵 <span class="math inline">\(S_{0}\)</span> 的工具是“最小切法”，张量网络中纠缠的几何上界，它是思考各种情况下纠缠缩放的有用起点。</p>
+<p>The tool for calculating <span class="math inline">\(S_{0}\)</span> is the 'minimal cut', a geometrical upper bound on entanglement in a tensor network which is a useful starting point for thinking about the scaling of entanglement in various situations ranging from <strong>holography</strong> [24,42,43] to unitary dynamics <span class="math inline">\([6,9,13] .\)</span> The minimal cut gives <span class="math inline">\(S_{0}\)</span> exactly for our dynamics (for both choices of unitaries in Sec. II), as would be expected from parameter-counting and as we confirm numerically below.</p>
+<p>我们期望下面的<span class="math inline">\(S_{0}\)</span>的映射对于目前的电路几何来说是精确的，对于网络中任何非微调的幺正性选择 We expect the mapping below for <span class="math inline">\(S_{0}\)</span> to be exact for the present circuit geometry for any non-fine-tuned choice of the unitaries in the network, whether random or deterministic. This mapping is likely also to describe higher Rényi entropies in special limiting cases, as discussed in Sec. VI C, though not generically.</p>
+<ul>
+<li>在没有测量的情况下，<span class="math inline">\(S_{0}(A)\)</span> 是由电路中必须被切断的链路的数量所决定的。</li>
+<li>在有测量的情况下，测量打破链路，选择最短路径的时候可以穿越这些缺口</li>
+<li>线路可以拓扑等价为 纽带渗流模型</li>
+</ul>
+<p>In the absence of projective measurements, <span class="math inline">\(S_{0}(A)\)</span> is given exactly by the number of links in the circuit that must be cut in order to separate the physical 'legs' (external bonds at the top boundary) for the spins in <span class="math inline">\(A\)</span> from those for the spins outside <span class="math inline">\(A\)</span>. In the presence of projective measurements, there is a simple generalization of this picture, which is illustrated in Fig. <span class="math inline">\(4 .\)</span></p>
+<p><img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210118012800278.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>FIG.4 Mapping between circuit dynamics with measurement (Left) and bond percolation on the square lattice (Right). For the purposes of the minimal cut picture, a projective measurement breaks a bond. The minimal cut may pass through broken bonds at zero cost. For the figure on the right, which is topologically equivalent, we represent each unitary as the vertex of a square lattice. Broken bonds are dashed (unoccupied ) and unbroken bonds are solid (occupied). This is bond percolation on the square lattice, with a probability <span class="math inline">\(1-p\)</span> for a bond to be occupied. The minimal cut lives on the dual square lattice.</p>
+</blockquote>
+<p>When a projective measurement is made, the state of the measured spin at that point in its history is fixed, for example to <span class="math inline">\(\uparrow\)</span>. To express the wavefunction (for a given outcome of the measurement) it is then no longer necessary to sum over the spin index on this site. One can therefore think of a measurement as "breaking a bond" in the classical network.</p>
+<p>如果测量概率高，那么打破链路的缺口就越多，我们就不需要穿过链路就能把系统分为两个子系统，意味着两个子系统之间没有纠缠。</p>
+<p>If the broken bonds are sufficiently dense that one subsystem is completely isolated from the other - i.e., if one can make a cut that separates the two subsystems without passing through any unbroken bonds - then the two subsystems can have no entanglement. If no such cut is possible, then the zeroth Rényi entropy is equal to the number of unbroken bonds that must be cut in order to separate the two subsystems.</p>
+<p><span class="math inline">\(S_{0}\)</span> 是独立于测量结果的，只取决于其时间和地点。所以 <span class="math inline">\(S_{0}\)</span> 相当于经典渗流配置中的<strong>优化问题</strong>。网络中的某些比例<span class="math inline">\(p\)</span>的链路被破坏，人们必须确定为了使子系统与网络的其他部分分开而应切断的额外链路的最小数量。</p>
+<p>The above picture applies for each set of measurement outcomes, which we should in principle average over using Born's rule. However this picture shows that <span class="math inline">\(S_{0}\)</span> is independent of the measurement outcomes, and depends only on their times and locations.</p>
+<p>In this way the problem of calculating <span class="math inline">\(S_{0}\)</span> for some subsystem becomes equivalent to an optimization problem in a classical percolation configuration. Some proportion <span class="math inline">\(p\)</span> of bonds in a network are broken, and one must determine the minimal number of additional bonds that should be cut in order to separate the subsystem from the rest of the network. This is illustrated in Fig. 4 .</p>
+<p>人们可以将这种映射概括为任何数量的维度。</p>
+<p>One can generalize this mapping to any number of dimensions. If the number of spatial dimensions is <span class="math inline">\(d\)</span>, the minimal cut is a surface of <span class="math inline">\(d-1\)</span> dimensions (see Sec. <span class="math inline">\(V\)</span> ). For the rest of this section we restrict our attention to <span class="math inline">\(1+1 D\)</span>, where the minimal cut is a path. Problems of finding a minimal-cost path in a disordered medium are well-studied in the mathematical literature under the name 'first passage percolation' <span class="math inline">\([44] .\)</span> Reference 45 contains rigorous results for the present case, where steps of the path cost either zero or unity. Below we give a heuristic discussion that is consistent with Ref. <span class="math inline">\(45 .\)</span></p>
+<p>The classical percolation problem can be approached computationally using standard numerical algorithms, which we describe in Appendix B. Briefly, we simulate a rotated square lattice (as shown on the right-hand side of Fig. 4 ) with width <span class="math inline">\(L\)</span> and depth <span class="math inline">\(t,\)</span> of which each bond has a cost of either zero (with probability <span class="math inline">\(p\)</span> ) or unity (with probability <span class="math inline">\(1-p\)</span> ).</p>
+<ul>
+<li>Here, <span class="math inline">\(L\)</span> is the number of spins in the spin chain, which is equal to the number of steps on the dual lattice required to traverse the network from left to right.</li>
+<li>The time <span class="math inline">\(t\)</span> is equal to the number of layers of unitary operations applied, which is the number of steps required to traverse the network from top to bottom. (For example, Fig. 4 shows <span class="math inline">\(L=6\)</span> and <span class="math inline">\(t=5 .\)</span> )</li>
+</ul>
+<p>For a given random realization of the network, and for a given choice of subsystem, we search deterministically for the minimal-cost pathway that separates the subsystem from the rest of the network. (Such a pathway may, in general, extend outside the network, and may not be unique.) <span class="math inline">\(S_{0}\)</span> is defined as the total cost of this minimal-cost pathway, which corresponds to the number of unbroken bonds that must be cut in the circuit in order to separate the subsystem from the rest of the network. All data presented in this section are averaged over many random realizations of the network for each choice of parameters.</p>
+<p>图5是一个例子，对比了渗流模型和幺正线路</p>
+<ul>
+<li>随着测量概率 <span class="math inline">\(p\)</span> 的增大，链路的缺口就越多，需要切断链路的个数就越少。</li>
+<li>对于渗流模型，随着概率 <span class="math inline">\(p\)</span> 的增大，上下联通的概率变大，需要切开的也减少了</li>
+<li>小图是对数坐标</li>
+</ul>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210118021112872.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>FIG.5 Example comparison between the unitary circuit and classical percolation results for the zeroth Rényi entropy, <span class="math inline">\(S_{0}\)</span>, between two halves of a spin chain that has undergone unitary evolution. In this example, the circuit contains <span class="math inline">\(L=24\)</span> spins and the evolution time is <span class="math inline">\(t=48 .\)</span> The value of <span class="math inline">\(p\)</span> on the horizontal axis represents the probability of measurement for each spin after each time step. The magenta circles with error bars show the result of the full simulation of the unitary circuit, while the black line shows the result of the classical percolation simulation. The inset shows the same data on a logarithmic scale.</p>
+</blockquote>
+<p>In Fig. 5 we check the results of this approach against data from a full matrix product state simulation of the random unitary circuit (we modify the boundary condition of the percolation problem to match those used in the quantum simulation, Sec. II). One can see that the two sets of data are very close. A small systematic error appears in the quantum estimation of <span class="math inline">\(S_{0}\)</span> due to spurious small eigenvalues of the reduced density matrix that arise from numerical truncation error. This issue is discussed further in Appendix B 2 .</p>
+<p>In the remainder of this section, all results are taken from the <strong>classical</strong> percolation network <strong>simulation</strong>, which is significantly <strong>faster computationally</strong>.</p>
+<h3 id="universal-dynamics-of-s_0t">Universal dynamics of <span class="math inline">\(S_{0}(t)\)</span></h3>
+<p>Given the percolation picture, one can understand the dynamics of the Hartley entropy <span class="math inline">\(S_{0}\)</span> as a function of time <span class="math inline">\(t\)</span> using the following scaling arguments. Let the initial state at time zero be unentangled. We first study the growth of entanglement, between two halves of the system, in the limit where the system size <span class="math inline">\(L \rightarrow \infty\)</span>. In this case the minimal cut meanders from the top to the bottom of the circuit, as illustrated in Fig. <span class="math inline">\(4 .^{10}\)</span></p>
+<p>我们可以说 <span class="math inline">\(S_{0}\)</span> 有两个相：</p>
+<ol type="1">
+<li>当 <span class="math inline">\(p\)</span> 接近0时候，最小路径被迫通过一些与<span class="math inline">\(t\)</span>成正比的未断键，其系数为<span class="math inline">\(O（1）\)</span>。测量位置的随机性对纠缠有次要作用。</li>
+<li>当 <span class="math inline">\(p\)</span> 接近1时候，有任意方案可以不用切链路就可以分离两个子系统，假如图7显示的，必须经过起始点，而起始点又被一个未断的区域包围，所以只要切一个。所以 <span class="math inline">\(S_{0}(t) \sim t^{0}\)</span> 与时间无关。</li>
+<li>当 <span class="math inline">\(p\)</span> 接近临界值 <span class="math inline">\(p_{c}\)</span> 的时候，</li>
+</ol>
+<p>One can understand the existence of two phases for <span class="math inline">\(S_{0}\)</span> by considering the properties of this cut deep in either of the two phases, where <span class="math inline">\(p\)</span> is either close to zero or close to unity.</p>
+<h4 id="small">1 small</h4>
+<p>At small <span class="math inline">\(p,\)</span> broken bonds exist only in small, isolated clusters. The minimal cut is therefore forced to pass through a number of unbroken bonds that is proportional to <span class="math inline">\(t\)</span> with an <span class="math inline">\(O (1)\)</span> coefficient. This situation is shown in Fig. <span class="math inline">\(6 .\)</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210118022909107.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>FIG. 6 . Cartoon of the minimal cut in the entangling phase for <span class="math inline">\(S_{0}\)</span> (at <span class="math inline">\(L=\infty\)</span> ). The small white domains are clusters of broken bonds: we only show those clusters which the minimal cut passes through. A minimal cut is shown traversing the spacetime patch.</p>
+<ul>
+<li>The red sections have nonzero cost per unit length while the green regions have zero cost.</li>
+<li>In the entangling phase the cost of the minimal cut scales like <span class="math inline">\(t\)</span> (with subleading KPZ fluctuations), so that <span class="math inline">\(S_{0}(t) \sim t\)</span>.</li>
+</ul>
+</blockquote>
+<p>In this phase randomness in the location of measurements has a subleading effect on the entanglement, giving subleading <strong>Kardar-Parisi-Zhang fluctuations</strong>, as for purely unitary dynamics with randomness.</p>
+<h4 id="large">2 large</h4>
+<p>At <span class="math inline">\(p\)</span> close to unity, on the other hand, broken bonds predominate over unbroken bonds, and there is a connected cluster of unbroken bonds that spans the entire system. Thus at <span class="math inline">\(p&gt;p_{c}\)</span> the only contribution to the entanglement comes from passing through unbroken bonds located near the starting point of the cut. (For the bipartite entanglement, this starting point is at the top center of the network.) Once this small set of unbroken bonds has been traversed, the minimal cut can proceed arbitrarily far in the time direction using only broken bonds, and consequently the average <span class="math inline">\(S_{0}\)</span> becomes independent of <span class="math inline">\(t\)</span> at large <span class="math inline">\(t .\)</span> This is illustrated in Fig. <span class="math inline">\(7 .\)</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210118023543804.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>FIG. 7. Cartoon of the minimal cut in the disentangling phase for <span class="math inline">\(S_{0}\)</span> (cf. Fig. 6 ). The clusters of broken bonds now percolate, forming the infinite white region. The cost of the minimal cut remains finite as <span class="math inline">\(t \rightarrow \infty\)</span> : only a finite number of unbroken bonds need to be traversed to reach the infinite white cluster. Therefore <span class="math inline">\(S_{0}(t) \sim t^{0}\)</span>.</p>
+</blockquote>
+<h4 id="critical">3 critical</h4>
+<p>Let us now consider scaling at and near the critical point. The percolation threshold for the square lattice is <span class="math inline">\(p_{c}=1 / 2\)</span>. At <span class="math inline">\(p=p_{c}\)</span> the clusters of broken bonds have a scale-invariant fractal structure. A key point is that adjacent clusters of some large size <span class="math inline">\(\sim \ell\)</span> approach each other to a distance of one lattice spacing (in fact clusters which approach each other to unit separation do so at <span class="math inline">\(\sim \ell^{3 / 4}\)</span> different places <span class="math inline">\(\left.[48]\right)\)</span>. This means that the minimal cut can pass from one large "empty chamber" to an adjacent one, of similar scale, for unit cost.</p>
+<ul>
+<li>在网络的顶部，也就是切口锚定的地方，最小路径通常会进入一个大小不等的空腔 <span class="math inline">\(O (1)\)</span>。</li>
+<li>然后，它通过一系列较大的房间，直到它达到规模的一个</li>
+<li>最小切割通过蓝/白色所示的白色域序列。将此序列中连续域的线性大小写成 <span class="math inline">\(R_{1}, R_{2}, \ldots,\)</span> 比例 <span class="math inline">\(R_{i+1} / R_{i}\)</span> 大于1，所以对于一个阶数为<span class="math inline">\(log t\)</span>的<span class="math inline">\(i\)</span>来说，最小的切割达到了<span class="math inline">\(O (t)\)</span>大小的簇，与边界接壤，序列结束。</li>
+</ul>
+<p>At the top of the network, where the cut is anchored, the minimal path typically passes into an empty chamber of size <span class="math inline">\(O (1)\)</span>. It then passes though a sequence of larger chambers until it reaches one of scale <span class="math inline">\(\sim t\)</span> and exits the system. Typically, at each step, the path can find a chamber that is larger by an <span class="math inline">\(O (1)\)</span> factor than the previous one. This progression is illustrated schematically in Fig. <span class="math inline">\(8 .\)</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210118024542978.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>FIG.8 Cartoon for the scaling argument showing <span class="math inline">\(S_{0}(t) \sim \log t\)</span> at the percolation critical point (cf. Figs. <span class="math inline">\(\left.6,7\right)\)</span> The minimal cut passes through the sequence of white domains shown in blue/white. Writing the linear sizes of consecutive domains in this sequence as <span class="math inline">\(R_{1}, R_{2}, \ldots,\)</span> the ratio <span class="math inline">\(R_{i+1} / R_{i}\)</span> is typically larger than one (see text), so for an <span class="math inline">\(i\)</span> of order <span class="math inline">\(\log t\)</span> the minimal cut reaches a cluster of <span class="math inline">\(O (t)\)</span> size that borders the boundary and the sequence ends. Domains <span class="math inline">\(i\)</span> and <span class="math inline">\(i+1\)</span> typically approach each other to within one lattice spacing, so the cost scales as the number of domains in the sequence.</p>
+</blockquote>
+<h3 id="临界">临界</h3>
+<p>零阶Rényi熵 <span class="math inline">\(S_{0}\)</span> 在临界附近的行为</p>
+<p>Therefore the total number of chambers in the sequence is only of order <span class="math inline">\(\ln t,\)</span> and <span class="math display">\[
+S_{0}\left(t, p_{c}\right) \simeq A \ln t
+\]</span> This logarithmic scaling for critical first passage is <strong>proved in Ref. <span class="math inline">\(45 .\)</span></strong> 【<a href="https://link.springer.com/article/10.1007/BF01020583" target="_blank" rel="noopener">Critical behavior of the two-dimensional first passage time</a>】</p>
+<ul>
+<li>The coefficient <span class="math inline">\(A,\)</span> which can be thought of as an <strong>entanglement per scale, is universal as a result of the scale-invariance of the process.</strong> Below, we estimate <span class="math inline">\(A=0.27(1)\)</span></li>
+</ul>
+<p>空室的特征长度</p>
+<p>The typical size <span class="math inline">\(\xi\)</span> of the <strong>empty chambers</strong> is finite for <span class="math inline">\(p \lesssim p_{c},\)</span> but diverges with the correlation length exponent as <span class="math inline">\(p_{c}\)</span> is approached: <span class="math display">\[
+\xi \sim 1 /\left|p-p_{c}\right|^{\nu}
+\]</span> - For classical percolation in two dimensions, the critical exponent <span class="math inline">\(\nu=4 / 3 .\)</span> - The part of the minimal cut within <span class="math inline">\(\xi\)</span> of the top of the sample costs <span class="math inline">\(A \ln \xi,\)</span> as above.</p>
+<p>At farther distances from the starting point the path travels through chambers of size <span class="math inline">\(\sim \xi .\)</span> Each chamber-to-chamber crossing involves passing through an order-unity number of unbroken bonds, and consequently the minimal cut passes through a total number <span class="math inline">\(S_{0} \sim t / \xi\)</span> of unbroken bonds, so that:</p>
+<blockquote>
+<p><span class="math display">\[
+\begin{aligned}
+S_{0} &amp;\sim \frac{t}{\xi} \\
+&amp;\sim \frac{t}{1 /\left|p-p_{c}\right|^{\nu}}\\
+&amp;\sim\left(p_{c}-p\right)^{\nu} \times t
+\end{aligned}
+\]</span></p>
+<ul>
+<li>总长度 <span class="math inline">\(t\)</span> 除以特征长度 <span class="math inline">\(\xi\)</span> 就是切割的次数</li>
+</ul>
+</blockquote>
+<p><span class="math display">\[
+S_{0}(t, p) \sim\left(p_{c}-p\right)^{\nu} \times t, \quad\left(p \lesssim p_{c}\right)
+\]</span> That is, the entanglement <span class="math inline">\(S_{0}\)</span></p>
+<ul>
+<li><p>at <span class="math inline">\(p&lt;p_{c}\)</span> grows without bound as a function of time, with a growth rate that vanishes as <span class="math inline">\(p \rightarrow p_{c}\)</span>.</p></li>
+<li><p>At <span class="math inline">\(p \geq p_{c}\)</span> the minimal cut escapes to the infinite cluster of unbroken bonds after a section of length <span class="math inline">\(O (\xi)\)</span> at the top of the lattice.</p></li>
+</ul>
+<p>On scales smaller than <span class="math inline">\(\xi\)</span> the critical scaling applies, giving a cost <span class="math inline">\(A \ln \xi,\)</span> so that <span class="math display">\[
+S_{0}(t, p) \simeq A \nu \ln \left(\frac{1}{p-p_{c}}\right) \quad\left(p \gtrsim p_{c}\right)
+\]</span> The above results are all limiting cases of the general scaling form <span class="math display">\[
+S_{0}(t, p)=A \ln \xi+F(t / \xi)
+\]</span> which can be obtained by imagining rescaling both <span class="math inline">\(t\)</span> and <span class="math inline">\(\xi\)</span> by a constant factor and repeating the considerations above. The asymptotics of <span class="math inline">\(F\)</span> for large and small argument are determined by Eqs. (10) and <span class="math inline">\((11) .\)</span> Generalizations of Eq. (12) will be <strong>useful to us below</strong> in extracting exponents numerically. This sort of scaling form (with length in place of time) has also been derived for scaling of higher Rényi entropies in critical random tensor network states [25], by a different kind of reasoning. The scaling results of Eqs. (8)-(12) can be easily <strong>generalized to</strong> the case where the system size is finite and the time <span class="math inline">\(t \gg L\)</span>. In this case, the minimal cut travels a total horizontal distance <span class="math inline">\(L / 2,\)</span> moving from the top-center of the lattice to one of the lateral edges. The above results hold if we replace <span class="math inline">\(t\)</span> with <span class="math inline">\(L\)</span> in Eqs. <span class="math inline">\((8)-(12),\)</span> except that the scaling function <span class="math inline">\(F\)</span> in Eq. (12) is different. If <span class="math inline">\(t\)</span> and <span class="math inline">\(L\)</span> are both finite, the scaling form has an additional dependence on <span class="math inline">\(t / L\)</span>. In general a nonuniversal speed <span class="math inline">\(v\)</span> would enter, but here that is fixed to unity by the symmetry of the square lattice between time-like and space-like directions. We comment further on the symmetry between <span class="math inline">\(t\)</span> and <span class="math inline">\(L\)</span> in the following section.</p>
+<h3 id="标度缩放">标度缩放</h3>
+<p>The scaling expectations above can be tested using our numerical simulations.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210118112948942.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>FIG.9 Growth of the minimal cut cost <span class="math inline">\(S_{0}\)</span> separating two halves of the classical percolation network, as measured by numerical simulations.</p>
+<ol type="a">
+<li>shows the dependence of <span class="math inline">\(S_{0}\)</span> on the time <span class="math inline">\(t\)</span> for a network with aspect ratio <span class="math inline">\(L=4 t .\)</span> (Note the double logarithmic scale). Different curves correspond to different values of <span class="math inline">\(p,\)</span> ranging from <span class="math inline">\(p=0\)</span> (topmost curve) to <span class="math inline">\(p=0.9\)</span> (bottom curve) in steps of <span class="math inline">\(0.1 .\)</span></li>
+</ol>
+<ul>
+<li>The dashed lines show, respectively, the dependence <span class="math inline">\(S_{0} \propto t\)</span> and <span class="math inline">\(S_{0}=\)</span> const.</li>
+<li>The inset shows <span class="math inline">\(S_{0}\)</span> at <span class="math inline">\(p=0.5\)</span> on a <strong>semi-logarithmic</strong> scale, and the thin solid line shows a <strong>fit</strong> to the form <span class="math inline">\(S_{0}=A \ln t+B,\)</span> which gives <span class="math inline">\(A=0.27 \pm 0.01\)</span> and <span class="math inline">\(B=0.063 .\)</span></li>
+</ul>
+<ol start="2" type="a">
+<li><p>shows the rate of entanglement growth <span class="math inline">\(v_{0} s_{0}\)</span> as a function of <span class="math inline">\(p,\)</span> extracted by measuring the linear slope of the data in (a). The red line shows <span class="math inline">\(v_{0} s_{0} \propto\left(p-p_{c}\right)^{4 / 3},\)</span> as suggested by Eq. (10).</p></li>
+<li><p>shows the coefficient of the volume law entanglement, <span class="math inline">\(s_{0},\)</span> as a function of <span class="math inline">\(p\)</span>, which is extracted by measuring the linear slope of the dependence <span class="math inline">\(S_{0}(L) \propto s_{0} L\)</span> for networks with <span class="math inline">\(t=4 L .\)</span> The red line is identical to the one in (b). All data in this figure is averaged over 4000 realizations of the random network.</p></li>
+</ol>
+</blockquote>
+<p>First, Fig. <span class="math inline">\(9\)</span> (a) shows <span class="math inline">\(S_{0}(t)\)</span> for a range of values of <span class="math inline">\(p\)</span> (in a system of fixed aspect ratio, <span class="math inline">\(L=4 t)\)</span>. As expected,</p>
+<ol type="1">
+<li><p><span class="math inline">\(S_{0}\)</span> grows linearly in <span class="math inline">\(t\)</span> when <span class="math inline">\(p&lt;1 / 2,\)</span></p></li>
+<li><p>and remains constant in the limit of large <span class="math inline">\(t\)</span> at <span class="math inline">\(p&gt;1 / 2\)</span>.</p></li>
+<li><p>The inset shows that our data is also consistent with the logarithmic dependence <span class="math inline">\(S_{0} \propto \ln t\)</span> at <span class="math inline">\(p=1 / 2\)</span>.</p></li>
+</ol>
+<p>In the entangling phase we may define an asymptotic entanglement growth rate (for a quench from an area law state) as well as an <strong>entropy density</strong> <span class="math inline">\(s_{0}\)</span> associated with the volume law entanglement after saturation. The latter is given by <span class="math display">\[
+S_{0}(t \rightarrow \infty, L) \simeq s_{0} \times \frac{L}{2}
+\]</span> The growth rate is given by <span class="math display">\[
+S_{0}(t, L \rightarrow \infty) \simeq v_{0} s_{0} \times t
+\]</span> where</p>
+<ul>
+<li>(by definition) <span class="math inline">\(v_{0}\)</span> is the '<strong>entanglement speed</strong>' for the zeroth Rényi entropy.</li>
+</ul>
+<p>The quantities <span class="math inline">\(v_{0} s_{0}\)</span> and <span class="math inline">\(s_{0}\)</span> are plotted as functions of <span class="math inline">\(p\)</span> in Figs. <span class="math inline">\(9( b )\)</span> and <span class="math inline">\(( c ) .\)</span> Both vanish as <span class="math inline">\(p \rightarrow p_{c},\)</span> consistent with Eq. (10) (and the analogous equation for the opposite regime of aspect ratio) from which we expect <span class="math display">\[
+s_{0} \sim\left(p_{c}-p\right)^{4 / 3}
+\]</span> for the entropy density at <span class="math inline">\(p \lesssim p_{c} .\)</span> The equivalence between <span class="math inline">\(v_{0} s_{0}\)</span> and <span class="math inline">\(s_{0}\)</span> as a function of <span class="math inline">\(p\)</span> [seen in Figs. <span class="math inline">\(9( b )\)</span> and (c)], <strong>suggests an entanglement velocity</strong> <span class="math inline">\(v_{0} \sim 1\)</span>, which is implied by the symmetry of the lattice.</p>
+<p>更一般地说，在纠缠相，人们可以用类似于幺正线路情况下的粗粒度最小膜图像 来理解纠缠的粗粒度动力学。</p>
+<p>More generally, in the entangling phase one can understand the coarse-grained dynamics of the entanglement using a coarse-grained minimal membrane picture similar to that in the unitary case <span class="math inline">\([9,23,49] .\)</span> This picture applies to more general initial states or more general choices of subsystem, and in general dimensionality.</p>
+<p>重整化得到临界值 <span class="math inline">\(p_{c}\)</span></p>
+<p>Let us now consider how to make use of the scaling form Eq. (12) to extract <span class="math inline">\(p_{c}\)</span> and <span class="math inline">\(\nu\)</span> in numerics. In a system of fixed aspect ratio (we now take <span class="math inline">\(t=4 L)\)</span> we have the scaling form <span class="math display">\[
+S_{0}(t, p)=A \ln L+G(L / \xi),
+\]</span> as noted above. This means that if we subtract <span class="math inline">\(S_{0}\left(t, p_{c}\right)\)</span> from <span class="math inline">\(S_{0}(t, p)\)</span> we obtain a pure scaling function, without the logarithmic term: <span class="math display">\[
+S_{0}(L, p)-S_{0}\left(L, p_{c}\right)=\widetilde{G}\left[\left(p-p_{c}\right) L^{1 / \nu}\right]
+\]</span> We should therefore see a scaling collapse if we plot the left hand side as a function of <span class="math inline">\(\left(p-p_{c}\right) L^{1 / \nu}\)</span>. Such a collapse is demonstrated in Fig. <span class="math inline">\(10 .\)</span></p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210118114012496.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210118114012496</figcaption>
+</figure>
+<blockquote>
+<p>FIG.10 Demonstration of critical behavior in the zeroth Rényi entropy near the percolation threshold <span class="math inline">\(p_{c}=1 / 2\)</span>.</p>
+<ol type="a">
+<li><p>shows <span class="math inline">\(S_{0}\)</span> as a function of <span class="math inline">\(p\)</span> for different values of the system size <span class="math inline">\(L,\)</span> with <span class="math inline">\(t=4 L .\)</span></p></li>
+<li><p>shows critical scaling of this same data, with <span class="math inline">\(\nu=4 / 3\)</span> and <span class="math inline">\(p_{c}=1 / 2\)</span> taken from the known values for two-dimensional percolation on the square lattice. The vertical axis is <span class="math inline">\(S_{0}(p, L)-S_{0}\left(p_{c}, L\right),\)</span> where <span class="math inline">\(S_{0}\left(p_{c}, L\right)\)</span> is the measured value of <span class="math inline">\(S_{0}\)</span> at <span class="math inline">\(p=1 / 2\)</span> for a given value of <span class="math inline">\(L\)</span>.</p></li>
+</ol>
+</blockquote>
+<p>目前的情况下 <span class="math inline">\(p_{c}\)</span> 和 <span class="math inline">\(\nu\)</span> 可以解析得到，但是这种标度缩小在下节会很好用。</p>
+<p>In the present case <span class="math inline">\(p_{c}\)</span> and <span class="math inline">\(\nu\)</span> are known analytically, but this kind of scaling collapse will be useful in the next section, where the analogous quantities must be determined empirically. To get an idea of the precision of this process, here one can also attempt to do an unbiased search for the values of <span class="math inline">\(p_{c}\)</span> and <span class="math inline">\(\nu\)</span> that produce the best scaling collapse of the data. Our algorithm for this search is described in Appendix A. Briefly, this algorithm seeks to minimize an objective function that is equal to the sum of the square residuals of all curves <span class="math inline">\(S_{0}(p, L)-S_{0}\left(p_{c}, L\right)\)</span> from their common mean at a given value of <span class="math inline">\(\left(p-p_{c}\right) L^{1 / \nu}\)</span>, summed over all unique values of <span class="math inline">\(\left(p-p_{c}\right) L^{1 / \nu}\)</span> that are present in the data set. A simple gradient descent search returns the values of <span class="math inline">\(p_{c}\)</span> and <span class="math inline">\(\nu\)</span> that minimize this objective function.</p>
+<p>Performing such a search using the data in Fig. <span class="math inline">\(10(\)</span> a) yields <span class="math inline">\(p_{c}=0.51 \pm 0.01\)</span> and <span class="math inline">\(\nu=1.24 \pm 0.13,\)</span> as listed in Table I. Closely matching results are obtained if one analyzes data for <span class="math inline">\(S_{0}\)</span> obtained from the 'quantum' simulations of the random unitary circuit or Floquet dynamics, which are restricted to smaller size. These scaling collapses are shown below in Fig. <span class="math inline">\(14( a )-( b ),\)</span> and Table I, and all are consistent with the exact values <span class="math inline">\(p_{c}=1 / 2\)</span> and <span class="math inline">\(\nu=4 / 3\)</span> for two-dimensional percolation. In Sec. IV we apply our algorithm for data collapse to the higher-order Rényi entropies <span class="math inline">\(S_{1}, S_{2}\)</span> and <span class="math inline">\(S_{\infty}\)</span> near the generic transition, where no such exact values are available.</p>
+<p>Table I. <span class="math display">\[
+\begin{array}{|c|c|c|c|}
+\hline \begin{array}{c}
+\text { Rényi } \\
+\text { entropy } \\
+\text { order, } n
+\end{array} &amp; \begin{array}{c}
+\text { simulation } \\
+\text { dynamics }
+\end{array} &amp; \begin{array}{c}
+\text { critical } \\
+\text { measurement } \\
+\text { rate, } p_{c}
+\end{array} &amp; \begin{array}{c}
+\text { correlation } \\
+\text { length } \\
+\text { exponent } \nu
+\end{array} \\
+\hline \hline  {0} &amp; \text { (exact) } &amp; 1 / 2 &amp; 4 / 3 \\
+  &amp; \begin{array}{c}
+\text { classical } \\
+\text { simulation }
+\end{array} &amp; 0.51 \pm 0.01 &amp; 1.24 \pm 0.13 \\
+  &amp; \begin{array}{c}
+\text { random } \\
+\text { unitaries }
+\end{array} &amp; 0.50 \pm 0.05 &amp; 1.36 \pm 0.10 \\
+  &amp; \begin{array}{c}
+\text { Floquet } \\
+\text { dynamics }
+\end{array} &amp; 0.51 \pm 0.01 &amp; 1.36 \pm 0.21 \\
+\hline
+\end{array}
+\\
+\begin{array}{|c|c|c|c|}
+\hline 1 &amp; &amp; 0.26 \pm 0.08 &amp; 2.01 \pm 0.10 \\
+\hline 2 &amp; \begin{array}{c}
+\text { random } \\
+\text { unitaries }
+\end{array} &amp; 0.27 \pm 0.03 &amp; 2.31 \pm 0.75 \\
+  \infty &amp; &amp; 0.26 \pm 0.08 &amp; 2.25 \pm 0.25 \\
+\hline
+\end{array}
+\]</span> <img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210118115400150.png" srcset="/img/loading.gif" alt="image-20210118115400150" /></p>
+<blockquote>
+<p>FIG. 14. Critical scaling for the bipartite entanglement <span class="math inline">\(S_{n}\)</span> as measured by numerical simulations of the random unitary circuit (left column of plots) and the Floquet dynamics (right column). Each plot is labeled by the corresponding value of <span class="math inline">\(n,\)</span> and shows curves for seven different system sizes, ranging from <span class="math inline">\(L=6\)</span> to <span class="math inline">\(L=24\)</span> [the same as in the legend of Fig. $13( a )] .$ The simulation time was <span class="math inline">\(t=2 L\)</span> for the simulations of random unitaries, and <span class="math inline">\(t=8 L\)</span> for the Floquet dynamics. The corresponding values of <span class="math inline">\(p_{c}\)</span> and <span class="math inline">\(\nu\)</span> for each plot are listed in Table I.</p>
+</blockquote>
+<h3 id="spatial-correlations-long-range-entanglement">Spatial correlations &amp; long-range entanglement</h3>
+<p>The critical stationary state at <span class="math inline">\(p_{c}\)</span> has power-law spatial correlations that reflect its unusual scale-invariant entanglement structure. The simplest measures of these correlations are the Rényi mutual informations, <span class="math inline">\(I_{n},\)</span> between a pair of distant spins a and b (Sec. II): <span class="math display">\[
+I_{n}( a , b )=S_{n}( a )+S_{n}( b )-S_{n}( a \cup b )
+\]</span> In this section we discuss <span class="math inline">\(I_{0}\)</span>, which is critical at the percolation critical point. The quantities <span class="math inline">\(I_{n}\)</span> with higher <span class="math inline">\(n\)</span> are instead critical at the generic entanglement transition that occurs at smaller <span class="math inline">\(p . I_{0}\)</span> can be computed numerically using minimal cut configurations with three different boundary conditions corresponding to the terms in Eq. (17)</p>
+<p>Let <span class="math inline">\(I_{0}(x)\)</span> be the mutual information for a pair of spins separated by a distance <span class="math inline">\(x\)</span>, averaged over realizations. For simplicity consider an infinite spin chain that has been evolved for infinite time, and so is in the steady state corresponding to a particular <span class="math inline">\(p\)</span>.</p>
+<p>Note first that <span class="math inline">\(I_{0}(x)\)</span> decays exponentially with <span class="math inline">\(x\)</span> on both sides of the critical point. The disentangled state is 'close' to a product state, and connected correlations fall off rapidly with distance. In the entangling phase subsystems are strongly entangled with their exterior, but the mutual information shared between any two small subsystems is negligible: the average of <span class="math inline">\(S_{0}( a \cup b )\)</span> is exponentially close to that of <span class="math inline">\(S_{0}( a )+S_{0}( b ) .\)</span> For example, consider <span class="math inline">\(p=0\)</span> : the reduced density matrices thermalize to 'infinite temperature', and all local correlations vanish. However at the critical point neither of these mechanisms destroy correlations.</p>
+<p>The mutual information for a pair of spins separated by distance <span class="math inline">\(x, I_{0}(x)\)</span>, is plotted in Fig. 12 . (We use a chain of length <span class="math inline">\(L=3 x\)</span> that has been evolved for a time <span class="math inline">\(t=L\)</span>, rather than an infinite system, but this does not change the exponent below.) As expected there is exponential decay for <span class="math inline">\(p&gt;p_{c}\)</span> and <span class="math inline">\(p&lt;p_{c} .\)</span> But at <span class="math inline">\(p=p_{c}\)</span> the data at large distances is consistent with <span class="math display">\[
+I_{0}(x) \propto \frac{1}{x^{2 \Delta_{c}}}, \quad \Delta_{c}=2
+\]</span> This exponent is exact and follows from known results for percolation <span class="math inline">\([50-52]\)</span>, as discussed next. Our percolation mapping also gives an intuitive picture for the scaleinvariant entanglement structure underlying Eq. (18). In more detail, there are three possible values for the mutual information in a given realization: <span class="math inline">\(I_{0}(x)=0,1,2\)</span>. At large <span class="math inline">\(x,\)</span> almost all configurations give <span class="math inline">\(I_{0}(x)=0\)</span>. The probability of either of the nonzero values is <span class="math inline">\(O \left(x^{-4}\right)\)</span>. Situations that give finite <span class="math inline">\(I_{0}\)</span> are like those shown in Fig. <span class="math inline">\(11 .\)</span> It is simplest to consider cases where <span class="math inline">\(I_{0}=2\)</span>. These occur when the topology of the percolation configuration</p>
+<h2 id="高维">高维</h2>
+<h2 id="讨论">讨论</h2>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Entanglement/">Entanglement</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Entanglement/">Entanglement</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/20/Entenglement_04_Percolation6_presentation/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">演讲稿：纠缠相变，渗流模型和共形场论</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/17/Entenglement_03_circuits4_KPZ/">
+                        <span class="hidden-mobile">随机幺正线路下的量子纠缠与KPZ问题</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "纠缠动力学中的测量诱导相变&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

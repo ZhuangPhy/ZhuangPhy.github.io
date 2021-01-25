@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>基于张量网络的机器学习模型 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-01-25 15:23">
+      January 25, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      62
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考文献">参考文献</h2>
+<ol type="1">
+<li>《基于张量网络的机器学习模型》</li>
+</ol>
+<h2 id="量子多体物理的指数墙与面积律">1 量子多体物理的指数墙与面积律</h2>
+<h4 id="量子多体物理">量子多体物理</h4>
+<p>量子多体物理一直是凝聚态物理中一座魏峨的高山。此处峰林俊秀，有</p>
+<ol type="1">
+<li>高温超导 [5]，</li>
+<li>量子自旋液体 [6]，</li>
+<li>量子相变 [7]，</li>
+<li>分数霍尔效应 [8]</li>
+</ol>
+<p>等新奇物理齐聚。然而此处也云遮雾绕，像</p>
+<ol type="1">
+<li>赝能隙 [9]，</li>
+<li>奇异金属相 [5]，</li>
+<li>自旋电荷分离 [10]，</li>
+<li>解禁闭量子临界 [11]</li>
+</ol>
+<p>等等让人迷惑的现象层出不穷。当然，此处亦是十分的陡肖险峻，</p>
+<ul>
+<li>理论还没有统一的范式，</li>
+<li>平均场近似失效，</li>
+<li>严格对角化计算代价过大，</li>
+<li>量子蒙卡会遭遇本质的负符号问题。</li>
+</ul>
+<p>正应了王安石那句：</p>
+<blockquote>
+<p>“世之奇伟，瑰怪，非常之观，常在于险远，而人之所罕至焉，故非有志者不能至也。”</p>
+</blockquote>
+<h4 id="指数墙难题">指数墙难题</h4>
+<p>量子多体理论研究的起点往往是一个与实验现象相联系的简化类型，例如可能是高温超导母体的莫特绝缘体 [12] 和与之联系的 Hubbard 类型， <span class="math display">\[
+\hat{H}=-t \sum_{\sigma,&lt;i, j\rangle}\left(\hat{c}_{i, \sigma}^{\dagger} \hat{c}_{i, \sigma}^{\dagger}+\text { h.c. }\right)+U \sum_{i} \hat{n}_{i \uparrow} \hat{n}_{i \downarrow}
+\]</span> 这里所谓的简化仅仅是相对于真实材料来说的，在 Hubbard 类型中</p>
+<ol type="1">
+<li>我们忽略了所有与原子核相关的相互作用，</li>
+<li>我们也忽略了不同价带间电子的相互作用，</li>
+<li>我们仅考虑巡游电子与同一个局域轨道上的电子的相互作用。</li>
+</ol>
+<p>然而，即便是这样的简化类型也完全不意味着计算上的简单。Hubbard 类型这样的量子多体类型描述的是一个由多粒子构成的系统，且粒子之间的相互作用无法忽略也无法简单地运用平均场进行单体近似。对这样的系统，如果我们知道单个粒子的波函数<span class="math inline">\(|\varphi(x)\rangle,\)</span> 那么系统的一般波函数 <span class="math inline">\(|\Psi( x )\rangle\)</span> 应该表示为, <span class="math display">\[
+|\Psi( x )\rangle=\sum_{i_{1}, i_{2}, \cdots, i_{N}} C_{i_{1}, i_{2}, \cdots, i_{N}}\left|\varphi_{1}\left(x_{1}\right)\right\rangle \otimes\left|\varphi_{2}\left(x_{2}\right)\right\rangle \otimes \cdots \otimes\left|\varphi_{N}\left(x_{N}\right)\right\rangle
+\]</span> 这里 <span class="math inline">\(C\)</span> 是叠加系数。注意到，如果单粒子波函数 <span class="math inline">\(|\varphi(x)\rangle\)</span> 具有 <span class="math inline">\(d\)</span> 种状态的话, 那么整个系统的希尔伯特空间的维度将达到 <span class="math inline">\(d^{N}\)</span> 。如果我们假设每个单粒子具有10 个状态的话，那么 80 个这样的单粒子的基矢的规模就相当于已知宇宙中所有原子的总数了。因此这种指数增长的自由度使得严格对角哈密顿量根本无从实现。这个困难称为量子多体物理中的“<strong>指数墙</strong>”难题 [13]。</p>
+<h4 id="峰回路转">峰回路转</h4>
+<p>然而“指数墙”难题并不意味着量子多体物理研究完全无法推动。指数墙”强调的是一种<strong>没有任何先验知识下</strong>的最一般情况的波函数，但事实上希尔伯特空间中的绝大多数基矢被证明是我们完全<strong>不用去关心的</strong>，因为可以证明任意一个局域哈密顿量经过多项式时间的演化能够遍历的空间只是希尔伯特空间中极小的一部分 [14]。我们关心的真实物理类型往往比最一般的情况要特殊很多。</p>
+<ol type="1">
+<li>在最幸运的情况下，我们甚至可以利用天才的物理直觉和敏锐的洞察直接<strong>猜出波函数的形式</strong>。一个很好的例子是分数量子霍尔效应中的 Laughling 波函数 [15]。</li>
+<li>在不那么幸运的情况下，我们也可以利用物理类型的具体形式, <strong>对称性</strong>，局域性等对目标波函数进行非常<strong>有效的近似</strong>。例如对于基态有能隙的局域哈密顿量, 可以证明其基态纠缠熵满足“面积律” [16]。</li>
+</ol>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125162853121.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>Fig 1.1 The system is coupled to the environment through boundaries. The entanglement is dominated by local short-range entanglement.</p>
+</blockquote>
+<p>我们将整个系统分为系统和环境两部分。定义系统的约化密度矩阵 <span class="math display">\[
+\rho_{s y s}=\operatorname{Tr}_{ env }(|\Psi\rangle\langle\Psi|)
+\]</span> 此处 <span class="math inline">\(\rho\)</span> 为整个系统的密度矩阵。则两部分的纠缠熵可定义为 <span class="math display">\[
+S=-\operatorname{Tr}\left(\rho_{ sys } \ln \rho_{ sys }\right)
+\]</span> 纠缠熵的面积律指出，对基态有能隙的局域哈密顿量，其纠缠熵与系统与环境交界区域的尺度正比, 即 <span class="math display">\[
+S \sim L^{d-1}
+\]</span> - <span class="math inline">\(L\)</span> 是系统尺寸, - <span class="math inline">\(d\)</span> 是系统的维度。</p>
+<ol type="1">
+<li>对于一维系统，满足面积律的纠缠熵是常数;</li>
+<li>对于二维系统，纠缠熵与系统尺寸是线性关系。</li>
+</ol>
+<p>基态波函数满足面积律意味着系统的纠缠是由局域的短程纠缠所主导的。这启发我们在对波函数做近似的时候可以优先考虑近邻的局域纠缠，丢弃不必要的长程信息。事实上，上述观察孕育出了<strong>基于局域低秩展开的波函数的张量网络态表示方法</strong>。</p>
+<h2 id="张量表示与张量网络">2 张量表示与张量网络</h2>
+<p>张量网络是由多个张量通过缩并掉相同指标连接起来的一个网络，通常张量网络的代数表示涉及复杂繁銷的指标求和与求积。为了直观，我们首先引入张量网络的图示法。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125170049147.png" srcset="/img/loading.gif" /></p>
+<p>如图 1.2 所示，我们用</p>
+<ul>
+<li>一个圆圈代表一个独立的代数对象</li>
+<li>圆圈上伸出来的每条腿代表代数对象的一个自由指标</li>
+</ul>
+<h4 id="张量求和">张量求和</h4>
+<p>将两个代数对象的相同指标连接起来表示我们要对这个指标进行求和。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125170219981.png" srcset="/img/loading.gif" /></p>
+<ul>
+<li>图 1.3 (a) 表示了两个矩阵 <span class="math inline">\(A_{i j}\)</span> 和 <span class="math inline">\(B_{j k}\)</span> 对共同指标 <span class="math inline">\(j\)</span> 的缩并 <span class="math inline">\(\sum_{j} A_{i j} B_{j k}\)</span> 有了上述定义后，我们就可以把复杂的代数运算用直观的图示展示出来。</li>
+</ul>
+<h4 id="张量网络态">张量网络态</h4>
+<p>多体波函数 <span class="math display">\[
+|\Psi( x )\rangle=\sum_{i_{1}, i_{2}, \cdots, i_{N}} C_{i_{1}, i_{2}, \cdots, i_{N}}\left|\varphi_{1}\left(x_{1}\right)\right\rangle \otimes\left|\varphi_{2}\left(x_{2}\right)\right\rangle \otimes \cdots \otimes\left|\varphi_{N}\left(x_{N}\right)\right\rangle
+\]</span> 所有系数 <span class="math inline">\(C_{i_{1}, i_{2}, \cdots, i_{N}}\)</span> 可以被<strong>理解为</strong>总共拥有 <span class="math inline">\(d^{N}\)</span> 个参数的 <span class="math inline">\(N\)</span> 阶张量 <span class="math inline">\(C\)</span> 。</p>
+<p>同时，如果我们的量子多体波函数满足“面积律”, 那么确定 <span class="math inline">\(C\)</span> 中的每个系数的值实际上将变成一件<strong>非常低效和不必要的事</strong>。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125170921576.png" srcset="/img/loading.gif" /></p>
+<p>如图 1.4，所谓张量网络态即是根据对波函数的纠缠特性的准确分析，利用一系列<strong>较低阶</strong>的张量的互相<strong>缩并</strong>组成的网络来<strong>近似</strong> <span class="math inline">\(C\)</span> 这样的高阶张量，在不过多地降低波函数 <span class="math inline">\(\Psi\)</span> 的精度的前提下，将参数个数从指数多<strong>压缩到</strong>了实际计算<strong>可容忍</strong>的范围。</p>
+<p class="note note-primary">
+从物理的角度来说，利用只有局域连接的低秩张量组成的网络来近似一个高阶张量, 等价于忽略掉高阶张量非局域指标之间的一些长程关联。
+</p>
+<p>可以说，张量网络态表示的合理性是与量子态的面积律密切相关的。</p>
+<p>常见的张量网络态有</p>
+<ol type="1">
+<li>矩阵乘积态 (MPS)[17],</li>
+<li>投影纠细对态 (PEPS) [18],</li>
+<li>树状张量网络态（TTN）[19]，</li>
+<li>多尺度纠缠重整化假设（MERA）[20]</li>
+</ol>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125171320248.png" srcset="/img/loading.gif" /></p>
+<h3 id="张量网络算法">张量网络算法</h3>
+<p>张量网络算法是在张量网络态的基础之上发展处理解决真实物理问题的计算方法。一般来说，利用张量网络态计算人们关心的物理量，我们还需要解决两个主要问题：</p>
+<ol type="1">
+<li>第一个问题是<strong>如何找到正确的张量值</strong>。除开极少数特殊情况，我们并不能从哈密顿量或者波函数中直接严格地把张量网络中的张量构造出来。张量的初值. 往往是<strong>随机</strong>给定的。这时候我们需要首先利用合适地算法更新各个张量以便整个张量网络逐渐地收敛到真实的波函数上去。</li>
+<li>第二个问题是找到正确的张量值之后, 如何<strong>准确地收缩</strong>掉整个张量网络。从张量网络态中计算物理量往往需要我们将整个张量网络收缩掉，但对像 PEPS 这样二维或更高维的张量网络态来说，严格收缩也是需要调用指数多的计算资源的。所以我们在收缩张量网络时需要巧妙的近似算法。</li>
+</ol>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125171352496.png" srcset="/img/loading.gif" /></p>
+<p>张量网络的算法主要可以分为三大类：</p>
+<ol type="1">
+<li><p>第一类叫做投影类算法，其中既有用来<strong>寻找基态</strong>的</p>
+<ul>
+<li>时间演化块消去算法(TEBD)</li>
+<li>时间依赖变分原则算法( TDVP )</li>
+</ul>
+<p>也有用来收缩张量网络的时间</p>
+<ul>
+<li>角转移矩阵算法（CTM） [23]</li>
+<li>边界 MPS 算法等 [24]</li>
+</ul></li>
+<li><p>第二类叫做粗粒化类算法，这类算法主要用来收缩二维及更高维度的张量 网络。包括</p>
+<ul>
+<li>张量重整化群算法 (TRG) [25],</li>
+<li>二次张量重整化群算法 (SRG) [26],</li>
+<li>高阶张量重整化群算法（HOTRG）[27]，</li>
+<li>张量纠缠筛去重整化算法（TEFR） [28]</li>
+</ul></li>
+<li><p>第三类算法叫做变分类算法，包括用来寻找基态的</p>
+<ul>
+<li>密度矩阵重整化群方法(DMRG) [29]，</li>
+<li>变分 PEPS [24]</li>
+<li>变分 MERA [30]</li>
+</ul>
+<p>变分类算法与前两类互有交叉。比如用来收缩高维张量的</p>
+<ul>
+<li>张量网络重整化算法 (TNR) [31]</li>
+<li>圈张量网络重整化方法（loop-TNR）[32]</li>
+</ul></li>
+</ol>
+<blockquote>
+<ul>
+<li>[22] Haegeman J, Cirac J I, Osborne T J, et al. Time-dependent variational principle for quantum lattices. Physical review letters, <span class="math inline">\(2011, 1 0 7 (7): 070601 .\)</span></li>
+<li>[23] Nishino T, Okunishi K. Corner transfer matrix renormalization group method. Journal of the Physical Society of Japan, <span class="math inline">\(1996,65(4): 891-894 .\)</span></li>
+<li>[24] Jordan J, Orús R, Vidal G, et al. Classical simulation of infinite-size quantum lattice systems in two spatial dimensions. Physical review letters, <span class="math inline">\(2008,101(25): 250602\)</span>.</li>
+<li>[25] Levin M, Nave C P. Tensor renormalization group approach to two-dimensional classical lattice models. Phys. Rev. Lett., 2007,99: 120601 .</li>
+<li>[26] Xie <span class="math inline">\(Z\)</span> Y, Jiang <span class="math inline">\(H\)</span> C, Chen <span class="math inline">\(Q\)</span> N, et al. Second renormalization of tensor-network states. Physical review letters, <span class="math inline">\(2009,103(16): 160601\)</span></li>
+<li>[27] Xie <span class="math inline">\(Z\)</span> Y, Chen J, Qin M P, et al. Coarse-graining renormalization by higher-order singular value decomposition. Physical Review <span class="math inline">\(B, 2012,86(4): 045139 .\)</span></li>
+<li>[28] Gu Z C, Wen X G. Tensor-entanglement-filtering renormalization approach and symmetry-protected topological order. Physical Review <span class="math inline">\(B, 2009,80(15): 155131 .\)</span></li>
+<li>[29] White S R. Density matrix formulation for quantum renormalization groups. Phys. Rev. Lett. Vol. 69, p. 2863,1992 .</li>
+<li>[30] Evenbly G, Vidal G. Entanglement renormalization in two spatial dimensions. Physical review letters, <span class="math inline">\(2009,102(18): 180406 .\)</span></li>
+<li>[31] Evenbly G, Vidal G. Tensor network renormalization. Physical review letters, <span class="math inline">\(2015,115(18)\)</span> : 180405</li>
+<li>[32] Yang S, Gu Z C, Wen X G. Loop optimization for tensor network renormalization. Physical review letters, <span class="math inline">\(2017,118(11): 110504\)</span></li>
+</ul>
+</blockquote>
+<h2 id="当量子物理遇上机器学习">3 当量子物理遇上机器学习</h2>
+<p class="note note-danger">
+类似于量子多体物理算法，机器学习算法可能也只需在构型空间中的一个极小角落工作。其实机器学习和量子物理处理的问题是类似的。即根据数据的先验知识，利用较少的多项式复杂度的参数来拟合一个具有指数多种可能的函数构型。
+</p>
+<ul>
+<li>量子物理中一个很好的例子是张量网络态，它利用了系统局域性和基态波函数的纠缠熵往往满足面积律这个先验知识，用一组张量的乘积来表示波函数系数，非常高效地抓住了波函数的主要信息。</li>
+<li>机器学习中一个很好的例子是卷积神经网络, 利用卷积操作将特征的平移不变性编码进了类型中, 利用深层网络将图片多个层级上的特征各种编码，深层卷积神经网络在图片识别任务中的表现非常突出。</li>
+</ul>
+<p>认识到两个领域问题的相似性，研究人员开始尝试互相借鉴两者的经验，引入机器学习算法来解决量子物理问题。</p>
+<ol type="1">
+<li>这个领域的开创性工作是利用<strong>监督</strong>学习的<strong>限制玻尔兹曼机</strong>识别不同的物理相 [37]。</li>
+<li>之后无监督版本的相识别机器学习算法 [38] 也很快被提出。</li>
+</ol>
+<p>但对机器学习类型来说，真正困难的是从构型开始 (而不是从事先给出拓扑特征或拓扑不变量开始）识别一个非局域且对单个变量的值敏感的拓扑相。这一块目前还处于探索阶段。</p>
+<h4 id="限制玻尔兹曼机">限制玻尔兹曼机</h4>
+<p>在利用机器学习类型作为量子波函数变分假设的问题中，一个相当有代表性的工作是利用限制玻尔兹曼机做为量子蒙特卡罗的变分假设，在无阻挫量子自旋系统中得到了非常好的变分基态能量。[39] 这种变分假设可以看作是 Jastrows的替代。但是它更加灵活，因为它以一种更经济的方式对多体关联进行了编码。</p>
+<p>同时，另一些研究也发现限制玻尔兹曼机的结构可以跟张量网络态联系起来 [40, 41]，文献 [42, 43] 分别从量子纠缠和计算复杂性的角度分析了它们的表达能力。从这些工作中，我们可以閒到神经网络状态对于描述高度纠细的量子态和具有长程相互作用的类型是有利的。</p>
+<blockquote>
+<p>[39] Carleo G, Troyer M. Solving the quantum many-body problem with artificial neural networks. Science, <span class="math inline">\(2017,355(6325): 602-606 .\)</span> [40] Chen J, Cheng S, Xie H, et al. Equivalence of restricted boltzmann machines and tensor network states. Physical Review <span class="math inline">\(B, 2018,97(8): 085104 .\)</span> [41] Clark S R. Unifying neural-network quantum states and correlator product states via tensor networks. Journal of Physics <span class="math inline">\(A\)</span> : Mathematical and Theoretical, <span class="math inline">\(2018,51(13): 135301\)</span>. [42] Deng D L, Li X, Sarma S D. Quantum cntanglement in neural network states. Physical Review <span class="math inline">\(X, 2017,7(2): 021021 .\)</span> [43] Gao X, Duan L M. Efficient representation of quantum many-body states with deep neural networks. Nature communications, <span class="math inline">\(2017,8(1): 662\)</span>.</p>
+</blockquote>
+<h4 id="重整化群">重整化群</h4>
+<p>重整化群是一个重要的物理学概念。它是一种在降低数据维数的同时保留有效信息的方法。重整化群与深度学习也有着非常有趣的联系。</p>
+<ul>
+<li>这种联系一方面为用重整化群解决物理问题提供了深度学习的工具</li>
+<li>另一方面也可以为深度学习提供理论上的理解。</li>
+</ul>
+<p>文献导览</p>
+<ol type="1">
+<li>第一个引起广泛讨论的工作是 [44]，它提出了一中具有 MERA 结构启发的生成型贝叶斯网络。</li>
+<li>之后文献 [45] 首次给出了一个实空间重整化群与深层玻尔兹曼机的严格映射。</li>
+<li>文献 [46] 将动量空间重整化群与主成分分析联系了起来。</li>
+<li>最后，文献 [47] 利用机器学习中的 Real-NVP 类型提出了一种类似于 MERA 结构的叫做神经网络重整化群的变分重整化群。</li>
+<li>这种神经网络重整化群提供了一种保证信息守恒的重整化过程，这一特性可以应用于全息映射中 [48]。</li>
+</ol>
+<blockquote>
+<ul>
+<li>[44] Bény C. Deep learning and the renormalization group. arXivpreprint arXiv: <span class="math inline">\(1301.3124,2013 .\)</span></li>
+<li>[45] Mehta P, Schwab D J. An exact mapping between the variational renormalization group and deep learning. arXiv preprint arXiv: <span class="math inline">\(1410.3831,2014 .\)</span></li>
+<li>[46] Bradde S, Bialek W. PCA meets RG. Journal of Statistical Physics, <span class="math inline">\(2017,167(3-4): 462-475\)</span>.</li>
+<li>[47] Li S H, Wang L. Neural network renormalization group. Phys. Rev. Lett., 2018,121: 260601 .</li>
+<li>[48] You Y Z, Yang Z, Qi X L. Machine learning spatial geometry from entanglement features. Phys. Rev. <span class="math inline">\(B, 2018,97: 045153 .\)</span></li>
+</ul>
+</blockquote>
+<p>另一个有意思的应用是利用机器学习来加速量子蒙卡的抽样速度 [49, 50]。这些工作的基本想法是：利用蒙卡构型训练出一个代理函数，再利用这个代理函数生成新的构型。由于代理函数与原构型的关联是高度非局域的, 所以通过代理函数的一步更新可以相当于翻转局域自旋的几十上百步更新。这个方法的短板是并不是对所有系统，我们都能够快速训练出一个接近目标问题势能面的代理函数。所以实际效率是问题依赖的。</p>
+<h3 id="基于张量网络的机器学习算法">基于张量网络的机器学习算法</h3>
+<p>在机器学习的方法被应用于量子物理问题的同时，量子多体物理中的经典类型也在被引入到不同的机器学习问题中去。张量网络便是这样的一个例子。</p>
+<p>除了系统的局域性等考虑之外，我们认为发展基于张量网络的机器学习类型至少有两点<strong>动机</strong>。</p>
+<ol type="1">
+<li>第一, 张量网络的表示和张量网络的算法为判别学习和生成学习提供了具有<strong>更强表达能力</strong>的类型。事实上，如果我们试图把概率图类型拓展到量子版本同时还希望保证概率的正定性的话，张量网络的结构可以自然地涌现出来 [51,52]<span class="math inline">\(。\)</span></li>
+<li>第二，张量网络这种形式是打开<strong>量子机器学习</strong>的门户，因为量子电路在形式上等价于一种特殊的张量网络。张量网络态为量子电路提供了架构设计和参数初始化的方法 [53]。</li>
+</ol>
+<p class="note note-warning">
+量网络这种形式是打开<strong>量子机器学习</strong>的门户，因为量子电路在形式上等价于一种特殊的张量网络。张量网络态为量子电路提供了架构设计和参数初始化的方法
+</p>
+<p>监督学习</p>
+<ol type="1">
+<li>第一个利用张量网络处理监督判别型学习的工作是 [54]，它利用 MPS 模型处理 MNIST 数据的分类问题并达到了相当不错的准确度。</li>
+<li>随后基于树状张量网络的分类模型被提出 [3]。</li>
+<li>Miles Stoudenmire 通过首先使用树张量网络执行无监. 督特征提取进一步提高了 MPS 类型的分类准确度 [55]。</li>
+<li>更一般的张量网络类型也在文献 [2] 被讨论。上述类型我们会在第 3 章详细介绍。</li>
+</ol>
+<p>在无监督生成型学习问题中</p>
+<ol type="1">
+<li>第一个代表性工作同样是将 MPS 类型应用于二进制化的 MNIST 类型中 [4]。MPS 在某些方面发展出了传统机器学习生成型类型不具备的<strong>优势</strong>。</li>
+<li>之后的树状张量网络生成型类型继承了 MPS 类型的这些优势，同时可以更好地实现<strong>长程关联</strong>的建模 [56]。相比判别型类型，生成型类型难度更大，我们认为正是在这类问题中，张量网络强大的表达能力的优势才能被更多的释放出来。这部分的细节我们将放在第 5 章。</li>
+</ol>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125193314431.png" srcset="/img/loading.gif" /></p>
+<p>张量网络中的术语与机器学习中的术语存在着对应关系。</p>
+<p>到今天，张量网络也同样吸引了很多机器学习领域研究人员的注意 [57]。他们开始注意到机器学习中的术语与张量网络中的术语的对应关系，张量网络的技术与机器学习的降维算法存在着紧密联系 [1]。同时，张量网络也可以用来分析机器学习类型的表达能力 [58-60]。</p>
+<p>不过，张量网络依然还在等待一个类似 AlexNet 一样的时刻，即张量网络方法能够以比<strong>较大的差距战胜</strong>传统的机器学习算法。随着越来越多的技术与结果的积累。至少在某一个特定的应用领域下，这样的时候很有可能在未来几年之内发生。</p>
+<h2 id="张量网络在监督学习中的应用">张量网络在监督学习中的应用</h2>
+<p>在本章，我们会对将张量网络应用于监督学习的工作做一个简要的回顾。</p>
+<p>最近十年, 物理学和机器学习领域开始认识到<strong>张量方法</strong>的力量。</p>
+<ul>
+<li>在机器学习中，张量分解可以用来解决<strong>非凸优化</strong>任务 [141, 142] 并在许多其他重要问题上取得进展 [143-145]，</li>
+<li>而在物理学方面，张量网络是量子多体物理中一种非常强大的工具，这种方法通过将多体量子物理中产生的维度指数大的多体量子波函数<strong>分解为</strong>张量网络来处理，已经取得了很大的进展 [146]。
+<ul>
+<li>最成功的几类张量网络可以通过<strong>低阶张量近似</strong>来避免维数灾难，同时还可以通过对这些张量的收缩精确地再现多体波函数 [147]。</li>
+</ul></li>
+</ul>
+<h2 id="图模型与张量网络对偶">图模型与张量网络对偶</h2>
+<h2 id="附录张量网络的例子">附录：张量网络的例子</h2>
+<p>量子态的张量表示 <span class="math display">\[
+|\Psi\rangle=\sum_{s_{1}=0,1} \sum_{s_{2}=0,1} \Psi_{s 1, s_{2}}\left|s_{1}\right\rangle\left|s_{2}\right\rangle
+\]</span> 例子：</p>
+<ul>
+<li>直积态的张量网络表示。</li>
+</ul>
+<p>$$</p>
+<p>$$</p>
+<ul>
+<li>纠缠态的张量网络表示。</li>
+</ul>
+<p>集智百科</p>
+<p><a href="https://wiki.swarma.org/index.php?title=%E5%BC%A0%E9%87%8F%E7%BD%91%E7%BB%9C" target="_blank" rel="noopener">张量网络</a></p>
+<p>ising模型</p>
+<p><a href="https://github.com/QuantumBFS/SSSS/blob/master/2_tensor_network/tensor_contraction_simple.ipynb" target="_blank" rel="noopener">Computing partition function of the <span class="math inline">\(2- D\)</span> Ising model using tensor network</a></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Machine-learning/">Machine learning</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Machine-learning/">Machine learning</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Tensor-Network/">Tensor Network</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/25/ML_04_TensorNetwork3_MPS/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">矩阵乘积态与机器学习</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/25/ML_04_TensorNetwork1/">
+                        <span class="hidden-mobile">Python张量网络</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "基于张量网络的机器学习模型&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
