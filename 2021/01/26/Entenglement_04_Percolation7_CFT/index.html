@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>随机量子线路中的纠缠临界和共形场论 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-01-26 09:23">
+      January 26, 2021 am
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      61
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考文献">参考文献</h2>
+<ol type="1">
+<li><a href="https://arxiv.org/pdf/1908.08051.pdf" target="_blank" rel="noopener">Measurement-induced criticality in random quantum circuits</a></li>
+<li>Entanglement Transitions from Holographic Random Tensor Networks
+<ul>
+<li>与随机张量网络(Random Tensor Networks)中纠缠相变的联系</li>
+</ul></li>
+</ol>
+<h2 id="摘要">摘要</h2>
+<p>摘要-1</p>
+<p>We investigate the critical behavior of the entanglement transition induced by projective measurements in (Haar) random unitary quantum circuits.</p>
+<ol type="1">
+<li>Using a replica approach, we <strong>map</strong> the calculation of the entanglement entropies in such circuits onto a two-dimensional <strong>statistical mechanics model</strong>.</li>
+<li>In this language, the area- to volume-law entanglement transition can be <strong>interpreted as</strong> an ordering transition in the statistical mechanics model.</li>
+<li>We derive the general <strong>scaling properties</strong> of the entanglement entropies and <strong>mutual information</strong> near the transition using <strong>conformal invariance</strong>.</li>
+<li>We analyze in detail the limit of infinite on-site Hilbert space dimension in which the statistical mechanics model <strong>maps onto percolation</strong>.
+<ul>
+<li>In particular, we compute the exact value of the universal coefficient of the logarithm of subsystem size in the <span class="math inline">\(n\)</span> th Rényi entropies for <span class="math inline">\(n \geq 1\)</span> in this limit using relatively recent results for <strong>conformal field theory</strong> describing the critical theory of <span class="math inline">\(2 D\)</span> <strong>percolation</strong><br />
+</li>
+<li>and we discuss how to access the generic transition at finite on-site Hilbert space dimension from this limit, which is in a universality class different from <span class="math inline">\(2 D\)</span> percolation.</li>
+</ul></li>
+<li>We also comment on the relation to the entanglement transition in Random Tensor Networks, studied previously in Ref. <span class="math inline">\(2 .\)</span></li>
+</ol>
+<p>摘要-2</p>
+<p>We introduce a novel class of phase transitions separating quantum states with different <strong>entanglement features</strong>.</p>
+<ol type="1">
+<li>An example of such an "entanglement phase transition" is provided by the <strong>many-body localization</strong> transition in disordered quantum systems, as it separates highly entangled thermal states at weak disorder from many-body localized states with low entanglement at strong disorder.
+<ul>
+<li>(thermal states) highly entangled <span class="math inline">\(\rightarrow\)</span> weak disorder</li>
+<li>(many-body localized states ) low entanglement <span class="math inline">\(\rightarrow\)</span> strong disorder</li>
+</ul></li>
+<li>In the <strong>spirit of</strong> random matrix theory, we describe a simple model for such transitions where a physical quantum many-body system <strong>lives at the "holographic"</strong> boundary of a bulk random tensor network.</li>
+<li>Using a replica trick approach, we <strong>map</strong> the calculation of the entanglement properties of the boundary system onto the free energy cost of fluctuating domain walls in a classical statistical mechanics model.</li>
+<li>This allows us to <strong>interpret</strong> transitions between volume-law and area-law scaling of entanglement as <strong>ordering transitions</strong> in this statistical mechanics model.</li>
+<li>Our approach allows us to get an <strong>analytic handle on</strong> the field theory of these entanglement transitions.</li>
+</ol>
+<h2 id="介绍">介绍</h2>
+<p>量子纠缠在非平衡态中的重要作用的早期例子</p>
+<ul>
+<li>基态 <span class="math inline">\(\rightarrow\)</span> 面积律<br />
+</li>
+<li>激法态 <span class="math inline">\(\rightarrow\)</span> 体积律</li>
+</ul>
+<p>Quantum entanglement plays a crucial role in our understanding of non-equilibrium quantum dynamics and the process of thermalization. This can be <strong>traced back to</strong> the fact that quantum and thermal eigenstates differ dramatically in their entanglement properties.</p>
+<ul>
+<li>In particular, whereas quantum <strong>ground states</strong> of gapped systems with local interactions exhibit <strong>area-law</strong> scaling <span class="math inline">\([1-4]\)</span> with entanglement entropy of a subsystem proportional to its surface area,</li>
+<li>typical (<strong>highly-excited</strong>) eigenstates exhibit <strong>volume law</strong> behavior, with entanglement of a subsystem scaling extensively with its volume <span class="math inline">\([5-8]\)</span>.</li>
+</ul>
+<p>直觉上“越纠缠，越量子”。和直觉相反，极端纠缠的态，其实展示的是经典的动力学和关联。为什么呢？</p>
+<ol type="1">
+<li>体积律纠缠意味着：所有局域自由度和整个系统纠缠，所以量子信息在整个系统传播，局域观测是行不通的。</li>
+<li>所以高纠缠本征态，可以用的是经典的流体力学和热性质，也就是可以用统计力学有效描述。</li>
+<li>这就对本征态热化假说(ETH) 很必要，因为(ETH) 讲的是多体量子系统典型特征态中的一个小子系统的降密度矩阵实际上是热化的</li>
+<li>这意味着小子系统的纠缠熵与热力学熵相吻合，因此是广泛的<span class="math inline">\(-\)</span>即满足体积定律尺度。</li>
+</ol>
+<p>In contrast to basic intuition that states with more entanglement are "more quantum", extremely entangled states (such as volume-law entangled states) actually exhibit classical dynamics and correlations.</p>
+<ol type="1">
+<li>Volume-law entanglement implies that every piece of local degree of freedom is highly entangled with the rest of the system, such that most quantum information is scrambled among the whole system and therefore inaccessible to local observables <span class="math inline">\([5,9-12] .\)</span></li>
+<li>For such highly-entangled eigenstates, only classical hydrodynamic and thermodynamic properties are accessible, which are effectively described by statistical mechanics.</li>
+<li>This is the essence of the eigenstate thermalization hypothesis [13,14] (ETH) which states that the reduced density matrix of a small subsystem in a typical eigenstate of a many-body quantum system is effectively thermal.</li>
+<li>This implies that the entanglement entropy of small subsystems coincide with the thermodynamic entropy, and is therefore extensive <span class="math inline">\(-\)</span> i.e. satisfies a volume-law scaling.</li>
+</ol>
+<h4 id="相变多体局域化vs热化">相变：多体局域化vs热化</h4>
+<p>然而，并不是所有孤立的量子多体系统都会热化。</p>
+<ol type="1">
+<li>在强无序的情况下，会发生多体局域化（MBL），受激的特征态会违反ETH，并表现出面积律纠缠。</li>
+<li>由于纠缠的形成受到强无序的阻碍，MBL系统不会弛豫到热平衡，局部量子信息可以很长时间地相干保存。</li>
+<li>因此，MBL系统的高激发特征态具有与量子基态相同的面积律纠缠</li>
+<li>这就为远离热平衡的、"热 "量子系统中的量子相干现象打开了大门，包括
+<ul>
+<li>对称性破坏秩序</li>
+<li>拓扑秩序</li>
+<li>甚至是量子临界现象</li>
+</ul></li>
+</ol>
+<p>However, not all isolated quantum many-body systems thermalize.</p>
+<ol type="1">
+<li>In the presence of strong disorder, manybody localization (MBL) can occur, where the excited eigenstates can violate the ETH and exhibit the arealaw entanglement [15].</li>
+<li>As entanglement formation is obstructed by the strong disorder, an MBL system does not relax to thermal equilibrium, and local quantum information can be preserved coherently for a very long time.</li>
+<li>Highly excited eigenstates of MBL systems therefore have the same area-law entanglement as quantum ground states, opening the door to quantum coherent phenomena in dense, "hot" quantum systems far from thermal equilibrium, including symmetry-breaking order, topological order, or even quantum criticality <span class="math inline">\([16-25]\)</span>.</li>
+</ol>
+<p>多体局域化MBL导致了一个全新的动力学相变</p>
+<ul>
+<li>相变：thermalizing systems <span class="math inline">\(\leftrightarrow\)</span> many-body localized systems</li>
+<li>thermalizing systems <span class="math inline">\(\rightarrow\)</span> 长时间之后热平衡 <span class="math inline">\(\rightarrow\)</span> volume-law <span class="math inline">\(\rightarrow\)</span> 经典统计相变</li>
+<li>many-body localized systems <span class="math inline">\(\rightarrow\)</span> 长时间之后都不能热平衡 <span class="math inline">\(\rightarrow\)</span> area-law <span class="math inline">\(\rightarrow\)</span> 量子相变</li>
+</ul>
+<p>MBL leads to an entirely new class of dynamical phase transition <span class="math inline">\([26-30]\)</span> between thermalizing systems, whose long time behavior is described by equilibrium statistical mechanics, and many-body localized systems, which fail to reach thermal equilibrium even at very long times. While conventional phase transitions separate phases with similar entanglement properties - with area-law scaling for quantum phase transitions and volume-law scaling for thermal phase transitions, the MBL transition is special in that it is a transition of the entanglement properties of many-body eigenstates, across which the entanglement scaling changes dramatically from the area-law (in the MBL phase) to the volume-law (in the ETH phase). It is also a transition at which the quantum mechanics description is taken over by the (classical) statistical mechanics description, i.e. a transition between quantum and classical phases, which lies beyond the traditional framework of phase transitions. Most of our current understanding of its universal properties relies on small scale numerics <span class="math inline">\([30-34]\)</span> and phenomenological renormalization group approaches <span class="math inline">\([35-41] .\)</span> More broadly, many <strong>fundamental questions</strong> remain:</p>
+<ol type="1">
+<li>how does the singular entanglement rearrangement occur at the transition?</li>
+<li>Is the MBL transition the only example of such entanglement transition?</li>
+<li>Are there other examples of dynamical - neither quantum nor classical - transitions that separate quantum states with entanglement properties intermediate between MBL and thermal systems (say with power-law scaling)?</li>
+</ol>
+<h4 id="全息描述纠缠结构">全息描述纠缠结构</h4>
+<p>为了解决这些问题，结合从随机矩阵理论(random matrix)中得到的启发，我们在本文中提出采用 "全息描述"，对量子态的纠缠结构进行描述。</p>
+<ul>
+<li>介绍holographic duality全息对偶</li>
+<li>holographic duality在纠缠相变中的应用</li>
+<li>全息张量网络tensor network holography领域的发展应用到纠缠相变</li>
+</ul>
+<p>To address these questions, we propose in this paper to adopt a "holographic description" of the entanglement structure of quantum states combined with ideas inspired from <strong>random matrix theory</strong>.</p>
+<ul>
+<li>The holographic duality was originally proposed <span class="math inline">\([42-44]\)</span> as a duality between a quantum field theory and a gravitational theory in one higher dimension. More generally, it is a duality between the entanglement structure of a quantum many-body system on the holographic boundary and the spacetime structure of a gravitational system in the holographic bulk <span class="math inline">\([45-\)</span> 64]. The idea is manifested in the Ryu-Takayanagi formula [46] which relates the entanglement entropy of a boundary region to the area of the minimal surface in the bulk that is homologous to the same region.</li>
+<li>Using this connection, area-law entanglement corresponds to a shallow holographic bulk with the infrared region capped off, whereas volume-law entanglement typically arises when there is a black hole in the holographic bulk <span class="math inline">\([53,65] .\)</span> This suggests that entanglement transitions (like the MBL transition) in the quantum many-body system may be <strong>viewed as transitions</strong> of the holographic bulk geometry in the gravitational dual description [66]. In this regard, going one dimension higher into the holographic bulk may provide new insights into the MBL transition. The main goal of this work is to explore one possibility of such holographic description for entanglement transitions using recent developments in the field of <strong>tensor network holography</strong> <span class="math inline">\([47-49,57,58]\)</span>.</li>
+</ul>
+<p class="note note-primary">
+entanglement transitions (like the MBL transition) in the quantum many-body system may be viewed as transitions of the holographic bulk geometry in the gravitational dual description
+</p>
+<blockquote>
+<p>重要参考文献拓展</p>
+<ul>
+<li>[66] Y.-Z. You, X.-L. Qi, and C. Xu, Phys. Rev. B 93, 104205 (2015), arXiv:1508.03635 [cond-mat.str-el].</li>
+</ul>
+<p>关于tensor network holography张量网络全息</p>
+<ul>
+<li>[47] G. Evenbly and G. Vidal, Journal of Statistical Physics <span class="math inline">\(1 4 5 , 891(2011)\)</span></li>
+<li>[48] B. Swingle, Phys. Rev. D 86, 065007 (2012) arXiv:0905.1317 [cond-mat.str-el].</li>
+<li>[49] B. Swingle, ArXiv e-prints (2012), arXiv:1209.3304 [hep-th].</li>
+<li>[57] G. Evenbly and G. Vidal, Physical Review Letters 112 , 240502 (2014), arXiv:1210.1895 [quant-ph].</li>
+<li>[58] F. Pastawski, B. Yoshida, D. Harlow, and J. Preskill, ArXiv e-prints (2015), arXiv:1503.06237 [hep-th].</li>
+</ul>
+</blockquote>
+<p>张量网络</p>
+<ul>
+<li>表示量子多体态的有效数学构造</li>
+<li>捕捉不同纠缠模式的有力工具</li>
+</ul>
+<p>The tensor network approach is both an efficient mathematical construction to represent quantum many-body states and a powerful tool to capture different entanglement patterns <span class="math inline">\([47,67,68] .\)</span></p>
+<ol type="1">
+<li>It underlies the success of many variational tensor-network state algorithms for computing ground-state properties, such as the density matrix renormalization group (DMRG) in one dimension <span class="math inline">\([69,70] .\)</span></li>
+<li>Tensor network constructions have also been employed to model the holographic duality. A generic tensor network description for a one dimensional quantum state should be defined in a two dimensional holographic bulk, as shown in Fig. <span class="math inline">\(1,\)</span> where each dot represents a tensor and the tensor indices are contracted on each link that connects the tensors.</li>
+</ol>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210126133101047.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>FIG.1 Different tensor network geometries correspond to different entanglement scalings for large bond dimension:</p>
+<ul>
+<li><ol type="a">
+<li>quasi-linear geometry (MPS-like) and area-law entanglement <span class="math inline">\(\left(S_{A} \sim\right.\)</span> const. <span class="math inline">\(),\)</span></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>hyperbolic geometry and logarithmic entanglement scaling <span class="math inline">\(\left(S_{A} \sim \log L_{A}\right),\)</span></li>
+</ol></li>
+<li><span class="math inline">\(( c )\)</span> "black hole" geometry and volume-law entanglement <span class="math inline">\(\left(S_{A} \sim L_{A}\right)\)</span>.</li>
+</ul>
+</blockquote>
+<p>张量网络的几何构型vs对应不同的纠缠结构</p>
+<ol type="1">
+<li>网络结构像MPS乘积态 <span class="math inline">\(\Rightarrow\)</span> 面积律</li>
+<li>双曲几何学 <span class="math inline">\(\Rightarrow\)</span> 对数律</li>
+<li>黑洞几何 <span class="math inline">\(\Rightarrow\)</span> 体积律</li>
+</ol>
+<p>The physical degrees of freedom live on the boundary of the network (represented by the un-contracted dangling legs). The tensor contractions result in a complex number that describes the many-body wave function for the physical system. The bulk tensors are introduced as hidden variables, which are necessary to capture the complicated multibody entanglement in the many-body state. The tensor <strong>network geometry</strong> depends on the entanglement structure of the boundary quantum state:</p>
+<ul>
+<li>for area-law entangled states, one could use linear (or quasi-linear) graphs (with no or little bulk layers) like Fig. <span class="math inline">\(1(\)</span> a) , reducing the tensor network to <strong>matrix product states (MPS)</strong> routinely used in DMRG simulations [70];</li>
+<li>whereas <strong>critical</strong> states with <strong>logarithmic entanglement</strong> require a more involved tree-like hyperbolic bulk structure called MERA <span class="math inline">\([71,72],\)</span> similar to Fig. 1(b). There are procedures to efficiently construct explicit tensor network representations for MBL (or marginal MBL) states <span class="math inline">\([66,73-78] .\)</span></li>
+<li>However, for volume-law entangled states on the ETH side, the holographic tensor network would involve a densely connected subgraph (or even just a big random tensor) as in Fig. <span class="math inline">\(1( c )\)</span> to represent a black hole state. Currently, there is no numerically efficient method to manipulate tensor contractions on such networks. This renders the exact computation of the ETH state unaffordable for large sized systems, which also hinders the study of MBL transition that is adjacent to the ETH phase.</li>
+</ul>
+<p>在热态的系综上提取诸如纠缠或流体力学等属性的统计数据，可能不需要获得精确的多体波函数的完整结构。这样的思想在量子混沌理论的发展中就有其概念根源。这一理念在最近的一些研究中得到了充分的发挥。</p>
+<p>On the other hand, extracting statistics of properties such as entanglement or hydrodynamics over the ensemble of thermal states may not require having access to the full structure of exact many-body wave functions. Such an idea has its conceptual roots in the development of the quantum chaos theory in terms of random matrices [79], where thermal states were simply modeled by random states (or random tensors in the tensor network language), and this philosophy has been exploited in several recent works to study entanglement dynamics and hydrodynamics in random quantum circuit evolutions <span class="math inline">\([80-87]\)</span></p>
+<p>本文的工作</p>
+<ol type="1">
+<li>如何构造怎样的网络：随机局域连接</li>
+<li>需要能解析处理纠缠性质</li>
+<li>“黑洞无毛”的类比
+<ul>
+<li>黑洞面积与熵成正比</li>
+<li>黑洞面积与初态的细节无关</li>
+<li>random tensor network (RTN) 是一种<strong>“秃头”网络</strong>：只留下编码在网络结构中的纠缠特征。</li>
+</ul></li>
+<li>关注纠缠熵的统计，而不是纠缠谱和特征态的详细结构。</li>
+</ol>
+<p>In this work, we explore the structure of entanglement, in a refined version of the random matrix ansatz, where instead of a big fully connected bulk tensor,</p>
+<ol type="1">
+<li>we consider a structured bulk network of locally connected tensors, in which each tensor is randomly drawn from a uniform distribution, producing an ensemble of random tensor network (RTN) states, as proposed by <span class="math inline">\([65,88,89] .\)</span></li>
+<li>We will develop a new approach to these RTN states that enables a rare analytic handle on their entanglement properties.</li>
+<li>Further, in analogy to the black hole no hair theorem [9093], that the area of the black hole is proportional to its entropy and is independent from details of its initial state, we focus on the statistics of entanglement entropies rather than detailed structure of the entanglement spectrum and eigenstates (Schmidt states). The RTN wavefunctions we consider are exactly the type of "bald" networks, average over random tensors effectively removes all features in the many-body state that are not invariant under local unitaries, leaving only the entanglement features encoded in the network structure.</li>
+</ol>
+<p>从这样一个定义在平面图上的随机张量网，我们可以得到一个量子态 <span class="math inline">\(|\psi\rangle\)</span> 。我们兴趣的是它的纠缠熵 <span class="math inline">\(S_{A}=-\operatorname{tr} \rho_{A} \log \rho_{A}\)</span></p>
+<p>Given a quantum state <span class="math inline">\(|\psi\rangle\)</span> of the one dimensional boundary system with density matrix <span class="math inline">\(\rho=|\psi\rangle\langle\psi|\)</span> obtained from such a random tensor network defined on a planar graph <span class="math inline">\(G\)</span>, we are interested in the entanglement entropy <span class="math inline">\(S_{A}=-\operatorname{tr} \rho_{A} \log \rho_{A}\)</span> for the reduced density matrix <span class="math inline">\(\rho_{A}=\operatorname{tr}_{\bar{A}} \rho / \operatorname{tr} \rho\)</span> with <span class="math inline">\(A\)</span> a given subregion of the physical system. This quantity was computed in the limit of strictly infinite bond dimension in Ref. <span class="math inline">\([65],\)</span> corresponding to maximally entangled states (deep in the thermal phase). Building on these results, we will introduce a generalized replica trick to move away from this restrictive limit, and explore the physics of random tensor networks at arbitrary bond-dimension to explore both volume and area-law states. In the holographic language, this corresponds to incorporating quantum effects beyond the classical gravity description of the bulk geometry. This allows us to access a quantum regime where the RyuTakayanagi formula breaks down.</p>
+<p>In particular, we show that the entanglement entropy (and all Rényi entropies <span class="math inline">\(\operatorname{tr} \rho_{A}^{m}\)</span> ) averaged over all possible random tensor realizations can be computed for any bond dimension by using a generalized replica trick and mapping the entanglement calculation onto a classical spin model defined on the graph <span class="math inline">\(G\)</span>. In that language, we can interpret the quantum entanglement entropy of the boundary physical system as the free-energy cost of a boundary domain in the classical spin model. By tuning the bond dimension of the random tensor networks, this construction allows us to identify an entanglement transition of the quantum wave function as the paramagneticto-ferromagnetic transition in the classical spin model. This gives us an analytic handle on the universal properties and the scaling of entanglement at the critical point, and provides the first field theory formulation of such entanglement transitions. By considering the graph <span class="math inline">\(G\)</span> to be random, we uncover a new dynamical transition separating phases with area-law and power-law scaling of entanglement. The universal properties of these entanglement transitions can be described using a certain conformal field theory (CFT) with central charge <span class="math inline">\(c=0\)</span> coupled to two-dimensional quantum gravity, leading to exact relations for the critical exponents.</p>
+<p>The remainder of this paper is organized as follows:</p>
+<ol start="2" type="1">
+<li>in section II, we introduce our random tensor network model, and show how the entanglement features of that network can be computed using a classical statistical mechanics model and a replica trick approach.</li>
+<li>We discuss the limiting cases of large and small bond dimension in section III,</li>
+<li>and we then propose an analytic continuation of the statistical mechanics model that allows us to access the universal features of the entanglement transition between these two regimes (section IV).</li>
+<li>We also describe how the graph on which the tensor network is defined can be made random, which translates in the field theory language as a coupling of the statistical model to two-dimensional quantum gravity (section V).</li>
+<li>Finally, section VI contains a discussion of the applicability of our results to the MBL/ETH transition, as well as possible extensions of this work.</li>
+</ol>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Entanglement/">Entanglement</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Entanglement/">Entanglement</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/27/topology06_Meeting_Entanglement/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">冷原子实验测量纠缠熵与拓扑数</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/25/ML_04_TensorNetwork3_MPS/">
+                        <span class="hidden-mobile">矩阵乘积态与机器学习</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "随机量子线路中的纠缠临界和共形场论&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
