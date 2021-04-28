@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>The Gaussian Integral - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/math_Gaussian.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2019-08-15 17:23">
+      August 15, 2019 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      66
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="fundamental">1 fundamental</h2>
+<p>the Gaussian integral <span class="math display">\[
+\int_{-\infty}^{\infty} e^{-x^{2}} d x=\sqrt{\pi}
+\]</span> <strong>Proof:</strong> <span class="math display">\[
+\begin{aligned} 
+\left(\int_{-\infty}^{\infty} e^{-x^{2}} d x\right)^{2}=&amp;\int_{-\infty}^{\infty} e^{-x^{2}} d x \int_{-\infty}^{\infty} e^{-y^{2}} d y
+\\=&amp;\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} e^{-\left(x^{2}+y^{2}\right)} d x d y
+\end{aligned}
+\]</span> By polar coordinates <span class="math inline">\(e^{-\left(x^{2}+y^{2}\right)}=e^{-r^{2}}\)</span> <span class="math display">\[
+\begin{aligned} \iint_{\mathbf{R}^{2}} e^{-\left(x^{2}+y^{2}\right)} d(x, y) &amp;=\int_{0}^{2 \pi} \int_{0}^{\infty} e^{-r^{2}} r d r d \theta \\ &amp;=2 \pi \int_{0}^{\infty} r e^{-r^{2}} d r \\ &amp;=2 \pi \int_{-\infty}^{0} \frac{1}{2} e^{s} d s \\ &amp;=\pi \int_{-\infty}^{0} e^{s} d s \\ &amp;=\pi\left(e^{0}-e^{-\infty}\right) \\ &amp;=\pi \end{aligned}
+\]</span> thus <span class="math display">\[
+\left(\int_{-\infty}^{\infty} e^{-x^{2}} d x\right)^{2}=\pi \quad \rightarrow \quad \int_{-\infty}^{\infty} e^{-x^{2}} d x=\sqrt{\pi}
+\]</span></p>
+<h4 id="scaled">scaled</h4>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} e^{  a x^{2}} d x=\sqrt{\frac{  \pi}{a}}
+\]</span></p>
+<p><strong>proof:</strong> <span class="math display">\[
+\int_{-\infty}^{\infty} e^{a x^{2}} d x=\int_{-\infty}^{\infty} e^{(\sqrt{a} x)^{2}} d x
+\]</span> scale <span class="math inline">\(\sqrt{a} x \rightarrow y\)</span>, then <span class="math inline">\(d x=\frac{1}{\sqrt{a}}d y\)</span> <span class="math display">\[
+\begin{aligned} 
+\int_{-\infty}^{\infty} e^{(\sqrt{a x})^{2}} d x&amp;=\frac{1}{\sqrt{a}} \int_{-\infty}^{\infty} e^{a y^{2}} d y\\&amp;=\frac{1}{\sqrt{a}}\sqrt{\pi}\\&amp;=\sqrt{\frac{\pi}{a}}
+\end{aligned}
+\]</span></p>
+<h4 id="shift">shift</h4>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} e^{-a(x+b)^{2}} d x=\sqrt{\frac{\pi}{a}}
+\]</span></p>
+<p><strong>proof:</strong></p>
+<p>replace <span class="math inline">\(x+b=y\)</span>, then <span class="math inline">\(d x= d y\)</span> <span class="math display">\[
+\int_{-\infty}^{\infty} e^{-a(x+b)^{2}} d x=\int_{-\infty}^{\infty} e^{a y^{2}} d y= \sqrt{\frac{\pi}{a}}
+\]</span></p>
+<h4 id="generalizations">Generalizations</h4>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} e^{-a x^{2}+b x+c} d x=\sqrt{\frac{\pi}{a}} e^{\frac{b^{2}}{4 a}+c}
+\]</span></p>
+<p><strong>proof:</strong> <span class="math display">\[
+\begin{aligned} 
+\int_{-\infty}^{\infty} e^{-a x^{2}+b x+c} d x&amp;=\int_{-\infty}^{\infty} e^{-a(x+\frac{b^{}}{ a})^{2}+\frac{b^{2}}{4 a}+c} d x\\
+&amp;=e^{\frac{b^{2}}{4 a}+c} \int_{-\infty}^{\infty} e^{-a(x+\frac{b^{}}{ a})^{2}} d x\\
+&amp;=\sqrt{\frac{\pi}{a}} e^{\frac{b^{2}}{4 a}+c}
+\end{aligned}
+\]</span> special case：</p>
+<ol type="1">
+<li><span class="math inline">\(\int_{-\infty}^{\infty} \exp \left(-\frac{1}{2} a x^{2}+J x\right) d x =\left(\frac{2 \pi}{a}\right)^{\frac{1}{2}} \exp \left(\frac{J^{2}}{2 a}\right)\)</span></li>
+<li><span class="math inline">\(\int_{-\infty}^{\infty} \exp \left(-\frac{1}{2} a x^{2}+i J x\right) d x=\left(\frac{2 \pi}{a}\right)^{\frac{1}{2}} \exp \left(-\frac{J^{2}}{2 a}\right)\)</span></li>
+</ol>
+<p><strong>Application: 1</strong></p>
+<p>We now want to introduce interactions，the scalar field interact with an external potential. This potential is described by a function known as a source current <span class="math inline">\(J(x) \phi(x)\)</span></p>
+<p><strong>Application: 2</strong></p>
+<p>the Hubbard-Stratonovich transformation <span class="math display">\[
+\exp \left\{-\frac{a}{2} x^{2}\right\}=\sqrt{\frac{1}{2 \pi a}} \int_{-\infty}^{\infty} \exp \left[-\frac{y^{2}}{2 a}-i x y\right] d y
+\]</span></p>
+<h4 id="complex">complex</h4>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} \exp \left(\frac{1}{2} i a x^{2}+i J x\right) d x=\left(\frac{2 \pi i}{a}\right)^{\frac{1}{2}} \exp \left(\frac{-i J^{2}}{2 a}\right)
+\]</span></p>
+<p>proof: <span class="math display">\[
+\begin{aligned} 
+\left(\frac{1}{2} i a x^{2}+i J x\right)&amp;=\frac{1}{2} i a\left(x^{2}+\frac{2 J x}{a}+\left(\frac{J}{a}\right)^{2}-\left(\frac{J}{a}\right)^{2}\right)
+\\&amp;=-\frac{1}{2} \frac{a}{i}\left(x+\frac{J}{a}\right)^{2}-\frac{i J^{2}}{2 a}
+\end{aligned}
+\]</span></p>
+<p>Application: 1</p>
+<p>Relation between Schrödinger's equation and the path integral formulation of quantum mechanics</p>
+<p>The transition probability amplitude <span class="math display">\[
+\begin{aligned} 
+\langle F | \psi(T)\rangle&amp;=\left\langle F\left|\exp \left(-\frac{i}{\hbar} \hat{H} T\right)\right| 0\right\rangle
+\\&amp;=\left\langle F\left|\exp \left(-\frac{i}{\hbar} \hat{H} \delta t\right) \exp \left(-\frac{i}{\hbar} \hat{H} \delta t\right) \cdots \exp \left(-\frac{i}{\hbar} \hat{H} \delta t\right)\right| 0\right\rangle
+\end{aligned}
+\]</span> over each small time-interval, we can ignore the noncommutativity of kinetic energy and potential energy operators <span class="math display">\[
+\begin{aligned} 
+\exp \left(-\frac{i}{\hbar} \hat{H} \delta t\right) &amp;=\exp \left(-\frac{i}{\hbar} [\frac{\hat{p}^{2}}{2 m}+V(\hat{q})] \delta t\right)
+\\&amp;\approx \exp \left(-\frac{i}{\hbar} \frac{\hat{p}^{2}}{2 m} \delta t\right) \exp \left(-\frac{i}{\hbar} V\left(q_{j}\right) \delta t\right)
+\end{aligned}
+\]</span></p>
+<h2 id="multiple-dimensions">2 multiple dimensions</h2>
+<p>Gaussian integrals in higher dimensions <span class="math display">\[
+\int \exp \left(-\frac{1}{2} x \cdot A \cdot x+J \cdot x\right) d^{n} x=\sqrt{\frac{(2 \pi)^{n}}{\operatorname{det} A}} \exp \left(\frac{1}{2} J \cdot A^{-1} \cdot J\right)
+\]</span> This integral is performed by [diagonalization] of <strong>symmetric matrix</strong> <em>A</em> with an [orthogonal transformation] <span class="math inline">\(\boldsymbol{x}=\boldsymbol{S} \boldsymbol{y}\)</span></p>
+<p><strong>proof；</strong> <span class="math display">\[
+\begin{aligned} \boldsymbol{x} &amp;=\boldsymbol{S} \boldsymbol{y} \\ d \boldsymbol{x} &amp;=\boldsymbol{S} d \boldsymbol{y} \\ d x_{1} d x_{2} \ldots &amp;=|\boldsymbol{S}| d y_{1} d y_{2} \ldots \end{aligned}
+\]</span> where a determinant of unity <span class="math inline">\(|\boldsymbol{S}|=1\)</span> . The integral <span class="math display">\[
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \ldots \int_{-\infty}^{\infty} \exp \left(-\frac{1}{2} \boldsymbol{x}^{T} \boldsymbol{A} \boldsymbol{x}\right) d x_{1} d x_{2} \ldots d x_{n} = \int \exp \left(-\frac{1}{2} \boldsymbol{y}^{T} \boldsymbol{S}^{-1} \boldsymbol{A} \boldsymbol{S} \boldsymbol{y}\right) d y_{1} d y_{2} \ldots d y_{n}
+\]</span> we demand that the matrix <span class="math inline">\(\boldsymbol{S}\)</span> be a diagonalizing matrix, <span class="math display">\[
+\boldsymbol{S}^{-1} \boldsymbol{A} \boldsymbol{S}=\left[\begin{array}{cccc}{d_{1}} &amp; {0} &amp; {0} &amp; {\cdots} \\ {0} &amp; {d_{2}} &amp; {0} &amp; {\cdots} \\ {0} &amp; {0} &amp; {d_{3}} &amp; {\cdots} \\ {\vdots} &amp; {\vdots} &amp; {\vdots} &amp; {\ddots}\end{array}\right]
+\]</span> changes the integral to <span class="math display">\[
+\begin{aligned} 
+\int \exp \left(-\frac{1}{2} \boldsymbol{y}^{T} \boldsymbol{S}^{-1} \boldsymbol{A} \boldsymbol{S} \boldsymbol{y}\right) d y_{1} d y_{2} \ldots d y_{n}&amp;=\int_{-\infty}^{\infty} \exp \left[-\frac{1}{2}\left(d_{1} y_{1}^{2}+d_{2} y_{2}^{2}+\ldots d_{n} y_{n}^{2}\right)\right] d y_{1} d y_{2} \ldots d y_{n}\\
+&amp;=\sqrt{\frac{2 \pi}{d_{1}}} \cdot \sqrt{\frac{2 \pi}{d_{2}}} \cdots \sqrt{\frac{2 \pi}{d_{n}}}=\frac{(2 \pi)^{n / 2}}{|\boldsymbol{A}|^{1 / 2}}
+\end{aligned}
+\]</span> where <span class="math inline">\(\prod_{n=1}^{2} \lambda_{n}=|\boldsymbol{A}|=\operatorname{det}(A)\)</span></p>
+<h4 id="with-linear-term">with linear term</h4>
+<p><span class="math display">\[
+\begin{aligned} 
+-\frac{1}{2} \boldsymbol{x}^{T} \boldsymbol{A} \boldsymbol{x}+\boldsymbol{J}^{T} \boldsymbol{x} &amp;\rightarrow-\frac{1}{2} \boldsymbol{y}^{T} \boldsymbol{D} \boldsymbol{y}+\boldsymbol{J}^{T} \boldsymbol{S} \boldsymbol{y}\\
+&amp;=-\frac{1}{2}\left(d_{1} y_{1}^{2}+d_{2} y_{2}^{2}+\ldots d_{n} y_{n}^{2}\right)+J_{a} S_{a 1} y_{1}+J_{a} S_{a 2} y_{2}+\ldots J_{a} S_{a n} y_{n}\\
+&amp;=\sum_i -\frac{1}{2} d_{i}\left(y_{i}-\frac{J_{a} S_{a i}}{d_{i}}\right)^{2}+\frac{\left(J_{a} S_{a i}\right)^{2}}{2 d_{i}}
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(-\frac{1}{2} d_{1} y_{1}^{2}+J_{a} S_{a 1} y_{1}=-\frac{1}{2} d_{1}\left(y_{1}-\frac{J_{a} S_{a 1}}{d_{1}}\right)^{2}+\frac{\left(J_{a} S_{a 1}\right)^{2}}{2 d_{1}}\)</span></p>
+<p>making the substitution <span class="math inline">\(y_{i} \rightarrow y_{i}-J_{a} S_{a i} / d_{i}\)</span> <span class="math display">\[
+\int_{-\infty}^{\infty} \exp \left(-\frac{1}{2} \boldsymbol{x}^{T} \boldsymbol{A} \boldsymbol{x}+\boldsymbol{J}^{T} \boldsymbol{x}\right) d^{n} x=\frac{(2 \pi)^{n / 2}}{|\boldsymbol{A}|^{1 / 2}} \exp \left[\frac{\left(J_{a} S_{a i}\right)^{2}}{2 d_{i}}\right]
+\]</span> the exponential term can be put into a more recognizable form <span class="math display">\[
+\frac{\left(J_{a} S_{a i}\right)^{2}}{2 d_{i}}=\frac{J_{a} S_{a i}\left(J_{b} S_{b i}\right)^{T}}{2 d_{i}}=\frac{J_{a} S_{a i} S_{i b}^{-1} J_{b}}{2 d_{i}}
+\]</span> where <span class="math inline">\(S^{T}=S^{-1}\)</span> give <span class="math inline">\(S_{a i} S_{i b}^{-1}=\delta_{a b}\)</span> <span class="math display">\[
+\frac{J_{a} S_{a i} S_{i b}^{-1} J_{b}}{2 d_{i}}=\frac{1}{2} J_{a} S_{a i} \cdot \frac{1}{d_{i}} \cdot S_{i b}^{-1} J_{b}
+\]</span> t the diagonal matrix defined <span class="math inline">\(\boldsymbol{S}^{-1} \boldsymbol{A} \boldsymbol{S}=\boldsymbol{D}\)</span> allows a expression <span class="math inline">\(S^{-1} A^{-1} S=D^{-1}\)</span> in n matrix summation notation <span class="math display">\[
+S_{i k}^{-1} A_{k b}^{-1} S_{b i}=D_{i i}^{-1}=\frac{1}{d_{i}}
+\]</span> Plugging this <span class="math inline">\(\frac{1}{d_{i}}=S_{i k}^{-1} A_{k b}^{-1} S_{b i}\)</span> into equation <span class="math display">\[
+\begin{aligned} \frac{1}{2} J_{a} S_{a i} \cdot \frac{1}{d_{i}} \cdot S_{i b}^{-1} J_{b} &amp;=\frac{1}{2} J_{a} S_{a i} S_{i k}^{-1} A_{k b}^{-1} S_{b i} S_{i c}^{-1} J_{c} \\ &amp;=\frac{1}{2} J_{k} A_{k c}^{-1} J_{c} \\ &amp;=\frac{1}{2} J^{T} A^{-1} J \end{aligned}
+\]</span> The Gaussian integral <span class="math display">\[
+\int_{-\infty}^{\infty} \exp \left(-\frac{1}{2} \boldsymbol{x}^{T} \boldsymbol{A} \boldsymbol{x}+\boldsymbol{J}^{T} \boldsymbol{x}\right) d x_{1} d x_{2} \ldots d x_{n}=\frac{(2 \pi)^{n / 2}}{|\boldsymbol{A}|^{1 / 2}} \exp \left[\frac{1}{2} \boldsymbol{J}^{T} \boldsymbol{A}^{-1} \boldsymbol{J}\right]
+\]</span></p>
+<h4 id="application">Application</h4>
+<ol type="1">
+<li>In quantum field theory, the matrix <span class="math inline">\(\boldsymbol{A}^{-1}\)</span> is related to what is known as a <strong>propagator</strong>, and it’s akin to the term in the probability amplitude</li>
+</ol>
+<p><span class="math display">\[
+\partial^{2}+m^{2}
+\]</span></p>
+<p>It is essentially a <strong>Green’s function</strong> that describes the physical propagation of a particle <strong>created at the source</strong> <span class="math inline">\(\boldsymbol{J}\)</span>and annihilated at the “antisource” or sink <span class="math inline">\(\boldsymbol{J}^{T}\)</span>. The matrix identity <span class="math inline">\(\boldsymbol{A}^{-1} \boldsymbol{A}=\boldsymbol{I}\)</span> gets transcribed into <span class="math display">\[
+\left(\partial^{2}+m^{2}\right) D(\boldsymbol{x}-\boldsymbol{y})=\delta^{4}(\boldsymbol{x}-\boldsymbol{y})
+\]</span> or the path integral, where the quantity <span class="math inline">\(D(\boldsymbol{x}-\boldsymbol{y})\)</span> is the propagator.</p>
+<ol start="2" type="1">
+<li>In quantum field theory n-dimensional integrals of the form <span class="math display">\[
+\int_{-\infty}^{\infty} \exp \left(-\frac{1}{\hbar} f(q)\right) d^{n} q
+\]</span></li>
+</ol>
+<p>For small values of Planck's constant, f can be expanded about its minimum <span class="math display">\[
+\int_{-\infty}^{\infty} \exp \left[-\frac{1}{\hbar}\left(f\left(q_{0}\right)+\frac{1}{2}\left(q-q_{0}\right)^{2} f^{\prime \prime}\left(q-q_{0}\right)+\cdots\right)\right] d^{n} q
+\]</span> neglect higher order terms this integral can be integrated explicitly. <span class="math display">\[
+\int_{-\infty}^{\infty} \exp \left[-\frac{1}{\hbar}(f(q))\right] d^{n} q \approx \exp \left[-\frac{1}{\hbar}\left(f\left(q_{0}\right)\right)\right] \sqrt{\frac{(2 \pi \hbar)^{n}}{\operatorname{det} f^{\prime \prime}}}
+\]</span></p>
+<h4 id="example-in-2d">Example in 2d</h4>
+<p>The Gaussian integral in two dimensions <span class="math display">\[
+\int \exp \left(-\frac{1}{2} A_{i j} x^{i} x^{j}\right) d^{2} x=\sqrt{\frac{(2 \pi)^{2}}{\operatorname{det} A}}
+\]</span> where <em>A</em> is a two-dimensional symmetric matrix with components specified as <span class="math display">\[
+A=\left[\begin{array}{ll}{a} &amp; {c} \\ {c} &amp; {b}\end{array}\right]
+\]</span> <strong>Diagonalize the matrix</strong> <span class="math display">\[
+A_{i j} x^{i} x^{j} \equiv x^{T} A x=x^{T}\left(O O^{T}\right) A\left(O O^{T}\right) x=\left(x^{T} O\right)\left(O^{T} A O\right)\left(O^{T} x\right)
+\]</span> where, since <em>A</em> is a real symmetric matrix, we can choose <em>O</em> to be orthogonal, and hence also a unitary matrix. <em>O</em> can be obtained from the eigenvectors of <em>A</em>. We choose <em>O</em> such that: <span class="math display">\[
+D=O^{T} A O=\left[\begin{array}{cc}{\lambda_{-}} &amp; {0} \\ {0} &amp; {\lambda_{+}}\end{array}\right]
+\]</span> is diagonal.</p>
+<p><strong>Eigenvalues</strong> <span class="math display">\[
+\left[\begin{array}{ll}{a} &amp; {c} \\ {c} &amp; {b}\end{array}\right]\left[\begin{array}{l}{u} \\ {v}\end{array}\right]=\lambda\left[\begin{array}{l}{u} \\ {v}\end{array}\right]
+\]</span> The eigenvalues are solutions of the characteristic polynomial <span class="math display">\[
+\begin{array}{l}{(a-\lambda)(b-\lambda)-c^{2}=0} \\ {\lambda^{2}-\lambda(a+b)+a b-c^{2}=0}\end{array}
+\]</span> The eigenvalues are <span class="math display">\[
+\begin{aligned} \lambda_{ \pm} &amp;=\frac{1}{2}(a+b) \pm \frac{1}{2} \sqrt{(a+b)^{2}-4\left(a b-c^{2}\right)} \\ \lambda_{ \pm} &amp;=\frac{1}{2}(a+b) \pm \frac{1}{2} \sqrt{a^{2}+2 a b+b^{2}-4 a b+4 c^{2}} \\ \lambda_{ \pm} &amp;=\frac{1}{2}(a+b) \pm \frac{1}{2} \sqrt{(a-b)^{2}+4 c^{2}} \end{aligned}
+\]</span> <strong>Eigenvectors</strong></p>
+<p>Substitution of the eigenvalues back into the eigenvector equation <span class="math display">\[
+v=-\frac{\left(a-\lambda_{ \pm}\right) u}{c}, \quad v=-\frac{c u}{\left(b-\lambda_{ \pm}\right)}
+\]</span></p>
+<p><span class="math display">\[
+\frac{a-\lambda_{ \pm}}{c}=\frac{c}{b-\lambda_{ \pm}}
+\]</span></p>
+<p>The eigenvectors can be written as: <span class="math display">\[
+\left[\begin{array}{c}{\frac{1}{\eta}} \\ {-\frac{a-\lambda_{-}}{c \eta}}\end{array}\right], \quad\left[\begin{array}{c}{-\frac{b-\lambda_{+}}{c \eta}} \\ {\frac{1}{\eta}}\end{array}\right]
+\]</span> where normalizing factor <span class="math display">\[
+\eta=\sqrt{1+\left(\frac{a-\lambda_{-}}{c}\right)^{2}}=\sqrt{1+\left(\frac{b-\lambda_{+}}{c}\right)^{2}}
+\]</span> two eigenvectors are orthogonal to each other <span class="math display">\[
+\left(\frac{1}{\eta}\quad -\frac{a-\lambda_{-}}{c \eta}  \right)
+\left(\begin{array}{c}{-\frac{b-\lambda_{+}}{c \eta}} \\ {\frac{1}{\eta}}\end{array}\right)=\frac{a-\lambda_{-}}{c \eta^2}+\frac{b-\lambda_{+}}{c \eta^2}=1
+\]</span> <strong>orthogonal matrix</strong></p>
+<p>The orthogonal matrix is constructed by assigning the normalized eigenvectors as columns in the orthogonal matrix <span class="math display">\[
+O=\left[\begin{array}{cc}{\frac{1}{\eta}} &amp; {-\frac{b-\lambda_{+}}{c \eta}} \\ {-\frac{a-\lambda_{-}}{c \eta}} &amp; {\frac{1}{\eta}}\end{array}\right]
+\]</span> note <span class="math inline">\(\operatorname{det}(O)=1\)</span> and <span class="math inline">\(O^{-1}=O^{T}\)</span></p>
+<h2 id="moment-average">3 moment average</h2>
+<p><span class="math display">\[
+I_{n}(a) \equiv \int_{0}^{\infty} e^{-a x^{2}} x^{n} d x
+\]</span></p>
+<p>setting <span class="math display">\[
+\begin{aligned} x &amp; \equiv a^{-1 / 2} y \\ d x &amp;=a^{-1 / 2} d y \\ y^{2} &amp;=a x^{2} \end{aligned}
+\]</span> then <span class="math display">\[
+\begin{aligned} I_{n}(a) &amp;=a^{-1 / 2} \int_{0}^{\infty} e^{-y^{2}}\left(a^{-1 / 2} y\right)^{n} d y \\ &amp;=a^{-(n+1) / 2} \int_{0}^{\infty} e^{-y^{2}} y^{n} d y \end{aligned}
+\]</span> for <span class="math inline">\(n=0\)</span> this is the usual Gaussian integral, <span class="math display">\[
+I_{0}(a)=\frac{\sqrt{\pi}}{2} a^{-1 / 2}=\frac{1}{2} \sqrt{\frac{\pi}{a}}
+\]</span> For <span class="math inline">\(n=1\)</span>, the integrand is integrable by quadrature, <span class="math display">\[
+I_{1}(a)=a^{-1} \int_{0}^{\infty} e^{-y^{2}} y d y=a^{-1}\left[-\frac{1}{2} e^{-y^{2}}\right]_{0}^{\infty}=\frac{1}{2} a^{-1}
+\]</span> for <span class="math inline">\(n&gt;1\)</span> use the identity <span class="math display">\[
+\begin{aligned}-\frac{\partial}{\partial a} I_{n-2}(a) &amp;=-\frac{\partial}{\partial a} \int_{0}^{\infty} e^{-a x^{2}} x^{n-2} d x \\ &amp;=-\int_{0}^{\infty}-x^{2} e^{-a x^{2}} x^{n-2} d x \\ &amp;=\int_{0}^{\infty} e^{-a x^{2}} x^{n} d x \\ &amp;=I_{n}(a) \end{aligned}
+\]</span></p>
+<h4 id="even">even</h4>
+<p><span class="math inline">\(n=2 s\)</span> <span class="math display">\[
+\begin{aligned} I_{n}(a) &amp;=\left(-\frac{\partial}{\partial a}\right) I_{n-2}(a) \\ &amp;=\left(-\frac{\partial}{\partial a}\right)^{2} I_{n-4} \\ &amp;=\ldots=\left(-\frac{\partial}{\partial a}\right)^{n / 2} I_{0}(a) \\ &amp;=\frac{\partial^{n / 2}}{\partial a^{n / 2}} I_{0}(a) \\ &amp;=\frac{\sqrt{\pi}}{2} \frac{\partial^{n / 2}}{\partial a^{n / 2}} a^{-1 / 2} \end{aligned}
+\]</span> then <span class="math display">\[
+\begin{aligned} \int_{0}^{\infty} x^{2 s} e^{-a x^{2}} d x &amp;=\frac{\left(s-\frac{1}{2}\right) !}{2 a^{s+1 / 2}} \\ &amp;=\frac{(2 s-1) ! !}{2^{s+1} a^{s}} \sqrt{\frac{\pi}{a}} \end{aligned}
+\]</span></p>
+<h4 id="odd">odd</h4>
+<p><span class="math inline">\(n=2 s+1\)</span> <span class="math display">\[
+\begin{aligned} I_{n}(a) &amp;=\left(-\frac{\partial}{\partial a}\right) I_{n-2}(a) \\ &amp;=\left(-\frac{\partial}{\partial a}\right)^{2} I_{n-4}(a) \\ &amp;=\ldots=\left(-\frac{\partial}{\partial a}\right)^{(n-1) / 2} I_{1}(a) \\ &amp;=\frac{\partial^{(n-1) / 2}}{\partial a^{(n-1) / 2}} I_{1}(a) \\ &amp;=\frac{1}{2} \frac{\partial^{(n-1) / 2}}{\partial a^{(n-1) / 2}} a^{-1} \end{aligned}
+\]</span> then <span class="math display">\[
+\int_{0}^{\infty} x^{2 s+1} e^{-a x^{2}} d x=\frac{s !}{2 a^{s+1}}
+\]</span> the general solution <span class="math display">\[
+\int_{0}^{\infty} e^{-a x^{2}} x^{n} d x=\left\{\begin{array}{ll}{\frac{(n-1) ! !}{2^{n / 2+1} a^{n / 2}} \sqrt{\frac{\pi}{a}}} &amp; {\text { for } n \text { even }} \\ {\frac{\left[\frac{1}{2}(n-1)\right] !}{2 a^{(n+1) / 2}}} &amp; {\text { for } n \text { odd }}\end{array}\right.
+\]</span> The first few values are <span class="math display">\[
+\begin{array}{l}{I_{0}(a)=\frac{1}{2} \sqrt{\frac{\pi}{a}}} \\ {I_{1}(a)=\frac{1}{2 a}} \\ {I_{2}(a)=\frac{1}{4 a} \sqrt{\frac{\pi}{a}}} \\ {I_{3}(a)=\frac{1}{2 a^{2}}} \\ {L_{4}(a)=\frac{3}{8 a^{2}} \sqrt{\frac{\pi}{a}}} \\ {I_{5}(a)=\frac{1}{a^{3}}} \\ {I_{6}(a)=\frac{15}{16 a^{3}} \sqrt{\frac{\pi}{a}}}\end{array}
+\]</span></p>
+<h4 id="related-integral">Related Integral</h4>
+<p><span class="math display">\[
+H_{n}(a) \equiv \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} e^{-a x^{2}} x^{n} d x=\left\{\begin{array}{ll}{\frac{2 I_{n}(a)}{\sqrt{\pi}}} &amp; {\text { for } n \text { even }} \\ {0} &amp; {\text { for } n \text { odd }}\end{array}\right.
+\]</span></p>
+<p>more general <span class="math display">\[
+\begin{aligned} \int_{-\infty}^{\infty} x^{n} e^{-a x^{2}+b x} d x &amp;=i^{-n} a^{-(n+1) / 2} \sqrt{\pi} e^{b^{2} /(4 a)} U\left(-\frac{1}{2} n ; \frac{1}{2} ;-b^{2} / 4 a\right) \\ &amp;=\sqrt{\frac{\pi}{a}} e^{b^{2} /(4 a)} \sum_{k=0}^{ | n / 2\rfloor} \frac{n !}{k !(n-2 k) !} \frac{(2 b)^{n-2 k}}{(4 a)^{n-k}} \\ &amp;=\sqrt{\frac{\pi}{a}} e^{b^{2} /(4 a)} \sum_{k=0}^{ | n / 2\rfloor}\left(\begin{array}{c}{n} \\ {2 k}\end{array}\right)(2 k-1) ! !(2 a)^{k-n} b^{n-2 k} \end{aligned}
+\]</span> where <span class="math inline">\(U(a ; b ; x)\)</span> is a confluent <strong>hypergeometric function</strong> of the second kind</p>
+<h2 id="take-home-information">4 Take Home Information</h2>
+<ul>
+<li><span class="math inline">\(\int_{-\infty}^{\infty} e^{-a x^{2}+b x+c} d x=\sqrt{\frac{\pi}{a}} e^{\frac{b^{2}}{4 a}+c}\)</span></li>
+<li><span class="math inline">\(\int \exp \left(-\frac{1}{2} x \cdot A \cdot x+J \cdot x\right) d^{n} x=\sqrt{\frac{(2 \pi)^{n}}{\operatorname{det} A}} \exp \left(\frac{1}{2} J \cdot A^{-1} \cdot J\right)\)</span></li>
+<li><span class="math inline">\(\int_{0}^{\infty} e^{-a x^{2}} x^{n} d x=\left\{\begin{array}{ll}{\frac{(n-1) ! !}{2^{n / 2+1} a^{n / 2}} \sqrt{\frac{\pi}{a}}} &amp; {\text { for } n \text { even }} \\ {\frac{\left[\frac{1}{2}(n-1)\right] !}{2 a^{(n+1) / 2}}} &amp; {\text { for } n \text { odd }}\end{array}\right.\)</span></li>
+</ul>
+<h2 id="references">References</h2>
+<p>[1] Common integrals in quantum field theory <a href="https://en.wikipedia.org/wiki/Common_integrals_in_quantum_field_theory" target="_blank" rel="noopener">Wikipedia</a></p>
+<p>[2] A Brief Look at Gaussian Integrals <a href="http://www.weylmann.com/gaussian.pdf" target="_blank" rel="noopener">PDF</a></p>
+<p>[3] Wolfram MathWorld <a href="http://mathworld.wolfram.com/GaussianIntegral.html" target="_blank" rel="noopener">Gaussian Integral</a></p>
+<p>[4] <a href="https://zhuanlan.zhihu.com/p/75589452" target="_blank" rel="noopener">高斯过程 Gaussian Processes 原理、可视化及代码实现</a></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Mathematics/">Mathematics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Mathematics/%E9%9B%B6%E6%95%A3/">零散</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Integral/">Integral</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/08/19/CMP_050_ising/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">一维Ising模型：经典与量子</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2019/05/27/Ftmb_Nonequilibrium_02/">
+                        <span class="hidden-mobile">二次量子化</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "The Gaussian Integral&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

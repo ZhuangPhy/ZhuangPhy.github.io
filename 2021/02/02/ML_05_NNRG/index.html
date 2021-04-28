@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>生成模型与重整化群理论 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-02-02 13:23">
+      February 2, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      32
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考文献">参考文献</h2>
+<ol type="1">
+<li>《人脸和宇宙是啥关系？<a href="https://mp.weixin.qq.com/s/WGqp3LTv7z3Ls8xUDAb0MA" target="_blank" rel="noopener">看物理学家怎样用重整化群流模型重新理解视觉</a>》集智俱乐部
+<ul>
+<li><a href="https://github.com/hongyehu" target="_blank" rel="noopener">扈鸿业 github</a></li>
+</ul></li>
+<li><a href="https://campus.swarma.org/course/2318" target="_blank" rel="noopener">视频讲解</a></li>
+<li>Neural Network Renormalization Group 2018 <a href="https://arxiv.org/pdf/1802.02840.pdf" target="_blank" rel="noopener">arxiv.1802.02840</a></li>
+<li>Machine Learning Holographic Mapping by Neural Network Renormalization Group 2019 <a href="https://arxiv.org/pdf/1903.00804.pdf" target="_blank" rel="noopener">arxiv.1903.00804</a></li>
+<li>RG-Flow: A hierarchical and explainable flow model based on renormalization group and sparse prior 2020 <a href="https://arxiv.org/pdf/2010.00029.pdf" target="_blank" rel="noopener">arXiv:2010.00029</a></li>
+</ol>
+<h2 id="基于流模型的生成模型">1 基于流模型的生成模型</h2>
+<blockquote>
+<p>如果我们拥有人脸数据集，我们如何生成更多类似的人脸数据并且让生成的数据看起来和真的一样呢？</p>
+</blockquote>
+<p>生成模型想解决的就是这个问题。生成模型（generative model）是在深度学习中一类重要的问题。</p>
+<p>生成模型具体实现的方式有很多，比如</p>
+<ol type="1">
+<li>生成对抗网络（generative adversarial networks）</li>
+<li>变分自动编码器（variational autoencoder）</li>
+<li>流模型（flow-based model）等等。</li>
+</ol>
+<p>本文将主要关注在<strong>流模型</strong>上（具体说是连续空间的流模型，即 <span class="math inline">\(\vec{x}\)</span> 的取值范围是实数域）。简单来说，流模型就是通过一系列的可逆变换把一张容易得到的白噪声图片变换成一个我们想要的图片的工具。</p>
+<h4 id="数学角度">数学角度</h4>
+<p>从数学上去理解生成模型在做什么</p>
+<ul>
+<li>我们可以认为这些真实的人脸数据都是从某一个我们并不知道的概率密度分布 <span class="math inline">\(p(\vec{x})\)</span> 中采样出来的</li>
+<li>其中 <span class="math inline">\(\vec{x}\)</span> 就是每一张图片。</li>
+<li>这样看来，让一个机器去生成更多长得像“真人”一样的图片，从数学上就变成了让机器产生一个变分概率 <span class="math inline">\(q_{\theta}(\vec{x})\)</span> 去拟合真实的人脸分布 <span class="math inline">\(p(\vec{x})\)</span> 。</li>
+<li>如果机器可以拟合得足够好，那么我们就可以从 <span class="math inline">\(p(\vec{x})\)</span> 产生更多的图片，他们也会很像真实的人脸。</li>
+</ul>
+<h4 id="例子">例子</h4>
+<p>为了更好地理解流模型，我们先来看一个简单的例子。假设我们有一个红色的双峰概率密度分布 <span class="math inline">\(p(x)\)</span>，如图所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210202200425317.png" srcset="/img/loading.gif" /></p>
+<p>我们如何从这个分布里面去进行<strong>采样</strong>呢？</p>
+<ol type="1">
+<li>假设我们可以从<strong>高斯分布中</strong>做直接的采样，即我们可以从蓝色的 <span class="math inline">\(p(z)\)</span> 分布进行对的直接采样</li>
+<li>那么我们可以找到一个可逆的双射（bijective map），<span class="math inline">\(x=G(z)\)</span> ，把每一个 z 映射到 x。</li>
+<li>我们可以看到这个映射G在中间导数很大，两边导数很小，这样就可以在映射之后中间的部分采样稀疏，而两边的地方采样密集。</li>
+<li>这样我们就可以对高斯分布进行直接采样，然后把得到的z按照双射变换为x，从而实现对x的直接采样。</li>
+</ol>
+<p>数学上这样两个分布有如下的联系： <span class="math display">\[
+p_{X}(\vec{x})=p_{Z}(\vec{z})\left|\frac{\partial G(\vec{z})}{\partial \vec{z}}\right|^{-1}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\left|\frac{\partial G(\vec{z})}{\partial \vec{z}}\right|^{-1}\)</span> 被称作雅克比行列式。</li>
+</ul>
+<blockquote>
+<p>如此看来，我们想去对一个<strong>复杂的</strong>概率密度分布采样</p>
+</blockquote>
+<p>如果可以找到这样一个双射 <span class="math inline">\(x=G(z)\)</span>, 把这个复杂的分布<strong>变成</strong>简单的分布，比如高斯分布，我们便能对复杂的分布进行直接采样。</p>
+<blockquote>
+<p>那么 我们要<strong>如何去寻找</strong>这样一个双射呢?</p>
+</blockquote>
+<p>一个想法是我们去构造一个<strong>变分假设</strong> <span class="math inline">\(G_{\theta}(z),\)</span> 其中 <span class="math inline">\(\theta\)</span> 泛指变分假设中所有的参数。通过这个变分假设的双射，我们可以把简单的分布 <span class="math inline">\(p_{Z}(\vec{z})\)</span> 变换成 $ q_{X}()$ <span class="math display">\[
+q_{X}(\vec{x})=p_{Z}(\vec{z})\left|\frac{\partial G_{\theta}(\vec{z})}{\partial \vec{z}}\right|^{-1}
+\]</span> 现在我们想去对变分参数 <span class="math inline">\(\theta\)</span> 进行优化, 使得 <span class="math inline">\(q_{X}(\vec{x})\)</span> 尽可能的逼近目标概率密度分布 $ p_{X}()$ 。</p>
+<p>对于两个概率密度<strong>分布的"距离"</strong>，其中一个常用的指标是<strong>KL散度</strong> (Kullback-Leibler divergence), 它的定义是 <span class="math display">\[
+KL (p \| q)=\int d x p(x)[\log p(x)-\log q(x)]
+\]</span> - KL散度可以证明是一个大于等于0的量 - 当两个概率密度完全一致的时候, KL散度为0。</p>
+<p>所以通常我们可以去<strong>优化减小</strong>变分分布和目标分布的KL散度，使得他们更加相近。 （注：但是KL散度不是严格意义上的距离，因为p和q不具备交换对称性)</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/640" srcset="/img/loading.gif" /></p>
+<p>那么我们要如何去构造一个足够一般的双射变换 <span class="math inline">\(x=G(z)\)</span> 作为变分假设使得它可以尽可能去拟合任意的可逆变换（双射）呢？</p>
+<p>根据深度学习的思想，我们可以构造一些相对简单的双射 <em>Gi</em> ，然后把他们如图5所示一样的串联起来，从而形成一个相对复杂的变分假设。这样的想法就和搭建乐高积木一样，我们希望构造一些乐高积木的基本单元，然后通过迭代让他们涌现出复杂的行为。这点和凝聚态物理中简单的粒子通过相互作用来涌现复杂的行为也有异曲同工之妙。在机器学习的研究中，人们提出了一些基本的可逆变换，被大家广泛使用，比如Real NVP、invertible convolution、invertible resnet等等。如何构造表达能力强且简单的可逆变换，也是生成型模型研究的一个重点。而我们本文想要讨论的是假设我们已经拥有了基本的可逆变换作为乐高积木的话，我们应该按照什么样子的蓝图来搭建它们，使得他们组成一个”智能“的网络能处理具有多层次特点的自然信号呢？</p>
+<h2 id="重整化群流模型与全息原理">2 重整化群流模型与全息原理</h2>
+<p>为了更好地理解生成型模型和物理学的关系，先让我们来看一看（量子）场论是如何与计算机科学中的图片集构建联系的。</p>
+<ol type="1">
+<li>物理学中的场（field）是对时空的连续性描述，可以把它看做是时空到某一个流形（manifold）的映射。</li>
+<li>通俗一点讲，我们可以举一个例子。如图6所示，我们可以把一个二维时空的标量场（scalar field）看做是一张灰度图，即每一个像素点被映射到一个标量上；</li>
+<li>而二维时空的矢量场可以被类比为一张RGB彩色图片，每个像素有一个RGB矢量来表示颜色。</li>
+<li>这样我们就可以把物理中场论中场的各种构型看成一张张不同的图片。</li>
+</ol>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210207135504962.png" srcset="/img/loading.gif" /></p>
+<p>那么我们怎么通俗地理解场论呢？</p>
+<p>场论给每一个场的构型设定了一个概率或者negative log-likelihood，就如图7所示。</p>
+<ul>
+<li>那么有的场的构型出现的概率较大</li>
+<li>有的场构型出现的概率较小。</li>
+</ul>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210207135606721.png" srcset="/img/loading.gif" /></p>
+<p>这就类似于人脸图片集中人脸出现的概率就比白噪声出现的次数要多得多。如此看来，<strong>大自然本身就是一个生成模型</strong>，它无时无刻不在为我们生成和展现它自己美丽的图片。而从这个角度来看，人工智能中的生成型模型也是对场论的一个很自然的描述。所以我们自然会想知道如何可以构建一个人工智能的生成模型来描述场论，描述自然。当我们给这个AI一个场论的描述（action）之后，它是不是能学习出物理，然后像大自然一样为我们生成符合这个场论描述的场构型呢？</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210207140225486.png" srcset="/img/loading.gif" /></p>
+<h4 id="尺度">尺度</h4>
+<p>大自然中的信号是分尺度的。在每个尺度都涌现出了不同的有效理论，就如图8中这个蛇形图案给我们展现一样。</p>
+<ol type="1">
+<li>在微观尺度我们具有量子力学、粒子物理学。</li>
+<li>如果我们把观察的尺度再放大一些，我们就会有化学、生物学等等。</li>
+</ol>
+<p>凝聚态物理学大师 P. W. Anderson 先生在70年代撰写过一篇名为“more is different”的文章。文中向大家阐述了随着体系中客体数量的增加，由于多个客体间的相互作用，整体可能涌现出复杂的行为，并且这些行为是单个客体所不具备的。这也是为什么不同尺度会涌现出不同的理论的一个原因。那么有没有一个理论可以作为桥梁来<strong>链接不同尺度的理论</strong>呢？在物理学中，这样的理论叫做重整化群（renormalization group）。</p>
+<p>简单来说，我们可以把重整化群的操作想象成对图片不断进行局部粗粒化的操作，从而我们对于体系的描述也从微观（UV）变得越来越宏观（IR），通过不断的抹去细节不重要的信息，我们得到的是对体系更加重要的宏观信息。这个过程也可以用图9的卡通来进行展示。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210207140411092.png" srcset="/img/loading.gif" /></p>
+<p>当然，对于传统的物理体系，局部粗粒化的规则是物理学家通过对物理体系的分析和人类的智慧来定义的。自然我们也会想到，如果生成型模型AI是大自然的一个假设（ansatz)，那么它能不能也<strong>自己定义</strong>局部粗粒化的规则，来分析出体系中哪些信号是局部的，而哪些信号是宏观的呢？通过对这些问题的思考，我们一同<strong>提出了</strong></p>
+<ol type="1">
+<li>重整化群的流模型</li>
+<li>重整化群的信息学理论</li>
+</ol>
+<p>首先，我们看到了在传统意义重整化群粗粒化的过程下，局部信息是被丢弃掉了。这样具有局部信息损失而造成了传统意义下的重整化群操作是不可逆的。所以我们扩展了重整化群的操作，与其在局部粗粒化的过程中抹去不重要的细节信息，我们可以不去丢掉它，而是把它留下来放到一个“容器”中存着它。这样如果我们想从大尺度的图片出发，反向还原细节图片的话我们就可以再一次把“容器”中留下的这些信息片段补回去，就如图9所示。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210207140411092.png" srcset="/img/loading.gif" /></p>
+<p>我们设计了具有多层级局部操作的神经网络</p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210217110512705.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210217110512705</figcaption>
+</figure>
+<p>但是如何保证这些局部操作完成的是重整化群操作呢？为此我们在文章中也讨论了重整化群的信息学理论，可以简单地理解为机器需要把局部操作中丢到“容器”中保存下来不重要的东西尽可能像白噪声。通过这样的信息学指导和具有多层级局部操作的神经网络结构，我们的“人工物理学家”已经搭建完备了！为了检测它是不是具有分析物理体系性质，和生成物理体系构型的能力，我们拿物理中complex phi-4场论来对它进行了测试</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210217110600042.png" srcset="/img/loading.gif" /></p>
+<p>它在一定极限下的简易模型可以理解为在一个二维网格上每个节点放置一个小磁针。小磁针在一定温度下由于热涨落希望在格点上随意转圈。而小磁针之间也会有相互作用力，它们喜欢一致，而不喜欢“异类”。也就是说它们都指向同一个方向会让他们能量更低，更舒服。这样一个简单的体系具有丰富的物理内容，人们发现在一定温度的时候体系会发生一个相变。在低温的时候小磁针都会彼此顺着对方进行整体的旋转，而在高温的时候他们就会完全无序的各自随意旋转。这个相变也是2016年诺贝尔物理学奖的重要工作之一</p>
+<figure>
+<img src="C:%5CUsers%5CJPZhuang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210217110906366.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210217110906366</figcaption>
+</figure>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Machine-learning/">Machine learning</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Tensor-Network/">Tensor Network</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Renormalization-Group/">Renormalization Group</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Machine-learning/">Machine learning</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/03/ML_06_explain_review/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">神经网络可解释性综述</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/30/CMP_13_twisted02_DaiXi/">
+                        <span class="hidden-mobile">转角石墨烯体系的拓扑特性和轨道磁性</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "生成模型与重整化群理论&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>磁性量子相变 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-02-05 13:11">
+      February 5, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<ul>
+<li>《磁性量子相变》物理 49卷(2020年) 9 期</li>
+</ul>
+<p>[TOC]</p>
+<h2 id="量子相变简介">1 量子相变简介</h2>
+<h4 id="经典相变">经典相变</h4>
+<p>在相变理论中，通常可以分为一级相变和二级相变两种类型。</p>
+<ol type="1">
+<li>化学势连续但化学势对温度、压力的一阶偏导不连续的相变被称为一级相变。一级相变伴随着相变潜热且通常会表现出物质体积的突变，如大多数的结构相变或者固、液、气三相之间的转变。</li>
+<li>二级相变不会产生相变潜热，而且通常没有体积的突变，但化学势对温度、压力的二阶偏导会发生跳变，如常见的超导转变、铁磁—顺磁转变等。</li>
+</ol>
+<p>经典热力学相变发生在有限温度，由热涨落所驱动。对于二级相变，其临界行为可由朗道-金兹堡-威耳逊的<strong>对称性破缺</strong>理论进行普适描述[1]。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210205134512131.png" srcset="/img/loading.gif" /></p>
+<h4 id="量子相变">量子相变</h4>
+<p>当温度趋于绝对零度时，热涨落被<strong>抑制</strong>，由于海森伯不确定性原理，量子涨落得以增强，从而驱动量子相变。</p>
+<ul>
+<li>在关联电子材料体系中，人们可以通过压力、磁场、掺杂等非温度参量<strong>调节</strong>电子相互作用，从而抑制磁性等长程有序态而诱发量子相变。</li>
+<li>随着非温度调控参量的增加，量子相变呈现出两种不同的情形(图1)
+<ol type="1">
+<li>(a)磁性相变等从二级相变转变为一级相变后<strong>突然消失</strong>。这种情形缺乏量子临界点，但存在一个<strong>三相临界点</strong>。在磁场等其他参量的调控下，该三相临界点可以被抑制到零温而产生量子临界点；</li>
+<li>(b)长程有序态被逐渐<strong>抑制到</strong>零温而出现量子临界点。该类量子相变为连续的二级相变，量子临界点附近的量子涨落会对有限温区的物理性质<strong>产生深远的影响</strong>。</li>
+</ol></li>
+</ul>
+<h4 id="量子相变的范畴">量子相变的范畴</h4>
+<p>量子相变是当前凝聚态物理研究的一个前沿问题，广泛存在于</p>
+<ol type="1">
+<li>重费米子化合物、</li>
+<li>铁基超导体、</li>
+<li>铜氧化物高温超导体、</li>
+<li>有机超导体等关联电子材料体系中。</li>
+</ol>
+<p>不同于经典相变，量子相变呈现出多样化的特性，目前尚<strong>缺乏普适的描述</strong>。在一定条件下，电子不同自由度均可呈现出某种<strong>量子临界性</strong>。</p>
+<ul>
+<li>比较常见的是与电子<strong>自旋</strong>相关的磁性量子相变。在压力、掺杂、磁场等参量的调控下，不同的<strong>磁有序态</strong>都可以逐渐<strong>被抑制掉</strong>而出现量子临界点，并且在量子临界点附近出现超导或非费米液体行为[2—5]。</li>
+<li>另一方面，与电荷相关的电荷<strong>密度波</strong>[6，7]或者电子价态[8，9]也可能呈现出量子临界性，相应的电荷涨落也可能诱导超导或者量子临界行为。</li>
+<li>此外，与<strong>电子轨道</strong>相关的多极矩序量子相变[10]以及与<strong>拓扑序</strong>[11]相关的拓扑量子相变也正受到广泛的关注，拓宽了量子相变的研究范畴。</li>
+</ul>
+<h2 id="重费米子与量子相变">2 重费米子与量子相变</h2>
+<p>重费米子通常存在于含有局域 f 电子的镧系或者锕系金属间化合物中。在这类材料中，自旋、电荷、轨道、晶格等自由度的相互作用可能<strong>导致</strong></p>
+<ul>
+<li>磁有序、非常规超导、混合价态、非费米液体以及拓扑序等量子态</li>
+<li>并可能伴随自旋、电荷、轨道等量子临界涨落[5，12]。</li>
+</ul>
+<p>因此，重费米子体系呈现出丰富的基态性质，并且表现出独特的量子临界行为。</p>
+<p>重费米子体系中存在两种相互竞争的作用力，即近藤相互作用与RKKY相互作用(图2(a))。</p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210205140254581.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210205140254581</figcaption>
+</figure>
+<p>通过近藤效应，重费米子体系中的局域磁矩被传导电子屏蔽，使系统趋向于无磁性的基态，同时大幅提升电子的有效质量，重费米子(又称重电子)因此而得名。另一方面，局域电子可以通过RKKY相互作用形成长程磁有序。近藤温度(TK)与RKKY相互作用(TRKKY)分别遵循如下关系[13]： <span class="math display">\[
+\begin{aligned}
+T_{ K } &amp;\sim D e ^{-1 /(2 J \rho)} \\
+T_{ RKKY } &amp;\sim J^{2} \rho 
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(D\)</span> 为导带电子带宽，</li>
+<li><span class="math inline">\(J\)</span> 为局域电子与巡游电子的耦合强度，</li>
+<li><span class="math inline">\(\rho\)</span> 为电子在费米能级的态密度。</li>
+</ul>
+<p>重费米子体系的基态取决于近藤效应和RKKY相互作用的竞争，通常可由Doniach 相图进行描述(图2(b))。</p>
+<ol type="1">
+<li>相比其他关联电子体系，重费米子化合物中的各种特征能量尺度都较低，其基态可以通过磁场、压力、掺杂等非温度参量来进行调控，因此是研究量子相变的<strong>理想材料体系</strong>。</li>
+<li>随着近藤耦合强度 <span class="math inline">\(J\)</span> 的增加，磁有序态可以被连续抑制到零温而出现量子临界点[14，15]。</li>
+<li>在量子临界点附近，部分重费米子材料的电子比热系数随着温度降低呈现出发散行为，引起<strong>熵的积聚</strong>[16]。</li>
+<li>根据热力学第三定律，这些积聚的熵需要在低温形成某种长程有序态而得以<strong>释放</strong>。因此，在量子临界点附近往往会出现一些新颖的量子态，如超导态等。</li>
+</ol>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Heavy-fermion/">Heavy fermion</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Stronaly-correlated/">Stronaly correlated</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/05/CMP_12_HeavyFermions05_spin_frustration/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">自旋阻挫重费米子体系中的量子相变</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/05/CMP_12_HeavyFermions03_SC/">
+                        <span class="hidden-mobile">重费米子超导</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "磁性量子相变&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

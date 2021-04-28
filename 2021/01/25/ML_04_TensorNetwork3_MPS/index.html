@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.6k 字
+      4.4k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      47
+      56
        分钟
     </span>
   
@@ -235,7 +235,7 @@ y =W^{T} x + b
 <li>相比之下卷积层可以看作是局部的线性变换, 参数通常并不会太多。</li>
 </ul>
 <p>然而，CNN 类型几乎总是必不可少的保留全连接层以实现计算机视觉任务的高精度。一个全连接层的典型例子是分类器，它将学到的图片特征映射为已识别的标签，这在神经网络中非常常见。</p>
-<h3 id="矩阵乘积态">矩阵乘积态</h3>
+<h2 id="矩阵乘积态">2 矩阵乘积态</h2>
 <p>在量子物理的背景下，一维 (1D) 局域且有能隙的哈密顿量的基态可以有效地表示为矩阵乘积态 (MPS) [168]，应用于量子态的算符可以相应地表示为矩阵乘积算符 <span class="math inline">\(( MPO )[169,170]_{\circ}\)</span> 这种表示方法可以将波函数的参数数目从随粒子数目指数增加的标度行为减少到多项式增加，对于数值类拟具有很大的优势。</p>
 <p class="note note-success">
 给定一组<strong>基</strong>，任何物理算子都可以表示为一个<strong>矩阵</strong>，<strong>就像</strong>神经网络中全连接层的权重矩阵W一样。
@@ -261,9 +261,7 @@ A \in R ^{I_{1} \times I_{2} \times \cdots \times I_{N}}
 \hat{O}=\sum_{i_{1} i_{2} \ldots i_{N}, j_{1} j_{2} \ldots j_{N}} O_{i_{1} i_{2} i_{3} \ldots i_{N} j_{1} j_{2} \ldots j_{N}}\left|j_{1} j_{2} \ldots j_{N}\right\rangle\left\langle i_{1} i_{2} \ldots i_{N}\right|
 \]</span> 假设每个粒子的局部自由度为 <span class="math inline">\(d,\)</span> 也就是说，对所有 <span class="math inline">\(n, i_{n}\)</span> 从 1 取到 <span class="math inline">\(d,\)</span> 于是权重张量 <span class="math inline">\(C\)</span> 和物理算符 <span class="math inline">\(O\)</span> 分别具有总计 <span class="math inline">\(d^{N}\)</span> 和 <span class="math inline">\(d^{2 N}\)</span> 个元素。当 <span class="math inline">\(N\)</span> 很大的时候, 即便是仅仅存下这个权重张量也是不可实现的任务，这就是在高维数值分析和量子多体物理的希尔伯特空间中的出现的所谓的<strong>维度灾变</strong>。</p>
 <p>幸运的是，如果在实空间中定义了基矢，那么对于大多数与物理相关的状态， <span class="math inline">\(C\)</span> 和 <span class="math inline">\(O\)</span> 中的绝大多数元素都将为零，只有很少的基矢会真正对 <span class="math inline">\(|\Psi\rangle\)</span> 有贡献。 这种断言来自于这样一个观察：我们感兴趣的状态几乎总是只有局域相互作用的系统的低能状态，相互作用的局域性导致了这些系统的状态有着很强的约束, 他们的基态纠缠熵满足面积定律 [16]。这个面积定律能够极大地简化这些对应态的表示，例如，描述这些低纠缠态的合适语言正是张量网络态 [175]。它在量子信息和凝聚态物理学中取得了巨大的成功。</p>
-<figure>
-<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125211314830.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210125211314830</figcaption>
-</figure>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125211314830.png" srcset="/img/loading.gif" /></p>
 <blockquote>
 <p>图 4.1 量子态和量子算符的矩阵乘积表示。</p>
 <ol type="a">
@@ -297,9 +295,7 @@ W_{i j}=W_{i_{1} i_{2} \ldots i_{n}, j_{1} j_{2} \ldots j_{n}}
 \]</span> 满足 <span class="math display">\[
 \prod_{i=1}^{n} I_{i}=N, \quad \prod_{i=1}^{n} J_{i}=M
 \]</span> 这里 <span class="math inline">\(I_{m}\)</span> 和 <span class="math inline">\(J_{m}\)</span> 分别对应指标 <span class="math inline">\(i_{m}\)</span> 和 <span class="math inline">\(j_{m}\)</span> 的长度。</p>
-<figure>
-<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125222336729.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210125222336729</figcaption>
-</figure>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125222336729.png" srcset="/img/loading.gif" /></p>
 <blockquote>
 <p>图 4.2 全连接层中的权重矩阵 <span class="math inline">\(W\)</span> 用 <span class="math inline">\(M P O\)</span> 表示的图示</p>
 <p>( a ) 全连接层的权重矩阵<span class="math inline">\(W\)</span>。这里用空心圆圈表示神经元, 这些神经元对应数据集的像素或模型的隐变量。连接着输入神经元 <span class="math inline">\(x_{i}\)</span> 和输出神经元 <span class="math inline">\(y_{j}\)</span> 的实线代表一个权值 <span class="math inline">\(W_{i j} .\)</span></p>
@@ -310,6 +306,46 @@ W_{i j}=W_{i_{1} i_{2} \ldots i_{n}, j_{1} j_{2} \ldots j_{n}}
 W_{i_{1} i_{2} \ldots i_{n}, j_{1} j_{2} \ldots j_{n}}=\sum_{k_{1} k_{2} \ldots k_{(n-1)}} \omega_{k_{1}}^{(1)}\left[i_{1} j_{1}\right] \omega_{k_{1} k_{2}}^{(2)}\left[i_{2} j_{2}\right] \ldots \omega_{k_{(n-1)}}^{(n)}\left[i_{n} j_{n}\right]
 \]</span> 这里 <span class="math inline">\(\omega^{(i)}\)</span> 是一个尺寸为 <span class="math inline">\(K_{(i-1)} \times K_{i} \times I_{i} \times J_{i}\)</span> 的张量, <span class="math inline">\(K_{i}\)</span> 是虚拟指标 <span class="math inline">\(k_{i}\)</span> 的长度。在传统的神经网络中，我们通过训练过程确定权重矩阵 <span class="math inline">\(W\)</span> ，在我们的例子中，我们通过训练过程确定每一个小张量 <span class="math inline">\(\omega 。\)</span></p>
 <p>为了简洁起见，在我们的计算中，同一个 MPO 中的所有 <span class="math inline">\(K_{i}\)</span> 被设置为一样的值，记作 <span class="math inline">\(D_{\circ}\)</span> 另外，公式 <span class="math inline">\(W_{i j}=W_{i_{1} i_{2} \ldots i_{n}, j_{1} j_{2} \ldots j_{n}}\)</span> 中的指标分解并<strong>不唯一</strong>，我们至少根据便利选择了其中一种。</p>
+<h3 id="相关工作简介">相关工作简介</h3>
+<p>在我们的工作之前，已经有许多论文将张量网络态的表示应用于深度学习。</p>
+<ol type="1">
+<li>例如，Novikov 等人 [145] 使用了 MPO 表达了 CNN 中的一些全连接层。
+<ul>
+<li>但是, 他们为了输出结果仍然保持了一些全连接层</li>
+<li>同时他们也没有在更深层和更复杂的神经网络，例如 VGG 等，中测试 MPO 的有效性。</li>
+</ul></li>
+<li>Kossaifi 等人 [177] 使用张量的另一种低秩近似。</li>
+<li>Liu [3] 使用了幺正的树状张量网络结构来表达从输入数据到输出指标的整个映射。
+<ul>
+<li>此处 MERA [20] 和树张量网络 [19] 是两种不同于MPS 的张量网络结构。</li>
+</ul></li>
+</ol>
+<p>本节讨论的工作与上述工作的不同主要要以下几点：</p>
+<ol type="1">
+<li>首先，这个工作中所有的全连接层，特别是全连接分类器，都被 MPO 表示所替代，即最终的神经网络完全没有全连接层。包括 VGG, FC2，LeNet5 和更深层的 ResNet 都证明了这种替代方案的有效性。同时，构造 MPO 的局部张量 <span class="math inline">\(\omega^{(i)}\)</span> 通过标准的反向传播方法与卷积核一起并行更新，这与 Novikov 所做的串行更新不同。</li>
+<li>其次，我们使用 MPO 表示而不是 Tucker, MERA 和树这样的高维结构。在目前的工作中，我们的框架仍然是 CNN，我们不会尝试重建 Hallam 和 Liu 所做的神经网络的新框架，相反，我们只想在 CNN 中找到全连接层的替代表示。最后但并非最不重要的是，我们的出发点是信息的局部性和图像与量子态之间的相似性，Latorre [176] 早期在物理中也观察到了这一点。参数数目的压缩是结果而不是动机。</li>
+</ol>
+<p>值得注意的是，在应用数学和神经网络的背景下，MPS 和 MPO 也被称为张量列车（TT） [178] 和张量列车算符（TTO），在本文中，我们选择 MPO 的术语来强调神经网络中的线性变换与量子物理中的算符之间的潜在联系。</p>
+<h2 id="mnist-数据集上的数值结果">3 MNIST 数据集上的数值结果</h2>
+<p>为了简化描述，让我们介绍一些在我们的实验中使用的简写。</p>
+<ol type="1">
+<li><p>首先，在这项工作中, 我们把</p>
+<ul>
+<li>全连接层尺寸为 <span class="math inline">\(N \times M\)</span> 的权重矩阵表示为 <span class="math inline">\(W_{N}^{M}\)</span>,</li>
+<li>并把图中指标维度为 <span class="math inline">\(D\)</span> 的一层 <span class="math inline">\(MPO\)</span> 表示为 <span class="math inline">\(M_{I_{1}, I_{2}, \ldots, I_{n}}^{J_{1}, J_{2} \ldots J_{n}}(D)\)</span> 。</li>
+<li>也就是说，输出的维度被写为上标，而输入的维度被写为下标。虽然公式 E<span class="math inline">\(y =W^{T} x + b\)</span> 中的偏置矢量<span class="math inline">\(b\)</span> 有时可以提高类型的表现，但在这项工作中我们将它总是设置为零。</li>
+</ul></li>
+<li><p>第二，我们将 FC2 神经网络中的全连接层用 MPO 全部替换的新类型叫做MPO-FC2，MPO-LeNet5，MPO-VGG16等类似。</p></li>
+<li><p>第三，我们定义 MPO 神经网络的压缩率 <span class="math inline">\(\rho\)</span> <span class="math display">\[
+\rho=\frac{N_{ fc }}{N_{ mpo }}
+\]</span> 此处</p>
+<ul>
+<li><span class="math inline">\(N_{ fc }\)</span> 是全连接层的参数数目</li>
+<li><span class="math inline">\(N_{ mpo }\)</span> 是全连接层的 MPO 表示的参数数目。</li>
+<li>如果有超过一个全连接层被替换为 MPO 表示，那么 <span class="math inline">\(N_{ fc }\)</span> 和 <span class="math inline">\(N_{ mpo }\)</span> 应理解为它们各自的总的参数个数之比。在这个定义中卷积层的参数并没有计入。</li>
+</ul></li>
+<li></li>
+</ol>
 <h2 id="a-simple-implementation-of-the-mps-born-machine">A simple implementation of the MPS Born Machine</h2>
 <p>In this tutorial I would introduce: - Constructing matrix product states - Canonicalization of the MPS using QR - Single-site update of MPS - Gradient based single-site learning algorithm - How to accelarate tensor contractions using GPU.</p>
 <pre><code class="hljs python"><span class="hljs-keyword">import</span> sys
@@ -396,9 +432,9 @@ print(<span class="hljs-string">"shape of a tensor is"</span>,tensors[<span clas
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Machine-learning/">Machine learning</a>
-                    
                       <a class="hover-with-bg" href="/tags/Tensor-Network/">Tensor Network</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Machine-learning/">Machine learning</a>
                     
                   </div>
                 
@@ -411,9 +447,9 @@ print(<span class="hljs-string">"shape of a tensor is"</span>,tensors[<span clas
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/26/Entenglement_04_Percolation7_CFT/">
+                      <a href="/2021/01/27/topology08_Exp01_Meeting_Entanglement/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">随机量子线路中的纠缠临界和共形场论</span>
+                        <span class="hidden-mobile">冷原子实验测量纠缠熵与拓扑数</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     

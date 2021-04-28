@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>初学者的量子算法 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-01-06 14:23">
+      January 6, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      87
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考">参考</h2>
+<ol type="1">
+<li><a href="https://arxiv.org/pdf/1804.03719.pdf" target="_blank" rel="noopener">Quantum Algorithm Implementations for Beginners</a></li>
+</ol>
+<h2 id="摘要">摘要</h2>
+<p>As quantum computers become available to the general public, the need has arisen to train a cohort of quantum programmers, many of whom have been developing classical computer programs for most of their careers. While currently available quantum computers have less than 100 qubits, quantum computing hardware is widely expected to grow in terms of qubit count, quality, and connectivity. This review aims to explain the principles of quantum programming, which are quite different from classical programming, with straightforward algebra that makes understanding of the underlying fascinating quantum mechanical principles optional. We give an introduction to quantum computing algorithms and their implementation on real quantum hardware. We survey 20 different quantum algorithms, attempting to describe each in a succinct and self-contained fashion. We show how these algorithms can be implemented on IBM's quantum computer, and in each case, we discuss the results of the implementation with respect to differences between the simulator and the actual hardware runs. This article introduces computer scientists, physicists, and engineers to quantum algorithms and provides a blueprint for their implementations.</p>
+<h2 id="导论">1导论</h2>
+<p>Quantum computing exploits quantum-mechanical effects-in particular superposition, entanglement, and quantum tunneling-to more efficiently execute a computation. Compared to traditional, digital computing, quantum computing offers the potential to dramatically reduce both execution time and energy consumption. These potential advantages, steady advances in nano-manufacturing, and the slow-down of traditional hardware scaling laws (such as Moore's Law) have led to a substantial commercial and national-security interest and investment in quantum computing technology in the 2010 s. Recently, Google announced that it has reached a major milestone known as quantum supremacy-the demonstration that a quantum computer can perform a calculation that is intractable on a classical supercomputer [8]. The problem tackled here by the quantum computer is not one with any direct real-world application. Nonetheless, this is a watershed moment for quantum computing and is widely seen as an important step on the road towards building quantum computers that will offer practical speedups when solving real-world problems [82]. (See [2] for a precise technical definition of quantum supremacy.)</p>
+<p>While the mathematical basis of quantum computing, the programming model, and most quantum algorithms have been published decades ago (starting in the <span class="math inline">\(1990 s\)</span> ), they have been of interest only to a small dedicated community. We believe the time has come to make quantum algorithms and their implementations accessible to a broad swath of researchers and developers across computer science, software engineering, and other fields. The quantum programming model is fundamentally different from traditional computer programming. It is also dominated by physics and algebraic notations that at times present unnecessary entry barriers for mainstream computer scientists and other more mathematically trained scientists.</p>
+<p>In this review, we provide a self-contained, succinct description of quantum computing and of the basic quantum algorithms with a focus on implementation. Since real quantum computers, such as <span class="math inline">\(IBM Q [55],\)</span> are now available as a cloud service, we present results from simulator and actual hardware experiments for smaller input data sets. Other surveys of quantum algorithms with a different target audience and also without actual implementations include [10,26,58,75,76,88] . Other cloud service based quantum computers are also available from Rigetti and IonQ, but in this review we will focus solely on IBM's quantum computing ecosystem. The code and implementations accompanying the paper can be found at <a href="https://github.com/lanl/quantum_algorithms." target="_blank" rel="noopener">https://github.com/lanl/quantum_algorithms.</a></p>
+<h3 id="模型">1.1模型</h3>
+<p>Here we provide a self-contained description of the quantum computing programming model. We will define the common terms and concepts used in quantum algorithms literature. We will not discuss how the constructs explained here are related to the foundations of quantum mechanics. Interested readers are encouraged to take a look at Ref. [77] for a more detailed account along those lines. Readers with a computer science background are referred to Refs. <span class="math inline">\([67,85,110],\)</span> for a more comprehensive introduction to quantum computing from a computer science perspective.</p>
+<p>Quantum computing basically deals with the manipulation of quantum systems. The physical details of this is dependent on the quantum computer's hardware design. Here we will only talk about the higher level abstractions used in quantum computing: a typical programmer will only be exposed to these abstractions. The state of any quantum system is always represented by a vector in a complex vector space (usually called a Hilbert space). Quantum algorithms are always expressible as transformations acting on this vector space. These basic facts follow from the axioms of quantum mechanics. Now we will explain some of the basic concepts and terminology used in quantum computing.</p>
+<h4 id="the-qubit.">1.1.1 The qubit.</h4>
+<p>The qubit (short for 'quantum bit') is the fundamental information carrying unit used in quantum computers. It can be seen as the quantum mechanical generalization of a bit used in classical computers. More precisely, a qubit is a two dimensional quantum system. The state of a qubit can be expressed as, <span class="math display">\[
+|\phi\rangle=\alpha|0\rangle+\beta|1\rangle
+\]</span> Here <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are complex numbers such that, <span class="math inline">\(|\alpha|^{2}+|\beta|^{2}=1\)</span>. In the ket-notation or the Dirac notation, <span class="math inline">\(|0\rangle=\left(\begin{array}{l}1 \\ 0\end{array}\right)\)</span> and <span class="math inline">\(|1\rangle=\left(\begin{array}{l}0 \\ 1\end{array}\right)\)</span> are shorthands for the vectors encoding the two basis states of a two dimensional vector space. So according to this notation, Eq. (1) expresses the fact that the state of the qubit is the two dimensional complex vector <span class="math inline">\(\left(\begin{array}{l}\alpha \\ \beta\end{array}\right)\)</span>. Unlike a classical bit the state of a qubit cannot be measured without changing it. Measuring a qubit, whose state given by Eq. (1), will yield the classical value of either zero (|0) with probability <span class="math inline">\(|\alpha|^{2}\)</span> or one (<span class="math inline">\(|1\rangle\)</span>) with probability <span class="math inline">\(|\beta|^{2}\)</span>. Qubit implementations and technologies are a very active area of research that is not the focus of our review, an interested reader is referred to [65] for a survey.</p>
+<h4 id="system-of-qubits.">1.1.2 System of qubits.</h4>
+<p>The mathematical structure of a qubit generalizes to higher dimensional quantum systems as well. The state of any quantum system is a normalized vector (a vector of norm one) in a complex vector space. The normalization is necessary to ensure that the total probability of all the outcomes of a measurement sum to one.</p>
+<p>A quantum computer contains many number of qubits. So it is necessary to know how to construct the combined state of a system of qubits given the states of the individual qubits. The joint state of a system of qubits is described using an operation known as the tensor product, <span class="math inline">\(\otimes\)</span>. Mathematically, taking the tensor product of two states is the same as taking the Kronecker product of their corresponding vectors. Say we have two single qubit states <span class="math inline">\(|\phi\rangle=\left(\begin{array}{l}\alpha \\ \beta\end{array}\right)\)</span> and <span class="math inline">\(\left|\phi^{\prime}\right\rangle=\left(\begin{array}{l}\alpha^{\prime} \\ \beta^{\prime}\end{array}\right)\)</span>. Then the full state of a system composed of two independent qubits is given by, <span class="math display">\[
+|\phi\rangle \otimes\left|\phi^{\prime}\right\rangle=\left(\begin{array}{l}
+\alpha \\
+\beta
+\end{array}\right) \otimes\left(\begin{array}{l}
+\alpha^{\prime} \\
+\beta^{\prime}
+\end{array}\right)=\left(\begin{array}{l}
+\alpha \alpha^{\prime} \\
+\alpha \beta^{\prime} \\
+\beta \alpha^{\prime} \\
+\beta \beta^{\prime}
+\end{array}\right)
+\]</span> Sometimes the <span class="math inline">\(\otimes\)</span> symbol is dropped all together while denoting the tensor product to reduce clutter. Instead the states are written inside a single ket. For example, <span class="math inline">\(|\phi\rangle \otimes\left|\phi^{\prime}\right\rangle\)</span> is shortened to <span class="math inline">\(\left|\phi \phi^{\prime}\right\rangle\)</span>, and |0<span class="math inline">\(\otimes|0\rangle \otimes|0\rangle\)</span> is shortened to |000. For larger systems the Dirac notation gives a more succinct way to compute the tensor product using the distributive property of the Kronecker product. For a system of, say, three qubits with each qubit in the state <span class="math inline">\(\left|\gamma_{j}\right\rangle=\alpha_{j}|0\rangle+\beta_{j}|1\rangle,\)</span> for <span class="math inline">\(j=1,2,3,\)</span> the joint state is, <span class="math display">\[
+\begin{aligned}
+\left|\gamma_{1} \gamma_{2} \gamma_{3}\right\rangle=&amp;\left|\gamma_{1}\right\rangle \otimes\left|\gamma_{2}\right\rangle \otimes\left|\gamma_{3}\right\rangle \\
+=&amp; \alpha_{1} \alpha_{2} \alpha_{3}|000\rangle+\alpha_{1} \alpha_{2} \beta_{3}|001\rangle+\alpha_{1} \beta_{2} \alpha_{3}|010\rangle+\alpha_{1} \beta_{2} \beta_{3}|011\rangle \\
+&amp;+\beta_{1} \alpha_{2} \alpha_{3}|100\rangle+\beta_{1} \alpha_{2} \beta_{3}|101\rangle+\beta_{1} \beta_{2} \alpha_{3}|110\rangle+\beta_{1} \beta_{2} \beta_{3}|111\rangle
+\end{aligned}
+\]</span> A measurement of all three qubits could result in any of the eight <span class="math inline">\(\left(2^{3}\right)\)</span> possible bit-strings associated with the eight basis vectors. One can see from these examples that the dimension of the state space grows exponentially in the number of qubits <span class="math inline">\(n\)</span> and that the number of basis vectors is <span class="math inline">\(2^{n}\)</span>.</p>
+<h4 id="section">1.1.3</h4>
+<p>Superposition and entanglement. Superposition refers to the fact that any linear combination of two quantum states, once normalized, will also be a valid quantum state. The upshot to this is that any quantum state can be expressed as a linear combination of a few basis states. For example, we saw in Eq. (1) that any state of a qubit can be expressed as a linear combination of <span class="math inline">\(|0\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span> . Similarly, the state of any <span class="math inline">\(n\)</span> qubit system can be written as a normalized linear combination of the <span class="math inline">\(2^{n}\)</span> bit-string states (states formed by the tensor products of <span class="math inline">\(|0\rangle\)</span> 's and <span class="math inline">\(|1\rangle\)</span> 's). The orthonormal basis formed by the <span class="math inline">\(2^{n}\)</span> bit-string states is called the computational basis.</p>
+<p>Notice that Eq. (3) described a system of three qubits whose complete state was the tensor product of three different single qubit states. But it is possible for three qubits to be in a state that cannot be written as the tensor product of three single qubit states. An example of such a state is, <span class="math display">\[
+|\psi\rangle=\frac{1}{\sqrt{2}}(|000\rangle+|111\rangle)
+\]</span> States of a system of which cannot be expressed as a tensor product of states of its individual subsystems are called entangled states. For a system of <span class="math inline">\(n\)</span> qubits, this means that an entalged state cannot be written a tensor product of <span class="math inline">\(n\)</span> single qubit states. The existence of entangled states is a physical fact that has important consequences for quantum computing, and quantum information processing in general. In fact, without the existence of such states quantum computers would be no more powerful than their classical counterparts [108]. Entanglement makes it possible to create a complete <span class="math inline">\(2^{n}\)</span> dimensional complex vector space to do our computations in, using just <span class="math inline">\(n\)</span> physical qubits.</p>
+<h4 id="inner-and-outer-products.">1.1.4 Inner and outer products.</h4>
+<p>We will now discuss some linear algebraic notions necessary for understanding quantum algorithms. First of these is the inner product or overlap between two quantum states. As we have seen before, quantum states are vectors in complex vectors spaces. The overlap between two states is just the inner product between these complex vectors. For example, take two single qubit states, <span class="math inline">\(|\phi\rangle=\alpha|0\rangle+\beta|1\rangle\)</span> and <span class="math inline">\(|\psi\rangle=\gamma|0\rangle+\delta|1\rangle .\)</span> The overlap between these states is denoted in the ket notation as <span class="math inline">\(\langle\psi \mid \phi\rangle .\)</span> And this is given by, <span class="math display">\[
+\langle\psi \mid \phi\rangle=\gamma^{*} \alpha+\delta^{*} \beta
+\]</span> where <span class="math inline">\(^{*}\)</span> denotes the complex conjugate. Notice that, <span class="math inline">\(\langle\psi \mid \phi\rangle=\langle\phi \mid \psi\rangle^{*}\)</span>. The overlap of two states is in general a complex number. The overlap of a state with a bit-string state will produce the corresponding coefficient. For instance from Eq. <span class="math inline">\((1),\langle 0 \mid \phi\rangle=\alpha\)</span> and <span class="math inline">\(\langle 1 \mid \phi\rangle=\beta .\)</span> And from Eq. <span class="math inline">\((3),\)</span> <span class="math inline">\(\left\langle 001 \mid \gamma_{1} \gamma_{2} \gamma_{3}\right\rangle=\alpha_{1} \alpha_{2} \beta_{3} .\)</span> Another way to look at overlaps between quantum states is by defining what is called a bra state. The states we have seen so far are ket states, like <span class="math inline">\(|\phi\rangle\)</span>, which represented column vectors. A bra state corresponding to this ket state, written as <span class="math inline">\(\langle\phi|\)</span>, represents a row vector with complex conjugated entries. For instance <span class="math inline">\(|\phi\rangle=\left(\begin{array}{l}\alpha \\ \beta\end{array}\right)\)</span> implies that <span class="math inline">\(\langle\phi|=\left(\alpha^{*} \quad \beta^{*}\right)\)</span>. The overlap of two states is then the matrix product of a row vector with a column vector, yielding a single number. The reader must have already noticed the wordplay here. The overlap, with its closing angled parenthesis, form a 'bra-ket'!</p>
+<p>The outer product of two states is an important operation that outputs a matrix given two states. The outer product of the two states we defined above will be denoted by, <span class="math inline">\(|\psi\rangle\langle\phi| .\)</span> Mathematically the outer product of two states is a matrix obtained by multiplying the column vector of the first state with the complex conjugated row vector of the second state (notice how the ket is written before the bra to signify this). For example, <span class="math display">\[
+|\psi\rangle\langle\phi|=\left(\begin{array}{l}
+\alpha \\
+\beta
+\end{array}\right)\left(\begin{array}{ll}
+\gamma^{*} &amp; \delta^{*}
+\end{array}\right)=\left(\begin{array}{ll}
+\alpha \gamma^{*} &amp; \alpha \delta^{*} \\
+\beta \gamma^{*} &amp; \beta \delta^{*}
+\end{array}\right)
+\]</span> In this notation any matrix can be written as a linear combination of outer products between bit-string states. For a <span class="math inline">\(2 \times 2\)</span> matrix, <span class="math display">\[
+A=\left(\begin{array}{ll}
+A_{00} &amp; A_{01} \\
+A_{10} &amp; A_{11}
+\end{array}\right)=A_{00}|0\rangle\left\langle 0\left|+A_{01}\right| 0\right\rangle\left\langle 1\left|+A_{10}\right| 1\right\rangle\left\langle 0\left|+A_{11}\right| 1\right\rangle\langle 1|
+\]</span> Acting on a state with a matrix then becomes just an exercise in computing overlaps between states. Let us demonstrate this process: <span class="math display">\[
+\begin{aligned}
+A|\phi\rangle &amp;=A_{00}|0\rangle\langle 0 \mid \phi\rangle+A_{01}|0\rangle\langle 1 \mid \phi\rangle+A_{10}|1\rangle\langle 0 \mid \phi\rangle+A_{11}|1\rangle\langle 1 \mid \phi\rangle \\
+&amp;=\left(A_{00} \alpha+A_{01} \beta\right)|0\rangle+\left(A_{10} \alpha+A_{11} \beta\right)|1\rangle=\left(\begin{array}{l}
+A_{00} \alpha+A_{01} \beta \\
+A_{10} \alpha+A_{11} \beta
+\end{array}\right)
+\end{aligned}
+\]</span> This notation might look tedious at first glance but it makes algebraic manipulations of quantum states easily understandable. This is especially true when we are dealing with large number of qubits as otherwise we would have to explicitly write down exponentially large matrices.</p>
+<h2 id="grover算法">2 Grover算法</h2>
+<h3 id="problem-definition-and-background">2.1 Problem definition and background</h3>
+<p>Grover's algorithm as initially described [52] enables one to find (with probability <span class="math inline">\(&gt;1 / 2\)</span> ) a specific item within a randomly ordered database of <span class="math inline">\(N\)</span> items using <span class="math inline">\(O(\sqrt{N})\)</span> operations. By contrast, a classical computer would require <span class="math inline">\(O(N)\)</span> operations to achieve this. Therefore, Grover's algorithm provides a quadratic speedup over an optimal classical algorithm. It has also been shown [14] that Grover's algorithm is optimal in the sense that no quantum Turing machine can do this in less than <span class="math inline">\(O(\sqrt{N})\)</span> operations.</p>
+<p>While Grover's algorithm is commonly thought of as being useful for searching a database, the basic ideas that comprise this algorithm are applicable in a much broader context. This approach can be used to accelerate search algorithms where one could construct a "quantum oracle" that distinguishes the needle from the haystack. The needle and hay need not be part of a database. For example, it could be used to search for two integers <span class="math inline">\(1&lt;a&lt;b\)</span> such that <span class="math inline">\(a b=n\)</span> for some number <span class="math inline">\(n\)</span> resulting in a factoring algorithm. Grover's search in this case would have worse performance than Shor's algorithm [93,94] described below, which is a specialised algorithm to solve the factoring problem. Implementing the quantum oracle can be reduced to constructing a quantum circuit that flips an ancillary qubit, <span class="math inline">\(q,\)</span> if a function, <span class="math inline">\(f(x),\)</span> evaluates to 1 for an input <span class="math inline">\(x .\)</span> We use the term ancilla or ancillary qubit to refer to some extra qubits that are used by the algorithm. The function <span class="math inline">\(f(x)\)</span> is defined by <span class="math display">\[
+f(x)=\left\{\begin{array}{ll}
+1 &amp; \text { if } x=x^{*} \\
+0 &amp; \text { if } x \neq x^{*}
+\end{array}\right.
+\]</span> where <span class="math inline">\(x =x_{1} x_{2} \ldots x_{n}\)</span> are binary strings and <span class="math inline">\(x ^{*}\)</span> is the specific string that is being sought. It may seem paradoxical at first that an algorithm for finding <span class="math inline">\(x^{*}\)</span> is needed if such a function can be constructed. The key here is that <span class="math inline">\(f(x)\)</span> need only recognize <span class="math inline">\(x^{*}-\)</span> it is similar to the difference between writing down an equation and solving an equation. For example, it is easy to check if the product of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> is equal to <span class="math inline">\(n,\)</span> but harder to factor <span class="math inline">\(n .\)</span> In essence, Grover's algorithm can invert an arbitrary function with binary outputs, provided we have a quantum oracle that implements the function. Grover's algorithm has been used, with appropriate oracles, to solve problems like finding triangles in a graph <span class="math inline">\([72],\)</span> finding cycles <span class="math inline">\([28],\)</span> and finding maximal cliques <span class="math inline">\([109] .\)</span> For the analysis of Grover's algorithm, the internals of the oracle is typically considered a black-box. Often, the oracle operator for the problem at hand has to be constructed as a quantum circuit. But, keep in mind that an inefficient oracle construction can nullify any practical advantages gained by using Grover's search.</p>
+<p>Here we implement a simple instance of Grover's algorithm. That is, the quantum oracle we utilize is a very simple one. Let <span class="math inline">\(x =x_{1} x_{2}\)</span> and we wish to find <span class="math inline">\(x ^{*}\)</span> such that <span class="math inline">\(x_{1}^{*}=1\)</span> and <span class="math inline">\(x_{2}^{*}=1 .\)</span> While finding such an <span class="math inline">\(x^{*}\)</span> is trivial, we don a veil of ignorance and proceed as if it were not. This essentially means that our function <span class="math inline">\(f(x)\)</span> is an AND gate. But AND gate is not reversible and cannot be a quantum gate. However the Toffoli gate, that was introduced in the previous section, is a reversible version of the classical AND gate. The Toffoli gate takes three bits as input and outputs three bits. The first two bits are unmodified. The third bit is flipped if the first two bits are <span class="math inline">\(1 .\)</span> The unitary matrix corresponding to the Toffoli gate can be found in Table <span class="math inline">\(1 .\)</span> In other words, the Toffoli gate implements our desired quantum oracle where the first two inputs are <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span> and the third bit is the ancillary bit, <span class="math inline">\(q .\)</span> The behavior of the oracle in general is <span class="math inline">\(| x \rangle|q\rangle \rightarrow| x \rangle|f( x ) \bigoplus q\rangle,\)</span> where <span class="math inline">\(\bigoplus\)</span> is the XOR operation. Here we will only discuss the case where <span class="math inline">\(x^{*}\)</span> is unique. Grover's algorithm can also be used to search for multiple items in a database.</p>
+<h3 id="algorithm-description">2.2 Algorithm description</h3>
+<p>Here we present a brief introduction to Grover's algorithm. A more detailed account can be found in Nielsen and Chuang <span class="math inline">\([77] .\)</span> Let <span class="math inline">\(N\)</span> be the number of items (represented as bit strings) amongst which we are performing the search. This number will also be equal to the dimension of the vector space we are working with. An operator, called the Grover operator or the diffusion operator, is the key piece of machinery in Grover's algorithm. This operator is defined by <span class="math display">\[
+G=(2|\psi\rangle\langle\psi|-I) O
+\]</span> where <span class="math inline">\(|\psi\rangle=\frac{1}{\sqrt{N}} \sum_{i}|i\rangle\)</span> is the uniform superposition over all the basis states and <span class="math inline">\(O\)</span> is the oracle operator (see Fig. 6 for a representation of this operator in the case where <span class="math inline">\(x\)</span> consists of 2 bits). The action of <span class="math inline">\((2|\psi\rangle\langle\psi|-I)\)</span> on an arbitrary state, given by <span class="math inline">\(\sum_{i} a_{i}|i\rangle,\)</span> when decomposed over the basis states is, <span class="math display">\[
+(2|\psi\rangle\langle\psi|-I) \sum_{i} a_{i}|i\rangle=\sum_{i}\left(2\langle a\rangle-a_{i}\right)|i\rangle
+\]</span> where <span class="math inline">\(\langle a\rangle=\frac{\sum_{i} a_{i}}{N}\)</span> is the average amplitude in the basis states. From Eq. (34) one can see that the amplitude of each <span class="math inline">\(|i\rangle\)</span> -state <span class="math inline">\(\left(a_{i}\right)\)</span> is flipped about the mean amplitude.</p>
+<p>In order to use the Grover operator to successfully perform a search, the qubit register must be appropriately initialized. The initialization is carried out by applying a Hadamard transform to each of the the main qubits <span class="math inline">\(\left(H^{\otimes n}\right)\)</span> and applying a Pauli X transform followed by a Hadamard transform <span class="math inline">\((H X)\)</span> to the ancilla. This leaves the main register in the uniform superposition of all states, <span class="math inline">\(|\psi\rangle\)</span>, and the ancilla in the state <span class="math inline">\(\frac{|0\rangle-|1\rangle}{\sqrt{2}}\)</span>. After performing these operations, the system is in the state <span class="math inline">\(|\psi\rangle \frac{|0\rangle-|1\rangle}{\sqrt{2}}\)</span>. Using Eq. (34), we can now understand how the Grover operator works. The action of the oracle operator on <span class="math inline">\(\left| x ^{*}\right\rangle \frac{|0\rangle-|1\rangle}{\sqrt{2}}\)</span> reverses the amplitude of that state <span class="math display">\[
+O\left| x ^{*}\right\rangle \frac{|0\rangle-|1\rangle}{\sqrt{2}} \rightarrow\left| x ^{*}\right\rangle \frac{\left.\left|f\left( x ^{*}\right) \bigoplus 0\right\rangle-\left|f\left( x ^{*}\right) \bigoplus 1\right\rangle\right)}{\sqrt{2}}=\left| x ^{*}\right\rangle \frac{|1\rangle-|0\rangle}{\sqrt{2}}=-\left| x ^{*}\right\rangle \frac{|0\rangle-|1\rangle}{\sqrt{2}}
+\]</span> A similar argument shows that all other states are unmodified by the oracle operator. Combining this with Eq. (34) reveals why the Grover operator is able to successfully perform a search. Consider what happens on the first iteration: The oracle operator makes it so that the amplitude of <span class="math inline">\(\left| x ^{*}\right\rangle\)</span> is below <span class="math inline">\(\langle a\rangle\)</span> (using the notation of Eq. (34)) while all the other states have an amplitude that is slightly above <span class="math inline">\(\langle a\rangle\)</span>. The effect of applying <span class="math inline">\(2|\psi\rangle\langle\psi|-I\)</span> is then to make <span class="math inline">\(\left| x ^{*}\right\rangle\)</span> have an amplitude above the mean while all other states have an amplitude below the mean. The desired behavior of the Grover</p>
+<p>operator is to increase the amplitude of <span class="math inline">\(\left| x ^{*}\right\rangle\)</span> while decreasing the amplitude of the other states. If the Grover operator is applied too many times, this will eventually stop happening. The Grover operator should be applied exactly <span class="math inline">\(\left[\frac{\pi \sqrt{N}}{4}\right]\)</span> times after which a measurement will reveal <span class="math inline">\(x ^{*}\)</span> with probability close to <span class="math inline">\(1 .\)</span> In the case where <span class="math inline">\(x\)</span> has two bits, a single application of Grover's operator is sufficient to find <span class="math inline">\(x^{*}\)</span> with certainty (in theory). Below is a high level pseudocode for the algorithm. <span class="math display">\[
+\begin{array}{l}
+\hline \text { Algorithm } 1 \text { Grover&#39;s algorithm } \\
+\hline \text { Input: } \\
+\text { - An Oracle operator effecting the transformation }|x\rangle|q\rangle \rightarrow|x\rangle|q \oplus f(x)\rangle . \\
+\text { Output: } \\
+\text { - The unique bit string } x ^{*} \text { satisfying Eq. }(32) \\
+\text { Procedure: } \\
+\text { Step } 1 . \text { Perform state initialization }|0 \ldots 0\rangle \rightarrow|\psi\rangle\left(\frac{|0\rangle-|1\rangle}{\sqrt{2}}\right) \\
+\text { Step } 2 . \text { Apply Grover operator } \left.\mid \frac{\pi \sqrt{N}}{4}\right] \text { times } \\
+\text { Step } 3 . \text { Perform measurement on all qubit except the ancillary qubit. }
+\end{array}
+\]</span></p>
+<h3 id="algorithm-implemented-on-ibms-5-qubit-computer">2.3 Algorithm implemented on IBM's 5-qubit computer</h3>
+<p>Fig. 7 shows the circuit that was designed to fit the ibmqx 4 quantum computer. The Toffoli gate is not available directly in ibmqx 4 so it has to be constructed from the available set of gates given in Eq. <span class="math inline">\(26 .\)</span></p>
+<p>The circuit consists of state preparation (first two time slots), a Toffoli gate (the next 13 time slots), followed by the <span class="math inline">\(2|\psi\rangle\langle\psi|-I\)</span> operator <span class="math inline">\((7\)</span> time slots <span class="math inline">\(),\)</span> and measurement (the final 2 time slots). We use <span class="math inline">\(q[0]\)</span> (in the register notation from Fig. 7 ) as the ancillary qubit, and <span class="math inline">\(q[1]\)</span> and <span class="math inline">\(q[2]\)</span> as <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span> respectively. Note that the quantum computer imposes constraints on the possible source and target of CNOT gates.</p>
+<p>Using the simulator, this circuit produces the correct answer <span class="math inline">\(x=(1,1)\)</span> every time. We executed 1,024 shots using the ibmqx 4 and <span class="math inline">\(x=(1,1)\)</span> was obtained 662 times with <span class="math inline">\((0,0),(0,1),\)</span> and (1,0) occurring <span class="math inline">\(119,101,\)</span> and 142 times respectively. This indicates that the probability of obtaining the correct answer is approximately <span class="math inline">\(65 \% .\)</span> The deviation between the simulator and the quantum computer is due to the inherent errors in ibmqx <span class="math inline">\(4 .\)</span> This deviation will get worse for circuits of larger size.</p>
+<p>We also ran another test using CNOT gates that did not respect the underlying connectivity of the computer. This resulted in a significantly deeper circuit and the results were inferior to the results with the circuit in Fig. 7 .</p>
+<p>This implementation used a Toffoli gate with a depth of 23 (compared to a depth of 13 here) and obtained the correct answer <span class="math inline">\(48 \%\)</span> of the time.</p>
+<h2 id="bernstein-wazirany-算法">3 Bernstein-Wazirany 算法</h2>
+<p>3.1 Problem definition and background Suppose we are given a classical Boolean function, <span class="math inline">\(f:\{0,1\}^{n} \mapsto\{0,1\} .\)</span> It is guaranteed that this function can always be represented in the form, <span class="math inline">\(f_{ s }( x )=\bigoplus_{i} s_{i} x_{i} \equiv\langle s , x \rangle .\)</span> Here, <span class="math inline">\(s\)</span> is an unknown bit string, which we shall call a hidden string. Just like in Grover's algorithm we assume that we have a quantum oracle that can compute this function.</p>
+<p>The Bernstein-Vazirani (BV) algorithm then finds the hidden string with just a single application of the oracle. The number of times the oracle is applied during an algorithm algorithm is known as</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/Quantum-Algorithm/">Quantum Algorithm</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Quantum-Computation/">Quantum Computation</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/07/CMP_12_HeavyFermions01_colman/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">从现代的角度看 重费米子和近藤晶格</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/05/Entenglement_03_circuits3_QEC/">
+                        <span class="hidden-mobile">测量诱导相变中的量子纠错</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "初学者的量子算法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

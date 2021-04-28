@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>外尔半金属（Weyl semimetal）的拓扑数计算 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2018-11-18 13:01">
+      November 18, 2018 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      103
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h2 id="概览">概览</h2>
+<ol type="1">
+<li>第一阶段是在文文献中计算了两个基本例子</li>
+<li></li>
+</ol>
+<p>[TOC]</p>
+<h2 id="入门例子">入门例子</h2>
+<p>第一阶段：计算了两个模型拓扑数相关的的陈数和贝里相位，并在附录给出数值计算陈数的代码。</p>
+<p>计算陈数的步骤小结</p>
+<ol type="1">
+<li>写出动量空间的哈密顿量</li>
+<li>泰勒展开到第一阶</li>
+<li>将直角坐标转到球坐标(或者极坐标)</li>
+<li>求本征态</li>
+<li>对本征态微分，再内积得到贝里联络</li>
+<li>对贝里联络积分得到，贝里相位</li>
+<li>对贝里联络取旋量，得贝里曲率</li>
+<li>对贝里曲率积分得到，陈数</li>
+</ol>
+<h3 id="一个简单模型的陈数计算">一个简单模型的陈数计算</h3>
+<p>现在我们计算 <span class="math inline">\(H( k )= k \cdot \sigma\)</span> 对应的陈数，</p>
+<h3 id="哈密顿量">1哈密顿量</h3>
+<p><span class="math display">\[
+\begin{aligned}
+H( k )&amp;=\pm k \cdot \sigma \\&amp;=\pm\left(k_{x} \sigma_{x}+k_{y} \sigma_{y}+k_{z} \sigma_{s}\right)
+\\&amp;=k_{x}\left(\begin{array}{ll}
+0 &amp; 1 \\
+1 &amp; 0
+\end{array}\right)+k_{y}\left(\begin{array}{cc}
+0 &amp; -i \\
+i &amp; 0
+\end{array}\right)+k_{z}\left(\begin{array}{cc}
+1 &amp; 0 \\
+0 &amp; -1
+\end{array}\right)
+\\&amp;=\left(\begin{array}{cc}
+k_{s} &amp; k_{x}-i k_{y} \\
+k_{x}+i k_{y} &amp; -k_{z}
+\end{array}\right)
+\end{aligned}
+\]</span></p>
+<h3 id="将直角坐-标转到球面坐标">2将直角坐 标转到球面坐标</h3>
+<p><span class="math inline">\(k_{x}=k \sin \theta \cos \phi,\)</span> <span class="math inline">\(k_{y}=k \sin \theta \sin \phi,\)</span> <span class="math inline">\(k_{z}=k \cos \theta,\)</span> 其中$ k=| k |$, 则 <span class="math display">\[
+\begin{aligned}
+H( k )&amp;=\left(\begin{array}{cc}
+k \cos \theta &amp; k \sin \theta \cos \phi-i k \sin \theta \sin \phi \\
+k \sin \theta \cos \phi+i k \sin \theta \sin \phi &amp; -k \cos \theta
+\end{array}\right)
+\\&amp;=\left(\begin{array}{cc}
+k \cos \theta &amp; k \sin \theta e^{-i \phi} \\
+k \sin \theta e^{i \phi} &amp; -k \cos \theta
+\end{array}\right)
+\end{aligned}
+\]</span></p>
+<h3 id="求本征态">3 求本征态</h3>
+<p>哈密顿量对应的久期方程为 <span class="math display">\[
+\left|\begin{array}{cc}
+k \cos \theta-E &amp; k \sin \theta e^{-i \phi} \\
+k \sin \theta e^{i \phi} &amp; -k \cos \theta-E
+\end{array}\right|=0
+\]</span> 解久期方程得到系统的本征值为 <span class="math display">\[
+E=\pm k
+\]</span> 我们解本征值为 <span class="math inline">\(-k\)</span> 对应的本征矢 <span class="math inline">\(\psi=\left(\begin{array}{l}a \\ b\end{array}\right),\)</span> 哈密顿量为 <span class="math display">\[
+\left(\begin{array}{cc}
+k \cos \theta &amp; k \sin \theta e^{-i \phi} \\
+k \sin \theta e^{i \phi} &amp; -k \cos \theta
+\end{array}\right)\left(\begin{array}{l}
+a \\
+b
+\end{array}\right)=-k\left(\begin{array}{l}
+a \\
+b
+\end{array}\right)
+\]</span> 可以解得本征矢为 <span class="math display">\[
+\psi=\left(\begin{array}{c}
+-\sin \frac{\theta}{2} e^{-i \phi} \\
+\cos \frac{\theta}{2}
+\end{array}\right)
+\]</span></p>
+<h3 id="贝里联络">4 贝里联络</h3>
+<p>梯度算符在球坐标中定义为 <span class="math display">\[
+\nabla_{ k }=\frac{\partial}{\partial k} e _{k}+\frac{1}{k} \frac{\partial}{\partial \theta} e _{\theta}+\frac{1}{k \sin \theta} \frac{\partial}{\partial \phi} e _{\phi}
+\]</span> 可以计算系统的贝里联络为 <span class="math display">\[
+\begin{aligned}
+A( k )&amp;=\left\langle\psi\left|i \nabla_{ k }\right| \psi\right\rangle
+\\&amp;=\left\langle\psi\left|i\left(\frac{\partial}{\partial k}, \frac{1}{k} \frac{\partial}{\partial \theta}, \frac{1}{k \sin \theta} \frac{\partial}{\partial \phi}\right)\right| \psi\right\rangle
+\\&amp;=\left(A_{k}, A_{\theta}, A_{\phi}\right)
+\\&amp;=\left(0,0, \frac{\tan \frac{\theta}{2}}{2 k}\right)
+\end{aligned}
+\]</span></p>
+<h3 id="贝里曲率">5 贝里曲率</h3>
+<p>系统的贝里曲率为 <span class="math display">\[
+\begin{aligned}
+&amp;F( k )=\nabla_{ k } \times A( k )\\
+&amp;=\frac{1}{k^{2} \sin \theta}\left(\begin{array}{ccc} 
+e _{k} &amp; q e _{\theta} &amp; k \sin \theta e _{\phi} \\
+\frac{\partial}{\partial k} &amp; \frac{\partial}{\partial \theta} &amp; \frac{\partial}{\partial \phi} \\
+A_{k} &amp; k A_{\theta} &amp; k \sin \theta A_{\phi}
+\end{array}\right)\\
+&amp;=\frac{1}{k \sin \theta}\left[\frac{\partial}{\partial \theta}\left(\sin \theta A_{\phi}\right)-\frac{\partial}{\partial \phi} A_{\theta}\right] e _{k}+\frac{1}{k}\left[\frac{1}{\sin \theta} \frac{\partial}{\partial \phi} A_{k}-\frac{\partial}{\partial k}\left(k A_{\phi}\right)\right] e _{\theta}+\frac{1}{k}\left[\frac{\partial}{\partial k}\left(k A_{\theta}\right)-\frac{\partial}{\partial \theta} A_{k}\right] e _{\phi}\\
+&amp;=\left(\frac{\frac{\tan \frac{\theta}{2}}{2 k}}{k} \cot \theta+\frac{1}{k} \frac{\partial\left(\frac{\tan \frac{\theta}{2}}{2 k}\right)}{\partial \theta}\right) e _{k}-\left(\frac{\tan \frac{\theta}{2}}{\frac{2 k}{k}}+\frac{\partial\left(\frac{\tan \frac{\theta}{2}}{2 k}\right)}{\partial k}\right) e _{\theta}
+\\&amp;=\left(\frac{\tan \frac{\theta}{2}}{2 k^{2}} \cot \theta+\frac{1}{4 k^{2}}\left(\sec ^{2} \frac{\theta}{2}\right)\right) e _{k}-\left(\frac{\tan \frac{\theta}{2}}{2 k^{2}}-\frac{\tan \frac{\theta}{2}}{2 k^{2}}\right) e _{\theta}
+\\&amp;=\frac{1}{2 k^{2}} e _{k}
+\end{aligned}
+\]</span> 小结 <span class="math display">\[
+\begin{aligned}
+F( k )&amp;=\nabla_{ k } \times A( k )
+\\&amp;=\left(F_{k}, F_{\theta}, F_{\phi}\right)\\&amp;=\left(\frac{1}{2 k^{2}}, 0,0\right)
+\end{aligned}
+\]</span></p>
+<h3 id="陈数">6 陈数</h3>
+<p>外尔点对应的陈数为 <span class="math display">\[
+\begin{aligned}
+C&amp;=\frac{1}{2 \pi} \int_{S} F d S
+\\&amp;=\frac{1}{2 \pi} k^{2} \int_{0}^{\pi} \sin \theta d \theta \int_{0}^{2 \pi} d \phi F_{k}
+\\&amp;=\frac{1}{2 \pi} k^{2} \int_{0}^{\pi} \sin \theta d \theta \int_{0}^{2 \pi} d \phi\left(\frac{1}{2 k^{2}}\right)
+\\&amp;=1
+\end{aligned}
+\]</span> 同理，可以计算外尔点 <span class="math inline">\(H( k )=- k \cdot \sigma\)</span> 对应的陈数为 <span class="math display">\[
+C=\frac{1}{2 \pi} \int_{S} F d S=-1
+\]</span></p>
+<h3 id="另一个模型的-陈数">另一个模型的 陈数</h3>
+<h3 id="哈密顿量-1">1哈密顿量</h3>
+<p><span class="math display">\[
+H( k )=2 \beta \sin k_{y} \sigma_{x}+2 \alpha \sin k_{\lambda} \sigma_{y}-2 t_{0}\left(\cos k_{x}+\cos k_{y}\right) \sigma_{z}
+\]</span></p>
+<p>做一阶的泰勒展开 <span class="math display">\[
+\begin{aligned}
+H\left(k_{x}, k_{y}\right)&amp;=H\left(k_{x}^{0}+q_{x}, k_{y}^{0}+q_{y}\right)
+\\&amp;=2 q_{x}\left(\alpha \cos k_{x} \sigma_{y}+t_{0} \sin k_{x} \sigma_{z}\right)+2 q_{y}\left(\beta \cos k_{y} \sigma_{x}+t_{0} \sin k_{y} \sigma_{z}\right)
+\end{aligned}
+\]</span> 对于接触点 <span class="math inline">\(\left(k_{x}^{0}, k_{y}^{0}\right)=(0, \pi),\)</span> 上式哈密顿量变为 <span class="math display">\[
+H\left(q_{x}, q_{y}\right)=2 \alpha q_{x} \sigma_{y}-2 \beta q_{y} \sigma_{x}
+\]</span></p>
+<h3 id="极坐标">2极坐标</h3>
+<p>将其展开，并转化到平面极坐标下， <span class="math display">\[
+\begin{aligned}
+H\left(q_{x}, q_{y}\right)&amp;=2\left(\begin{array}{cc}
+0 &amp; \beta q_{y}+i \alpha q_{x} \\
+\beta q_{y}-i \alpha q_{x} &amp; 0
+\end{array}\right) \\
+&amp;=2 q\left(\begin{array}{cc}
+0 &amp; \beta \cos \theta+i \alpha \sin \theta \\
+\beta \cos \theta-i \alpha \sin \theta &amp; 0
+\end{array}\right)
+\end{aligned}
+\]</span> 可以计算得到本征值为 <span class="math display">\[
+E_{\pm}=\pm 2 q \sqrt{\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta}
+\]</span></p>
+<h3 id="本征态">3本征态</h3>
+<p>对于本征值为负的，本征态设为 <span class="math inline">\(\psi=\left(\begin{array}{l}a \\ b\end{array}\right),\)</span> 则 <span class="math display">\[
+2 q\left(\begin{array}{cc}
+0 &amp; \beta \cos \theta+i \alpha \sin \theta \\
+\beta \cos \theta-i \alpha \sin \theta &amp; 0
+\end{array}\right)\left(\begin{array}{l}
+a \\
+b
+\end{array}\right)=-2 q \sqrt{\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta}\left(\begin{array}{l}
+a \\
+b
+\end{array}\right)
+\]</span> 解得本征态 <span class="math display">\[
+\left(\begin{array}{l}
+a \\
+b
+\end{array}\right)=\frac{1}{\sqrt{2}}\left(\begin{array}{l}
+1 \\
+\frac{-\beta \cos \theta+i \alpha \sin \theta}{\sqrt{\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta}}
+\end{array}\right)
+\]</span></p>
+<h3 id="贝里联络-1">4贝里联络</h3>
+<p><span class="math display">\[
+\begin{array}{c}
+\partial_{\theta}|\psi\rangle=\frac{1}{\sqrt{2}}\left(\partial_{\theta} \frac{-\beta \cos \theta+i \alpha \sin \theta}{\sqrt{\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta}}\right) \\
+\partial_{\theta} \frac{-\beta \cos \theta+i \alpha \sin \theta}{\sqrt{\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta}}=\frac{\alpha \beta(i \beta \cos \theta+\alpha \sin \theta)}{\left(\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta\right)^{3 / 2}} \\
+i \partial_{\theta} \frac{-\beta \cos \theta+i \alpha \sin \theta}{\sqrt{\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta}}=\frac{\alpha \beta(-\beta \cos \theta+i \alpha \sin \theta)}{\left(\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta\right)^{3 / 2}}
+\end{array}
+\]</span></p>
+<p>贝里联络 <span class="math display">\[
+\begin{aligned}
+\left\langle\psi\left|i \partial_{\theta}\right| \psi\right\rangle &amp;=\frac{1}{2}\left(1 \frac{-\beta \cos \theta-i \alpha \sin \theta}{\sqrt{\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta}}\right)\left(\frac{\alpha \beta(-\beta \cos \theta+i \alpha \sin \theta)}{\left(\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta\right)^{3 / 2}}\right) \\
+&amp;=\frac{1}{2} \frac{\alpha \beta}{\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta}
+\end{aligned}
+\]</span></p>
+<h3 id="贝里相位">5贝里相位</h3>
+<p>贝里相位为 <span class="math display">\[
+\begin{aligned}
+\gamma &amp;=\int_{-\pi}^{\pi}\left\langle\psi\left|i \partial_{\theta}\right| \psi\right\rangle d \theta \\
+&amp;=\frac{1}{2} \int_{-\pi}^{\pi} \frac{\alpha \beta}{\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta} d \theta \\
+&amp;=\frac{1}{2} \int_{-\pi}^{\pi} \frac{-\alpha \sin \theta d(\beta \cos \theta)+\beta \cos \theta d(\alpha \sin \theta)}{\beta^{2} \cos ^{2} \theta+\alpha^{2} \sin ^{2} \theta}
+\end{aligned}
+\]</span> 换元 <span class="math inline">\(h_{x}=\beta \cos \theta, \quad h_{y}=\alpha \sin \theta,\)</span> 则上式可以写作 <span class="math display">\[
+\frac{1}{2} \oint \frac{h_{x} d h_{y}-h_{y} d h_{x}}{h_{x}^{2}+h_{y}^{2}}
+\]</span> 这式就是 Winding Number 的定义, 由于不显含参量 <span class="math inline">\(\theta\)</span>, 所以把积分上下限去掉，改写为环路积分，设 <span class="math display">\[
+\frac{h_{ x }}{\sqrt{h_{ x }^{2}+h_{y}^{2}}} \equiv \cos \varphi \quad \frac{h_{y}}{\sqrt{h_{ x }^{2}+h_{y}^{2}}} \equiv \sin \varphi
+\]</span> 积分变为 <span class="math display">\[
+\begin{aligned}
+\gamma &amp;=\frac{1}{2} \oint \frac{h_{x} d h_{y}-h_{y} d h_{x}}{h_{x}^{2}+h_{y}^{2}}
+\\&amp;=\frac{1}{2} \oint \cos \varphi d \sin \varphi-\sin \varphi d \cos \varphi
+\\&amp;=\frac{1}{2} \oint d \varphi
+\end{aligned}
+\]</span></p>
+<ul>
+<li>当顺时针积分时，即可得到贝里相位 <span class="math inline">\(\gamma=\pi ;\)</span></li>
+<li>当逆时针积分时，即可得到贝里相位 <span class="math inline">\(\gamma=-\pi\)</span> 。</li>
+</ul>
+<p>同理，按上述计算方法可以计算得到接触点 <span class="math inline">\(\left(k_{x}^{0}, k_{y}^{0}\right)=(\pi, 0)\)</span> 的贝里相位。</p>
+<h3 id="物理解释">物理解释</h3>
+<ul>
+<li>Weyl 半金属的价带产生的Berry 曲率形成了类似磁力线的向量场</li>
+<li>而Weyl 点正是磁力线的源和漏，可以有效的看作具有量子化单位“磁核”的“磁单极”</li>
+</ul>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210201135122842.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p>磁核是量子化的，因此不会被系统的微扰改变，所以Weyl 点具有拓扑稳定性，磁核也称为拓扑荷(Topological charge)。由于固体的动量空间、也就是第一布里渊区，是一个封闭的周期性空间，具有单位磁核的源和漏总是成对出现的，这就是著名的Nielsen-Ninomiya No-Go 定理。源和漏处激发出的准粒子分别是具有左手和右手手征的Weyl 费米子。</p>
+<h2 id="多荷外尔点">多荷外尔点</h2>
+<p>多手征荷外尔半金属可以看作动量空间中相同手征性外尔点的聚合态</p>
+<blockquote>
+<ul>
+<li>[37] XU G, WENG H, WANG Z, et al. Chern Semimetal and the Quantized Anomalous Hall Effect in <span class="math inline">\(hgcr _{2} se _{4}[ J ]\)</span>. Phys. Rev. Lett., <span class="math inline">\(2011,107(18): 186806 .\)</span> DOI: <span class="math inline">\(10.1103 /\)</span> PhysRevLett. <span class="math inline">\(107.186806 .\)</span></li>
+<li>[38] FANG C, GILBERT M J, DAI X, et al. Multi-Weyl Topological Semimetals Stabilized by Point Group Symmetry[J]. Phys. Rev. Lett., <span class="math inline">\(2012,108(26): 266802 .\)</span> DOI: <span class="math inline">\(10.1103 /\)</span> PhysRevLett. <span class="math inline">\(108.266802\)</span>.</li>
+</ul>
+</blockquote>
+<p>如果这些聚合态受点群对称性的保护，则它们是鲁棒的。</p>
+<ol type="1">
+<li>其低能色散关系在对称轴方向是<strong>线性</strong>的，</li>
+<li>而在剩下的两个方向上是<strong>高幂次</strong>的。</li>
+</ol>
+<p>以双手征荷外尔半金属为例，</p>
+<ol type="1">
+<li>它的外尔点可以看作<strong>两个</strong>单手征荷外尔点的聚合，</li>
+<li>并且受 <span class="math inline">\(C_{4}\)</span> 点群对称保护</li>
+<li>其在 <span class="math inline">\(z\)</span> 方向的色散关系是线性的，</li>
+<li>而在 <span class="math inline">\(x-y\)</span> 平面是二次的。</li>
+</ol>
+<p>类似的，三手征荷外尔半金属可以看作</p>
+<ol type="1">
+<li>单手征荷外尔点和双手征荷外尔点的聚合，</li>
+<li>受 <span class="math inline">\(C_{6}\)</span> 对称保护</li>
+<li>其在 <span class="math inline">\(z\)</span> 方向的色散关系是线性的，</li>
+<li>而在 <span class="math inline">\(x-y\)</span> 平面是三次的。</li>
+</ol>
+<p>手征荷为 <span class="math inline">\(Q=2,3\)</span> 的 外尔点均有第一性原理预言，然而，更高次的外尔点则无法通过格点模型来实现 <span class="math inline">\([37-39]\)</span></p>
+<ul>
+<li>[39] HUANG S M, XU S Y, BELOPOLSKI I, et al. New type of Weyl semimetal with quadratic double Weyl fermions: volume <span class="math inline">\(113[ M ] .2016: 1180-1185 .\)</span> DOI: <span class="math inline">\(10.1073 / pnas .1514581113 .\)</span></li>
+<li>[40] AHN S, HWANG E H, MIN H. Collective modes in multi-Weyl semimetals[J]. Sci. Rep., <span class="math inline">\(2016,6:\)</span> srep34023. DOI: <span class="math inline">\(10.1038 /\)</span> srep 34023 .</li>
+</ul>
+<p>连续模型中,无相互作用的多手征荷外尔点的低能有效哈密顿量可写作 <span class="math inline">\([37-43]\)</span> <span class="math display">\[
+H_{Q}=\lambda\left[k_{-}^{Q} \sigma_{+}+k_{+}^{Q} \sigma_{-}\right]+\chi v_{z} k_{z} \sigma_{z}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\sigma_{\pm}=\left(\sigma_{x} \pm i \sigma_{y}\right) / 2\)</span>,</li>
+<li>以及 <span class="math inline">\(k_{\pm}=k_{x} \pm i k_{y}\)</span></li>
+<li>$ Q$ 代表手征荷大小,</li>
+<li><span class="math inline">\(\chi=\pm\)</span> 代表手征性。</li>
+<li><span class="math inline">\(v_{z}\)</span> 是 <span class="math inline">\(z\)</span> 方向的费米速度。</li>
+<li><span class="math inline">\(\lambda\)</span> 是个材料相关的系数，</li>
+</ul>
+<p>例如，</p>
+<ol type="1">
+<li><span class="math inline">\(Q=1\)</span> 时， <span class="math inline">\(\lambda\)</span> 代表费米速度 <span class="math inline">\(v_{F}\)</span></li>
+<li><span class="math inline">\(Q=2\)</span> 时， <span class="math inline">\(\lambda\)</span> 代表有效质量的倒数 <span class="math inline">\(m^{-1}\)</span></li>
+</ol>
+<p>其能量色散关系为 <span class="math display">\[
+E_{s}( k )=s \sqrt{\lambda^{2} k_{\|}^{2 n}+\left(k_{z} v_{z}\right)^{2}}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(s=\pm\)</span> 区分价带和导带。</li>
+<li><span class="math inline">\(k_{\|}=\sqrt{k_{x}^{2}+k_{y}^{2}}\)</span> 是 <span class="math inline">\(x-y\)</span> 平面的动量投影。</li>
+<li>多手征外尔半金属的态密度[40] 为 <span class="math inline">\(g(\epsilon) \sim \epsilon^{2 / Q}\)</span> 。</li>
+</ul>
+<p>在格点模型中，单手征荷外尔半全属的哈密顿量可写作[44-46] (晶格间距设为 1 ) <span class="math display">\[
+H_{Q=1}( k )=t_{x} \sin k_{x} \sigma_{x}+t_{y} \sin k_{y} \sigma_{y}+M( k ) \sigma_{z}
+\]</span> 推广到多手征荷模型中，外尔点附近的低能有效哈密顿量变为[41,47] <span class="math display">\[
+\begin{aligned}
+H_{Q=2}(k) =&amp;t_{x}\left[\cos k_{x}-\cos k_{y}\right] \sigma_{x}+t_{y} \sin k_{x} \sin k_{y} \sigma_{y}+M(k) \sigma_{z} \\
+H_{Q=3}(k)  =&amp;t_{x} \sin k_{x}\left[-\cos k_{x}+\cos k_{y}-2\right] \sigma_{x} \\
+&amp;+t_{y}\left[-\cos k_{y}+3 \cos k_{x}-2\right] \sigma_{y}+M(k) \sigma_{z}
+\end{aligned}
+\]</span> 其中 <span class="math display">\[
+M( k )=m_{z}-t_{z} \cos k_{z}+m_{0}\left[2-\cos k_{x}-\cos k_{y}\right]
+\]</span> 通过调节参数 <span class="math inline">\(t_{x, y, z}, m_{0}, m_{z}\)</span> 实现在常规绝缘体、外尔半金属和量子反常霍尔态间互相转换。</p>
+<p>[41] AHN S, MELE E J, MIN H. Optical conductivity of multi-Weyl semimetals[J]. Phys. Rev. <span class="math inline">\(B , 2017,95(16): 161112 .\)</span> DOI: <span class="math inline">\(10.1103 /\)</span> PhysRevB.95.161 112. [42] GUAN T, LIN C, YANG C, et al. Evidence for Half-Metallicity in $nS-type <span class="math inline">\(\mathrm{ HgCr }_{2}\{\backslash \text { mathrm }\{ Se \}\}_{-}\{4\} [ J ] .\)</span> Phys. Rev. Lett., <span class="math inline">\(2015,115(8): 087002 .\)</span> DOI: <span class="math inline">\(10.1103 /\)</span> PhysRevLett. <span class="math inline">\(115.087002\)</span>. [43] YANG B J, NAGAOSA N. Classification of stable three-dimensional Dirac semimetals with nontrivial topology[J]. Nat. Commun., <span class="math inline">\(2014,5:\)</span> ncomms <span class="math inline">\(5898 .\)</span> DOI: <span class="math inline">\(10.1038 /\)</span> ncomms 5898 .</p>
+<p>[44] DELPLACE P, LI J, CARPENTIER D. Topological Weyl semi-metal from a lattice model: volume <span class="math inline">\(97[ M ] .2012: 67004 . DOI : 10.1209 / 0295-5075 / 97 / 67004 .\)</span> [45] TURNER A M, VISHWANATH A. Beyond Band Insulators: Topology of Semi-metals and Interacting Phases[J]. arXiv:1301.0330 [cond-mat], 2013 . [46] CHEN C Z, SONG J, JIANG H, et al. Disorder and Metal-Insulator Transitions in Weyl Semimetals [J]. Phys. Rev. Lett., <span class="math inline">\(2015,115(24): 246603 .\)</span> DOI: <span class="math inline">\(10.1103 /\)</span> PhysRevLett. <span class="math inline">\(115.24\)</span> <span class="math inline">\(6603 .\)</span></p>
+<p>[47] JIAN S K, YAO H. Correlated double-Weyl semimetals with Coulomb interactions: Possible applications to HgCr2Se4 and SrSi2[J]. Phys. Rev. B, <span class="math inline">\(2015,92(4): 045121 .\)</span> DOI: <span class="math inline">\(10.1103 /\)</span> PhysRevB.92.045121. [48] HAYATA T, KIKUCHI Y, TANIZAKI Y. Topological properties of the chiral magnetic effect in multi-Weyl semimetals[J]. Phys. Rev. B, <span class="math inline">\(2017,96(8): 085112 .\)</span> DOI: <span class="math inline">\(10.1103 /\)</span> PhysRevB <span class="math inline">\(.96 .085112 .\)</span></p>
+<h3 id="拓扑不变量">拓扑不变量</h3>
+<p><a href="https://arxiv.org/pdf/1703.02040.pdf" target="_blank" rel="noopener">Topological properties of the chiral magnetic effect in multi-Weyl semimetals</a></p>
+<p>the general effective Hamiltonian describing the band structure near the two-band touching point, <span class="math display">\[
+H=\sum_{i=x, y, z} \sigma_{i} R_{i}( k )
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\sigma_{i}\)</span> are the Pauli matrices.</li>
+<li><span class="math inline">\(R_{i}( k )\)</span> are some real functions with a zero only at <span class="math inline">\(k=0\)</span>. Here, momentum are measured from the band-touching point. The Einstein convention is understood for repeated indices below.</li>
+<li>The Hamiltonian describes the linear left-handed Weyl cone in <span class="math inline">\(R\)</span> space <span class="math inline">\(\left[ R =\left(R_{x}, R_{y}, R_{z}\right)\right]\)</span> although its shape in <span class="math inline">\(k\)</span> space <span class="math inline">\(\left[ k =\left(k_{x}, k_{y}, k_{z}\right)\right]\)</span> is not specified (See Fig. 1).</li>
+</ul>
+<p>The only assumption is that the Jacobian <span class="math inline">\(\operatorname{det}\left(\partial R_{l} / \partial k_{i}\right)\)</span> does not vanish everywhere. The eigenvalues of <span class="math inline">\(H\)</span> are <span class="math inline">\(\varepsilon_{\pm}( k )=\pm| R ( k )|\)</span>, and their corresponding normalized eigenvectors are <span class="math display">\[
+u_{\pm}( k )=\frac{1}{\sqrt{2| R |\left(| R | \pm R_{z}\right)}}\left(\begin{array}{c}
+\pm| R |+R_{z} \\
+R_{x}+i R_{y}
+\end{array}\right)
+\]</span> The Berry connection is defined by <span class="math inline">\(A _{\pm} \equiv-i u_{\pm}^{\dagger} d u_{\pm}\)</span>, and the Berry curvature is <span class="math display">\[
+\Omega_{\pm} \equiv d A _{\pm}=\pm \frac{\epsilon^{l m n}}{4} \hat{R}_{l}( k ) d \hat{R}_{m}( k ) \wedge d \hat{R}_{n}( k )
+\]</span> where <span class="math inline">\(\hat{ R }= R /| R |\)</span>, and <span class="math inline">\(\epsilon^{l m n}\)</span> are completely antisymmetric tensors (See Appendix A for differential forms). These quantities are defined in <span class="math inline">\(k\)</span> space. The monopole charge is defined by the Chern number, <span class="math display">\[
+K \equiv \frac{1}{2 \pi} \int_{S^{2}} \Omega_{+}
+\]</span> where the integration is done over any two-sphere surrounding the origin <span class="math inline">\(k =0\)</span>. This yields the winding number characterized by <span class="math inline">\(\pi_{2}\left(S^{2}\right)\)</span> associated with a map from <span class="math inline">\(k\)</span> space <span class="math inline">\(\left( R ^{3} \backslash\{0\}\right)\)</span> to <span class="math inline">\(R\)</span> space <span class="math inline">\(\left( R ^{3} \backslash\{0\}\right)\)</span>, and takes only an integer.</p>
+<h3 id="例子">例子</h3>
+<p>Hence, the multi-WSMs are described by the Hamiltonian (3) with an appropriate choice of <span class="math inline">\(R_{i}( k )\)</span>. As an example, we consider a model Hamiltonian with anisotropic and polynomial dispersion relations <span class="math inline">\([18]:\)</span> <span class="math display">\[
+H _{J}=\left(k_{-}\right)^{J} \sigma_{+}+\left(k_{+}\right)^{J} \sigma_{-}+k_{z} \sigma_{z}
+\]</span> where <span class="math inline">\(k_{\pm}=k_{x} \pm i k_{y}, \sigma_{\pm}=\left(\sigma_{x} \pm i \sigma_{y}\right) / 2\)</span>, and <span class="math inline">\(J\)</span> is an integer. To compute the monopole charge, we introduce new coordinates <span class="math inline">\((r, \theta, \varphi)\)</span> as <span class="math display">\[
+k_{\pm}=(r \sin \theta)^{1 / J} e ^{\pm i \varphi}, \quad k_{z}=r \cos \theta
+\]</span> By using those coordinates, the Hamiltonian (7) reads <span class="math display">\[
+H _{J}=r\left(\begin{array}{cc}
+\cos \theta &amp; \sin \theta e^{-i J \varphi} \\
+\sin \theta e^{i J \varphi} &amp; -\cos \theta
+\end{array}\right)
+\]</span> The energy eigenvalues are <span class="math inline">\(\epsilon_{\pm}=\pm r\)</span>, which depend only on <span class="math inline">\(r\)</span>. The corresponding eigenstates are <span class="math display">\[
+u_{+}=\left(\begin{array}{c}
+\cos (\theta / 2) \\
+\sin (\theta / 2) e ^{i J \varphi}
+\end{array}\right), \quad u_{-}=\left(\begin{array}{c}
+-\sin (\theta / 2) \\
+\cos (\theta / 2) e ^{i J \varphi}
+\end{array}\right)
+\]</span> We obtain the Berry curvature in the new coordinates as <span class="math display">\[
+\Omega_{\pm}=-i d u_{\pm}^{\dagger} \wedge d u_{\pm}=\pm \frac{1}{2} J \sin \theta d \theta \wedge d \varphi
+\]</span> The monopole charge reads <span class="math display">\[
+K=\frac{1}{2 \pi} \int_{0}^{\pi} \frac{1}{2} J \sin \theta d \theta \int_{0}^{2 \pi} d \varphi=J .
+\]</span> We see that the monopole has a multiple charge, which is determined by the power <span class="math inline">\(J\)</span> of polynomial dispersions.</p>
+<h2 id="参考文献">参考文献</h2>
+<p>第一部分</p>
+<ol type="1">
+<li>《二维自旋轨道耦合下拓扑半金属的量子模拟》刘聪明 2014 山西大学</li>
+<li><a href="http://www.guanjihuan.com/archives/3932" target="_blank" rel="noopener">陈数Chern number的计算（定义法）</a></li>
+<li><a href="http://www.guanjihuan.com/archives/4179" target="_blank" rel="noopener">陈数Chern number的计算（高效法）</a></li>
+</ol>
+<p>第二部分</p>
+<ol type="1">
+<li>《多手征荷外尔半金属物性研究》</li>
+</ol>
+<p>直接 4 by 4 矩阵进行计算</p>
+<ol type="1">
+<li>chern number projection</li>
+<li><a href="https://phy.ntnu.edu.tw/~changmc/Teach/Topo/latex/10.pdf" target="_blank" rel="noopener">Lecture notes on topological insulators</a></li>
+</ol>
+<p>数值方法计算</p>
+<ol type="1">
+<li>chern number numerical calculation</li>
+<li><a href="https://arxiv.org/pdf/cond-mat/0503172.pdf" target="_blank" rel="noopener">Chern Numbers in Discretized Brillouin Zone: Efficient Method of Computing (Spin) Hall Conductances</a></li>
+</ol>
+<h2 id="附录">附录</h2>
+<p>陈数的数值计算方法</p>
+<ol type="1">
+<li>定义法计算陈数</li>
+<li>高效的计算方法</li>
+</ol>
+<h4 id="定义法">定义法</h4>
+<p>定义法在数值计算上可能会比较耗时，但在理解上比较直接和方便：</p>
+<ul>
+<li>先是计算贝里联络 (Berry connection) <span class="math inline">\(A_{\mu}(k)=\left\langle n(k)\left|\partial_{\mu}\right| n(k)\right\rangle\)</span></li>
+<li>然后再计算贝里曲率 (Berry curvature) <span class="math inline">\(F_{12}(k)=\partial_{1} A_{2}(k)-\partial_{2} A_{1}(k)\)</span></li>
+<li>积分得到陈数 (Chern number) <span class="math inline">\(c_{n}=\frac{1}{2 \pi i } \int_{T^{2}} d ^{2} k F_{12}(k)\)</span></li>
+</ul>
+<p>这里以<a href="https://www.nature.com/articles/srep19018" target="_blank" rel="noopener">文献</a> 中的“量子反常霍尔模型”的哈密顿量为例子，用定义法在数值上计算陈数。代码如下：</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> *   <span class="hljs-comment"># 引入pi, cos等</span>
+<span class="hljs-keyword">import</span> time
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hamiltonian</span><span class="hljs-params">(kx, ky)</span>:</span>  <span class="hljs-comment"># 量子反常霍尔QAH模型（该参数对应的陈数为2）</span>
+    t1 = <span class="hljs-number">1.0</span>
+    t2 = <span class="hljs-number">1.0</span>
+    t3 = <span class="hljs-number">0.5</span>
+    m = <span class="hljs-number">-1.0</span>
+    matrix = np.zeros((<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))*(<span class="hljs-number">1</span>+<span class="hljs-number">0j</span>)
+    matrix[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>] = <span class="hljs-number">2</span>*t1*cos(kx)<span class="hljs-number">-1j</span>*<span class="hljs-number">2</span>*t1*cos(ky)
+    matrix[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>] = <span class="hljs-number">2</span>*t1*cos(kx)+<span class="hljs-number">1j</span>*<span class="hljs-number">2</span>*t1*cos(ky)
+    matrix[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>] = m+<span class="hljs-number">2</span>*t3*sin(kx)+<span class="hljs-number">2</span>*t3*sin(ky)+<span class="hljs-number">2</span>*t2*cos(kx+ky)
+    matrix[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>] = -(m+<span class="hljs-number">2</span>*t3*sin(kx)+<span class="hljs-number">2</span>*t3*sin(ky)+<span class="hljs-number">2</span>*t2*cos(kx+ky))
+    <span class="hljs-keyword">return</span> matrix
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    start_time = time.process_time()
+    n = <span class="hljs-number">1000</span>  <span class="hljs-comment"># 积分密度</span>
+    delta = <span class="hljs-number">1e-9</span>  <span class="hljs-comment"># 求导的偏离量</span>
+    chern_number = <span class="hljs-number">0</span>  <span class="hljs-comment"># 陈数初始化</span>
+    <span class="hljs-keyword">for</span> kx <span class="hljs-keyword">in</span> np.linspace(-pi, pi, n):
+        <span class="hljs-keyword">for</span> ky <span class="hljs-keyword">in</span> np.linspace(-pi, pi, n):
+            H = hamiltonian(kx, ky)
+            eigenvalue, eigenvector = np.linalg.eig(H)
+            vector = eigenvector[:, np.argsort(np.real(eigenvalue))[<span class="hljs-number">0</span>]]  <span class="hljs-comment"># 价带波函数</span>
+            <span class="hljs-comment"># print(np.argsort(np.real(eigenvalue))[0])  # 排序索引（从小到大）</span>
+            <span class="hljs-comment"># print(eigenvalue)  # 排序前的本征值</span>
+            <span class="hljs-comment"># print(np.sort(np.real(eigenvalue)))  # 排序后的本征值（从小到大）</span>
+           
+            H_delta_kx = hamiltonian(kx+delta, ky) 
+            eigenvalue, eigenvector = np.linalg.eig(H_delta_kx)
+            vector_delta_kx = eigenvector[:, np.argsort(np.real(eigenvalue))[<span class="hljs-number">0</span>]]   <span class="hljs-comment"># 略偏离kx的波函数</span>
+
+            H_delta_ky = hamiltonian(kx, ky+delta)  
+            eigenvalue, eigenvector = np.linalg.eig(H_delta_ky)
+            vector_delta_ky = eigenvector[:, np.argsort(np.real(eigenvalue))[<span class="hljs-number">0</span>]]  <span class="hljs-comment"># 略偏离ky的波函数</span>
+
+            H_delta_kx_ky = hamiltonian(kx+delta, ky+delta)  
+            eigenvalue, eigenvector = np.linalg.eig(H_delta_kx_ky)
+            vector_delta_kx_ky = eigenvector[:, np.argsort(np.real(eigenvalue))[<span class="hljs-number">0</span>]]  <span class="hljs-comment"># 略偏离kx和ky的波函数</span>
+
+            <span class="hljs-comment"># 价带的波函数的贝里联络(berry connection) # 求导后内积</span>
+            A_x = np.dot(vector.transpose().conj(), (vector_delta_kx-vector)/delta)   <span class="hljs-comment"># 贝里联络Ax（x分量）</span>
+            A_y = np.dot(vector.transpose().conj(), (vector_delta_ky-vector)/delta)   <span class="hljs-comment"># 贝里联络Ay（y分量）</span>
+            
+            A_x_delta_ky = np.dot(vector_delta_ky.transpose().conj(), (vector_delta_kx_ky-vector_delta_ky)/delta)  <span class="hljs-comment"># 略偏离ky的贝里联络Ax</span>
+            A_y_delta_kx = np.dot(vector_delta_kx.transpose().conj(), (vector_delta_kx_ky-vector_delta_kx)/delta)  <span class="hljs-comment"># 略偏离kx的贝里联络Ay</span>
+
+            <span class="hljs-comment"># 贝里曲率(berry curvature)</span>
+            F = (A_y_delta_kx-A_y)/delta-(A_x_delta_ky-A_x)/delta
+
+            <span class="hljs-comment"># 陈数(chern number)</span>
+            chern_number = chern_number + F*(<span class="hljs-number">2</span>*pi/n)**<span class="hljs-number">2</span>
+    chern_number = chern_number/(<span class="hljs-number">2</span>*pi*<span class="hljs-number">1j</span>)
+    print(<span class="hljs-string">'Chern number = '</span>, chern_number)
+    end_time = time.process_time()
+    print(<span class="hljs-string">'CPU执行时间(min)='</span>, (end_time-start_time)/<span class="hljs-number">60</span>)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    main()</code></pre>
+<p>计算结果</p>
+<ul>
+<li>Chern number <span class="math inline">\(=(1.9973211433926035+3.3377614195956045 e -10 j )\)</span></li>
+<li>CPU热行时间(min) <span class="math inline">\(=5.105341460704569\)</span></li>
+</ul>
+<p>Matlab代码为</p>
+<pre><code class="hljs matlab"><span class="hljs-comment">%陈数定义法</span>
+clear;clc;
+n=<span class="hljs-number">100</span>;<span class="hljs-comment">%积分密度</span>
+delta=<span class="hljs-number">1e-9</span>;<span class="hljs-comment">%求导的偏离量</span>
+C=<span class="hljs-number">0</span>;<span class="hljs-comment">%陈数初始化</span>
+<span class="hljs-keyword">for</span> kx=-<span class="hljs-built_in">pi</span>:(<span class="hljs-number">1</span>/n):<span class="hljs-built_in">pi</span>
+    <span class="hljs-keyword">for</span> ky=-<span class="hljs-built_in">pi</span>:(<span class="hljs-number">1</span>/n):<span class="hljs-built_in">pi</span>
+        VV=get_vector(HH(kx,ky));
+        Vkx=get_vector(HH(kx+delta,ky));<span class="hljs-comment">%略偏离kx的波函数</span>
+        Vky=get_vector(HH(kx,ky+delta));<span class="hljs-comment">%略偏离ky的波函数</span>
+        Vkxky=get_vector(HH(kx+delta,ky+delta));<span class="hljs-comment">%略偏离kx，ky的波函数</span>
+        <span class="hljs-keyword">if</span>  sum((<span class="hljs-built_in">abs</span>(Vkx-VV)))&gt;<span class="hljs-number">0.01</span>   <span class="hljs-comment">%为了波函数的连续性（这里的不连续只遇到符号问题，所以可以直接这么处理）</span>
+            Vkx=-Vkx;
+        <span class="hljs-keyword">end</span>
+        
+        <span class="hljs-keyword">if</span>  sum((<span class="hljs-built_in">abs</span>(Vky-VV)))&gt;<span class="hljs-number">0.01</span>
+            Vky=-Vky;
+        <span class="hljs-keyword">end</span>
+        
+        <span class="hljs-keyword">if</span>  sum(<span class="hljs-built_in">abs</span>(Vkxky-VV))&gt;<span class="hljs-number">0.01</span>
+            Vkxky=-Vkxky;
+        <span class="hljs-keyword">end</span>
+        <span class="hljs-comment">%价带的波函数的berry connection，求导后内积</span>
+        Ax=VV'*(Vkx-VV)/delta;<span class="hljs-comment">%Berry connection Ax</span>
+        Ay=VV'*(Vky-VV)/delta;<span class="hljs-comment">%Berry connection Ay</span>
+        Ax_delta_ky=Vky'*(Vkxky-Vky)/delta;<span class="hljs-comment">%略偏离ky的berry connection Ax</span>
+        Ay_delta_kx=Vkx'*(Vkxky-Vkx)/delta;<span class="hljs-comment">%略偏离kx的berry connection Ay</span>
+        <span class="hljs-comment">%berry curvature</span>
+        F=((Ay_delta_kx-Ay)-(Ax_delta_ky-Ax))/delta;
+        <span class="hljs-comment">%chern number</span>
+        C=C+F*(<span class="hljs-number">1</span>/n)^<span class="hljs-number">2</span>;  
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+C=C/(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*<span class="hljs-number">1</span><span class="hljs-built_in">i</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vector_new</span> = <span class="hljs-title">get_vector</span><span class="hljs-params">(H)</span></span>
+[vector,eigenvalue] = eig(H);
+[eigenvalue, index]=<span class="hljs-built_in">sort</span>(<span class="hljs-built_in">diag</span>(eigenvalue), <span class="hljs-string">'descend'</span>);
+vector_new = vector(:, index(<span class="hljs-number">2</span>));
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">H</span>=<span class="hljs-title">HH</span><span class="hljs-params">(kx,ky)</span></span>
+H(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)=<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(kx)<span class="hljs-number">-1</span><span class="hljs-built_in">i</span>*<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(ky);
+H(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>)=<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(kx)+<span class="hljs-number">1</span><span class="hljs-built_in">i</span>*<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(ky);
+H(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)=<span class="hljs-number">-1</span>+<span class="hljs-number">2</span>*<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(kx)+<span class="hljs-number">2</span>*<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(ky)+<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(kx+ky);
+H(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>)=-(<span class="hljs-number">-1</span>+<span class="hljs-number">2</span>*<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(kx)+<span class="hljs-number">2</span>*<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(ky)+<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(kx+ky));
+<span class="hljs-keyword">end</span></code></pre>
+<p>波函数符号会出现波动，因此要增加以下三段代码（原因是波函数整体符号变号，仍然是哈密顿量的波函数，但在做波函数相减时会完全不同）：</p>
+<pre><code class="hljs matlab"><span class="hljs-keyword">if</span>  sum((<span class="hljs-built_in">abs</span>(Vkx-VV)))&gt;<span class="hljs-number">0.01</span>  
+    Vkx=-Vkx;
+<span class="hljs-keyword">end</span>
+        
+<span class="hljs-keyword">if</span>  sum((<span class="hljs-built_in">abs</span>(Vky-VV)))&gt;<span class="hljs-number">0.01</span>
+    Vky=-Vky;
+ <span class="hljs-keyword">end</span>
+        
+<span class="hljs-keyword">if</span>  sum(<span class="hljs-built_in">abs</span>(Vkxky-VV))&gt;<span class="hljs-number">0.01</span>
+    Vkxky=-Vkxky;
+<span class="hljs-keyword">end</span></code></pre>
+<p>有时加了以上这三段还不够，波函数会时有以下这种形式（例如），仍然是不连续：</p>
+<p>这时候取负号是不能解决波函数的不连续问题，这里用取模来处理（原理上是要通过选取规范进行变换，得到波函数（1, 0），之后会提到）：</p>
+<pre><code class="hljs matlab"><span class="hljs-keyword">if</span> <span class="hljs-built_in">abs</span>(VV(<span class="hljs-number">1</span>))&lt;<span class="hljs-number">0.0001</span> ||<span class="hljs-built_in">abs</span>(VV(<span class="hljs-number">2</span>))&lt;<span class="hljs-number">0.0001</span>
+      VV=<span class="hljs-built_in">abs</span>(VV);
+      Vkx=<span class="hljs-built_in">abs</span>(Vkx);
+      Vky=<span class="hljs-built_in">abs</span>(Vky);
+      Vkxky=<span class="hljs-built_in">abs</span>(Vkxky);
+ <span class="hljs-keyword">end</span></code></pre>
+<p><strong>所以规范 (gauge) 的选取在定义法中就显得很重要了，需要选定一个规范，使得局域的波函数连续。</strong></p>
+<p>在数值上可以写代码去搜索找个近似的规范 （包括了前面提到的两种特殊情况） ，使得波函数连续，但在计算效率上又降低很多了</p>
+<p>所以这里还是<strong>推荐使用高效法来计算</strong></p>
+<h4 id="高效法">高效法</h4>
+<p>采用的是<a href="https://journals.jps.jp/doi/10.1143/JPSJ.74.1674" target="_blank" rel="noopener">参考文献</a> 中的方法</p>
+<p>We first define a U(1) link variable from the wave functions of the <span class="math inline">\(n\)</span> th band as <span class="math display">\[
+U_{\mu}\left(k_{\ell}\right) \equiv\left\langle n\left(k_{\ell}\right) \mid n\left(k_{\ell}+\hat{\mu}\right)\right\rangle / N _{\mu}\left(k_{\ell}\right)
+\]</span> where <span class="math inline">\(N _{\mu}\left(k_{\ell}\right) \equiv\left|\left\langle n\left(k_{\ell}\right) \mid n\left(k_{\ell}+\hat{\mu}\right)\right\rangle\right| .\)</span> The link variables are well defined as long as <span class="math inline">\(N _{\mu}\left(k_{\ell}\right) \neq 0,\)</span> which can always be assumed to be the case (one can avoid a singularity <span class="math inline">\(N _{\mu}\left(k_{\ell}\right)=0\)</span> by an infinitesimal shift of the lattice). From the link variable (7), we next define a lattice field strength by <span class="math display">\[
+\begin{aligned}
+\tilde{F}_{12}\left(k_{\ell}\right) &amp; \equiv \ln U_{1}\left(k_{\ell}\right) U_{2}\left(k_{\ell}+\hat{1}\right) U_{1}\left(k_{\ell}+\hat{2}\right)^{-1} U_{2}\left(k_{\ell}\right)^{-1} \\
+-\pi &amp;&lt;\frac{1}{ i } \tilde{F}_{12}\left(k_{\ell}\right) \leq \pi
+\end{aligned}
+\]</span> Note that the field strength is defined within the principal branch of the logarithm specified in eq. (8). It is obvious that this field strength is invariant under the gauge transformation (3). Finally, we define the Chern number on the lattice which is associated to the <span class="math inline">\(n\)</span> th band as <span class="math display">\[
+\tilde{c}_{n} \equiv \frac{1}{2 \pi i } \sum_{\ell} \tilde{F}_{12}\left(k_{\ell}\right)
+\]</span> 这里以<a href="https://www.nature.com/articles/srep19018" target="_blank" rel="noopener">文献</a> 中的“量子反常霍尔模型”的哈密顿量为例子，Python代码如下：</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> *   <span class="hljs-comment"># 引入pi, cos等</span>
+<span class="hljs-keyword">import</span> cmath
+<span class="hljs-keyword">import</span> time
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hamiltonian</span><span class="hljs-params">(kx, ky)</span>:</span>  <span class="hljs-comment"># 量子反常霍尔QAH模型（该参数对应的陈数为2）</span>
+    t1 = <span class="hljs-number">1.0</span>
+    t2 = <span class="hljs-number">1.0</span>
+    t3 = <span class="hljs-number">0.5</span>
+    m = <span class="hljs-number">-1.0</span>
+    matrix = np.zeros((<span class="hljs-number">2</span>, <span class="hljs-number">2</span>))*(<span class="hljs-number">1</span>+<span class="hljs-number">0j</span>)
+    matrix[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>] = <span class="hljs-number">2</span>*t1*cos(kx)<span class="hljs-number">-1j</span>*<span class="hljs-number">2</span>*t1*cos(ky)
+    matrix[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>] = <span class="hljs-number">2</span>*t1*cos(kx)+<span class="hljs-number">1j</span>*<span class="hljs-number">2</span>*t1*cos(ky)
+    matrix[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>] = m+<span class="hljs-number">2</span>*t3*sin(kx)+<span class="hljs-number">2</span>*t3*sin(ky)+<span class="hljs-number">2</span>*t2*cos(kx+ky)
+    matrix[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>] = -(m+<span class="hljs-number">2</span>*t3*sin(kx)+<span class="hljs-number">2</span>*t3*sin(ky)+<span class="hljs-number">2</span>*t2*cos(kx+ky))
+    <span class="hljs-keyword">return</span> matrix
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    start_time = time.process_time()
+    n = <span class="hljs-number">1000</span> 
+    delta = <span class="hljs-number">2</span>*pi/n
+    chern_number = <span class="hljs-number">0</span>  <span class="hljs-comment"># 陈数初始化</span>
+    <span class="hljs-keyword">for</span> kx <span class="hljs-keyword">in</span> np.linspace(-pi, pi, n):
+        <span class="hljs-keyword">for</span> ky <span class="hljs-keyword">in</span> np.linspace(-pi, pi, n):
+            H = hamiltonian(kx, ky)
+            eigenvalue, eigenvector = np.linalg.eig(H)
+            vector = eigenvector[:, np.argsort(np.real(eigenvalue))[<span class="hljs-number">0</span>]]  <span class="hljs-comment"># 价带波函数</span>
+           
+            H_delta_kx = hamiltonian(kx+delta, ky) 
+            eigenvalue, eigenvector = np.linalg.eig(H_delta_kx)
+            vector_delta_kx = eigenvector[:, np.argsort(np.real(eigenvalue))[<span class="hljs-number">0</span>]]   <span class="hljs-comment"># 略偏离kx的波函数</span>
+
+            H_delta_ky = hamiltonian(kx, ky+delta)  
+            eigenvalue, eigenvector = np.linalg.eig(H_delta_ky)
+            vector_delta_ky = eigenvector[:, np.argsort(np.real(eigenvalue))[<span class="hljs-number">0</span>]]  <span class="hljs-comment"># 略偏离ky的波函数</span>
+            
+            H_delta_kx_ky = hamiltonian(kx+delta, ky+delta)  
+            eigenvalue, eigenvector = np.linalg.eig(H_delta_kx_ky)
+            vector_delta_kx_ky = eigenvector[:, np.argsort(np.real(eigenvalue))[<span class="hljs-number">0</span>]]  <span class="hljs-comment"># 略偏离kx和ky的波函数</span>
+            
+            Ux = np.dot(np.conj(vector), vector_delta_kx)/abs(np.dot(np.conj(vector), vector_delta_kx))
+            Uy = np.dot(np.conj(vector), vector_delta_ky)/abs(np.dot(np.conj(vector), vector_delta_ky))
+            Ux_y = np.dot(np.conj(vector_delta_ky), vector_delta_kx_ky)/abs(np.dot(np.conj(vector_delta_ky), vector_delta_kx_ky))
+            Uy_x = np.dot(np.conj(vector_delta_kx), vector_delta_kx_ky)/abs(np.dot(np.conj(vector_delta_kx), vector_delta_kx_ky))
+
+            F = cmath.log(Ux*Uy_x*(<span class="hljs-number">1</span>/Ux_y)*(<span class="hljs-number">1</span>/Uy))
+
+            <span class="hljs-comment"># 陈数(chern number)</span>
+            chern_number = chern_number + F
+    chern_number = chern_number/(<span class="hljs-number">2</span>*pi*<span class="hljs-number">1j</span>)
+    print(<span class="hljs-string">'Chern number = '</span>, chern_number)
+    end_time = time.process_time()
+    print(<span class="hljs-string">'CPU执行时间(min)='</span>, (end_time-start_time)/<span class="hljs-number">60</span>)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    main()</code></pre>
+<p>Matlab代码：</p>
+<pre><code class="hljs matlab"><span class="hljs-comment">%陈数高效法</span>
+clear;clc;
+n=<span class="hljs-number">1000</span> <span class="hljs-comment">%积分密度</span>
+delta=<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>/n;
+C=<span class="hljs-number">0</span>; 
+<span class="hljs-keyword">for</span> kx=-<span class="hljs-built_in">pi</span>:(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>/n):<span class="hljs-built_in">pi</span>
+    <span class="hljs-keyword">for</span> ky=-<span class="hljs-built_in">pi</span>:(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>/n):<span class="hljs-built_in">pi</span>
+        VV=get_vector(HH(kx,ky));
+        Vkx=get_vector(HH(kx+delta,ky));<span class="hljs-comment">%略偏离kx的波函数</span>
+        Vky=get_vector(HH(kx,ky+delta));<span class="hljs-comment">%略偏离ky的波函数</span>
+        Vkxky=get_vector(HH(kx+delta,ky+delta));<span class="hljs-comment">%略偏离kx，ky的波函数</span>
+        
+        Ux = VV'*Vkx/<span class="hljs-built_in">abs</span>(VV'*Vkx);
+        Uy = VV'*Vky/<span class="hljs-built_in">abs</span>(VV'*Vky);
+        Ux_y = Vky'*Vkxky/<span class="hljs-built_in">abs</span>(Vky'*Vkxky);
+        Uy_x = Vkx'*Vkxky/<span class="hljs-built_in">abs</span>(Vkx'*Vkxky);
+        
+        <span class="hljs-comment">%berry curvature</span>
+        F=<span class="hljs-built_in">log</span>(Ux*Uy_x*(<span class="hljs-number">1</span>/Ux_y)*(<span class="hljs-number">1</span>/Uy));
+        <span class="hljs-comment">%chern number</span>
+        C=C+F;  
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+C=C/(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*<span class="hljs-number">1</span><span class="hljs-built_in">i</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">vector_new</span> = <span class="hljs-title">get_vector</span><span class="hljs-params">(H)</span></span>
+[vector,eigenvalue] = eig(H);
+[eigenvalue, index]=<span class="hljs-built_in">sort</span>(<span class="hljs-built_in">diag</span>(eigenvalue), <span class="hljs-string">'descend'</span>);
+vector_new = vector(:, index(<span class="hljs-number">2</span>));
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">H</span>=<span class="hljs-title">HH</span><span class="hljs-params">(kx,ky)</span></span>
+H(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)=<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(kx)<span class="hljs-number">-1</span><span class="hljs-built_in">i</span>*<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(ky);
+H(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>)=<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(kx)+<span class="hljs-number">1</span><span class="hljs-built_in">i</span>*<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(ky);
+H(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)=<span class="hljs-number">-1</span>+<span class="hljs-number">2</span>*<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(kx)+<span class="hljs-number">2</span>*<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(ky)+<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(kx+ky);
+H(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>)=-(<span class="hljs-number">-1</span>+<span class="hljs-number">2</span>*<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(kx)+<span class="hljs-number">2</span>*<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(ky)+<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(kx+ky));
+<span class="hljs-keyword">end</span></code></pre>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/">Topological Physics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/%E6%8B%93%E6%89%91%E7%89%A9%E6%80%81%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">拓扑物态的基础概念</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Weyl/">Weyl</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Code/">Code</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/12/16/CS_01_introduction/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">计算科学与编程</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2018/11/17/topology04_Weyl02_toy/">
+                        <span class="hidden-mobile">外尔半金属（Weyl semimetal）数值</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "外尔半金属（Weyl semimetal）的拓扑数计算&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

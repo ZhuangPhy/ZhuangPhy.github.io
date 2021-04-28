@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>冷原子物理 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/IsingXY.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2018-10-22 14:23">
+      October 22, 2018 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="概览">概览</h2>
+<p>对物质的控制能力，有助于我们对自然规律的研究和应用。在现代物理学中, 一个明显的任务就是提高获得纯量子体系和对其状态进行操纵的能力。</p>
+<p>原子分子光学（atomic,molecular and optical physics，简称AMO）是凭借电磁学手段在原子分子的尺度上研究物质相互作用，以及光与物质相互作用的学科统称。</p>
+<p>AMO领域的两大主题</p>
+<ol type="1">
+<li>控制</li>
+<li>低温</li>
+<li>模拟</li>
+</ol>
+<h3 id="低温">低温</h3>
+<p class="note note-primary">
+我们为什么要关注极低温下的世界呢？
+</p>
+<p>当温度足够高的时候，一切粒子都是游离状态，它们碰撞、结合，又分离......世界一片混沌。只有当温度降低之后，质子才终于能俘获电子形成氢原子，进一步冷却之后，这些原初的粒子才得以在引力作用下聚合成团，形成恒星这种造物发动机。当恒星内部聚合反应所释放的能量不足以支撑引力时，恒星将会爆炸，喷射出大量重元素。这些重元素在恒星外部的低温环境下重新聚合，分子和晶体开始形成，最终组成行星。</p>
+<p><strong>温度在逐步降低，新的凝聚现象则随之逐级发生</strong>。从物理学角度看，这是<strong>不同的对称性逐渐发生破缺</strong>。</p>
+<p>在降温过程中，热涨落渐渐低于原子间的相互作用，原子的德布罗意波长逐渐变长，量子效应开始变得显著。</p>
+<p class="note note-danger">
+如何获得低温？
+</p>
+<p>实现低温的方法一般可以分为三大类：</p>
+<ol type="1">
+<li>基于气体动力学将热持续地从低温端抽出</li>
+<li>低温冷剂来制冷</li>
+<li>利用某些物理化学现象</li>
+</ol>
+<p>不同的温度区间适合于不同的制冷手段。</p>
+<ul>
+<li><p><strong>液氮区(77K+)</strong></p>
+<p>在常压下氮气的液化温度为77K，换算成摄氏度是-196度，意味着在这个温度以上，我们都可以采用液氮作为<strong>制冷剂</strong>来进行冷却。</p></li>
+<li><p><strong>液氦区(4.2K+)</strong></p>
+<p>对于更低的温度，我们需要液化温度更低的气体来作为“冷媒”。早期用的较多的除液氮外还包括液氖（液化温度27.1K），液氢（20.3K）和液氦（4.2K）。现在液氖和液氢已经退出了历史舞台，因为氦气有较高的惰性，使用起来非常安全。</p></li>
+<li><p><strong>稀释制冷(&lt;4.2K)</strong></p>
+<p>按照3-He和He-4的比例多少，我们将这两种相分别称为“浓相”（含3-He多些）和“稀相”（含3-He少些）。因为3-He要轻一些，所以浓相是浮在稀相上面的。人们进一步发现，3-He浓相的焓值（即系统所包含的总热量）要比稀相低，这就意味着，如果一个3-He原子从浓相“渗透”到稀相，就必须从外界吸收一份额外的热量。这一现象，成为了目前商业上可获得的最低温技术——<strong>稀释制冷技术</strong>的基本原理。</p>
+<p>实验上发现，即便是温度达到绝对零度，稀相中仍然可以保留约6.4%的3-He，意味着即便温度趋近绝对零度，仍然可以维持稀释制冷过程。</p></li>
+</ul>
+<h3 id="控制">控制</h3>
+<p class="note note-success">
+如何控制？
+</p>
+<ol type="1">
+<li>Feshbach共振</li>
+<li>光晶格</li>
+<li>单原子操控</li>
+</ol>
+<p>利用Feshbach效应，可以通过调节磁场来改变原子之间的相互作用。</p>
+<p>光晶格是一种人造光晶体，它是由反向传播激光束干涉形成的周期性势阱构成的。光晶格的周期、势深等参量可以通过调节激光的强度和频率等来准确控制。作为一个纯净可控的实验平台，光晶格已经逐渐成长为模拟多体系统的最便利的工具之一。</p>
+<h3 id="模拟">模拟</h3>
+<p>尽管在很多材料体系中陆续预言和发现了各种拓扑材料及其拓扑相，在一种可控的量子体系中实现对材料的拓扑性质的模拟是一种独特的研究拓扑的思路，仍会对拓扑材料和拓扑性质的理解提供很大的帮助。自美国物理学家理查德·费曼提出量子计算的概念以来，量子模拟一直是可控量子体系的一个重要应用。人们希望通过量子模拟，将一些复杂问题的计算转变为人造可控体系的可控演化。对演化的结果测量直接得到问题的答案，这是量子模拟最吸引人之处。</p>
+<h2 id="文献导览">文献导览</h2>
+<p>研究机构和研究组</p>
+<ol type="1">
+<li><a href="https://iqe.pku.edu.cn/dht/lyzyjmcl_01/yjfx_02/index.htm" target="_blank" rel="noopener">北京大学 冷原子物理与精密测量（Cold Atom Physics and Precision Measurement,简称CAP小组）</a></li>
+<li><a href="https://qotg.physik.unibas.ch/pages/research.htm" target="_blank" rel="noopener">Quantum Optics Theory Group</a></li>
+<li><a href="https://www.quantum-munich.de/" target="_blank" rel="noopener">Quantum Optics Group (LMU)马普所</a></li>
+</ol>
+<p>学者</p>
+<ol type="1">
+<li><a href="https://www.quantum-munich.de/104554/bloch-immanuel-prof-dr" target="_blank" rel="noopener">Immanuel Bloch</a></li>
+</ol>
+<p>论文</p>
+<ol type="1">
+<li><a href="http://wulixb.iphy.ac.cn/custom/2019/4" target="_blank" rel="noopener">冷原子专题-物理学报</a></li>
+</ol>
+<p>书籍</p>
+<ol type="1">
+<li><p>C. J.Pethick, H. Smith, Bose-Einstein Condensation in Dilute Gases. 2008年, 第二版</p>
+<blockquote>
+<p>这本书是一本较为标准的经典教科书，每章后面一些习题，习题数量不多。本书第一版是2001年，也就是在那几年，关于势阱中BEC的实验和理论进展迅速。本书的出现也是当时所需吧。 这本书较为综合，不仅仅介绍了一些基本理论，还有实验上的一些原理。从内容上来说，奠定了后来出版类似书的基本框架和内容。只用一些量子力学和统计力学上的知识就够了，无需凝聚态物理的基础。</p>
+</blockquote></li>
+<li><p>Masahito Ueda, Fundamentals and New Frontiers of Bose-Einstein condensation. 2010年第一版</p>
+<blockquote>
+<p>这本书是一本纯粹理论方面的教科书，更侧重于推导和基本功。涵盖面非常广泛在推导方面，作者简化了其过程，并在一定程度上淡化了理解，更注重简洁的理论框架。本书作者，上田正仁，是日本理论物理届现象级的人物之一。正如书名那样，本书涵盖了基础和前沿，但大多也都是点到为止，适合作为框架理解。至于细节和深入理解还应该去翻看相对于的论文或其他专著。</p>
+</blockquote></li>
+<li><p>Lev Pitaevskii, Sandro Stringari, Bose-Einstein condensation and superfluidity, 2016年第一版</p>
+<blockquote>
+<p>这本书侧重于概念，正如第一章标题就是长程序，序参量，接下来就是理想玻色气体，弱相互作用玻色气体，超流，线性响应函数等等。所以此书非常适合去理解一些概念，里面的推导也是注重于概念本身，而不是去呈现完整的理论。与上田正仁那本书注重公式和推导相反，这本书主要注重图像和概念。这两位作者之一Pitaevskii就是Gross-Pitaevskii方程的提出者，朗道的博士生。</p>
+</blockquote></li>
+<li><p>Physics of Ultracold Quantum Gases 韩永健，易为，张威 2014</p></li>
+</ol>
+<p>论坛帖子</p>
+<ol type="1">
+<li><a href="https://chaoli.club/index.php/2300/0" target="_blank" rel="noopener">冷原子的学习入门贴</a></li>
+<li><a href="https://www.zhihu.com/column/c_1252169273243840512" target="_blank" rel="noopener">C.J.Foot 原子物理学读书笔记</a></li>
+</ol>
+<h3 id="分主题">分主题</h3>
+<p>光晶格</p>
+<ol type="1">
+<li><a href="http://www.wuli.ac.cn/CN/abstract/abstract67724.shtml" target="_blank" rel="noopener">《光晶格中的冷原子》郭文祥 2016 物理杂志</a></li>
+</ol>
+<p>Feshbach Resonances</p>
+<ol type="1">
+<li>《可爱的自由度——原子 Bose-Einstein 凝聚中的Feshbach 共振》张 永 德</li>
+<li><a href="https://zhuanlan.zhihu.com/p/24628404" target="_blank" rel="noopener">学生报告</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/313866535" target="_blank" rel="noopener">中文笔记</a></li>
+</ol>
+<p>拓扑模拟</p>
+<ol type="1">
+<li><a href="https://mp.weixin.qq.com/s/JtCegkLJW7WNGLN-ox2QIw" target="_blank" rel="noopener">拓扑相和拓扑相变的量子模拟</a></li>
+<li><a href="https://iqe.pku.edu.cn/dht/lyzyjmcl_01/yjfx_02/lyz1/index.htm" target="_blank" rel="noopener">北大小组方向介绍</a></li>
+</ol>
+<h3 id="综述">综述</h3>
+<p>学长推荐的两篇综述</p>
+<ol type="1">
+<li>Many-body physics with ultracold gases 2008 RMP</li>
+<li>Bose-Einstein condensation in the alkali gases: Some fundamental concepts 2001 RMP</li>
+</ol>
+<h2 id="参考">参考</h2>
+<ol type="1">
+<li><a href="https://zhuanlan.zhihu.com/p/213818463" target="_blank" rel="noopener">介绍三本关于超冷原子理论领域的书</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/66840028" target="_blank" rel="noopener">入门</a></li>
+<li><a href="https://mp.weixin.qq.com/s/BLUb-VisLJXwzrYJNWbeuw" target="_blank" rel="noopener">冷原子，一把打开量子宝库的钥匙 | 众妙之门</a></li>
+<li><a href="https://mp.weixin.qq.com/s/wkYoRYh15PLOitfOrNSOvQ" target="_blank" rel="noopener">接近绝对零度的死寂中，居然隐藏着量子计算这样的大杀器</a></li>
+<li><a href="https://mp.weixin.qq.com/s/JtCegkLJW7WNGLN-ox2QIw" target="_blank" rel="noopener">拓扑相和拓扑相变的量子模拟</a></li>
+</ol>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Cold-Atom/">Cold Atom</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/introduction/">introduction</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Link/">Link</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Cold-Atom/">Cold Atom</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/10/23/Cold_03_Basic01_BEC/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">BEC玻色爱因斯坦凝聚</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2018/06/13/CMP_110_magnetic_electron/">
+                        <span class="hidden-mobile">The magnetic electron</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "冷原子物理&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

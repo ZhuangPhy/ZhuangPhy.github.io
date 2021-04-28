@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>非对称系统中的外尔近藤半金属 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/Thesis_heavy_weyl.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-12-30 14:23">
+      December 30, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      185
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<p>reference</p>
+<ol type="1">
+<li><a href="https://arxiv.org/pdf/1911.01400.pdf?fbclid=IwAR3A4qL9TNXEhaYZ6MxQUCV4fREP_3kgXeHdewIuoyuBFsnfeqd1CwxnZrc" target="_blank" rel="noopener">Weyl-Kondo semimetals in nonsymmorphic systems</a></li>
+</ol>
+<h2 id="摘要">摘要</h2>
+<p>There is considerable current interest to explore electronic topology in strongly correlated metals, with heavy fermion systems providing a promising setting. Recently, a Weyl-Kondo semimetal phase has been concurrently discovered in theoretical and experimental studies. The theoretical work was carried out in a Kondo lattice model that is time-reversal invariant but inversion-symmetry breaking. In this paper, we show in some detail how nonsymmorphic space-group symmetry and strong correlations cooperate to form Weyl nodal excitations with highly reduced velocity and pin the resulting Weyl nodes to the Fermi energy. A tilted variation of the Weyl-Kondo solution is further analyzed here, following the recent consideration of such effect in the context of understanding a large spontaneous Hall effect in <span class="math inline">\(Ce _{3} Bi _{4} Pd _{3}\)</span> (Dzsaber <span class="math inline">\(e t\)</span> al., arXiv:1811.02819). We discuss the implications of our results for the enrichment of the global phase diagram of heavy fermion metals, and for the space-group symmetry enforcement of topological semimetals in other strongly correlated settings.</p>
+<h2 id="简介">1简介</h2>
+<p>本篇文章的领域范围从大到小</p>
+<ul>
+<li>Strong correlations</li>
+<li>Heavy fermion</li>
+<li><span class="math inline">\(4 f\)</span> electrons</li>
+</ul>
+<p>Strong correlations give rise to a plethora of ground states and, correspondingly, a variety of quantum phase transitions. Heavy fermion metals have <strong>provided</strong> a canonical setting to study strong correlation physics, including quantum critical points and emergent phases. <span class="math inline">\(^{1-3}\)</span> Typically, in these systems, <span class="math inline">\(4 f\)</span> electrons have a local Coulomb repulsion that is <strong>large compared</strong> to their bandwidth. <span class="math inline">\({ }^{4}\)</span> Due to such strong correlations, the <span class="math inline">\(4 f\)</span> electrons <strong>act as local moments</strong>, which are Kondo <strong>coupled</strong> to a band of background conduction electrons. The local moments can form a Kondo singlet with the spins of the conduction electrons by the Kondo coupling, or they may <strong>condense into an antiferromagnetic order</strong> through their Ruderman-Kittel-Kasuya-Yosida (RKKY) interaction. <span class="math inline">\({ }^{5}\)</span> Correspondingly, antiferromagnetic quantum critical points often develop in heavy fermion metals, as illustrated in Fig. 1 (a). A global phase diagram has been advanced <span class="math inline">\(^{6-11}\)</span> as shown in Fig. <span class="math inline">\(1( b ) .\)</span> It features quantum phases that <strong>are distinct</strong> not only by the existence or absence of antiferromagnetic order, but also by the Kondo entanglement and its destruction. <span class="math inline">\({ }^{12-20}\)</span></p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210109111513445.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210109111513445</figcaption>
+</figure>
+<blockquote>
+<p>FIG.(a) Quantum phase transition of heavy fermion metals. The vertical axis varies temperature <span class="math inline">\(T\)</span> and thus the amount of thermal fluctuations. The horizontal axis tunes a non-thermal control parameter <span class="math inline">\(\delta,\)</span> which corresponds to the ratio of the Kondo to RKKY interactions. The red point labeled <span class="math inline">\(\delta_{ QCP }\)</span> marks a quantum critical point where the ordered antiferromagnetic phase and the disordered heavy Landau-Fermi liquid phases <strong>meet</strong> at <span class="math inline">\(T=0,\)</span> <strong>producing</strong> the quantum critical <strong>non-Fermi liquid</strong> regime at nonzero temperatures.</p>
+<ol start="2" type="a">
+<li>Heavy fermion global phase diagram. <span class="math inline">\({ }^{6-11}\)</span> The parameter <span class="math inline">\(G\)</span> controls the amount of geometric frustration of local moments, while <span class="math inline">\(J_{K}\)</span> modifies the magnitude of the Kondo coupling. AF labels phases with antiferromagnetic ordering of local moments, and P labels paramagnetic phases. Subscript <span class="math inline">\(L\)</span> denotes large Fermi surface phases, and subscript <span class="math inline">\(S\)</span> denotes small Fermi surface phases. The dashed lines, labelled "I", "II" and "III", illustrate three trajectories (corresponding to three cuts in the parameter space for the tuning parameter <span class="math inline">\(\delta\)</span> shown in Fig. <span class="math inline">\(1(\)</span> a <span class="math inline">\()\)</span> ) of quantum phase transitions. Near the border of the AF phase boundaries, large magnetic fluctuations may lead to emergent correlated topological phases in heavy fermion systems when the SOC is large.</li>
+</ol>
+</blockquote>
+<p>An intriguing problem is how the overall quantum phase diagram of heavy fermion metals is enriched by phases that are topologically non-trivial, when the strong correlations interplay with a large spin-orbit coupling. <span class="math inline">\({ }^{21}\)</span> This is an outstanding issue at the intersection between strong correlations and topology. From the vantage point of non-interacting topological states of matter, the typical questions of interest concern the effect of electron correlations on non-interacting topological states, such as non-interacting topological semimetals, or about the type of weakly interacting topological phases that can be produced by interaction-induced broken symmetries. <span class="math inline">\(^{22-24}\)</span> However, in the present context, the question of interest is different: What type of topological metallic states can be driven by strong correlations? We address this issue in a setting where the time-reversal symmetry is preserved.</p>
+<p>(外尔近藤半金属相)Recently, a Weyl-Kondo semimetal (WKSM) phase has been concurrently discovered in theoretical <span class="math inline">\(^{25}\)</span> and experimental studies. <span class="math inline">\({ }^{26,27}\)</span></p>
+<ul>
+<li>This theoretical work was carried out in a Kondo lattice model that is time-reversal invariant but <strong>inversion-symmetry breaking</strong>.</li>
+<li>The defining characteristics of the Weyl-Kondo semimetal include linearly-dispersing <strong>Weyl nodal</strong> excitations with highly reduced velocity and Weyl nodes being pinned to the Fermi energy.</li>
+</ul>
+<p>(本文内容简介)In this paper, we show in some detail the role of nonsymmorphic space group symmetry in producing these properties.</p>
+<ul>
+<li>We consider a periodic <strong>Anderson/Kondo model</strong> on a <strong>diamond lattice</strong>,</li>
+<li>with <strong>inversion symmetry broken</strong> by a staggered potential, at quarter filling. <span class="math inline">\({ }^{25}\)</span></li>
+<li>Focusing on the <strong>limit</strong> of large on-site Coulomb repulsion, the model is equivalent to a Kondo lattice.</li>
+<li>In the absence of Kondo coupling, the nonsymmorphic space group symmetry generates Weyl nodes that are located <strong>far away</strong> from the Fermi energy, and the ground state is topologically trivial.</li>
+<li>Because of the Kondo effect, strongly <strong>renormalized quasiparticles</strong> are produced near the Fermi energy.</li>
+<li>When this happens, the space-group symmetry in turn <strong>ensures</strong> that the Weyl nodes develop precisely at the Fermi energy;</li>
+<li>this makes the Weyl nodal excitations to be <strong>long-lived</strong> and, hence, well-defined, even in the present strongly interacting setting.</li>
+<li>In addition, the renormalized nodal velocity is smaller than the usual non-interacting value by the ratio of the Kondo temperature to the bare conduction-electron bandwidth, which can be as large as three orders of magnitude.</li>
+<li>We will also analyze further the effect of a tilting potential <span class="math inline">\(^{27}\)</span> to the Weyl-Kondo solution itself and the Berry curvature distribution. All these properties are important in giving rise to new signatures of the Weyl-Kondo semimetal in thermodynamic <span class="math inline">\({ }^{25,26}\)</span> and transport properties. <span class="math inline">\({ }^{27}\)</span></li>
+<li>In addition, we will discuss how these results enrich the global phase diagram of heavy fermion metals. This enrichment captures the role of spin-orbit coupling in the interplay between competing phases, all of which develop out of the underlying spin degrees of freedom of the <span class="math inline">\(4 f\)</span> electrons.</li>
+<li>Finally, we touch upon the implications of the results for space-group symmetry enforcement of topological semimetals in the general context of strongly correlated systems.</li>
+</ul>
+<p>To set the stage for our analysis about how the spacegroup symmetry interplays with strong correlations, we start by briefly outlining the role of space-group symmetry in the noninteracting case.</p>
+<h4 id="a非对称空间群对称性的角色拓扑半金属相的保护">A非对称空间群对称性的角色&amp;拓扑半金属相的保护</h4>
+<p>We focus our discussion on three dimensional (3D) crystals. In topological semimetals, the bulk already has a gapless excitation spectrum. This is to be contrasted with topological insulators, in which the bulk excitations are fully gapped and only the surface states are gapless. Both of these topological phases must have band inversion, a reordering of conduction and valence bands which allows the topological insulator surface states to connect the conduction and valence bands. In three dimensions, a quadratic Hamiltonian can be classified into a topological equivalence class depending on its nonspatial symmetries: time-reversal symmetry (TRS), particle-hole symmetry, and chiral symmetry. This is commonly known as the tenfold way, which can be applied to topological insulators and topological semimetals, and can accommodate spatial symmetries as well. <span class="math inline">\({ }^{28}\)</span> More specifically to Weyl semimetals, these are characterized by energy levels that meet in pairs of twofold degenerate points in momentum space as a result of tuning Hamiltonian parameters. Without other symmetries in the system, this requires tuning three parameters to achieve degeneracy, but space group symmetries may protect the degeneracies. <span class="math inline">\(^{29}\)</span> In the efforts to identify topological materials, several studies have applied symmetry classification criteria to space groups <span class="math inline">\(^{30-32}\)</span> and more specifically to particular lattice realizations, <span class="math inline">\({ }^{33,34}\)</span> as well as considered the fillings at which nonsymmorphic symmetries will enforce gapless phases. <span class="math inline">\({ }^{35}\)</span></p>
+<p>To obtain such degeneracy, a mechanism of band inversion is a necessary but insufficient ingredient. Band inversion can occur by lattice strain, scalar relativistic effects, or spin-orbit coupling <span class="math inline">\(( SOC )^{36-38}\)</span> Given the crucial role of the <span class="math inline">\(SOC ,\)</span> the search for topological materials tends to focus on systems that are based on heavy elements with large <span class="math inline">\(SOC\)</span>. Conveniently, the lanthanides and actinides where the <span class="math inline">\(f\)</span> -orbital elements as well as the often-involved heavy elements (e.g., Bi) associated with heavy fermion materials provides substantial SOC.</p>
+<p>We are interested in topological semimetals in <span class="math inline">\(3 D\)</span> crystals with <span class="math inline">\(SOC\)</span> and additional space-group symmetries that can protect nodal band crossings. It turns out that many nonsymmorphic space groups can support four-dimensional irreducible representations on the zone boundaries, which produce robust symmetry protected Dirac semimetal phases, provided they do not lie along threefold or sixfold rotation axes. <span class="math inline">\({ }^{29,39}\)</span> A nonsymmorphic symmetry is a space group operation <span class="math inline">\(\{ O \mid t \}\)</span> which combines a spatial point-group operation (or nonspatial operation) <span class="math inline">\(O\)</span> with a partial (non-primitive) lattice translation vector <span class="math inline">\(t\)</span>. Spatial symmetries are group operations that rotate and reflect different lattice sites onto one another, such as an <span class="math inline">\(n\)</span> -fold rotation about the <span class="math inline">\(i\)</span> th axis <span class="math inline">\(C_{n i},\)</span> or a reflection about the <span class="math inline">\(a b\)</span> plane with normal vector <span class="math inline">\(\hat{c}, m_{c} .\)</span> Respectively, the corresponding nonsymmorphic transformations are called screw operations <span class="math inline">\(\left(\left\{C_{n i} \mid t \right\}=\right.\)</span> rotation <span class="math inline">\(+\)</span> fractional <span class="math inline">\(\left. t \right)\)</span> and glide operations <span class="math inline">\(\left(\left\{m_{c} \mid t \right\}=\right.\)</span> reflection <span class="math inline">\(+\)</span> fractional <span class="math inline">\(\left. t \right) .\)</span> since multiple fractional translations are needed to traverse the unit cell, it is enlarged in real space, which causes the Brillouin zone <span class="math inline">\(( BZ )\)</span> to fold. This creates a new Brillouin zone boundary (BZB) where any bands that intersect it are sharply reflected back into the <span class="math inline">\(BZ\)</span>, causing a degeneracy at the <span class="math inline">\(BZB\)</span>. For these reasons, nonsymmorphic space groups with SOC generically produce Dirac nodal band touching points or lines of degeneracy. The glide symmetry is familiar to the strongly correlated electron community of iron pnictides; there, the symmetry implies that the eigenstates come in (glide even and odd) pairs and, as a result, gives rise to an extra degeneracy at the boundary of the <span class="math inline">\(BZ\)</span> associated with the physical two-iron unit cell. <span class="math inline">\({ }^{40}\)</span></p>
+<p>With the nonsymmorphic symmetry-enforced Dirac semimetal as a starting point, a Weyl semimetal phase can arise from breaking TRS or inversion symmetry (IS). <span class="math inline">\({ }^{29}\)</span> Without the protection of space-group symmetry, one would have to resort to IS breaking (ISB) systems tuned to within a band inversion transition between a trivial band insulator and a topological insulator. <span class="math inline">\({ }^{31,41}\)</span> Bands that invert are allowed to cross because (1) the bands have different irreducible representations, such as the odd-even parity in <span class="math inline">\(s-f\)</span> coupling; (2) bands of the same irreducible representation may have 28,42 Otherwise wavefunctions that differ by a Berry phase. the noncrossing theorem requires that the bands hybridize to open a topologically trivial gap at a generic point in the <span class="math inline">\(BZ\)</span>.</p>
+<p>Thus a robust procedure is to search for space groups that anchor IS breaking or are also noncentrosymmetric, and can realize an even filling factor that is both gapless and has zero enclosed Fermi surface volume.</p>
+<h4 id="b强关联性驱动的拓扑状态">B强关联性驱动的拓扑状态</h4>
+<p>Given all these considerations, a topological state driven by the Kondo effect arises if one first realizes a topologically trivial ground state without the Kondo effect, and when the Kondo effect is turned on, produces a topologically nontrivial phase. Our model has a solution that corresponds to such a Kondo-driven phase. We will show that the result is robust to changes in parameters. This is because our Hamiltonian has the required crystal and local symmetries, and fulfills group-theoretical filling constraints that achieve topological semimetal phases in response to the Kondo effect. Therefore, our model illustrates that strong correlations help hone in on nontrivial topological phases in the vast multidimensional parameter space of the strong correlation global phase diagram in the presence of a large <span class="math inline">\(SOC\)</span>. In this sense, a design principle follows from our work (as well as from experiments <span class="math inline">\({ }^{26,27}\)</span> ), namely to search for topological semimetals driven by strong correlations by focusing on strongly correlated semimetals with a nonsymmorphic space group and broken inversion symmetry.</p>
+<p>The remainder of the paper is organized as follows. In Sec. II, we first explain our model and solution method. In Sec. III, we show how the model obtains a correlations-driven topological phase transition from specific symmetry considerations (Sec. III A) and the pinning of the nodes to the Fermi energy driven by the combined effect of the space-group symmetry and strong correlations (Sec. III B). A symmetryallowed tilt term is added in the model and its role is analyzed in some detail in Sec. IV. Then in Sec. V, we discuss strong correlations-suited transport and thermodynamic signatures of WKSM phases. Finally, we close in Sec. VI by discussing heavy fermion materials as a platform for exploring topological phases, and consider the nature of topological phase transitions in the global phase diagram of heavy fermion metals.</p>
+<h2 id="模型">2模型</h2>
+<p>An Anderson lattice type model which describes the heavy fermion systems. <span class="math display">\[
+H = H _{c}+ H _{c d}+ H _{d}
+\]</span> The Hamiltonian separated into</p>
+<ul>
+<li>the part representing physical conduction <span class="math inline">\(s p d\)</span> electrons <span class="math inline">\(H _{c},\)</span></li>
+<li>a hybridization term <span class="math inline">\(H _{c d}\)</span> which allows the formation of heavy yet mobile quasi-particles,</li>
+<li>a part representing the physical highly localized <span class="math inline">\(4 f\)</span> electrons <span class="math inline">\(H _{d}\)</span>.</li>
+</ul>
+<h4 id="传导电子">传导电子</h4>
+<p><span class="math display">\[
+\begin{aligned}
+H _{c} &amp;=t \sum_{\langle i j\rangle, \sigma}\left(c_{i \sigma}^{\dagger} c_{j \sigma}+ H.c. \right) \\
+&amp;-\mu \sum_{i, \sigma} n_{i \sigma}^{c} \\
+&amp;+i \lambda \sum_{\langle\langle i j\rangle\rangle}\left[c_{i \sigma}^{\dagger}\left( \sigma \cdot e _{i j}\right) c_{j \sigma}- H.c. \right] \\
+&amp;+m \sum_{i, \sigma}(-1)^{i} c_{i \sigma}^{\dagger} c_{i \sigma}
+\end{aligned}
+\]</span></p>
+<p>This Hamiltonian is based on the Fu-Kane-Mele model. <span class="math inline">\({ }^{41,43,44}\)</span></p>
+<ul>
+<li>The nearest-neighbor <span class="math inline">\((\langle i j\rangle)\)</span> hopping amplitude sets the energy scale at <span class="math inline">\(t=1 ;\)</span></li>
+<li>the chemical potential parametrizes the electron density as <span class="math inline">\(\mu\)</span> and breaks particle-hole symmetry;</li>
+<li>the second-nearest neighbor <span class="math inline">\((\langle\langle i j\rangle\rangle)\)</span> Dresselhaus-type spin orbit coupling has strength <span class="math inline">\(\lambda\)</span> and acts upon spin space in the Pauli matrix basis, in vector form <span class="math inline">\(\sigma\)</span>;</li>
+<li>finally a sublattice-dependent atomic potential difference is tuned by <span class="math inline">\(m .\)</span> In this last term, <span class="math inline">\(m&gt;0\)</span> tunes the degree of crystal inversion symmetry breaking, serving to lift the degeneracies between the two facecentered-cubic (fec) sublattices of the diamond lattice.</li>
+</ul>
+<h4 id="局域电子与耦合电子">局域电子与耦合电子</h4>
+<p>The term that allows the two species to hybridize is simply <span class="math display">\[
+H _{c d}=V \sum_{i, \sigma}\left(d_{i \sigma}^{\dagger} c_{i \sigma}+ H.c. \right)
+\]</span> which has strength <span class="math inline">\(V,\)</span> and in the strong coupling limit that we consider, tracks the strength of the Kondo effect.</p>
+<p>To represent the localized <span class="math inline">\(4 f\)</span> electrons, the <span class="math inline">\(d\)</span> -operator Hamiltonian is <span class="math display">\[
+H _{d}=E_{d} \sum_{i, \sigma} d_{i \sigma}^{\dagger} d_{i \sigma}+U \sum_{i} n_{i \uparrow}^{d} n_{i \downarrow}^{d}
+\]</span> where</p>
+<ul>
+<li>The first term has a flat bare atomic energy level <span class="math inline">\(E_{d}\)</span> which lies far below the conduction electron bands.</li>
+<li>The second term is the Coulomb interaction with repulsion energy <span class="math inline">\(U,\)</span> which penalizes the double occupation of a site.</li>
+</ul>
+<h4 id="四分之一填充">四分之一填充</h4>
+<p>Finally, we will primarily focus on the case of quarter filling, which corresponds to total electron count of 1 per site: <span class="math display">\[
+n_{d}+n_{c}=1
+\]</span> where, <span class="math display">\[
+\begin{aligned}
+n_{d} &amp;=\frac{1}{N_{\text {site }}} \sum_{i, \sigma} d_{i \sigma}^{\dagger} d_{i \sigma} \\
+n_{c} &amp;=\frac{1}{N_{\text {site }}} \sum_{i, \sigma} c_{i \sigma}^{\dagger} c_{i \sigma}
+\end{aligned}
+\]</span> with</p>
+<ul>
+<li><span class="math inline">\(N_{\text {site }}\)</span> counting the total number of sites in the lattice.</li>
+<li>The interaction <span class="math inline">\(U\)</span> term is, of course, an obstruction to obtaining the eigenstates.</li>
+</ul>
+<p>However, in the strong coupling limit of <span class="math inline">\(U \rightarrow \infty,\)</span> one can use the <strong>auxiliary boson</strong> method <span class="math inline">\(^{4}\)</span> to treat the Coulomb term by considering it's large limit consequence, which is to only allow density configurations of single particle-per-site occupation and empty occupancy. Thus the localized species acquires a boson as <span class="math inline">\(d_{i \sigma}^{\dagger}=b_{i} f_{i \sigma}^{\dagger},\)</span> which is, at the saddle-point level, averaged over the unit cell as <span class="math inline">\(b_{i} \rightarrow\left\langle b_{i}\right\rangle=r,\)</span> where <span class="math inline">\(0&lt;r&lt;1 .\)</span> This necessitates including a Lagrange multiplier <span class="math inline">\(\ell\)</span> which parameterizes a constraint equation term introduced into the large <span class="math inline">\(U\)</span> Hamiltonian as <span class="math display">\[
+H _{s}= H + H _{\ell}
+\]</span> where <span class="math display">\[
+H _{\ell}=\ell\left(\sum_{i, \sigma} f_{i \sigma}^{\dagger} f_{i \sigma}+r^{2}-1\right)
+\]</span> and renormalizing the hybridization as <span class="math inline">\(V \rightarrow \tilde{V}=r V\)</span>. Put together, this gives the strong coupling Hamiltonian <span class="math inline">\(H _{s}\)</span>. The parameters <span class="math inline">\(x =(\mu, r, \ell)\)</span> are obtained by solving the set of saddle point equations <span class="math inline">\(\frac{\delta H _{s}}{\delta x_{i}}=0\)</span> self consistently. The parameter <span class="math inline">\(\ell\)</span> renormalizes the localized electron's energy level to <span class="math inline">\(E_{d} \rightarrow \tilde{E}_{d}=E_{d}+\ell,\)</span> which in practice is close to <span class="math inline">\(E_{F}\)</span> (we define <span class="math inline">\(E_{F}=0\)</span> ).</p>
+<h4 id="transformation">transformation</h4>
+<p>We eliminated the need to numerically solve for <span class="math inline">\(\mu\)</span> by finding the analytical solutions to nodal points in the Brillouin zone (see Appendix A). The key step to solving for the eigenenergies is to find a suitable basis that renders the Hamiltonian separable. In Ref. 25 , we performed the canonical (unitary) <strong>transformation</strong> <span class="math inline">\(\breve{\Psi}_{ k }=S_{\sigma}^{\dagger} \Psi_{ k },\)</span> on Eq. <span class="math display">\[
+\begin{aligned}
+H _{c} &amp;=t \sum_{\langle i j\rangle, \sigma}\left(c_{i \sigma}^{\dagger} c_{j \sigma}+\text { H.c. }\right) \\
+&amp;-\mu \sum_{i, \sigma} n_{i \sigma}^{c} \\
+&amp;+i \lambda \sum_{\langle\langle i j\rangle\rangle}\left[c_{i \sigma}^{\dagger}\left( \sigma \cdot e _{i j}\right) c_{j \sigma}- H.c. \right] \\
+&amp;+m \sum_{i, \sigma}(-1)^{i} c_{i \sigma}^{\dagger} c_{i \sigma}
+\end{aligned}
+\]</span> that leads to <span class="math display">\[
+\begin{aligned}
+H_{c} &amp;=\sum_{ k } \breve{\Psi}_{ k }^{\dagger}\left(\begin{array}{cc}
+h_{ k +} &amp; 0 \\
+0 &amp; h_{ k -}
+\end{array}\right) \breve{\Psi}_{ k } \\
+h_{ k \pm} &amp;=u_{1}( k ) \tau_{x}+u_{2}( k ) \tau_{y}+(m \pm \lambda D( k )) \tau_{z}
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(u_{1}( k ), u_{2}( k ), D( k )\)</span> are defined for the diamond lattice in Appendix A,</li>
+<li>and the <span class="math inline">\(\tau_{i}\)</span> are Pauli matrices acting in the fce sublattice space.</li>
+</ul>
+<p>We have used a pseudospin basis, <span class="math inline">\({ }^{44}\)</span> defined by the eigenstates <span class="math inline">\(|\pm D\rangle\)</span> with eigenvalues <span class="math display">\[
+\begin{array}{l}
+\frac{ D ( k ) \cdot \sigma }{D( k )}|\pm D\rangle=\pm|\pm D\rangle \\
+D( k ) \equiv| D ( k )|=\sqrt{D_{x}( k )^{2}+D_{y}( k )^{2}+D_{z}( k )^{2}}
+\end{array}
+\]</span> Based on previous studies, 25,44 we know that the Weyl nodes only emerge in the <span class="math inline">\(|-D\rangle\)</span> sector corresponding to <span class="math inline">\(h_{ k -} .\)</span> (另一篇论文证明了Weyl 点只出现在 <span class="math inline">\(|-D\rangle\)</span> 部分)</p>
+<p>( <span class="math inline">\(D( k )\)</span> 项来源于自旋轨道耦合)The term <span class="math inline">\(D( k )\)</span> arises from the Fourier transform of the <span class="math inline">\(SOC\)</span> term. since the bands have a definite ordering in terms of energy (see Appendix A), we find the nodal band touchings occur only between particular bands (see Sec. III B).</p>
+<p>With the number of particles per-site-per-spin (or simply fractional filling) of all fermions being <span class="math inline">\(n_{c}+n_{d}=1\)</span> and since the localized electrons' filling was fixed at <span class="math inline">\(n_{f}=1-r^{2},\)</span> this implies that the conduction electron density is <span class="math inline">\(n_{c}=r^{2}\)</span> and thus small.</p>
+<h2 id="外尔近藤半金属">3外尔近藤半金属</h2>
+<p>(能带宽度被Kondo效应重整化)In Ref. 25 we established that our model captures a Weyl Kondo semimetal featuring Kondo renormalization-narrowed bulk and surface bandwidths, exhibiting bulk Weyl nodes and surface states with Fermi arcs. An example of the surface states and their band narrowing can be seen in Fig. <span class="math inline">\(2,\)</span> in which the bandwidth of the pure surface states is renormalized by the Kondo effect.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210110130713343.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>FIG. 2. Eigenenergy of the surface states of the [001] plane, with parameters <span class="math inline">\(\left(E_{d}, \ell, r, V\right)=(-7,7.28,0.22,7.5) .\)</span></p>
+<ul>
+<li><strong>Blue</strong> points show the position of the <strong>Weyl</strong> nodes of the Brillouin zone boundary</li>
+<li><strong>Red</strong> points show the position of the <strong>anti-Weyl</strong> nodes of the Brillouin zone boundary</li>
+<li><strong>thick black lines</strong> show the <strong>Fermi arcs</strong> connecting nodes to their opposite chirality partner on the four neighboring Brillouin zone boundaries.</li>
+</ul>
+</blockquote>
+<p>The configuration of Weyl monopoles(外尔单极子) is tuned along the Brillouin zone boundaries with a quarter of the bands filled (two of eight total), which is consistent with our choice of nonsymmorphic lattice and Hamiltonian. <span class="math inline">\({ }^{31,39,45}\)</span> The Weyl-Kondo quasiparticles form exactly at the Fermi energy, for reasons at two levels of sophistication 准粒子恰巧在费米能级上的两个原因</p>
+<ol type="1">
+<li>the Weyl nodes appear within the Kondo resonances, which lie near the Fermi energy within a small energy window set by the Kondo temperature and</li>
+<li>the space group symmetry combined with the commensurate filling puts the nodes even closer to the Fermi energy - for the exact commensurate filling, the nodes are precisely at the Fermi energy.</li>
+</ol>
+<p>In other words, the combination of the Kondo effect and space group symmetry pin the Weyl nodes to the Fermi energy. Here, we analyze the mechanism that underlies this salientfeature of the Weyl-Kondo semimetal phase.</p>
+<h4 id="a通过对称性实现外尔近藤半金属">A通过对称性实现外尔近藤半金属</h4>
+<p>In Sec. I A, we presented some considerations for seeking Weyl semimetals in <span class="math inline">\(3 D\)</span> crystal lattices. We now turn to the specific case of the diamond lattice.</p>
+<p>The diamond lattice has space group no. <span class="math inline">\(227(F d \overline{3} m),\)</span> which is centrosymmetric, nonsymmorphic, and bipartite, consisting of two fce lattices displaced by <span class="math inline">\(t =a\left\{\frac{1}{4} \frac{1}{4} \frac{1}{4}\right\}\)</span> is the cubic lattice constant). First, consider the Hamiltonian without Kondo coupling <span class="math inline">\((V=0)\)</span> implemented on the diamond lattice, which involve four bands associated with two sublattices and two spin states, with localized <span class="math inline">\(E_{d}\)</span> levels completely decoupled from them. We consider the symmetry change as particular terms are successively added. In Fig. <span class="math inline">\(3,\)</span> the cases without Kondo coupling are shown, where the flat, trivial <span class="math inline">\(f\)</span> bands are well separated in energy below the dispersive <span class="math inline">\(c\)</span> bands. For the quarter-filling case we consider, the localized <span class="math inline">\(d\)</span> electrons are at half filling, forming a Mott insulator, and the conduction <span class="math inline">\(c\)</span> -electron bands are left completely empty, implying a topologically trivial insulator phase. If only the nearest-neighbor hopping and chemical potential terms [first two lines of Eq. (2)] are included, one has line nodes along <span class="math inline">\(X-W\)</span> as shown in the upper set of bands in Fig. <span class="math inline">\(3(\)</span> a) <span class="math inline">\(.\)</span> These fourfold degenerate line nodes crisscross the square <span class="math inline">\(BZB\)</span>, due to a combination of the nonsymmorphic symmetry, two of the mirror planes, and the <span class="math inline">\(C_{4}\)</span> and <span class="math inline">\(C_{2}\)</span> rotations.</p>
+<h4 id="b近藤驱动的结点形成和销轴">B近藤驱动的结点形成和销轴</h4>
+<p>We now wish to consider our model when the hybridization is nonzero, so that the conduction <span class="math inline">\(c\)</span> and strongly correlated <span class="math inline">\(f\)</span> electrons are coupled with each other. The choice of chemical potential and energy level <span class="math inline">\(E_{d}=E_{F}\)</span> before turning on hybridization is arbitrary, and was made to adiabatically connect the trivial insulator phase shown in Fig. 3 to the Kondo regime.</p>
+<p>In the course of solving the saddle-point equations selfconsistently, the starting value for <span class="math inline">\(E_{d}\)</span> is far below <span class="math inline">\(E_{F},\)</span> and <span class="math inline">\(\mu\)</span> is determined analytically from the eigenergies as <span class="math inline">\(\mu=-\frac{(r V)^{2}}{E_{d}+\ell}\)</span> (see Appendix A). A properly "strong" coupling solution usually means that <span class="math inline">\(r\)</span> is small but nonzero, which arises for a range of <span class="math inline">\(V\)</span> larger than some critical value. The small bosonic field measures a small but nonzero hole fluctuation <span class="math inline">\(r^{2}\)</span> away from <span class="math inline">\(n_{d}=n_{f}=1,\)</span> which is only coupled to <span class="math inline">\(V .\)</span> A valid selfconsistency solution always finds an <span class="math inline">\(r, \ell\)</span> that fixes the densities to the values specified. The solutions at this filling fix the Fermi energy such that of 8 total bands, 2 Kondo-driven bands are filled, which corresponds to the <span class="math inline">\(\nu=2 n\)</span> filling enforcement condition.</p>
+<p>A solution of this type was shown in Ref. <span class="math inline">\(25 .\)</span> To demonstrate its robustness, we solve the case with a different set of parameters. The result is plotted in Fig. <span class="math inline">\(4,\)</span> which shows the conduction electron bands with bandwidth <span class="math inline">\(D\)</span> unoccupied, well-separated by a gap of <span class="math inline">\(\sim 6 t\)</span> from the renormalized narrow <span class="math inline">\(f\)</span> -bands with heavy Weyl-Kondo quasiparticle excitations around nodes fixed precisely at <span class="math inline">\(E_{F}\)</span>. This demonstrates that the nodal states develop out of Kondo effect. The Kondo effect correlations produce this topological phase transition from trivial band insulator to WKSM, and pin the nodes to the Fermi energy as a fundamental property.</p>
+<p>The role of the localized species near the Fermi energy can also be demonstrated by calculating the projected density of states. This is provided in Fig. <span class="math inline">\(5,\)</span> which corresponds to the hybridized parameters generating Fig. <span class="math inline">\(4 .\)</span> The contributions of the <span class="math inline">\(c\)</span> and <span class="math inline">\(f\)</span> fermions are represented in shades of blue and red, respectively. The main panel of Fig. 5 shows that at the Fermi energy, the proportion of localized <span class="math inline">\(f\)</span> fermions is large compared to that of the conduction <span class="math inline">\(c\)</span> electrons, using an energy interval of <span class="math inline">\(d E=t / 10 .\)</span> The inset of Fig. 5 shows a zoomed-in view of the projected density of states with a smaller energy interval of <span class="math inline">\(d E=0.005 t\)</span> to accommodate the reduced bandwidth. In the energies closest to <span class="math inline">\(E_{F},\)</span> the <span class="math inline">\(f\)</span> fermions prominently characterize the states compared to the <span class="math inline">\(c\)</span> 's. The hybridization has allowed a tiny amount of <span class="math inline">\(c\)</span> -electrons to mix (see inset) through the hole fluctuations of the <span class="math inline">\(r\)</span> -bosonic condensate via <span class="math inline">\(n_{c}=r^{2} .\)</span> This demonstrates that the localized <span class="math inline">\(f\)</span> electrons are directly responsible for producing the WeylKondo semimetal.</p>
+<p>We close this subsection with two remarks. First, other quantities can also be calculated. For example, the surface states that correspond to the same parameter choice has already been shown in Fig. 2 .</p>
+<p>Second, going beyond the saddle-point level, the renormalized quasiparticles will acquire a finite lifetime due to the residual interactions. However, because the Kondo-driven Weyl nodes are pinned at the Fermi energy, the strongly renormalized nodal excitations will be long-lived, with the lifetime reaching infinity when the node is approached. This makes the Kondo-driven Weyl nodal excitations well defined even though it is a strongly interacting many-body system.</p>
+<h2 id="倾斜式外尔近藤半金属">4倾斜式外尔近藤半金属</h2>
+<p>In the process of understanding a large spontaneous Hall effect observed in <span class="math inline">\(Ce _{3} Bi _{4} Pd _{3},^{27}\)</span> a tilted variation of the WeylKondo solution was introduced there. Here, we further investigate this effect. This allows us to analyze the details of the Berry curvature distribution near a small Fermi pocket centered around the Weyl nodes, and how this distribution can be made extremely asymmetric with respect to a Weyl or an anti-Weyl node by the tilting potential. Our results further support the analysis presented in Ref. <span class="math inline">\(27 .\)</span></p>
+<h4 id="a倾斜式外尔色散">A倾斜式外尔色散</h4>
+<p>The tilting term in our diamond-lattice model <span class="math inline">\(^{27}\)</span> of the WKSM can locally adjust the anisotropy of the linear part of the dispersion. We specify it as <span class="math display">\[
+H _{t}=C \sum_{ k , \sigma}\left[1-\frac{1}{2} D( k )\right] n_{ k \sigma}^{c}
+\]</span> which preserves the lattice symmetry and is added to the conduction electron Hamiltonian Eq. (2). Here, <span class="math inline">\(C\)</span> sets the tilting potential, and we continue to consider the specific parameters of <span class="math inline">\(m=1\)</span> and <span class="math inline">\(\lambda=1 / 2 .\)</span> We have solved the saddle-point equations in the presence of the tilting term.</p>
+<p>The resulting dispersion is contrasted to that of the un-tilted model, as shown in Fig. <span class="math inline">\(6 .\)</span> The Weyl nodes remain pinned at the Fermi energy in the tilted case. This further illustrates the robustness of the mechanism discussed in the previous section for the formation and pinning of the Kondo-driven Weyl nodes.</p>
+<p>To see the reason that the <span class="math inline">\(C\)</span> term tilts the dispersion near the nodes, note that near the Weyl node, Eq. (10) is a <span class="math inline">\(2 \times 2\)</span> Hamiltonian matrix and can be linearized to obtain a <span class="math inline">\(k \cdot \tau\)</span> form. The Hamiltonian <span class="math inline">\(H _{t}\)</span> is proportional to the matrix <span class="math inline">\(\tau_{0} \otimes\)</span><span class="math inline">\(\sigma_{0},\)</span> which commutes with the canonical transformation, and after the transformation it contributes a term <span class="math inline">\(C\left[1-\frac{1}{2} D( k )\right] \tau_{0}\)</span> to <span class="math inline">\(h_{ k -} .\)</span> Linearizing the full <span class="math inline">\(h_{ k -}\)</span> near the nodes gives a linear dispersion which adds velocity components that depend on the tilting direction <span class="math inline">\(\hat{t}\)</span> as <span class="math inline">\(v _{t}=C \hat{t} .\)</span> Now the effective Hamiltonian is <span class="math display">\[
+H_{ eff }= v _{t} \cdot k \tau_{0}+v k \cdot \tau
+\]</span> Using the velocity ratio, the effective Hamiltonian has the regimes <span class="math inline">\(\left|\frac{C}{v}\right|&lt;1\)</span> (type <span class="math inline">\(I\)</span> ), and <span class="math inline">\(\left|\frac{C}{v}\right|&gt;1\)</span> (type II). <span class="math inline">\(^{46}\)</span> The typeI behavior makes the dispersion anisotropic, and causes the Fermi surface to change shape within the BZ. A type-II Weyl semimetal arises when the tilt has become extreme enough to cause a Lifshitz transition of the Fermi surface.</p>
+<p>In Fig. 6 we illustrate the tilting of the linear bands around the node when <span class="math inline">\(C \neq 0\)</span>; we plot the eigenenergies along the green high-symmetry <span class="math inline">\(k\)</span> -contour in Fig. <span class="math inline">\(6(\)</span> a) that intersects with the Weyl nodes. Fig. <span class="math inline">\(6( b )\)</span> shows the dispersion of a strong coupling limit solution when <span class="math inline">\(C=0.8\)</span>, where there are anisotropic slow and fast bands along <span class="math inline">\(X-W_{\pm} .\)</span> There also appears to be two Lifshitz transitions ready to happen: the type-I to type-II tilting transition, and the Fermi pocket lowering itself to the Fermi energy around <span class="math inline">\(U\)</span> and <span class="math inline">\(U^{\prime} .\)</span> This is in contrast to the non-tilted <span class="math inline">\(C=0\)</span> dispersion shown in Fig. <span class="math inline">\(6( c )\)</span> where the linear part of the dispersion appears isotropic along <span class="math inline">\(X-W_{\pm}\)</span> for energies sufficiently close to <span class="math inline">\(E_{F}\)</span></p>
+<h4 id="b贝里曲率的分布">B贝里曲率的分布</h4>
+<p>The physical quantity that lies at the heart of an electronic topological phase's "topologicalness" is the Berry phase, and we show in Fig. 7 the Berry curvature distribution for a tiny portion of the BZ that surrounds one of the Weyl nodes of Fig. <span class="math inline">\(6(\)</span> a) (denoted by the small square surrounding the right red node of Fig. <span class="math inline">\(6( a ))\)</span>. The Berry phase is the condensed matter manifestation of the geometric phase acquired when a wave system explores the landscape of its parameter space as a result of a cyclic adiabatic process. In condensed matter systems, a particle in state <span class="math inline">\(n\)</span> acquires a Berry phase <span class="math inline">\(\gamma_{n}\)</span> as the Hamiltonian parameters are varied around a closed path <span class="math inline">\(S\)</span> without eigenstate transitions away from <span class="math inline">\(n\)</span> (i.e., adiabaticity is preserved). The Berry phase and the related Berry flux quantity is expressed in terms of the Berry vector potential <span class="math inline">\(A _{n}( k )\)</span> and corresponding Berry curvature <span class="math inline">\(\Omega _{n}( k )\)</span> as <span class="math display">\[
+\begin{aligned}
+\Phi_{n}( S ) &amp;=\oint_{ S } d k \cdot A _{n}( k ) \\
+&amp;=\frac{1}{2 \pi} \int_{\partial S } d S \cdot \Omega _{n}( k ) \\
+&amp;=\frac{1}{4 \pi} \int \frac{d^{3} k}{(2 \pi)^{3}} \nabla_{ k } \cdot \Omega _{n}( k )
+\end{aligned}
+\]</span> where <span class="math display">\[
+\begin{aligned}
+\Omega _{n}( k ) &amp;=\nabla_{ k } \times A _{n}( k ) \\
+&amp;=\left(\Omega_{n}^{y z}( k ), \Omega_{n}^{z x}( k ), \Omega_{n}^{x y}( k )\right) \\
+\Omega_{n}^{a b}( k ) &amp;=\sum_{n \neq n^{\prime}} \operatorname{Im} \frac{\left\langle n k \left|\partial_{k_{a}} H_{ k }\right| n^{\prime} k \right\rangle\left\langle n^{\prime} k \left|\partial_{k_{b}} H_{ k }\right| n k \right\rangle}{\left( E _{n}- E _{n^{\prime}}\right)^{2}}
+\end{aligned}
+\]</span> One immediately sees that at a Weyl node degeneracy, the denominator of Eq. (21) is zero, causing a singularity in the Berry curvature field in the momentum space [Eq. (20)]. Due to their singular structure, the positive and negative Berry curvature singularities corresponding to Weyl nodes and antinodes possess a local topological invariant that can distinguish between nodal signs, and is just the Berry flux of Eq. (18) computed around a single node. For a single Weyl node, the Berry flux density is <span class="math inline">\(\nabla \cdot \Omega =\pm 4 \pi \delta^{3}( k )\)</span> and the Berry flux is <span class="math display">\[
+\Phi( S )=\pm \frac{1}{4 \pi} \int \frac{d^{3} k}{(2 \pi)^{3}} 4 \pi \delta^{3}( k )=\pm 1
+\]</span> This tells us that the Berry flux is a quantized number that counts the number and sign of Berry charges (monopoles) in a given system. This is the reason for the "monopole" terminology: the Berry flux acts like the total charge of the Weyl point, and their associated Berry curvature (magnetic) field has a monopole or anti-monopole configuration. When the Weyl (anti-)nodes are pinned to the immediate vicinity of the Fermi energy, as happens in our Weyl-Kondo semimetal solution, the monopoles and associated Berry curvature singularities appear very close to the Fermi surface. In other words, the Fermi surface comprises tiny Fermi pockets that surround the Weyl (anti)nodes, and states on the Fermi surface have a very large Berry curvature.</p>
+<p>An intriguing question is how to tune the singular nature of the Berry curvature. Tilting the Weyl cone dispersion is one means of doing so. An example of the tilt behavior of the model is seen in Fig. <span class="math inline">\(7 .\)</span> The color scale indicates the magnitude of the <span class="math inline">\(\Omega_{y z}\)</span> component of the Berry curvature, which is highly concentrated around the node and discontinuous at the node, located in the center of each plot. The solid and dashed contours show the Fermi surface produced with <span class="math inline">\(C=0\)</span> and <span class="math inline">\(C=0.9,\)</span> respectively, from a slightly metallic filling <span class="math inline">\(n_{d}+n_{c}=1+10^{-5} .\)</span> For both cases, but especially for the tilted case, the Berry curvature is very large on the Fermi surface, reflecting the proximity of the Fermi surface to a Weyl monopole.</p>
+<p>In Fig. <span class="math inline">\(7( a ),\)</span> the area in the momentum space shown corresponds to the small square surrounding the right red node of Fig. <span class="math inline">\(6(\)</span> a). This conveys how tiny the Fermi surfaces are compared to the extent of the <span class="math inline">\(BZ\)</span>. In Fig. <span class="math inline">\(7( b )\)</span>, we zoom in further from Fig. 7 (a) to the vicinity of the node. Here, it is apparent that the <span class="math inline">\(C=0.9\)</span> tilted Fermi surface (dashed line) still encloses the node, but it is much closer to the node as compared to the <span class="math inline">\(C=0\)</span> Fermi surface (solid line). The tilting term is seen to make the Fermi pocket and the associated Berry curvature be distributed around the Weyl node in a highly asymmetrical way, in which highly singular Berry curvature fields strongly influence the heavy Weyl quasiparticles pinned at the Fermi surface.</p>
+<p>In particular, Figs. <span class="math inline">\(7( a )\)</span> and <span class="math inline">\(7( b )\)</span> illustrate that the asymmetry induced by the tilting term has made one side of the Fermi pocket to be much closer to the node than the other. This makes an external electric field to be readily able to drive the system to a highly out-of-equilibrium response in the Berry-curvature-induced transverse conductance, a theoretical framework that was advanced for the spontaneous Hall effect in Ref. <span class="math inline">\(27 .\)</span> As such, our result concretely demonstrates the ready realization of the giant spontaneous Hall effect put forward there.</p>
+<h2 id="相关的拓扑结构半金属的标志">5 相关的拓扑结构半金属的标志</h2>
+<p>Some of the conventional signatures of Weyl semimetals are quantum oscillation experiments, negative longitudinal magnetoresistance indicative of the chiral anomaly, and angle-resolved photoemission spectroscopy (ARPES) imaging of both the bulk and surface states, which probes the linear nodal dispersion in the bulk and verifies topology due to the bulk-boundary-correspondence. These experiments elegantly illustrate the signatures of weakly correlated Weyl semimetal material candidates.</p>
+<p>As has been pointed out recently, <span class="math inline">\({ }^{27}\)</span> the strongly correlated Weyl-Kondo semimetal phase offers several obstacles to characterization by conventional experimental probes. For example, imaging the surface states would have to use an ARPES setup that could resolve features within a bandwidth of approximately <span class="math inline">\(D^{*} \sim k_{B} T_{K},\)</span> with for example, in <span class="math inline">\(Ce _{3} Bi _{4} Pd _{3}\)</span>, <span class="math inline">\(T_{K} \approx 13 K ,\)</span> which would require an ultrahigh resolution much below <span class="math inline">\(D^{*} \sim 1 meV\)</span></p>
+<p>On the other hand, the WKSM displays unique physics that offers more suitable probes. The WKSM phase exhibits node pinning that is contingent on the development of the Kondo effect, a slow effective Weyl fermion velocity, and, correspondingly, a narrowed bandwidth. In Refs. 25 and 26 , it was shown that the specific heat has the following form: <span class="math display">\[
+C_{p}=\Gamma T^{3}
+\]</span> The prefactor of the <span class="math inline">\(T\)</span> -cubic dependence from the contribution of each node is <span class="math display">\[
+\Gamma=\frac{7 \pi^{2}}{30} k_{B}\left(\frac{k_{B}}{\hbar v^{*}}\right)^{3}
+\]</span> This means that <span class="math inline">\(\Gamma\)</span> is enhanced relative to the typical noninteracting value by a factor of <span class="math inline">\(\left(v / v^{*}\right)^{3},\)</span> the ratio of the typical Fermi velocity of a non-interacting electron band to the renormalized velocity of the Kondo-driven Weyl nodal excitations; this enhancement is robust against the residual interactions between the Weyl fermions. The <span class="math inline">\(v^{*}\)</span> value extracted for <span class="math inline">\(Ce _{3} Bi _{4} Pd _{3}\)</span> is <span class="math inline">\(\sim 886 m / s ,\)</span> three orders of magnitude smaller compared to a normal metal's Fermi velocity. <span class="math inline">\(^{26}\)</span></p>
+<p>The Kondo-driven node pinning also implies that a large Berry curvature singularity at the Fermi energy develops at <span class="math inline">\(T&lt;T_{K}\)</span>. This provides a means of using the Berry-curvatureinduced anomalous velocity to probe the topological characteristics of the Kondo-driven Weyl nodes in the WKSM (that is time-reversal invariant in equilibrium), at zero magnetic field and in a nonlinear response to an applied electric field, as has recently been demonstrated in Ref. <span class="math inline">\(27 .\)</span></p>
+<h2 id="结论和展望">6 结论和展望</h2>
+<p>We have expanded on several theoretical aspects of the Weyl-Kondo semimetal state in a noncentrosymmetric Kondo/Anderson lattice model with both strong correlations and large spin-orbit coupling. This state was advanced concurrently in theoretical <span class="math inline">\(^{25}\)</span> and experimental <span class="math inline">\(^{26,27}\)</span> studies. It preserves the time-reversal invariance. The Weyl nodes are driven by the Kondo effect and, thus, must appear within the narrow energy range near the Fermi energy for the Kondo resonance; at the same time, their existence can be traced to the degeneracy of electronic states enforced by nonsymmorphic space-group symmetry. These two features combine to pin the Weyl nodes to the immediate vicinity of the Fermi energy. Moreover, the Kondo-driven nature makes the linearlydispersing Weyl nodal excitations to have an energy scale <span class="math inline">\(k_{B} T_{K},\)</span> which is smaller than the bare conduction-electron bandwidth <span class="math inline">\(D\)</span> by orders of magnitude (c.f. Fig. 4). Correspondingly, the velocity <span class="math inline">\(v^{*}\)</span> is reduced from typical values of noninteracting electrons by several orders of magnitude. An immediate consequence of such a reduced velocity is that the specific heat <span class="math inline">\(c_{V}=\Gamma T^{3},\)</span> with the <span class="math inline">\(T\)</span> -cubic prefactor <span class="math inline">\(\Gamma\)</span> enhanced from the typical non-interacting value by a huge factor of <span class="math inline">\(\left(v / v^{*}\right)^{3}\)</span>. The pinning of the Weyl nodes to the immediate vicinity of the Fermi energy also implies that the Berry curvature singularities of the Weyl nodes appear near the Fermi energy. This gives rise to a large anomalous velocity for the states on a small Fermi surface pocket surrounding the Weyl nodes. As such, this pinning of the Berry curvature singularities near the Fermi energy presents a means of probing topological characteristics of Weyl nodal excitations through a spontaneous Hall effect, which is a nonlinear response to an applied electric field, even though the system under equilibrium preserves time-reversal symmetry.</p>
+<p>The experimental developments have taken place in the Kondo-driven semimetal <span class="math inline">\(Ce _{3} Bi _{4} Pd _{3},\)</span> a cubic system for which the space group is nonsymmorphic (no. 220 ), the inversion symmetry is broken, but the time-reversal symmetry is preserved. <span class="math inline">\(^{27}\)</span> This new heavy fermion semimetal shows a <span class="math inline">\(T^{3}\)</span> specific heat with a huge prefactor <span class="math inline">\(\Gamma,\)</span> so much so that it surpasses the phonon contribution, <span class="math inline">\({ }^{26}\)</span> and a giant spontaneous (zero magnetic field) Hall effect and an accompanying evenin-magnetic-field component. <span class="math inline">\(^{27}\)</span> The results provide direct evidence for ultraslow Weyl nodal excitations and its topological nature.</p>
+<p>We close with a look into future directions. First, the developments along this direction point to the search for further Weyl-Kondo semimetals in heavy fermion systems with nonsymmorphic space groups, as already exemplified by the case of <span class="math inline">\(Ce _{3} Bi _{4} Pd _{3} .^{26,27,47}\)</span> Because the majority of the 230 space groups in three dimensions are nonsymmorphic, this suggests the prevalence of Weyl-Kondo semimetal phases in such systems. Of potential interest in this context include nonsymmorphic heavy fermion semimetals with broken inversion symmetry such as <span class="math inline">\(CeRu _{4} Sn _{6}{ }^{48-52}\)</span> and <span class="math inline">\(CeNiSn ,{ }^{53-55}\)</span> and those that are inversion symmetric but with time-reversal symmetry broken by an external magnetic field or magnetic ordering, such as <span class="math inline">\(YbBiPt ^{56-59}\)</span> and <span class="math inline">\(CeSbTe _{60-62}\)</span></p>
+<p>Second, we have stressed that the Weyl-Kondo semimetal solution is robust because of the cooperation of the Kondo effect with the space-group symmetry. It will be instructive to explore the role of space-group symmetry on Kondo-driven bulk nodal excitations near the Fermi energy in related models. <span class="math inline">\(^{63-69}\)</span></p>
+<p>Third, the considerations of symmetry open up different ways to think of accessing nearby topological phases, by reducing or restoring point-group or space-group symmetries. One path that has been explored is anisotropically tuning the hopping amplitudes <span class="math inline">\(t_{i j}\)</span> of the lattice bonds. <span class="math inline">\(^{41,43}\)</span> Such a symmetry-reducing tuning could be approximated through uniaxial stress, which, in Kondo systems, also tunes the strength of the Kondo effect. Another avenue is to explore nonspatial symmetries, such as time-reversal symmetry breaking. <span class="math inline">\({ }^{47}\)</span> In a one fermion flavor model, <span class="math inline">\({ }^{70}\)</span> we have established that a tunable TRSB term can coexist with the Weyl semimetal phase described in Sec. III A, but that when the TRSB term is larger than the ISB term, a topologically distinct Weyl semimetal phase can emerge with nodes in the Brillouin zone interior. It is an exciting next step to incorporate TRSB to the full Kondo-driven model. Finally, doping studies represent a promising way of tuning. <span class="math inline">\(^{26,71}\)</span></p>
+<p>Fourth, the theoretical and experimental results on the Weyl-Kondo semimetal sets the stage to address how the overall quantum phase diagram of heavy fermion metals, Fig. <span class="math inline">\(1( b )\)</span>, is enriched by topologically nontrivial metallic phases driven by the combined effects of strong correlations and spin-orbit coupling. A recurring theme of heavy fermion metals is that novel phases develop in the quantum critical regime, at the border of electronic orders. This reflects the accumulation of entropy in the quantum critical regime, <span class="math inline">\({ }^{72-75}\)</span> as a result of which the electronic matter is soft and prone to developing novel phases. A canonical example of such emergent phases is unconventional superconductivity, 7,76 but it could also be nematic or other forms of secondary electronic orders. <span class="math inline">\(^{77}\)</span> An intriguing possibility is that, when the spin-orbit coupling and correlations are both strong, topologically nontrivial metallic states appear as emergent phases at the border of electronic order, albeit on the nonordered [ i.e., disordered; cf. Fig. $1( a )]$ side.</p>
+<p>Finally, the approach taken here represents a general means of treating the space-group symmetry enforcement of topological semimetals in strongly correlated settings. In the theoretical model, the Weyl nodes of the bare conduction electrons enforced by the space group symmetry are located far away from the Fermi energy. When the Kondo effect takes place, the Weyl nodes are transmitted to those of the Kondodriven quasiparticles. The combination of strong correlations and space-group symmetry enforcement pins the Kondodriven Weyl nodes to the immediate vicinity of the Fermi energy. This makes the strongly correlated Weyl-nodal excitations to be well-defined, even for a underlying many-body system that is strongly interacting. Equally important, it allows the theory to connect with the striking experiments in <span class="math inline">\(Ce _{3} Bi _{4} Pd _{3} .26,27,47\)</span> This type of interplay between the spacegroup symmetry constraint and strong correlations is likely to be important in other settings of strongly correlated topological matter as well.</p>
+<h2 id="附录">附录</h2>
+<p>A</p>
+<p>Here we show that in our model, the eigenenergies have Weyl nodes at the Fermi energy. First, the method for obtaining the eigenenergies was detailed in Ref. <span class="math inline">\(25,\)</span> and the eigenenergies are <span class="math display">\[
+E _{\pm D}^{(\tau, \alpha)}( k ) =\frac{1}{2}\left[E_{s}+\tilde{\varepsilon}_{\pm D}^{\tau}+\alpha \sqrt{\left(E_{s}-\tilde{\varepsilon}_{\pm D}^{\tau}\right)^{2}+4 V_{s}^{2}}\right] 
+\]</span> where <span class="math display">\[
+\begin{aligned}  \tilde{\varepsilon}_{\pm D}^{\tau} &amp;=\varepsilon_{\pm D}^{\tau}-\mu \\ \varepsilon_{\pm D}^{\tau} &amp;=\tau \sqrt{u_{1}^{2}( k )+u_{2}^{2}( k )+(m \pm \lambda D( k ))^{2}} \\ u_{1}( k ) &amp;=t\left(1+\sum_{n=1}^{3} \cos \left( k \cdot a _{n}\right)\right) \\ u_{2}( k ) &amp;=t \sum_{n=1}^{3} \sin \left( k \cdot a _{n}\right) \\ D( k ) &amp;=2\left\{\sin ^{2}\left(\frac{k_{x}}{2}\right)\left[\cos \left(\frac{k_{y}}{2}\right)-\cos \left(\frac{k_{z}}{2}\right)\right]^{2}\right.\\ &amp;+\sin ^{2}\left(\frac{k_{y}}{2}\right)\left[\cos \left(\frac{k_{x}}{2}\right)-\cos \left(\frac{k_{z}}{2}\right)\right]^{2} \\ &amp;\left.+\sin ^{2}\left(\frac{k_{z}}{2}\right)\left[\cos \left(\frac{k_{x}}{2}\right)-\cos \left(\frac{k_{y}}{2}\right)\right]^{2}\right\}^{1 / 2} \end{aligned}
+\]</span> where the index which labels <span class="math inline">\(\tau=\pm 1, \alpha=\pm 1, \pm D=\)</span> <span class="math inline">\(\pm D( k )\)</span> distinguishes the eight bands of the system, and the <span class="math inline">\(a _{n}\)</span> are the primitive lattice vectors of the diamond lattice. The Hamiltonian is only separable in terms of the <span class="math inline">\(|\pm D\rangle\)</span> pseudospin basis, and <span class="math inline">\(\alpha\)</span> distinguishes between the upper and lower quartet of bands; within each quartet, <span class="math inline">\(\tau\)</span> distinguishes the upper two from the lower two bands, and one can write <span class="math display">\[
+\begin{array}{l}
+\tilde{\varepsilon}_{\pm D}^{\tau}=\tau \varepsilon_{\pm D}-\mu \\
+\varepsilon_{\pm D}=\sqrt{u_{1}^{2}( k )+u_{2}^{2}( k )+(m \pm \lambda D( k ))^{2}}
+\end{array}
+\]</span> Without loss of generality, we take the parameters <span class="math inline">\(t, r, V \geq 0\)</span>. There are line or Dirac nodal touchings in the case of <span class="math inline">\(m=0\)</span> depending on whether <span class="math inline">\(\lambda=0\)</span> or nonzero. Here, we are only interested in Weyl node touchings, and thus we consider only the case with both <span class="math inline">\(\lambda, m\)</span> being nonzero; for definiteness, we focus on <span class="math inline">\(\lambda, m&gt;0\)</span></p>
+<p>The periodic Anderson model also has a few additional specifications. In the Kondo regime, we have <span class="math display">\[
+\begin{array}{l}
+E_{s}=E_{d}+\ell \\
+V_{s}=r V
+\end{array}
+\]</span> and <span class="math inline">\(V&gt;V_{c}\)</span> for some critical value, beyond which the <span class="math inline">\(r\)</span> bosonic field is small but nonzero. It is taken that the bare localized fermions representing the <span class="math inline">\(4 f\)</span> electrons should have an energy level <span class="math inline">\(E_{d}\)</span> that has a bare value well below the conduction-electron bands, <span class="math inline">\(E_{d} \ll \varepsilon_{\pm D}^{\tau} .\)</span> We chose to define <span class="math inline">\(E_{F}=0\)</span> and <span class="math inline">\(E_{d}&lt;0\)</span>; we will determine the signs of <span class="math inline">\(\mu, \ell\)</span> near the end, and in Appendix <span class="math inline">\(B\)</span>.</p>
+<p>With these pieces in place, it is simple to observe the following. Since all parameters and eigenenergies are real, and each term in the summation within each square root is squared (nonnegative), the square root quantities are also nonnegative [Eqs. (A1),(A6),(A7), and Eq. (12)]. In turn, Eq. (A7) implies that <span class="math display">\[
+\varepsilon_{+D} \geq \varepsilon_{-D} \geq 0
+\]</span> given that <span class="math inline">\(m, \lambda, D( k )&gt;0,\)</span> since the differentiating term involving <span class="math inline">\(D( k )\)</span> yields <span class="math display">\[
+\mid m+\lambda D( k ))|\geq m \geq| m-\lambda D( k ) \mid \geq 0
+\]</span> It then follows from Eq. (A7) that <span class="math display">\[
+-\varepsilon_{+D} \leq-\varepsilon_{-D} \leq 0 \leq+\varepsilon_{-D} \leq+\varepsilon_{+D}
+\]</span> In the diamond lattice space group, a nontrivial filling enforced semimetal 35 occurs at filling factor <span class="math inline">\(\nu=2 n, n \neq 2\)</span> For a quarter of the bands to be full, <span class="math inline">\(\nu=2\left(n_{c}+n_{d}\right)=2\)</span> of the eight bands must be full, so the gapless band touching point should occur between the third (hole) <span class="math inline">\(E _{3}( k )\)</span> band, and the second (filled) <span class="math inline">\(E _{2}( k )\)</span> band. We label the bands according to ascending order in energy. Then, the condition that determines when Weyl nodes <span class="math inline">\(k _{W}\)</span> are present at quarter filling is <span class="math display">\[
+\lim _{ k \rightarrow k _{W}} \Delta_{32}( k )=\lim _{ k \rightarrow k _{W}}\left[ E _{3}( k )- E _{2}( k )\right]=0
+\]</span> It is clear from the form of Eqs. (A1) and (A7) that only the <span class="math inline">\(\varepsilon_{\pm D}\)</span> terms are <span class="math inline">\(k\)</span> -dependent, so they shall determine where nodes may appear in momentum space. Because of this model's underlying nonsymmorphic symmetry, we know that the nodes should appear on the BZB, and that they generically avoid three- and sixfold symmetry axes when TRS is preserved, 39 so we search on the [001] face of the BZ (the other faces are related by symmetry). We seek solutions to <span class="math inline">\(\varepsilon_{\pm D}=0\)</span> [Eq. (A7)]. Considering just the expression <span class="math inline">\(\sqrt{u_{1}^{2}( k )+u_{2}^{2}( k )}=0,\)</span> this has line degeneracy solutions along the <span class="math inline">\(X-W\)</span> lines. Therefore, the solutions to <span class="math inline">\(\varepsilon_{\pm D}=0\)</span> will be realized for nonzero <span class="math inline">\(m, \lambda\)</span> when <span class="math inline">\(\sqrt{(m \pm \lambda D( k ))^{2}}=0\)</span> also, since the <span class="math inline">\(|m \pm D( k )|\)</span> term determines the gap in the <span class="math inline">\(\varepsilon_{\pm D}\)</span> expressions. Along an <span class="math inline">\(X-W\)</span> line such as <span class="math inline">\(k _{X W}=\left( k _{x}, 0,2 \pi\right)\)</span>, we already know from Eq. (A10) that <span class="math inline">\(|m+\lambda D( k )|\)</span> is bounded below by <span class="math inline">\(m,\)</span> which we insist is nonzero. Thus we can eliminate the <span class="math inline">\(|+D\rangle\)</span> sector from consideration for the solution, and ask whether the <span class="math inline">\(|-D\rangle\)</span> sector has a solution. Along <span class="math inline">\(k _{X W}\)</span>, <span class="math display">\[
+\begin{aligned}
+\varepsilon_{-D}\left( k _{X W}\right) &amp;=\sqrt{\left(m-\lambda D\left( k _{X W}\right)\right)^{2}} \\
+&amp;=|m-4 \lambda| \sin \left(\frac{k_{x}}{2}\right)||=0 \\
+&amp; \leftrightarrow\left|\sin \left(\frac{k_{x}}{2}\right)\right|=\frac{m}{4 \lambda}
+\end{aligned}
+\]</span> so the Weyl nodes occur at <span class="math display">\[
+\begin{aligned}
+k _{W} &amp;=\left(k_{0}, 0,2 \pi\right) \\
+k_{0} &amp;=2 \arcsin \left(\frac{m}{4 \lambda}\right), \quad \bmod \pi
+\end{aligned}
+\]</span> where the modulo <span class="math inline">\(\pi\)</span> node is the opposite chirality partner in the neighboring <span class="math inline">\(BZ\)</span>; within the first <span class="math inline">\(BZ\)</span>, there are six inequivalent pairs total. Therefore we conclude that Weyl-Kondo nodes develop only for bands in the <span class="math inline">\(|-D\rangle\)</span> sector.</p>
+<p>Now it is pertinent to apply these results to the full eigenenergy expression of Eq. (A1). Since the sign of <span class="math inline">\(\alpha\)</span> picks out whether the band is in the upper four or lower four, we consider <span class="math inline">\(\alpha=-1\)</span> to analyze quarter filling. Having shown that a Weyl node is permitted for the <span class="math inline">\(|-D\rangle\)</span> sector, <span class="math inline">\(\tau\)</span> must be opposite in sign for each band.</p>
+<p>Therefore, the Weyl nodes should exist between the bands <span class="math inline">\(E _{-D}^{(-,-)}\)</span> and <span class="math inline">\(E _{-D}^{(+,-)} .\)</span> To gain some more insight, we solve <span class="math inline">\(E _{-D}^{(-,-)}\left( k _{W}\right)=0,\)</span> and express <span class="math inline">\(\mu\)</span> in terms of other parameters. From Eq. (A1), we get <span class="math display">\[
+E_{s}-\mu-\sqrt{\left(E_{s}+\mu\right)^{2}+4 V_{s}^{2}}=0
+\]</span> which implies <span class="math display">\[
+-E_{s} \mu=V_{s}^{2}
+\]</span> Therefore, <span class="math display">\[
+\mu=-\frac{(r V)^{2}}{E_{d}+\ell}
+\]</span> so we find that the sign of <span class="math inline">\(\mu\)</span> depends on the sign of <span class="math inline">\(\left(E_{d}+\ell\right)\)</span>. In our numerical calculations for the Kondo regime at quarter filling, the solutions always follow <span class="math inline">\(\left(E_{d}+\ell\right)&gt;0\)</span>; for a given <span class="math inline">\(E_{d}&lt;0,\)</span> we find <span class="math inline">\(\ell&gt;0\)</span> and <span class="math inline">\(\left|E_{d}\right|&lt;\ell .\)</span> For example, in our parameter choice for Figs. <span class="math inline">\(4-5,\)</span> we had <span class="math inline">\(E_{d}=-7\)</span>, <span class="math inline">\(\ell=7.279,\)</span> and such results are consistent for other values of <span class="math inline">\(E_{d}, V:\left(E_{d}+\ell\right)&gt;0 .\)</span> Thus <span class="math inline">\(\mu\)</span> is negative. We reiterate that <span class="math inline">\(\mu\)</span> can be determined analytically if the filling is integer.</p>
+<h3 id="b-鞍点方程解法">B 鞍点方程解法</h3>
+<p>Here we comment on the self-consistency procedure used to obtain the parameters <span class="math inline">\(\mu, r, \ell\)</span> in Ref. 25 and this work. Since the WKSM system was separable into pseudospin sectors, the Bloch Hamiltonian matrix was decomposed from one <span class="math inline">\(8 \times 8\)</span> to two <span class="math inline">\(4 \times 4\)</span> matrices. A matrix size of <span class="math inline">\(4 \times 4\)</span> yields a characteristic equation with an eigenvalue polynomial degree of four, which is the upper limit to an exactly solvable eigenvalue problem. When the calculation is exactly at quarter filling, the chemical potential does not have to be numerically determined, as shown in Appendix A. However, for the calculations with a finite Fermi surface (e.g., Fig. 7), we can determine the chemical potential <span class="math inline">\(\mu\)</span> numerically.</p>
+<p>The remaining two saddle point equations are solved using the Newton-Raphson method. <span class="math inline">\({ }^{78}\)</span> This method can solve nonlinear systems of equations, given an initial guess that is close enough to the eventual solution. Whenever <span class="math inline">\(r, \ell\)</span> are changed, <span class="math inline">\(\quad\)</span> (integer), <span class="math inline">\(\mu\)</span> is defined in Eq. (A18). If the filling is noninte<span class="math inline">\(\mu\)</span> is updated. If the filling is specified precisely at the nodes <span class="math inline">\(\quad\)</span> ger, i.e. metallic, it may be solved for by using the bisection method on the density <span class="math inline">\(n(\mu)\)</span> of particles per site per spin.</p>
+<h2 id="参考文献">参考文献</h2>
+<ol type="1">
+<li><p>"Q. Si and F. Steglich, Science <span class="math inline">\(3 2 9 , 1161(2010) .\)</span></p></li>
+<li><p>H. v. Löhneysen, A. Rosch, M. Vojta, and P. Wölfle, Rev. Mod. Phys. 79,1015 (2007).</p></li>
+<li><p>G. R. Stewart, Rev. Mod. Phys. 73,797 (2001).</p></li>
+<li><p>A. C. Hewson, The Kondo Problem to Heavy Fermions (Cambridge University Press, Cambridge, UK, 2003).</p></li>
+<li><p>S. Doniach, Physica <span class="math inline">\(B + C 91,231\)</span> ( 1977 ).</p></li>
+<li><p>Q. Si, Physica <span class="math inline">\(B\)</span> : Condensed Matter <span class="math inline">\(3 7 8 - 3 8 0 , 23\)</span> (2006).</p></li>
+<li><p>Q. Si, Phys. Status Solidi B 247,476 (2010).</p></li>
+<li><p>J. Custers, K.-A. Lorenzer, M. Müller, A. Prokofiev, A. Sidorenko, H. Winkler, A. M. Strydom, Y. Shimura, T. Sakakibara, R. Yu, Q. Si, and S. Paschen, Nature Materials 11,189 (2012).</p></li>
+<li><p>L. Jiao, Y. Chen, Y. Kohama, D. Graf, E. D. Bauer, J. Singleton, J.-X. Zhu, Z. Weng, G. Pang, T. Shang, J. Zhang, H.-O. Lee, T. Park, M. Jaime, J. D. Thompson, F. Steglich, Q. Si, and H. Q. Yuan, Proceedings of the National Academy of Sciences 112,673 (2015)</p></li>
+</ol>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Thesis-and-Paper/">Thesis and Paper</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Thesis-and-Paper/%E8%AE%BA%E6%96%87%E5%AF%BC%E8%A7%88/">论文导览</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Weyl/">Weyl</a>
+                    
+                      <a class="hover-with-bg" href="/tags/paper/">paper</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/12/31/Thesis05_Weyl_02/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">重费米子系统中的外尔近藤半金属</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/29/Entenglement_03_circuits2/">
+                        <span class="hidden-mobile">纠缠动力学：幺与测量</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "非对称系统中的外尔近藤半金属&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

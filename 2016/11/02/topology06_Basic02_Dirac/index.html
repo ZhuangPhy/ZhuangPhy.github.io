@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>从狄拉克方程到拓扑材料 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2016-11-02 13:01">
+      November 2, 2016 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      35
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h3 id="狄拉克方程">狄拉克方程</h3>
+<p>狄拉克方程由 Paul A.M. Dirac 在 1928 年提出，用以描述自旋为 <span class="math inline">\(1 / 2\)</span> 的粒子的相对论量子行为 <span class="math inline">\(^{[10]} \circ\)</span> 自由粒子的不含时狄拉克方程写作， <span class="math display">\[
+\begin{aligned}
+H _{D} \Psi&amp;=\left(c \alpha \cdot p+m c^{2} \beta\right) \Psi\\
+&amp;=E \Psi
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(m\)</span> 是粒子的静止质量</li>
+<li><span class="math inline">\(c\)</span> 是光速</li>
+<li><span class="math inline">\(p=-i \hbar \nabla\)</span> 是动量算符。</li>
+</ul>
+<h4 id="系数的反对易关系">系数的反对易关系</h4>
+<p>系数 <span class="math inline">\(\alpha_{i}(i=x, y, z)\)</span> 和 <span class="math inline">\(\beta\)</span> 需要满足 <span class="math display">\[
+\alpha_{i}^{2}=\beta^{2}=1\\
+\left\{\alpha_{i}\beta\right\}=0\\
+\left\{\alpha_{i}, \alpha_{j}\right\}=2 \delta_{i j}
+\]</span> 要满足上述条件，这些系数至少是 <span class="math inline">\(2 \times 2\)</span> 矩阵。泡利矩阵 <span class="math inline">\(\sigma_{i}(i=x, y, z)\)</span> 表示为 <span class="math display">\[
+\sigma_{x}=\left(\begin{array}{cc}
+0 &amp; 1 \\
+1 &amp; 0
+\end{array}\right), \sigma_{y}=\left(\begin{array}{cc}
+0 &amp; -i \\
+i &amp; 0
+\end{array}\right), \sigma_{z}=\left(\begin{array}{cc}
+1 &amp; 0 \\
+0 &amp; -1
+\end{array}\right)
+\]</span> 它们满足反对易关系。即 <span class="math inline">\(\left\{\sigma_{i}, \sigma_{j}\right\}=2 \delta_{i j \circ}\)</span></p>
+<ol type="1">
+<li>对于一维空间的狄拉克方程， <span class="math inline">\(\alpha_{i}\)</span> 和 <span class="math inline">\(\beta\)</span> 可取数值</li>
+</ol>
+<p><span class="math display">\[
+\alpha_{x}=\sigma_{x}, \alpha_{y}=\alpha_{z}=0, \beta=\sigma_{z}
+\]</span> 2. 对于二维空间的狄拉克方程， <span class="math inline">\(\alpha_{i}\)</span> 和 <span class="math inline">\(\beta\)</span> 可取</p>
+<p><span class="math display">\[
+\alpha_{x}=\sigma_{x}, \alpha_{y}=\sigma_{y}, \alpha_{z}=0, \beta=\sigma_{z}
+\]</span> 3. 对于三维空间的狄拉克方程，并没有四个 <span class="math inline">\(2 \times 2\)</span> 矩阵满足关系 <span class="math inline">\(1.2 。 \alpha_{i}\)</span> 和 <span class="math inline">\(\beta\)</span> 需要扩展为 <span class="math inline">\(4 \times 4\)</span> 的矩阵</p>
+<p><span class="math display">\[
+\alpha_{i}=\left(\begin{array}{cc}
+0 &amp; \sigma_{i} \\
+\sigma_{i} &amp; 0
+\end{array}\right), \beta=\left(\begin{array}{cc}
+\sigma_{0} &amp; 0 \\
+0 &amp; -\sigma_{0}
+\end{array}\right)
+\]</span> #### 色散</p>
+<p>利用泡利矩阵，哈密顿量所对应的相对论的<strong>能量 <span class="math inline">\(-\)</span> 动量关系</strong>可表示为 <span class="math display">\[
+E^{2}=p^{2} c^{2}+m^{2} c^{4}
+\]</span> 如果质量项趋近于零，能量和动量为<strong>线性关系</strong>。这同由非相对论自由粒子的薛定谔方程 <span class="math inline">\(p^{2} \Psi / 2 m=E \Psi\)</span> 得到的能量对动量的平方依赖关系形成鲜明对比。</p>
+<h3 id="石墨烯-无质量狄拉克电子">石墨烯: 无质量狄拉克电子</h3>
+<p>石墨烯无自旋 (spinless) 的紧束溥哈密顿量可表示为 <span class="math display">\[
+H _{0}=t \sum_{r_{A}} \sum_{j=1}^{3} c_{B}^{\dagger}\left(r_{A}+ d _{j}\right) c_{A}\left( r _{A}\right)+H . c
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(t\)</span> 是最近邻的 <span class="math inline">\(p_{z}\)</span> 轨道之间的跃迁能量</li>
+<li><span class="math inline">\(d _{j}\)</span> 是上述的由 <span class="math inline">\(A\)</span> 子晶格碳原子指向三个最近邻 <span class="math inline">\(B\)</span> 子晶格碳原子的矢量。</li>
+<li><span class="math inline">\(c_{\alpha}\left(r_{i}\right)\)</span> 是在位置 <span class="math inline">\(r_{i}\)</span> 处的电子潭灭算符， <span class="math inline">\(c_{\alpha}^{\dagger}\left(r_{i}\right)\)</span> 在位置 <span class="math inline">\(r_{i}\)</span> 处的电子产生算符。</li>
+<li><span class="math inline">\(\alpha= A , B\)</span> 是对应 <span class="math inline">\(A , B\)</span> 子晶格的指标。 <span class="math inline">\(H . c .\)</span> 代表厄米共轨。</li>
+</ul>
+<p>借助傅立叶变换， <span class="math inline">\(c_{\alpha}\left(r_{i}\right)=\frac{1}{\sqrt{N}} \sum_{k} e^{-i k \cdot r_{i}} c_{\alpha}(k)(N\)</span> 为原胞的总数)，可以将哈密顿量写为， <span class="math display">\[
+H _{0}=\sum_{ k } c_{\alpha}^{\dagger}( k )\left[ H _{ k }\right]_{\alpha \beta} c_{\beta}( k )
+\]</span> 其中</p>
+<ul>
+<li>以两个不等价的碳原子的 <span class="math inline">\(p_{z}\)</span> 轨道作为布洛赫基，无自旋的布洛赫哈密顿量, <span class="math inline">\(H _{k},\)</span> 表示为</li>
+</ul>
+<p><span class="math display">\[
+H _{k}=t_{k}^{\prime} \sigma_{x}+t_{k}^{\prime \prime} \sigma_{y}
+\]</span></p>
+<p>系数 <span class="math display">\[
+t_{k}=\sum_{j=1}^{3}-t \exp \left(-i k \cdot d _{j}\right) \equiv t_{k}^{\prime}+i t_{k}^{\prime \prime}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(t_{k}^{\prime}\)</span> 和 <span class="math inline">\(t_{k}^{\prime \prime}\)</span> 分别表示 <span class="math inline">\(t_{k}\)</span> 的实部和虚部。</li>
+</ul>
+<p>对称性</p>
+<ol type="1">
+<li>空间反演操作交换 A 和 B 两套子晶格: <span class="math inline">\(P =\sigma_{x}\)</span></li>
+<li>时间反演操作使波函数的相位取复共斩，它的操作算符表示为 <span class="math inline">\(T =\sigma_{0} K\)</span></li>
+</ol>
+<h4 id="能带">能带</h4>
+<p>在 <span class="math inline">\(K _{\pm}\)</span> 附近，将波矢 <span class="math inline">\(k\)</span> 分为 <span class="math inline">\(K _{\pm}\)</span> 和 <span class="math inline">\(q\)</span> 两部分，即 <span class="math display">\[
+k = K _{\pm}+ q 
+\]</span> 其中 <span class="math inline">\(q \ll\left| K _{\pm}\right|\)</span></p>
+<p>对哈密顿量进行低能展开，由此得到在 <span class="math inline">\(K _{\pm}\)</span> 附近石墨烯的低能有效模型 <span class="math display">\[
+\begin{aligned}
+H _{0}&amp;=\hbar v_{ F }\left(\begin{array}{cc}
+0 &amp; \tau q_{x}-i q_{y} \\
+\tau q_{x}+i q_{y} &amp; 0
+\end{array}\right)
+\\&amp;=\hbar v_{ F }\left(\tau \sigma_{x} q_{x}+\sigma_{y} q_{y}\right)
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\tau=\pm 1\)</span> 是谷指标，分别对应 <span class="math inline">\(K _{\pm}\)</span></li>
+<li><span class="math inline">\(v_{ F }\)</span> 是费米速度。</li>
+</ul>
+<p>能谱 <span class="math display">\[
+\varepsilon_{\pm}( q )=\pm \hbar v_{ F } q
+\]</span> 石墨烯的低能能带呈线性量色散，满足无质量的二维狄拉克方程。因此，石墨烯的价带和导带所组成的雉形被称为狄拉克雉，价带和导带的交点被称为狄拉克点，相应的电子态被称为无质量的狄拉克费米子。石墨烯是一类典型的狄拉克材料。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201130193251136.png" srcset="/img/loading.gif" /></p>
+<h4 id="说明">说明</h4>
+<p>在此，需要说明几点：</p>
+<ul>
+<li><ol type="1">
+<li>对于狄拉克材料 (例如石墨烯)，狄拉克方程<strong>只用来</strong>描述低能区域的电子能带特性，这一区域只占整个布里渊区的很小的一部分 $( q | K _{}|) $</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>在狄拉克材料中，哈密顿量中的 <span class="math inline">\(\sigma\)</span> 矩阵可以对应真实的自旋，也可以对应赝自旋。像在上述石墨烯中， <span class="math inline">\(\sigma\)</span> 矩阵对应子晶格的赝自旋。上自旋”和“下自旋”分别对应 A 和 B 两套子晶格。不同于真自旋，这一赝自旋并没有对磁场的响应。上述石墨烯的低能哈密顿量中没有描述电子的真自旋，是一个无自旋的模型。石墨烯的狄拉克锥，具有两重自旋简并。</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li>石墨烯中狄拉克点是稳定的。在不考虑自旋轨道耦合作用的前提下，系统的时间反演对称和空间反演对称性确保了其狄拉克点的存在。</li>
+</ol></li>
+<li><ol start="4" type="1">
+<li>在哈密顿量中考虑更高阶的跃迁项(比如，次近邻跃迁) 或者破坏了石墨烯其它对称性 (比如，<span class="math inline">\(C_{3}\)</span> 旋转对称性),只会改变狄拉克雉的形状或者移动狄拉克点的位置，狄拉克点仍是存在的。</li>
+</ol></li>
+</ul>
+<h3 id="有质量狄拉克电子">有质量狄拉克电子</h3>
+<p>对于石墨烯的低能有效模型，它只存在反对角元，而没有对角元。 <span class="math display">\[
+H _{0}=\hbar v_{ F }\left(\begin{array}{cc}
+0 &amp; \tau q_{x}-i q_{y} \\
+\tau q_{x}+i q_{y} &amp; 0
+\end{array}\right)
+\]</span> 考虑自旋轨道塊合相互作用，或者打破系统的时间反演对称性或空间反演对称性 <span class="math display">\[
+H _{1}=\hbar v_{ F }\left(\tau \sigma_{x} q_{x}+\sigma_{y} q_{y}\right)+M \sigma_{z \circ}
+\]</span> 其相应的能量色散关系为 <span class="math display">\[
+\varepsilon_{\pm}( q )=\pm \sqrt{\left(\hbar v_{ F } q\right)^{2}+M^{2}}
+\]</span> 由此，狄拉克点处打开了带隙，狄拉克电子获得质量</p>
+<p><img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201130193235199.png" srcset="/img/loading.gif" /></p>
+<p>值得注意的是，高能物理中，自由粒子的质量项 <span class="math inline">\(M\)</span> 同波矢 <span class="math inline">\(k\)</span> 无关。而对于狄拉克材料体系，等效质量 <span class="math inline">\(M\)</span> 可以依赖于波矢 <span class="math inline">\(k(\)</span> 低能能带中表现为谷指标 <span class="math inline">\(),\)</span> 也可以与自旋相关。</p>
+<p>通过不同的方式引入质量项，为有带隙的石墨烯体系中带来了很多新奇的物理，引起了凝聚态物理界广泛关注。</p>
+<ol type="1">
+<li>引入打破空间反演对称性的 AB 子晶格交错势场，人们在石墨烯中提出了谷相关的物理概念。其中，谷材料能呈现谷依靠的 旋光选择性和谷霍尔效应。</li>
+<li>当引入较强的自旋轨道相互作用时，石墨烯呈现量子自旋霍尔效应(QSHE)，亦称为二维拓扑绝缘体，它的边界态呈线性色散，满足一维狄拉克方程。量子自旋霍尔效应在三维体系中对应拓扑绝缘体，其表面态满足二维狄拉克方程。因而，拓扑绝缘体是一种新颖的狄拉克材料体系。</li>
+<li>引入打破时间反演对称性的交换场项，石墨烯会有量子反常霍尔效应(QAHE)。在磁性渗杂的拓扑绝缘体中，量子反常霍尔效应最近在实验上得以实现。谷，作为新颖的电子自由度，通过谷霍尔效应能提供了新的信息传递的方式; 而量子化的自旋或反常霍尔效应则能提供了无耗散的受拓扑保护的界面导电通道</li>
+</ol>
+<h4 id="从霍尔效应到整数量子霍尔效应">从霍尔效应到整数量子霍尔效应</h4>
+<h4 id="从量子自旋霍尔效应到三维拓扑绝缘体">从量子自旋霍尔效应到三维拓扑绝缘体</h4>
+<h2 id="参考文献">参考文献</h2>
+<ol type="1">
+<li>《狄拉克材料的计算与研究》 李晓 2012 北京大学</li>
+<li>《Topological Insulators：Dirac Equation in Condensed Matters》Shun-Qing Sher 2012</li>
+</ol>
+<h2 id="附录">附录</h2>
+<p>在费米能级附近能带有两个交点。</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    n =  <span class="hljs-number">0.5</span>
+    k1 = np.arange(-n*pi, n*pi, n/<span class="hljs-number">20</span>)
+    k2 = np.arange(-n*pi, n*pi, n/<span class="hljs-number">20</span>)
+    plot_bands_two_dimension(k1, k2, hamiltonian)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hamiltonian</span><span class="hljs-params">(kx,kz,ky=<span class="hljs-number">0</span>)</span>:</span>  <span class="hljs-comment"># Weyl semimetal</span>
+    A = <span class="hljs-number">1</span>
+    M0 = <span class="hljs-number">1</span>
+    M1 = <span class="hljs-number">1</span>
+    H = A*(kx*sigma_x()+ky*sigma_y())+(M0-M1*(kx**<span class="hljs-number">2</span>+ky**<span class="hljs-number">2</span>+kz**<span class="hljs-number">2</span>))*sigma_z()
+    <span class="hljs-keyword">return</span> H
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sigma_x</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> np.array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>],[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>]])
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sigma_y</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> np.array([[<span class="hljs-number">0</span>, <span class="hljs-number">-1j</span>],[<span class="hljs-number">1j</span>, <span class="hljs-number">0</span>]])
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sigma_z</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>],[<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>]])
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plot_bands_two_dimension</span><span class="hljs-params">(k1, k2, hamiltonian)</span>:</span>
+    <span class="hljs-keyword">from</span> mpl_toolkits.mplot3d <span class="hljs-keyword">import</span> Axes3D
+    <span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> cm
+    <span class="hljs-keyword">from</span> matplotlib.ticker <span class="hljs-keyword">import</span> LinearLocator, FormatStrFormatter
+    dim = hamiltonian(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>).shape[<span class="hljs-number">0</span>]
+    dim1 = k1.shape[<span class="hljs-number">0</span>]
+    dim2 = k2.shape[<span class="hljs-number">0</span>]
+    eigenvalue_k = np.zeros((dim2, dim1, dim))
+    i0 = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> k10 <span class="hljs-keyword">in</span> k1:
+        j0 = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> k20 <span class="hljs-keyword">in</span> k2:
+            matrix0 = hamiltonian(k10, k20)
+            eigenvalue, eigenvector = np.linalg.eig(matrix0)
+            eigenvalue_k[j0, i0, :] = np.sort(np.real(eigenvalue[:]))
+            j0 += <span class="hljs-number">1</span>
+        i0 += <span class="hljs-number">1</span>
+    fig = plt.figure()
+    ax = fig.gca(projection=<span class="hljs-string">'3d'</span>)
+    k1, k2 = np.meshgrid(k1, k2)
+    <span class="hljs-keyword">for</span> dim0 <span class="hljs-keyword">in</span> range(dim):
+        ax.plot_surface(k1, k2, eigenvalue_k[:, :, dim0], cmap=cm.coolwarm, linewidth=<span class="hljs-number">0</span>, antialiased=<span class="hljs-literal">False</span>)
+    plt.xlabel(<span class="hljs-string">'kx'</span>)
+    plt.ylabel(<span class="hljs-string">'kz'</span>) 
+    ax.set_zlabel(<span class="hljs-string">'E'</span>)  
+    plt.show()
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    main()</code></pre>
+<p>表面态</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    n =  <span class="hljs-number">0.5</span>
+    k1 = np.arange(-n*pi, n*pi, n/<span class="hljs-number">50</span>)
+    k2 = np.arange(-n*pi, n*pi, n/<span class="hljs-number">50</span>)
+    plot_bands_two_dimension_direct(k1, k2, hamiltonian)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hamiltonian</span><span class="hljs-params">(kx,kz,ky=<span class="hljs-number">0</span>)</span>:</span>  <span class="hljs-comment"># surface states of Weyl semimetal</span>
+    A = <span class="hljs-number">1</span>
+    H = A*kx
+    <span class="hljs-keyword">return</span> H
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sigma_x</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> np.array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>],[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>]])
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sigma_y</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> np.array([[<span class="hljs-number">0</span>, <span class="hljs-number">-1j</span>],[<span class="hljs-number">1j</span>, <span class="hljs-number">0</span>]])
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sigma_z</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>],[<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>]])
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plot_bands_two_dimension_direct</span><span class="hljs-params">(k1, k2, hamiltonian)</span>:</span>
+    <span class="hljs-keyword">from</span> mpl_toolkits.mplot3d <span class="hljs-keyword">import</span> Axes3D
+    <span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> cm
+    <span class="hljs-keyword">from</span> matplotlib.ticker <span class="hljs-keyword">import</span> LinearLocator, FormatStrFormatter
+    fig = plt.figure()
+    ax = fig.gca(projection=<span class="hljs-string">'3d'</span>)
+    dim1 = k1.shape[<span class="hljs-number">0</span>]
+    dim2 = k2.shape[<span class="hljs-number">0</span>]
+    eigenvalue_k = np.zeros((dim2, dim1))
+    i0 = <span class="hljs-number">0</span>   
+    <span class="hljs-keyword">for</span> k10 <span class="hljs-keyword">in</span> k1:
+        j0 = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> k20 <span class="hljs-keyword">in</span> k2:
+            <span class="hljs-keyword">if</span> (k10**<span class="hljs-number">2</span>+k20**<span class="hljs-number">2</span> &lt;= <span class="hljs-number">1</span>):
+                eigenvalue_k[j0, i0] = hamiltonian(k10, k20)
+            <span class="hljs-keyword">else</span>:
+                eigenvalue_k[j0, i0] = <span class="hljs-string">'nan'</span>
+            j0 += <span class="hljs-number">1</span>
+        i0 += <span class="hljs-number">1</span>
+    k1, k2 = np.meshgrid(k1, k2)
+    ax.plot_surface(k1, k2, eigenvalue_k, cmap=cm.coolwarm, linewidth=<span class="hljs-number">0</span>, antialiased=<span class="hljs-literal">False</span>) 
+    plt.xlabel(<span class="hljs-string">'kx'</span>)
+    plt.ylabel(<span class="hljs-string">'kz'</span>)
+    ax.set_zlabel(<span class="hljs-string">'E'</span>)  
+    plt.show()
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    main()</code></pre>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/">Topological Physics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/%E6%8B%93%E6%89%91%E7%89%A9%E6%80%81%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">拓扑物态的基础概念</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Dirac-Equation/">Dirac Equation</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/11/03/topology07_Quantization01_BerryPhase/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Berry Phase</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2016/11/01/topology01_Introduction/">
+                        <span class="hidden-mobile">Topology in Condensed matter Physics</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "从狄拉克方程到拓扑材料&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

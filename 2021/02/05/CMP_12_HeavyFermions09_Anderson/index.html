@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>安德森模型 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-02-05 15:51">
+      February 5, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      84
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<ul>
+<li>《周期安德森模型的热力学研究》</li>
+</ul>
+<p>[TOC]</p>
+<h2 id="简介">0 简介</h2>
+<p>描述重费米子系统一般行为的模型是所谓的周期安德森模型，其定义为: <span class="math display">\[
+\begin{aligned}
+\hat{H}_{P A M}=&amp; \sum_{k \sigma} \varepsilon_{k} \hat{c}_{k \sigma}^{\dagger} \hat{c}_{k \sigma}+V \sum_{k \sigma}\left(\hat{c}_{k \sigma}^{\dagger} \hat{f}_{k \sigma}+\hat{f}_{k \sigma}^{\dagger} \hat{c}_{k \sigma}\right) \\
+&amp;+E_{f} \sum_{j \sigma} \hat{f}_{j \sigma}^{\dagger} \hat{f}_{j \sigma}+U \sum_{j} \hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow} \hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\hat{f}, \hat{c}\)</span> 分别代表局域电子与传导的巡游电子</li>
+<li><span class="math inline">\(\varepsilon_{k}\)</span> 是巡游电子的色散关系</li>
+<li><span class="math inline">\(E_{f}\)</span> 代表局域电子的占据能量</li>
+<li><span class="math inline">\(U\)</span> 是库仑排斥势能，仅当同一个格点有两个局域电子占据时才起作用</li>
+<li><span class="math inline">\(V\)</span> 一般代表杂质电子电子与巡游电子之间的杂化，一般认为是一个小量。</li>
+</ul>
+<h4 id="周期安德森模型的有效性">周期安德森模型的有效性</h4>
+<p>在实际中，<span class="math inline">\(f\)</span> 电子的自旋运动与轨道运动有着强烈的自旋轨道耦合，因此对 于具有 <span class="math inline">\(f\)</span> 电子的离子而言守恒的是总角动量 <span class="math inline">\(J,\)</span> 这样出现在模型当中的自旋自由度应被理解为总角动量的 <span class="math inline">\(z\)</span> 轴分量，然而在晶体场的影响下，同一角动量的不同分量的简并被消除，辟裂为一些多重态，在时间反演对称性下，多重态至少是二重简并的，以 Ce 原子[6]为例，对于孤立的 Ce 原子，其电子组态为 <span class="math inline">\(4 f^{1} 5 d^{1} 6 s^{2}\)</span>, 当我们考虑常见的 <span class="math inline">\(Ce ^{3+}\)</span> 离子时, 其电子组态为 <span class="math inline">\(4 f^{1}\)</span>, 外层的 <span class="math inline">\(d\)</span> 和 <span class="math inline">\(s\)</span> 已经完全失去。这样电子的总角动量是 <span class="math inline">\(J=3-\frac{1}{2}=\frac{5}{2}\)</span> 或 <span class="math inline">\(J=3+\frac{1}{2}=\frac{7}{2},\)</span> 根据洪特规则，对于少于半 满的壳层而言，电子系统倾向于总角动量小的状态，因此能量更低的状态是的 <span class="math inline">\(J=\frac{5}{2}\)</span> 态， <span class="math inline">\(J=\frac{5}{2}\)</span> 共有六个角动量的分量态，在没有晶体环境时是简并的，当我们 考虑晶体场，例如立方晶格对称性的立方晶体场时, <span class="math inline">\(\quad J=\frac{5}{2}\)</span> 的六个简并态会进步辟裂为两重简并的 <span class="math inline">\(\Gamma_{7}\)</span> 和四重简并的 <span class="math inline">\(\Gamma_{8}\)</span> 多重态。如果 <span class="math inline">\(\Gamma_{7}\)</span> 是能量最低的电子态，那么周期安德森模型中的自旋指标指的就是 <span class="math inline">\(\Gamma_{7}\)</span> 两重简并的雁自旋指标，而如果<span class="math inline">\(\Gamma_{8}\)</span> 是低能位形, 那么我们就需要 <span class="math inline">\(S U(4)\)</span> 的周期安德森模型来描述系统的性质，当然由于晶格倾向于发生琦变而消除四重简并，最后总是有等效的二重简并，因此就可以用这里的周期安德森模型描述，只不过需要注意自旋指标都是雁自旋指标，或者说是总自旋两个简并的投影态。</p>
+<h4 id="非简并周期安德森模型的自旋指标代表两个简并的总角动量的分量态">非简并周期安德森模型的自旋指标代表两个简并的总角动量的分量态</h4>
+<p>人们一般习惯于采用对称的周期安德森模型[17]: <span class="math display">\[
+\begin{aligned}
+\hat{H}=&amp; \sum_{k \sigma} \varepsilon_{k} \hat{c}_{k \sigma}^{\dagger} \hat{c}_{k \sigma}+V \sum_{k \sigma}\left(\hat{c}_{k \sigma}^{\dagger} \hat{f}_{k \sigma}+\hat{f}_{k \sigma}^{\dagger} \hat{c}_{k \sigma}\right) \\
+&amp;+U \sum_{j}\left(\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}-\frac{1}{2}\right)\left(\hat{f}_{j,}^{\dagger} \hat{f}_{j \downarrow}-\frac{1}{2}\right)
+\end{aligned}
+\]</span> 这相当于在原始的模型中令 <span class="math inline">\(E_{f}=-U / 2\)</span> 。</p>
+<p>对于周期安德森模型而言, 我们比较关心的基本信息是</p>
+<ol type="1">
+<li>基态的相图</li>
+<li>以及有限温度的热力学</li>
+<li>和输运性质</li>
+</ol>
+<p>这里我们讨论基态相图，特别是与磁性有关的相，包括反铁磁性、铁磁性和顺磁性。为了得到磁性有序态需要对 Hubbard 相互作用项做一定程度的改写，一般有以下<strong>三种等价</strong>的形式：</p>
+<ul>
+<li>第一种和第二种形式分别侧重于自旋以及电荷<strong>自由度</strong></li>
+<li>而第三种形式是自旋与电荷的<strong>对称形式</strong></li>
+</ul>
+<p>原则上这三种形式是等价的, 但是如果我们考虑平均场近似的计算效果并且需要和严格的数值计算比较的话，第三种分解方式是最佳的选择。 <span class="math display">\[
+\begin{array}{l}
+\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow} \hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}=-\frac{1}{2}\left(\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}-\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right)^{2}+\frac{1}{2}\left(\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}+\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right) \\
+\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow} \hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}=+\frac{1}{2}\left(\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}+\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right)^{2}-\frac{1}{2}\left(\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}+\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right) \\
+\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow} \hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}=-\frac{1}{4}\left(\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}-\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right)^{2}+\frac{1}{4}\left(\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}+\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right)
+\end{array}
+\]</span></p>
+<h4 id="平均场">平均场</h4>
+<p>考虑磁性的不稳定性，可以做如下的平均场分解: <span class="math display">\[
+\begin{aligned}
+\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow} \hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}=&amp;-\frac{1}{4}\left(\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}-\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right)^{2}+\frac{1}{4}\left(\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}+\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right) \\
+\simeq &amp;-\frac{1}{4}\left[2\left\langle\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}-\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right\rangle\left(\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}-\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right)-\left\langle\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}-\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right\rangle^{2}\right] \\
+&amp;+\frac{1}{4}\left[2\left\langle\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}+\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right\rangle\left(\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}+\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right)-\left\langle\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}+\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right\rangle^{2}\right]
+\end{aligned}
+\]</span> 这样可以定义</p>
+<ol type="1">
+<li>磁性序参量 <span class="math inline">\(m_{j}^{f}\)</span></li>
+<li>电荷序参量 <span class="math inline">\(n_{j}^{f}\)</span></li>
+</ol>
+<p><span class="math display">\[
+\begin{array}{l}
+m_{j}^{f}=\left\langle\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}-\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right\rangle \\
+n_{j}^{f}=\left\langle\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow}+\hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}\right\rangle
+\end{array}
+\]</span></p>
+<p>可以得到改写后的式子:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow} \hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow} \simeq &amp;-\frac{1}{4}\left[2 m_{j}^{f} \sum_{\sigma} \sigma \hat{f}_{j \sigma}^{\dagger} \hat{f}_{j \sigma}-\left(m_{j}^{f}\right)^{2}\right] \\
+&amp;+\frac{1}{4}\left[2 n_{j}^{f} \sum_{\sigma} \hat{f}_{j \sigma}^{\dagger} \hat{f}_{j \sigma}-\left(n_{j}^{f}\right)^{2}\right] \\
+=&amp; \sum_{\sigma}\left(-\frac{m_{j}^{f}}{2} \sigma+\frac{n_{j}^{f}}{2}\right) \hat{f}_{j \sigma}^{\dagger} \hat{f}_{j \sigma} \\
+&amp;+\frac{\left(m_{j}^{f}\right)^{2}-\left(n_{j}^{f}\right)^{2}}{4}
+\end{aligned}
+\]</span> 我们得到以下的哈密顿量在平均场近似的表述形式: <span class="math display">\[
+\begin{aligned}
+\hat{H}_{M F}=&amp; \sum_{k \sigma} \varepsilon_{k} \hat{c}_{k \sigma}^{\dagger} \hat{c}_{k \sigma}+V \sum_{k \sigma}\left(\hat{c}_{k \sigma}^{\dagger} \hat{f}_{k \sigma}+\hat{f}_{k \sigma}^{\dagger} \hat{c}_{k \sigma}\right) \\
+&amp;+\sum_{j \sigma}\left(E_{f}-U \frac{m_{j}^{f}}{2} \sigma+U \frac{n_{j}^{f}}{2}\right)+U \sum_{j} \frac{\left(m_{j}^{f}\right)^{2}-\left(n_{j}^{f}\right)^{2}}{4}
+\end{aligned}
+\]</span> 一般而言，系统的磁性和电荷序参量在<strong>空间是变化</strong>的，但是对于空间均匀的系统我们可以假定序参量在空间的分布是<strong>均匀</strong>的，仅仅有相位上的调制，对于</p>
+<ul>
+<li>反铁磁序有 <span class="math inline">\(m_{j}^{f}=(-1)^{j} m_{f}\)</span></li>
+<li>铁磁序是 <span class="math inline">\(m_{j}^{f}=m_{f}\)</span></li>
+</ul>
+<p>而非均匀的电荷分布则意味着 <span class="math inline">\(n_{j}^{f}=n_{f}\)</span>, 对于接近半满的系统，反铁磁有序是常见的类型，因此有： <span class="math display">\[
+\begin{aligned}
+\hat{H}_{M F}=&amp; \sum_{k \sigma} \varepsilon_{k} \hat{c}_{k \sigma}^{\dagger} \hat{c}_{k \sigma}+V \sum_{k \sigma}\left(\hat{c}_{k \sigma}^{\dagger} \hat{f}_{k \sigma}+\hat{f}_{k \sigma}^{\dagger} \hat{c}_{k \sigma}\right) \\
+&amp;+\sum_{j \sigma}\left(E_{f}-U(-1)^{j} \frac{m_{f}}{2} \sigma+U \frac{n_{f}}{2}\right) \hat{f}_{j \sigma}^{\dagger} \hat{f}_{j \sigma}+U \sum_{j} \frac{m_{f}^{2}-n_{f}^{2}}{4}
+\end{aligned}
+\]</span></p>
+<h2 id="安德森模型的应用">安德森模型的应用</h2>
+<h3 id="一维-p-波周期安德森模型的反铁磁平均场理论">一维 <span class="math inline">\(p\)</span> 波周期安德森模型的反铁磁平均场理论</h3>
+<p>一维 <span class="math inline">\(p\)</span> 波周期安德森模型定义为以下的模型：: <span class="math display">\[
+\begin{aligned}
+\hat{H}_{p}=&amp; \sum_{j \sigma}\left[t_{c} \hat{c}_{j \sigma}^{\dagger} \hat{c}_{j+1 \sigma}-t_{f} \hat{f}_{j \sigma}^{\dagger} \hat{f}_{j+1 \sigma}+H . c .\right] \\
+&amp;+\frac{V}{2} \sum_{j \sigma}\left[\left(\hat{c}_{j+1 \sigma}^{\dagger}-\hat{c}_{j-1 \sigma}^{\dagger}\right) \hat{f}_{j \sigma}+\hat{f}_{j \sigma}^{\dagger}\left(\hat{c}_{j-1 \sigma}-\hat{c}_{j+1 \sigma}\right)\right] \\
+&amp;+E_{f} \sum_{j \sigma} \hat{f}_{j \sigma}^{\dagger} \hat{f}_{j \sigma}+U \sum_{j} \hat{f}_{j \uparrow}^{\dagger} \hat{f}_{j \uparrow} \hat{f}_{j \downarrow}^{\dagger} \hat{f}_{j \downarrow}
+\end{aligned}
+\]</span> 这个模型可以用来描述一维<strong>拓扑近藤绝缘体</strong>, 这是拓扑绝缘体在近藤或者变价化合物系统中的推广, <span class="math inline">\(f\)</span> 电子与 <span class="math inline">\(d\)</span> 电子之间的自旋轨道耦合杂化<strong>诱导</strong>了类似拓扑绝缘态的形成。在当前的模型中, <span class="math inline">\(p\)</span> 波类型的杂化项 <span class="math inline">\((V\)</span> 项）是一维情况下自旋轨道耦合杂化的典型结果。</p>
+<ol type="1">
+<li>当 <span class="math inline">\(U=0\)</span> 时, 系统在半满时是一个 <span class="math inline">\(Z_{2}\)</span> 拓扑绝缘体 <span class="math inline">\(\left(t_{c} t_{f}&gt;0\right)\)</span> 以保证绝缘性。</li>
+<li>当 <span class="math inline">\(U&gt;0\)</span> 时，需要明确考虑相互作用的影响。</li>
+</ol>
+<p>在反铁磁平均场近似下，我们有: <span class="math display">\[
+\begin{aligned}
+\hat{H}_{p}=&amp; \sum_{j \sigma}\left[t_{c} \hat{c}_{j \sigma}^{\dagger} \hat{c}_{j+1 \sigma}-t_{f} \hat{f}_{j \sigma}^{\dagger} \hat{f}_{j+1 \sigma}+H . c .\right] \\
+&amp;+\frac{V}{2} \sum_{j \sigma}\left[\left(\hat{c}_{j+1 \sigma}^{\dagger}-\hat{c}_{j-1 \sigma}^{\dagger}\right) \hat{f}_{j \sigma}+\hat{f}_{j \sigma}^{\dagger}\left(\hat{c}_{j-1 \sigma}-\hat{c}_{j+1 \sigma}\right)\right] \\
+&amp;+\sum_{j \sigma}\left(E_{f}+\frac{U}{2} n_{j}^{f}-\frac{U}{2}(-1)^{j} m_{j}^{f} \sigma\right) \hat{f}_{j \sigma}^{\dagger} \hat{f}_{j \sigma} \\
+&amp;+\frac{U}{4} \sum_{j}\left(\left(m_{j}^{f}\right)^{2}-\left(n_{j}^{f}\right)^{2}\right)
+\end{aligned}
+\]</span> 现在我们在开边界条件下考虑这个系统，由于边界的存在，反铁磁序参量 <span class="math inline">\(m_{j}^{f}\)</span> 是平均场近似下的几个主要物理量:</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210215192647606.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>空间非均匀的反铁磁平均场近似下的反铁磁序参量 <span class="math inline">\(T_{z},\)</span></p>
+<ul>
+<li>$ f$ 电子占据数 <span class="math inline">\(n_{f}\)</span></li>
+<li>$ f$ 电子双占据数 <span class="math inline">\(d_{f}\)</span></li>
+<li><span class="math inline">\(c-f\)</span> 电子之间的有效杂化 <span class="math inline">\(V_{c f}\)</span></li>
+</ul>
+</blockquote>
+<ol type="1">
+<li>可以看到反铁磁序参量在一维链的<strong>两端</strong>是非零的，而在链中间几乎为零，这和我们严格的量子蒙特卡洛模拟结果相<strong>吻合</strong>，</li>
+<li>当然当 Hubbard <span class="math inline">\(U\)</span> 进一步增大时,平均场预言系统的整体都会显示反铁磁有序，但是量子蒙特卡罗模拟[32]表明更大的 <span class="math inline">\(U\)</span> 与小 <span class="math inline">\(U\)</span> 的情况相同, 因此平均场理论在 <span class="math inline">\(U&gt;\left|t_{c}\right|\)</span> 的情况下<strong>失效</strong>，我们需要计 入涨落的效应才能得到正确的结果。</li>
+</ol>
+<h3 id="反铁磁平均场相图">反铁磁平均场相图</h3>
+<p>作为反铁磁平均场理论的另一个应用，我们以正方晶格为例，来计算半满周 期安德森模型的相关物理量，这里我们直接给出相应的平均场哈密顿量: <span class="math display">\[
+\begin{aligned}
+\hat{H}=&amp;-t \sum_{j, \delta=\hat{x}, \hat{y}, \sigma}\left(\hat{c}_{j \sigma}^{\dagger} \hat{c}_{j+\delta \sigma}+H . c .\right)+V \sum_{j \sigma}\left(\hat{c}_{j \sigma}^{\dagger} \hat{f}_{j \sigma}+\hat{f}_{j \sigma}^{\dagger} \hat{c}_{j \sigma}\right) \\
+&amp;+\sum_{j \sigma}\left(E_{f}+\frac{U}{2} n_{j}^{f}-\frac{U}{2}(-1)^{j} m_{j}^{f} \sigma\right) \hat{f}_{j \sigma}^{\dagger} \hat{f}_{j \sigma} \\
+&amp;+\frac{U}{4} \sum_{j}\left(\left(m_{j}^{f}\right)^{2}-\left(n_{j}^{f}\right)^{2}\right)
+\end{aligned}
+\]</span> 对于均匀的周期性系统，反铁磁序参量 <span class="math inline">\(m_{j}^{f}\)</span> 在空间是完全均匀的，与位置空间无关，可以记为 <span class="math inline">\(m_{j}^{f}=m_{f},\)</span> 同时由于 <span class="math inline">\(f\)</span> 电子与巡游电子的杂化, 当 <span class="math inline">\(f\)</span> 电子显示反铁磁有序时，巡游电子也会被诱导出反铁磁有序 , 记 为 <span class="math display">\[
+m_{c}=(-1)^{j}\left\langle c_{j \uparrow}^{\dagger} c_{j \uparrow}-c_{j \downarrow}^{\dagger} c_{j \downarrow}\right\rangle
+\]</span> 二维正方晶格周期安德森模型在半满情况下的反铁磁平均场相图:</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210215193619646.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<ul>
+<li>(左图)半满的二维正方晶格周期安德森模型的反铁磁平均场相图，</li>
+<li>(右图）反铁磁线交错磁化 <span class="math inline">\(m_{\text {staggered }}\)</span> 随 <span class="math inline">\(V\)</span> 的变化。</li>
+</ul>
+</blockquote>
+<p>可以看到</p>
+<ol type="1">
+<li><span class="math inline">\(U\)</span> 大 <span class="math inline">\(V\)</span> 小时对应的基态是反铁磁绝缘态,</li>
+<li>而当 <span class="math inline">\(U\)</span> 小 <span class="math inline">\(V\)</span> 大时, 则是顺磁性的绝缘态，</li>
+</ol>
+<p>根据费米液体的<strong>绝热性假定</strong>，我们可以猜测这里的顺磁性绝缘体绝热对应于顺磁性的近藤绝缘体。</p>
+<p>对于固定的 <span class="math inline">\(U\)</span> ，我们发现随着杂化强度 <span class="math inline">\(V\)</span> 的不断增加，</p>
+<ol type="1">
+<li>局域电子的反铁磁序参量（交错磁化 <span class="math inline">\(\left.m_{\text {saggered }}\right) m\)</span> 单调减小，</li>
+<li>而巡游电子 的 <span class="math inline">\(m\)</span> 显示先上升后下降的行为，</li>
+<li>两者都在临界值 <span class="math inline">\(V=V_{c}\)</span> 处减至零，说明系统发生零温的反铁磁量子相变。</li>
+</ol>
+<p>当然简单的平均场理论并<strong>不能刻画</strong>相变点附近的临界行为，我们需要考虑长程的反铁磁涨落才可能得到合理的相变描述。巡游电子<strong>非单调行为</strong>的物理<strong>解释</strong>是</p>
+<ul>
+<li>当 <span class="math inline">\(V\)</span> 很小时，巡游电子与 <span class="math inline">\(f\)</span> 电子耦合很弱，尽管后者显示强烈的反铁磁有序，但是过于小的耦合使得巡游电子只具有小的反铁磁序</li>
+<li>当 <span class="math inline">\(V\)</span> 增大时，巡游电子感受到更加强烈的 <span class="math inline">\(f\)</span> 电子反铁磁序，因此其自身的反铁磁序得以加强</li>
+<li>最后当 <span class="math inline">\(V\)</span> 过大时，系统反铁磁序能量的降低小于顺磁态，因此反铁磁有序倾向于消失，此时 <span class="math inline">\(m_{c}\)</span> 趋于零。</li>
+</ul>
+<p>另外，注意到巡游电子与 <span class="math inline">\(f\)</span> 电子的反铁磁耦合特 性 <span class="math inline">\(\left(J \simeq \frac{v^{2}}{U}&gt;0\right), \quad m_{f}\)</span> 与 <span class="math inline">\(m_{c}\)</span> 是反号的。</p>
+<h2 id="安德森晶格模型在不同近似下的热力学性质">安德森晶格模型在不同近似下的热力学性质</h2>
+<p>运动方程方法研究不同库仑排斥势能 <span class="math inline">\(U\)</span> 条件下的周期安德森模型的基态和热力学性质是比较方便的, 在这一章中我们将采用截断近似的方法对关联格林函数的运动方程进行高阶截断, 通过 <span class="math inline">\(f\)</span> 电子和 <span class="math inline">\(d\)</span> 电子的态密度满足的求和规则来说明这种近似的准确度。我们还计算了零温时电子在不同库仑排斥势能上的占据数算符, 并与变分结果进行了定性比较, 在不同的 <span class="math inline">\(U\)</span> 下对 <span class="math inline">\(f\)</span> 电子和 <span class="math inline">\(d\)</span> 电子的态密度、比热、线性比热系数和磁化率进行了计算, 并简要讨论了有限 <span class="math inline">\(U\)</span> 的一些典型特征。同时我们假设进行数值计算时系统的态密度是自洽的, 通过上述讨论可以得出电子比热、线性比热系数以及磁化率与温度和库仑排斥势能 <span class="math inline">\(U\)</span> 之间的关系，这对于研究安德森晶格模型具有很好的参考和借鉴作用。</p>
+<h3 id="无相互作用部分">无相互作用部分</h3>
+<p>周期安德森模型又称安德森晶格模型的哈密顿量:</p>
+<p><span class="math display">\[
+H=H_{c}+H_{f}+H_{U}+H_{c f}
+\]</span> 其中 <span class="math display">\[
+\begin{aligned}
+H_{c}&amp;=\sum_{i j \sigma}\left(t_{i j}-\mu \delta_{i j}\right) c_{i \sigma}^{\dagger} c_{j \sigma}=\sum_{k \sigma}\left(\varepsilon_{k}-\mu\right) c_{k \sigma}^{\dagger} c_{k \sigma} \\
+H_{f}&amp;=\sum_{i \sigma}\left(E_{f}-\mu\right) f_{i \sigma}^{\dagger} f_{i \sigma}=\sum_{k \sigma}\left(E_{f}-\mu\right) f_{k \sigma}^{\dagger} f_{k \sigma}\\
+H_{U}&amp;=U \sum_{i} n_{i \uparrow}^{f} n_{i \downarrow}^{f}=\frac{U}{2} \sum_{i \sigma} n_{i \sigma}^{f} n_{i \bar{\sigma}}^{f}\\
+H_{c f}&amp;=V \sum_{i \sigma}\left(c_{i \sigma}^{\dagger} f_{i \sigma}+f_{i \sigma}^{\dagger} c_{i \sigma}\right)=V \sum_{k \sigma}\left(c_{k \sigma}^{\dagger} f_{k \sigma}+f_{k \sigma}^{\dagger} c_{k \sigma}\right)
+\end{aligned}
+\]</span> 其中</p>
+<ol type="1">
+<li>第一项为金属中自由传导电子的哈密顿量,</li>
+<li>第二项为局域杂质电子的哈密顿量，</li>
+<li>第三项为杂质电子之间的关联作用项，U 是电子的关联能，</li>
+<li>第四项是局域杂质电子与自由传导电子的杂化项。</li>
+</ol>
+<p>我们可以取出准粒子中无相互作用的部分： <span class="math display">\[
+H_{0}=H_{c}+H_{f}+H_{c f}
+\]</span> 其中杂化系统准粒子的能带是： <span class="math display">\[
+E_{k}^{\pm}=\frac{1}{2}\left(\varepsilon_{k}+E_{f} \pm \sqrt{\left(\varepsilon_{k}-E_{f}\right)^{2}+4 V^{2}}-\mu\right)
+\]</span> 相干因子为： <span class="math display">\[
+\begin{array}{l}
+\mu_{k}^{2}=\frac{1}{2}\left(1+\frac{\varepsilon_{k}-E_{f}}{\sqrt{\left(\varepsilon_{k}-E_{f}\right)^{2}+4 V^{2}}}\right) \\
+v_{k}^{2}=\frac{1}{2}\left(1-\frac{\varepsilon_{k}-E_{f}}{\sqrt{\left(\varepsilon_{k}-E_{f}\right)^{2}+4 V^{2}}}\right)
+\end{array}
+\]</span> 据此写出简化后哈密顿量矩阵表达式: <span class="math display">\[
+\begin{aligned}
+H_{0}&amp;=\sum_{k \sigma}\left(c_{k \sigma}^{\dagger} \quad f_{k \sigma}^{\dagger}\right)\left(\begin{array}{cc}
+\varepsilon_{k}-\mu &amp; V \\
+V &amp; E_{f}-\mu
+\end{array}\right)\left(\begin{array}{c}
+c_{k \sigma} \\
+f_{k \sigma}
+\end{array}\right)\\
+&amp;=\sum_{k \sigma}\left(\begin{array}{cc}
+c_{k \sigma}^{\dagger} &amp; f_{k \sigma}^{\dagger}
+\end{array}\right)\left(\begin{array}{cc}
+\mu_{k} &amp; -v_{k} \\
+v_{k} &amp; \mu_{k}
+\end{array}\right)\left(\begin{array}{cc}
+\mu_{k} &amp; v_{k} \\
+-v_{k} &amp; \mu_{k}
+\end{array}\right)\left(\begin{array}{cccc}
+\varepsilon_{k} &amp; V  \\
+V &amp; E_{f}
+\end{array}\right)\left(\begin{array}{ccc}
+\mu_{k} &amp; -v_{k} \\
+v_{k} &amp; \mu_{k} 
+\end{array}\right)\left(\begin{array}{cc}
+\mu_{k} &amp; v_{k} \\
+-v_{k} &amp; \mu_{k}
+\end{array}\right)\left(\begin{array}{c}
+c_{k \sigma} \\
+f_{k \sigma}
+\end{array}\right)\\
+&amp;=\sum_{k \sigma}\left(\alpha_{k \sigma}^{\dagger} \beta_{k \sigma}^{\dagger}\right)\left(\begin{array}{cc}
+E_{k}^{+} &amp; 0 \\
+0 &amp; E_{k}^{-}
+\end{array}\right)\left(\begin{array}{l}
+\alpha_{k \sigma}  \\
+\beta_{k \sigma}
+\end{array}\right)
+\end{aligned}
+\]</span> 自由能 <span class="math display">\[
+F=-2 T \sum_{k}\left[\ln \left(1+e^{-\beta E_{k}^{+}}\right)+\ln \left(1+e^{-\beta E_{k}^{-}}\right)\right]
+\]</span> 总粒子数 <span class="math display">\[
+n=\sum_{k \sigma}\left[\left\langle c_{k \sigma}^{\dagger} c_{k \sigma}\right\rangle+\left\langle f_{k \sigma}^{\dagger} f_{k \sigma}\right\rangle\right]
+\]</span></p>
+<h4 id="格林函数">格林函数</h4>
+<p>上式中的各个期望值可以通过求解相应的格林函数来得到: <span class="math display">\[
+\begin{array}{l}
+G_{c c}(k, \omega)=\frac{\mu_{k}^{2}}{\omega E_{k}^{+}}+\frac{v_{k}^{2}}{\omega E_{k}} \\
+G_{f f}(k, \omega)=\frac{v_{k}^{2}}{\omega E_{k}^{+}}+\frac{\mu_{k}^{2}}{\omega E_{k}}
+\end{array}
+\]</span> 依据推迟格林函数的谱定理（见附录 B ）可得: <span class="math display">\[
+\begin{aligned}
+\left\langle c_{k \sigma}^{\dagger} c_{k \sigma}\right\rangle &amp;=\int d \omega f_{F}(\omega)\left[-\frac{1}{\pi} \operatorname{Im} G_{c c}(k, \omega)\right] \\
+&amp;=\mu_{k}^{2} f_{F}\left(E_{k}^{+}\right)+v_{k}^{2} f_{F}\left(E_{k}\right) \\
+\left\langle f_{k a}^{\dagger} f_{k \sigma}\right\rangle &amp;=\int d \omega f_{F}(\omega)\left[-\frac{1}{\pi} \operatorname{Im} G_{f f}(k, \omega)\right] \\
+&amp;=v_{k}^{2} f_{F}\left(E_{k}^{+}\right)+\mu_{k}^{2} f_{F}\left(E_{k}\right)
+\end{aligned}
+\]</span> 因此可以计算出总粒子数：: <span class="math display">\[
+n_{t o t}=2 \sum_{k}\left[f_{F}\left(E_{k}^{+}\right)+f_{F}\left(E_{k}\right)\right]
+\]</span></p>
+<h4 id="运动方程">运动方程</h4>
+<p>首先我们定义传导电子与局域电子的格林函数： <span class="math display">\[
+\begin{array}{l}
+G_{c c}(k, \omega)=\left\langle\left\langle c_{k \sigma} \mid c_{k \sigma}^{\hat{\dagger}}\right\rangle\right\rangle_{\omega} \\
+G_{f f}(k, \omega)=\left\langle\left\langle f_{k \sigma} \mid f_{k \sigma}^{\dagger}\right\rangle\right\rangle_{\omega}
+\end{array}
+\]</span> 接着我们写出格林函数的运动方程: <span class="math display">\[
+\begin{array}{l}
+\omega\langle\langle A \mid B\rangle\rangle_{\omega}=\left\langle[A, B]_{\mp}\right\rangle+\langle\langle[A, H] \mid B\rangle\rangle_{\omega} \\
+\omega\langle\langle A \mid B\rangle\rangle_{\omega}=\left\langle[A, B]_{\mp}\right\rangle-\langle\langle A \mid[B, H]\rangle\rangle_{\omega}
+\end{array}
+\]</span> 将哈密顿量代入格林函数方程我们可以求得相应的方程组: <span class="math display">\[
+\left(\omega-E_{f}+\mu\right)\left\langle\left\langle f_{k \sigma} \mid f_{k \sigma}^{\dagger}\right\rangle\right\rangle_{\omega}=1+V\left\langle\left\langle c_{k \sigma} \mid f_{k \sigma}^{\dagger}\right\rangle\right\rangle_{\omega}
+\]</span> <span class="math display">\[
+\begin{array}{l}
+\left(\omega-\varepsilon_{k}+\mu\right)\left\langle\left\langle c_{k \sigma} \mid f_{k \sigma}^{\dagger}\right\rangle\right\rangle_{\omega}=V\left\langle\left\langle f_{k \sigma} \mid f_{k \sigma}^{\dagger}\right\rangle\right\rangle_{\omega} \\
+\left(\omega-\varepsilon_{k}+\mu\right)\left\langle\left\langle c_{k \sigma} \mid c_{k \sigma}^{\dagger}\right\rangle\right\rangle_{\omega}=1+V\left\langle\left\langle f_{k \sigma} \mid c_{k \sigma}^{\dagger}\right\rangle\right\rangle_{\omega} \\
+\left(\omega-E_{f}+\mu\right)\left\langle\left\langle f_{k \sigma} \mid c_{k \sigma}^{\dagger}\right\rangle\right\rangle_{\omega}=V\left\langle\left\langle c_{k \sigma} \mid c_{k \sigma}^{\dagger}\right\rangle\right\rangle_{\omega}
+\end{array}
+\]</span></p>
+<p>因此我们可以求得相应的解: <span class="math display">\[
+\begin{aligned}
+\left\langle\left\langle f_{k \sigma} \mid f_{k \sigma}^{\dagger}\right\rangle\right\rangle_{\omega} &amp;=\frac{1}{\omega-E_{f}+\mu-\frac{V^{2}}{\omega \varepsilon_{k}+\mu}} \\
+&amp;=\frac{\omega-\varepsilon_{k}+\mu}{\left(\omega-E_{f}+\mu\right)\left(\omega-\varepsilon_{k}+\mu\right)-V^{2}} \\
+&amp;=\frac{v_{k}^{2}}{\omega-E_{k}^{+}}+\frac{\mu_{k}^{2}}{\omega-E_{k}}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\left\langle\left\langle c_{k \sigma} \mid c_{k \sigma}^{\dagger}\right\rangle\right\rangle_{\omega} &amp;=\frac{1}{\omega-\varepsilon_{k}+\mu-\frac{V^{2}}{\omega E_{f}+\mu}} \\
+&amp;=\frac{\omega-E_{f}+\mu}{\left(\omega-E_{f}+\mu\right)\left(\omega-\varepsilon_{k}+\mu\right)-V^{2}} \\
+&amp;=\frac{\mu_{k}^{2}}{\omega-E_{k}^{+}}+\frac{v_{k}^{2}}{\omega-E_{k}}
+\end{aligned}
+\]</span></p>
+<h3 id="弱耦合情况下-h---f-近似平均场理论">弱耦合情况下 <span class="math inline">\(H - F\)</span> 近似平均场理论</h3>
+<p>杂质电子之间关联作用项的哈密顿量: <span class="math display">\[
+\begin{aligned}
+H_{U} &amp;=U \sum_{i} n_{i \uparrow}^{f} n_{i \downarrow}^{f} \\
+&amp; \simeq U \sum_{i}\left[\left\langle n_{i \uparrow}^{f}\right\rangle n_{i \downarrow}^{f}+n_{i \uparrow}^{f}\left\langle n_{i \downarrow}^{f}\right\rangle-\left\langle n_{i \uparrow}^{f}\right\rangle\left\langle n_{i \downarrow}^{f}\right\rangle\right] \\
+&amp;=\sum_{k \sigma} U\left\langle n_{\bar{\sigma}}^{f}\right\rangle f_{k \sigma}^{\dagger} f_{k \sigma}
+\end{aligned}
+\]</span></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Heavy-fermion/">Heavy fermion</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Stronaly-correlated/">Stronaly correlated</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/07/topology04_Weyl04_transport/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">外尔半金属及其输运特性</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/05/CMP_12_HeavyFermions08_ARPES/">
+                        <span class="hidden-mobile">角分辨光电子能谱仪在f电子特性研究中的应用</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "安德森模型&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

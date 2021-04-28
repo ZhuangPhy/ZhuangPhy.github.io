@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>矩阵分解-用python - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/Math_08matrix_01dec.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-03-02 17:23">
+      March 2, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      58
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="概览">概览</h2>
+<p>[TOC]</p>
+<h3 id="参考">参考</h3>
+<ol type="1">
+<li><a href="https://github.com/MacroAnalyst/Linear_Algebra_With_Python" target="_blank" rel="noopener">Gihub: Linear_Algebra_With_Python</a></li>
+<li>《矩阵计算》</li>
+<li>《矩阵论》方保镕</li>
+</ol>
+<p>在这个讲义里，我们先给出操作和简单例子，然后再解释为什么这样是可行的。也就是操作优先。</p>
+<h2 id="lu-分解-三角分解">LU 分解 (三角分解)</h2>
+<p>我们的目标是将矩阵 <span class="math inline">\(A\)</span> 分解为 <span class="math inline">\(L\)</span> 和 <span class="math inline">\(U\)</span> <span class="math display">\[
+A=L U
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(U\)</span>是上三角矩阵</li>
+<li><span class="math inline">\(L\)</span>是下三角矩阵</li>
+<li><span class="math inline">\(L\)</span>的主对角线必须为1</li>
+</ul>
+<h3 id="例子">例子</h3>
+<p>矩阵 <span class="math inline">\(A\)</span> <span class="math display">\[
+A=\left[\begin{array}{lll}
+9 &amp; 3 &amp; 6 \\
+3 &amp; 4 &amp; 6 \\
+0 &amp; 8 &amp; 8
+\end{array}\right]
+\]</span> 将矩阵 <span class="math inline">\(A\)</span> 分解为 <span class="math inline">\(L\)</span> 和 <span class="math inline">\(U\)</span> <span class="math display">\[
+A=L U=\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+\frac{4}{3} &amp; 1 &amp; 0 \\
+0 &amp; \frac{8}{3} &amp; 1
+\end{array}\right]\left[\begin{array}{ccc}
+9 &amp; 3 &amp; 6 \\
+0 &amp; 3 &amp; 4 \\
+0 &amp; 0 &amp; -\frac{8}{3}
+\end{array}\right]
+\]</span> 计算过程</p>
+<ol type="1">
+<li>用行变换 <span class="math inline">\({E}_{1}\)</span> 把矩阵 <span class="math inline">\(A\)</span> 的第2行缩进到第2位</li>
+</ol>
+<p><span class="math display">\[
+\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+-\frac{1}{3} &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{array}\right]\left[\begin{array}{lll}
+9 &amp; 3 &amp; 6 \\
+3 &amp; 4 &amp; 6 \\
+0 &amp; 8 &amp; 8
+\end{array}\right]=\left[\begin{array}{lll}
+9 &amp; 3 &amp; 6 \\
+0 &amp; 3 &amp; 4 \\
+0 &amp; 8 &amp; 8
+\end{array}\right]
+\]</span></p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(E_{1}=\left[\begin{array}{ccc} 1 &amp; 0 &amp; 0 \\ -\frac{1}{3} &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array}\right]\)</span></li>
+<li><span class="math inline">\(E_{1} A=\left[\begin{array}{lll} 9 &amp; 3 &amp; 6 \\ 0 &amp; 3 &amp; 4 \\ 0 &amp; 8 &amp; 8 \end{array}\right]\)</span></li>
+</ul>
+<ol start="2" type="1">
+<li>用行变换 <span class="math inline">\({E}_{2}\)</span> 把矩阵 <span class="math inline">\(A\)</span> 的第3行缩进到第3位</li>
+</ol>
+<p><span class="math display">\[
+\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; -\frac{8}{3} &amp; 1
+\end{array}\right]\left[\begin{array}{ccc}
+9 &amp; 3 &amp; 6 \\
+0 &amp; 3 &amp; 4 \\
+0 &amp; 8 &amp; 8
+\end{array}\right]=\left[\begin{array}{ccc}
+9 &amp; 3 &amp; 6 \\
+0 &amp; 3 &amp; 4 \\
+0 &amp; 0 &amp; -\frac{8}{3}
+\end{array}\right]
+\]</span></p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(E_{2}=\left[\begin{array}{ccc} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; -\frac{8}{3} &amp; 1 \end{array}\right]\)</span></li>
+<li><span class="math inline">\(E_{2} E_{1} A=\left[\begin{array}{lll} 9 &amp; 3 &amp; 6 \\ 0 &amp; 3 &amp; 4 \\ 0 &amp; 8 &amp; 8 \end{array}\right]\)</span></li>
+</ul>
+<p>所以我们得到了上三角矩阵 <span class="math display">\[
+E_{2} E_{1} A=U=\left[\begin{array}{ccc}
+9 &amp; 3 &amp; 6 \\
+0 &amp; 3 &amp; 4 \\
+0 &amp; 0 &amp; -\frac{8}{3}
+\end{array}\right]
+\]</span> 接下来求 <span class="math inline">\(L\)</span></p>
+<p>根据关系 <span class="math inline">\(A=L U\)</span> 和 <span class="math inline">\(E_{2} E_{1} A=U\)</span> 可推算出 <span class="math display">\[
+L^{-1}=E_{2} E_{1}=\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; -\frac{8}{3} &amp; 1
+\end{array}\right]\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+-\frac{1}{3} &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{array}\right]=\left[\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+-\frac{1}{3} &amp; 1 &amp; 0 \\
+\frac{8}{9} &amp; -\frac{8}{3} &amp; 1
+\end{array}\right]
+\]</span> 那么 <span class="math inline">\(L^{-1}\)</span> 的逆矩阵等于 <span class="math display">\[
+L=E_{1}^{-1} E_{2}^{-1}
+\]</span> 所以要知道 <span class="math inline">\(L\)</span> 就先求 <span class="math inline">\(E_{1}^{-1}\)</span> 和 <span class="math inline">\(E_{2}^{-1}\)</span> <span class="math display">\[
+\begin{array}{l}
+{\left[E_{1} \mid I\right]=\left[\begin{array}{ccc|ccc}
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+-\frac{1}{3} &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right] \sim\left[\begin{array}{ccc|ccc}
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; \frac{1}{3} &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]=\left[I \mid E_{1}^{-1}\right]} \\
+{\left[E_{2} \mid I\right]=\left[\begin{array}{ccc|ccc}
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; -\frac{8}{3} &amp; 1 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right] \sim\left[\begin{array}{ccc|ccc}
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; \frac{8}{3} &amp; 1
+\end{array}\right]=\left[I \mid E_{2}^{-1}\right]}
+\end{array}
+\]</span> 通过以上计算我们得到 <span class="math inline">\(E_{1}^{-1}\)</span> 和 <span class="math inline">\(E_{2}^{-1}\)</span> <span class="math display">\[
+\begin{array}{l}
+E_{1}^{-1}=\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+\frac{1}{3} &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{array}\right] \\
+E_{2}^{-1}=\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 \\
+0 &amp; \frac{8}{3} &amp; 1
+\end{array}\right]
+\end{array}
+\]</span> 所以 <span class="math display">\[
+L=E_{1}^{-1} E_{2}^{-1}=\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+\frac{1}{3} &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{array}\right]\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 \\
+0 &amp; \frac{8}{3} &amp; 1
+\end{array}\right]=\left[\begin{array}{lll}
+1 &amp; 0 &amp; 0 \\
+\frac{4}{3} &amp; 1 &amp; 0 \\
+0 &amp; \frac{8}{3} &amp; 1
+\end{array}\right]
+\]</span></p>
+<h4 id="python-code">Python code</h4>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> scipy <span class="hljs-keyword">as</span> sp
+<span class="hljs-keyword">import</span> scipy.linalg
+<span class="hljs-keyword">import</span> sympy <span class="hljs-keyword">as</span> sy
+sy.init_printing() 
+
+<span class="hljs-keyword">from</span> IPython.core.interactiveshell <span class="hljs-keyword">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity = <span class="hljs-string">"all"</span>
+
+A = np.array([[<span class="hljs-number">9</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">8</span>, <span class="hljs-number">8</span>]]); 
+A
+
+P, L, U = sp.linalg.lu(A)
+P
+L
+U</code></pre>
+<h4 id="一般过程">一般过程</h4>
+<ol type="1">
+<li>用行变换 <span class="math inline">\(E_{p} \ldots E_{2} E_{1}\)</span> 把矩阵 <span class="math inline">\(A\)</span> 变成上三角矩阵 <span class="math inline">\(E_{p} \ldots E_{2} E_{1} A=U\)</span></li>
+<li>求行变换 <span class="math inline">\(E_{p} \ldots E_{2} E_{1}\)</span> 的逆，得到 <span class="math inline">\(L=\left(E_{p} \ldots E_{2} E_{1}\right)^{-1}\)</span></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+A&amp;=L U \\
+A&amp;=L E_{p} \ldots E_{2} E_{1} A \\
+L&amp;=\left(E_{p} \ldots E_{2} E_{1}\right)^{-1}
+\end{aligned}
+\]</span></p>
+<h3 id="用lu分解来解线性系统">用LU分解来解线性系统</h3>
+<p>线性系统 <span class="math display">\[
+\begin{aligned}
+3 x_{1}-7 x_{2}-2 x_{3}+2 x_{4} &amp;=-9 \\
+-3 x_{1}+5 x_{2}+x_{3} &amp;=5 \\
+6 x_{1}-4 x_{2}-5 x_{4} &amp;=7 \\
+-9 x_{1}+5 x_{2}-5 x_{3}+12 x_{4} &amp;=11
+\end{aligned}
+\]</span> 矩阵形式 <span class="math display">\[
+\begin{aligned}
+Ax&amp;=b \\
+{\left[\begin{array}{rrrr} 3 &amp; -7 &amp; -2 &amp; 2 \\ -3 &amp; 5 &amp; 1 &amp; 0 \\ 6 &amp; -4 &amp; 0 &amp; -5 \\ -9 &amp; 5 &amp; -5 &amp; 12 \end{array}\right]}  \left[\begin{array}{r} x_1 \\ x_2 \\ x_3 \\ x_4
+\end{array}\right]&amp;=
+\left[\begin{array}{r} 
+−9\\5\\7\\11\end{array}
+\right]
+\end{aligned}
+\]</span> 将矩阵 <span class="math inline">\(A\)</span> 分解为 <span class="math inline">\(L\)</span> 和 <span class="math inline">\(U\)</span> <span class="math display">\[
+\left[\begin{array}{rrrr}
+3 &amp; -7 &amp; -2 &amp; 2 \\
+-3 &amp; 5 &amp; 1 &amp; 0 \\
+6 &amp; -4 &amp; 0 &amp; -5 \\
+-9 &amp; 5 &amp; -5 &amp; 12
+\end{array}\right]=\left[\begin{array}{rrrr}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+-1 &amp; 1 &amp; 0 &amp; 0 \\
+2 &amp; -5 &amp; 1 &amp; 0 \\
+-3 &amp; 8 &amp; 3 &amp; 1
+\end{array}\right]\left[\begin{array}{rrrr}
+3 &amp; -7 &amp; -2 &amp; 2 \\
+0 &amp; -2 &amp; -1 &amp; 2 \\
+0 &amp; 0 &amp; -1 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; -1
+\end{array}\right]
+\]</span> 于是线性系统可以写成 <span class="math display">\[
+\begin{aligned}
+Ax&amp;=b \\
+(LU) x&amp;=b \\
+L(U x)&amp;=b \\
+\end{aligned}
+\]</span> 设 <span class="math inline">\(U x=y\)</span>，所以问题变成求解一对方程 <span class="math display">\[
+\begin{array}{l}
+L y=b \\
+U x=y
+\end{array}
+\]</span> 先求解 <span class="math inline">\(L y=b\)</span> <span class="math display">\[
+\begin{aligned}
+L y&amp;=b \\
+\left[\begin{array}{rrrr}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+-1 &amp; 1 &amp; 0 &amp; 0 \\
+2 &amp; -5 &amp; 1 &amp; 0 \\
+-3 &amp; 8 &amp; 3 &amp; 1
+\end{array}\right]\left[\begin{array}{l}
+y_{1} \\
+y_{2} \\
+y_{3} \\
+y_{4}
+\end{array}\right]&amp;=\left[\begin{array}{r}
+-9 \\
+5 \\
+7 \\
+11
+\end{array}\right]\\
+\left[\begin{array}{rrrr|r}
+1 &amp; 0 &amp; 0 &amp; 0 &amp; -9 \\
+-1 &amp; 1 &amp; 0 &amp; 0 &amp; 5 \\
+2 &amp; -5 &amp; 1 &amp; 0 &amp; 7 \\
+-3 &amp; 8 &amp; 3 &amp; 1 &amp; 11
+\end{array}\right] &amp;\sim\left[\begin{array}{rrrr|r}
+1 &amp; 0 &amp; 0 &amp; 0 &amp; -9 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; -4 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 5 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 1
+\end{array}\right]\\
+\left[\begin{array}{l}
+y_{1} \\
+y_{2} \\
+y_{3} \\
+y_{4}
+\end{array}\right]&amp;=\left[\begin{array}{r}
+-9 \\
+-4 \\
+5 \\
+1
+\end{array}\right]
+\end{aligned}
+\]</span></p>
+<p>代码</p>
+<pre><code class="hljs python">U = np.array([[<span class="hljs-number">3</span>, <span class="hljs-number">-7</span>, <span class="hljs-number">-2</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">-2</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>,<span class="hljs-number">-1</span>]])
+y = np.array([<span class="hljs-number">-9</span>, <span class="hljs-number">-4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>])
+np.linalg.solve(U, y)
+
+A = np.array([[<span class="hljs-number">3</span>, <span class="hljs-number">-7</span>, <span class="hljs-number">-2</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">-3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">6</span>, <span class="hljs-number">-4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-5</span>], [<span class="hljs-number">-9</span>, <span class="hljs-number">5</span>, <span class="hljs-number">-5</span>, <span class="hljs-number">12</span>]])
+b = np.array([<span class="hljs-number">-9</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>])
+np.linalg.solve(A, b)</code></pre>
+<h2 id="正交三角qr分解">正交三角(QR)分解</h2>
+<p>我们的目标是将矩阵 <span class="math inline">\(A\)</span> 分解为 <span class="math inline">\(Q\)</span> 和 <span class="math inline">\(R\)</span> <span class="math display">\[
+A=Q R
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(Q\)</span> 是 <span class="math inline">\(A\)</span> 的正交矩阵</li>
+<li><span class="math inline">\(R\)</span> 是上三角矩阵</li>
+</ul>
+<h3 id="例子-1">例子</h3>
+<blockquote>
+<p>矩阵 <span class="math display">\[
+A =\left(\begin{array}{rrr}
+1 &amp; 1 &amp; 0 \\
+1 &amp; -1 &amp; 1 \\
+0 &amp; 0 &amp; 2
+\end{array}\right)
+\]</span> 写出 <span class="math inline">\(A\)</span> 的 <span class="math inline">\(Q R\)</span> 分解.</p>
+</blockquote>
+<ol type="1">
+<li>由施密特方法将矩阵 <span class="math inline">\(A\)</span> 的列向量单位正交化</li>
+</ol>
+<p>矩阵 <span class="math inline">\(A\)</span> 的列向量 $<em>{1}=(1,1,0)^{ T }, <span class="math display">\[\alpha _{2}=(1,-1,0)^{ T }, \]</span></em>{3}=(0,1,2)^{ T },$ 由施密特方法正交化得 <span class="math display">\[
+\begin{aligned}
+\beta _{1}^{\prime} &amp;= \alpha _{1}=(1,1,0)^{ T } \\
+\beta _{2}^{\prime} &amp;= \alpha _{2}-\frac{\left( \beta _{1}^{\prime}, \alpha _{2}\right)}{\left( \beta _{1}^{\prime}, \beta _{1}^{\prime}\right)} \beta _{1}^{\prime}= \alpha _{2}=(1,-1,0)^{ T }, \\
+\beta _{3}^{\prime} &amp;= \alpha _{3}-\frac{\left( \beta _{1}^{\prime}, \alpha _{3}\right)}{\left( \beta _{1}^{\prime}, \beta _{1}^{\prime}\right)} \beta _{1}^{\prime}-\frac{\left( \beta _{2}^{\prime}, \alpha _{3}\right)}{\left( \beta _{2}^{\prime}, \beta _{2}^{\prime}\right)} \beta _{2}^{\prime} \\
+&amp;= \alpha _{3}-\frac{1}{2} \beta _{1}^{\prime}+\frac{1}{2} \beta _{2}^{\prime}=(0,0,2)^{ T }
+\end{aligned}
+\]</span> 单位化后得 <span class="math display">\[
+\begin{array}{l} 
+\beta _{1}=\left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0\right)^{ T }=\frac{1}{\sqrt{2}} \alpha _{1} \\
+\beta _{2}=\left(\frac{1}{\sqrt{2}}, \frac{1}{-\sqrt{2}}, 0\right)^{ T }=\frac{1}{\sqrt{2}} \alpha _{2} \\
+\beta _{3}=(0,0,1)^{ T }=-\frac{1}{4} \alpha _{1}+\frac{1}{4} \alpha _{2}+\frac{1}{2} \alpha _{3}
+\end{array}
+\]</span></p>
+<ol start="2" type="1">
+<li><span class="math inline">\(Q\)</span> 是 <span class="math inline">\(A\)</span> 的正交矩阵</li>
+</ol>
+<p><span class="math display">\[
+Q=\left( \beta _{1}, \beta _{2}, \beta _{3}\right)=\left( \alpha _{1}, \alpha _{2}, \alpha _{3}\right)\left(\begin{array}{ccc}
+\frac{1}{\sqrt{2}} &amp; 0 &amp; -\frac{1}{4} \\
+0 &amp; \frac{1}{\sqrt{2}} &amp; \frac{1}{4} \\
+0 &amp; 0 &amp; \frac{1}{2}
+\end{array}\right)
+\]</span></p>
+<ol start="3" type="1">
+<li>正交过程求逆得到分解</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+A &amp;=\left( \alpha _{1}, \alpha _{2}, \alpha _{3}\right)
+\\&amp;=\left( \beta _{1}, \beta _{2}, \beta _{3}\right)\left(\begin{array}{ccc}
+\frac{1}{\sqrt{2}} &amp; 0 &amp; -\frac{1}{4} \\
+0 &amp; \frac{1}{\sqrt{2}} &amp; \frac{1}{4} \\
+0 &amp; 0 &amp; \frac{1}{2}
+\end{array}\right)^{-1} \\
+&amp;=\left(\begin{array}{ccc}
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} &amp; 0 \\
+\frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{2}} &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{array}\right)\left(\begin{array}{ccc}
+\frac{1}{\sqrt{2}} &amp; 0 &amp; -\frac{1}{4} \\
+0 &amp; \frac{1}{\sqrt{2}} &amp; \frac{1}{4} \\
+0 &amp; 0 &amp; \frac{1}{2}
+\end{array}\right) \\
+&amp;=\left(\begin{array}{ccc}
+\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} &amp; 0 \\
+\frac{1}{\sqrt{2}} &amp; -\frac{1}{\sqrt{2}} &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{array}\right)\left(\begin{array}{ccc}
+\sqrt{2} &amp; 0 &amp; \frac{1}{\sqrt{2}} \\
+0 &amp; \sqrt{2} &amp; -\frac{1}{\sqrt{2}} \\
+0 &amp; 0 &amp; 2
+\end{array}\right)
+\\&amp;=Q R
+\end{aligned}
+\]</span></p>
+<h3 id="性质">性质</h3>
+<p>考虑两个矩阵 <span class="math display">\[
+A=\left[ a _{1}, \ldots, a _{n}\right]
+\]</span></p>
+<p><span class="math display">\[
+Q=\left[ u _{1}, \ldots, u _{n}\right]
+\]</span></p>
+<ul>
+<li><span class="math inline">\(Q\)</span> 是 <span class="math inline">\(A\)</span> 的正交矩阵</li>
+</ul>
+<p>我们定义一个新矩阵 <span class="math display">\[
+R=Q^{T} A
+\]</span> 因为 <span class="math inline">\(Q\)</span> 是正交矩阵，所以 <span class="math inline">\(Q^{T}Q=I\)</span> <span class="math display">\[
+\begin{aligned}
+R&amp;=Q^{T} A\\
+QR&amp;=QQ^{T} A \\
+QR&amp;=A \\
+\end{aligned}
+\]</span></p>
+<h4 id="代码">代码</h4>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> matplotlib <span class="hljs-keyword">as</span> mpl
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">from</span> mpl_toolkits.mplot3d <span class="hljs-keyword">import</span> Axes3D
+<span class="hljs-keyword">import</span> scipy <span class="hljs-keyword">as</span> sp
+<span class="hljs-keyword">import</span> sympy <span class="hljs-keyword">as</span> sy
+sy.init_printing() 
+
+np.set_printoptions(precision=<span class="hljs-number">3</span>)
+np.set_printoptions(suppress=<span class="hljs-literal">True</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">round_expr</span><span class="hljs-params">(expr, num_digits)</span>:</span>
+    <span class="hljs-keyword">return</span> expr.xreplace(&#123;n : round(n, num_digits) <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> expr.atoms(sy.Number)&#125;)
+    
+A = np.round(np.random.randn(<span class="hljs-number">10</span>, <span class="hljs-number">5</span>)*<span class="hljs-number">100</span>); 
+A
+Q, R = np.linalg.qr(A)
+Q
+R</code></pre>
+<h3 id="拓展">拓展</h3>
+<ol type="1">
+<li>施密特正交化方法 The Gram-Schmidt Process(方保镕 or <a href="https://nbviewer.jupyter.org/github/WeijieChen-MacroAnalyst/Linear_Algebra_With_Python/blob/master/Chapter%2016%20-%20Gram-Schmidt%20Process%20and%20QR%20Decomposition.ipynb" target="_blank" rel="noopener">代码</a>)</li>
+<li>QR 分解的实际求法 (方保镕)
+<ul>
+<li>吉文斯(Givens)方法</li>
+<li>豪斯霍尔德(Housholder)方法</li>
+</ul></li>
+<li>The Least-Squares Problem</li>
+</ol>
+<h2 id="谱分解">谱分解</h2>
+<p>谱分解(spectral decomposition)将矩阵分解为由其特征值和特征向量表示的矩阵之积。 <span class="math display">\[
+\begin{aligned}
+A &amp;=P D P^{T}\\&amp;=\left[\begin{array}{lll} 
+u _{1} &amp; \cdots &amp; u _{n}
+\end{array}\right]\left[\begin{array}{lll}
+\lambda_{1} &amp; &amp; 0 \\
+&amp; \ddots &amp; \\
+0 &amp; &amp; \lambda_{n}
+\end{array}\right]\left[\begin{array}{c} 
+u _{1}^{T} \\
+\vdots \\
+u _{n}^{T}
+\end{array}\right] \\
+&amp;=\left[\begin{array}{lll}
+\lambda_{1} u _{1} &amp; \cdots &amp; \lambda_{n} u _{n}
+\end{array}\right]\left[\begin{array}{c} 
+u _{1}^{T} \\
+\vdots \\
+u _{n}^{T}
+\end{array}\right] \\
+&amp;=\lambda_{1} u _{1} u _{1}^{T}+\lambda_{2} u _{2} u _{2}^{T}+\cdots+\lambda_{n} u _{n} u _{n}^{T} \\
+&amp;=\lambda_{1} P _{1}+\lambda_{2} P _{2}+\cdots+\lambda_{n} P _{n}  
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\lambda_{1} \cdots \lambda_{n}\)</span> 是矩阵 <span class="math inline">\(A\)</span> 的本征值</li>
+<li><span class="math inline">\(u_{i}\)</span> 是矩阵 <span class="math inline">\(A\)</span> 的特征向量 <span class="math inline">\(Au_{i}=\lambda_{i}u_{i}\)</span></li>
+<li><span class="math inline">\(P_{i}=u _{i} u _{i}^{T}\)</span> 是特征向量表示的对称矩阵，也称为正交投影矩阵</li>
+</ul>
+<h4 id="例子-2">例子</h4>
+<blockquote>
+<p>设 <span class="math inline">\(A =\left[\begin{array}{rr}0 &amp; 1 \\ -1 &amp; 0\end{array}\right],\)</span> 求 <span class="math inline">\(A\)</span> 的谱分解.</p>
+</blockquote>
+<p>求 <span class="math inline">\(A\)</span> 的特征值 <span class="math display">\[
+|\lambda I - A |=\left|\begin{array}{cc}
+\lambda &amp; -1 \\
+1 &amp; \lambda
+\end{array}\right|=\lambda^{2}+1=0
+\]</span> 特征值为一对共轭复数 <span class="math display">\[
+\lambda_{i}=i,\quad \lambda_{2}=-i
+\]</span> 它们所对应 的单位正交特征向量 <span class="math display">\[
+u_{1}=\left[\begin{array}{r}
+\frac{ i }{\sqrt{2}} \\
+-\frac{1}{\sqrt{2}}
+\end{array}\right] \quad u_{2}=\left[\begin{array}{c}
+-\frac{1}{\sqrt{2}} \\
+\frac{ i }{\sqrt{2}}
+\end{array}\right]
+\]</span> 故 <span class="math inline">\(A\)</span> 的谱分解为 <span class="math display">\[
+\begin{aligned}
+A &amp;=\left[\begin{array}{rr}
+0 &amp; 1 \\
+-1 &amp; 0
+\end{array}\right]
+\\
+&amp;=\lambda_{1} u _{1} u _{1}^{T}+\lambda_{2} u _{2} u _{2}^{T} \\
+&amp;= i \left[\begin{array}{ll}
+\frac{1}{2} &amp; -\frac{ i }{2} \\
+\frac{ i }{2} &amp; \frac{1}{2}
+\end{array}\right]- i \left[\begin{array}{cc}
+\frac{1}{2} &amp; \frac{ i }{2} \\
+-\frac{ i }{2} &amp; \frac{1}{2}
+\end{array}\right] 
+\end{aligned}
+\]</span></p>
+<h4 id="小结">小结</h4>
+<p>所以求矩阵 <span class="math inline">\(A\)</span> 的谱分解</p>
+<ol type="1">
+<li>先求本征方程：得到本征值和本征向量</li>
+</ol>
+<p><span class="math display">\[
+A u_{i}=\lambda_{i} u_{i}
+\]</span></p>
+<ol start="2" type="1">
+<li>特征向量表示的对称矩阵</li>
+</ol>
+<p><span class="math display">\[
+P_{i}=u_{i} u_{i}^{T}
+\]</span></p>
+<ol start="3" type="1">
+<li>写成正交投影矩阵求和的形式</li>
+</ol>
+<p><span class="math display">\[
+A=\lambda_{1} P_{1}+\lambda_{2} P_{2}+\cdots+\lambda_{n} P_{n}
+\]</span></p>
+<h3 id="拓展-1">拓展</h3>
+<blockquote>
+<p>什么样的矩阵可以谱分解？</p>
+<ul>
+<li>可以对角化的矩阵</li>
+</ul>
+</blockquote>
+<p>特殊矩阵的谱分解（方的书）</p>
+<ol type="1">
+<li>正规矩阵的谱分解</li>
+<li>单纯矩阵的谱分解</li>
+</ol>
+<p><a href="https://nbviewer.jupyter.org/github/WeijieChen-MacroAnalyst/Linear_Algebra_With_Python/blob/master/Chapter%2017%20-%20Symmetric%20Matrices%20%2C%20Quadratic%20Form%20and%20Cholesky%20Decomposition.ipynb" target="_blank" rel="noopener">二次型</a></p>
+<ol type="1">
+<li>二次型中的变量替换</li>
+<li>二次型的可视化</li>
+</ol>
+<h2 id="svd">SVD</h2>
+<p><a href="https://github.com/MacroAnalyst/Linear_Algebra_With_Python" target="_blank" rel="noopener">Gihub: Linear_Algebra_With_Python</a></p>
+<p>目录</p>
+<ol type="1">
+<li>第一讲：线性方程系统</li>
+<li>第二讲：基础矩阵代数</li>
+<li>第三讲：行列式</li>
+<li>第四讲：LU 分解</li>
+<li>第五讲：向量运算</li>
+<li>第六讲：线性组合</li>
+<li>第七讲：线性无关</li>
+<li>第八讲：向量空间与子空间</li>
+<li>第九讲：基与维度</li>
+<li>第十讲：行空间、列空间与零空间</li>
+<li>第十一讲：线性变换</li>
+<li>第十二讲：特征值与特征向量</li>
+<li>第十三讲：对角化</li>
+<li>第十四讲：动力系统的应用</li>
+<li>第十五讲：内积与正交</li>
+<li>第十六讲：Gram-Schmidt 正交化过程与 QR 分解</li>
+<li>第十七讲：对称矩阵与二次型</li>
+<li>第十八讲：奇异值分解</li>
+<li>第十九讲：多变量正态分布</li>
+</ol>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Mathematics/">Mathematics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Mathematics/Matrix/">Matrix</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Numerical/">Numerical</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/03/Cold_04_Ultracold_Atomic03_Fermi/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">简并费米气体</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/02/Math_08_Matrix_02/">
+                        <span class="hidden-mobile">Lanczos方法</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "矩阵分解-用python&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

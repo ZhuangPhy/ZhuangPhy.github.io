@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>量子处理器实现拓扑序态 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-04-12 14:23">
+      April 12, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      62
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h2 id="前言">前言</h2>
+<p>There is an exciting update on the simulation of the toric code model on Google's machine.</p>
+<p>Toric code on (roughly) 4x4 lattice on Google's quantum processor</p>
+<p>The braiding statistics for e, m <span class="math inline">\(\phi\)</span> particles on a 31-qubits surface code is really a breakthrough.</p>
+<p>[TOC]</p>
+<h2 id="参考文献">参考文献</h2>
+<ol type="1">
+<li><a href="https://arxiv.org/pdf/2104.01180.pdf" target="_blank" rel="noopener">Realizing topologically ordered states on a quantum processor</a></li>
+<li><a href="https://arxiv.org/abs/1712.01258" target="_blank" rel="noopener">A pedagogical overview on 2D and 3D Toric Codes and the origin of their topological orders</a></li>
+</ol>
+<h2 id="背景介绍">背景介绍</h2>
+<p>Different phases of matter can commonly be distinguished in terms of spontaneous symmetry breaking and local order parameters. However, several exotic quantum phases have been discovered in recent decades that defy this simple classification, instead exhibiting topological order <span class="math inline">\([1,2] .\)</span> These phases are characterized by their long-range quantum entanglement and the emergence of quasiparticles with anyonic exchange statistics. Moreover, they have energetically gapped ground states with degeneracies that depend on their boundary conditions. The non-local nature of these states makes them particularly attractive platforms for fault tolerant quantum computation, as quantum information encoded in locally indistinguishable ground states is robust to local perturbations <span class="math inline">\([3,4]\)</span>. This is the underlying principle of topological quantum error correcting codes, where the logical codespace corresponds to the degenerate ground state subspace of a lattice model <span class="math inline">\([5-7]\)</span></p>
+<p>An archetypical topological two-dimensional lattice model is the toric code, which exhibits so-called <span class="math inline">\(Z _{2}\)</span> topological order [3]. The realization of the toric code on a plane - the surface code - has emerged as one of the most promising stabilizer codes for quantum error correction due to its amenable physical requirements [8]. Given both its inherent richness and quantum computing applications, experimentally realizing <span class="math inline">\(Z _{2}\)</span> topological order has sparked extensive interest, resulting in several experimental studies with comparatively small-scale synthetic quantum systems <span class="math inline">\([9-19] .\)</span> Despite these efforts, the experimental realization of topologically ordered states remains a major challenge, requiring the generation of long-range entanglement. This can be achieved by identifying suitable quantum systems with topologically ordered ground states or by constructing a topologically ordered state in an engineered quantum system. Probing the non-local topological properties of such a state on an array of qubits requires high fidelity gates and a sufficiently large two-dimensional lattice. In this work, we develop an efficient quantum circuit to prepare the toric code ground state on a lattice of 31 superconducting qubits. We then experimentally establish the topological nature of the state by measuring the topological entanglement entropy. By simulating interferometry of toric code excitations, we fully determine their associated braiding statistics. Furthermore, we prepare logical states of the distance- 5 surface code on 25 qubits and demonstrate error correction of logical measurements. While a meaningful implementation of active error correction on these states is beyond current experimental capabilities, we realize these states without stabilizer circuitry, providing a scheme to characterize and understand errors of logical qubits.</p>
+<h2 id="模型">模型</h2>
+<p>We realize the toric code ground state, depicted in Fig. <span class="math inline">\(1 A\)</span>, by implementing a shallow quantum circuit on a Sycamore quantum processor [22]. The toric code Hamiltonian <span class="math display">\[
+H=-\sum_{s} A_{s}-\sum_{p} B_{p}
+\]</span> is defined in terms of qubits living on the edges of a square lattice. The "star" operators <span class="math inline">\(A_{s}=\prod_{i \in s} Z_{i}\)</span> are products of Pauli <span class="math inline">\(Z\)</span> operators touching each star (+, blue). The "plaquette" operators <span class="math inline">\(B_{p}=\prod_{j \in p} X_{j}\)</span> are products of Pauli <span class="math inline">\(X\)</span> operators on each plaquette <span class="math inline">\((\square\)</span>, purple <span class="math inline">\()\)</span>. For the boundary conditions shown in Fig. <span class="math inline">\(1 A\)</span>, there is a unique toric code ground state <span class="math inline">\(|G\rangle\)</span>, with parity <span class="math inline">\(+1\)</span> for all star and plaquette operators: <span class="math inline">\(A_{s}|G\rangle=B_{p}|G\rangle=+1|G\rangle\)</span>. Our ground state preparation algorithm, depicted in Fig. <span class="math inline">\(1 B\)</span>, is motivated by the observation that the ground state is an equal superposition of all possible "plaquette configurations" and can be written as <span class="math display">\[
+|G\rangle=\frac{1}{\sqrt{2^{12}}} \prod_{p}\left( I +B_{p}\right)|0\rangle^{\otimes 31},
+\]</span> where <span class="math inline">\(|0\rangle^{\otimes 31}\)</span> is the product of single-qubit states <span class="math inline">\(|0\rangle\)</span>, and the product is over the 12 plaquettes. We begin in the trivial state <span class="math inline">\(|0\rangle^{\otimes 31}\)</span>, where all <span class="math inline">\(\left\langle A_{s}\right\rangle=1\)</span> and <span class="math inline">\(\left\langle B_{p}\right\rangle=0\)</span> For each plaquette <span class="math inline">\(B_{p}\)</span>, we perform a Hadamard on the upper qubit, preparing <span class="math inline">\((|0\rangle+|1\rangle) / \sqrt{2}\)</span>, and then perform CNOT gates to the other qubits on the plaquette, effectively realizing <span class="math inline">\(I +B_{p}\)</span>. These operations are carefully ordered, starting in the middle and working outward, to avoid conflict between plaquettes while minimizing circuit depth. The 12 Hadamards create a superposition of <span class="math inline">\(2^{12}\)</span> bitstrings, and the CNOTs transform each of those bitstrings into a configuration where the <span class="math inline">\(Z\)</span> parity on each star is <span class="math inline">\(+1 ;\)</span> the final superposition has <span class="math inline">\(X\)</span> parity <span class="math inline">\(+1\)</span> on each plaquette. This circuit exhibits optimal scaling, with depth linear in system width [23], specifically <span class="math inline">\(3+2\lfloor(N-1) / 2\rfloor\)</span> nearest-neighbor CNOT layers for a lattice <span class="math inline">\(N\)</span> plaquettes wide.</p>
+<p>Topologically ordered states in <span class="math inline">\(2 D\)</span> systems exhibit long-range quantum entanglement, characterized by the topological entanglement entropy, <span class="math inline">\(S_{\text {topo }}[24,25] .\)</span> Ground states of 2D gapped Hamiltonians typically satisfy the "area law" scaling of the entanglement entropy: the leading-order contribution to the entanglement entropy <span class="math inline">\(S_{A}\)</span> of a subsystem <span class="math inline">\(A\)</span> results from local interactions that scale with the boundary length of the subsystem. Topological ground states have an additional universal constant contribution <span class="math inline">\(S_{\text {topo }}&lt;0\)</span> arising from their intrinsic long-range entanglement. To extract <span class="math inline">\(S_{\text {topo }}\)</span>, a linear combination of subsystem entropies can be constructed such that the local contributions cancel. For the subsystems depicted in Fig. <span class="math inline">\(2 A\)</span>, <span class="math display">\[
+S_{\text {topo }}=S_{A}+S_{B}+S_{C}-S_{A B}-S_{B C}-S_{A C}+S_{A B C}
+\]</span> where <span class="math inline">\(A B\)</span> indicates the union of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. The structure of toric code eigenstates implies that <span class="math inline">\(S_{\text {topo }}\)</span> can be inferred from small subsystems. For the toric code ground state, <span class="math inline">\(S_{\text {topo }}=-\ln 2\)</span>, reflecting the total quantum dimension of <span class="math inline">\(Z _{2}\)</span> topological order <span class="math inline">\([26]\)</span>, while <span class="math inline">\(S_{\text {topo }}=0\)</span> in the absence of topologically order.</p>
+<p>The structure of the toric code Hamiltonian results in entanglement characterized by integer multiples of <span class="math inline">\(\ln 2\)</span>, scaling with the number of star operators <span class="math inline">\(A_{s}\)</span> intersecting the subsystem boundary [27], as illustrated in in Fig. <span class="math inline">\(2 B\)</span>. To compute <span class="math inline">\(S_{\text {topo }}\)</span>, one can measure the second Rényi entropy <span class="math inline">\(S^{(2)}=-\ln \left[\operatorname{Tr}\left(\rho^{2}\right)\right]\)</span>, where <span class="math inline">\(\rho\)</span> is density matrix, for each subsystem in Eq. (3). Recently-introduced randomized methods enable efficient measurement of Rényi entanglement entropies, requiring a smaller number of measurements for large subsystems compared to full quantum state tomography <span class="math inline">\([28-30]\)</span>. This enables accurate entropy measurement when tomography is intractable, such as the 9 -qubit subsystem in Fig. <span class="math inline">\(2 A\)</span>. We apply random single-qubit unitaries to the subsystem of interest and sample the probability distribution of the bitstrings. Analyzing statistical correlations across many random instances allows us to compute the second Rényi entropy. We use an iterative Bayesian scheme <span class="math inline">\([20]\)</span> to mitigate measurement errors and remove under-sampling bias (see [21] Sec. C where we also compare randomized measurement with tomography results).</p>
+<p>Figure <span class="math inline">\(2 C\)</span> shows distributions of the measured entanglement entropies for subsystems of <span class="math inline">\(2 \times 2,2 \times 3\)</span>, and <span class="math inline">\(3 \times 3\)</span> qubits within the toric code ground state. For a subsystem with <span class="math inline">\(n\)</span> qubits, the entanglement entropy ranges from 0 for a product state up to <span class="math inline">\(n \ln 2\)</span>. In the toric code, subsystems with no interior have the maximum value <span class="math inline">\(n \ln 2\)</span>; in those cases, we measure a narrow distribution centered just below the ideal value. For subsystems with an interior, we measure a wider distribution centered slightly above the predicted value. This is consistent with unitary error and decoherence slightly mixing the system with its environment, which increases entanglement entropies that are not yet at their maximal value.</p>
+<p>We compute <span class="math inline">\(S_{\text {topo }}\)</span> from the subsystem entropies using Eq. (3) for 14 different <span class="math inline">\(2 \times 2\)</span> arrays, 20 different <span class="math inline">\(2 \times 3\)</span> arrays, and 3 different <span class="math inline">\(3 \times 3\)</span> arrays. Each randomized measurement on the qubit array yields several <span class="math inline">\(S_{\text {topo }}\)</span> estimates from different orientations of the partitions <span class="math inline">\(A, B, C .\)</span> Distributions of measured <span class="math inline">\(S_{\text {topo }}\)</span> are shown in Figure <span class="math inline">\(2 D\)</span>, with mean values <span class="math inline">\(S_{\text {topo }} / \ln 2=-0.89,-0.90\)</span>, and <span class="math inline">\(-0.95\)</span> for the <span class="math inline">\(2 \times 2,2 \times 3\)</span>, and <span class="math inline">\(3 \times 3\)</span> qubit arrays, respectively. The distributions provide strong evidence for the non-trivial topological nature of the state, closely approaching the ideal value of <span class="math inline">\(S_{\text {topo }}=-\ln 2\)</span>, completely distinct from the trivial state value of zero.</p>
+<p>One of the most exotic features of topological phases is that their quasiparticle excitations (anyons) satisfy mutual and exchange statistics more general than those of bosons and fermions. Excitations in toric code eigenstates are commonly denoted as "electric" <span class="math inline">\(e\)</span> with <span class="math inline">\(\left\langle A_{s}\right\rangle=\)</span> <span class="math inline">\(-1\)</span>, and "magnetic" <span class="math inline">\(m\)</span> with <span class="math inline">\(\left\langle B_{p}\right\rangle=-1\)</span>, in connection to lattice gauge theory. The four distinct anyons of the toric code are <span class="math inline">\(1\)</span> (the absence of an <span class="math inline">\(e\)</span> or <span class="math inline">\(m), e, m\)</span>, and <span class="math inline">\(\psi\)</span> (an emergent fermion resulting from the combination of <span class="math inline">\(e\)</span> and <span class="math inline">\(m\)</span> ). In the toric code, the mutual statistics are encoded in the phase accumulated when dragging one anyon around another anyon of different type, while the exchange statistics are phases arising from spatial interchange of two identical anyons. We simulate anyon braiding on our quantum processor by creating toric code excited states corresponding to all the distinct excitations and measuring their statistics with interferometry.</p>
+<p>The toric code excited states can be created by applying a string of Pauli operators to the ground state: an <span class="math inline">\(X\)</span> -string will result in the state with <span class="math inline">\(e\)</span> excitations at each end, while a <span class="math inline">\(Z\)</span> -string prepares the state with <span class="math inline">\(m\)</span> excitations at each end, as shown in the first panel of Fig. <span class="math inline">\(3 A\)</span>, where we visualize an example of <span class="math inline">\(e-m\)</span> mutual braiding with snapshots of experimentally-measured parity values, <span class="math inline">\(\left\langle A_{s}\right\rangle\)</span> and <span class="math inline">\(\left\langle B_{p}\right\rangle .\)</span> We move an <span class="math inline">\(e\)</span> around <span class="math inline">\(m\)</span> with an <span class="math inline">\(X\)</span> -string, eventually returning to its initial position. The initial and final states have the same parity values but differ by an overall phase, in this case <span class="math inline">\(\pi\)</span>, which is not directly detectable.</p>
+<p>To experimentally extract the braiding statistics, we employ a multi-qubit Ramsey interferometry scheme [31]. This protocol provides a scalable way to measure the overlap between the initial and final states, allowing experimental access to the accumulated phase <span class="math inline">\(\theta\)</span>. A key step in this protocol is the use of an auxiliary qubit and a controlled operation, effectively creating a superposition of the braided and non-braided states, as shown in Fig. <span class="math inline">\(3 B - C\)</span>. This sequence imparts <span class="math inline">\(\theta\)</span> into a measurable rotation of the auxiliary qubit. We efficiently compile the multi-qubit controlled operations into CZ gates. Since the measured phases are sensitive to coherent and nonMarkovian errors, we use randomized compiling to mitigate these errors [32]. See Sec. D in [21] for details.</p>
+<p>Fig. <span class="math inline">\(3 D\)</span> -E illustrate two examples of braiding interferometry. In Fig. <span class="math inline">\(3 D\)</span>, we extract the <span class="math inline">\(e-m\)</span> mutual statistics, where the braiding path is a Pauli string <span class="math inline">\(X X X X\)</span>, moving <span class="math inline">\(e\)</span> around the plaquette that contains an <span class="math inline">\(m\)</span>. Fig. <span class="math inline">\(3 E\)</span> shows a similar example for the exchange statistics of two identical <span class="math inline">\(\psi\)</span> excitations using a path of intertwining Pauli strings of <span class="math inline">\(X X X X\)</span> and <span class="math inline">\(Z Z Z Z\)</span>, simplifying to <span class="math inline">\(X X Y Y Z Z\)</span> (see Sec. <span class="math inline">\(D\)</span> in <span class="math inline">\([21]\)</span> for details). The parity measurements show consistent values before and after the controlledbraiding operation, slightly fading due to decoherence and gate error. We measure the phases for the other mutual and exchange combinations, presenting the results in Fig. <span class="math inline">\(3 F\)</span>. The phases are plotted alongside their corresponding braid diagrams, with the expected values 0 and <span class="math inline">\(\pi\)</span> indicated by dashed gray lines.</p>
+<p>Our measurements illuminate the non-trivial mutual and exchange statistics of the toric code. Braiding <span class="math inline">\(e\)</span> around <span class="math inline">\(m\)</span> results in a <span class="math inline">\(\pi\)</span> phase, which does not occur for local bosons or fermions. Moreover, while <span class="math inline">\(e\)</span> and <span class="math inline">\(m\)</span> both satisfy bosonic exchange statistics, their combination <span class="math inline">\(\psi\)</span> exhibits fermionic exchange statistics. The mutual and exchange statistics of the anyons, conventionally summarized in the modular <span class="math inline">\(S\)</span> and <span class="math inline">\(T\)</span> matrices, fully characterize the <span class="math inline">\(Z _{2}\)</span> topological order <span class="math inline">\([26]\)</span>.</p>
+<p>Distinct topologically ordered ground states are locally indistinguishable, making them attractive logical qubits due to this immunity to local perturbations. The lattice of Fig. <span class="math inline">\(1 A\)</span> has only one ground state, but in Fig. <span class="math inline">\(4 A\)</span> we use different boundary conditions where the toric code admits a ground state degeneracy, as proposed for the surface code <span class="math inline">\([5,6,33] .\)</span> We introduce logical operators <span class="math inline">\(Z_{L}\)</span> and <span class="math inline">\(X_{L}\)</span> which span across the lattice and commute with the Hamiltonian but anti-commute with each other. We generalize the state preparation circuit of Fig. <span class="math inline">\(1 B\)</span> to create the logical states <span class="math inline">\(\left|0_{L}\right\rangle\)</span> and <span class="math inline">\(\left|+_{L}\right\rangle\)</span>, where <span class="math inline">\(Z_{L}\left|0_{L}\right\rangle=+1\left|0_{L}\right\rangle\)</span> and <span class="math inline">\(X_{L}\left|+_{L}\right\rangle=+1\left|+_{L}\right\rangle\)</span>, on both <span class="math inline">\(5 \times 5\)</span> (distance-5) and <span class="math inline">\(3 \times 3\)</span> (distance-3) arrays. The <span class="math inline">\(\left|0_{L}\right\rangle\)</span> and <span class="math inline">\(\left|+_{L}\right\rangle\)</span> preparations are closely related, connected by a logical Hadamard. We then use the logical operators, which are simply products of single-qubit gates, to realize <span class="math inline">\(\left|1_{L}\right\rangle=X_{L}\left|0_{L}\right\rangle\)</span> and <span class="math inline">\(\left|-_{L}\right\rangle=Z_{L}\left|+_{L}\right\rangle .\)</span> See Sec. A in <span class="math inline">\([21]\)</span> for details on state preparation and logical operations. The logical states are resilient to local errors, which we demonstrate with logical measurement with error correction, shown in Fig. <span class="math inline">\(4 B\)</span>. Following surface code proposals, we perform a logical measurement by projectively measuring all the qubits in <span class="math inline">\(Z\)</span> or <span class="math inline">\(X\)</span> basis (for <span class="math inline">\(Z_{L}\)</span> or <span class="math inline">\(X_{L}\)</span>, respectively). Naively evaluating the parity of the logical operator is vulnerable to errors on any qubit along the operator, but errors can be detected by also evaluating the local parities <span class="math inline">\(\left(A_{s}\right.\)</span> and <span class="math inline">\(\left.B_{p}\right)\)</span> from the individual qubit measurements. By construction, we expect the local parities to be <span class="math inline">\(+1\)</span>, so any <span class="math inline">\(-1\)</span> values indicate nearby errors. We find a minimal set of qubits to flip in order to recover <span class="math inline">\(+1\)</span> parities before evaluating the logical operator. This correction decreases the logical error by about a factor of 5 for distance- 5 and a factor of 3 for distance-3. Averaging over <span class="math inline">\(Z_{L}\)</span> and <span class="math inline">\(X_{L}\)</span> eigenstates, the logical preparation and measurement error is <span class="math inline">\(0.030\)</span> for both distance- 5 and distance-3, lower than the average physical qubit preparation and measurement error, <span class="math inline">\(0.034 .\)</span> This is a simplified form of error correction compared to the repetitive stabilizer measurements of surface code proposals, where parity changes are matched together over space and time.</p>
+<p>The logical subspace also admits arbitrary superposition states <span class="math inline">\(\alpha\left|0_{L}\right\rangle+\beta\left|1_{L}\right\rangle\)</span>, which we realize with state injection, encoding a single physical qubit state into the logical qubit. For <span class="math inline">\(5 \times 5\)</span> state injection, we prepare the central qubit in <span class="math inline">\(\alpha|0\rangle+\beta|1\rangle\)</span> and then create a <span class="math inline">\(GHZ\)</span> like state <span class="math inline">\(\left(\alpha I +\beta X_{L}\right)|0\rangle^{\otimes 25}\)</span> using three CZ layers. The toric code preparation circuit maps <span class="math inline">\(|0\rangle^{\otimes 25} \rightarrow\left|0_{L}\right\rangle\)</span> and <span class="math inline">\(X_{L}|0\rangle^{\otimes 25} \rightarrow\left|1_{L}\right\rangle\)</span>, giving <span class="math inline">\(\alpha\left|0_{L}\right\rangle+\beta\left|1_{L}\right\rangle .\)</span> For example, the states depicted in Fig. <span class="math inline">\(4 A\)</span> are logical <span class="math inline">\(T\)</span> states <span class="math inline">\(\left|T_{L}\right\rangle=\)</span> <span class="math inline">\(\left(\left|0_{L}\right\rangle+e^{i \pi / 4}\left|1_{L}\right\rangle\right) / \sqrt{2}\)</span>, of interest for non-Clifford operations. We characterize injected states using logical tomography. Measuring <span class="math inline">\(Z_{L}\)</span> and <span class="math inline">\(X_{L}\)</span> is straightforward and robust, as discussed above. We measure <span class="math inline">\(Y_{L}\)</span> by performing another logical gate, <span class="math inline">\(X_{L}^{1 / 2}=\left( I -i X_{L}\right) / \sqrt{2}\)</span>, decomposed into five CZ layers, and then measuring <span class="math inline">\(Z_{L}\)</span>. We plot the resultant Bloch vectors for 128 injected states across the Bloch sphere in Fig. 4C. By measuring these non-local order parameters, we illuminate the logical degree of freedom that was invisible to the local parity measurements of Fig. <span class="math inline">\(4 A\)</span>.</p>
+<p>Finally, we investigate decoherence of <span class="math inline">\(Z_{L}\)</span> and <span class="math inline">\(X_{L}\)</span> eigenstates by plotting logical error versus wait time <span class="math inline">\(t\)</span> in Fig. 4 D. We reiterate the importance of measurement error correction by comparing raw and corrected data for <span class="math inline">\(\left|1_{L}\right\rangle .\)</span> Note that while distance- 5 has significantly worse raw error, after correction it is modestly better than distance-3. However, observe that <span class="math inline">\(\left|+_{L}\right\rangle\)</span> decays much more quickly than <span class="math inline">\(\left|1_{L}\right\rangle\)</span>, due to its sensitivity to <span class="math inline">\(Z\)</span> errors (dephasing). We dynamically decouple the qubits from low-frequency noise with a simple sequence executing an <span class="math inline">\(X\)</span> gate on each qubit at <span class="math inline">\(t / 4\)</span> and <span class="math inline">\(3 t / 4\)</span>, which brings <span class="math inline">\(\left|+_{L}\right\rangle\)</span> error slightly below <span class="math inline">\(\left|1_{L}\right\rangle\)</span> error, with distance- 3 remaining slightly lower-error. <span class="math inline">\(\left|1_{L}\right\rangle\)</span> and <span class="math inline">\(\left|0_{L}\right\rangle\)</span> are not appreciably affected by this dynamical decoupling (see Sec. E in [21]). Overall, the logical error increases linearly at <span class="math inline">\(0.06\)</span> per microsecond. For active error correction with the surface code, we expect a few percent logical error per cycle at threshold [8]. Typical cycle durations are hundreds of nanoseconds [34], where the logical state suffers the decoherence studied here as well as gate errors, suggesting continued efforts to decrease the cycle duration and improve coherence.</p>
+<p>Our shallow quantum circuits for realizing toric code eigenstates can be extended to other topologically ordered states, including string-nets with non-Abelian anyons [35]. Moreover, the tools we have developed can be readily applied to a wide class of topologicallyordered states generated on quantum processors. By encoding quantum information in the degenerate ground state manifold of the toric code, we provide a method for studying coherence properties of logical qubit states. This method could be used to identify and mitigate noise correlations in the system, with critical implications for future error correction experiments.</p>
+<h2 id="toric-code的量子线路">Toric code的量子线路</h2>
+<h2 id="减轻读出误差">减轻读出误差</h2>
+<h2 id="拓扑纠缠熵测量">拓扑纠缠熵测量</h2>
+<h2 id="编织模拟">编织模拟</h2>
+<h2 id="逻辑量子比特态">逻辑量子比特态</h2>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/Quantum-Error-Correction/">Quantum Error Correction</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BA%A0%E9%94%99/">纠错</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/04/13/topology02_review04_thesis/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">拓扑物质的对称性分类</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/10/ML_08_code_21_NNDL/">
+                        <span class="hidden-mobile">放码过来之 Michael Nielsen《神经网络与深度学习》</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "量子处理器实现拓扑序态&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

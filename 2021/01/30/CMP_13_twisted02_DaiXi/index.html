@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>转角石墨烯体系的拓扑特性和轨道磁性 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-01-30 18:02">
+      January 30, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<p>物理学学报</p>
+<ul>
+<li>《<a href="http://wulixb.iphy.ac.cn/cn/article/doi/10.7498/aps.69.20200506" target="_blank" rel="noopener">转角石墨烯体系的拓扑特性和轨道磁性</a>》物理学报. 2020, <a href="http://wulixb.iphy.ac.cn/custom/2020/14" target="_blank" rel="noopener">69(14)</a>: 147301.</li>
+</ul>
+<p>[TOC]</p>
+<h2 id="摘要">摘要</h2>
+<p>本文介绍了转角双层石墨烯和多层石墨烯中的电子结构、拓扑性质以及轨道磁性. 在转角双层石墨烯中, 由于两层石墨烯之间的相对旋转会形成具有长周期的摩尔条纹. 由转角产生的摩尔势场会在摩尔超元胞中产生方向相反的赝磁场, 与两层的石墨烯中的狄拉克电子耦合, 从而产生赝朗道能级. 而魔角石墨烯中的每个谷和自旋自由度的两条平带就等价于两个具有相反陈数的零赝朗道能级. 这样的赝朗道能级表示可以很自然地解释一系列“魔角”的来源, 也对理解魔角双层石墨烯中观测到的关联绝缘态和量子反常霍尔效应具有重要意义. 本文进一步讨论了转角多层石墨烯, 并发现转角多层石墨烯体系中普遍存在具有非平庸拓扑性质的平带. 这些拓扑平带通常具有非零的谷陈数, 并且在一定近似下可以由一个普适的规律描述. 本文还讨论了转角石墨烯体系中的拓扑平带所具有的轨道磁性. 如果时间反演对称性自发破缺, 转角石墨烯体系会处于一个谷极化的基态. 这样的谷极化基态是一个在摩尔尺度上的轨道磁性态, 在摩尔超胞中具有纳米尺度的环状电流分布. 之前的理论提出在转角双层石墨烯体系中观测到的关联绝缘态的本质就是一种净磁矩为零的“摩尔轨道反铁磁态”. 当体系的C2zC2z对称性被氮化硼衬底破坏时, 转角石墨烯中的谷极化基态则变成了一种“摩尔轨道铁磁态”, 它不仅具有(量子)反常霍尔效应, 也具有新奇的磁光效应和非线性光学响应.</p>
+<h2 id="引言">1引言</h2>
+<p>转角双层石墨烯是通过将两层石墨烯堆叠并相互旋转之后形成的一个人工合成体系.</p>
+<ol type="1">
+<li>在转角双层石墨烯中, 由于两层石墨烯之间的相对旋转, 在某些匹配的角度下会形成具有长程周期性的<strong>摩尔条纹</strong>.</li>
+<li>这些摩尔超胞的晶格尺度反比于转角 <span class="math inline">\(\theta\)</span>, 因此在小转角下, 摩尔尺度上的<strong>低能物理</strong>是由原子尺度上的石墨烯中狄拉克费米子<strong>衍生</strong>出的全新的物理.</li>
+<li>之前的理论表明, 转角双层石墨烯中的低能态中包含4条带宽很小的自旋简并的<strong>平带</strong>, 分别来自于两个彼此几乎不耦合的<em>K</em>和<em>K'</em> 谷.</li>
+<li>在所谓的第一“魔角” <span class="math inline">\(\theta \approx 1.05^{\circ}\)</span>, 4条低能能带的费米速度<strong>消失为零</strong>, 能带带宽也变得非常小(⪅10meV), 这意味着在魔角附近低能态电子的动能被强烈<strong>抑制</strong>, 而电子的库仑关联作用会起到重要的作用.</li>
+<li>在2018年3月, 来自麻省理工学院Jarillo-Herrero组的实验学家成功将转角双层石墨烯调节到了魔角附近, 并且在±1/2±1/2填充, 即每个摩尔超元胞有2个电子/空穴的时候, 观测到了由库仑关联效应导致的绝缘相. 在±1/2±1/2填充下的关联绝缘态附近进一步调节载流子浓度, Jarillo-Herrero组[<a href="javascript:;">8</a>]又观测到了超导相的出现. 紧接着Dean的研究组[<a href="javascript:;">9</a>]进一步表明, 在魔角出现的关联绝缘态和超导态可以通过层间压强来调节. 当两层石墨烯被压缩, 层间距变小的时候, 相应的关联绝缘态和超导态可以在更大的角度出现. 这表明魔角不一定总是固定在1.05∘1.05∘, 而是随着层间距离和层间耦合强度的变化而变化的. 更有趣的是, 2019年1月, 斯坦福大学的Goldhaber-Gordon组[<a href="javascript:;">10</a>]将六角氮化硼(hBN)衬底跟处于魔角的转角双层石墨烯对齐, 发现当平带在3/4填充, 即每个摩尔超元胞填充3个电子的时候, 体系出现了非常显著的反常霍尔效应, 其反常霍尔电导最高达到了2.4e2/h2.4e2/h. 2019年7月, Young研究组[<a href="javascript:;">11</a>]在同样的hBN对齐的魔角双层石墨烯3/4填充的时候观测到了陈数为1的量子反常霍尔效应. 2019年11月, Efetov研究组[<a href="javascript:;">12</a>]同样在hBN对齐的魔角双层石墨烯体系–1/2填充的时候观测到了陈数为2的量子反常霍尔绝缘态. 在转角双层石墨烯中展现出的一些列关联绝缘态、超导态以及量子反常霍尔效应, 让这个体系引起了广泛的关注. 理论学家们分别从不同的角度和观点[<a href="javascript:;">13</a>-<a href="javascript:;">35</a>]来解释实验上观测到的超导、关联绝缘态以及量子反常霍尔效应.</li>
+</ol>
+<p>除了上述的库仑关联效应, 转角石墨烯体系在非相互作用、单电子能带层面已经展现了很多有趣的性质[<a href="javascript:;">13</a>-<a href="javascript:;">15</a>,<a href="javascript:;">36</a>-<a href="javascript:;">39</a>]. 三个理论研究组分别发现转角双层石墨烯中的平带具有受C2zTC2zT (TT表示时间反演)对称性保护的“脆弱拓扑性”, 并且其威尔逊圈具有类似于二维拓扑绝缘体的非平庸的缠绕特征. Liu等[<a href="javascript:;">40</a>]进一步证明, 转角双层石墨烯中由于彼此旋转产生的摩尔势能会在摩尔条纹中的<em>AA</em>区域产生方向相反的赝磁场. 赝磁场跟两层石墨烯中的狄拉克电子耦合产生赝朗道能级. 而转角双层石墨烯中在魔角附近每个谷和每个自旋自由度的两条平带正是两个具有相反陈数的零赝朗道能级. 这为转角石墨烯中平带非平庸“脆弱拓扑性”的来源提供了解释. 这种赝朗道能级表示可以很自然地解释转角双层石墨烯中为什么会有一系列“魔角”的存在. 与此同时, 转角石墨烯平带的赝朗道能级表示将该体系平带的库仑关联问题等效成一个多重简并的赝朗道能级在库仑作用下自发对称性破缺的问题, 这对理解实验中不同填充下观测到的关联绝缘态和量子反常霍尔效应的本质有重要意义[<a href="javascript:;">40</a>].</p>
+<p>最近对转角双层石墨烯的研究进一步拓展到了转角多层石墨烯和hBN-多层石墨烯异质结体系[<a href="javascript:;">41</a>-<a href="javascript:;">55</a>]. 如果双层石墨烯堆叠在双层石墨烯上并彼此旋转一个角度θθ之后, 又有新的物理现象出现. 来自中国科学院物理研究所、哈佛大学和麻省理工学院的实验学家们发现在一定垂直偏压下, 这样的“转角双层-双层石墨烯 (twisted double bilayer graphene)”体系会在θ≈1.24∘θ≈1.24∘以及θ≈1.33∘θ≈1.33∘时出现可能具有自旋铁磁性的关联绝缘态, 并在关联绝缘态附近出现了超导态[<a href="javascript:;">41</a>-<a href="javascript:;">43</a>]. 来自加州大学伯克利分校的实验学家又在hBN-<em>ABC</em>三层石墨烯中1/4空穴填充(即–1/4填充)下观测到了陈数为2的量子反常霍尔效应[<a href="javascript:;">44</a>]. 这一些列的实验现象表明具有非平庸拓扑性质的平带在转角石墨烯以及摩尔石墨烯异质结体系中广泛存在. 本文作者考虑了一种普适的转角多层石墨烯体系, 即<em>M</em>层石墨烯堆叠在<em>N</em>层石墨烯上并彼此旋转θθ. 并提出拓扑平带在这样的转角多层石墨烯体系中普遍存在. 这些平带普遍具有非零的谷陈数, 而这些平带的谷陈数在“手性近似”下满足一个普适的规律[<a href="javascript:;">48</a>]. 非零的谷陈数也意味着每个谷的拓扑平带都具有轨道磁性. 如果谷对称性, 即轨道时间反演对称性自发破缺, 那么这样的转角多层石墨烯体系的基态就是一个由谷极化导致的轨道铁磁态[<a href="javascript:;">48</a>]. 这种轨道铁磁态通过自发时间反演对称性破缺而产生, 不需要任何自旋铁磁性和自旋轨道耦合. 这种全新的摩尔轨道铁磁态在摩尔超元胞中具有纳米尺度上的自发的电流回路[<a href="javascript:;">48</a>], 不仅具有显著的、甚至量子化的反常霍尔效应, 也可能导致新奇的磁光响应和非线性光学响应[<a href="javascript:;">56</a>].</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%BD%AC%E8%A7%92%E7%9F%B3%E5%A2%A8%E7%83%AF/">转角石墨烯</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/02/ML_05_NNRG/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">生成模型与重整化群理论</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/30/CMP_13_twisted01/">
+                        <span class="hidden-mobile">双层转角石墨烯的结构和电学性质</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "转角石墨烯体系的拓扑特性和轨道磁性&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

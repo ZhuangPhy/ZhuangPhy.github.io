@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>量子输运与费米液体理论 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-02-12 23:01">
+      February 12, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      53
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<ol type="1">
+<li><a href="https://phy.ntnu.edu.tw/~changmc/Teach/SS/SSG_note/mchap17.pdf" target="_blank" rel="noopener">Transport phenomena and Fermi liquid theory</a> 台师大</li>
+</ol>
+<p>outline</p>
+<p>[TOC]</p>
+<h2 id="boltzmann-equation">Boltzmann equation</h2>
+<p>Distribution function: <span class="math inline">\(f ( r , k , t )\)</span> <span class="math display">\[
+f(\vec{r}, \vec{k}, t) d^{3} r \cdot 2 \frac{d^{3} k}{(2 \pi)^{3}}=\text{Number of electrons within $d ^{3} r$ and $d ^{3} k$ around $( r , k )$ at time $t$}
+\]</span> example <span class="math display">\[
+\vec{j}(\vec{r}, t)=-e \int 2 \frac{d^{3} k}{(2 \pi)^{3}} \dot{\vec{r}} f(\vec{r}, \vec{k}, t)
+\]</span></p>
+<p>分布函数，对路程一阶导的积分，就是电流。</p>
+<h3 id="evolution-of-the-distribution-function">Evolution of the distribution function</h3>
+<p>分布函数 的时间演化</p>
+<ol type="1">
+<li>没碰撞</li>
+<li>有碰撞</li>
+</ol>
+<ul>
+<li><span class="math inline">\(t \rightarrow t+d t\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+f(\vec{r}, \vec{k}, t) \rightarrow &amp; f(\vec{r}+d \vec{r}, \vec{k}+d \vec{k}, t+d t) \\
+&amp;=f(\vec{r}, \vec{k}, t)+\frac{\partial f}{\partial \vec{r}} \cdot d \vec{r}+\frac{\partial f}{\partial \vec{k}} \cdot \vec{k}+\frac{\partial f}{\partial t} d t
+\end{aligned}
+\]</span></p>
+<h4 id="without-collision">1 without collision</h4>
+<p>the phase-space density does not change in the comoving frame <span class="math display">\[
+\frac{d f}{d t}=\frac{\partial f}{\partial t}+\dot{\vec{r}} \cdot \frac{\partial f}{\partial \vec{r}}+\dot{\vec{k}} \cdot \frac{\partial f}{\partial \vec{k}}=0
+\]</span> Phase space is incompressible (Liouville's Theorem)</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201226023314722.png" srcset="/img/loading.gif" /></p>
+<h4 id="with-collision">2 With collision</h4>
+<p>collision due to disorder...</p>
+<p>Boltzmann eq. <span class="math display">\[
+\frac{\partial f}{\partial t}+\dot{\vec{r}} \cdot \frac{\partial f}{\partial \vec{r}}+\dot{\vec{k}} \cdot \frac{\partial f}{\partial \vec{k}}=\left(\frac{\partial f}{\partial t}\right)_{c o l l}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\left(\frac{\partial f}{\partial t}\right)_{c o l l}\)</span> comes from Source/drain</li>
+</ul>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201226211820451.png" srcset="/img/loading.gif" /></p>
+<h3 id="transition-rate">Transition rate</h3>
+<p>Transition rate for an electron at <span class="math inline">\(k \rightarrow k ^{\prime}:\)</span> <span class="math display">\[
+W _{ k , k } \text { ( calculated by Fermi golden rule) }
+\]</span> In a crowded space, one needs to consider occupancy and summation <span class="math display">\[
+W_{k, k^{\prime}} \rightarrow \sum_{k^{\prime}} f_{k}\left(1-f_{k^{\prime}}\right) W_{k, k^{\prime}}
+\]</span> On the other hand, the transition rate for an electron to be scattered into <span class="math inline">\(k\)</span> <span class="math display">\[
+\sum_{k^{\prime}}\left(1-f_{k}\right) f_{k} W_{k^{\prime}, k}
+\]</span> therefore, the Source term <span class="math display">\[
+\begin{aligned}
+\left(\frac{\partial f}{\partial t}\right)_{c o l l} &amp;=\sum_{k^{\prime}}\left[\left(1-f_{k}\right) f_{k} W_{k^{\prime}, k}-f_{k}\left(1-f_{k^{\prime}}\right) W_{k, k^{\prime}}\right] \\
+&amp;=\sum_{k^{\prime}}\left(f_{k^{\prime}}-f_{k}\right) W_{k^{\prime}, k} 
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(W_{k, k^{\prime}}=W_{k^{\prime} ; k}\)</span> for elastic scattering</li>
+</ul>
+<p>for uniform <span class="math inline">\(E, B, T\)</span> fields <span class="math inline">\(f_{k}=f_{k}^{0}+\vec{C} \cdot \vec{k}\)</span> then <span class="math display">\[
+\begin{aligned}
+\left(\frac{\partial f}{\partial t}\right)_{c o l l} &amp;=-\vec{C} \cdot \sum_{k^{\prime}}\left(\vec{k}-\vec{k}^{\prime}\right) W_{k^{\prime}, k} \\
+&amp;=-\vec{C} \cdot \vec{k} \sum_{k^{\prime}}\left(1-\hat{k} \cdot \hat{k}^{\prime}\right) W_{k^{\prime}, k} \\
+&amp;=-\frac{f_{k}-f_{k}^{0}}{\tau_{\varepsilon}}
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\frac{1}{\tau_{\varepsilon}}=\sum_{k^{\prime}}\left(1-\hat{k} \cdot \hat{k}^{\prime}\right) W_{k^{\prime}, k}\)</span> is Transport relaxation time</li>
+</ul>
+<p>if the amplitude <span class="math inline">\(\left(k=k^{\prime}\right)\)</span>, Only the component of <span class="math inline">\(k\)</span> // <span class="math inline">\(k\)</span> contribute to the integral (if <span class="math inline">\(W\)</span> depends only on <span class="math inline">\(\theta\)</span> )</p>
+<p><img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201226212414597.png" srcset="/img/loading.gif" /></p>
+<p>Note: for inelastic scatterings, detailed balance requires <span class="math display">\[
+\begin{aligned}
+\left(1-f_{k}^{0}\right) f_{k^{\prime}}^{0} W_{k^{\prime}, k}&amp;=f_{k}^{0}\left(1-f_{k^{\prime}}^{0}\right) W_{k, k^{\prime}} \\
+e^{\frac{\varepsilon(\vec{k})-\mu}{k_{B} T}} W_{k^{\prime}, k}&amp;=e^{\frac{\varepsilon\left(\vec{k}^{\prime}\right)-\mu}{k_{B} T}} W_{k, k^{\prime}}
+\end{aligned}
+\]</span> where we use <span class="math inline">\(f^{0}(\vec{k})=\frac{1}{e^{[\varepsilon(\vec{k})-\mu] / k_{B} T}+1}\)</span></p>
+<h4 id="relaxation-time-approximation">Relaxation time approximation</h4>
+<p><span class="math display">\[
+\left(\frac{\partial f}{\partial t}\right)_{c o l l}=-\frac{f(\vec{r}, \vec{k}, t)-f_{0}(\vec{r}, \vec{k})}{\tau(\varepsilon(\vec{k}))}
+\]</span></p>
+<p>where</p>
+<ul>
+<li>Unperturbed equilibrium dist <span class="math inline">\(f_{0}(\vec{r}, \vec{k})=\frac{1}{\exp \left(\frac{\varepsilon(\vec{k})-\mu(\vec{r})}{k_{B} T(\vec{r})}\right)+1}\)</span> Density and temperature gradients are allowed</li>
+<li><span class="math inline">\(\tau(\varepsilon(\vec{k}))\)</span> Relaxation (allows energy dependence)</li>
+</ul>
+<h3 id="boltzmann-equation-1">Boltzmann equation</h3>
+<p>Boltzmann equation <span class="math display">\[
+\frac{\partial f}{\partial t}+\dot{\vec{r}} \cdot \frac{\partial f}{\partial \vec{r}}+\dot{\vec{k}} \cdot \frac{\partial f}{\partial \vec{k}}=\frac{d f}{d t}=-\frac{f-f^{0}}{\tau_{\varepsilon}}
+\]</span></p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(\frac{d f_{0}}{d t}=\dot{\vec{r}} \cdot \frac{\partial f_{0}}{\partial \vec{r}}+\dot{\vec{k}} \cdot \frac{\partial f_{0}}{\partial \vec{k}}\)</span></li>
+<li><span class="math inline">\(\begin{aligned} \frac{\partial f_{0}}{\partial \vec{r}} &amp;=\left.\frac{\partial f_{0}}{\partial \mu}\right|_{T} \frac{\partial \mu}{\partial \vec{r}}+\left.\frac{\partial f_{0}}{\partial T}\right|_{\mu} \frac{\partial T}{\partial \vec{r}} \\ &amp;=\left[-\frac{\partial \mu}{\partial \vec{r}}-\frac{(\varepsilon-\mu)}{T} \frac{\partial T}{\partial \vec{r}}\right] \frac{\partial f_{0}}{\partial \varepsilon} \end{aligned}\)</span></li>
+<li><span class="math inline">\(\frac{\partial f_{0}}{\partial \vec{k}}=\hbar \dot{\vec{r}} \frac{\partial f_{0}}{\partial \varepsilon}\)</span></li>
+</ul>
+<h4 id="chambers-formulation">Chamber's formulation</h4>
+<p><span class="math display">\[
+\begin{aligned}
+f_{r k}(t) &amp;=\frac{1}{\tau} \int_{-\infty}^{t} d t^{\prime} f_{r k}^{0}\left(t^{\prime}\right) e^{-(t-t) / \tau} \\
+\text { or } &amp;=f_{r k}^{0}-\int_{-\infty}^{t} d t^{\prime} e^{-\left(t-t^{\prime}\right) / \tau} \frac{d f_{r k}^{0}\left(t^{\prime}\right)}{d t^{\prime}}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+f_{r k}(t) &amp;=f_{r k}^{0}+\int_{-\infty}^{t} d t^{\prime} e^{-(t-t) / \tau} \vec{v}_{k} \cdot\left[\frac{\partial \mu}{\partial \vec{r}}+\frac{(\varepsilon-\mu)}{T} \frac{\partial T}{\partial \vec{r}}-\hbar \dot{\vec{k}}\right] \frac{\partial f_{0}}{\partial \varepsilon} \\
+&amp;=f_{0}+\delta f  
+\end{aligned}
+\]</span></p>
+<p>Let's call this “Chamber's formulation"</p>
+<h4 id="example">example</h4>
+<blockquote>
+<p>温差和电场，所以系统会产生电流和热流。并且两者会相互影响，所以可以写成矩阵关系。</p>
+</blockquote>
+<p>consider a system with electric field and temperature gradient, but no magnetic field</p>
+<p>Electric current density <span class="math display">\[
+\begin{aligned}
+\vec{j}(\vec{r}, t) &amp;=-e \int[d k] \dot{\vec{r}}(\vec{r}, \vec{k}, t)\\
+&amp;=-e \int\left[d k \right]\vec{v}_{k} f_{0}-e \int\left[d k\right] \vec{v}_{k} \delta f 
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\([d k] \equiv 2 \frac{d^{3} k}{(2 \pi)^{3}}\)</span></li>
+<li><span class="math inline">\(\dot{\vec{r}}=\frac{1}{\hbar} \frac{\partial \varepsilon}{\partial \vec{k}}\)</span></li>
+<li><span class="math inline">\(\hbar \dot{\vec{k}}=-e \vec{E}\)</span></li>
+</ul>
+<p>For steady perturbations <span class="math display">\[
+\begin{aligned}
+\delta f &amp;=\left(\int_{-\infty}^{t} d t^{\prime} e^{-\left(t-t^{\prime}\right) / \tau}\right) \vec{v} \cdot\left[e \vec{E}+\frac{\partial \mu}{\partial \vec{r}}+\frac{(\varepsilon-\mu)}{T} \frac{\partial T}{\partial \vec{r}}\right] \frac{\partial f_{0}}{\partial \varepsilon} \\
+&amp;=\tau \vec{v} \cdot\left[e \vec{G}+\frac{(\varepsilon-\mu)}{T} \frac{\partial T}{\partial \vec{r}}\right] \frac{\partial f_{0}}{\partial \varepsilon} 
+\end{aligned}
+\]</span> where <span class="math inline">\(\vec{G} \equiv \vec{E}+\frac{1}{e} \frac{\partial \mu}{\partial \vec{r}}\)</span> Electrochemical "force"</p>
+<p>Electric current density become <span class="math display">\[
+\begin{aligned}
+&amp;\vec{j}(\vec{r}, t)=e \int[d k] \tau \vec{v} \vec{v} \cdot\left[e \vec{G}+\frac{(\varepsilon-\mu)}{T} \frac{\partial T}{\partial \vec{r}}\right]\left(-\frac{\partial f_{0}}{\partial \varepsilon}\right)\\
+&amp;= L _{11} \vec{G}+ L _{12}\left(-\frac{\nabla T}{T}\right)
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(L _{11}\)</span> is <span class="math inline">\(\sigma\)</span></li>
+<li><span class="math inline">\(\sigma\)</span> is conductivity tensor</li>
+</ul>
+<p>Thermal current density <span class="math display">\[
+\begin{aligned}
+\vec{j}^{Q}(\vec{r}, t) &amp;=\int[d k](\varepsilon-\mu) \dot{\vec{r}} \delta f \\
+&amp;=-\int[d k] \tau(\varepsilon-\mu) \vec{v} \vec{v} \cdot\left[e \vec{G}+\frac{(\varepsilon-\mu)}{T} \frac{\partial T}{\partial \vec{r}}\right]\left(-\frac{\partial f_{0}}{\partial \varepsilon}\right) \\
+&amp;= L _{21} \vec{G}+ L _{22}\left(-\frac{\nabla T}{T}\right)
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(L _{22}\)</span> is <span class="math inline">\(\kappa T\)</span></li>
+<li><span class="math inline">\(\kappa\)</span> is thermal conductivity tensor</li>
+</ul>
+<h4 id="coefficients-of-transport-matrices">Coefficients of transport (matrices)</h4>
+<p><span class="math display">\[
+\left(\begin{array}{c}
+\vec{j} \\
+\vec{j}^{Q}
+\end{array}\right)=\left(\begin{array}{cc} 
+L _{11} &amp; L _{12} \\
+L _{21} &amp; L _{22}
+\end{array}\right)\left(\begin{array}{c}
+\vec{G} \\
+-\nabla T / T
+\end{array}\right)
+\]</span></p>
+<p>where <span class="math display">\[
+\begin{array}{ll} 
+L _{11}=e^{2} \int[d k] \tau \vec{v} \vec{v}\left(-\frac{\partial f_{0}}{\partial \varepsilon}\right) &amp; L _{12}=-e \int[d k] \tau\left(\varepsilon_{k}-\mu\right) \vec{v} \vec{v}\left(-\frac{\partial f_{0}}{\partial \varepsilon}\right) \\
+L _{21}=-e \int[d k] \tau\left(\varepsilon_{k}-\mu\right) \vec{v} \vec{v}\left(-\frac{\partial f_{0}}{\partial \varepsilon}\right) &amp; L _{22}=\int[d k] \tau\left(\varepsilon_{k}-\mu\right)^{2} \vec{v} \vec{v}\left(-\frac{\partial f_{0}}{\partial \varepsilon}\right)
+\end{array}
+\]</span> One example of Onsager relation</p>
+<p>They are of the form <span class="math display">\[
+\Lambda_{i j}^{(v)}=e^{2} \int[d k] \tau\left(\varepsilon_{k}-\mu\right)^{v} v_{i} v_{j}\left(-\frac{\partial f_{0}}{\partial \varepsilon}\right)
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(L _{11}= \Lambda ^{(0)}\)</span></li>
+<li><span class="math inline">\(L _{12}= L _{21}=\frac{1}{(-e)} \Lambda ^{(1)}\)</span></li>
+<li><span class="math inline">\(L _{22}=\frac{1}{(-e)^{2}} \Lambda ^{(2)}\)</span></li>
+</ul>
+<p>Define energy-resolved conductivity</p>
+<p><span class="math display">\[
+\sigma_{i j}(\varepsilon)=e^{2} \int[d k] \tau_{\varepsilon} v_{i} v_{j} \delta\left(\varepsilon_{k}-\varepsilon\right)
+\]</span> then <span class="math display">\[
+\Lambda_{i j}^{(v)}=\int d \varepsilon(\varepsilon-\mu)^{v}\left(-\frac{\partial f_{0}}{\partial \varepsilon}\right) \sigma_{i j}(\varepsilon)
+\]</span> For <span class="math inline">\(T =0\)</span></p>
+<ul>
+<li><span class="math inline">\(\Lambda ^{(0)}= \sigma \left(\varepsilon_{F}\right)\)</span></li>
+<li><span class="math inline">\(\Lambda ^{(1)}=\frac{\pi^{2}}{3}\left(k_{B} T\right)^{2} \sigma ^{\prime}\left(\varepsilon_{F}\right)\)</span></li>
+<li><span class="math inline">\(\Lambda ^{(2)}=\frac{\pi^{2}}{3}\left(k_{B} T\right)^{2} \sigma \left(\varepsilon_{F}\right)\)</span></li>
+</ul>
+<h3 id="conductivity-law">Conductivity Law</h3>
+<p>这部分只考虑电场，没有温度差</p>
+<p>consider <span class="math inline">\(\nabla T =0\)</span></p>
+<ol type="1">
+<li><p>Ohm's law:<br />
+<span class="math display">\[
+\vec{j}=\sigma \vec{G}
+\]</span></p></li>
+<li><p>Fick's law for "diffusion current": <span class="math display">\[
+\vec{j}=- D \nabla \rho
+\]</span></p></li>
+</ol>
+<blockquote>
+<p>其中 <span class="math inline">\(\vec{G} \equiv \vec{E}+\frac{1}{e} \frac{\partial \mu}{\partial \vec{r}}\)</span> ，所以需要求出 <span class="math inline">\(\frac{\partial \mu}{\partial \vec{r}}\)</span></p>
+</blockquote>
+<p>For electron gas at low <span class="math inline">\(T\)</span> <span class="math display">\[
+\mu \cong \varepsilon_{F}=\frac{\hbar^{2}}{2 m^{*}}\left(3 \pi^{2} n\right)^{2 / 3}
+\]</span> where <span class="math inline">\(\rho=-e n\)</span> then <span class="math display">\[
+\frac{\partial \varepsilon_{F}}{\partial \vec{r}}=\frac{2}{3} \frac{\varepsilon_{F}}{n} \frac{\partial n}{\partial \vec{r}}=\frac{2}{3} \frac{\varepsilon_{F}}{\rho} \frac{\partial \rho}{\partial \vec{r}}
+\]</span> therefore <span class="math display">\[
+\begin{aligned}
+\vec{j}&amp;=\sigma \vec{G} \\
+&amp;=\sigma (\vec{E}+\frac{1}{e} \frac{\partial \mu}{\partial \vec{r}}) \\
+&amp;= \frac{\sigma}{e} \frac{\partial \mu}{\partial \vec{r}}\\
+&amp;\cong \frac{\sigma}{e} \frac{\partial \varepsilon_{F}}{\partial \vec{r}}\\
+&amp;= \frac{\sigma}{e} \frac{2}{3} \frac{\varepsilon_{F}}{\rho} \frac{\partial \rho}{\partial \vec{r}}\\
+&amp;=-\left[\frac{\sigma}{(-e)} \frac{2}{3} \frac{\varepsilon_{F}}{\rho} \right] \frac{\partial \rho}{\partial \vec{r}}\\
+&amp;=- D \nabla \rho
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(D =\frac{1}{(-e)} \frac{2 \varepsilon_{F}}{3 \rho} \sigma =\frac{1}{e^{2} g\left(\varepsilon_{F}\right)} \sigma\)</span> is Einstein relation (for degenerate electron gas)</li>
+<li><span class="math inline">\(\nabla \rho=\frac{\partial \rho}{\partial \vec{r}}\)</span></li>
+</ul>
+<h4 id="example-for-t0">example for T=0</h4>
+<p>At <span class="math inline">\(T=0\)</span>，费米狄拉克分布是阶梯函数 <span class="math inline">\(\left(-\frac{\partial f_{0}}{\partial \varepsilon}\right)=\delta\left(\varepsilon-\varepsilon_{F}\right)\)</span> <span class="math display">\[
+\begin{aligned}
+\sigma_{i j} &amp;=e^{2} \int[d k] \tau_{\varepsilon} v_{i} v_{j} \delta\left(\varepsilon-\varepsilon_{F}\right) \\
+&amp;=e^{2} \tau_{\varepsilon_{F}} g\left(\varepsilon_{F}\right)\left\langle v_{i} v_{j}\right\rangle_{F S}
+\end{aligned}
+\]</span> where <span class="math inline">\(\left\langle v_{i} v_{j}\right\rangle_{F S}\)</span> is an integral over the <span class="math inline">\(FS\)</span> <span class="math display">\[
+D_{i j}=\tau_{\varepsilon_{F}}\left\langle v_{i} v_{j}\right\rangle_{F S}
+\]</span> For isotropic diffusion <span class="math display">\[
+D_{x x}=\tau_{\varepsilon_{F}} \frac{1}{3}\left\langle v^{2}\right\rangle_{F S}=\frac{1}{3} v_{F}^{2} \tau_{\varepsilon_{F}}
+\]</span></p>
+<h4 id="alternative-form-of-conductivity">Alternative form of conductivity</h4>
+<p><span class="math display">\[
+\sigma_{i j}=e^{2} \int[d k] \tau v_{i} v_{j}\left(-\frac{\partial f_{0}}{\partial \varepsilon}\right)
+\]</span></p>
+<p>where <span class="math inline">\(v_{i} v_{j}\left(-\frac{\partial f_{0}}{\partial \varepsilon}\right)=v_{i} \frac{\partial \varepsilon}{\hbar \partial k_{j}}\left(-\frac{\partial f_{0}}{\partial \varepsilon}\right)=v_{i}\left(-\frac{\partial f_{0}}{\hbar \partial k_{j}}\right)\)</span> then <span class="math display">\[
+\begin{aligned}
+\sigma_{i j} &amp;=e^{2} \tau \int[d k]\left[-\frac{\partial\left(f_{0} v_{i}\right)}{\hbar \partial k_{j}}+f_{0} \frac{\partial v_{i}}{\hbar \partial k_{j}}\right] \\
+&amp;=e^{2} \tau \int[d k] f_{0} \cdot m_{i j}^{*-1}
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\tau\)</span> is a const.</li>
+</ul>
+<h2 id="hall-effect">Hall effect</h2>
+<h3 id="classical-approach">classical approach</h3>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210213173115664.png" srcset="/img/loading.gif" /></p>
+<p>equation of motion <span class="math display">\[
+m^{*} \frac{d \vec{v}}{d t}=-e \vec{E}-e \frac{\vec{v}}{c} \times \vec{B}-m^{*} \frac{\vec{v}}{\tau}
+\]</span> $ d  / d t=$ at steady state, m field <span class="math inline">\(\vec{B}=B \hat{z} ;\)</span> <span class="math display">\[
+\left(\begin{array}{cc}
+m^{*} / \tau &amp; e B / c \\
+-e B / c &amp; m^{*} / \tau
+\end{array}\right)\left(\begin{array}{c}
+v_{x} \\
+v_{y}
+\end{array}\right)=-e\left(\begin{array}{c}
+E_{x} \\
+E_{y}
+\end{array}\right)
+\]</span> since <span class="math inline">\(\vec{j}=-e n \vec{v}\)</span>, we have <span class="math display">\[
+\begin{aligned}
+\left(\begin{array}{c}
+E_{x} \\
+E_{y}
+\end{array}\right)&amp;=\left(\begin{array}{cc}
+\frac{m^{*}}{n e^{2} \tau} &amp; \frac{B}{n e c} \\
+-\frac{B}{n e c} &amp; \frac{m^{*}}{n e^{2} \tau}
+\end{array}\right)\left(\begin{array}{c}
+j_{x} \\
+j_{y}
+\end{array}\right) \\
+&amp;=\rho_{0}\left(\begin{array}{cc}
+1 &amp; \omega_{c} \tau \\
+-\omega_{c} \tau &amp; 1
+\end{array}\right)\left(\begin{array}{c}
+j_{x} \\
+j_{y}
+\end{array}\right)
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\rho_{0}=\frac{m^{*}}{n e^{2} \tau}\)</span></li>
+<li><span class="math inline">\(\omega_{c}=\frac{e B}{m^{*} c}\)</span></li>
+</ul>
+<p>conductivity <span class="math display">\[
+\sigma = \rho ^{-1}=\frac{\sigma_{0}}{1+\left(\omega_{c} \tau\right)^{2}}\left(\begin{array}{cc}
+1 &amp; -\omega_{c} \tau \\
+\omega_{c} \tau &amp; 1
+\end{array}\right)
+\]</span> where <span class="math inline">\(\sigma_{0}=\frac{n e^{2} \tau}{m^{*}}\)</span></p>
+<p>the limitation</p>
+<ol type="1">
+<li>for <span class="math inline">\(\omega_{c} \tau&lt;&lt;1\)</span></li>
+</ol>
+<p><span class="math display">\[
+\sigma =\frac{\sigma_{0}}{1+\left(\omega_{c} \tau\right)^{2}}\left(\begin{array}{cc}
+1 &amp; -\omega_{c} \tau \\
+\omega_{c} \tau &amp; 1
+\end{array}\right)
+{\longrightarrow}\quad \sigma_{0}\left(\begin{array}{cc}
+1 &amp; -\omega_{c} \tau \\
+\omega_{c} \tau &amp; 1
+\end{array}\right)
+\]</span></p>
+<ol start="2" type="1">
+<li>for <span class="math inline">\(\omega_{c} \tau&gt;&gt;1\)</span></li>
+</ol>
+<p><span class="math display">\[
+\sigma =\frac{\sigma_{0}}{1+\left(\omega_{c} \tau\right)^{2}}\left(\begin{array}{cc}
+1 &amp; -\omega_{c} \tau \\
+\omega_{c} \tau &amp; 1
+\end{array}\right)
+{\longrightarrow}\quad \left(\begin{array}{cc}
+0 &amp; -n e c / B \\
+n e c / B &amp; 0
+\end{array}\right)
+\]</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210213173623795.png" srcset="/img/loading.gif" /></p>
+<h3 id="semiclassical-approach">semiclassical approach</h3>
+<p>equation of motion <span class="math display">\[
+\hbar \frac{d \vec{k}}{d t}=-e \vec{E}-\frac{e}{c} \vec{v}_{k} \times \vec{B}
+\]</span> Recall "Chamber's formulation" (without density and T gradients) <span class="math display">\[
+\begin{aligned}
+\delta f &amp;=\int_{-\infty}^{t} d t^{\prime} e^{-(t-t) / \tau} \vec{v}_{k} \cdot[-\hbar \dot{\vec{k}}] \frac{\partial f_{0}}{\partial \varepsilon} \\
+&amp;=-e \int_{-\infty}^{t} d t^{\prime} e^{-(t-t) / \tau} \vec{v}_{k} \cdot\left(\vec{E}+\frac{1}{c}  \vec{v}_{k} \times \vec{B}\right) \left(-\frac{\partial f_{0}}{\partial \varepsilon}\right) 
+\end{aligned}
+\]</span> We can now only count on <span class="math inline">\(v_{k}\)</span> for magnetic effect</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Transport/">Transport</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/14/QC04_Algorithm04_Lecture/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">代数问题的量子算法</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/10/QC05_guide_Lecture01/">
+                        <span class="hidden-mobile">量子普遍性</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "量子输运与费米液体理论&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

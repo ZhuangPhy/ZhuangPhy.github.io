@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>Berry Phase - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2016-11-03 14:23">
+      November 3, 2016 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      86
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>拓扑入门第一例</p>
+<p>[TOC]</p>
+<h2 id="详细">详细</h2>
+<p>这个问题的起源是计算凝聚态系统中电流对于外电场的响应 <span class="math display">\[
+j_{\alpha}=\sum_{\beta} \sigma_{\alpha \beta} E_{\beta}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\alpha, \beta=x, y\)</span> 二维系统</li>
+<li><span class="math inline">\(\sigma_{\alpha \beta}\)</span> 电导率</li>
+</ul>
+<p>我们通常考虑外电场较弱的情况，此时我们可以采用含时<strong>微扰</strong>理论来处理，只需要考虑一阶项就可以了。这就是<strong>线性响应</strong>理论（Linear response theory）。为了简单起见，下面的讨论都基于<strong>零温</strong>情形。</p>
+<h3 id="微扰">微扰</h3>
+<p>由于矢勢 A 的强度较弱，因此我们李哈密顿量展开到关于 A 的一阶项 <span class="math display">\[
+\hat{H}(\mathbf{k}+e \mathbf{A} / \hbar) \simeq \hat{H}(\mathbf{k})+\mathbf{A} \cdot \hat{\mathbf{j}}, \quad \hat{\mathbf{j}}=\frac{e}{\hbar} \frac{\partial \hat{H}}{\partial \mathbf{k}}
+\]</span></p>
+<p><span class="math display">\[
+\hat{H}(\mathbf{k}+e \mathbf{A} / \hbar) \simeq \hat{H}(\mathbf{k})+\mathbf{A} \cdot \hat{\mathbf{j}} 
+\]</span></p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(\hat{\mathbf{j}}=\frac{e}{\hbar} \frac{\partial \hat{H}}{\partial \mathbf{k}}\)</span> 为电流密度算符</li>
+<li>$ <em>{n}(t)|| </em>{n}(t) $ 在实验中真实测得的电流值</li>
+</ul>
+<p>其中态矢量 <span class="math inline">\(\left|\psi_{n}(t)\right\rangle\)</span> 满足 <span class="math display">\[
+\begin{aligned}
+\frac{\mathrm{d} n_{0}}{\mathrm{d} \zeta}&amp;=2 \sqrt{n_{0}\left(m_{1}-n_{0}\right)\left(m_{2}-n_{0}\right)-\left(m_{0}+\frac{1}{2} n_{0} \Delta s\right)^{2}}
+\\&amp;=2 \sqrt{n_{0}\left(m_{1}-n_{0}\right)^{2}-\left(\frac{1}{2} n_{0} \Delta s\right)^{2}}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{i} \hbar \frac{\partial}{\partial t}\left|\psi_{n}(t)\right\rangle &amp;=\left(\hat{H}_{0}+\hat{V}\right)\left|\psi_{n}(t)\right\rangle
+\\&amp;=\left[\hat{H}(\mathbf{k})+\frac{e}{\hbar} \mathbf{A} \cdot \frac{\partial \hat{H}}{\partial \mathbf{k}}\right]\left|\psi_{n}(t)\right\rangle
+\end{aligned}
+\]</span></p>
+<p>放到相互作用绘景中去讨论这个平均值，先对态矢量作变换 <span class="math inline">\(\left|\psi_{n}(t)\right\rangle=e^{-\mathrm{i} \hat{H}_{0} / \hbar}\left|\phi_{n}(t)\right\rangle\)</span> 方程可以改写为 <span class="math display">\[
+\mathrm{i} \hbar \frac{\partial}{\partial t}\left|\phi_{n}(t)\right\rangle=e^{\mathrm{i} \hat{H}_{0} / \hbar} \hat{V} e^{-\mathrm{i} \hat{H}_{0} / \hbar}\left|\phi_{n}(t)\right\rangle=\hat{V}_{\mathrm{I}}(t)\left|\phi_{n}(t)\right\rangle
+\]</span> 这个方程的解可以通过反复迭代得到 <span class="math display">\[
+\left|\phi_{n}(t)\right\rangle=\left|\phi_{n}(-\infty)\right\rangle-\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t^{\prime} \hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\left|\phi_{n}\left(t^{\prime}\right)\right\rangle
+\]</span> 近似，我们假定相互作用项是被绝热地从 <span class="math inline">\(t^{\prime}=-\infty\)</span> 到 <span class="math inline">\(t^{\prime}=t\)</span> 这个时间区间 内加上去的。此外, 还假定了 <span class="math inline">\(t^{\prime}=-\infty\)</span> 的时候相互作用不存在, 因此 | <span class="math inline">\(\left.\phi_{n}(-\infty)\right\rangle\)</span> 是 $<em>{0} $ 的本征态。我们将这个态记为$ | u</em>{n} |_{n}(-)$, 于是它满足方程 <span class="math inline">\(\hat{H}_{0}\left|u_{n}\right\rangle=\epsilon_{n}\left|u_{n}\right\rangle \cdot\)</span> 在只考虑一阶微?的情形下 <span class="math display">\[
+\left|\phi_{n}(t)\right\rangle \simeq\left|u_{n}\right\rangle-\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t^{\prime} \hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\left|u_{n}\right\rangle
+\]</span> 原始的态矢量这个时候就可以被表示为 <span class="math display">\[
+\begin{aligned}
+\left|\psi_{n}(t)\right\rangle&amp;=e^{-\mathrm{i} \hat{H}_{0} / \hbar}\left|\phi_{n}(t)\right\rangle
+\\&amp;=e^{-\mathrm{i} \hat{H}_{0} / \hbar}[1+S(t,-\infty)]\left|u_{n}\right\rangle
+\end{aligned}
+\]</span> 其中 <span class="math inline">\(S(t,-\infty)=-\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t^{\prime} \hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\)</span></p>
+<h3 id="电流算符的平均值">电流算符的平均值</h3>
+<p>所以我们可以将电流算符的平均值表示为 <span class="math display">\[
+\begin{aligned}
+\langle\hat{\mathbf{j}}(t)\rangle_{n} &amp;=\left\langle\psi_{n}(t)|\hat{\mathbf{j}}| \psi_{n}(t)\right\rangle 
+\\&amp;=\left\langle\phi_{n}(t)\left|e^{i \hat{H}_{0} / \hbar} \hat{\mathbf{j}} e^{-\mathrm{i} \hat{H}_{0} / \hbar}\right| \phi_{n}(t)\right\rangle  
+\\&amp;=\left\langle\phi_{n}(t)|\hat{\mathbf{j}}(t)| \phi_{n}(t)\right\rangle  
+\\&amp;=\left\langle u_{n}\left|\left[1+S^{\dagger}(t,-\infty)\right] \hat{\mathbf{j}}(t)[1+S(t,-\infty)]\right| u_{n}\right\rangle  
+\\&amp; \simeq\left\langle u_{n}\left|S^{\dagger}(t,-\infty) \hat{\mathbf{j}}(t)+\hat{\mathbf{j}}(t) S(t,-\infty)\right| u_{n}\right\rangle+\mathcal{O}\left(\hat{V}^{2}\right)  
+\\&amp;=\frac{\mathrm{i}}{\hbar} \int_{-\infty}^{t} \mathrm{d} t^{\prime}\left\langle u_{n}\left|\left[\hat{V}_{\mathrm{I}}\left(t^{\prime}\right), \hat{\mathbf{j}}(t)\right]\right| u_{n}\right\rangle
+\end{aligned}
+\]</span> 在上面的计算中, 我们假定了$ u_n | (t)|u_{n}=0 .$ 这是显然的，因为不加外电场，处于基态 的系统当然不会自发产生电流。</p>
+<p>系统的总电流可以通过对Fermi面以下的所有占据态求和得到 <span class="math inline">\(\left\langle\hat{j}_{\alpha}(t)\right\rangle=\sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}}\left\langle\hat{j}_{\alpha}(t)\right\rangle_{n}\)</span> <span class="math display">\[
+\begin{aligned}
+\sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}}\left\langle\hat{j}_{\alpha}(t)\right\rangle_{n}=&amp; \frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \int_{-\infty}^{t} \mathrm{d} t^{\prime}\left\langle u_{n}\left|\left[\hat{V}_{\mathrm{I}}\left(t^{\prime}\right), \hat{j}_{\alpha}(t)\right]\right| u_{n}\right\rangle 
+\\=&amp; \frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \int_{-\infty}^{t} \mathrm{d} t^{\prime}\left[\left\langle u_{n}\left|\hat{V}_{\mathrm{I}}\left(t^{\prime}\right) \hat{j}_{\alpha}(t)\right| u_{n}\right\rangle-\left\langle u_{n}\left|\hat{j}_{\alpha}(t) \hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\right| u_{n}\right\rangle\right]  
+\\=&amp; \frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\mathrm{\epsilon}_{\mathrm{F}}} \sum_{m} \int_{-\infty}^{t} \mathrm{d} t^{\prime} 
+\\&amp; \times\left[\left\langle u_{n}\left|\hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\right| u_{m}\right\rangle\left\langle u_{m}\left|\hat{j}_{\alpha}(t)\right| u_{n}\right\rangle-\left\langle u_{n}\left|\hat{j}_{\alpha}(t)\right| u_{m}\right\rangle\left\langle u_{m}\left|\hat{V}_{\mathrm{I}}\left(t^{\prime}\right)\right| u_{n}\right\rangle\right] 
+\\=&amp; \frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \sum_{\beta} \int_{-\infty}^{t} \mathrm{d} t^{\prime}  
+\\&amp; \times\left(e^{\mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right)\left(t^{\prime}-t\right) / \hbar}\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}-e^{-\mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right)\left(t^{\prime}-t\right) / \hbar}\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}\right) A_{\beta}\left(t^{\prime}\right)
+\end{aligned}
+\]</span></p>
+<h3 id="频率空间">频率空间</h3>
+<p>将电流Fourier变换到频率空间进行讨论 <span class="math display">\[
+\begin{aligned}
+\left\langle\hat{j}_{\alpha}(\omega)\right\rangle &amp;=\int \mathrm{d} t e^{\mathrm{i} \omega t}\left\langle\hat{j}_{\alpha}(t)\right\rangle 
+\\&amp;=\frac{\mathrm{i}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \sum_{\beta} A_{\beta}(\omega)\left[\frac{\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}}{\mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega+\eta}-\frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}}{-\mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega+\eta}\right]  
+\\&amp;=\sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \sum_{\beta} A_{\beta}(\omega)\left[\frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}+\hbar \omega+\mathrm{i} \eta}+\frac{\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}-\hbar \omega-\mathrm{i} \eta}\right]
+\end{aligned}
+\]</span> 为了得到上面的式子，我们计算了如下积分 <span class="math display">\[
+\begin{aligned}
+&amp; \int \mathrm{d} t e^{\mathrm{i} \omega t} \int_{-\infty}^{t} \mathrm{d} t^{\prime} e^{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right)\left(t^{\prime}-t\right) / \hbar} F\left(t^{\prime}\right)  
+\\=&amp; \int \mathrm{d} t e^{\mathrm{i} \omega t} \int_{-\infty}^{t} \mathrm{d} t^{\prime} e^{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right)\left(t^{\prime}-t\right) / \hbar} \frac{1}{2 \pi} \int \mathrm{d} \omega^{\prime} e^{-\mathrm{i} \omega^{\prime} t^{\prime}} F\left(\omega^{\prime}\right)  
+\\=&amp; \frac{1}{2 \pi} \int \mathrm{d} \omega^{\prime} F\left(\omega^{\prime}\right) \int \mathrm{d} t e^{\mp \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) t / \hbar+\mathrm{i} \omega t} \int_{-\infty}^{t} \mathrm{d} t^{\prime} e^{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) t^{\prime} / \hbar-\mathrm{i} \omega^{\prime} t^{\prime}+\eta t^{\prime}} 
+\\=&amp;\left.\frac{1}{2 \pi} \int \mathrm{d} \omega^{\prime} F\left(\omega^{\prime}\right) \int \mathrm{d} t e^{\mp \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) t / \hbar+\mathrm{i} \omega t} \frac{1}{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega^{\prime}+\eta} e^{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) t^{\prime} / \hbar-\mathrm{i} \omega^{\prime} t^{\prime}+\eta^{\prime}}\right|_{-\infty} ^{t} 
+\\=&amp; \frac{1}{2 \pi} \int \mathrm{d} \omega^{\prime} F\left(\omega^{\prime}\right) \int \mathrm{d} t e^{\mathrm{i}\left(\omega-\omega^{\prime}\right) t} \frac{1}{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega^{\prime}+\eta} 
+\\=&amp; \frac{F(\omega)}{\pm \mathrm{i}\left(\epsilon_{n}-\epsilon_{m}\right) / \hbar-\mathrm{i} \omega+\eta}
+\end{aligned}
+\]</span> 上面的计算中，为了使得积分收敘，我们引入了一个无限小的参数 <span class="math inline">\(\eta=0^{+}\)</span></p>
+<h3 id="作为-关联函数的电导">作为 关联函数的电导</h3>
+<p>对于Bloch态, 我们可以将态矢量i记作 | <span class="math inline">\(\left.u_{n}\right\rangle=\left|u_{\mu}(\mathrm{k})\right\rangle\)</span>, 此时对态的求和则变为 <span class="math inline">\(\sum_{n}=\sum_{\mu, \mathbf{k}},\)</span> 我们还需要注意到Maxwell方程组 <span class="math inline">\(\mathbf{E}=-\partial \mathbf{A} / \partial t\)</span>，基对应的频率表示为 <span class="math inline">\(E_{\alpha}(\omega)=\mathrm{i} \omega A_{\alpha}\)</span></p>
+<p>于是我们就得到了电导的表达式 <span class="math display">\[
+\sigma_{\alpha \beta}=\frac{\Pi_{\alpha \beta}(\omega)}{\mathrm{i} \omega}
+\]</span> 其中 <span class="math inline">\(\prod_{\alpha \beta}(\omega)\)</span> 流-流关联函数 <span class="math display">\[
+\Pi_{\alpha \beta}(\omega)=\sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m}\left[\frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}+\hbar \omega+\mathrm{i} \eta}+\frac{\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}-\hbar \omega-\mathrm{i} \eta}\right]
+\]</span> 我们最后得到的电导一定是实数，因此我们只对关联函数的虚部感兴趣。</p>
+<h3 id="tknn-formula">TKNN formula</h3>
+<p>我们接下来取直流极限 <span class="math inline">\(\omega \rightarrow 0\)</span>。利用公式 <span class="math inline">\(\lim _{\eta \rightarrow 0^{+}} \frac{1}{\omega \pm \mathrm{i} \eta}=\mathrm{P} \frac{1}{\omega} \mp \mathrm{i} \pi \delta(\omega)\)</span>，流-流关联函数 写成 <span class="math display">\[
+\begin{aligned}
+\Pi_{\alpha \beta}(\omega \rightarrow 0)=&amp; \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m}\left[\mathrm{P} \frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}}-\mathrm{i} \pi\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n} \delta\left(\epsilon_{n}-\epsilon_{m}\right)\right. 
+\\&amp;\left.+\mathrm{P} \frac{\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n}}{\epsilon_{n}-\epsilon_{m}}+\mathrm{i} \pi\left[\hat{j}_{\beta}\right]_{n m}\left[\hat{j}_{\alpha}\right]_{m n} \delta\left(\epsilon_{n}-\epsilon_{m}\right)\right] 
+\\=&amp; \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m}\left[\mathrm{P} \frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}+(n \leftrightarrow m)}{\epsilon_{n}-\epsilon_{m}}\right]
+\end{aligned}
+\]</span> 电导的计算公式变形为 <span class="math display">\[
+\begin{aligned}
+\sigma_{\alpha \beta}(\omega \rightarrow 0) &amp;=\lim _{\omega \rightarrow 0} \frac{\Pi_{\alpha \beta}(\omega)-\Pi_{\alpha \beta}(0)}{\mathrm{i} \omega}=\left.\frac{1}{\mathrm{i}} \frac{\partial \Pi_{\alpha \beta}}{\partial \omega}\right|_{\omega=0}  
+\\&amp;=\mathrm{i} \hbar \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \frac{\left[\hat{j}_{\alpha}\right]_{n m}\left[\hat{j}_{\beta}\right]_{m n}-\left[\hat{j}_{\alpha}\right]_{m n}\left[\hat{j}_{\beta}\right]_{n m}}{\left(\epsilon_{n}-\epsilon_{m}\right)^{2}}
+\end{aligned}
+\]</span> 将流算符的表达式 <span class="math display">\[
+\left[\hat{j}_{\alpha}\right]_{n m}=\left\langle u_{n}\left|\hat{j}_{\alpha}\right| u_{m}\right\rangle=\frac{e}{\hbar}\left\langle u_{n}\left|\partial_{\alpha} \hat{H}\right| u_{m}\right\rangle
+\\\partial_{\alpha} \equiv \frac{\partial}{\partial k_{\alpha}}, \quad \alpha=x, y
+\]</span> 代入电导公式 <span class="math display">\[
+\begin{aligned}
+\sigma_{\alpha \beta}(\omega \rightarrow 0) &amp;=\mathrm{i} \frac{e^{2}}{\hbar} \sum_{\epsilon_{n}&lt;\epsilon_{\mathrm{F}}} \sum_{m} \frac{\left\langle u_{n}\left|\partial_{\alpha} \hat{H}\right| u_{m}\right\rangle\left\langle u_{m}\left|\partial_{\beta} \hat{H}\right| u_{n}\right\rangle-\left\langle u_{m}\left|\partial_{\alpha} \hat{H}\right| u_{n}\right\rangle\left\langle u_{n}\left|\partial_{\beta} \hat{H}\right| u_{m}\right\rangle}{\left(\epsilon_{n}-\epsilon_{m}\right)^{2}}  
+\\&amp;=\mathrm{i} \frac{e^{2}}{\hbar} \sum_{\mu \nu} \sum_{\mathbf{k}} \frac{\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle-\left\langle u_{\nu}\left|\partial_{\alpha} \hat{H}\right| u_{\mu}\right\rangle\left\langle u_{\mu}\left|\partial_{\beta} \hat{H}\right| u_{\nu}\right\rangle}{\left(\epsilon_{\mu}-\epsilon_{\nu}\right)^{2}}  
+\\&amp;=\mathrm{i} \frac{e^{2} L^{2}}{\hbar} \sum_{\mu \nu} \int \frac{\mathrm{d} k_{x} \mathrm{d} k_{y}}{(2 \pi)^{2}} \frac{\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle-\left\langle u_{\nu}\left|\partial_{\alpha} \hat{H}\right| u_{\mu}\right\rangle\left\langle u_{\mu}\left|\partial_{\beta} \hat{H}\right| u_{\nu}\right\rangle}{\left(\epsilon_{\mu}-\epsilon_{\nu}\right)^{2}}
+\end{aligned}
+\]</span> 这就是标准的TKNN formula</p>
+<ul>
+<li>可以看出 <span class="math inline">\(\sigma_{\alpha \beta}=-\sigma_{\beta \alpha}\)</span> 所以我们可以进一步将电导率写为 <span class="math inline">\(\sigma_{\alpha \beta}=\sigma_{\mathrm{H}} \epsilon_{\alpha \beta}\)</span>。这里 <span class="math inline">\(\sigma_{\mathbf{H}}\)</span> 表示Hall电导。</li>
+<li>注意到 <span class="math inline">\(\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle\)</span> 与 <span class="math inline">\(\left\langle u_{\nu}\left|\partial_{\alpha} \hat{H}\right| u_{\mu}\right\rangle\left\langle u_{\mu}\left|\partial_{\beta} \hat{H}\right| u_{\nu}\right\rangle\)</span> 互为复共轭的，因此</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;=\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle-\left\langle u_{\nu}\left|\partial_{\alpha} \hat{H}\right| u_{\mu}\right\rangle\left\langle u_{\mu}\left|\partial_{\beta} \hat{H}\right| u_{\nu}\right\rangle
+\\&amp;=2 \operatorname{iIm}\left\langle u_{\mu}\left|\partial_{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial_{\beta} \hat{H}\right| u_{\mu}\right\rangle
+\end{aligned}
+\]</span></p>
+<p>将这个等式代入TKNN公式</p>
+<h3 id="陈数">陈数</h3>
+<p>由此我们可以定义第一陈数（the first Chern number）的概念 <span class="math display">\[
+\begin{aligned}
+C_{\mu}^{\alpha \beta} &amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \sum_{\nu \neq \mu} \frac{\left\langle u_{\mu}\left|\partial^{\alpha} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial^{\beta} \hat{H}\right| u_{\mu}\right\rangle-\left\langle u_{\mu}\left|\partial^{\beta} \hat{H}\right| u_{\nu}\right\rangle\left\langle u_{\nu}\left|\partial^{\alpha} \hat{H}\right| u_{\mu}\right\rangle}{\left(\epsilon_{\mu}-\epsilon_{\nu}\right)^{2}}  
+\\&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y}\left(\left\langle\partial^{\alpha} u_{\mu} | \partial^{\beta} u_{\mu}\right\rangle-\left\langle\partial^{\beta} u_{\mu} | \partial^{\alpha} u_{\mu}\right\rangle\right) \\&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \operatorname{tr}\left[\hat{P}_{\mu}\left(\partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu}-\partial^{\beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu}\right)\right] \\&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \operatorname{tr} \epsilon_{\alpha \beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu}
+\end{aligned}
+\]</span> 其中第三个等式的验证是 <span class="math display">\[
+\begin{aligned}
+&amp;\operatorname{tr} \epsilon_{\alpha \beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu} 
+\\&amp;=\operatorname{tr}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right) \epsilon_{\alpha \beta}\left[\partial^{\alpha}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right) \partial^{\beta}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right)\right] 
+\\&amp;=\operatorname{tr}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right) \epsilon_{\alpha \beta}\left[\partial^{\alpha}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}|+| u_{\mu}\right\rangle \partial^{\alpha}\left(\left\langle u_{\mu}\right|\right)\right]\left[\partial^{\beta}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}|+| u_{\mu}\right\rangle \partial^{\beta}\left(\left\langle u_{\mu}\right|\right)\right] 
+\\&amp;=\operatorname{tr}\left(\left|u_{\mu}\right\rangle\left\langle u_{\mu}\right|\right) \epsilon_{\alpha \beta}\left[\partial^{\alpha}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}\left|\partial^{\beta}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}\left|+\partial^{\alpha}\left(\left|u_{\mu}\right\rangle\right) \partial^{\beta}\left(\left\langle u_{\mu}\right|\right)\right.\right.\right.\right.\right. 
+\\&amp;\left.+\left|u_{\mu}\right\rangle \partial^{\alpha}\left(\left\langle u_{\mu}\right|\right) \partial^{\beta}\left(\left|u_{\mu}\right\rangle\right)\left\langle u_{\mu}|+| u_{\mu}\right\rangle \partial^{\alpha}\left(\left\langle u_{\mu}\right|\right)\left|u_{\mu}\right\rangle \partial^{\beta}\left(\left\langle u_{\mu}\right|\right)\right] 
+\\&amp;=\epsilon_{\alpha \beta}\left(\left\langle u_{\mu} | \partial^{\alpha} u_{\mu}\right\rangle\left\langle u_{\mu} | \partial^{\beta} u_{\mu}\right\rangle+\left\langle u_{\mu} | \partial^{\alpha} u_{\mu}\right\rangle\left\langle\partial^{\beta} u_{\mu} | u_{\mu}\right\rangle+\left\langle\partial^{\alpha} u_{\mu} | \partial^{\beta} u_{\mu}\right\rangle+\left\langle\partial^{\alpha} u_{\mu} | u_{\mu}\right\rangle\left\langle\partial^{\beta} u_{\mu} | u_{\mu}\right\rangle\right) 
+\\&amp;=\epsilon_{\alpha \beta}\left\langle\partial^{\alpha} u_{\mu} | \partial^{\beta} u_{\mu}\right\rangle
+\end{aligned}
+\]</span> 如果我们讨论的是一般的二带模型（two-band model），那么第一陈数的计算可以直接从哈密顿量出发得到，而不需要先解出本征态。一般的二带模型的哈密顿量可以用Pauli矩阵展开为 <span class="math display">\[
+\hat{H}(\mathbf{k})=\sum_{i=x, y, z} d_{i}(\mathbf{k}) \hat{\sigma}_{i}
+\]</span> 两个本征态可以表示为 <span class="math inline">\(\left|u_{\pm}\right\rangle\)</span>。由此我们可以写出投影算符 <span class="math display">\[
+\hat{P}_{\pm}=\left|u_{\pm}\right\rangle\left\langle u_{\pm}\right|=\frac{1}{2}\left(1 \pm \sum_{i} \hat{d}_{i} \hat{\sigma}_{i}\right)
+\]</span> 这是很容易验证的，我们只需要将哈密顿量作用到投影算符上 <span class="math display">\[
+\begin{aligned}
+\hat{P}_{\pm} \hat{H}=\hat{H} \hat{P}_{\pm} &amp;=\frac{1}{2}|\mathbf{d}| \sum_{i} \hat{d}_{i} \hat{\sigma}_{i}+\frac{1}{2}|\mathbf{d}| \sum_{i, j} \hat{d}_{i} \hat{\sigma}_{i} \hat{d}_{j} \hat{\sigma}_{j}  
+\\&amp;=\frac{1}{2}|\mathbf{d}| \sum_{i} \hat{d}_{i} \hat{\sigma}_{i} \pm \frac{1}{2}|\mathbf{d}| \sum_{i, j} \hat{d}_{i} \hat{d}_{j}\left(\mathrm{i} \sum_{k} \epsilon_{i j k} \hat{\sigma}_{k}+\delta_{i j} \hat{\sigma}_{0}\right)
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li>我们定义了单位矢量 <span class="math inline">\(\hat{d}_{i} \equiv d_{i} /|\mathbf{d}|\)</span> ，并且满足 <span class="math inline">\(\sum_{i} \hat{d}_{i} \hat{d}_{i}=1\)</span></li>
+<li>同时我们还注意到 <span class="math inline">\(\sum_{i, j} \hat{d}_{i} \hat{d}_{j} \epsilon_{i j k} \hat{\sigma}_{k}=(\hat{\mathbf{d}} \times \hat{\mathbf{d}}) \cdot \hat{\vec{\sigma}}=0\)</span></li>
+</ul>
+<p>所以不难看出存在这样的关系式 <span class="math inline">\(\hat{P}_{\pm} \hat{H}=\hat{H} \hat{P}_{\pm}=\pm|\mathbf{d}| \hat{P}_{\pm}\)</span>。于是我们可以将上面的trace项直接求出来： <span class="math display">\[
+\begin{aligned} \operatorname{tr} \epsilon_{\alpha \beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu} &amp;=\operatorname{tr}\left(\hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu}-\hat{P}_{\mu} \partial^{\beta} \hat{P}_{\mu} \partial^{\alpha} \hat{P}_{\mu}\right)
+\\ &amp;=\frac{1}{8} \sum_{i, j, k} \operatorname{tr}\left[\left(1+\mu \hat{d}_{i} \hat{\sigma}_{i}\right) \partial^{\alpha}\left(1+\mu \hat{d}_{j} \hat{\sigma}_{j}\right) \partial^{\beta}\left(1+\mu \hat{d}_{k} \hat{\sigma}_{k}\right)-(\alpha \leftrightarrow \beta)\right]
+\\ &amp;=\frac{1}{8} \sum_{i, j, k} \operatorname{tr}\left[\left(1+\mu \hat{d}_{i} \hat{\sigma}_{i}\right)\left(\partial^{\alpha} \hat{d}_{j}\right) \hat{\sigma}_{j}\left(\partial^{\beta} \hat{d}_{k}\right) \hat{\sigma}_{k}-(\alpha \leftrightarrow \beta)\right] 
+\\ &amp;=\frac{1}{8} \mu \sum_{i, j, k} \operatorname{tr}\left(\hat{\sigma}_{i} \hat{\sigma}_{j} \hat{\sigma}_{k}\right) \hat{d}_{i} \partial^{\alpha} \hat{d}_{j} \partial^{\beta} \hat{d}_{k}-(\alpha \leftrightarrow \beta) 
+\\ &amp;=\frac{1}{8} \mu \sum_{i, j, k}\left(2 \mathrm{i} \epsilon_{i j k}\right) \hat{d}_{i} \partial^{\alpha} \hat{d}_{j} \partial^{\beta} \hat{d}_{k}-(\alpha \leftrightarrow \beta) 
+\\ &amp;=\frac{\mathrm{i} \mu}{4} \sum_{i, j, k}\left(\epsilon_{i j k} \hat{d}_{i} \partial^{\alpha} \hat{d}_{j} \partial^{\beta} \hat{d}_{k}-\epsilon_{i j k} \hat{d}_{i} \partial^{\beta} \hat{d}_{j} \partial^{\alpha} \hat{d}_{k}\right) 
+\\ &amp;=\frac{\mathrm{i} \mu}{2} \sum_{i, j, k} \epsilon_{i j k} \hat{d}_{i} \partial^{\alpha} \hat{d}_{j} \partial^{\beta} \hat{d}_{k}
+\\ &amp;=\frac{\mathrm{i} \mu}{2} \hat{\mathrm{d}} \cdot\left(\partial^{\alpha} \hat{\mathrm{d}} \times \partial^{\beta} \hat{\mathrm{d}}\right) \end{aligned}
+\]</span> 代回到陈数的表达式，我们就得到了计算二带系统陈数的通用表达式 <span class="math display">\[
+\begin{aligned}
+C_{\mu}^{\alpha \beta}&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \frac{\mathrm{i} \mu}{2} \hat{\mathrm{d}} \cdot\left(\partial^{\alpha} \hat{\mathbf{d}} \times \partial^{\beta} \hat{\mathbf{d}}\right)
+\\&amp;=\frac{-\mu}{4 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \hat{\mathbf{d}} \cdot\left(\partial^{\alpha} \hat{\mathbf{d}} \times \partial^{\beta} \hat{\mathbf{d}}\right)
+\end{aligned}
+\]</span></p>
+<h2 id="概述">概述</h2>
+<p>Berry phase： <span class="math display">\[
+\gamma_{m 2}(t)=\int_{0}^{t} d t^{\prime}\left\langle m\left(t^{\prime}\right)\left|i \frac{\mathrm{d}}{\mathrm{d} t^{\prime}}\right| m\left(t^{\prime}\right)\right\rangle
+\]</span> 积分里面的部分（乘以i）被定义为Berry联络。引入矢量势 <span class="math inline">\(\vec{A}_{m}(\vec{R})=\left\langle m(\vec{R})\left|i \nabla_{\vec{R}}\right| m(\vec{R})\right\rangle\)</span> 因此 Berry 相可写作 <span class="math display">\[
+\gamma_{m 2}(C)=\int_{C} \vec{A}_{m}(\vec{R}) \cdot d \vec{R}=\int_{S} \vec{B}_{m}(\vec{R}) \cdot d \vec{S}
+\]</span> 这里引入的规范势其实为Berry截面上的联络，而规范场强为其截面的曲率，也就是我们所说的Berry曲率。</p>
+<p>Berry联络的旋度就是Berry曲率 <span class="math display">\[
+\Omega_{n}=i \nabla_{k} \times\left\langle u_{n}\left|\nabla_{k}\right| u_{n}\right\rangle
+\]</span> 展开 <span class="math display">\[
+\overrightarrow{B_{m}}(\vec{R})=i \sum_{n \neq m} \frac{\left\langle m(\vec{R})\left|\left(\nabla_{\vec{R}} \hat{H}(\vec{R})\right)\right| n(\vec{R})\right\rangle \times\left\langle n(\vec{R})\left|\left(\nabla_{\vec{R}} \hat{H}(\vec{R})\right)\right| m(\vec{R})\right\rangle}{\left(E_{m}(\vec{R})-E_{n}(\vec{R})\right)^{2}}
+\]</span></p>
+<h2 id="参考">参考</h2>
+<p>https://www.zhihu.com/question/381097729/answer/1164745113</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/">Topological Physics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/%E6%8B%93%E6%89%91%E7%89%A9%E6%80%81%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">拓扑物态的基础概念</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/11/04/topology06_Basic01_symmetry/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">拓扑物态中的对称性</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2016/11/02/topology06_Basic02_Dirac/">
+                        <span class="hidden-mobile">从狄拉克方程到拓扑材料</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Berry Phase&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

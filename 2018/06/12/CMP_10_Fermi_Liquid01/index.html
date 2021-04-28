@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>费米液体(2/4)：现象法 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2018-06-12 12:01">
+      June 12, 2018 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      10k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      195
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<blockquote>
+<p>Coleman《Introduction-to-Many-Body-Physics》</p>
+</blockquote>
+<p>[TOC]</p>
+<p>These physical considerations led Landau to conclude that the energy of a gas of quasi-particles could be expressed as a functional of the quasi-particle occupancies <span class="math inline">\(n_{ p \sigma} .\)</span></p>
+<h2 id="expand-the-energy">1 Expand the energy</h2>
+<blockquote>
+<p>我们 把能量用 “准粒子占据” 展开，探讨每一项的物理含义</p>
+<ol type="1">
+<li>第一项代表“准粒子”的能量</li>
+<li>第二项代表“准粒子”之间的相互作用</li>
+</ol>
+<p>第一项我们可以推论出：费米速度，有效质量，态密度</p>
+<p>第二项的相关概念：准粒子的散射以及散射幅度。截至频率要求相互作用不能是长程的，如果要处理长程的库伦相互作用，就需要分成短程和长程两部分处理。</p>
+<p>最后我们求出自由能，为此我们需要求熵。</p>
+</blockquote>
+<p>If the density of quasi-particles is low, it is sufficient to expand the energy in the small deviations in particle number <span class="math inline">\(\delta n_{ p \sigma}=n_{ p \sigma}-n_{ p \sigma}^{(0)}\)</span> from equilibrium. This leads to the Landau energy functional <span class="math inline">\(\mathcal{E} \left(\left\{n_{ p \sigma}\right\}\right)=E\left(\left\{n_{ p \sigma}\right\}\right)-\mu N,\)</span> where <span class="math display">\[
+\mathcal{E} = \mathcal{E}_{0}+\sum_{ p \sigma}\left(E_{ p \sigma}^{(0)}-\mu\right) \delta n_{ p \sigma}+\frac{1}{2} \sum_{ p , p ^{\prime}, \sigma, \sigma^{\prime}} f_{ p \sigma, p ^{\prime} \sigma^{\prime}} \delta n_{ p \sigma} \delta n_{ p ^{\prime} \sigma^{\prime}}+\cdots
+\]</span></p>
+<h3 id="first-order-coefficient-isolated-quasi-particle">first-order coefficient: isolated quasi-particle</h3>
+<p>The first-order coefficient <span class="math display">\[
+\epsilon_{ p \sigma}^{(0)} \equiv E_{ p \sigma}^{(0)}-\mu=\frac{\delta E }{\delta n_{ p \sigma}}
+\]</span> describes the excitation energy of an isolated quasi-particle</p>
+<h4 id="quasi-particle-energy">quasi-particle energy</h4>
+<p>The quasi-particle energy can be expanded linearly in momentum near the Fermi surface: <span class="math display">\[
+E_{p}^{(0)}=v_{F}\left(p-p_{F}\right)+\mu^{(0)}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(v_{F}\)</span> is the Fermi velocity at the Fermi energy $^{(0)} $</li>
+<li><span class="math inline">\(\mu^{(0)}\)</span> is the chemical potential in the ground state.</li>
+</ul>
+<h4 id="effective-mass">Effective mass</h4>
+<p>The quasi-particle effective mass <span class="math inline">\(m^{*}\)</span> is then defined in terms of <span class="math inline">\(v_{F}\)</span> as <span class="math display">\[
+v_{F}=\left.\frac{d \epsilon_{p}^{(0)}}{d p}\right|_{p=p_{F}}=\frac{p_{F}}{m^{*}}
+\]</span></p>
+<h4 id="density-of-states">Density of states</h4>
+<p>We can use this mass to define a quasi-particle density of states <span class="math display">\[
+\begin{aligned}
+N ^{*}(\epsilon)&amp;=2 \sum_{ p } \delta\left(\epsilon-\epsilon_{ p }^{(0)}\right)
+\\&amp;=2 \int \frac{4 \pi p^{2} d p}{(2 \pi \hbar)^{3}} \delta\left(\epsilon-\epsilon_{p}^{(0)}\right)
+\\&amp;=\frac{p^{2}}{\pi^{2} \hbar^{3}} \frac{d p}{d \epsilon_{p}^{(0)}}
+\end{aligned}
+\]</span> Using <span class="math inline">\(\left.\frac{d \epsilon_{p}^{(0)}}{d p}\right|_{p=p_{F}}=\frac{p_{F}}{m^{*}}\)</span>, it follows that <span class="math display">\[
+N ^{*}(0)=\frac{m^{*} p_{F}}{\pi^{2} \hbar^{3}}
+\]</span> large effective masses lead to large densities of states.</p>
+<h3 id="the-second-order-coefficients">The second-order coefficients</h3>
+<p>The second-order coefficients describe the interactions between quasi-particles at the Fermi surface. <span class="math display">\[
+f_{ p \sigma, p ^{\prime} \sigma^{\prime}}=\left.\frac{\delta^{2} E }{\delta n_{ p \sigma} \delta n_{ p ^{\prime} \sigma^{\prime}}}\right|_{\delta n_{ p ^{\prime \prime} \sigma^{\prime \prime}}=0}
+\]</span> The Landau interaction can be regarded as an interaction operator that acts on a thin shell of quasi-particle states near the Fermi surface.</p>
+<h4 id="quasi-particles-scattering">quasi-particles scattering</h4>
+<p>If <span class="math inline">\(\hat{n}_{ p \sigma}=\psi_{ p \sigma}^{\dagger} \psi_{ p \sigma}\)</span> is the quasi-particle occupancy, where <span class="math inline">\(\psi_{ p \sigma}^{\dagger}\)</span> is the quasi-particle-creation operator, then one is tempted to write <span class="math display">\[
+H_{I} \sim \frac{1}{2} \sum_{ p \sigma p ^{\prime} \sigma^{\prime}} f_{ p \sigma, p ^{\prime} \sigma^{\prime}} \hat{n}_{ p \sigma} \hat{n}_{ p ^{\prime} \sigma^{\prime}}
+\]</span> Written this way, we see that the Landau interaction term is a <strong>forward scattering amplitude</strong> between quasiparticles whose initial and final momenta are unchanged. In practice, one has to allow for slowly varying quasiparticle densities <span class="math inline">\(n_{ p \sigma}( x ),\)</span> writing <span class="math display">\[
+H_{I} \sim \frac{1}{2} \int d^{3} x \sum_{ p \sigma p ^{\prime} \sigma^{\prime}} f_{ p \sigma, p ^{\prime} \sigma^{\prime}} \hat{n}_{ p \sigma}( x ) \hat{n}_{ p ^{\prime} \sigma^{\prime}}( x )
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(n_{ p \sigma}( x )\)</span> is the local quasi-particle density.</li>
+<li>Using the Fourier transformed density operator <span class="math inline">\(\hat{n}_{ p \sigma}( q )=\psi_{ p - q / 2 \sigma}^{\dagger} \psi_{ p + q / 2 \sigma}=\int_{ x } e^{-i q \cdot x } n_{ p \sigma}( x ),\)</span></li>
+</ul>
+<h4 id="cut-off">cut-off</h4>
+<p>a more correct formulation of the Landau interaction is <span class="math display">\[
+H_{I}=\frac{1}{2} \sum_{ p \sigma p ^{\prime} \sigma^{\prime},| q |&lt;\Lambda} f_{ p \sigma, p ^{\prime} \sigma^{\prime}}( q ) \hat{n}_{ p \sigma}( q ) \hat{n}_{ p ^{\prime} \sigma^{\prime}}(- q )
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\Lambda\)</span> is a cut-off that restricts the momentum transfer to values smaller than the thickness of the shell of quasi-particles</li>
+</ul>
+<p>The existence of zero-momentum limit $f_{ p ,}=f_{ p }( q =0) $ requires that the interaction has a finite range. however, the Coulomb interaction has the long-range which does not meet this requirement. Therefore, the charged Fermi liquids requires that we separate out the long-range part of the Coulomb interaction.</p>
+<h4 id="occupancies-perturbation">occupancies perturbation</h4>
+<p>Interactions mean that quasi-particle energies are sensitive to changes in the quasi-particle occupancies. Suppose the quasi-particle occupancies deviate from the ground state as follows: <span class="math inline">\(n_{ p \sigma} \rightarrow n_{ p \sigma}+\delta n_{ p \sigma}\)</span>. The corresponding change in the total energy is then <span class="math display">\[
+\begin{aligned}
+\frac{\delta \mathcal{E} }{\delta n_{ p \sigma}}&amp;=\epsilon_{ p \sigma} \equiv E_{ p \sigma}-\mu\\
+&amp;=\epsilon_{ p \sigma}^{(0)}+\sum_{ p ^{\prime} \sigma^{\prime}} f_{ p \sigma, p ^{\prime}, \sigma^{\prime}} \delta n_{ p ^{\prime} \sigma^{\prime}}
+\end{aligned}
+\]</span> The second term is the change in the quasi-particle energy induced by the <strong>polarization</strong> of the Fermi sea.</p>
+<h3 id="free-energy">free energy</h3>
+<p>To determine thermodynamic properties of the Landau Fermi-liquid, we also need to know the entropy of the fluid. Fortunately, when we turn on interactions adiabatically the entropy is invariant, so that it must maintain the dependence on particle occupancies that it has in the non-interacting system, i.e. <span class="math display">\[
+S=-k_{B} \sum_{ p , \sigma}\left[n_{ p \sigma} \ln n_{ p \sigma}+\left(1-n_{ p \sigma}\right) \ln \left(1-n_{ p \sigma}\right)\right]
+\]</span> The full thermodynamics are determined by the free energy <span class="math display">\[
+\begin{aligned}
+F&amp;= \mathcal{E} -T S\\
+&amp;=E-\mu N-T S\\
+&amp;= \mathcal{E}_{0}(\mu)+\sum_{ p \sigma} \epsilon_{ p \sigma}^{(0)} \delta n_{ p \sigma}+\frac{1}{2} \sum_{ p , p ^{\prime}, \sigma, \sigma^{\prime}} f_{ p \sigma, p ^{\prime} \sigma^{\prime}} \delta n_{ p \sigma} \delta n_{ p ^{\prime} \sigma^{\prime}} \\
+&amp;\quad+k_{B} T \sum_{ p , \sigma}\left[n_{ p \sigma} \ln n_{ p \sigma}+\left(1-n_{ p \sigma}\right) \ln \left(1-n_{ p \sigma}\right)\right]
+\end{aligned}
+\]</span></p>
+<h2 id="landau-parameters">2 Landau parameters</h2>
+<blockquote>
+<p>展开式的二阶系数 <span class="math inline">\(f_{p \sigma, p^{\prime} \sigma^{\prime}}\)</span>，经过Legendre多项式展开，得到 无量纲朗道参数 <span class="math inline">\(F_{l}^{s, a}\)</span>。从无相互作用的费米气 到有相互作用费米液体，一些物理观测量被重整化，可以用无量纲朗道参数 <span class="math inline">\(F_{l}^{s, a}\)</span> 表示。</p>
+<p>计算无量纲朗道参数 <span class="math inline">\(F_{l}^{s, a}\)</span> 一般是用到Legendre的正交性质。 <span class="math inline">\(F_{l}^{s, a}\)</span> 分成两种</p>
+<ol type="1">
+<li><span class="math inline">\(F_{l}^{s}\)</span> 对称项，无磁性</li>
+<li><span class="math inline">\(F_{l}^{ a}\)</span> 反对称项，和磁性有关</li>
+</ol>
+<p>计算了一个例子： 超流。</p>
+<p>尽管有相互作用，准粒子的分布还是费米狄拉克分布。最后我们探究了低温情况下，热激法的准粒子密度降低的极限行为。</p>
+</blockquote>
+<p>The power of the Landau Fermi-liquid theory lies in its ability to parameterize the interactions in terms of a small number of multi-pole parameters called Landau parameters. These parameters describe how the original non-interacting Fermi-liquid theory is renormalized by the feedback effect of interactions on quasi-particle energies. <span class="math display">\[
+\begin{array}{lll}
+\text { Property } &amp; \text { Non-interacting } &amp; \text { Landau Fermi-liquid } \\
+\hline \text { Fermi momentum } &amp; p_{F} &amp; \text { Unchanged } \\
+\text { Density of particles } &amp; 2 \frac{ v _{F S}}{(2 \pi)^{3}} &amp; \text { Unchanged } \\
+\text { Density of states } &amp; N (0)=\frac{m p_{F}}{\pi^{2} \hbar^{3}} &amp; N ^{*}(0)=\frac{m^{*} p_{F}}{\pi^{2} \hbar^{3}} \\
+\text { Effective mass } &amp; m &amp; m^{*}=m\left(1+F_{1}^{s}\right) \\
+\text { Specific heat coefficient } C_{V}=\gamma T &amp; \gamma=\frac{\pi^{2}}{3} k_{B}^{2} N (0) &amp; \gamma=\frac{\pi^{2}}{3} k_{B}^{2} N ^{*}(0) \\
+\text { Spin susceptibility } &amp; \chi_{s}=\mu_{F}^{2} N (0) &amp; \chi_{s}=\mu_{F}^{2} \frac{ N ^{*}(0)}{1+F_{0}^{u}} \\
+\text { Charge susceptibility } &amp; \chi_{C}= N (0) &amp; \chi_{C}=\frac{ N ^{*}(0)}{1+F_{0}^{s}} \\
+\text { Collective modes } &amp; - &amp; \text { Sound }(\omega \tau&lt;&lt;1) \\
+&amp; &amp; \text { Zero sound }(\omega \tau&gt;&gt;1)
+\end{array}
+\]</span> Table summarizes the key properties of the Landau Fermi-liquid.</p>
+<p>Fermi liquid, the physics is invariant under spatial rotations, so that interactions on the Fermi surface only depend on the relative angle <span class="math inline">\(\theta\)</span> between <span class="math inline">\(\hat{ p }\)</span> and <span class="math inline">\(\hat{ p }^{\prime} .\)</span> We write <span class="math inline">\(\left(\cos \theta=\hat{p} \cdot \hat{p}^{\prime}\right)\)</span> <span class="math display">\[
+f_{ p , p ^{\prime}}^{s, a}=f^{s, a}(\cos \theta)
+\]</span> We convert the interaction to a <strong>dimensionless</strong> function by multiplying it by the quasiparticle density of states <span class="math inline">\(N^{*}(0)\)</span> <span class="math display">\[
+F^{s, a}(\cos \theta)= N ^{*}(0) f^{s, a}(\cos \theta)
+\]</span></p>
+<h3 id="multipole-expansion">2.1 multipole expansion</h3>
+<p>These functions can now be expanded as a multipole expansion in terms of Legendre polynomials: <span class="math display">\[
+F^{s, a}(\cos \theta)=\sum_{l=0}^{\infty}(2 l+1) F_{l}^{s, a} P_{l}(\cos \theta)
+\]</span> The coefficients <span class="math inline">\(F_{l}^{s}\)</span> and <span class="math inline">\(F_{l}^{a}\)</span> are the <strong>Landau parameters</strong>.</p>
+<ul>
+<li>The spin-symmetric components <span class="math inline">\(F_{l}^{s}\)</span> parameterize the <strong>non-magnetic</strong> part of the interaction</li>
+<li>The spin-antisymmetric <span class="math inline">\(F_{l}^{a}\)</span> define the <strong>magnetic component</strong> of the interaction.</li>
+</ul>
+<p>These parameters determine how distortions of the Fermi surface are fed back to modify quasiparticle energies.</p>
+<h4 id="calculation-the-coefficients">calculation the coefficients</h4>
+<p>The coefficients <span class="math inline">\(F_{l}^{s, a}\)</span> can get by using the orthogonality relation <span class="math display">\[
+\frac{1}{2} \int_{-1}^{1} d c \quad P_{l}(c) P_{l^{\prime}}(c)=(2 l+1)^{-1} \delta_{l, l^{\prime}}
+\]</span> thus <span class="math display">\[
+\begin{aligned}
+F_{l}^{s, a}&amp;=\frac{1}{2} \int_{-1}^{1} d c F^{s, a}(c) P_{l}(c) \\
+&amp;\equiv\left\langle F^{s, a}(\hat{\Omega}) P_{l}(\hat{\Omega})\right\rangle_{\hat{\Omega}}
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\langle\ldots\rangle_{\hat{\Omega}}\)</span> denotes an average over solid angle.</li>
+</ul>
+<p>It is useful to rewrite this angular average as an average over the Fermi surface. To do this we note that, since <span class="math inline">\(2 \sum_{ k } \delta\left(\epsilon_{ k }\right)= N ^{*}(0)\)</span> the function <span class="math inline">\(\frac{2}{ N ^{*}(0)} \delta\left(\epsilon_{ k }\right)\)</span> behaves as a normalized projector onto the Fermi surface, so that <span class="math display">\[
+\begin{aligned}
+F_{l}^{s, a}&amp;=\left\langle F^{s, a}(\hat{\Omega}) P_{l}(\hat{\Omega})\right\rangle_{F S}\\
+&amp;=\frac{2}{ N ^{*}(0)} \sum_{ p ^{\prime}} F_{ p , p ^{\prime}}^{s, a} P_{l}\left(\cos \theta_{ p , p ^{\prime}}\right) \delta\left(\epsilon_{ p ^{\prime}}\right)
+\end{aligned}
+\]</span> and since <span class="math inline">\(F_{ p , p ^{\prime}}^{s, a}= N ^{*}(0) f_{ p , p ^{\prime}}^{s, a}\)</span> <span class="math display">\[
+F_{l}^{s, a}=2 \sum_{ p ^{\prime}} f_{ p , p ^{\prime}}^{s, a} P_{l}\left(\cos \theta_{ p , p ^{\prime}}\right) \delta\left(\epsilon_{ p ^{\prime}}\right)
+\]</span> This form is very convenient for later calculations.</p>
+<h3 id="example">example</h3>
+<blockquote>
+<p>Question:</p>
+<p>Use first-order perturbation theory to calculate the Landau interaction parameters for a fluid of fermions with a weak interaction described by <span class="math display">\[
+H=\sum_{ p \sigma} E_{ p } n_{ p \sigma}+\frac{\lambda}{2} \sum_{ p \sigma, p ^{\prime} \sigma^{\prime}, q } V(q) c_{ p - q \sigma}^{\dagger} c_{ p ^{\prime}+ q ^{\prime}}^{\dagger} c_{ p ^{\prime} \sigma^{\prime}} c_{ p \sigma}
+\]</span> where <span class="math inline">\(E_{ p }\)</span> is the energy of the non-interacting Fermi gas, <span class="math inline">\(V(q)=\int \frac{d^{3} q}{(2 \pi)^{3}} e^{-i q \cdot r } V(r)\)</span> is the Fourier transform of the interaction potential <span class="math inline">\(V(r),\)</span> and <span class="math inline">\(\lambda&lt;&lt;1\)</span> is a very small coupling constant.</p>
+<p>Hint:</p>
+<p>use first-order perturbation theory in <span class="math inline">\(\lambda\)</span> to compute the energy of a state <span class="math display">\[
+\Psi=\left|n_{ p _{1} \sigma_{1}}, n_{ p _{2} \sigma_{2}}, \ldots\right\rangle
+\]</span> to leading order in the interaction strength <span class="math inline">\(\lambda,\)</span> and then read off the terms quadratic in <span class="math inline">\(n_{ p \sigma}\)</span>.</p>
+</blockquote>
+<p>Solution</p>
+<p>To leading order in <span class="math inline">\(\lambda,\)</span> the total energy is given by<br />
+<span class="math display">\[
+\begin{aligned}
+E&amp;=\langle\Psi|H| \Psi\rangle\\
+&amp;=\sum_{ p \sigma} E_{ p } n_{ p \sigma}+\frac{\lambda}{2} \sum_{ p \sigma, p ^{\prime} \sigma^{\prime}, q } V(q)\left\langle\Psi\left|c_{ p - q \sigma}^{\dagger} c_{ p ^{\prime}+ q \sigma^{\prime}}^{\dagger} c_{ p ^{\prime} \sigma^{\prime}} c_{ p \sigma}\right| \Psi\right\rangle
+\end{aligned}
+\]</span> The matrix element <span class="math inline">\(\left\langle\Psi\left|c_{ p - q \sigma}^{\dagger} c_{ p ^{\prime}+ q \sigma^{\prime}}^{\dagger} c_{ p ^{\prime} \sigma^{\prime}} c_{ p \sigma}\right| \Psi\right\rangle\)</span> in the interaction term vanishes unless the two-quasiparticle state annihilated by the two destruction operators has an overlap with the two-particle state created by the two creation operators, i.e. <span class="math display">\[
+\begin{aligned}
+\left\langle\Psi\left|c_{ p - q \sigma}^{\dagger} c_{ p ^{\prime}+ q \sigma^{\prime}}^{\dagger} c_{ p ^{\prime} \sigma^{\prime}} c_{ p \sigma}\right| \Psi\right\rangle &amp;=\left\langle p - q , \sigma ; p ^{\prime}+ q , \sigma^{\prime} \mid p , \sigma ; p ^{\prime} \sigma^{\prime}\right\rangle n_{ p \sigma} n_{ p \sigma^{\prime}} \\
+&amp;=\left(\delta_{ q =0}-\delta_{ p - q , p ^{\prime}} \delta_{\sigma, \sigma^{\prime}}\right) n_{ p \sigma} n_{ p \sigma^{\prime}}
+\end{aligned}
+\]</span> where the second term occurs when the outgoing state is the exchange of the incoming two-quasiparticle state. Inserting we obtain <span class="math display">\[
+\begin{aligned}
+E&amp;=\langle\Psi|H| \Psi\rangle\\
+&amp;=\sum_{ p \sigma} E_{ p } n_{ p \sigma}+\frac{\lambda}{2} \sum_{ p \sigma, p ^{\prime} \sigma^{\prime}, q } V(q)\left\langle\Psi\left|c_{ p - q \sigma}^{\dagger} c_{ p ^{\prime}+ q \sigma^{\prime}}^{\dagger} c_{ p ^{\prime} \sigma^{\prime}} c_{ p \sigma}\right| \Psi\right\rangle\\
+&amp;=\sum_{ p \sigma} E_{ p } n_{ p \sigma}+\frac{\lambda}{2} \sum_{ p \sigma, p ^{\prime} \sigma^{\prime}}\left[V(0)-V\left( p - p ^{\prime}\right) \delta_{\sigma \sigma^{\prime}}\right] n_{ p ^{\prime} \sigma^{\prime}} n_{ p \sigma}
+\end{aligned}
+\]</span> enabling us to read off the Landau interaction as <span class="math display">\[
+f_{ p \sigma, p ^{\prime} \sigma^{\prime}}=\lambda\left[V(q=0)-V\left( p - p ^{\prime}\right) \delta_{\sigma \sigma^{\prime}}\right]+O\left(\lambda^{2}\right)
+\]</span> It follows that the symmetric and antisymmetric parts of the interaction parameters are</p>
+<ul>
+<li><span class="math inline">\(f_{ p , p ^{\prime}}^{s}=\lambda\left[V(q=0)-\frac{1}{2} V\left( p - p ^{\prime}\right)\right]+O\left(\lambda^{2}\right)\)</span></li>
+<li><span class="math inline">\(f_{ p , p ^{\prime}}^{a}=-\frac{\lambda}{2} V\left( p - p ^{\prime}\right)+O\left(\lambda^{2}\right)\)</span></li>
+</ul>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201120124444325.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p>Note the following:</p>
+<ul>
+<li>The Landau interaction is only well defined if <span class="math inline">\(V(q=0)\)</span> is finite, which implies that the interaction is short-range.</li>
+<li>The second term in the interaction corresponds to the "exchange" of identical particles. For a repulsive interaction, this gives rise to an attractive <span class="math inline">\(f^{a} .\)</span> We can represent the interaction term by the Feynman diagrams</li>
+</ul>
+<h3 id="equilibrium-distribution-of-quasiparticles">Equilibrium distribution of quasiparticles</h3>
+<p>Despite interactions, the Landau Fermi-liquid preserves the equilibrium Fermi-Dirac momentum distribution.</p>
+<h4 id="stationary">stationary</h4>
+<p>The key idea here is that, in thermal equilibrium, the free energy <span class="math inline">\(F\)</span> is stationary with respect to small changes <span class="math inline">\(\delta n_{ p \sigma}\)</span> in quasiparticle occupancies, so that <span class="math display">\[
+\delta F=\sum_{ p \sigma} \delta n_{ p \sigma}\left[\epsilon_{ p \sigma}+k_{B} T \ln \left(\frac{n_{ p \sigma}}{1-n_{ p \sigma}}\right)\right]+O\left(\delta n_{ p \sigma}^{2}\right)=0
+\]</span> Stationarity of the free energy, <span class="math inline">\(\delta F=0,\)</span> enforces the thermodynamic identity <span class="math inline">\(\delta F=\delta E -\)</span> <span class="math inline">\(T \delta S=0,\)</span> or <span class="math inline">\(d E =T d S .\)</span> This requires that the linear coefficient of <span class="math inline">\(\delta n_{ p \sigma}\)</span> is zero which implies that the quasiparticle occupancy <span class="math display">\[
+n_{ p \sigma}=\frac{1}{e^{\beta \epsilon_{ p \sigma}+1}}=f\left(\epsilon_{ p \sigma}\right)
+\]</span> is determined by the Fermi-Dirac distribution function of its energy. There is a subtlety here, however, for the quantity <span class="math inline">\(\epsilon_{ p \sigma}\)</span> contains the <strong>feedback effect</strong> of interactions, as given in <span class="math display">\[
+\epsilon_{ p \sigma}=\epsilon_{ p \sigma}^{(0)}+\sum_{ p ^{\prime} \sigma^{\prime}} f_{ p \sigma, p ^{\prime}, \sigma^{\prime}} \delta n_{ p ^{\prime} \sigma^{\prime}}
+\]</span></p>
+<h4 id="low-temperature-behavior">low-temperature behavior</h4>
+<p>Let us first consider the low-temperature behavior in the absence of a field.</p>
+<p>In this case, as the temperature is lowered the density of thermally excited quasiparticles will go to zero, and in this limit the quasiparticle distribution function is asymptotically given by <span class="math display">\[
+n_{ p \sigma}=f\left(\epsilon_{ p }^{(0)}\right)
+\]</span> In the ground state this becomes a step function <span class="math display">\[
+\left.n_{ p \sigma}\right|_{T=0}=\theta\left(-\epsilon_{ p }^{(0)}\right)=\theta\left(\mu-E_{ p }^{(0)}\right),
+\]</span> To obtain the specific heat, we must calculate <span class="math inline">\(C_{V} d T=d E =\sum_{ p } \epsilon_{ p \sigma}^{(0)} \delta n_{ p \sigma} .\)</span> At low temperatures, <span class="math inline">\(\delta n_{ p \sigma}=\frac{\partial f\left(\epsilon_{ p }^{(0)}\right)}{\partial T} d T,\)</span> so that <span class="math display">\[
+C_{V}=\sum_{ p \sigma} \epsilon_{ p \sigma}^{(0)}\left(\frac{\partial f\left(\epsilon_{ p \sigma}^{(0)}\right)}{\partial T}\right) \rightarrow N ^{*}(0) \int_{-\infty}^{\infty} d \epsilon \epsilon\left(\frac{\partial f(\epsilon)}{\partial T}\right)
+\]</span> where</p>
+<ul>
+<li>the summation is replaced by an integral over the density of states near the Fermi surface.</li>
+</ul>
+<p>Apart from the renormalization of the energies leading to <span class="math display">\[
+C_{V}=\gamma T, \quad \gamma=\frac{\pi^{2} k_{B}^{2}}{3} N ^{*}(0)
+\]</span></p>
+<h2 id="feedback-effects-of-interactions">3 Feedback effects of interactions</h2>
+<blockquote>
+<p>改变一些参数，比如加外场，费米液体的变化行为可以可视化：看成费米球变大，伸缩，平移等等行为。</p>
+<p>准粒子会对费米球造成形变，这些形变可以通过朗道相互作用对准粒子的进行反馈。</p>
+<ul>
+<li>如果是正反馈，那就是不稳定的，不可持续的变换。</li>
+<li>如果是负反馈，费米面会在平衡状态附近来回振荡变换。</li>
+</ul>
+<p>对于负反馈，果也是因，就形成了自洽方程。</p>
+</blockquote>
+<p>One can visualize the Landau Fermi-liquid as a deformable sphere, like a large water droplet in zero gravity. The Fermi sphere changes shape when the density or magnetization of the fluid is modified, or if a current flows. These deformations act back on the quasiparticles via the Landau interactions, to change the quasiparticle energies. These feedback effects are a generalization of the idea of a Weiss field in magnetism.</p>
+<p>When the feedback is positive, it can lead to instabilities, such as the development of magnetism. A Fermi surface can also oscillate collectively about its equilibrium shape. In a conventional gas, density oscillations cannot take place without collisions. In a Landau Fermi-liquid, we will see that the interactions play a non-trivial role that gives rise to collision-less collective oscillations of the Fermi surface, called zero sound (literally zero-collision sound), that are absent in the free Fermi gas.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201120223311563.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>the polarization of the Fermi surface by</p>
+<ul>
+<li><ol type="a">
+<li>a change in chemical potential to produce an isotropic charge polarization;</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>application of a magnetic field to produce a spin polarization;</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>dipolar polarization of the Fermi surface that accompanies a current of quasiparticles. The Landau parameter governing each polarization is indicated on the right-hand side.</li>
+</ol></li>
+</ul>
+</blockquote>
+<h3 id="feedback-effects-by-change-external-field">3.1 feedback effects by change external field</h3>
+<p>To examine the feedback effects of interactions, let us suppose an external potential or field is applied to induce a polarization of the Fermi surface.</p>
+<h4 id="external-field-conserved-quantity">external field &amp; conserved quantity</h4>
+<p>There are various kinds of external field we can consider.</p>
+<ol type="1">
+<li>A simple change in the <strong>chemical potential</strong></li>
+</ol>
+<p><span class="math display">\[
+\delta \epsilon_{ p \sigma}^{0}=-\delta \mu
+\]</span></p>
+<p>will induce an <strong>isotropic enlargement</strong> of the Fermi surface.</p>
+<ol start="2" type="1">
+<li>The application of a <strong>magnetic field</strong></li>
+</ol>
+<p><span class="math display">\[
+\delta \epsilon_{ p \sigma}^{0}=-\sigma \mu_{F} B
+\]</span></p>
+<p>will induce a <strong>spin polarization</strong>.</p>
+<ol start="3" type="1">
+<li>We can also consider the application of a <strong>vector potential</strong> which couples to the quasiparticle current</li>
+</ol>
+<p><span class="math display">\[
+\delta \epsilon_{ p \sigma}^{0}=- A \cdot \frac{e p }{m}
+\]</span></p>
+<p>in a <strong>translationally invariant</strong> system.</p>
+<p>Notice how, in each case, the applied field couples to a conserved quantity (the particle number, the spin, or the current), which is unchanged by interactions. This means that the energy associated with the application of the external field is <strong>unchanged</strong> by interactions for any quasiparticle configuration <span class="math inline">\(\left\{n_{ p \sigma}\right\},\)</span> which guarantees that the coupling to the external field is identical to that for non-interacting particles. This is the reason for the appearance of the <strong>unrenormalized</strong> mass in <span class="math inline">\(\delta \epsilon_{ p \sigma}^{0}=- A \cdot \frac{e p }{m}\)</span>. For each of these cases, there will of course be a feedback effect of the interactions that we now calculate.</p>
+<p>From $ <em>{ p } =</em>{ p }^{(0)}+<em>{ p ^{} ^{}} f</em>{ p , p ^{}, ^{}} n_{ p ^{} ^{}}$ the change in the quasiparticle energy will now contain two terms</p>
+<ul>
+<li>one due to direct coupling to the external field</li>
+<li>the other derived from the induced polarization <span class="math inline">\(\delta n_{ p \sigma}\)</span> of the Fermi surface:</li>
+</ul>
+<p><span class="math display">\[
+\delta \epsilon_{ p \sigma}=\delta \epsilon_{ p \sigma}^{(0)}+\sum_{ p ^{\prime} \sigma^{\prime}} f_{ p \sigma p ^{\prime} \sigma^{\prime}} \delta n_{ p ^{\prime} \sigma^{\prime}}
+\]</span></p>
+<p>In this case, the equilibrium quasiparticle occupancies become <span class="math display">\[
+n_{ p \sigma}=f\left(\epsilon_{ p }^{(0)}+\delta \epsilon_{ p \sigma}\right)=f\left(\epsilon_{ p }^{(0)}\right)+f^{\prime}\left(\epsilon_{ p }^{(0)}\right) \delta \epsilon_{ p \sigma}
+\]</span> As the temperature is lowered to zero, the derivative of the Fermi function evolves into a delta function, <span class="math inline">\(-f^{\prime}(\epsilon) \sim \delta(\epsilon),\)</span> so that the quasiparticle occupancy is given by <span class="math display">\[
+n_{ p \sigma}=\theta\left(-\epsilon_{ p }^{(0)}\right)+\left[-\delta\left(\epsilon_{ p }^{(0)}\right) \delta \epsilon_{ p \sigma}\right]
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(n_{ p \sigma}^{(0)}=\theta\left(-\epsilon_{ p }^{(0)}\right)\)</span></li>
+<li><span class="math inline">\(\delta n_{ p \sigma}=\left[-\delta\left(\epsilon_{ p }^{(0)}\right) \delta \epsilon_{ p \sigma}\right]\)</span></li>
+</ul>
+<p><span class="math inline">\(\delta n_{ p \sigma}=-\delta\left(\epsilon_{ p }^{(0)}\right) \delta \epsilon_{ p \sigma}\)</span> represents the polarization of the Fermi surface, which will feed back into the interaction <span class="math inline">\(\delta \epsilon_{ p \sigma}=\delta \epsilon_{ p \sigma}^{(0)}+\sum_{ p ^{\prime} \sigma^{\prime}} f_{ p \sigma p ^{\prime} \sigma^{\prime}} \delta n_{ p ^{\prime} \sigma^{\prime}}\)</span> as follows:</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201120222634048.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p>The resulting shift in the quasiparticle energies must then satisfy the self-consistency relation: <span class="math display">\[
+\delta \epsilon_{ p \sigma}=\delta \epsilon_{ p \sigma}^{(0)}-\sum_{ p ^{\prime} \sigma^{\prime}} f_{ p \sigma p ^{\prime} \sigma^{\prime}} \delta\left(\epsilon_{ p ^{\prime}}^{(0)}\right) \delta \epsilon_{ p ^{\prime} \sigma}
+\]</span> This feedback process preserves the symmetry of the external perturbation, but its strength in a given symmetry channel depends on the corresponding Landau paramater.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201120223311563.png" srcset="/img/loading.gif" /></p>
+<ul>
+<li>Thus, isotropic charge and spin polarization of the Fermi surface, shown in Figure <span class="math inline">\(( a )\)</span> and Figure <span class="math inline">\(( b ),\)</span> are fed back via the isotropic charge and magnetic Landau parameters <span class="math inline">\(F_{0}^{s}\)</span> and <span class="math inline">\(F_{0}^{a}\)</span>.</li>
+<li>When the quasiparticle fluid is set into motion at velocity <span class="math inline">\(\vec{u},\)</span> this induces a dipolar polarization of the Fermi surface, shown in Figure <span class="math inline">\(( c ),\)</span> which is fed back via the dipolar Landau parameter <span class="math inline">\(F_{1}^{s}\)</span>. This process is responsible for the renormalization of the effective mass.</li>
+</ul>
+<h4 id="multipole-symmetry">multipole symmetry</h4>
+<p>Consider a change in the quasiparticle potential that has a particular multipole symmetry, so that the "bare" change in quasiparticle energy is <span class="math display">\[
+\delta \epsilon_{ p \sigma}^{(0)}=v_{l} Y_{l m}(\hat{ p })
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(Y_{l m}\)</span> is a spherical harmonic.</li>
+</ul>
+<p>The renormalized response of the quasiparticle energy given by <span class="math inline">\(\delta \epsilon_{ p \sigma}=\delta \epsilon_{ p \sigma}^{(0)}-\sum_{ p ^{\prime} \sigma^{\prime}} f_{ p \sigma p ^{\prime} \sigma^{\prime}} \delta\left(\epsilon_{ p ^{\prime}}^{(0)}\right) \delta \epsilon_{ p ^{\prime} \sigma}\)</span> must have the same symmetry, but will have a different magnitude <span class="math inline">\(t_{l}\)</span> : <span class="math display">\[
+\delta \epsilon_{ p \sigma}=t_{l} Y_{l m}(\hat{ p })
+\]</span> When this is fed back through the interaction, according to <span class="math inline">\(\delta \epsilon_{ p \sigma}=\delta \epsilon_{ p \sigma}^{(0)}-\sum_{ p ^{\prime} \sigma^{\prime}} f_{ p \sigma p ^{\prime} \sigma^{\prime}} \delta\left(\epsilon_{ p ^{\prime}}^{(0)}\right) \delta \epsilon_{ p ^{\prime} \sigma}\)</span> it produces an additional shift in the quasiparticle energy given by <span class="math inline">\(\sum_{ p ^{\prime} \sigma^{\prime}} f_{ p \sigma, p ^{\prime} \sigma^{\prime}} \delta n_{ p ^{\prime} \sigma^{\prime}}=-F_{l}^{s} t_{l} Y_{l m}(\hat{ p })\)</span> (see Example), so that the total change in the energy is given by <span class="math inline">\(\delta \epsilon_{ p \sigma}=\left(v_{l}-F_{l}^{s} t_{l}\right) Y_{l m}(\hat{ p })\)</span>. Comparing this result with <span class="math inline">\(\delta \epsilon_{ p \sigma}=t_{l} Y_{l m}(\hat{ p })\)</span> we see that <span class="math display">\[
+t_{l}=\left(v_{l}-F_{l}^{s} t_{l}\right)
+\]</span> This is the symmetry-resolved version of <span class="math inline">\(\delta \epsilon_{ p \sigma}=\delta \epsilon_{ p \sigma}^{(0)}-\sum_{ p ^{\prime} \sigma^{\prime}} f_{ p \sigma p ^{\prime} \sigma^{\prime}} \delta\left(\epsilon_{ p ^{\prime}}^{(0)}\right) \delta \epsilon_{ p ^{\prime} \sigma}\)</span>. Consequently <span class="math display">\[
+t_{l}=\frac{v_{l}}{1+F_{l}^{s}}
+\]</span> We may interpret <span class="math inline">\(t_{l}\)</span> as the scattering t-matrix associated with the potential <span class="math inline">\(v_{l}\)</span>.</p>
+<ol type="1">
+<li>If <span class="math inline">\(F_{l}^{s}&gt;0,\)</span> corresponding to a repulsive interaction, negative feedback occurs which causes the response to be suppressed. This is normally the case in the isotropic channel, where repulsive interactions tend to suppress the polarizability of the Fermi surface.</li>
+<li>By contrast, if <span class="math inline">\(F_{l}^{s}&lt;0\)</span>, corresponding to an attractive interaction, positive feedback enhances the response.</li>
+<li>Indeed, if <span class="math inline">\(F_{l}^{S}\)</span> drops down to the critical value <span class="math inline">\(F_{l}^{s}=-1,\)</span> an instability will occur and the Landau Fermi surface becomes unstable to a deformation, a process called a Pomeranchuk instability.</li>
+</ol>
+<h4 id="spin-polarization">spin polarization</h4>
+<p>A similar calculation can be carried out for a spin polarization of the Fermi surface, where the shifts in the quasiparticle energies are <span class="math display">\[
+\delta \epsilon_{ p \sigma}^{(0)}=\sigma v_{l}^{a} Y_{l m}(\hat{ p }), \quad \delta \epsilon_{ p \sigma}=\sigma t_{l}^{a} Y_{l m}(\hat{ p })
+\]</span> Now the spin-dependent polarization of the Fermi surface feeds back via the spindependent Landau parameters, so that <span class="math display">\[
+t_{l}^{a}=\frac{v_{l}^{a}}{1+F_{l}^{a}}
+\]</span> The isotropic response <span class="math inline">\((l=0)\)</span> corresponds to a simple spin polarization of the Fermi surface. If spin interactions grow to the point where <span class="math inline">\(F_{0}^{a}=-1,\)</span> the Fermi surface becomes unstable to the formation of a spontaneous spin polarization. This is called a Stoner instability, and results in ferromagnetism.</p>
+<h4 id="example-1">Example</h4>
+<blockquote>
+<p>Calculate the response of the quasiparticle energy to a charge or spin polarization with a specific multipole symmetry. First, consider a spin-independent polarization of the Fermi surface of the form <span class="math display">\[
+\delta n_{ p \sigma}=-t_{l} Y_{l m}(\hat{ p }) \times \delta\left(\epsilon_{ p }^{(0)}\right)
+\]</span> where <span class="math inline">\(Y_{l m}(\hat{ p })\)</span> is a spherical harmonic. Show that the resulting shift in quasiparticle energies is given by <span class="math display">\[
+\delta \epsilon_{ p \sigma}=-t_{l} F_{l}^{s} Y_{l m}(\hat{ p })
+\]</span> Determine the corresponding result for a magnetic polarization of the Fermi surface of the form <span class="math display">\[
+\delta n_{ p \sigma}=-\sigma t_{l}^{a} Y_{l m}(\hat{ p }) \times \delta\left(\epsilon_{ p }^{(0)}\right)
+\]</span></p>
+</blockquote>
+<p><strong>Solution</strong></p>
+<p>According to <span class="math inline">\((6.31),\)</span> the change in quasiparticle energy due to the polarization of the Fermi surface is given by <span class="math display">\[
+\delta \epsilon_{ p \sigma}=\sum_{ p ^{\prime} \sigma^{\prime}} f_{ p \sigma, p ^{\prime}, \sigma^{\prime}} \delta n_{ p ^{\prime} \sigma^{\prime}}
+\]</span> Substituting <span class="math inline">\(\delta n_{ p \sigma}=-t_{l} Y_{l m}(\hat{ p }) \times \delta\left(\epsilon_{ p }^{(0)}\right),\)</span> then <span class="math display">\[
+\delta \epsilon_{ p \sigma}=-t_{l} \sum_{ p ^{\prime} \sigma^{\prime}} f_{ p \sigma, p ^{\prime}, \sigma^{\prime}} Y_{l m}\left(\hat{ p }^{\prime}\right) \times \delta\left(\epsilon_{ p ^{\prime}}^{(0)}\right)
+\]</span> Decomposing the interaction into its magnetic and non-magnetic components, <span class="math inline">\(f_{ p \sigma, p ^{\prime} \sigma^{\prime}}=\)</span> <span class="math inline">\(f^{s}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)+\sigma \sigma^{\prime} f^{a}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right),\)</span> only the non-magnetic component survives the spin summation, so that <span class="math display">\[
+\delta \epsilon_{ p \sigma}=-2 t_{l} \sum_{ p ^{\prime}} f^{s}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right) Y_{l m}\left(\hat{ p }^{\prime}\right) \times \delta\left(\epsilon_{ p ^{\prime}}^{(0)}\right)
+\]</span> Replacing the summation over momentum by an angular average over the Fermi surface, <span class="math display">\[
+2 \sum_{ p ^{\prime}} \delta\left(\epsilon_{ p ^{\prime}}^{(0)}\right) \rightarrow N ^{*}(0) \int \frac{d \Omega_{\hat{ p }^{\prime}}}{4 \pi}
+\]</span> we obtain <span class="math display">\[
+\begin{aligned}
+\delta \epsilon_{ p \sigma} &amp;=-t_{l} \times N ^{*}(0) \int \frac{d \Omega_{\hat{ p }^{\prime}}}{4 \pi} f^{s}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right) Y_{l m}\left(\hat{ p }^{\prime}\right) \\
+&amp;=-t_{l} \int \frac{d \Omega_{\hat{ p }^{\prime}}}{4 \pi} F^{s}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right) Y_{l m}\left(\hat{ p }^{\prime}\right)
+\end{aligned}
+\]</span> Now we can expand the interaction in terms of Legendre polynomials, which can in turn be decomposed into spherical harmonics: <span class="math display">\[
+\begin{aligned}
+F^{s}(\cos \theta)&amp;=\sum_{l}(2 l+1) F_{l}^{s} P_{l}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)
+\\&amp;=4 \pi \sum_{l, m} F_{l}^{s} Y_{l m}(\hat{ p }) Y_{l m}^{*}\left(\hat{ p }^{\prime}\right)
+\end{aligned}
+\]</span> When we substitute this into form equation we may use the orthogonality of the spherical harmonics to obtain <span class="math display">\[
+\begin{aligned}
+\delta \epsilon_{ p \sigma} &amp;=-t_{l} \sum_{l^{\prime} m^{\prime}} F_{l^{\prime}}^{s} Y_{l^{\prime} m^{\prime}}( p ) \int d \Omega_{ p ^{\prime}} Y_{l^{\prime} m^{\prime}}^{*}\left(\hat{ p }^{\prime}\right) Y_{l m}\left( p ^{\prime}\right) \\
+&amp;=-t_{l} F_{l}^{s} Y_{l m}(\hat{ p })
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\int d \Omega_{p^{\prime}} Y_{l^{\prime} m^{\prime}}^{*}\left(\hat{p}^{\prime}\right) Y_{l m}\left(p^{\prime}\right)=\delta_{l^{\prime} l} \delta_{m^{\prime} m}\)</span></li>
+</ul>
+<p>For a spin-dependent polarization, <span class="math inline">\(\delta n_{ p \sigma}=-t_{l}^{a} \sigma Y_{l m}(\hat{ p }) \delta\left(\epsilon_{ p }^{(0)}\right),\)</span> it is the magnetic part of the interaction that contributes. We can generalize the above result to obtain <span class="math display">\[
+\delta \epsilon_{ p \sigma}=\sigma t_{l}^{a} \times F_{l}^{a} Y_{l m}(\hat{ p })
+\]</span></p>
+<h3 id="renormalization-of-paramagnetism-and-compressibility">3.2 Renormalization of paramagnetism and compressibility</h3>
+<p>The simplest <strong>polarization response functions</strong> of a Landau Fermi-liquid are its "charge" and spin susceptibility. <span class="math display">\[
+\chi_{c}=\frac{1}{V} \frac{\partial N}{\partial \mu}, \quad \chi_{s}=\frac{1}{V} \frac{\partial M}{\partial B}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(V\)</span> is the volume.</li>
+</ul>
+<p>Here, we use the term "charge" density to refer to the density response function of the neutral Fermi liquid. These responses involve an isotropic polarization of the Fermi surface. In a neutral fluid, the bulk modulus <span class="math inline">\(\kappa=-V \frac{d P}{d V}\)</span> is directly related to the charge susceptibility per unit volume, <span class="math inline">\(\kappa=\frac{n^{2}}{\chi_{c}},\)</span> where <span class="math inline">\(n=N / V\)</span> is the particle density. Thus a smaller charge susceptibility implies a stiffer fluid. <span class="math inline">\({ }^{4}\)</span></p>
+<p>When we apply a chemical potential or a magnetic field, the "bare" quasiparticle energies respond isotropically: <span class="math display">\[
+\delta \epsilon_{ p \sigma}^{(0)}=\delta E_{ p \sigma}^{(0)}-\delta \mu=-\sigma \mu_{ F } B-\delta \mu
+\]</span> Feedback via the interactions renormalizes the response of the full quasiparticle energy: <span class="math display">\[
+\delta \epsilon_{ p \sigma}=-\sigma \lambda_{s} \mu_{ F } B-\lambda_{c} \delta \mu
+\]</span> since these are isotropic responses, the feedback is transmitted through the <span class="math inline">\(l=0\)</span> Landau parameters, <span class="math display">\[
+\begin{aligned}
+\lambda_{s} &amp;=\frac{1}{1+F_{0}^{a}} \\
+\lambda_{c} &amp;=\frac{1}{1+F_{0}^{s}}
+\end{aligned}
+\]</span> When we apply a pure chemical potential shift, the resulting change in quasiparticle number is <span class="math inline">\(\delta N=\lambda_{c} N ^{*}(0) \delta \mu,\)</span> so the charge susceptibility is given by <span class="math display">\[
+\chi_{c}=\lambda_{c} N^{*}(0)=\frac{ N ^{*}(0)}{1+F_{0}^{s}}
+\]</span> Typically, repulsive interactions cause <span class="math inline">\(F_{0}^{s}&gt;0,\)</span> reducing the charge susceptibility, making the fluid "stiffer." In <span class="math inline">\({ }^{3} He , F_{0}^{s}=10.8\)</span> at low pressures, which is roughly ten times stiffer than expected, based on its density of states.</p>
+<p>A reverse phenomenon occurs in the spin response of Landau Fermi-liquids. In a magnetic field, the change in the number of up and down quasiparticles is <span class="math inline">\(\delta n_{\uparrow}=\)</span> <span class="math inline">\(-\delta n_{\downarrow}=\frac{1}{2} N ^{*}(0) \mu_{F} B .\)</span> The resulting change in magnetization is <span class="math inline">\(\delta M=\mu_{F}\left(\delta n_{\uparrow}-\delta n_{\downarrow}\right)=\)</span> <span class="math inline">\(\lambda_{s} \mu_{F}^{2} N ^{*}(0) B,\)</span> so the spin susceptibility is <span class="math display">\[
+\chi_{s}=\lambda_{s} \mu_{F}^{2} N^{*}(0)=\frac{\mu_{ F }^{2} N ^{*}(0)}{1+F_{0}^{a}}
+\]</span> There are a number of interesting points to be made here:</p>
+<ul>
+<li>The Wilson ratio, defined as the ratio of <span class="math inline">\(\chi_{s} / \gamma\)</span> in the interacting system to that in the non-interacting system, is given by</li>
+</ul>
+<p><span class="math display">\[
+W=\frac{\left(\frac{\chi}{\gamma}\right)}{\left(\frac{\chi}{\gamma}\right)_{0}}=\frac{1}{1+F_{0}^{a}}
+\]</span></p>
+<p>In the context of ferromagnetism, this quantity is often referred to as the Stoner enhancement factor. In Landau Fermi-liquids with strong ferromagnetic exchange interactions between fermions, <span class="math inline">\(F_{0}^{a}\)</span> is negative, enhancing the Pauli susceptibility. This is the origin of the enhancement of the Pauli susceptibility in liquid <span class="math inline">\({ }^{3} He ,\)</span> where <span class="math inline">\(W \sim 3 .\)</span> In palladium metal <span class="math inline">\(( Pd ), W=10\)</span> is even more substantially enhanced [8]</p>
+<ul>
+<li>When a Landau Fermi-liquid is tuned to the point where <span class="math inline">\(F_{0}^{a} \rightarrow-1, \chi \rightarrow \infty,\)</span> leading to a ferromagnetic instability, called a Stoner instability. This is an example of a ferromagnetic quantum critical point, a point where quantum zero-point fluctuations of the magnetization develop infinite-range correlations in space and time. At such a point, the Wilson ratio will diverge.</li>
+</ul>
+<h3 id="mass-renormalization">3.3 Mass renormalization</h3>
+<p>Using this formulation of the interacting Fermi gas, Landau was able to link the renormalization of quasiparticle mass to the dipole component of the interactions <span class="math inline">\(F_{1}^{s}\)</span>. As the fermion moves through the medium, the backflow of the surrounding fluid enhances its effective mass according to the relation <span class="math display">\[
+m^{*}=m\left(1+F_{1}^{s}\right)
+\]</span> Another way to understand quasiparticle mass renormalization is to consider the current carried by a quasiparticle. Whether we are dealing with neutral or physically charged quasiparticles, the total number of particles is conserved and we can ascribe a particle current <span class="math inline">\(v _{F}= p _{F} / m^{*}\)</span> to each quasiparticle. We can rewrite this current in the form <span class="math display">\[
+v _{F}=\frac{ p _{F}}{m^{*}}=\frac{ p _{F}}{m} -\frac{  p _{F}}{m}\left(\frac{F_{1}^{s}}{1+F_{1}^{s}}\right)
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\frac{ p _{F}}{m}\)</span> is the bare current associated with the original particle</li>
+<li><span class="math inline">\(\frac{ p _{F}}{m}\left(\frac{F_{1}^{s}}{1+F_{1}^{s}}\right)\)</span> is backflow of the surrounding Fermi sea</li>
+</ul>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201120232859595.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p>Mass renormalization increases the density of states from <span class="math inline">\(N(0)=\frac{m p_{F}}{\pi^{2}} \rightarrow N ^{*}(0)=\)</span> <span class="math inline">\(\frac{m^{*} p_{F}}{\pi^{2}},\)</span> i.e. it has the effect of compressing the spacing between the fermion energy levels, which increases the number of quasiparticles that are excited at a given temperature by a factor <span class="math inline">\(m^{*} / m:\)</span> this enhances the linear specific heat: <span class="math display">\[
+C_{V}^{*}=\frac{m^{*}}{m} C_{V}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(C_{V}\)</span> is the Sommerfeld value for the specific heat capacity.</li>
+</ul>
+<p>Experimentally, the specific heat of <span class="math inline">\({ }^{3} He\)</span> is enhanced by a factor of <span class="math inline">\(2.8,\)</span> from which we know that <span class="math inline">\(m^{*} \approx 3 m\)</span>. Landau's original derivation depends on the use of Galilean invariance. Here we use an equivalent derivation, based on the observation that backflow is a feedback response to the dipolar distortion of the Fermi surface which develops in the presence of a current. This enables us to calculate the mass renormalization in an analogous fashion to the renormalization of the spin susceptibility and compressibility, except that now we must introduce the conjugate field to current - that is, a vector potential. To this end, we imagine that each quasiparticle carries a conserved charge <span class="math inline">\(q=1\)</span> and that the flow of quasiparticles is coupled to a fictitious vector potential <span class="math inline">\(q A \equiv A _{N} .\)</span> The microscopic Hamiltonian in the presence of the vector potential is then given by <span class="math display">\[
+H\left[ A _{N}\right]=\sum_{\sigma} \int d^{3} x \frac{1}{2 m} \psi_{\sigma}^{\dagger}(x)\left[\left(-i \hbar \nabla- A _{N}\right)^{2}\right] \psi_{\sigma}(x)+\hat{V}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\hat{V}\)</span> contains the translationally invariant interactions.</li>
+</ul>
+<p>Notice that the effect of <span class="math inline">\(A _{N}\)</span> is to change the momentum of each particle by <span class="math inline">\(- A _{N},\)</span> so that <span class="math inline">\(H\left[ A _{N}\right]\)</span> corresponds to the Hamiltonian transformed into a Galilean reference frame moving at speed <span class="math inline">\(u = A _{N} / m\)</span>. Landau's original derivation used the Galilean equivalence of the Fermi liquid to compute the mass renormalization. since the vector potential <span class="math inline">\(A _{N}\)</span> is coupled to a conserved quantity, the momentum, we can treat it in the same way as a chemical potential or magnetic field. The linear term in <span class="math inline">\(A _{N}\)</span> in the total energy is <span class="math inline">\(\delta \hat{H}=- A _{N} \cdot \frac{\hat{ p }}{m},\)</span> where <span class="math inline">\(\hat{ P }\)</span> is the conserved total momentum operator. For a non-interacting system the change in the total energy for a small vector potential at fixed particle occupancies <span class="math inline">\(n_{ p \sigma}\)</span> is <span class="math display">\[
+\delta E=\langle\delta H\rangle=-\frac{\langle P \rangle}{m} \cdot A _{N}=-\sum_{ p \sigma}\left(\frac{ p }{m} \cdot A _{N}\right) n_{ p \sigma}
+\]</span> Provided the momentum is conserved, this is also the change in the energy of the interacting Fermi liquid, at fixed quasiparticle occupancy, i.e. without backflow. In this way, we see that turning on the vector potential changes <span class="math display">\[
+\epsilon_{ p \sigma}^{(0)} \rightarrow \epsilon_{ p \sigma}^{(0)}+\delta \epsilon_{ p \sigma}^{(0)}
+\]</span> where <span class="math display">\[
+\delta \epsilon_{ p \sigma}^{(0)}=-\frac{ p }{m} \cdot A _{N}=-A_{N} \frac{p_{F}}{m} \cos \theta
+\]</span> Here</p>
+<ul>
+<li><span class="math inline">\(\theta\)</span> is the angle between the vector potential and the quasiparticle momentum.</li>
+</ul>
+<p>Thus the vector potential introduces a dipolar potential around the Fermi surface. Notice how the conservation of momentum guarantees that it is the bare mass <span class="math inline">\(m\)</span> that enters into <span class="math inline">\(\delta \epsilon_{ p \sigma}^{(0)}\)</span> Now when we take account of the feedback effect caused by the redistribution of quasiparticles in response to this potential, the quasiparticle energy becomes <span class="math inline">\(E_{ p -q A }=\frac{\left( p - A _{N}\right)^{2}}{2 m^{*}}\)</span> Here, the replacement of <span class="math inline">\(p \rightarrow p -q A _{N}= p - A _{N}\)</span> is guaranteed because the quasiparticle carries the same conserved charge <span class="math inline">\(q=1\)</span> as the original particles. In this way, we see that, in the presence of backflow, the change in quasiparticle energy <span class="math display">\[
+\delta \epsilon_{ p \sigma}=-\frac{ p }{m^{*}} \cdot A _{N}=-A_{N} \frac{p_{F}}{m^{*}} \cos \theta
+\]</span> involves the renormalized mass <span class="math inline">\(m^{*}\)</span>. since the vector potential induces a dipolar perturbation to the Fermi surface, we conclude that backflow feedback effects involve the spin-symmetric <span class="math inline">\(l=1\)</span> Landau parameter <span class="math inline">\(F_{1}^{s}\)</span> <span class="math display">\[
+\delta \epsilon_{ p \sigma}=\left(\frac{1}{1+F_{1}^{s}}\right) \delta \epsilon_{ p \sigma}^{(0)}
+\]</span> Inserting <span class="math inline">\(\delta \epsilon_{ p \sigma}^{(0)}=-A_{N} \frac{p_{F}}{m} \cos \theta\)</span> and <span class="math inline">\(\delta \epsilon_{ p \sigma} =-A_{N} \frac{p_{F}}{m^{*}} \cos \theta\)</span> into this relation, we obtain <span class="math display">\[
+\frac{m}{m^{*}}=\frac{1}{1+F_{1}^{s}}
+\]</span> or <span class="math inline">\(m^{*}=m\left(1+F_{1}^{s}\right)\)</span></p>
+<p>Note the following:</p>
+<ul>
+<li>The Landau mass renormalization formula relies on the conservation of particle current when the interactions are adiabatically turned on. In a crystal lattice, although crystal momentum is still conserved, particle current is not conserved and at present there is no known way of writing down an expression for <span class="math inline">\(\delta \epsilon_{ p \sigma}^{(0)}\)</span> and <span class="math inline">\(\delta \epsilon_{ p \sigma}\)</span> in terms of crystal momentum that would permit the derivation of a mass renormalization formula for electrons in a crystal.</li>
+<li>since <span class="math inline">\(F_{1}^{s}= N ^{*}(0) f_{1}^{s}\)</span> involves the renormalized density of states <span class="math inline">\(N ^{*}(0)=\frac{m^{*} p_{F}}{\pi^{2}},\)</span> the renormalized mass <span class="math inline">\(m^{*}\)</span> actually appears on both sides of <span class="math inline">\((6.83) .\)</span> If we use (6.39) to rewrite <span class="math inline">\(F_{1}^{s}=\frac{m^{*}}{m} N(0) f_{1}^{s},\)</span> where <span class="math inline">\(N(0)=\frac{m p_{F}}{\pi^{2}}\)</span> is the unrenormalized density of states, we can then solve for <span class="math inline">\(m^{*}\)</span> in terms of <span class="math inline">\(m\)</span> to obtain</li>
+</ul>
+<p><span class="math display">\[
+m^{*}=\frac{m}{1-N(0) f_{1}^{s}}
+\]</span></p>
+<p>This expression predicts that <span class="math inline">\(m^{*} \rightarrow \infty\)</span> at <span class="math inline">\(N(0) f_{1}^{s}=1,\)</span> i.e. that the quasiparticle density of states and hence the specific heat coefficient will diverge if the interactions become too strong. This possibility was first anticipated by Neville Mott, who predicted that, in presence of large interactions, fermions will localize, a phenomonon now called a Mott transition.</p>
+<p>There are numerous examples of heavy-electron systems which lie close to such a localization transition, in which <span class="math inline">\(m_{e}^{*} / m_{e}&gt;&gt;1\)</span>. Quasiparticle masses in excess of <span class="math inline">\(1000 m _{e}\)</span> have been observed via specific heat measurements. In practice, the transition where the mass diverges is usually associated with the development of some other sort of order, such as antiferromagnetism or solidification. since the phase transition occurs at zero temperature in the absence of thermal fluctuations, it is an example of a quantum phase transition. Such mass divergences have been observed in a variety of different contexts in charged electron systems, but they have also been observed as a second-order quantum phase transition, at the Mott localization transition which accompanies the solidification of two-dimensional liquid ${ }^{3} He $</p>
+<h3 id="quasiparticle-scattering-amplitudes">3.4 Quasiparticle scattering amplitudes</h3>
+<p>In preview Section we introduced the quasiparticle interactions <span class="math inline">\(f_{ p \sigma, p ^{\prime} \sigma^{\prime}}\)</span> as the variation of the quasiparticle energy <span class="math inline">\(\epsilon_{ p \sigma}\)</span> with respect to changes in the quasiparticle occupancy <span class="math inline">\(\delta n_{ p ^{\prime} \sigma^{\prime}}\)</span> under the condition that the rest of the Fermi sea stays in its ground state: <span class="math display">\[
+\begin{aligned}
+f_{ p \sigma, p ^{\prime} \sigma^{\prime}}&amp;=\left.\frac{\delta \epsilon_{ p \sigma}}{\delta n_{ p ^{\prime} \sigma^{\prime}}}\right|_{n_{ p ^{\prime \prime} \sigma^{\prime \prime}}}\\&amp;=\frac{1}{ N ^{*}(0)}\left[F^{s}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)+\sigma \sigma^{\prime} F^{a}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)\right]
+\end{aligned}
+\]</span> The quantity <span class="math inline">\(f_{ p \sigma, p ^{\prime} \sigma^{\prime}}\)</span> can be regarded as a bare forward scattering amplitude between the quasiparticles. It proves very useful to define the corresponding quantities when the Fermi sea is allowed to respond to the original change in quasiparticle occupancies, as follows: <span class="math display">\[
+\begin{aligned}
+a_{ p \sigma, p ^{\prime} \sigma^{\prime}}&amp;=\frac{\delta \epsilon_{ p \sigma}}{\delta n_{ p ^{\prime} \sigma^{\prime}}}
+\\&amp;=\frac{1}{ N ^{*}(0)}\left[A^{s}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)+\sigma \sigma^{\prime} A^{a}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)\right]
+\end{aligned}
+\]</span> Microscopically, the quantities <span class="math inline">\(a_{ p \sigma p ^{\prime} \sigma^{\prime}}\)</span> correspond to the t-matrix for forward scattering of the quasiparticles. These amplitudes can decoupled in precisely the same way as the Landau interaction <span class="math inline">\(\sum_{l}(2 l+1) F_{l}^{s} P_{l}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)=4 \pi \sum_{l, m} F_{l}^{s} Y_{l m}(\hat{ p }) Y_{l m}^{*}\left(\hat{ p }^{\prime}\right)\)</span>: <span class="math display">\[
+\begin{aligned}
+A^{\alpha}(\cos \theta) &amp;=\sum_{l}(2 l+1) A_{l}^{\alpha} P_{l}(\cos \theta) \\
+&amp;=4 \pi \sum_{l, m} A_{l}^{\alpha} Y_{l m}(\hat{ p }) Y_{l m}^{*}\left(\hat{ p }^{\prime}\right)
+\end{aligned}
+\]</span> These two sets of parameters are also governed by the feedback effects of interactions: <span class="math display">\[
+A_{l}^{\alpha}=\frac{F_{l}^{\alpha}}{1+F_{l}^{\alpha}} \quad(\alpha=s, a)
+\]</span> The derivation of this relation closely follows the derivation of relations <span class="math inline">\(t_{l}=\frac{v_{l}}{1+F_{l}^{s}}\)</span> and <span class="math inline">\(t_{l}^{a}=\frac{v_{l}^{a}}{1+F_{l}^{a}}\)</span> we now repeat the derivation by solving the Bethe-Salpeter integral equation that links the scattering amplitudes. The change in the quasiparticle energy is <span class="math display">\[
+\delta \epsilon_{ p \sigma}=f_{ p \sigma, p ^{\prime} \sigma^{\prime}} \delta n_{ p ^{\prime} \sigma^{\prime}}+\sum_{ p ^{\prime \prime} \sigma^{\prime \prime} \neq\left( p ^{\prime}, \sigma^{\prime}\right)} f_{ p \sigma, p ^{\prime \prime} \sigma^{\prime \prime}} \delta n_{ p ^{\prime \prime} \sigma^{\prime \prime}}
+\]</span> where the second term is the induced polarization of the Fermi surface <span class="math inline">\(\delta \epsilon_{ p \sigma}=-t_{l} \sum_{ p ^{\prime} \sigma^{\prime}} f_{ p \sigma, p ^{\prime}, \sigma^{\prime}} Y_{l m}\left(\hat{ p }^{\prime}\right) \times \delta\left(\epsilon_{ p ^{\prime}}^{(0)}\right)\)</span>, and <span class="math inline">\(\delta n_{ p ^{\prime \prime} \sigma^{\prime}}=\)</span> <span class="math inline">\(-\delta\left(\epsilon_{ p ^{\prime \prime}}^{(0)}\right) \delta \epsilon_{ p ^{\prime \prime} \sigma^{\prime}},\)</span> so that <span class="math display">\[
+\delta \epsilon_{ p \sigma}=f_{ p \sigma, p ^{\prime} \sigma^{\prime}} \delta n_{ p ^{\prime} \sigma^{\prime}}-\sum_{ p ^{\prime \prime} \sigma^{\prime \prime}} f_{ p \sigma, p ^{\prime \prime} \sigma^{\prime \prime}} \delta\left(\epsilon_{ p ^{\prime \prime}}^{(0)}\right) \delta \epsilon_{ p ^{\prime \prime} \sigma^{\prime}}
+\]</span> Substituting <span class="math inline">\(\delta \epsilon_{ p \sigma}=a_{ p \sigma p ^{\prime} \sigma^{\prime}} \delta n_{ p ^{\prime} \sigma^{\prime}},\)</span> then dividing through by <span class="math inline">\(\delta n_{ p ^{\prime} \sigma^{\prime}},\)</span> we obtain <span class="math display">\[
+a_{ p \sigma p \sigma^{\prime}}=f_{ p \sigma, p ^{\prime} \sigma^{\prime}}-\sum_{ p ^{\prime \prime} \sigma^{\prime \prime}} f_{ p \sigma, p ^{\prime \prime} \sigma^{\prime \prime}} \delta\left(\epsilon_{ p ^{\prime \prime}}^{(0)}\right) a_{ p ^{\prime \prime} \sigma^{\prime} p ^{\prime} \sigma^{\prime}}
+\]</span> This integral equation for the scattering amplitudes is a form of the Bethe-Satpeter equation relating the bare scattering amplitude <span class="math inline">\(f\)</span> to the <span class="math inline">\(t\)</span> -matrix described by <span class="math inline">\(a\)</span>.</p>
+<p>Now near the Fermi surface, we can decompose the scattering amplitudes using <span class="math inline">\(f_{ p \sigma, p ^{\prime} \sigma^{\prime}}=\frac{1}{ N ^{*}(0)}\left[F^{s}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)+\sigma \sigma^{\prime} F^{a}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)\right]\)</span> and <span class="math inline">\(a_{ p \sigma, p ^{\prime} \sigma^{\prime}}=\frac{\delta \epsilon_{ p \sigma}}{\delta n_{ p ^{\prime} \sigma^{\prime}}}=\frac{1}{ N ^{*}(0)}\left[A^{s}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)+\sigma \sigma^{\prime} A^{a}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)\right]\)</span>, while replacing the momentum summation by an angular integral, <span class="math inline">\(\sum_{ p ^{\prime \prime}} \rightarrow\)</span> <span class="math inline">\(\frac{1}{2} N ^{*}(0) \int d \epsilon^{\prime \prime} \int \frac{d \Omega_{\hat{p}^{\prime \prime}}}{4 \pi},\)</span> so that this equation becomes <span class="math display">\[
+A^{\alpha}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)=F^{\alpha}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)-\int \frac{d \Omega_{\hat{ p }^{\prime \prime}}}{4 \pi} F^{\alpha}\left(\hat{ p } \cdot \hat{ p }^{\prime \prime}\right) A^{\alpha}\left(\hat{ p }^{\prime \prime} \cdot \hat{ p }^{\prime}\right)
+\]</span> If we decompose <span class="math inline">\(F\)</span> and <span class="math inline">\(T\)</span> in terms of spherical harmonics using <span class="math inline">\(F^{s}(\cos \theta) =4 \pi \sum_{l, m} F_{l}^{s} Y_{l m}(\hat{ p }) Y_{l m}^{*}\left(\hat{ p }^{\prime}\right)\)</span> and <span class="math inline">\(A^{\alpha}(\cos \theta)=4 \pi \sum_{l, m} A_{l}^{\alpha} Y_{l m}(\hat{ p }) Y_{l m}^{*}\left(\hat{ p }^{\prime}\right)\)</span> in the second term, we obtain <span class="math display">\[
+\begin{aligned}
+\int \frac{d \Omega_{\hat{ p }^{\prime \prime}}}{4 \pi} F^{\alpha}\left(\hat{ p } \cdot \hat{ p }^{\prime \prime}\right) A^{\alpha}\left(\hat{ p }^{\prime \prime} \cdot \hat{ p }^{\prime}\right) &amp;=(4 \pi)^{2} \sum_{l m, l^{\prime} m^{\prime}} F_{l}^{\alpha} A_{l^{\prime}}^{\alpha} Y_{l m}(\hat{ p }) \int \frac{d \Omega_{\hat{ p }^{\prime \prime}}}{4 \pi} Y_{l m}^{*}\left(\hat{ p }^{\prime \prime}\right) Y_{l^{\prime} m^{\prime}}\left(\hat{ p }^{\prime \prime}\right) Y_{l^{\prime} m^{\prime}}^{*}\left(\hat{ p }^{\prime}\right) \\
+&amp;=(4 \pi) \sum_{l m} F_{l}^{\alpha} A_{l}^{\alpha} Y_{l m}(\hat{ p }) Y_{l m}^{*}\left(\hat{ p }^{\prime}\right) \\
+&amp;=\sum_{l}(2 l+1) F_{l}^{\alpha} A_{l}^{\alpha} P_{l}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)
+\end{aligned}
+\]</span> Extracting coefficients of the Legendre polynomials in <span class="math inline">\(A^{\alpha}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)=F^{\alpha}\left(\hat{ p } \cdot \hat{ p }^{\prime}\right)-\int \frac{d \Omega_{\hat{ p }^{\prime \prime}}}{4 \pi} F^{\alpha}\left(\hat{ p } \cdot \hat{ p }^{\prime \prime}\right) A^{\alpha}\left(\hat{ p }^{\prime \prime} \cdot \hat{ p }^{\prime}\right)\)</span> then gives <span class="math inline">\(A_{l}^{\alpha}=F_{l}^{\alpha}-F_{l}^{\alpha} A_{l}^{\alpha},\)</span> from which the result <span class="math display">\[
+A_{l}^{\alpha}=\frac{F_{l}^{\alpha}}{1+F_{l}^{\alpha}} \quad(\alpha=s, a)
+\]</span> follows. The quasiparticle processes described by these scattering amplitudes involve no momentum transfer between the quasiparticles. Geometrically, scattering processes in which <span class="math inline">\(q =0\)</span> correspond to a situation where the momenta of incoming and outgoing quasiparticles lie in the same plane. Scattering processes which involve situations where the plane defined by the outgoing momenta is tipped through an angle <span class="math inline">\(\phi\)</span> with respect to the incoming momenta, as shown in Figure <span class="math inline">\(6.5,\)</span> involve a finite momentum transfer <span class="math inline">\(q=2 p_{F}|\sin \theta / 2 \sin \phi / 2| .\)</span> Provided this momentum transfer is very small compared with the Fermi momentum, i.e. <span class="math inline">\(\phi&lt;&lt;1,\)</span> then one can extend the t-matrix equation as follows: <span class="math display">\[
+A_{l}^{\alpha}( q )=\frac{F_{l}^{\alpha}( q )}{1+F_{l}^{\alpha}( q )} \quad\left(q&lt;&lt;p_{F}\right)
+\]</span> It is important to realize, however, that Landau Fermi-liquid theory is only really reliable for those processes where <span class="math inline">\(\phi\)</span> is small.</p>
+<h2 id="collective-modes">4 Collective modes</h2>
+<p>The most common collective mode of a fluid or a gas is sound. Conventional sound results from collisions among particles which redistribute momentum within the fluid. As such, sound is a low-frequency phenomenon that operates at frequencies much smaller than the typical quasiparticule scattering rate <span class="math inline">\(\tau^{-1},\)</span> i.e. <span class="math inline">\(\omega&lt;&lt;\tau^{-1}\)</span> or <span class="math inline">\(\omega \tau&lt;&lt;1 .\)</span> One of the startling predictions of Landau Fermi-liquid theory is the existence of a collionless collective mode that operates at high frequencies, <span class="math inline">\(\omega \tau&gt;&gt;1\)</span> : zero sound. Zero sound is associated with collective oscillations of the Fermi surface and does not involve collisions. Whereas conventional sound travels at a speed below the Fermi velocity, zero sound is "supersonic," traveling at speeds in excess of the Fermi velocity. Historically, the observation of zero sound in liquid <span class="math inline">\({ }^{3}\)</span> He clinched Landau Fermi-liquid theory, firmly establishing it as a foundation of fermionic many-body physics.</p>
+<p>Let us now contrast zero sound and "first sound." Conventional sound is associated with oscillations in the density of a fluid, and hydrodynamics tells us that <span class="math display">\[
+u_{1}^{2}=\frac{\kappa}{\rho}=\frac{\kappa}{m n}
+\]</span> where <span class="math inline">\(\rho=m n\)</span> is the density of the fluid and <span class="math inline">\(\kappa=-V \frac{\partial P}{\partial V}\)</span> is the bulk modulus. From our previous discussion, <span class="math inline">\(\kappa=\frac{n^{2}}{\chi_{c}}\)</span> and <span class="math inline">\(\chi_{c}= N ^{*}(0) /\left(1+F_{0}^{s}\right),\)</span> so the velocity of first sound in a Fermi liquid is given by <span class="math display">\[
+u_{1}^{2}=\frac{n}{m \chi_{c}}=\frac{n}{m N ^{*}(0)}\left(1+F_{0}^{s}\right)
+\]</span> Replacing <span class="math inline">\(n=\frac{p_{F}^{2}}{3 \pi^{2}}, N ^{*}(0)=\frac{m^{*} p_{F}}{\pi^{2}},\)</span> and <span class="math inline">\(m=m^{*} /\left(1+F_{1}^{s}\right)\)</span> we obtain <span class="math display">\[
+u_{1}^{2}=\frac{v_{F}^{2}}{3}\left(1+F_{0}^{s}\right)\left(1+F_{1}^{s}\right)
+\]</span> In the non-interacting limit, <span class="math inline">\(u_{1}=v_{F} / \sqrt{3}\)</span> is smaller than the Fermi velocity. To understand zero sound we need to consider variations in the quasiparticle distribution function <span class="math inline">\(n_{ p }( x , t) .\)</span> Provided that the characteristic frequency <span class="math inline">\(\omega\)</span> is much smaller than the Fermi energy, <span class="math inline">\(\omega&lt;&lt;\epsilon_{F},\)</span> and the characteristic wavevector is much smaller than the Fermi wavevector, <span class="math inline">\(q&lt;&lt;k_{F},\)</span> fluctuations in the quasiparticle occupancy can be treated semiclassically, which leads to a Boltzmann equation, <span class="math display">\[
+\frac{D n_{ p \sigma}}{D t}=I\left[\left\{n_{ p \sigma}\right\}\right]
+\]</span> where <span class="math display">\[
+\frac{D n_{ p \sigma}}{D t}=\frac{\partial n_{ p \sigma}}{\partial t}+\dot{ x } \cdot \nabla_{ x } n_{ p \sigma}+\dot{ p } \cdot \nabla_{ p } n_{ p \sigma}
+\]</span> is the total rate of change of the quasiparticle occupancy <span class="math inline">\(n_{ p \sigma}( x , t),\)</span> taking into account the movement of quasiparticles through phase space. <span class="math inline">\(I\)</span> is the collision rate. In a semiclassical treatment, the rate of change of momentum and position are determined from Hamilton's equations, <span class="math inline">\(\dot{ p }=-\nabla_{ x } \epsilon_{ p }\)</span> and <span class="math inline">\(\dot{ x }=\nabla_{ p } \epsilon_{ p },\)</span> so that <span class="math display">\[
+\frac{D n_{ p \sigma}}{D t}=\frac{\partial n_{ p \sigma}}{\partial t}+\nabla_{ p } \epsilon_{ p } \cdot \nabla_{ x } n_{ p \sigma}-\nabla_{ x } \epsilon_{ p \sigma} \cdot \nabla_{ p } n_{ p \sigma}
+\]</span> We now consider small fluctuations of the Fermi surface defined by <span class="math display">\[
+n_{ p }( x , t)=f\left(\epsilon_{ p }^{(0)}\right)+e^{i q \cdot x -i \omega t} \alpha_{ p \sigma}
+\]</span> where <span class="math inline">\(\alpha_{ p \sigma}\)</span> is the amplitude of the fluctuations. The terms contributing to the total rate of change <span class="math inline">\(D n_{ p \sigma} / D t\)</span> are of order <span class="math inline">\(O(\omega \delta n),\)</span> whereas the collision term <span class="math inline">\(I[n] \sim O\left(\tau^{-1} \delta n\right)\)</span> is of the order of the collision rate <span class="math inline">\(\tau^{-1}\)</span>. In the high-frequency limit, <span class="math inline">\(\omega \tau&gt;&gt;1,\)</span> the collision terms can then be neglected, leading to the collisionless Boltzmann equation: <span class="math display">\[
+\frac{\partial n_{ p \sigma}}{\partial t}+\nabla_{ p } \epsilon_{ p } \cdot \nabla_{ x } n_{ p \sigma}-\nabla_{ x } \epsilon_{ p \sigma} \cdot \nabla_{ p } n_{ p \sigma}=0
+\]</span> For small periodic oscillations in the Fermi surface, the first two terms can be written <span class="math display">\[
+\frac{\partial n_{ p \sigma}}{\partial t}+\nabla_{ p } \epsilon_{ p } \cdot \nabla_{ x } n_{ p \sigma}=-i\left(\omega- v _{F} \cdot q \right) \alpha_{ p \sigma} e^{i q \cdot x -i \omega t}
+\]</span> the last term, the position dependence of the quasiparticle energies derives from interactions <span class="math display">\[
+\begin{aligned}
+\nabla_{x} \epsilon_{ p \sigma} &amp;=\sum_{\sigma^{\prime}} \int_{ p ^{\prime}} f_{ p \sigma, p ^{\prime} \sigma^{\prime}} \nabla_{x} n_{ p ^{\prime}, \sigma^{\prime}} \\
+&amp;=i q e^{i q \cdot x -i \omega t} \sum_{\sigma^{\prime}} \int_{ p ^{\prime}} f_{ p \sigma, p ^{\prime} \sigma^{\prime}} \alpha_{ p ^{\prime}, \sigma^{\prime}}
+\end{aligned}
+\]</span> Replacing <span class="math inline">\(\nabla_{ p } n_{ p \sigma}=\frac{\partial f}{\partial \epsilon} v _{F},\)</span> the collisionless Boltzmann equation becomes <span class="math display">\[
+\left(\omega- v _{F} \cdot q \right) \alpha_{ p \sigma}+v_{F} \cdot q \left(-\frac{d f}{d \epsilon}\right) \sum_{\sigma^{\prime}} \int_{ p ^{\prime}} f_{ p \sigma, p ^{\prime} \sigma^{\prime}} \alpha_{ p ^{\prime}, \sigma^{\prime}}=0
+\]</span> For a mode propagating at speed <span class="math inline">\(u , \omega=u q .\)</span> If we express <span class="math inline">\(v _{F} \cdot q =v_{F} q \cos \theta_{ p },\)</span> and write the mode velocity as a factor <span class="math inline">\(s\)</span> times the Fermi velocity, <span class="math inline">\(u=s v_{F},\)</span> then this becomes <span class="math display">\[
+\left(s-\cos \theta_{ p }\right) \alpha_{ p \sigma}+\cos \theta_{ p }\left(-\frac{d f}{d \epsilon}\right) \sum_{\sigma^{\prime}} \int_{ p ^{\prime}} f_{ p \sigma, p ^{\prime} \sigma^{\prime}} \alpha_{ p ^{\prime}, \sigma^{\prime}}=0
+\]</span> We see that the fluctuations in occupancy associated with a zero sound mode, <span class="math inline">\(\alpha_{ p \sigma}=\)</span> <span class="math inline">\(\eta_{\sigma}(\hat{ p })\left(-\frac{d f}{d \epsilon}\right),\)</span> are proportional to the energy derivative of the Fermi function, and thus confined to within an energy scale <span class="math inline">\(T\)</span> of the Fermi surface. The function <span class="math inline">\(\eta_{\sigma}(\hat{ p })\)</span> describes the distribution around the Fermi surface, and this function satisfies the self-consistent relation <span class="math display">\[
+\eta_{\sigma}( p )=\frac{\cos \theta_{ p }}{2\left(s-\cos \theta_{ p }\right)} \sum_{\sigma^{\prime}} \int \frac{d \Omega_{ p ^{\prime}}}{4 \pi} F_{ p \sigma, p ^{\prime} \sigma^{\prime} \eta_{\sigma}\left(\hat{ p }^{\prime}\right)}
+\]</span> For spin-independent zero sound waves, the right-hand side only involves <span class="math inline">\(F^{s}\)</span> and can be written <span class="math display">\[
+\eta( p )=\frac{\cos \theta_{ p }}{\left(s-\cos \theta_{ p }\right)} \int \frac{d \Omega_{ p ^{\prime}}}{4 \pi} F_{ p , p ^{\prime}}^{s} \eta\left(\hat{ p }^{\prime}\right)
+\]</span> To illustrate the solution of this equation, consider the case where the interaction is entirely isotropic and spin-independent, so that the only non-vanishing Landau parameter is <span class="math inline">\(F_{0}^{s}\)</span>. In this case, the angular function is spin-independent and given by <span class="math display">\[
+\eta(\theta)=A \frac{\cos (\theta)}{s-\cos (\theta)}
+\]</span> where <span class="math inline">\(A\)</span> is a constant. Substituting this form into the integral equation, we obtain the following formula for <span class="math inline">\(s=u / v_{F}\)</span> <span class="math display">\[
+A=\int_{-1}^{1} \frac{d \cos \theta}{2} \frac{\cos \theta}{s-\cos \theta} A F_{0}^{s}=A F_{0}^{s}\left[-1+\frac{s}{2} \ln \left(\frac{s+1}{s-1}\right)\right]
+\]</span> so that <span class="math display">\[
+\frac{s}{2} \ln \left(\frac{s+1}{s-1}\right)-1=\frac{1}{F_{0}^{s}}
+\]</span> For large <span class="math inline">\(s,\)</span> the function on the left-hand side vanishes asymptotically as <span class="math inline">\(1 /\left(3 s^{2}\right),\)</span> and since the right-hand side vanishes at large interaction <span class="math inline">\(F_{0}^{s},\)</span> it follows that for large interaction strength the zero sound velocity is much greater than <span class="math inline">\(v_{F}:\)</span> <span class="math display">\[
+u=s v_{F}=v_{F} \sqrt{\frac{F_{0}^{s}}{3}} \quad\left(F_{0}^{s}&gt;&gt;1\right)
+\]</span> For small interaction strength, <span class="math inline">\(s \rightarrow 1\)</span> and the zero sound velocity approaches the Fermi velocity.</p>
+<p>Experimentally, zero sound has been observed by a variety of methods. Low-frequency zero sound couples directly to vibrations at the wall of the fluid, and can be detected directly as a propagating density mode. Zero sound can also be probed at higher frequencies using neutron and <span class="math inline">\(X\)</span> -ray scattering. Neutron scattering experiments find that, at high frequencies, the zero sound mode re-enters the particle-hole continuum where, as a damped excitation, it acquires a roton minimum similar to collective modes in bosonic <span class="math inline">\({ }^{4}\)</span> He.</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93/">费米液体</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Landau/">Landau</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/06/12/CMP_10_Fermi_Liquid02/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">费米液体(3/4)：格林函数&费曼图</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2018/05/24/IN05_phybook/">
+                        <span class="hidden-mobile">数理基础书籍整理</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "费米液体(2/4)：现象法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

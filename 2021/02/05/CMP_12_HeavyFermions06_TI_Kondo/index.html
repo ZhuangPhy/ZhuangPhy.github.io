@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>拓扑近藤绝缘体 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-02-05 13:51">
+      February 5, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      71
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<ul>
+<li>《拓扑近藤绝缘体》物理 49卷(2020年) 9 期</li>
+</ul>
+<p>[TOC]</p>
+<h2 id="简介">0 简介</h2>
+<p>拓扑绝缘体(topological insulator，TI)概念的发展是单电子能带理论的最新成果[1，2]。强关联量子材料，特别是本专题中介绍的重费米子系统的研究，也在近几十年带来了一系列新的物理现象。正是这两个有趣方向的相互结合产生了拓扑近藤绝缘体(topological Kondo insulator) 这个概念，并引出了第一个实验证实的强关联拓扑材料。 <span class="math display">\[
+拓扑绝缘体+强关联\Longrightarrow 拓扑近藤绝缘体
+\]</span></p>
+<h3 id="六硼化钐">六硼化钐</h3>
+<p>六硼化钐(Samarium Hexaboride，<span class="math inline">\(SmB _{6}\)</span>)是最早发现的、也是最知名的近藤绝缘体</p>
+<ol type="1">
+<li>它的电绝缘性<strong>来自</strong>于强关联的电子相互作用。</li>
+<li>在<span class="math inline">\(SmB _{6}\)</span>中，尽管带隙只有大致10 meV，但随着温度从室温降到液氦温度，体电阻率<strong>增加了</strong>十万倍以上。</li>
+<li>作为稀土元素的化合物，<span class="math inline">\(SmB _{6}\)</span> 中Sm 的
+<ul>
+<li>f-壳层电子<strong>提供了</strong>局域磁矩并导致了强相互作用，</li>
+<li>d 带的巡游电子和这些局域电子轨道进行<strong>杂化</strong>，从而在费米能处打开了一个能隙，使得 <span class="math inline">\(SmB _{6}\)</span> 成为绝缘体[3，4]。</li>
+</ul></li>
+</ol>
+<h4 id="导电性质">导电性质</h4>
+<p>如果把这个强关联近藤绝缘体的能带结构<strong>映射</strong>到等同于常规拓扑绝缘体的状态[5]，就会发现在近藤绝缘体的<strong>基态</strong>下，</p>
+<ol type="1">
+<li>体态的电子结构出现了<strong>能带反转</strong>，</li>
+<li>同时<strong>表面</strong>出现了拓扑保护的导电态[5]。</li>
+</ol>
+<p>由于体态完全绝缘，这个表面态可以用来做新型二维电子器件。</p>
+<ul>
+<li>这一理论设想很快被非局域的电输运测量观测到[6—8]；</li>
+<li>之后一系列的角分辨光谱和量子振荡实验[9—13]证明了该拓扑表面态的存在。</li>
+</ul>
+<p>现在 <span class="math inline">\(SmB _{6}\)</span> 以及与它相关的材料正在被进一步研究，以探索实现高效自旋电子器件的可能性[14，15]。</p>
+<h4 id="强关联">强关联</h4>
+<p>另一方面，如果 <span class="math inline">\(SmB _{6}\)</span> 的绝缘性不是来 自于 f 和d 轨道杂化，而是某种特殊的强关联现象</p>
+<ol type="1">
+<li>那么 <span class="math inline">\(SmB _{6}\)</span> 的带隙中很可能存在各种体态的<strong>新电子态</strong>，</li>
+<li>这些带隙内的电子态确实已被一部分<strong>实验观测</strong>到[16]。</li>
+<li>各种奇异的实验现象让大家意识到近藤绝缘体中有不少新的谜团，也引发了各种各样的<strong>理论模型</strong>。</li>
+</ol>
+<p>另外，我们也试图回答这个问题： <span class="math inline">\(SmB _{6}\)</span> 表面态的电子关联究竟有多强？</p>
+<ol type="1">
+<li>我们注意到电子有效质量，这一重要的关联强度指标，在4种实验手段观测中得到的<strong>结果相差</strong>几个数量级。</li>
+<li>此外，不同方法生长出的样品也给出相异的实验结果。</li>
+</ol>
+<p>这篇综述将会详细讨论各种材料和各种实验方法给出的不同结果，让读者更好地理解近藤绝缘体中的拓扑表面态和奇异的体态。</p>
+<h2 id="理论图像">1 理论图像</h2>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210213182301358.png" srcset="/img/loading.gif" /></p>
+<p>在近藤绝缘体 <span class="math inline">\(S m B_{6}\)</span> 中</p>
+<ol type="1">
+<li>钐原子形成一个简单立方晶格，而每6 个硼原子构成一个八面体，位于立方格子中心。</li>
+<li>在低能状态下，<span class="math inline">\(S m B_{6}\)</span> 的电子激发主要由钐原子的f 态和d 态组成，二者之间存在<strong>轨道杂化</strong>。这个作用的一个结果是钐原子的化合价<strong>不再是整数</strong>，处于2 价和3 价之间；</li>
+<li>而且它的价态<strong>随温度变化</strong>[17]。在低温下，f 电子和d 电子之间的强近藤耦合打开了能隙，使 <span class="math inline">\(S m B_{6}\)</span> 从混合价态的金属转变成混合价态的绝缘体。这个能隙很小，只有约10 meV量级。</li>
+</ol>
+<h3 id="近藤绝缘体的起源">近藤绝缘体的起源</h3>
+<p>由于 <span class="math inline">\(S m B_{6}\)</span> 中较强的电子关联，近藤绝缘体的精确<u>微观</u>起源仍然是一个悬而<strong>未决</strong>的问题。但是，在<u>宏观</u>层面上，对称性和拓扑理论对可能出现的起源现象已经有了很严格的<strong>限定</strong>，仅允许以下两种可能的情况在 <span class="math inline">\(S m B_{6}\)</span> 中存在：</p>
+<ul>
+<li>一是拓扑绝缘体；</li>
+<li>二是超出朗道费米液体理论所描述范围的奇特绝缘体。</li>
+</ul>
+<h4 id="情况1">情况1</h4>
+<p>我们先看第一种情况。如果能带结构理论以及朗道费米液体理论能正确地描述 <span class="math inline">\(S m B_{6}\)</span> 的低能物理性质，就可以根据能带结构<strong>直接推断</strong>出它的拓扑性质。</p>
+<ol type="1">
+<li>对于 <span class="math inline">\(SmB_{6}\)</span> ，由于f 电子的强自旋轨道耦合性质及其极小的能隙和带宽，解决能带结构的<strong>细节</strong>仍然十分困难，</li>
+<li>但是在晶格高对称点的守恒和对称性已经非常清楚。仅此信息已经<strong>足以决定</strong>拓扑指数和拓扑表面态的定性特征[18]。</li>
+<li>实验和理论研究表明，在 $ SmB_{6}$ 布里渊区的 X 点附近发生了f 带与d 带的能带反转。</li>
+<li>由于 <span class="math inline">\(SmB_{6}\)</span> 的高对称特性，以及f 带与d 带宇称奇偶性相反，如果要打开绝缘带隙，此能带反转必将导致非平凡的拓扑性质。</li>
+</ol>
+<p>我们知道，对于材料的拓扑性质，不同对称性能带之间的反转起着至关重要的作用。由于 $ SmB_{6}$ 高对称点的宇称和时间反演对称性的保护，其能带反转足以决定它的拓扑性质[5]。所对应表面态的电子态也必然有奇数个狄拉克锥(Dirac cone)。更重要的是，表面态费米面的自旋态也会出现螺旋形的织构[19]。</p>
+<h4 id="情况2">情况2</h4>
+<p>需要强调一下，上面的结论尽管是由 $ SmB_{6}$ 材料的对称性决定的，但是有一个<strong>前提</strong>条件，即假设 <span class="math inline">\(SmB_{6}\)</span> 的绝缘性是由带隙引起。如果这一通常的物理图像在 <span class="math inline">\(SmB_{6}\)</span> 里不成立，那么就可能导致上面的第二种情况，也就是新的完全不同于传统朗道费米液体理论的奇异的绝缘体。例如由</p>
+<ul>
+<li>自旋电荷分离带来的量子自旋液体态，</li>
+<li>或是激子态绝缘[20，21]。</li>
+</ul>
+<p>这些想法很有意思，也需要更多的实验继续在强关联材料中探索。</p>
+<h2 id="最早的实验来自电输运性质">2 最早的实验来自电输运性质</h2>
+<p><span class="math inline">\(SmB_{6}\)</span> 是混合价态化合物的突出代表，它的电性质已经被研究了超过50 年[4]。在室温下，导电性非常好，其电阻率只比金大两个数量级。降至低温，高质量单晶的电阻率可以出现近 <strong>6 个数量级的增长</strong>。</p>
+<ol type="1">
+<li>这从一方面证明了 <span class="math inline">\(SmB_{6}\)</span> 的绝缘带隙可以有效控制电输运行为。</li>
+<li>但另一方面， <span class="math inline">\(SmB_{6}\)</span> 同普通的绝缘体不同，它的电阻率在液氦温区(严格地说是在3 K以下)趋近饱和。这一残余的导电性一度让人们非常费解，不同的研究结果
+<ul>
+<li>或是认为这是由杂质引起，</li>
+<li>或是认为由带隙内的某些体电子态所导致。</li>
+</ul></li>
+</ol>
+<p>正如第一节所述，孙锴等人的理论给出了<strong>新的解释</strong>，即 <span class="math inline">\(SmB_{6}\)</span> 可能是拓扑绝缘体，而低温下的电阻平台正是由时间反演对称性保护的拓扑表面态产生[5]。</p>
+<p>这一想法提出后的三年内，三个实验团队相互独立地发现了 <span class="math inline">\(SmB_{6}\)</span> 中这一表面电导。</p>
+<h3 id="实验1">实验1</h3>
+<p>我的同事Kurdak 领导的实验组使用了一种新奇的双面器件结构，在 <span class="math inline">\(SmB_{6}\)</span> 中进行了一项非局域的电阻测量。通常非局域电阻探测在二维电子材料中应用很多，比如一张正常的铜板，从一边向另一边输入电流，不同位置的电压是由其位置决定的，这也是著名的欧姆定律。而假如我们把这一铜板做薄、做小，做到像石墨烯一样，就会发现各个位置的电阻变化消失了，取而代之的是，这个二维材料边缘的电极位置决定了可能的电阻值。这一现象被称为“弹道输运”(ballistic transport)，也是<strong>二维电子材料边缘态存在的最好证明。</strong></p>
+<p>不巧的是， <span class="math inline">\(SmB_{6}\)</span> 是三维材料，其晶格是标准的简单立方，<strong>很难做出它体态的二维材料</strong>，可是Kurdak 和他的学生们想出了一种非常有效的新办法来做这个三维材料的非局域电阻。他们在材料样品的上表面和下表面分别做上电极，测量电阻与温度的变化。在只用一侧的电极时，电阻随温度的变化关系正如以往的测量结果一样，随着温度下降电阻指数般上升，直到3 K 下趋于饱和。可是，当把两侧的电极混合使用测电阻时，结果却出人意料，电阻随温度不再是单调的增长，而是先上升又下降再上升[6]。这一现象直接说明了这一立方晶格的三维材料有非常明显的非局域的电导。同时孙锴和Kurdak 组一起拟合了表面态电导的结果，发现这一非单调的电阻温度变化关系，正是表面态电导可以产生的[6]。</p>
+<h3 id="实验23">实验2&amp;3</h3>
+<p>与此同时，在加州大学尔湾分校的夏晶教授领导的研究组，与同事Fisk 组合作，使用多组霍尔电极对 <span class="math inline">\(SmB_{6}\)</span> 楔形样品进行了霍尔效应测量，其结果不随样品的<strong>厚度变化</strong>。这一发现也有力地支持了表面的导电态[7]。</p>
+<p>另外，马里兰大学的Paglione 组和Greene 组进行<strong>点接触的谱测量</strong>，也给出了样品在极低温下体态绝缘和表面态导电的证据[8]。戴希等人的电子能带计算也很快指出了可能的表面态费米面的位置[24]。</p>
+<p>需要说明的是，这些结果尽管十分有趣，但还只是拓扑近藤绝缘体的<strong>间接证据</strong>。也就是说，只是在极低温下观测到了拓扑近藤绝缘体的表面态导电，而对该表面电子态的直接测量需要接下来的角分辨光电子谱和量子振荡实验来实现。</p>
+<p>同时还要提到的是，这三个工作是<strong>最早</strong>的让整个领域<strong>意识到</strong>强关联材料中有可能出现实实在在的拓扑相，而同时体态是完美的绝缘态。它们对整个凝聚态物理的影响说是革命性的也不足为过。</p>
+<h2 id="角分辨光电子谱给出了完整的图像">3 角分辨光电子谱给出了完整的图像</h2>
+<p>光电作用是最早证明光子存在的实验，也是爱因斯坦革命性解释的三个理论之一。对于固体材料，在满足一些条件下，光电作用直接测量去掉了结合能的单粒子光谱函数。角分辨的光电子能谱(ARPES)则能<strong>直接测量</strong>光电子能量在动量空间中的变化，这是电子结构的基础，在拓扑量子材料的研究中，ARPES实验已成为决定性的测量手段。</p>
+<h3 id="微妙差别的争论">微妙差别的争论</h3>
+<p>正如在上一节末讨论的，三个电输运性质的结果如同一声惊雷，唤醒了整个领域。近十个研究组赶去用ARPES 测定 <span class="math inline">\(SmB_{6}\)</span> 体态和表面态的电子结构[11—13]。尽管结果各有少许区别，大体上却基本相同。但就是这些微妙差别引起了各种各样的<strong>争论</strong>，</p>
+<ol type="1">
+<li>建议读者阅读我的同事J. W. Allen 在我领衔的评论长文[19]中的详细讨论。</li>
+<li>同时必须指出 <span class="math inline">\(SmB_{6}\)</span> 的带隙很小，只在十几个meV 的尺度，受ARPES的能量分辨率在几个meV的局限，数据上有细微区别以及分析解释上存在大的争论是<strong>可以理解的</strong>。</li>
+<li>这里只能总结各个研究组共同看到的ARPES 结果，即在［100］表面态的 <span class="math inline">\(\bar{X}\)</span> 晶格点大家都发现了椭圆形的费米面。进一步的光子能量分布的测量发现这个椭圆形的费米面不随法向动量(<span class="math inline">\(k_{z}\)</span>)变化[11，12]。在 <span class="math inline">\(\bar{\Gamma}\)</span> 晶格点大部分组也发现了一个小的费米面。更重要的线性色散关系也被证明，即电子能量(E)同晶格面内动量 (<span class="math inline">\(k _{||}\)</span>) 线性变化，这直接展示了狄拉克电子的存在，是对拓扑近藤绝缘体理论的<strong>直接证明</strong>。</li>
+</ol>
+<p>进一步，拓扑性质的另一个标杆，自旋动量锁定(spin-momentum-locking)也被发现了。在丁洪教授领导的对 <span class="math inline">\(SmB_{6}\)</span> 的ARPES(对自旋性质敏感) 测量中，表面态的电子自旋被发现具有和动量相关的极化现象，这也是对拓扑性质的强有力证明[25]。</p>
+<h3 id="晶向">晶向</h3>
+<p>拓扑近藤绝缘体被认为是一种<strong>强拓扑绝缘体(strong TI)</strong>，即被对称性保护的表面导电态在各个自然形成的晶向上都会存在。 <span class="math inline">\(SmB_{6}\)</span> 这种拓扑非平庸特性对应于+2.6 以上的Sm价态[5]。的确，一些组试图在其他晶向上观测和寻找表面态的电子结构。例如在用打磨和退火方法制备的[110]晶向，Denlinger 等看见了表面态，也初步发现了表面态的费米面大小和形状都不随法向晶矢(kz)变化[26]。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210213193250308.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>图1 六硼化钐( <span class="math inline">\(SmB_{6}\)</span> )的体态能带反转发生在布里渊区的X点附近。即令 <span class="math inline">\(SmB_{6}\)</span> 的简单立方晶格的晶格常数为a，在倒晶格空间的 <span class="math inline">\(\left(\frac{\pi}{a}, 0,0\right),\left(0,0, \frac{\pi}{a}\right)\)</span> 和 <span class="math inline">\(\left(0, \frac{\pi}{a}, 0\right)\)</span> 处。把这三个晶格点投影到 <span class="math inline">\(SmB_{6}\)</span> 表面，就可以在对应的</p>
+<ol type="1">
+<li>(100)表面态布里渊区(a)，</li>
+<li>(110)表面态布里渊区(b)，</li>
+<li>(111)表面态布里渊区(c)</li>
+</ol>
+<p>上找到所对应的狄拉克点。</p>
+<p>而表面态上的费米面就应该环绕这些狄拉克点。另外，如果这些狄拉克点在表面态布里渊区上是高对应点(图中黑点)，它们的存在是由时间反演对称性保证的。它们周围的费米面也在角分辨光电子谱中反复证实，在图中由粗实红线表示。如果投影的点不在高对称点，那么对应的表面态费米面的存在就需要由晶格的镜面对称来保护。在(110)表面上对应的布里渊区中可以看到有一对这样的费米面，由粗虚线代表</p>
+</blockquote>
+<p>更令人振奋的是在 <span class="math inline">\(SmB_{6}\)</span> [111]晶向上的角分辨光谱结果[27]。</p>
+<ol type="1">
+<li>在这一表面，只存在一个高对称点，实验结果也的确展示了三个等价的围绕这个对称点的费米面(图1)。</li>
+<li>这些椭圆形费米面的大小与形状都被发现不随kz变化。</li>
+<li>此外，自旋极化的性质也被测量了，由自旋动量锁定产生的表面态的自旋螺旋结构也测到了。</li>
+</ol>
+<p>这一系列数据是对 <span class="math inline">\(SmB_{6}\)</span> 是强的拓扑绝缘体最有力的支持。更为重要的是， <span class="math inline">\(SmB_{6}\)</span> 的[111]方向表面是非电极性的。这对于一系列讨论电极性如何影响并改变 <span class="math inline">\(SmB_{6}\)</span> [100]方向ARPES结果是个很好的反击[27]。</p>
+<h3 id="辩证">辩证</h3>
+<p>我希望指出，尽管有各种各样的争论，<span class="math inline">\(SmB_{6}\)</span> 的电输运和ARPES的结果总体上证明了拓扑近藤绝缘体理论。从这两组实验结果来看， <span class="math inline">\(SmB_{6}\)</span> 似乎只是种<strong>性质很好</strong>的拓扑绝缘体。</p>
+<ol type="1">
+<li>同大家熟识的 <span class="math inline">\(Bi _{2} Se _{3}\)</span> 相比，<span class="math inline">\(SmB_{6}\)</span> 的低温绝缘电性质好很多；</li>
+<li>体态完全绝缘，表面态导电性和电子结构也符合理论的预测。</li>
+</ol>
+<p>这一系列的实验结果似乎说明对于 <span class="math inline">\(SmB_{6}\)</span> ，拓扑近藤绝缘体研究中的物理问题已经解决了，剩下就是工程和应用的问题了。大家不禁在猜测，现在的情况是不是(正如丘吉尔曾说过的)结束的开始(the beginning of end)或是开始的结束(the end of beginning)。我们会在下一部分的量子振荡中发现，对近藤绝缘体的研究<strong>还远远不够</strong>。</p>
+<h2 id="柳暗花明的量子振荡">4 柳暗花明的量子振荡</h2>
+<p>量子振荡是一个传统的用来研究金属材料电子态的实验手段。众所周知，电子服从费米-狄拉克统计关系，在金属中电子的基态能量会填充到它们的最大值，即费米能级EF。这一能级的所有电子的动量矢量在三维动量空间中就构成了费米面。进一步，有了非零的外磁场，电子就产生了朗道能级。这一过程的结果就是在费米面上的电子态密度开始随磁场的变化而振荡，也就使这个材料的物理性质随着外磁场的变化而振荡，这一过程被简称为量子振荡。</p>
+<p>90 年前在半金属铋(bismuth)中，量子振荡现象由电阻和磁化强度测量先后发现，此后更是在几乎所有的金属中都观测到了。40 年前量子霍尔效应的发现，提供了外磁场下朗道量子化主导电输运行为的清晰图像，并直接导致了拓扑性质在物理体系中的研究。但所有的量子振荡结果都基于金属态，只有存在于金属中的电子费米面可以经过朗道量子化而产生量子振荡。</p>
+<p>拓扑近藤绝缘体似乎颠覆了这一共识。首先，我在密西根大学的一次报告会上，听说了同事Kurdak 的如前所述的 <span class="math inline">\(SmB_{6}\)</span> 基态下表面电导的研究结果，就建议当时正在我组里做博士后的李岗试着测量 <span class="math inline">\(SmB_{6}\)</span> 单晶的电阻和磁转矩，寻找量子振荡。</p>
+<p>在石墨烯的量子霍尔效应中，大家已经知道可以从量子振荡的朗道能带谱图寻找的贝里相位-狄拉克电子的主要特征。出人意料的是，李岗在测量电阻时磁场加到了12 T，以及后来的强磁场实验室的45 T都没有观测到振荡信号。我教他和其他组员手工安装电容式转矩磁强计(torque magnetometer)(具体工作原理如图2 所示)。李岗第一次测量磁转矩就在10 T磁场左右发现了量子振荡[9]。而后我们不断筛选样品，标定晶向，再使用强磁场实验室的高磁场，完整地测量了量子振荡在近200°的磁场倾角范围内的量子振荡谱变化。一个在强磁场下的磁转矩振荡的例子[10]如图3 所示。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210213195600032.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>图 3 一张有代表性的 SmB_磁转矩的数据图。我们在一块形状不规则的 SmB_单晶上测得的数据，磁场由 11.5T 到 45T，在偏离样品(100)晶向约 <span class="math inline">\(44^{\circ}\)</span> 的方向上</p>
+</blockquote>
+<p>我们的初始结果支持了在 <span class="math inline">\(SmB_{6}\)</span> 中存在表面金属态。振荡结果中有3 组费米面的电子轨道，其中两组存在于晶体(100)及等价晶向上，另一组存在于晶体(101)晶向上。转角变化证明了电子轨道面积A 与磁场和晶向的夹角 <span class="math inline">\(\theta\)</span> 有二维关系，即</p>
+<p><span class="math display">\[
+A \propto 1 / \cos \theta
+\]</span> 这一系列结果让我们找到了自洽的解释，即在低温下拓扑近藤绝缘体的表面金属态形成了二维的费米面。我们在强磁场下观测到了这些表面态的朗道量子化行为[9]。</p>
+<p>一年后这一量子振荡的结果被Sebastian 研究组发表的文章所证实[28]。但是他们的结果指向了另一种解释，即量子振荡来自于 <span class="math inline">\(SmB_{6}\)</span> 的绝缘体态，也就是说，尽管电子在绝缘态，它们的磁化强度也能显出量子振荡。这一结论让整个领域大吃一惊，也促使了很多实验组和理论组去寻找和解释这一现象[21，29—32]。</p>
+<p>这一新的结果有另外两个引人注目的特点：首先，它们的单晶在磁转矩中显示出了近于 10000T 的振荡频率，这与铜、金、银等贵金属的振荡频率相当，让人很惊讶的是有这么大的费米面，表明巡游准粒子的数密度非常大，而样品竟还是个绝缘体；另外，量子振荡的振幅在极低温下会急剧增加，违反了对正常费米液体系统的预期[16]。</p>
+<p>除了这两个显著的差别外，在新结果中观察到的振荡频率的角度变化同我们之前观察到的结果基本一致。我们最新的综述文章[19]比较了两个组所有的实验结果。我们用的模型是二维圆柱费米面，Sebastian 组用的是极长的椭球体。在绝大部分的磁场角度上，这两个模型给出了几乎一致的预期结果。</p>
+<p>那么，如何才能区分量子振荡的<strong>来源</strong>呢？它是来源于绝缘体态，还是导电的金属表面态？我的另一位博士后项子霁发现了一个巧妙的方法。他测量了一个极不规则形状的 <span class="math inline">\(SmB_{6}\)</span> 单晶，发现随着磁场在(010)单体平面中旋转，大家都能观测到的主振荡频率(参考文献[9]中的β)，显示出了四重对称性。这很正常，因为 <span class="math inline">\(SmB_{6}\)</span> 单晶是简单立方晶格，不论是由体态产生的振荡，还是表面态产生的振荡，振荡频率都应该是四重对称。但是，当他观察振荡幅度随角度的变化时，发现四重对称性被破坏了，随之而来的是出现了二重对称性。这一结果直接表明了无论最终的振荡起源是什么，样品的表面态必须起到作用。</p>
+<p>进一步讲，整个领域对 <span class="math inline">\(SmB_{6}\)</span> 材料中如何出现磁转矩信号也不是完全理解。对于这种高对称的材料，其磁各向异性没有级数展开中的一阶项。那么基于线性响应的体态磁化强度M 就应该完全平行于磁场B 方向，转矩M × B 就应该是零！这也是我们认为表面态给出转矩信号振荡的一个原因。Coleman 提出了一种解释，即材料的几何形状可以给出一个各向异性的结果，使得体态M 和B 之间有一个正比于磁化率 <span class="math display">\[
+\lambda \equiv \frac{M}{\mu_{0} H}
+\]</span> 的小夹角。因这一效应，体态可以有一个磁转矩 <span class="math display">\[
+\tau=\frac{1}{2} N \lambda^{2} \sin (2 \theta)
+\]</span> 其中N是形状决定的常数， <span class="math inline">\(\theta\)</span> 是磁场同这一形状主轴的夹角[33]。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210213201016938.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>图 4 在固定磁场下，SmB <span class="math inline">\(_{6}\)</span> 的磁转矩 <span class="math inline">\(\tau\)</span> 和磁场角度 <span class="math inline">\(\phi\)</span> 的关系。这一组数据是磁场方向在 <span class="math inline">\(SmB _{6}(100)\)</span> 晶向和(001)晶向之间转动。</p>
+<ul>
+<li><span class="math inline">\(0^{\circ}\)</span> 时磁场在(100)方向</li>
+<li><span class="math inline">\(45^{\circ}\)</span> 时磁场在(101)方向</li>
+<li><span class="math inline">\(90^{\circ}\)</span> 时磁场在(001)方向</li>
+</ul>
+<p>尽管存在数据涨落，但是在这三个晶向 上，清晰地看到了磁转矩为零，而磁转矩也在这三个方向处 变号。用粗蓝线代表 <span class="math inline">\(\tau \sim \sin (-4 \phi),\)</span> 也展示了这个变化。图中的固定磁场是 <span class="math inline">\(30 T ,\)</span> 是量子振荡最为明显的磁场强度</p>
+</blockquote>
+<p>这种关系在低温转矩信号中是大致成立的。可是到了量子振荡显著的强磁场，这一解释却不成立了。图4 展示了在30 T 时非振荡部分的磁转矩随磁场方向的变化。可以看到，当磁场旋转经过样品的(100)，(101)，(001)晶向时，分别趋于零并正负变号。换句话说，在量子振荡发生的磁场下， <span class="math inline">\(SmB_{6}\)</span> 的转矩信号由一个sin(4θ)的四重对称性机制主导。由形状产生的各向异性(shape anisotropy)的线性响应不成立。我们必须考虑 <span class="math inline">\(SmB_{6}\)</span> 的高阶非线性才能理解磁转矩的信号。</p>
+<p>另一方面，一直困扰大家的事情是没有在电阻上发现量子振荡。不但我们组，Sebastian 组，还有很多其他组的实验都没有看到[34]。我们必须找到原因。通过测试各种近藤绝缘体，最终在YbB12材料中发现了电阻上的量子振荡[22，23]，这也 为我们在新的体系中研究近藤绝缘体中绝缘带隙随外磁场的演化提供了机会。</p>
+<h2 id="前景还是结论">5 前景还是结论？</h2>
+<p>文章简单介绍了拓扑近藤绝缘体的几个突出的奇异现象。我们可以看到，主要的实验结果可以由金属表面态来解释，而体态也似乎在一些实验中有所贡献。表面态在各种不同的实验手段中给出的费米面的性质也不同，比如， <span class="math inline">\(SmB_{6}\)</span> 电子的有效质量，</p>
+<ol type="1">
+<li>在量子振荡中[9，10，16，35]大约是0.2—1 <span class="math inline">\(m_{ e }\)</span>(自由电子质量)，</li>
+<li>在角分辨光源中[12，36，37]是3—15 <span class="math inline">\(m_{ e }\)</span>，</li>
+<li>在扫描隧道谱[38]中高达100—1000 <span class="math inline">\(m_{ e }\)</span>，</li>
+</ol>
+<p>而平面结隧穿谱实验却发现了同量子振荡一致的质量结果[39]。所以拓扑近藤绝缘体中还有很多没有解决的谜，吸引大家去进一步探索[19]。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AE%9E%E9%AA%8C/">实验</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Heavy-fermion/">Heavy fermion</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Stronaly-correlated/">Stronaly correlated</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/05/CMP_12_HeavyFermions07_Weyl/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">拓扑近藤半金属</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/05/CMP_12_HeavyFermions05_spin_frustration/">
+                        <span class="hidden-mobile">自旋阻挫重费米子体系中的量子相变</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "拓扑近藤绝缘体&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

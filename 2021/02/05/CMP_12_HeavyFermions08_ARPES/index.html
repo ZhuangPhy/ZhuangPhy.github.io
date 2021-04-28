@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>角分辨光电子能谱仪在f电子特性研究中的应用 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-02-05 14:51">
+      February 5, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<ul>
+<li>《角分辨光电子能谱仪在f电子特性研究中的应用》物理 49卷(2020年) 9 期</li>
+</ul>
+<p>[TOC]</p>
+<h2 id="简介">0 简介</h2>
+<p>重费米子体系是凝聚态物理研究中的热点和难点，其低的能量尺度和奇异物理特性吸引着研究者的注意力。文章首先简要介绍了重费米子体系的基本概念，随后着重介绍了角分辨光电子能谱技术(ARPES)在重费米子体系中的应用。主要包括以下几个方面内容：</p>
+<ol type="1">
+<li>f 电子与传导电子的杂化特征、</li>
+<li>f电子的杂化与磁性、</li>
+<li>f电子杂化与量子临界、</li>
+<li>超导的关系以及掺杂对杂化的影响等。</li>
+</ol>
+<p>最后介绍了目前ARPES技术在重费米子体系应用中存在的几个问题，并提出相应解决办法。</p>
+<h2 id="什么是重费米子体系">1 什么是重费米子体系？</h2>
+<h2 id="arpes在重费米子体系中的应用">2 ARPES在重费米子体系中的应用</h2>
+<h3 id="arpes的基本原理">ARPES的基本原理</h3>
+<p>角分辨光电子能谱仪(angle resolved photoemission spectroscopy，ARPES)是研究固体内部电子结构非常有效的实验技术，其原理基于<strong>光电效应</strong>。</p>
+<ol type="1">
+<li>当光子照射到某些物质表面时，固体内部电子<strong>受到激发跃迁</strong>到真空中形成<strong>光电子</strong></li>
+<li>光电子在通过超高真空环境之后，顺利到达光电子<strong>探测器</strong>而被探测。</li>
+<li>固体内部的电子<strong>吸收</strong>光子能量 <span class="math inline">\(h v\)</span>，被激发到真空环境中形成光电子；</li>
+<li>被激发出的光电子的能量 <span class="math inline">\(E\)</span> 和角度 <span class="math inline">\(\theta\)</span> 能够通过角分辨光电子能谱仪进行测量。</li>
+<li>根据光电子出射过程中的<strong>能量守恒</strong>和平行于样品表面的<strong>动量守恒</strong>关系，可以获得固体 内部电子的能量和动量信息。</li>
+</ol>
+<p>光电子平行于样品表面的动量可以表示为 <span class="math display">\[
+k_{\|}=k \sin \theta=\sqrt{2 m E} \sin \theta / \hbar
+\]</span> 其中</p>
+<ul>
+<li>$E=h v-E_{ B }-$</li>
+<li><span class="math inline">\(E_{ B }\)</span> 为电子在固体内部的结合能，</li>
+<li><span class="math inline">\(\Phi\)</span> 为固体的功函数。</li>
+</ul>
+<p>在垂直于样品表面方向，由于动量不守恒，无法简单地判断垂直方向的动量，需要通过不同能量光子的角分新光电子能谱实验来确定具体的 <span class="math inline">\(k_{\perp}\)</span> : <span class="math display">\[
+k_{\perp}=\sqrt{2 m\left(E_{\text {kin }} \cos ^{2} \theta+V_{0}\right)} / \hbar
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(V_{0}\)</span> 为内势能，</li>
+</ul>
+<p>可以通过标定三维费米面沿着 <span class="math inline">\(k_{z}\)</span> 方向的周期性而获得</p>
+<h3 id="arpes-在重费米子体系中的研究现状">ARPES 在重费米子体系中的研究现状</h3>
+<p>根据周期安德森模型</p>
+<ul>
+<li>当f 电子与传导电子之间没有相互耦合时，二者的能带不会出现杂化现象。</li>
+<li>当f 电子开始与传导电子耦合时，二者的能带会出现明显重整化</li>
+<li>当耦合强度达到一定程度时，体系还会在费米面附近打开杂化能隙。</li>
+</ul>
+<p>重整化之后的f 电子与传导电子的能带信息如式所示： <span class="math display">\[
+\varepsilon^{\pm}=\frac{\varepsilon_{ f }+\varepsilon_{ k } \pm \sqrt{\left(\varepsilon_{ f }-\varepsilon_{ k }\right)^{2}+4\left|V_{ k }\right|^{2}}}{2}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\varepsilon_{ f }\)</span> 代表未重整化的 <span class="math inline">\(f\)</span> 电子能带</li>
+<li><span class="math inline">\(\varepsilon_{ f }\)</span> 代表传导电子能带</li>
+<li><span class="math inline">\(\varepsilon^{\pm}\)</span> 代表了重整化之后的能带</li>
+<li><span class="math inline">\(V_{ k }\)</span> 代表了局域的 <span class="math inline">\(f\)</span> 电子与巡游的传导电子之间的杂化强度</li>
+</ul>
+<h4 id="局域巡游的实验判定">局域/巡游的实验判定</h4>
+<p>ARPES 技术的优势在于能够<strong>直观获得</strong>材料的</p>
+<ol type="1">
+<li>费米面拓扑结构</li>
+<li>以及能带结构</li>
+</ol>
+<p>其与第一性原理计算相互印证能够阐明材料的本征属性，在重费米子的研究中有着不可取代的作用，特别是对于f 电子的局域/巡游特性的研究。</p>
+<ol type="1">
+<li>早先，研究者们通常先利用ARPES 获得材料的能带结构特征；</li>
+<li>随后利用第一性原理方法分别计算f 电子是完全局域
+<ul>
+<li>以及f 电子是完全巡游状态的能带结构，</li>
+</ul></li>
+<li>再将实验数据与理论计算结果进行<strong>对比</strong>，观察实验结果与哪一种计算结果对应的更好，以此来判断其中f 电子的局域或者巡游的特性[12—16]。</li>
+</ol>
+<p>然而重费米子体系中f 电子通常既具有巡游特性也<strong>同时具有</strong>局域特性，因此该方法<strong>很难精细</strong>判断出f 电子的局域巡游状态。</p>
+<h4 id="分辨率">分辨率</h4>
+<p>也有研究者研究了f 电子材料能带结构<strong>随温度的变化</strong>规律，发现f 电子谱重有随着温度的升高而逐渐减弱的特征，这一行为符合f 电子随着温度变化发生的局域-巡游转变特征，然而由于分辨率等原因，无法获得f 电子与传导电子之间的杂化强度信息[17]。</p>
+<p>近年来，随着仪器能量分辨率、动量分辨率的提高，研究者们可以利用高分辨率、极低温 ARPES 技术观察重费米子中的f 电子信息，这对于理解f 电子的行为具有重要意义。利用ARPES 技术在 <span class="math inline">\(YbRh _{2} Si\)</span> 体系中发现，低温下该体系存在明显的f 电子与传导电子的杂化行为。然而当温度升高至90 K时(远高于该体系的近藤温度)，体系能带结构与低温下并无明显差别，该现象也对周期安德森模型提出了质疑[18]。</p>
+<h2 id="f-电子信息在arpes-图谱中的特征">3 f 电子信息在ARPES 图谱中的特征</h2>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AE%9E%E9%AA%8C/">实验</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Heavy-fermion/">Heavy fermion</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Stronaly-correlated/">Stronaly correlated</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ARPES/">ARPES</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/05/CMP_12_HeavyFermions09_Anderson/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">安德森模型</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/05/CMP_12_HeavyFermions07_Weyl/">
+                        <span class="hidden-mobile">拓扑近藤半金属</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "角分辨光电子能谱仪在f电子特性研究中的应用&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

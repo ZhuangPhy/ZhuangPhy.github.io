@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>拓扑Weyl半金属简介 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-02-07 09:38">
+      February 7, 2021 am
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      47
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考文献">参考文献</h2>
+<ol type="1">
+<li>《拓扑Weyl半金属简介》物理 44卷(2015年) 7 期</li>
+</ol>
+<h2 id="引言">1引言</h2>
+<p>众所周知，材料体系按照其电子能带结构的不同可以划分为金属和绝缘体。近年来的研究表 明，绝缘体可以进一步细分为平庸绝缘体和拓扑绝缘体。</p>
+<ol type="1">
+<li>金属</li>
+<li>绝缘体
+<ul>
+<li>平庸绝缘体</li>
+<li>拓扑绝缘体</li>
+</ul></li>
+</ol>
+<h4 id="拓扑绝缘">拓扑绝缘</h4>
+<p>拓扑绝缘体表现出与一般绝缘体完全<strong>不一样</strong>的量子现象与物性，例如：拓扑保护的表面态、反弱局域化、量子自旋/反常霍尔效应等等。</p>
+<p>因此从被发现后，拓扑绝缘体立即成为了凝聚态物理、材料科学中的一大热点研究领域。拓扑绝缘体的一个重要特性是，小的<strong>微扰</strong>对其拓扑不会有影响，这就使得人们可以定义绝缘体的拓扑性质(也就是说，只要这个微扰不关闭绝缘体的能隙，绝缘体的拓扑性质就不会发生改变)。</p>
+<h4 id="weyl-半金属">Weyl 半金属</h4>
+<p>近年来人们发现了一类特别的金属体系，它们的低能激发可以用粒子物理中的2 分量Dirac 方程即Weyl 方程来描述[4, 5]，因此这类材料体系被称为Weyl 半金属[6—8]。Weyl 半金属虽然没有能隙，但是仍然具有拓扑非平庸行为[6—8]。本文将先介绍Dirac 方程及Weyl 方程，然后以 <span class="math inline">\(A_{2} I r_{2} O _{7}\)</span> 为例，介绍Weyl半金属的奇特性质及相关进展。</p>
+<h2 id="dirac方程">2 Dirac方程</h2>
+<p>1928 年，Dirac 引入下面的描写自由电子的相对论波动方程： <span class="math display">\[
+i \hbar \frac{\partial}{\partial t} \Psi=H \Psi
+\]</span> 其中 <span class="math display">\[
+H=- i \hbar c \alpha \cdot \nabla+m c^{2} \beta =c \alpha \cdot p +m c^{2} \beta
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\alpha=\left(\begin{array}{ll}0 &amp; \sigma \\ \sigma &amp; 0\end{array}\right)\)</span></li>
+<li><span class="math inline">\(\sigma\)</span> 为Pauli矩阵</li>
+<li><span class="math inline">\(\beta =\left(\begin{array}{cc} I &amp; 0 \\ 0 &amp; - I \end{array}\right)\)</span></li>
+<li><span class="math inline">\(I =\left(\begin{array}{ll}1 &amp; 0 \\ 0 &amp; 1\end{array}\right)\)</span> 是 <span class="math inline">\(2 \times 2\)</span> 单位矩阵</li>
+</ul>
+<p>与薛定谔方程不同，Dirac方程的波函数为4分量。</p>
+<h4 id="dirac-材料">Dirac 材料</h4>
+<p>Dirac 方程除了在粒子物理中广泛应用外，近年来人们还发现它可以<strong>用来描述</strong>多个凝聚态体系的<strong>低能激发</strong>行为。人们称这类可以用Dirac 方程描写低能激发的材料体系为Dirac 材料体系[8—11]。目前人们已经发现多个Dirac材料体系，如：</p>
+<ol type="1">
+<li>石墨烯[12]、</li>
+<li>单层氮化硼[13]、</li>
+<li>高温铜氧化物d 波超导体[8]、</li>
+<li>拓扑绝缘体[1—3]等。</li>
+</ol>
+<p>在Dirac 材料体系中，电子由准动量为 <span class="math inline">\(p,\)</span> 能量为 <span class="math inline">\(E(p)\)</span> 的布洛赫态描写。</p>
+<ul>
+<li>显然 Dirac 方程<strong>只能</strong>描写在布里渊区<strong>某些点附近</strong>的低能激发，不能描述 Dirac 材料体系在整个布里渊区的激发行为。</li>
+<li>与粒子物理中的 Dirac 方程不一样， Dirac 材料体系满足的 Dirac方程中 <span class="math inline">\(c\)</span> 不是光速，而是体系的<strong>费米速度</strong>，所以该方程不满足<strong>洛伦兹不变性</strong>。</li>
+<li>由于材料对外场的响应主要由其低能激发谱决定，所以 Dirac 材料具有类似的热力 学、输运、光学等性质[8]。</li>
+</ul>
+<h4 id="石墨烯">石墨烯</h4>
+<p>作为著名的Dirac 材料，石墨烯一直是人们关注的热点[12， 14]。石墨烯是由一层以六角形蜂巢结构周期性紧密堆积的碳原子构成的一种二维碳材料。它的每个元胞晶格矢量可以写为 <span class="math display">\[
+a _{1}=\frac{a}{2}(3, \sqrt{3}), \quad a _{2}=\frac{a}{2}(3,-\sqrt{3})
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(a \approx 1.42\)</span> A 为最近邻碳原子的距离。</li>
+</ul>
+<p>石墨烯元胞里面包含2个碳原子，构成A，B 两套子格。</p>
+<ol type="1">
+<li>碳原子的外层电子构型为 <span class="math inline">\(2 s^{2} 2 p^{2},\)</span> 在石墨烯中有3个价电子形成 <span class="math inline">\(s p^{2}\)</span> 杂化，它们与 3 个近邻碳原子上的电子形成 <span class="math inline">\(\sigma\)</span> 键，远离费米能级</li>
+<li>而它的 <span class="math inline">\(p_{z}\)</span> 电子与3个近邻碳原子上的 <span class="math inline">\(p_{z}\)</span> 电子组成律。 <span class="math inline">\(\pi\)</span> 键电子在费米能级附近，所以在石墨烯中的低能激发可以用 <span class="math inline">\(p_{z}\)</span> 电子来描写</li>
+</ol>
+<p>只考虑最近邻之间的相互作用，即电子 可以跳到最邻近原子中，这时系统的哈密顿量有如下形式: <span class="math display">\[
+H=-t \sum_{&lt;i, j&gt;}\left(a_{i}^{+} b_{j}+ h.c. \right)
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(a_{i}, \quad b_{j}\)</span> 分别为元胞 <span class="math inline">\(i, j\)</span> 的 <span class="math inline">\(A ,\)</span> B子格上 <span class="math inline">\(p_{z}\)</span> 电子湮灭算符，</li>
+<li><span class="math inline">\(&lt;i, j&gt;\)</span> 表示求和是对最近邻进行的。</li>
+</ul>
+<p>做傅里叶变换，得到动量空间哈密顿量为 <span class="math display">\[
+H(k)=\left(\begin{array}{cc}
+0 &amp; f(k) \\
+f^{*}(k) &amp; 0
+\end{array}\right)
+\]</span> 其中 <span class="math display">\[
+f(k)=-t\left( e ^{ i \delta_{k} k}+ e ^{ i \delta_{2} k}+ e ^{ i \delta_{j} k}\right)= e ^{ ik _{x} a}+2 \cos \left(\frac{\sqrt{3} k_{y} a}{2}\right) e ^{- i \frac{k_{a}}{2}}
+\]</span> 其中 3 个最近邻矢量 <span class="math display">\[
+\delta_{1}=\frac{a}{2}(1, \sqrt{3}), \quad \delta_{2}=\frac{a}{2}(1,-\sqrt{3}), \quad \delta_{3}=-a(1,0) \text { }
+\]</span> 由此可得石墨烯的能带色散关系为 <span class="math display">\[
+E\left(k_{x}, k_{y}\right)=\pm t \sqrt{1+4 \cos \left(\frac{\sqrt{3} k_{y} a}{2}\right) \cos \left(\frac{\sqrt{3} k_{x} a}{2}\right)+4 \cos ^{2}\left(\frac{\sqrt{3} k_{y} a}{2}\right)}
+\]</span> 由上式可以看出，导带底和价带顶刚好相交于布里渊区</p>
+<ul>
+<li><p><span class="math inline">\(K=\left(\frac{2 \pi}{3 a}, \frac{2 \pi}{3 \sqrt{3} a}\right)\)</span></p></li>
+<li><p><span class="math inline">\(K^{\prime}=\left(\frac{2 \pi}{3 a},-\frac{2 \pi}{3 \sqrt{3} a}\right)\)</span></p></li>
+</ul>
+<p>这2个点，费米面正好通过这 2个点，所以石墨烯是能隙为零的半金属材料。在布里深区 <span class="math inline">\(K\)</span> 和 <span class="math inline">\(K^{\prime}\)</span> 点附近做展开，可得 <span class="math display">\[
+H(q) \approx \hbar V_{ F }\left(\begin{array}{cc}
+0 &amp; q_{x} \pm i q_{y} \\
+q_{x} \mp i q_{y} &amp; 0
+\end{array}\right)
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(q\)</span> 是相对于 Dirac 点的动量,</li>
+<li><span class="math inline">\(V_{ F } \approx 1 \times 10^{6} m / s\)</span> 是费米速度。</li>
+</ul>
+<p>由于石墨烯是非磁性材料，它的<strong>自旋简并</strong>，所以在以上的公式中没有攻虑其自旋。加入自旋，可以看出石墨烯的低能激发可用2个自旋简并的 Dirac 锥描写，也就是说，在其布里渊区 <span class="math inline">\(K\)</span> 和 <span class="math inline">\(K\)</span> 点附近，电子满足 4 分量的无质量 Dirac 方程。由于在布里渊区 <span class="math inline">\(K, K^{\prime}\)</span> 点附近，其电子能 量与波矢呈<strong>线性</strong>关系，石墨烯的量子霍尔效应与一般材料的量子霍尔行为大不相同：其阶梯序列 与标准的阶梯序列相差 <span class="math inline">\(1 / 2,\)</span> 没有零级平台 <span class="math inline">\(^{[12]}\)</span> 。</p>
+<p>石墨烯中的 Dirac 点是受对称性保护存在的，是拓扑非稳定的。打破其相应的对称性后，其 Dirac 点将消失。比如，打破石墨烯中心反演对称性、<span class="math inline">\(C _{3 v }\)</span>对称性，都能消除其 Dirac 点，使得 石墨烯变成绝缘体。 2005 年，人们还发现，即使不打破其对称性，通过引入自旋一轨道耦合相互作用，石墨烯也会变成绝缘体，而且是拓扑非平庸的绝缘体 <span class="math inline">\(^{[1-3]}\)</span> 。那么材料体系能带结构中能量与动量成线性的 Dirac 锥是否可能具有拓扑稳定性呢？ 答案是肯定的，下面将介绍具有这一行为 的 Weyl半金属 <span class="math inline">\(^{6-8]}\)</span> 。</p>
+<h2 id="weyl-方程">3 Weyl 方程</h2>
+<p>在 Dirac 方程被提出一年以后，Weyl 发现，当 Dirac方程中的质量为零时，该方程可以变成为 Weyl方程 : <span class="math display">\[
+i \hbar \frac{\partial}{\partial t} \Psi=H \Psi 
+\]</span> 其中 <span class="math display">\[
+H=c \sigma \cdot p
+\]</span> Weyl 方程是静止质量为零、自旋为 <span class="math inline">\(1 / 2\)</span> 的粒子满足的两分量波动方程 。 Weyl 方程 中有 <span class="math display">\[
+[\sigma \cdot p, H]=0,
+\]</span></p>
+<ol type="1">
+<li>所以 <span class="math inline">\(\sigma \cdot p\)</span> 守恒 <span class="math inline">\(, \frac{\sigma \cdot p }{| p |}\)</span> 是自旋沿动量方向的投影, 也是守恒量。</li>
+<li>因为 <span class="math inline">\(\frac{(\sigma \cdot p )}{| p |} \frac{( \sigma \cdot p )}{| p |}\)</span> <span class="math inline">\(=1,\)</span> 所以有 <span class="math inline">\(\frac{(\sigma \cdot p )}{| p |}=\pm 1,\)</span> 其中
+<ul>
+<li>取 <span class="math inline">\(+1\)</span> 的为右旋粒子态</li>
+<li>取 <span class="math inline">\(-1\)</span> 的为左旋粒子态</li>
+</ul></li>
+</ol>
+<p>1930 年，Pauli 认为在 β 衰变过程中，除了电子之外，同时还产生静止质量为零而且电中性的中微子[15]。很自然，人们认为中微子是一种Weyl费米子，它的行为可以用Weyl 方程描写。但是后来人们发现中微子是有质量的粒子。目前在人们已知的粒子中，没有一个属于Weyl 费米子。有意思的是，最近人们预言有些凝聚态体系的低能激发可以用Weyl 方程来描述[6—8]，这类材料被命名为Weyl半金属。</p>
+<h3 id="weyl半金属">Weyl半金属</h3>
+<ul>
+<li>如上所述，Dirac方程是4 分量的，所以Dirac材料中的Dirac 点必须是4 个能级的交点。</li>
+<li>而Weyl方程是两分量的，也就意味着Weyl 半金属中的Weyl 点必需是2 个非简并能级的交点。</li>
+</ul>
+<p>对于<strong>同时具有</strong>空间反演对称和时间反演不变的材料体系，每个能带都至少是两度简并的，因此其能带的交点最少是 <strong>4 度简并</strong>的。</p>
+<ol type="1">
+<li>所以在同时具有空间反演对称和时间反演不变的体系中，不会有Weyl 半金属材料[6—8]。</li>
+<li>为了得到Weyl 半金属，人们<strong>需要打破</strong>时间反演不变或空间反演对称性[6—8]。</li>
+<li>5d 过渡金属氧化物体系有着较为明显的电子关联相互作用，往往都是<strong>打破时间反演不变的磁性材料</strong>[16—18]。</li>
+</ol>
+<p>下面介绍烧绿石结构铱氧化物的能带结构和可能的Weyl半金属行为以及Weyl半金属特有的性质。</p>
+<h3 id="烧绿石结构铱氧化物的电子结构磁性性质">烧绿石结构铱氧化物的电子结构、磁性性质</h3>
+<p>5d 过渡金属氧化物有着中等强度的<strong>电子关联</strong>和非常大的自旋轨道耦合强度，它的自旋序、轨道序对晶格高度敏感，因此表现出一系列奇特的性质，近来引起了人们的高度关注[16—18]。</p>
+<h4 id="a.几何结构">A.几何结构</h4>
+<p>烧绿石结构过渡金属氧化物一直是人们感兴趣的研究课题[19，20]。</p>
+<ul>
+<li>烧绿石结构氧化物属于面心立方晶系，它的空间群为Fd3m(No.227)。</li>
+<li>这种结构可以认为是由共顶点的六边钨青铜结构的 <span class="math inline">\(B_{2} O _{6}\)</span> 八面体和有类赤铜矿(<span class="math inline">\(Cu _{2} O\)</span>)结构的 <span class="math inline">\(A_{2} O\)</span> 互相贯穿而成网络结构(见图1(a))。</li>
+</ul>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210207114147917.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210207114147917</figcaption>
+</figure>
+<blockquote>
+<p>图1 (a)烧绿石结构图；(b)全进/全出的磁构型图</p>
+</blockquote>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(A^{3+}\)</span> 占据结晶位置16d 位置(1/2，1/2，1/2)，</li>
+<li><span class="math inline">\(B^{4+}\)</span>( 通常为过渡金属阳离子，在此为Ir 离子)位于结晶位置16c(0，0， 0)。</li>
+<li>根据对称性，氧离子分为两类，O(1)位于8b 位置(3/8，3/8，3/8)，O(2)处于48f 位置(x，1/8，1/8)。内坐标 x 值主要由 <span class="math inline">\(A^{3+}\)</span> 的半径决定。
+<ul>
+<li>如果位置参数 x=3/8 时，烧绿石结构中阴离子形成完美的立方排列，A 位多面体是规则的立方体，B 位多面体是断面成三角形的扁平八面体。</li>
+<li>x=0.3125 时， <span class="math inline">\(B\)</span> 位成为规则的扁平八面体， <span class="math inline">\(A\)</span> 位扭曲形成断面为三角形的偏三角面体 。</li>
+<li>对于 <span class="math inline">\(A_{2} Ir _{2} O _{7}(A\)</span> 为 <span class="math inline">\(Y\)</span> 或者稀土元素)，其内坐标x介于0.325到 0.340 之 间 <span class="math inline">\(^{[19,20]}\)</span></li>
+</ul></li>
+</ul>
+<h4 id="b.-导电性质">B. 导电性质</h4>
+<p>实验已合成了一系列烧绿石结构袭氧化物 $ A_{2} Ir <em>{2} O </em>{7}$, 其中A为Y或者稀土元素 。实验发现，随着 <span class="math inline">\(A\)</span> 位元素的变化，烧绿石结构袭氧化物表现出不同的特性 :</p>
+<ol type="1">
+<li><span class="math inline">\(Y _{2} Ir _{2} O _{7}\)</span> 是绝缘体 <span class="math inline">\(^{[21]},\)</span> 随着 <span class="math inline">\(A\)</span> 位原子半径的增大， <span class="math inline">\(A_{2} Ir _{2} O _{7}\)</span> 的电阻下降 <span class="math inline">\(^{[21]},\)</span></li>
+<li>当 <span class="math inline">\(A=Nd\)</span> 时， <span class="math inline">\(Nd _{2} Ir _{2} O _{7}\)</span> 变为金属 <span class="math inline">\(^{[22]}, \quad \operatorname{Pr}_{2} Ir _{2} O _{7}\)</span> 表现出 Kondo 效应并且具有自发的霍尔效应 <span class="math inline">\(^{[23]}\)</span> 。</li>
+<li>实验还发现，温度能导致绝缘性的 <span class="math inline">\(A_{2} Ir _{2} O _{7}\)</span> 发生金属一绝缘体转变，而且转变温度和 <span class="math inline">\(A\)</span> 位元素有关。
+<ul>
+<li>比如 <span class="math inline">\(A= Nd ,\)</span> <span class="math inline">\(Sm , Eu , Gd , Tb , Dy ,Ho\)</span> 时，<span class="math inline">\(A_{2} Ir _{2} O _{7}\)</span> 的金属一绝缘体相变温度分别为 <span class="math inline">\(33 K , 117 K , 120 K ,\)</span> <span class="math inline">\(127 K , 132 K , 134 K\)</span> 和 <span class="math inline">\(141 K ^{[24]}\)</span> 。</li>
+</ul></li>
+<li>另外，零场冷却、加场冷却<strong>磁化曲线</strong>实验表明，该大类材料体系为磁性材料[21, 24]，由于零场冷却和加场冷却磁 化曲线有很大的差异，早期实验认为 <span class="math inline">\(A_{2} Ir _{2} O _{7}\)</span> 是自旋玻璃态 <span class="math inline">\(^{[21]}\)</span></li>
+</ol>
+<h4 id="c.-电子结构能带">C. 电子结构：能带</h4>
+<p>基于局域密度近似的能带理论计算结果表明，A位稀土元素 <span class="math inline">\(4 f\)</span> 带对 <span class="math inline">\(A_{2} Ir _{2} O _{7}\)</span> 费米能级附近的电子结构的影响很小，稀土元素主要是通过改 变 <span class="math inline">\(A_{2} Ir _{2} O _{7}\)</span> 材料的几何结构从而影响材料的物理性质 。 随着 <span class="math inline">\(A\)</span> 位原子由 <span class="math inline">\(Nd \rightarrow\)</span> Ho，其原子半径变小。</p>
+<p>这导致 Ir -O-I r 键角变小 <span class="math inline">\(^{[21,24]}\)</span> 。较小的 Ir-O-Ir 键角意味着 Ir-Ir 之间的有效的 hopping 变小， Ir-5d电子受到的屏蔽变小，火而使其有效库仑关联 <span class="math inline">\(U\)</span> 变大。 这是半径较小的稀土元素占据A位时材料有着更大的金属一绝缘体转变温度的原因 <span class="math inline">\(^{[21,24]}\)</span> 除了 <span class="math inline">\(\operatorname{Pr}_{2} Ir _{2} O _{7}\)</span> 外，其他的 <span class="math inline">\(A_{2} Ir _{2} O _{7}(A\)</span> 为稀土元素或Y)材料都有着类似的电子结构和磁性性质，因此可以以 <span class="math inline">\(Y _{2} Ir _{2} O _{7}\)</span> 为代表 <span class="math inline">\(,\)</span> 对 <span class="math inline">\(A_{2} Ir _{2} O _{7}\)</span> 的电子结构和磁性性质进行讨论。</p>
+<h4 id="基态磁构型">基态磁构型</h4>
+<h3 id="weyl-点受拓扑保护稳定性">Weyl 点受拓扑保护稳定性</h3>
+<p>因为 <span class="math inline">\(A_{2} Ir _{2} O _{7}\)</span> 材料有着长程磁序，这打破了时间反演不变性，因此这里得到的是2 个非简并能级的交点叫Weyl 点。因为是两个非简并能级的交点，在Weyl 点附近只有2 个能带，其哈密顿量可以写为 <span class="math display">\[
+H=\left(\begin{array}{cc}
+A &amp; B+ i C \\
+B- i C &amp; -A
+\end{array}\right)+\left(\begin{array}{ll}
+D &amp; 0 \\
+0 &amp; D
+\end{array}\right)
+\]</span> 该方程的2个本征值为 <span class="math display">\[
+E=D \pm \sqrt{A^{2}+B^{2}+C^{2}}
+\]</span> 所以 Weyl 点的存在需要同时满足 <span class="math inline">\(A=0, B=0, C=0\)</span> 这 3 个条件。而三维体系有3个参数 <span class="math inline">\(k_{ x }, k_{ y }, k_{ z }\)</span> 当然这并不能保证总是可以使得上面3个条件成立。但是如果一但有了Weyl 点时，外界的微扰就只能使得Weyl 点移动，除非 2 个手性相反的Weyl 点相遇，才能使得Weyl 点消失。也就是对哈密顿量小的微扰，可以通过调节 <span class="math inline">\(k_{ x }, \quad k_{ y }, \quad k_{z}\)</span> (即通过移动Weyl 点在布里渊区的位置)使得上述的 3 个条件成立，这时体系还是有Weyl 点。需要强调的是，上面的分析没有用任何对称性，这表明在三维材料中Weyl 点的稳定性是受拓扑保护的，和材料具体的对称性无关。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/">Topological Physics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/%E6%8B%93%E6%89%91%E7%89%A9%E6%80%81%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">拓扑物态的基础概念</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Weyl/">Weyl</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/08/IN07_swarma/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">集智俱乐部</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/07/topology04_Weyl04_transport/">
+                        <span class="hidden-mobile">外尔半金属及其输运特性</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "拓扑Weyl半金属简介&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

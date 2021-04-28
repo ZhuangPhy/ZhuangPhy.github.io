@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      2.3k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      29
+      44
        分钟
     </span>
   
@@ -252,17 +252,17 @@
 <li>The case <span class="math inline">\(r=2\)</span> is an ordinary matrix.</li>
 </ol>
 <p>Graphically, a rank <span class="math inline">\(r\)</span> tensor is represented by a node (for us a colored circle) with <span class="math inline">\(r\)</span> lines, or "legs," coming out of it. Each of those lines represents an index. See Figure 1 for examples.</p>
-<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125152532528.png" srcset="/img/loading.gif" /></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125152532528.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
 <h4 id="张量的收缩">张量的收缩</h4>
 <p>Now we will discuss the contraction of tensors, which is best illustrated by example. See Figure 2 for a summary.</p>
-<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125153724271.png" srcset="/img/loading.gif" /></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125153724271.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
 <p>If we are given two vectors <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> with the same dimension, then we can form the inner product <span class="math inline">\(A \cdot B=\sum_{i} A_{i} B_{i}\)</span>. Notationally, we represent this by connecting the leg of <span class="math inline">\(A\)</span> with the leg of <span class="math inline">\(B\)</span>. When we do this, the resulting object has no free legs. This reflects the fact that there are no remaining indices in the product <span class="math inline">\(A \cdot B\)</span>. In other words, <span class="math inline">\(A \cdot B\)</span> is a scalar.</p>
 <p>If <span class="math inline">\(A\)</span> is a matrix and <span class="math inline">\(B\)</span> is a vector where the second dimension of <span class="math inline">\(A\)</span> is equal to the dimension of <span class="math inline">\(B,\)</span> then we can do the matrix-vector multiplication <span class="math inline">\(\sum_{j} A_{i j} B_{j} .\)</span> Graphically, <span class="math inline">\(A\)</span> has two legs while <span class="math inline">\(B\)</span> has one, and <span class="math inline">\(\sum_{j} A_{i j} B_{j}\)</span> is represented by connecting the second leg of <span class="math inline">\(\bar{A}\)</span> to the leg of <span class="math inline">\(B\)</span>. The resulting object has a single leg remaining, corresponding to the one free index of <span class="math inline">\(\sum_{j} A_{i j} B_{j} .\)</span> In other words, this object is a vector.</p>
 <p>Similarly, if <span class="math inline">\(A\)</span> is a matrix and <span class="math inline">\(B\)</span> is a matrix where the second dimension of <span class="math inline">\(A\)</span> is equal to the first dimension of <span class="math inline">\(B\)</span>, then we can do the matrix-matrix multiplication <span class="math inline">\(\sum_{j} A_{i j} B_{j k} .\)</span> The resulting object is a matrix with two free legs - a matrix.</p>
 <p>If a single tensor has multiple legs, we can also connect them to each other if the dimensions match. For example, we can connect the two legs of a square matrix <span class="math inline">\(A\)</span> to each other. This corresponds to the scalar <span class="math inline">\(\sum_{i} A_{i i},\)</span> which is just the trace <span class="math inline">\(\operatorname{Tr} A\)</span></p>
 <h4 id="张量网络-1">张量网络</h4>
 <p>Moving beyond these elementary examples, a useful tensor network is made by connecting several nodes together as part of a larger architecture. The result is a total network with many open legs that is made from the contraction of several smaller tensors. The network itself can be viewed as a very high-dimensional array, but a very sparse one. The tensor network is an efficient representation of that sparse data, and by intelligently manipulating the tensor network we can effectively deal with the high-dimensional data without a large cost. We display three examples of more advanced tensor networks in Figure 3 .</p>
-<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125154856207.png" srcset="/img/loading.gif" /></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125154856207.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
 <h3 id="基础对象">基础对象</h3>
 <h4 id="tensor-networks">1. Tensor Networks</h4>
 <p>A TensorNetwork is the main object of the library. It keeps track of its own set of Node objects, and contains methods to add additional nodes, connect them with edges, contract them, and manipulate them in other ways. #### 2. Nodes</p>
@@ -274,7 +274,7 @@ a = net.add_node(tf.eye(<span class="hljs-number">2</span>)) <span class="hljs-c
 print(a.get_tensor()) <span class="hljs-comment"># This is how you access the underlying tensor.</span></code></pre>
 <h4 id="edges">3 Edges</h4>
 <p>Edges describe different contractions of the underlying tensors in the tensor network. Each edge points to the axes of the tensors to be contracted. There are three basic kinds of edges in a tensor network (see Figure 4 ):</p>
-<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125231406463.png" srcset="/img/loading.gif" /></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125231406463.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
 <blockquote>
 <p>FIG.4 The three types of edges that appear in a tensor network.</p>
 </blockquote>
@@ -287,7 +287,7 @@ print(a.get_tensor()) <span class="hljs-comment"># This is how you access the un
 <h3 id="基本操作">基本操作</h3>
 <h4 id="connecting-dangling-edges">1 Connecting Dangling Edges</h4>
 <p>Prior to contracting an edge, it must be connected in the network (see Figure 5 ).</p>
-<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125231655517.png" srcset="/img/loading.gif" /></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125231655517.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
 <blockquote>
 <p>FIG.5 Connecting two dangling edges creates a new Edge object between the two Nodes.</p>
 </blockquote>
@@ -306,6 +306,24 @@ qubit = net.add_node(np.array([<span class="hljs-number">1.0</span>, <span class
 qubit_edge = qubit.get_edge(<span class="hljs-number">0</span>) <span class="hljs-comment"># qubit[0] is equivalent.</span>
 <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):
     qubit_edge = apply_hadamard(net, qubit_edge)</code></pre>
+<h2 id="应用">3 应用</h2>
+<ol type="1">
+<li>Machine Learning</li>
+<li>Physics</li>
+</ol>
+<h3 id="a机器学习">A机器学习</h3>
+<p>Our applications of tensor networks to machine learning follows the example of Stoudenmire and Schwab [35], which uses a matrix product state (Figure 3a) to classify digits from the MNIST dataset. The method is conceptually very similar to finding the ground state energy of a physical system, except the role of "energy" is played by a loss function. Here we will review how the image data is encoded in the tensor network, and for the details of the implementation we refer readers to [47] .</p>
+<p>Tensor networks naturally operate in linear spaces of states (like the space of quantum states in physics). For image classification, this would be the space of images. One must be careful to define what the space of images is. An image consists of an ordered list of <span class="math inline">\(N\)</span> pixels, and each of those pixels has a value. For simplicity, let us assume the images are greyscale, so that a pixel's value is a single number. A naive definition of the "space of images" would be an <span class="math inline">\(N\)</span> -dimensional space, where the list of pixel values corresponding to a given image could be directly interpreted as a column vector in that space. That is not the space of images we will use. This naive image space has the property that changing the value of a single pixel gives an almost-identical image vector. We will instead use a more powerful notion of image space that is <span class="math inline">\(2^{N}\)</span> -dimensional, where changing the value of a single pixel can lead to a totally independent vector.</p>
+<p>To construct the image space, we first encode each pixel of our image into a two-dimensional pixel-space. If the image is black-and-white, so that each pixel has only two possible values, then we can use the familiar one-hot encoding into the pixel-space. That means one value of the pixel is mapped to <span class="math inline">\((1,0)^{T}\)</span> and the other to <span class="math inline">\((0,1)^{T}\)</span>. In the more general greyscale case, we can define a local feature map which takes each pixel value <span class="math inline">\(p\)</span> and maps it to a vector: <span class="math display">\[
+\Phi(p)=\left(\begin{array}{l}
+\cos \pi p / 2 \\
+\sin \pi p / 2
+\end{array}\right)
+\]</span> This is not the only possible feature map, but it is a particularly simple choice. Restricting to <span class="math inline">\(p \in\{0,1\}\)</span> recovers one-hot encoding for a black-and-white image. If we perform this local feature map on every pixel, then the entire image has been encoded into the tensor product of all of the two-dimensional pixel-spaces. This is our <span class="math inline">\(2^{N}\)</span> -dimensional pixel space.</p>
+<h3 id="b-物理">B 物理</h3>
+<p>For our physics-based application we use a tree tensor network (Figure <span class="math inline">\(3 b\)</span> ) to find the ground state of a quantum spin chain. The details of the implementation can be found in <span class="math inline">\([48],\)</span> but here we will review the basic setup and summarize the results.</p>
+<p>The basic idea (familiar to physicists) is very similar to the image classification setup above. The tensor network represents a vector in a state space, but in this case it is the space of possible spin configurations in a physical system, rather than the space of images. This is the setting of quantum mechanics, where the state space of any physical system is a vector space. In this context, "training" the tensor network amounts to turning the tensors so that the resulting state has some desired property. In our case, we wish the vector to be the ground state of a particular spin system. That is, we want the vector to represent the state of lowest energy with respect to some chosen energy function.</p>
+<p>The algorithm for training a TTN to find the ground state energy is a well-known one, and can be found in <span class="math inline">\([10] .\)</span> A benefit of using the TensorNetwork library is that the same code can be run on multicore CPUs as well as GPUs with minimal effort. The results, reported in [48], show that a 100x improvement in speed can be found by running on GPUs. This particular algorithm is well-suited for implementation in a TensorFlow-based library like TensorNetwork, since the primary computational bottleneck is tensor contractions. These are the operations for which one expects a GPU to have the greatest advantage over a CPU, and indeed we find that to be the case.</p>
 
             </article>
             <hr>
@@ -323,9 +341,9 @@ qubit_edge = qubit.get_edge(<span class="hljs-number">0</span>) <span class="hlj
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Machine-learning/">Machine learning</a>
-                    
                       <a class="hover-with-bg" href="/tags/Tensor-Network/">Tensor Network</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Machine-learning/">Machine learning</a>
                     
                   </div>
                 
@@ -348,7 +366,7 @@ qubit_edge = qubit.get_edge(<span class="hljs-number">0</span>) <span class="hlj
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2021/01/24/ML_03_CMP/">
+                      <a href="/2021/01/24/ML_02_review02_CMP/">
                         <span class="hidden-mobile">凝聚态物理中的机器学习</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>

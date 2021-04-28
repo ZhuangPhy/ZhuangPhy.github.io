@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.4k 字
+      6.4k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      62
+      73
        分钟
     </span>
   
@@ -438,6 +438,63 @@ S \sim L^{d-1}
 </ul></li>
 </ul>
 <h2 id="图模型与张量网络对偶">图模型与张量网络对偶</h2>
+<p>在正式介绍张量网络监督学习算法之前，我们先略施笔墨介绍一下张量网 络与机器学礼中的图类型的关系。</p>
+<ul>
+<li>考虑一组离散随机变量 <span class="math inline">\(X =\left\{X_{1}, \ldots, X_{N}\right\},\)</span></li>
+<li>随机变量的构刑 <span class="math inline">\(x =\left(x_{1}, \ldots, x_{N}\right)\)</span></li>
+<li>一组数据集中样本 $D ={ d <em>{1}, , d </em>{|D|}} $</li>
+</ul>
+<p>这组样本背后暗含的概率分布 <span class="math inline">\(p( x )\)</span> 可以通过最大化对数似然度来<strong>估计</strong> <span class="math display">\[
+L =\sum_{i=1}^{|D|} \log p\left( d _{i}\right)
+\]</span> 其中一种常见的对 <span class="math inline">\(p\)</span> 建模的方式是图类型 [150]，概括地说，图类型就是一种用图来<strong>表示</strong>的概率分布的因式分解。考虑一个图 <span class="math display">\[
+G=(V, E)
+\]</span> 其中</p>
+<ul>
+<li>$ V$ 是顶点的集合</li>
+<li><span class="math inline">\(E\)</span> 是边的集合</li>
+<li><span class="math inline">\(\operatorname{cl}(G)\)</span> 是图中因式分解的最大集团的集合。</li>
+</ul>
+<p>一个无向图或者一个马尔科夫随机场定义的概率分布的<strong>因式分解</strong>写作 <span class="math display">\[
+p( X = x )=\frac{1}{Z} \prod_{C \in cl (G)} \phi_{C}\left( x _{C}\right)
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(x _{C}\)</span> 是在 <span class="math inline">\(C\)</span> 十的进机变量的值</li>
+<li><span class="math inline">\(\phi_{C}\)</span> 叫做势函数，他说一个正定的函数</li>
+<li><span class="math inline">\(Z\)</span> 是概率分布的归一化因子，也称为概率分布的配分函数。</li>
+</ul>
+<p>图类型也可以转化为一个<strong>因子图</strong> [151]，所谓因子图是一种由变量和因子组成的二元图。 图类型到因子图的转化只需把每个最大集团定义为一个因子苹点 <span class="math inline">\(f_{s}\)</span> (如图 3.1)。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210202002924677.png" srcset="/img/loading.gif" /></p>
+<p>此时概率分在的因式分解写作, <span class="math display">\[
+p( X = x )=\frac{1}{Z} \prod_{s} f_{s}\left( x _{c}\right)
+\]</span> 在因子图上我们可以利用较戌熟的信念传递算法和 sum-product 算法来对进行统计推</p>
+<h2 id="张量网络在无监督生成型学习中的应用">张量网络在无监督生成型学习中的应用</h2>
+<p>生成型建类 [181]，要求从训练数据中<strong>学习</strong>数据自身的<strong>联合概率分布</strong>，并根据训练得到的联合概率分布<strong>生成</strong>新样本。</p>
+<ul>
+<li>它是无监督学习的核心问题之一，被广泛应用于<strong>寻找数据</strong>的更好更有效的表示或从初始数据生成新样本的现实任务中。</li>
+<li>与仅仅捕获数据判别标签的条件概率的判别型建类<strong>相比</strong>，生成型建类试图捕获的是数据集的<strong>整个联合概率分布</strong>，因此是一个更加困难的任务 [182]</li>
+</ul>
+<p>经过最近几十年的发展，机器学习领域已经提出来了非常多种的生成型类 型，在这些类型中非常庞大的一支叫做<strong>概率图类模型（PGM）</strong>，常见的概率图类型包括</p>
+<ul>
+<li>贝叶斯网络 [183]</li>
+<li>隐形马尔科夫类型 [184]</li>
+<li>限制玻尔兹曼机 [108] 等。</li>
+</ul>
+<p>同时也存在着<strong>基于</strong>神经网络的生成型类型，比如说</p>
+<ul>
+<li>深度信念网络 [185]，</li>
+<li>变分自动编码器（VAE）[186],</li>
+<li>realNVP [187],</li>
+<li>PixelCNN [188, 189] 等。</li>
+</ul>
+<p>另一种值得一提的生成型类型是最近几年非常热门的生成对抗网络（GAN） [190]。</p>
+<p>这这些琳琅满目的生成型类型中，有两种类型是由物理学启发的</p>
+<ol type="1">
+<li>一种就是玻尔兹曼机 [64]，它用经典统计物理学的玻尔兹曼分布来诱导出数据的联合概率分布：</li>
+<li>另一类叫做玻恩机，它用量子量子物理学中的<strong>玻恩诠释</strong>来表示数据的联合概率分布，即将联合概率分布理解为一个<strong>波函数</strong>的类的平方 <span class="math inline">\([34,191 ] 。\)</span>
+<ul>
+<li>玻恩机中一类常用的类型是基于张量网络的玻恩机，换言之，也就是用张量网络来表达一个多体波函数的玻恩机。</li>
+</ul></li>
+</ol>
 <h2 id="附录张量网络的例子">附录：张量网络的例子</h2>
 <p>量子态的张量表示 <span class="math display">\[
 |\Psi\rangle=\sum_{s_{1}=0,1} \sum_{s_{2}=0,1} \Psi_{s 1, s_{2}}\left|s_{1}\right\rangle\left|s_{2}\right\rangle
@@ -471,9 +528,9 @@ S \sim L^{d-1}
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Machine-learning/">Machine learning</a>
-                    
                       <a class="hover-with-bg" href="/tags/Tensor-Network/">Tensor Network</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Machine-learning/">Machine learning</a>
                     
                   </div>
                 

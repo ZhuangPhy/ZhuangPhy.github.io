@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>代数问题的量子算法 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-02-14 14:23">
+      February 14, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      40
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考">参考</h2>
+<ol type="1">
+<li><a href="https://www.cs.umd.edu/~amchilds/qa/qa.pdf" target="_blank" rel="noopener">Lecture Notes on Quantum Algorithms</a></li>
+</ol>
+<ul>
+<li>Andrew M. Childs University of Maryland
+<ul>
+<li>Part2: Quantum algorithms for algebraic problems</li>
+</ul></li>
+</ul>
+<ol start="2" type="1">
+<li><a href="https://www.youtube.com/watch?v=M0e5gkf7QSQ&amp;ab_channel=MunichCenterforQuantumScience%26Technology" target="_blank" rel="noopener">QIP2021 Tutorial: Quantum algorithms (Andrew Childs)</a>
+<ul>
+<li>这个演讲和讲义都是Andrew M. Childs</li>
+</ul></li>
+</ol>
+<h2 id="摘要">摘要</h2>
+<h2 id="chapter-4-the-abelian-quantum-fourier-transform-and-phase-estimation">Chapter 4: The abelian quantum Fourier transform and phase estimation</h2>
+<p>量子傅里叶变换(QFT)可能是最要的幺正变换，讲义里列举了QFT应用在几个群(Group)上面</p>
+<ol type="1">
+<li>最简单的 <span class="math inline">\(G=Z_{2}^{n}\)</span></li>
+<li><span class="math inline">\(G=Z_{2^{n}}\)</span></li>
+</ol>
+<h3 id="quantum-fourier-transform">4.1 Quantum Fourier transform</h3>
+<p>Perhaps the <strong>most important</strong> unitary transformation in quantum computing is the quantum Fourier transform (QFT).</p>
+<ul>
+<li>Later, we will discuss the QFT over arbitrary <strong>finite groups</strong>,</li>
+<li>but for now we will focus on the case of an <strong>abelian group</strong> <span class="math inline">\(G .\)</span></li>
+</ul>
+<p>Here the transformation is <span class="math display">\[
+F_{G}:=\frac{1}{\sqrt{|G|}} \sum_{x \in G} \sum_{y \in \hat{G}} \chi_{y}(x)|y\rangle\langle x|
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\hat{G}\)</span> is a complete set of characters of <span class="math inline">\(G,\)</span></li>
+<li><span class="math inline">\(\chi_{y}(x)\)</span> denotes the <span class="math inline">\(y\)</span> th character of <span class="math inline">\(G\)</span> evaluated at <span class="math inline">\(x\)</span>.</li>
+</ul>
+<p>(You can verify that this is a unitary operator using the orthogonality of characters.) Since <span class="math inline">\(G\)</span> and <span class="math inline">\(\hat{G}\)</span> are isomorphic, we can label the elements of <span class="math inline">\(\hat{G}\)</span> using elements of <span class="math inline">\(G,\)</span> and it is often useful to do so.</p>
+<p>The <strong>simplest</strong> QFT over a family of groups is the QFT over <span class="math inline">\(G= Z _{2}^{n}\)</span>. The characters of this group are <span class="math inline">\(\chi_{y}(x)=(-1)^{x \cdot y},\)</span> so the QFT is simply <span class="math display">\[
+F_{ Z _{2}^{n}}=\frac{1}{\sqrt{2^{n}}} \sum_{x, y \in Z _{2}^{n}}(-1)^{x \cdot y}|y\rangle\langle x|=H^{\otimes n}
+\]</span> You have presumably seen how this transformation is used in the solution of Simon's problem [93].</p>
+<h3 id="qft-over-z-_2n">4.2 QFT over <span class="math inline">\(Z _{2^{n}}\)</span></h3>
+<p>A more complex quantum Fourier transform is the QFT over <span class="math inline">\(G= Z _{2^{n}}\)</span> : <span class="math display">\[
+F_{ Z _{2} n}=\frac{1}{\sqrt{2^{n}}} \sum_{x, y \in Z _{2}^{n}} \omega_{2^{n}}^{x y}|y\rangle\langle x|
+\]</span> where <span class="math inline">\(\omega_{m}:=\exp (2 \pi i / m)\)</span> is a primitive <span class="math inline">\(m\)</span> th root of unity.</p>
+<p>To see how to <strong>realize</strong> this transformation by a quantum circuit, it is helpful to represent the input <span class="math inline">\(x\)</span> as a string of bits, <span class="math inline">\(x=x_{n-1} \ldots x_{1} x_{0},\)</span> and to consider how an input basis vector is transformed: <span class="math display">\[
+\begin{aligned}
+|x\rangle &amp; \mapsto \frac{1}{\sqrt{2^{n}}} \sum_{y \in Z _{2}^{n}} \omega_{2^{n}}^{x y}|y\rangle \\
+&amp;=\frac{1}{\sqrt{2^{n}}} \sum_{y \in Z _{2}^{n}} \omega_{2^{n}}^{x\left(\sum_{k=0}^{n-1} y_{k} 2^{k}\right)}\left|y_{n-1} \ldots y_{1} y_{0}\right\rangle \\
+&amp;=\frac{1}{\sqrt{2^{n}}} \sum_{y \in Z _{2}^{n}} \prod_{k=0}^{n-1} \omega_{2^{n}}^{x y_{k} 2^{k}}\left|y_{n-1} \ldots y_{1} y_{0}\right\rangle \\
+&amp;=\frac{1}{\sqrt{2^{n}}} \bigotimes_{k=0}^{n-1} \sum_{y_{k} \in Z _{2}} \omega_{2^{n}}^{x y_{k} 2^{k}}\left|y_{k}\right\rangle \\
+&amp;=\bigotimes_{k=0}^{n-1}\left|z_{k}\right\rangle
+\end{aligned}
+\]</span> where <span class="math display">\[
+\begin{aligned}
+\left|z_{k}\right\rangle &amp;:=\frac{1}{\sqrt{2}} \sum_{y_{k} \in Z _{2}} \omega_{2^{n}}^{x y_{k} 2^{k}}\left|y_{k}\right\rangle \\
+&amp;=\frac{1}{\sqrt{2}}\left(|0\rangle+\omega_{2^{n}}^{x 2^{k}}|1\rangle\right) \\
+&amp;=\frac{1}{\sqrt{2}}\left(|0\rangle+\omega_{2^{n}=0}^{n-1} x_{j} 2^{j+k}|1\rangle\right) \\
+&amp;=\frac{1}{\sqrt{2}}\left(|0\rangle+e^{2 \pi i \left(x_{0} 2^{k-n}+x_{1} 2^{k+1-n}+\cdots+x_{n-1-k} 2^{-1}\right)}|1\rangle\right)
+\end{aligned}
+\]</span> (A more succinct way to write this is <span class="math inline">\(\left|z_{k}\right\rangle=\frac{1}{\sqrt{2}}\left(|0\rangle+\omega_{2^{n-k}}^{x}|1\rangle\right),\)</span> but the above expression is more helpful for understanding the circuit.) In other words, <span class="math inline">\(F|x\rangle\)</span> is a <strong>tensor product</strong> of single-qubit states, where the <span class="math inline">\(k\)</span> th qubit only depends on the <span class="math inline">\(n-k\)</span> least significant bits of <span class="math inline">\(x\)</span>.</p>
+<p>This <strong>decomposition</strong> immediately gives a circuit for the QFT over <span class="math inline">\(Z _{2^{n}}\)</span>. Let <span class="math inline">\(R_{k}\)</span> denote the single-qubit unitary operator <span class="math display">\[
+R_{k}:=\left(\begin{array}{cc}
+1 &amp; 0 \\
+0 &amp; \omega_{2^{k}}
+\end{array}\right)
+\]</span> Then the circuit can be written as follows:</p>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210214030014064.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210214030014064</figcaption>
+</figure>
+<p>This circuit uses <span class="math inline">\(O\left(n^{2}\right)\)</span> gates. However, there are many rotations by small angles that do not affect the final result very much. If we simply omit the gates <span class="math inline">\(R_{k}\)</span> with <span class="math inline">\(k=\Omega(\log n),\)</span> then we obtain a circuit with <span class="math inline">\(O(n \log n)\)</span> gates that implements the QFT with precision <span class="math inline">\(1 / \operatorname{poly}(n)\)</span></p>
+<h3 id="phase-estimation">4.3 Phase estimation</h3>
+<p>Aside from being <strong>directly</strong> useful in quantum algorithms, such as Shor's algorithm, The QFT over <span class="math inline">\(Z _{2^{n}}\)</span> provides a <strong>useful</strong> quantum computing primitive called phase estimation <span class="math inline">\([34,62] .\)</span></p>
+<blockquote>
+<p>phase estimation是什么问题？</p>
+<p>估算本征方程 <span class="math inline">\(U|\phi\rangle=e^{i \phi}|\phi\rangle\)</span> 的相位 <span class="math inline">\(\phi\)</span></p>
+</blockquote>
+<p>In the phase estimation problem, we are given a unitary operator <span class="math inline">\(U\)</span> (either as an explicit circuit, or as a black box that lets us apply a controlled- <span class="math inline">\(U^{j}\)</span> operation for integer values of <span class="math inline">\(j\)</span> ). We are also given a state <span class="math inline">\(|\phi\rangle\)</span> that is promised to be an eigenvector of <span class="math inline">\(U,\)</span> namely <span class="math inline">\(U|\phi\rangle=e^{ i \phi}|\phi\rangle\)</span> for some <span class="math inline">\(\phi \in R .\)</span> The goal is to output an estimate of <span class="math inline">\(\phi\)</span> to some desired precision.</p>
+<p>The procedure for phase estimation is straightforward. To get an <span class="math inline">\(n\)</span> -bit estimate of <span class="math inline">\(\phi,\)</span> prepare the quantum computer in the state <span class="math display">\[
+\frac{1}{\sqrt{2^{n}}} \sum_{x \in Z _{2} n}|x, \phi\rangle
+\]</span> apply the operator <span class="math display">\[
+\sum_{x \in Z _{2} n}|x\rangle\langle x| \otimes U^{x}
+\]</span> to give the state <span class="math display">\[
+\frac{1}{\sqrt{2^{n}}} \sum_{x \in Z _{2}^{n}} e^{ i \phi x}|x, \phi\rangle
+\]</span> apply an inverse Fourier transform on the first register, and measure. If the binary expansion of <span class="math inline">\(\phi / 2 \pi\)</span> terminates after at most <span class="math inline">\(n\)</span> bits (i.e., if <span class="math inline">\(\phi=2 \pi y / 2^{n}\)</span> for some <span class="math inline">\(y \in Z _{2^{n}}\)</span> ), then the state (4.16) is <span class="math inline">\(F_{2^{n}}|y\rangle \otimes|\phi\rangle\)</span>, so the result is guaranteed to be the binary expansion of <span class="math inline">\(\phi / 2 \pi .\)</span> In general, we obtain a good approximation with high probability. In particular, the probability of obtaining the result <span class="math inline">\(y\)</span> (corresponding to the estimate <span class="math inline">\(2 \pi y / 2^{n}\)</span> for the phase) is <span class="math display">\[
+\operatorname{Pr}(y)=\frac{1}{2^{2 n}} \cdot \frac{\sin ^{2}\left(2^{n-1} \phi\right)}{\sin ^{2}\left(\frac{\phi}{2}-\frac{\pi y}{2^{n}}\right)}
+\]</span> which is strongly peaked around the best <span class="math inline">\(n\)</span> -bit approximation (in particular, it gives the best <span class="math inline">\(n\)</span> -bit approximation with probability at least <span class="math inline">\(4 / \pi^{2}\)</span> ). We will see the details of a similar calculation when we discuss period finding.</p>
+<h3 id="qft-over-zn-and-over-a-general-finite-abelian-group">4.4 QFT Over ZN and over a general finite abelian group</h3>
+<p>One useful application of phase estimation is to implement the QFT over an arbitrary cyclic group <span class="math inline">\(Z _{N}\)</span> : <span class="math display">\[
+F_{ Z _{N}}=\frac{1}{\sqrt{N}} \sum_{x, y \in Z _{N}} \omega_{N}^{x y}|y\rangle\langle x|
+\]</span> The circuit we derived using the binary representation of the input and output only works when <span class="math inline">\(N\)</span> is a power of two (or, with a slight generalization, some other small integer). But there is a simple way to realize <span class="math inline">\(F_{ Z _{N}}\)</span> (approximately) using phase estimation.</p>
+<p>We would like to perform the transformation that maps <span class="math inline">\(|x\rangle \mapsto|\tilde{x}\rangle,\)</span> where <span class="math inline">\(|\tilde{x}\rangle:=F_{ Z _{N}}|x\rangle\)</span> denotes a Fourier basis state. (By linearity, if the transformation acts correctly on a basis, it acts correctly on all states.) It is straightforward to perform the transformation <span class="math inline">\(|x, 0\rangle \mapsto|x, \tilde{x}\rangle\)</span>; then it remains to erase the register <span class="math inline">\(|x\rangle\)</span> from such a state. Consider the unitary operator that adds 1 modulo <span class="math inline">\(N\)</span> : <span class="math display">\[
+U:=\sum_{x \in Z _{N}}|x+1\rangle\langle x|
+\]</span> The eigenstates of this operator are precisely the Fourier basis states <span class="math inline">\(|\tilde{x}\rangle:=F_{ Z _{N}}|x\rangle,\)</span> since (as a simple calculation shows) <span class="math display">\[
+F_{ Z _{N}}^{\dagger} U F_{ Z _{N}}=\sum_{x \in Z _{N}} \omega_{N}^{-x}|x\rangle\langle x|
+\]</span> Thus, using phase estimation on <span class="math inline">\(U\)</span> (with <span class="math inline">\(n\)</span> bits of precision where <span class="math inline">\(n=O(\log N))\)</span>, we can perform the transformation <span class="math display">\[
+|\tilde{x}, 0\rangle \mapsto|\tilde{x}, x\rangle
+\]</span> (actually, phase estimation only gives an approximation of <span class="math inline">\(x,\)</span> so we implement this transformation only approximately). By running this operation in reverse, we can erase <span class="math inline">\(|x\rangle,\)</span> and thereby produce the desired QFT.</p>
+<p>Given the Fourier transform over <span class="math inline">\(Z _{N}\)</span>, it is straightforward to implement the QFT over an arbitrary finite abelian group: any finite abelian group can be written as a direct product of cyclic factors, and the QFT over a direct product of groups is simply the tensor product of QFTs over the individual groups.</p>
+<h2 id="chapter-5-discrete-log-and-the-hidden-subgroup-problem">Chapter 5 Discrete log and the hidden subgroup problem</h2>
+<p>In this lecture we will discuss the discrete logarithm problem and its relevance to cryptography. We will introduce the general hidden subgroup problem, and show how Shor's algorithm solves a particular instance of it, giving an efficient quantum algorithm for discrete log.</p>
+<p>补充资料</p>
+<ol type="1">
+<li><a href="https://arxiv.org/ftp/arxiv/papers/1008/1008.0010.pdf" target="_blank" rel="noopener">The Hidden Subgroup Problem Master's Project</a></li>
+</ol>
+<h3 id="discrete-log">5.1 Discrete log</h3>
+<p>Let <span class="math inline">\(G=\langle g\rangle\)</span> be a cyclic group generated by <span class="math inline">\(g\)</span>, written multiplicatively. Given an element <span class="math inline">\(x \in G,\)</span> the discrete logarithm of <span class="math inline">\(x\)</span> in <span class="math inline">\(G\)</span> with respect to <span class="math inline">\(g,\)</span> denoted <span class="math inline">\(\log _{q} x,\)</span> is the smallest non-negative integer <span class="math inline">\(\alpha\)</span> such that <span class="math inline">\(g^{\alpha}=x\)</span>. The discrete logarithm problem is the problem of calculating <span class="math inline">\(\log _{g} x\)</span>. Here are some simple examples of discrete logarithms:</p>
+<ul>
+<li>For any <span class="math inline">\(G=\langle g\rangle, \log _{g} 1=0\)</span></li>
+<li>For <span class="math inline">\(G= Z _{7}^{\times}, \log _{3} 2=2\)</span></li>
+<li>For <span class="math inline">\(G= Z _{541}^{\times}, \log _{126} 282=101\)</span></li>
+</ul>
+<p>The discrete logarithm seems like a good candidate for a one-way function. We can efficiently compute <span class="math inline">\(g^{\alpha},\)</span> even if <span class="math inline">\(\alpha\)</span> is exponentially large (in <span class="math inline">\(\left.\log |G|\right)\)</span>, using repeated squaring. But given <span class="math inline">\(x,\)</span> it is not immediately clear how to compute <span class="math inline">\(\log _{q} x,\)</span> other than by checking exponentially many possibilities. (There are better algorithms than brute force search, but none is known that works in polynomial time.)</p>
+<h3 id="diffie-hellman-key-exchange">5.2 Diffie-Hellman key exchange</h3>
+<p>The apparent hardness of the discrete logarithm problem is the basis of the Diffie-Hellman key exchange protocol, the first published public-key cryptographic protocol.</p>
+<p>The goal of key exchange is for two distant parties, Alice and Bob, to agree on a secret key using only an insecure public channel. The Diffie-Hellman protocol works as follows: 1. Alice and Bob publicly agree on a large prime <span class="math inline">\(p\)</span> and an integer <span class="math inline">\(g\)</span> of high order. For simplicity, suppose they choose a <span class="math inline">\(g\)</span> for which <span class="math inline">\(\langle g\rangle= Z _{p}^{\times}\)</span> (i.e., a primitive root modulo <span class="math inline">\(p\)</span> ). (In general, finding such a <span class="math inline">\(g\)</span> might be hard, but it can be done efficiently given certain restrictions on <span class="math inline">\(p\)</span>.) 2. a. Alice chooses some <span class="math inline">\(a \in Z _{p-1}\)</span> uniformly at random. She computes <span class="math inline">\(A:=g^{a} \bmod p\)</span> and sends the result to Bob (keeping <span class="math inline">\(a\)</span> secret). b. Bob chooses some <span class="math inline">\(b \in Z _{p-1}\)</span> uniformly at random. He computes <span class="math inline">\(B:=g^{b} \bmod p\)</span> and sends the result to Alice (keeping <span class="math inline">\(b\)</span> secret). 3. a. Alice computes <span class="math inline">\(K:=B^{a} \bmod p=g^{a b} \bmod p\)</span>. b. Bob computes <span class="math inline">\(A^{b} \bmod p=g^{a b} \bmod p=K\)</span>.</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/Quantum-Algorithm/">Quantum Algorithm</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Quantum-Algorithm/">Quantum Algorithm</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/15/QC02_QML_01/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">书籍《量子机器学习》</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/12/CMP_15_Transport01/">
+                        <span class="hidden-mobile">量子输运与费米液体理论</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "代数问题的量子算法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>重费米子超导 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-02-05 13:01">
+      February 5, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      31
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<ul>
+<li>《重费米子超导》物理 49卷(2020年) 9 期</li>
+</ul>
+<p>[TOC]</p>
+<h2 id="重费米子超导简介">1 重费米子超导简介</h2>
+<p>常规超导体存在一些共性，比如：</p>
+<ul>
+<li>(1)受限于常规材料中较弱的电声子耦合强度，超导转变温度(<span class="math inline">\(T_{ c }\)</span>)普遍较低；</li>
+<li>(2)超导态的序参量(超流电子密度)的对称性和晶格保持一致(理论而言，常规超导态只破坏规范对称性)。</li>
+</ul>
+<h4 id="关联效应导致的非常规超导">关联效应导致的非常规超导</h4>
+<p>超导态的性质虽然有诸多诱人的应用前景，但<strong>较低</strong>的<span class="math inline">\(T_{ c }\)</span>成了利用它的最大障碍。要提高<span class="math inline">\(T_{ c }\)</span>，就得从<strong>电子配对</strong>的方式上另辟蹊径。多年来，对非常规超导体——尤其是重费米子超导体——的研究表明，电子确实可以通过多种<strong>关联效应</strong>引起的<strong>临界涨落配对</strong>，比如</p>
+<ol type="1">
+<li>自旋涨落、(其中自旋涨落是产生非常规超导/高温超导的主要因素)[2]。</li>
+<li>电荷密度涨落、</li>
+<li>价态涨落、</li>
+<li>电四极矩涨落等</li>
+</ol>
+<p>当这些序参量的涨落足够强时，<strong>也可以像声子</strong>一样在电子对之间产生<strong>净吸引效应</strong>，从而克服电子之间的库仑排斥力并产生超导现象。通过这一简单图像，我们可以联想到：</p>
+<ul>
+<li>(1)非声子诱导的超导态的序参量<strong>对称性</strong>可能<strong>低于</strong>晶格对称性；</li>
+<li>(2)低温下，足够强的量子涨落除了能诱导超导相变，同时也能驱动<strong>其他量子相变</strong>。大量的实验数据也证实，无论是从能量尺度还是从对称性角度，非常规超导和量子相变往往是<strong>相生相伴</strong>的。</li>
+</ul>
+<h4 id="非常规超导体-中的重费米子">非常规超导体 中的重费米子</h4>
+<p>在非常规超导体中，重费米子超导体是一类特殊的存在。重费米子超导体的超导转变温度虽然普遍偏低，却是研究非常规超导的<strong>理想对象</strong>。</p>
+<ol type="1">
+<li><p>首先，作为典型的强关联电子体系，重费米子材料以特殊的近藤晶格为框架，为关联电子提供了一个<strong>独特的竞技场</strong>，有利于产生新颖的超导配对机制和量子临界点；</p></li>
+<li><p>其次，重费米子材料的几种相互作用的<strong>能量尺度</strong>不仅接近而且较低，如</p>
+<ul>
+<li>晶体场效应、</li>
+<li>近藤效应、</li>
+<li>非局域磁交换作用、</li>
+<li>自旋-轨道耦合等等，</li>
+</ul>
+<p>因此材料很<strong>容易</strong>被压力、磁场、化学替代等实验手段所<strong>调控</strong>，形成比其他超导体系更丰富的低温相图。</p></li>
+</ol>
+<p>接下来，本文将围绕<strong>磁性</strong>与非常规超导的关系这一<strong>主线</strong>展开，以</p>
+<ul>
+<li>Ce基反铁磁超导体</li>
+<li>U基铁磁超导体</li>
+<li>非中心对称超导体为主要对象</li>
+</ul>
+<p>介绍重费米子材料中丰富的非常规超导配对形式及序参量的对称性。</p>
+<h2 id="重费米子超导中的共性">2 重费米子超导中的共性</h2>
+<p><span class="math inline">\(CeCu _{2} Si _{2}\)</span> 是第一个被证实的非常规超导体。该材料的超导电性最早由德国科学家F. Steglich 在1979 年发现[3]。虽然CeCu2Si2的超导转变温度低得平淡无奇(仅0.6 K)，但是它的独特“气质”却与BCS 理论<strong>格格不入</strong>。</p>
+<ol type="1">
+<li>首先，在超导转变温度之上，<span class="math inline">\(CeCu _{2} Si _{2}\)</span>的电子比热系数就接近1 <span class="math inline">\(J /\left( mol \cdot K ^{2}\right)\)</span>，同时在超导转变温度处的比热可以跳变到约2 <span class="math inline">\(J /\left( mol \cdot K ^{2}\right)\)</span>。这些参数是简单金属的<strong>上千倍</strong>，如此巨大的熵变<strong>不可能</strong>是<strong>近自由</strong>的传导电子配对引起的，必然是“重电子”参与的结果。</li>
+<li>其次， <span class="math inline">\(CeCu _{2} Si _{2}\)</span> 的费米温 度 <span class="math inline">\(T_{ F }\)</span> 仅为 <span class="math inline">\(10 K ,\)</span> 而声子的Debye 温度 <span class="math inline">\(\Theta_{ D } \sim 200 K ,\)</span> 所以这些参与超导配对的电子不仅重，而且跑得太慢，以至于完全无法用BCS 理论描绘的电声子耦合图像来理解 ;</li>
+<li>此外, <span class="math inline">\(CeCu _{2} Si _{2}\)</span> 的 <span class="math inline">\(T_{ c }\)</span> 约为 <span class="math inline">\(0.05 T_{ F },\)</span> 反而比常规超导体中 <span class="math inline">\(T_{ c } \sim 0.001 T_{\text { }}\)</span>F要高很多。</li>
+</ol>
+<p>因此，从电子费米能的角度出发， <span class="math inline">\(CeCu _{2} Si _{2}\)</span> 反而可以称得上是“高温”超导 体 <span class="math inline">\(;\)</span></p>
+<p>另外, <span class="math inline">\(CeCu _{2} Si _{2}\)</span> 的基态对<strong>杂质</strong>异常<strong>敏感</strong>，稍微改变 <span class="math inline">\(Cu / Si\)</span> 的比例，它就可以表现出完全<strong>不同的基态</strong>：</p>
+<ul>
+<li>超导态(S 态)，</li>
+<li>反铁磁态(A态)，</li>
+<li>甚至反铁磁</li>
+<li>和超导相互竞争的态(A/S 态)。</li>
+</ul>
+<p>在相当长的一段时间， <span class="math inline">\(CeCu _{2} Si _{2}\)</span> 的超导电性是否本征都一直存在争议。但是它的发现确实将超导的研究<strong>引入了另一条道路</strong>，而且这一路的风景异常精彩。在<span class="math inline">\(CeCu _{2} Si _{2}\)</span> 被发现至今的 40 年里，已经有 40 多个重费米子材料被发现。它们大多具有与 <span class="math inline">\(CeCu _{2} Si _{2}\)</span> 类似的非常规超导“共性”，但往往又存在非常独特的“个性”。</p>
+<p>上述共性主要<strong>来自于</strong>重费米子材料中的两种特征相互作用 :</p>
+<ol type="1">
+<li>近藤效应</li>
+<li>与 Ruderman-Kittel-Kasuya- Yosida (RKKY)交换相互作用。</li>
+</ol>
+<ul>
+<li>近藤效应导致材料形成“相干共振”且无磁序的重费米子液体基态</li>
+<li>RKKY则会诱导长程磁有序基态</li>
+</ul>
+<p>两者之间的<strong>竞争</strong>是材料基态的主要决定因素[5]。</p>
+<ol type="1">
+<li>当两种相互作用强度接近，整个系统处于量子临界区域。</li>
+<li>随着外界调控，材料的基态可以连续经历从磁有序态到无序态的量子相变。</li>
+</ol>
+<p>实验发现，含有Ce的重费米子材料经常存在<strong>反铁磁</strong>量子临界点，而这一临界点的附近往往伴随着很强的反铁磁类型的自旋涨落。从自旋取向角度考虑，反铁磁交换作用天然喜欢倾向于<strong>单态配对</strong>，如图1(a)所示</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210205112116133.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>图-1</p>
+<ul>
+<li>(a)费米面附近的近藤效应与RKKY效应的示意图，粗箭头表示局域f电子的自旋，黑色细箭头代表巡游电子的自旋，绿色波浪代表f 电子之间的反铁磁交换作用；</li>
+<li><ol start="2" type="a">
+<li>Kmetko-Smith 图，图中左下角元素区域中的d 电子趋于形成巡游超导态，右上角元素中的f 及d 电子趋于局域化并存在较强的局域磁矩。</li>
+</ol></li>
+</ul>
+</blockquote>
+<p>相比之下，5f 电子的局域性稍弱于4f 电子，U基材料可以存在铁磁或者反铁磁涨落/长程序。因此，U基材料中的超导也更加<strong>多元化</strong>，既有自旋单态也有自旋三重态配对形式。</p>
+<p>图1(b)所示的Kmetko-Smith 图中，位于对角线附近的元素处在f 电子局Smith 图中，位于对角线附近的元素处在f 电子局域和巡游交界区域，表现出<strong>很强的自旋涨落</strong>，容易形成非常规超导体。关于重费米子材料及重费米子超导的专业综述较多，这里主要以重费米子超导体的独特“个性”为重点，展示重费米子超导体中异常丰富的物理内涵。</p>
+<h2 id="重费米子超导与磁性">3 重费米子超导与磁性</h2>
+<h3 id="超导与反铁磁的竞争与共存">超导与反铁磁的竞争与共存</h3>
+<p>重费米子超导的一个重要研究价值在于它们丰富的相图，如图2 所示。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210205112708185.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>图2 重费米子超导体中超导相(SC)与磁有序相(MO)的竞争/共存相图，</p>
+<ol type="1">
+<li>横止标为化学渗杂/替代、压力、偏压等调控手段</li>
+<li>纵坐标为温度</li>
+</ol>
+<ul>
+<li>(a)代表超导态完全处于磁有序相内部，如UGe <span class="math inline">\(_{2}, \quad YbRh _{2} Si _{2}\)</span> 等;</li>
+<li><span class="math inline">\(( b )\)</span> 和 <span class="math inline">\(( c )\)</span> 代表超导相从磁有序区域延伸到无磁性区域，但是</li>
+<li><ol start="2" type="a">
+<li>中超导与磁性可以在<strong>微观共存</strong>， 如 $CeRhIn _{5}, $<span class="math inline">\(CePt _{3} Si ,\)</span> $ URhGe ,$ $ UCoGe$ <span class="math inline">\(Ba ( Fe , Co )_{2} As _{2}\)</span> 等</li>
+</ol></li>
+<li>而很多的 <span class="math inline">\(Ce\)</span> 基、铜氧化合物、铁基超导体的相图与(c)一致;</li>
+<li>(d)代表远离磁有序相以后材料才会出现超导态，比如 Pu-基超导体 、 <span class="math inline">\(CeCu _{2} Si _{2}\)</span> 的高压超导相、 <span class="math inline">\(\beta-Y b A l B_{4}\)</span> 等，价态涨落可能与这些材料的超导有关</li>
+</ul>
+</blockquote>
+<p>其中，大部分材料的低温相图与铜氧化物、铁基高温超导体又非常<strong>类似</strong>，如图 <span class="math inline">\(2( c )\)</span> 所示。这些材料中的一个核心问题是超导与反铁磁的关系。</p>
+<h4 id="竞争非共存">竞争非共存</h4>
+<p><span class="math inline">\(CeCu _{2} Si _{2}\)</span> 的超导电性已经发现 40年了，但是一些基本问题还存在争议。从 <span class="math inline">\(CeCu _{2} Si _{2}\)</span> 的相图来看，材料中的超导与反铁磁序<strong>是竞争而非共存</strong>的。</p>
+<ul>
+<li>这可以简单地理解为Ce原子仅有的一个 f 电子，很难同时参与反铁磁长程序与超导序</li>
+<li>但是，这并不妨碍反铁磁涨落与超导的共存关系。</li>
+<li>然而由于实验的极大挑战，直到2011年，O.Stockert等人才通过非弹性<strong>中子散射</strong>实验给出了反铁磁涨落驱动 <span class="math inline">\(CeCu _{2} Si _{2}\)</span> 超导的明确<strong>证据</strong>在超导态，他们在自旋激发能谱中看到了清晰的<strong>能隙</strong>，</li>
+<li>这是由于磁交换能部分<strong>转变</strong>成了库珀电子对的凝聚能。</li>
+<li>类似的行为在铜氧化物超导体、 铁基超导体中都有实验报道。 除 <span class="math inline">\(CeCu _{2} Si _{2}\)</span> 外，$CeCu <em>{2} Ge </em>{2}, $ $CePd <em>{2} Si </em>{2}, $ $ CeAu <em>{2} Si </em>{2},$ $ CeNiGe <em>{3},$ $ CePd </em>{5} Al _{2}$ 等材料都在高压下、反铁磁消失的边界区域出现超导相，<strong>暗示了</strong>超导与反铁磁相的竞争关系 <span class="math inline">\(^{[2,7]}\)</span> 。</li>
+</ul>
+<h4 id="cemins家族">CeMIns家族</h4>
+<p>2000 年前后， <span class="math inline">\(Ce M In _{5}(M= Co , Rh ,\)</span> Ir)体系的发现极大地<strong>拓展了</strong>我们对重费米子超导以及反铁 磁量子临界行为的认识 <span class="math inline">\(^{[8]}\)</span> 。</p>
+<ol type="1">
+<li>CeMIns体系在晶格结构上看是由 CeIn <span class="math inline">\(_{3}\)</span> 中间插入 <span class="math inline">\(M I n_{2}\)</span> 层形成的</li>
+<li>它们在化学性质上的一个主要特点是 Co、Rh、Ir这三种金属元素可以<strong>相互替代</strong>，
+<ul>
+<li>并获得连续可调的反铁磁态及超导态，</li>
+<li>同时超导和反铁磁相可以在微观共存。</li>
+</ul></li>
+<li>这一家族的三个化合物中 CeCoIns的超导性质研究得最深入。
+<ul>
+<li>一方面它恰好位于量子临界点附近，超导转变温度在常压下即达到 <span class="math inline">\(2.3 K\)</span>, 这也是 Ce 基超导体的最高值。</li>
+<li>另一方面，该化合物容易制备出大块的高质量单晶，方便多种实验测量。</li>
+<li>目前大量的实验及理论结果都支持其超导序参量<strong>对称性</strong>满足<span class="math inline">\(d _{x^{2}-y^{2}}\)</span> 形式，符合反铁磁涨落诱导超导的理论预期。</li>
+<li>这也是除铜氧化合物之外，另一个被广泛认可的<strong>d-波超导体</strong>。</li>
+</ul></li>
+<li>比<span class="math inline">\(CeCoIn _{5}\)</span> 的物理内涵更丰富的是 <span class="math inline">\(CeRhIn_{5}\)</span>。在这一材料中，电子的自旋和电荷自由度通过近藤效应和 RKKY 相互作用</li>
+</ol>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%B6%85%E5%AF%BC/">超导</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Heavy-fermion/">Heavy fermion</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Stronaly-correlated/">Stronaly correlated</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/05/CMP_12_HeavyFermions04_QPT/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">磁性量子相变</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/03/ML_07_math_adv/">
+                        <span class="hidden-mobile">人工智能的新数学</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "重费米子超导&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

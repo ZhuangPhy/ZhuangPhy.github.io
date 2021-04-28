@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>凝聚态物理中的机器学习 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-01-24 13:23">
+      January 24, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      150
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考文献">参考文献</h2>
+<ol type="1">
+<li>《<a href="https://arxiv.org/pdf/2005.14228.pdf" target="_blank" rel="noopener">Machine Learning for Condensed Matter Physics</a>》</li>
+</ol>
+<p>文献延申</p>
+<ol type="1">
+<li>这篇论文推荐另一个 <em>Reviews of Modern Physics</em> <a href="https://journals.aps.org/rmp/pdf/10.1103/RevModPhys.91.045002" target="_blank" rel="noopener">Machine learning and the physical sciences</a></li>
+<li>解释性神经网络2020 <a href="https://arxiv.org/ftp/arxiv/papers/2001/2001.02522.pdf" target="_blank" rel="noopener">On Interpretability of Artificial Neural Networks: A Survey</a></li>
+</ol>
+<h2 id="摘要">1 摘要</h2>
+<p>Abstract. Condensed Matter Physics (CMP) seeks to understand the microscopic interactions of matter at the quantum and atomistic levels, and describes how these interactions result in both mesoscopic and macroscopic properties. CMP overlaps with many other important branches of science, such as Chemistry, Materials Science, Statistical Physics, and High-Performance Computing. With the advancements in modern Machine Learning (ML) technology, a keen interest in applying these algorithms to further CMP research has created a compelling new area of research at the intersection of both fields. In this review, we aim to explore the main areas within CMP, which have successfully applied ML techniques to further research, such as the description and use of ML schemes for potential energy surfaces, the characterization of topological phases of matter in lattice systems, the prediction of phase transitions in off-lattice and atomistic simulations, the interpretation of ML theories with physicsinspired frameworks and the enhancement of simulation methods with ML algorithms. We also discuss in detial the main challenges and drawbacks of using ML methods on CMP problems, as well as some perspectives for future developments.</p>
+<h3 id="简介">1.1 简介</h3>
+<p>机器学习在哪些领域的应用</p>
+<ul>
+<li>计算机和日常生活</li>
+<li>科学研究</li>
+<li>物理</li>
+</ul>
+<p>Currently, machine learning (ML) technology has seen widespread use in various aspects of modern society: automatic language translation, movie recommendations, face recognition in social media, fraud detection, and more everyday life activities [1] are all powered by a diverse application of ML methods.</p>
+<ol type="1">
+<li>Tasks like human-like image classification performed by machines [2];</li>
+<li>the effectiveness of understanding what a person means when writing a sentence within a context [3];</li>
+<li>the ability to distinguish a face from a car in a picture [4]<span class="math inline">\(;\)</span></li>
+<li>and automated medical image analysis [5] are some of the most outstanding advancements that stem from the mainstream use of modern ML technology [6].</li>
+</ol>
+<p>Inspired by these notable applications, scientists have thrivingly applied ML technology to <strong>scientific fields</strong>, such as</p>
+<ol type="1">
+<li>matter engineering [7],</li>
+<li>drug discovery [8] and</li>
+<li>protein structure predictions [9].</li>
+</ol>
+<p>为什么可以把机器学习应用到物理上呢？相似点在哪？</p>
+<ul>
+<li>幂律</li>
+<li>大数据，高维度</li>
+</ul>
+<p>Influenced by the overwhelming effectiveness of ML technology in other scientific fields, physicists have also applied such methods to specific subfields within Physics, with the main objective of making progress in the most challenging research questions. The motivating reasons for this surge of interest at the intersection between Condensed Matter Physics (CMP) and ML are vast. For instance,</p>
+<ul>
+<li>images, language and music exhibit <strong>power-law</strong> decaying correlations equivalent to those seen in classical or quantum many-body systems at their critical points [10];</li>
+<li>very large data sets, with high-dimensional inputs found in materials science [11] are the quint essential problem that modern ML methods are tailored to deal with.</li>
+</ul>
+<p>It seems as though ML is well-suited to be applied to CMP research problems given all these deep connections between both, but not without its drawbacks. Such is the case of the encoding into a latent space of features that represent the atomistic structure found in soft matter and physical chemistry molecular systems [12] , which is a challenge that is currently being solved by modern natural language processing and object detection techniques. The challenge of encoding and feature selection, as well as other key challenges of ML applications to CMP will be discussed with further detail later on.</p>
+<p>In this work, we review the contributions of ML methods to Physics with the aim of providing a starting point for both computer scientists and physicists interested in getting a better understanding of the interaction between these two research fields. For easier navigation of the topics covered in this review, the diagram shown in figure 1 displays a schematic representation of the outline, but we shall summarize them briefly here.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210125102722864.png" srcset="/img/loading.gif" /></p>
+<p>We start the review with a very brief overview of both CMP and ML for the sake of self-containment, to help reduce the gap between both areas. In particular, the overview of CMP is meant to emphasize the difference between both main branches, i.e.</p>
+<ul>
+<li>Hard and</li>
+<li>Soft Matter</li>
+</ul>
+<p>because these areas have a fundamental Physical difference that will later influence the way ML techniques are applied to their respective types of problems.</p>
+<p>We then continue by exploring some of the research inquiries within hard condensed matter physics. Hard Matter has seen most of the ML applications, for instance</p>
+<ul>
+<li>in phase transition detection</li>
+<li>and critical phenomena for lattice models.</li>
+</ul>
+<p>We continue with the review by analyzing how both classical ML and Deep Learning (DL) techniques have been applied to obtain detailed descriptions of strongly correlated, frustrated and outof-equilibrium systems. We investigate how standard simulation methods, like Monte Carlo, have also seen enhancements from using ML models.</p>
+<p>Moving forward, we examine a new research area dubbed <strong>physics-inspired ML</strong> theory, an area where the most rigorous and fundamental physics frameworks have been applied to ML to obtain a deeper insight of the learning mechanisms of ML models. We discuss how in this engaging research area a robust understanding of the learning mechanism behind Restricted Boltzmann Machines has been obtained. We move on to reviewing how common theoretical physics frameworks, such as the Renormalization Group, have been used with interesting results to give insights into the learning mechanisms of the most common models in DL.</p>
+<ul>
+<li>Restricted Boltzmann Machines</li>
+<li>Renormalization Group</li>
+</ul>
+<p>The review continues with the exploration of Materials modeling, Soft Matter, and related fields, which recently have seen a strong surge of ML applications, mainly in the subfields of materials science and colloidal systems, e.g., proteins and complex molecular structures. Enhanced intelligent modeling, atomistic feature engineering, ML potential and free energy surfaces have been the primary topics of research; with the identification of a phase transition as well as the determination of the phases of matter being a close second.</p>
+<p>局限和挑战 As one has to be aware that every technique has some <strong>limitations</strong>, the review is closed with some of the main challenges and drawbacks of ML applications to CMP, in addition to some perspectives and outlooks about current challenges.</p>
+<p>篇幅限制，有限著名应用省略了 Before we continue with the review, we would like to address that many other notable applications within realated fields of CMP have been omitted due to lack of depth of knowledge in such fields and space in this short review. Such applications include</p>
+<ol type="1">
+<li>graph-based ML force fields [13] and the deep learning architecture SchNet used to model atomistic systems [14]<span class="math inline">\(;\)</span> 原子系统</li>
+<li>deep learning methodologies used to predict the groundstate energy of an electron and effectively solving the Schrödinger equation for various potentials [15]; 解薛定谔方程</li>
+<li>the use of ML techniques for many-body quantum states [16,17] ; 多体态</li>
+<li>the use of crystal graph convolutional neural networks to directly learn material properties from the connection of atoms in the crystal [18]<span class="math inline">\(;\)</span> 晶格原子中直接学到材料的性质</li>
+<li>the utilization of ML supervised and unsupervised techniques to approximate density functionals, as well as providing some insights into how these techniques might achieve such approximations <span class="math inline">\([19,20] .\)</span> 密度泛函</li>
+</ol>
+<p>Lastly, we would like to suggest the reader interested in applications of ML to a wide range of areas within Physics, the recenet review by Carleo et al [21] discusses in detail some of the most relevant works and research areas.</p>
+<h2 id="机器学习概览">2 机器学习概览</h2>
+<p>In this section, common ML concepts including those used in this review are described, following a specific hierarchy composed of category, problem, model, and method or architecture. Figure 2 illustrates the relationship between these concepts. The interested reader can get further information from this partial taxonomy by following the references provided in the figure caption.</p>
+<p>Machine Learning is a research field within Artificial Intelligence aimed to construct programs that use example data or past experience to solve a given problem [22]. The ML algorithms can be divided into categories of supervised, unsupervised, reinforcement and deep learning [47,22,6]: in supervised learning the aim is to learn a mapping from the input data to an output whose correct values are provided by a supervisor; in unsupervised learning, there is no such supervisor and the goal is to find the regularities or useful properties of the structure in the input; in reinforcement learning, the learner is an agent that takes actions in an environment and receives reward or penalty for its actions in trying to solve a problem, the output is a sequence of actions, and the main purpose is to learn from past good sequences to generate a policy that maximize a reward; deep learning is a special kind of ML, designed to deal with high-dimensional environments. DL may be regarded as a transverse category, since it has been used to solve the limitations of traditional algorithms of supervised <span class="math inline">\([48],\)</span> unsupervised <span class="math inline">\([41],\)</span> and reinforcement learning [31]. DL is focused on learning nested concepts, e.g., the image of a person, in terms of simpler concepts, such as the corners, contours or textures within the image [6]. The DL approach enhances previous ML models such as neural networks and kernel methods on several aspects, for instance by extending the capability of dealing with large-scale data, and providing new architectures, operators, and learning methods for the solution of problems with higher precision <span class="math inline">\([32,49] .\)</span> As a result, DL methods are able to deal with huge amounts of heterogeneous information, as well as learning directly from raw data without the user-dependent preprocessing step of receiving the main and filtered features of raw data as valid training vectors (feature extraction) required by classical ML methods.</p>
+<p>Although Figure 2 presents several ML concepts, there exist other important models like Decision Trees, Gaussian Processes, and methods such as boosting, LASSO, ridge regression, <span class="math inline">\(k\)</span> -means, etc. <span class="math inline">\([50,51,52],\)</span> that are not included in this brief overview in order to focus on those concepts that frequently appear in the rest of the manuscript. Specifically we will restrict ourselves to the description of Neural Networks (feed-forward, autoencoders, restricted Boltzmann machines and convolutional) and kernel methods (support vector machines). These methods and architectures are now described, with the exception of restricted Boltzmann machines that, because of their relevance, are presented in subsequent sections. Useful references are included for readers interested in obtaining a deeper insight.</p>
+<p>Artificial Neural Networks (ANNs) are models of ML easily found in science and engineering applications. ANNs attempt to simulate the decision process of neurons of biological central nervous systems [53]. Many ANNs are computational graphs <span class="math inline">\([54,34,55] .\)</span> In these graphs, the nodes compute activation functions (sigmoidal, radial basis, and any other Tauber-Wiener function [56]) according to the input data provided by the connecting edges. The learning process consists in assigning weights to the edges and updating them according to a learning algorithm-such as backpropagation, Levenberg-Marquardt, Stochastic Gradient Descent, Natural Gradient Descent, etc. <span class="math inline">\([57,58,59]-\)</span> The tasks that ANNs can solve depend on the architecture that specifies how data is processed and stored. The storage of information can be either by using an external memory [60,61] or as an implicit memory codified into the weights of the network, being the latter the most common approach. The number of current ANNs architectures is immeasurable, but a project trying to track them can be consulted in Ref. [62].</p>
+<p>Multilayer feed-forward Neural Networks (FFNNs) are one of the simplest ANN architectures, where neurons are organized in layers [63]. The default version of FFNNs assumes that all neurons in one layer are connected to those of the next layer. Neurons of the input layer receive the data to be processed and then pass it to the next layer, successive layers feed into one another in the forward direction from input to output. The key point is that the transfer of information between layers is controlled by nonlinear activation functions evaluated by the neurons. A neat illustration of this architecture and further details about its variants can be consulted in [34] sect 1.2.2. Two examples of these networks are the Multilayer Perceptrons and Radial Basis Function Networks. When the learning process in FFNNs is supervised, in addition to the training data- <span class="math inline">\(X \subset \Re^{d}\)</span> -provided to the input layer, expected output data <span class="math inline">\(-Y \subset \Re\)</span> -labeling each input vector is required to verify the performance of the network. A learning algorithm is then employed based on the network output until the best approximation to an underlying decision function, <span class="math inline">\(f: X \rightarrow Y\)</span>, is achieved. FFNNs networks have been proved to be universal approximators to any Borel measurable function [64]. In addition to the function approximation, supervised FFNNs may be used for classification, prediction, and control tasks [65]. FFNNs have also been applied to reinforcement learning problems [42,32,66] .</p>
+<p>Autoencoders (AEs) constitute a different type of NN architecture, considered a special case of FFNNs, and designed to learn a latent representation of the training data in order to perform data compression or dimensionality reduction <span class="math inline">\([67,68] .\)</span> AEs consist of two parts: an encoder function <span class="math inline">\(-g( x ), x \in X-\)</span>, and a decoder that produces a reconstruction, <span class="math inline">\(r =f(g( x ))\)</span>. The main purpose of AEs is to generate an efficient encoding of the input data instead of learning to copy this data perfectly. Despite the success of ANNs to solve a vast number of applications in both science and engineering [69,70] , this model has been criticized due to the lack of providing explicit representations of the learned solutions <span class="math inline">\([71,72,73] .\)</span> Since ANNs are considered blackbox models, it becomes difficult to interpret their results, which is specially important in applications such as medicine, business or self-driving cars, where the reliance of the model must be guaranteed [73]. However, new techniques have been developed to increase the interpretation capabilities of NNs in order to extract new insights from complex physical, chemical and biological systems [74].</p>
+<p>Convolutional Neural Networks (CNNs) are DL architectures specialized for processing data with a grid-like topology (time-series as one-dimensional data or images as two-dimensional grid of pixels) that use convolution in place of general matrix multiplication in at least one of their layers. The simplest CNN includes an input layer that receives the raw data; next, a convolutional layer filters local regions from the input layer's ouput. The use of convolution brings many benefits: provides a mean for working with inputs of variable size, it has the property of translation invariance, it is more efficient in terms of memory than dense matrix multiplication because of its property of parameter sharing, and the feature extraction is performed without human interference. The convolution is performed on two elements, the input data and a kernel whose values are assigned automatically by the learning algorithm, instead of being predefined by the user. After convolution, a pooling layer is then used to downsample the spatial dimensions; lastly, a fully connected layer computes the class scores, and an output layer provides the final result [6] .</p>
+<p>Support Vector Machines (SVMs) are explicit ML models that belong to the family of kernel methods and emerged as an alternative to ANNs [24]. Both ANNs and SVMs have the ability to generalize and may be designed to solve practically the same tasks (classification, regression, density estimations, clustering, among others) [75,76] . However, while ANNs were inspired by the biological analogy to the brain, SVMs were inspired by statistical learning theory [77]. Because of their solid theoretical basis, SVMs can provide explicit solutions with measurable generalization capability by conducting structural risk minimization; by solving a convex quadratic programming problem, the dreaded problem of local minima that permeates ANNs is avoided; and finally, the model can represent the learned solution based on few parameters <span class="math inline">\([78,79] .\)</span> However, SVMs are limited in the size of the datasets that can handle since training a standard SVM has a time complexity between <span class="math inline">\(O\left(N^{2}\right)\)</span> and <span class="math inline">\(O\left(N^{3}\right),\)</span> with <span class="math inline">\(N\)</span> the number of input vectors; furthermore, the associated Gram matrix of size <span class="math inline">\(N \times N\)</span> must be allocated <span class="math inline">\([80,81] .\)</span> This limitation is presented for general purpose SVM solvers like LIBSVM [82]. Different approaches have been followed to deal with large-scale datasets. For instance, if the kernel function can be limited to the linear one (as in high-dimensional sparce spaces), then efficient solvers like LIBLINEAR [83] or PEGASOS [84] can be implemented to solve problems with hundreds of thousands of input vectors in seconds. Other strategies like sampling, boosting or hierarchical training have been used to speed up the SVM training with non-linear kernels <span class="math inline">\([81,85] .\)</span> For Deep Kernel Learning methods, where a concatenation of several kernel functions can be reformulated as neural networks <span class="math inline">\([86],\)</span> some strategies focus in designing maps in the Reproducing Kernel Hilbert Space to reduce the complexity of evaluating Deep Kernel Networks, which scale quadratically on <span class="math inline">\(N\)</span> and linearly w.r.t the depth of the trained networks <span class="math inline">\([38] .\)</span> Based on these limitations and proposed solutions, an application-based analysis should be done to choose the correct set of SVM algorithms or related kernel methods.</p>
+<h2 id="凝聚态概述">3 凝聚态概述</h2>
+<p>在物理系的日常生活中，我都是面对具体的物理模型，没想过对整个凝聚态领域介绍，这里学习一下。</p>
+<p>Understanding the intricate phenomena of all types of matter and their properties is the <strong>driving force</strong> of condensed matter physicists. From quantum theory all the way to materials science, CMP encompasses a large diversity of subfields within physics, as it deals with different time and length scales depending on both the molecular details and the type of matter being analyzed. To study such systems, theoretical, computational and experimental physicists collaborate to gain a deeper insight into the behavior in and out of equilibrium of matter. We shall briefly talk about the two main areas within CMP, namely,</p>
+<ul>
+<li>hard matter</li>
+<li>and soft matter</li>
+</ul>
+<p>the essential models as well as the central problems these research areas are focused on. More information about these research areas can be found in standard textbooks, see, e.g., [87,88,89] and reviews [90,91] .</p>
+<h3 id="soft-condensed-matter">3.1. Soft Condensed Matter</h3>
+<p>软物质：外力之下容易变化，最神奇的性质是“自组织”。 Fluids, liquid crystals, polymers, colloids, and many more are the principal types of matter that are studied by Soft Condensed Matter, or Soft Matter (SM). SM has the peculiar property that it will easily respond to external forces. SM will change its flow when a small shear force is applied to it, or thermal fluctuations are applied, thus changing its properties as a whole. We are surrounded by these materials in our everyday life, from glass windows, toothpaste, hair-styling gel, among others. These materials can show diverse properties and when some <strong>external force</strong> is applied, they will exhibit a different set of properties, but in all cases SM shows the fascinating property of <strong>self-organization</strong> of its molecules [92]. Proteins and bio-molecules are also good examples of SM, they change their structure when subjected to thermal fluctuations, while also showing a pattern of self-assembly (自组装)<span class="math inline">\([93,94],\)</span> as is the case in most types of SM. All in all, SM is a subfield of CMP that gained a lot of attention when first introduced in the 1970s by Nobel prize laureate Pierre-Gilles de Gennes [95], because it has shown to be of great importance to science in general, with very useful applications, as well as pushing the boundaries in theoretical, experimental and computational Physics.</p>
+<p>需要模型：</p>
+<ul>
+<li>最简单的，无吸引力，硬核排斥力，这个模型展示了一些出乎意料的性质
+<ol type="1">
+<li>内能永远为0</li>
+<li>粒子间的力，自由能变分 都完全取决于熵</li>
+<li>体积参数</li>
+</ol></li>
+</ul>
+<p>In order to explore all these properties and changes in a SM system, a model that describes most of these types of matter is needed. Most fluids and colloidal dispersions show a repulsive behavior, which can be modeled very well with the hardsphere model [96]. A system modeled as a hard-sphere dispersion only shows an infinite repulsive interaction when there exists interparticle separations less than the particle diameter, and zero otherwise. There is no attractive interaction included in this model. The hard-sphere model is a very simple one, which has also exhibited intriguing, but unexpected equilibrium and non-equilibrium states <span class="math inline">\([97,98,99] .\)</span> There are some interesting properties that define the hard-sphere model in SM.</p>
+<ol type="1">
+<li><p>First of all, the internal energy of any allowed system configuration is always zero.</p></li>
+<li><p>Furthermore, forces between particles and variations in the free energy - defined from classical thermodynamics as <span class="math inline">\(F=E-T S,\)</span> with <span class="math inline">\(E\)</span> being the internal energy, <span class="math inline">\(T\)</span> the temperature and <span class="math inline">\(S\)</span> the entropy-are both <strong>determined entirely by the entropy</strong>.</p></li>
+<li><p>Moreover, the entropy in a hard-sphere system depends directly on the total volume occupied by the hard spheres, commonly defined as the volume fraction, <span class="math inline">\(\phi .\)</span></p>
+<ul>
+<li>When <span class="math inline">\(\phi\)</span> is small then the system shows the properties of an ideal gas,</li>
+<li>but as <span class="math inline">\(\phi\)</span> starts to increase, particles interact with each other and their motion is restricted by collisions with other nearby particles.</li>
+</ul>
+<p>Even more interesting is the fact that the phase transitions of hard-sphere systems are completely defined by <span class="math inline">\(\phi\)</span> [100].</p></li>
+</ol>
+<p>In general, a SM system does not need to be composed only of hard spheres, it can also be built with non-spherical molecules, for example, rods, sphero-cylinders - cylinders with semi-circular caps-, and hard disks, just to mention a few examples. Nevertheless, all these systems experience a large diversity of phase transitions <span class="math inline">\([101,102,103] .\)</span></p>
+<p>相变和临界现象，</p>
+<p>The description of phase transitions and critical phenomena are one of the main challenges in all CMP. When a thermodynamic system changes its uniform physical properties to another set of properties, then the system encounters a phase transition. In SM, phase transitions are one of the most important phenomena that can be analyzed given the diversity of phases that could appear in unexpected circumstances [104,105] . In particular, a gas-liquid phase transition is defined by a temperature <span class="math inline">\(,\)</span> known as the critical temperature, <span class="math inline">\(T_{c}-\)</span>, and a density-, called the critical density, <span class="math inline">\(\rho_{c}-\)</span>. These quantities are also known as the critical point of the system, meaning that two phases can coexist when the system is held to these special values. When neither of these thermodynamical quantities can be employed, an order parameter is more than sufficient to determine the phase transitions of a system. Order parameters are special quantities that can measure the degree of order between a phase transition; they range between several values for the different phases in the system [106]. For instance, when studying the liquid-gas transition in a fluid, a specified order parameter can take the value of zero in the gaseous phase, but it will take a non-zero value in the liquid state. In this scenario, the density difference between both phases <span class="math inline">\(\left(\rho_{l}-\rho_{g}\right)-\)</span> where <span class="math inline">\(\rho_{l}\)</span> is the density in the liquid state and <span class="math inline">\(\rho_{g}\)</span> in the gas state <span class="math inline">\(-\)</span> can be a useful order parameter.</p>
+<p>When traversing the phase diagram of a SM system, one might encounter the so-called topological defects. A topological defect in ordered systems happens when the order parameter space is continuous everywhere except at isolated points, lines or surfaces [107]. This can be the case of a system which is stuck in-between two phases, and there is no continuous distortion or movement from the particles that can return the system to an ordered phase. One such example is that of nematic liquid crystals [108] . The nematic phase is observed in a hard-rod system, when all the rods align in a certain direction. Hard rods are allowed to move and to rotate freely. Furthermore, the neighboring hard rods tend to align in the same direction. But if it so happens that some hard rods are aligned in one direction and the rest in another direction, then the system contains topological defects <span class="math inline">\([109] .\)</span> These defects depend on the symmetry of the order parameter of the phases, as well as the topological properties of the space in which the transformation is happening. Topological defects are of the utmost importance in a large variety of systems in SM, e.g., they determine the strength of the liquid crystal mentioned before.</p>
+<p>Nevertheless, these types of systems and problems are not so easily solved. How can we tell when a system will be prone to topological defects? Is it possible to determine the phases that a system will come across given its configuration? Even more challenging questions are always originating when these types of exotic matter appear. But theoretical, experimental or even computational frameworks are not enough to tackle these problems. Physicists are always open to new ways to approach such challenges, and ML is slowly starting to become a powerful tool to deal with these complex systems, and in this review we shall discuss some of the ways ML has been applied to such problems, as well as commenting on some of the problems that can arise from using such techniques.</p>
+<p>However, it is important to note that SM also experiences thermodynamic transitions to solid-like phases. For example, in the case of the hard-sphere model, when the packing fraction <span class="math inline">\(\phi\)</span> approaches the value of <span class="math inline">\(\phi \approx 0.492[110,111]\)</span>, it undergoes a liquid-solid first order transition <span class="math inline">\([112,113] .\)</span> This thermodynamic behavior can also be studied using theoretical and experimental techniques employed when one deals with Hard Matter. Thus, at some point, SM is also at the boundary Hard Matter.</p>
+<h3 id="hard-condensed-matter">3.2. Hard Condensed Matter</h3>
+<p>When physicists deal with materials that show structural rigidity, such as solids, metals, insulators or semiconductors, their interest in the properties of these materials are the main focus of Hard Condensed Matter, or Hard Matter (HM). Furthermore, in contrast to SM systems, HM typically deals with systems on smaller scales, i.e., matter that is governed by atomic and quantum-mechanical interactions. Entropy no longer determines the free energy of a HM system, it is now up to the internal energy. One particular example of interest in HM is the phenomenon of superconductivity. A material is considered a type I superconductor if all electrical resistance is absent and it is a perfect diamagnet [114] - i.e., all magnetic flux fields are excluded from the system-; a type II superconductor is not completely diamagnetic because they do not exhibit a complete Meissner effect [115]. The phenomenon of superconductivity is described by both quantum and statistical mechanical interactions. This means that superconductivity can be seen as a macroscopic manifestation of the laws of quantum mechanics. As was the case with SM, we are also surrounded by HM materials, for instance, semiconductors are the principal components in microelectronics [116] , which in turn are the components of every digital device we use, ranging from computers to smart cellphones. The applications that stem from HM are too great to enumerate in this short review, and the theoretical, experimental and computational frameworks that have derived from HM are nothing short of revolutionary; we suggest the reader who might be interested in knowing some of these applications to a technical perspective article <span class="math inline">\([117],\)</span> and a more thorough book on some of the modern aspects of <span class="math inline">\(HM ,\)</span> as well as its applications to technology [118] .</p>
+<p>In HM, we also need a reference model that can help explain at the basic level some of the investigated materials. Many other materials can use a similar reference model, but with different assumptions and physical quantities. Such is the case of lattice systems, and, in particular, the Ising model [119]. The Ising model is the simplest model that can explain ferromagnetic properties, in addition to accounting for quantum interactions. It is defined in a lattice, much like if it were a crystalline solid. In each site of the lattice, there is a discrete variable <span class="math inline">\(\sigma_{k}\)</span> that takes one of either two values, such that <span class="math inline">\(\sigma_{k} \in\{-1,+1\}\)</span>. The energy for a lattice is given by the following Hamiltonian <span class="math display">\[
+H(\sigma)=-\sum_{\langle i, j\rangle} J_{i j} \sigma_{i} \sigma_{j}-\mu \sum_{j} h_{j} \sigma_{j}
+\]</span> where <span class="math inline">\(J_{i j}\)</span> is a pairwise interaction between lattice sites; the notation <span class="math inline">\(\langle i, j\rangle\)</span> indicates that <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are lattice site neighbors; <span class="math inline">\(\mu\)</span> is the magnetic moment and <span class="math inline">\(h_{j}\)</span> is an external magnetic field. As originally solved by Ising in 1924[120] , when the system lies in a onedimensional lattice, the system shows no phase transition. Later, Lars Onsager proved in 1944 [121] that when the Ising model lies in a two-dimensional lattice a continuous phase transition is observed. For dimensions larger than two, different theoretical [122,123] and computational [124] frameworks have been proposed.</p>
+<p>While the Ising model has seen some very useful applications, it is not the only model that has shaped the research interests within CMP, as it cannot possible contain and explain all phenomena seen in HM. A generalized model, such as the <span class="math inline">\(n\)</span> -vector model [125] or the Potts model [126] are extensively studied models in <span class="math inline">\(HM\)</span> that have been successfully applied to explain even more intricate phenomena [127,128] .</p>
+<p>In general, all these models show phase transitions, in the same way as SM systems. This research area grew even more when the Berezinsky-Kosterlitz-Thouless (BKT) phase transition was discovered <span class="math inline">\([129,130,131,132] .\)</span> The BKT transition was unveiled on two-dimensional lattice systems, such as the XY model-which is a special case of the <span class="math inline">\(n\)</span> -vector model- The BKT transition consists of a phase transition that is driven by topological excitations and does not break any symmetries in the system [133]. This type of phase transition was quite abstract in the <span class="math inline">\(1970 s\)</span> when first introduced, but it turned out to be a great theoretical framework that was later discovered in exotic materials [134,135] , which in turn showed puzzling properties. Such was the impact of the BKT transition in CMP that it would later be awarded a Nobel prize in Physics in 2016[136]</p>
+<p>However, the BKT transition is a complicated transition to study. Hard condensed matter physicists are always trying to find a better way to look for these kind of unique aspects in materials. It is an elusive and complicated challenge. In the same spirit as in SM, ML has already been put to the test on this task, if it is possible to re-formulate the problem at hand as a ML problem, it can then be solved by standard ML techniques. But, as mentioned before, the task of re-formulation and feature selection is not simple; there is currently no standard way to approach this in CMP applications, contrary to most ML models and applications. We shall examine these applications and their potential challenges as well as drawbacks with more detail in the following sections.</p>
+<h2 id="硬物质和机器学习">4 硬物质和机器学习</h2>
+<p>In this section, we shall review the main techniques and ML models applied to CMP, mainly to HM. These applications might constitute a paradigm of ML applications to CMP due to the results obtained, which are generally acceptable. The structure of HM data is similar to the one found in computer vision applications in ML, among other applications. Furthermore, these schemes have also shown most of the major shortcomings such as feature selection, training and tuning of ML models.</p>
+<h3 id="phase-transitions-and-critical-parameters">4.1. Phase transitions and critical parameters</h3>
+<p>One of the most prominent uses of NNs was on the two-dimensional ferromagnetic Ising model which has a Hamiltonian similar to Eq. (1), with the aim to identify the critical temperature, <span class="math inline">\(T_{c}\)</span>, at which the system leaves an ordered phase - the ferromagnetic phase-and enters a disordered phase - the paramagnetic phase. Carrasquilla and Melko [137] introduced a new paradigm by essentially formulating the problem of phase transitions as a supervised classification problem, where the ferromagnetic phase constitutes one class and the paramagnetic phase is another one, then a ML algorithm is used to discriminate between both of them under specific conditions. By sampling configurations using standard Monte Carlo simulations for different system sizes, and then feeding this raw data to a FFNN, an estimate of the correlation-length critical exponent <span class="math inline">\(\nu\)</span> is obtained directly from the output of the last layer of the trained NN. Finite-size scaling theory [138] is then employed to obtain an estimation of <span class="math inline">\(T_{c} .\)</span> Even if the geometry of the lattice is modified, the power of abstraction provided by the NN [34] is enough to predict the critical parameters even if it was trained in a completely different geometry; this makes it a very convenient tool to identify critical parameters for systems that do not have a defined order parameter [139] .</p>
+<h3 id="topological-phases-of-matter">4.2. Topological phases of matter</h3>
+<p>Once having shown that ML is able to identify phases of matter in simple models as shown for models that have a similar Hamiltonian to Eq. (1), researchers have been interested in trying out these algorithms in more complex systems, and a lot of work has been put into the topic of identifying topological phases of matter using ML algorithms for strongly correlated topological systems <span class="math inline">\([140,141,142,143,144,145,146,147,148,\)</span> 149,150]<span class="math inline">\(.\)</span> For instance, Zhang et al [151] have applied FFNNs as well as CNNs to find the BKT phase transition, as well as constructing a complete phase diagram of the XY and generalized XY models, with very promising results. In the case of the FFNN approach, Zhang et al found out that a simple NN architecture consisting of one input layer, one hidden layer with four neurons and one output layer is more than enough to obtain the critical exponent <span class="math inline">\(\nu\)</span> for the XY model. We can compare this to the results obtained by Kim and Kim [152], where they explain a similar behavior but for the Ising model. In their work, analyzing a tractable model of a NN, they found out that a NN architecture consisting of one input layer, one hidden layer with two neurons and one output layer is sufficient to obtain the critical exponent <span class="math inline">\(\nu\)</span> for the Ising model. If such is the case for a shallow architecture to be able to obtain good approximations for the critical exponent <span class="math inline">\(\nu\)</span> then, perhaps, such models can be further simplified into more robust and analytically tractable ones. Such is the case of the Support Vector Machine methodology developed by Giannetti et al [153]</p>
+<p>It is important to keep track of the model complexity specially for complicated models to avoid overfitting and to reduce the amount of data needed to train the model. In the case of the NN methodologies exposed before, we can argue that such models are easier to train if there are enough data samples in the data set, when this is not the case then overfitting will occur yielding low accuracy results; NNs are also faster to train due to the fact that these models can be implemented in accelerated computing platforms, such as Graphical Processing Units (GPUs). On the other hand, SVMs cannot be readily accelerated with such techniques but they are less prone to overfitting because the model complexity, in cases where the support vectors-the subset of the data set needed to construct the decision function and thus make a prediction-are less than the total number of samples, is low enough that a smaller data set might be enough to obtain desirable approximations. Still, SVMs need to be adjusted according to the task, so hyperparameter tuning must always be part of the data processing pipeline, which in turn might take longer to obtain results. If this is the case, then simpler methods - such as logistic regression or kernel ridge regression [154] - could potentially be better suited for the task of approximating critical exponents due to the fact that these models are simple to implement, need less data samples and most implementations are numerically stable and robust; at the very least these simple models could potentially provide a starting point for such approximations.</p>
+<p>New and interesting methodologies are always arising in order to solve the problem of phase transitions. Kenta et al [155] developed a generalized version of the methodology proposed by Carrasquilla and Melko [137] for a variety of models, namely, the Ising model, the <span class="math inline">\(q\)</span> -state Potts model [156] and the <span class="math inline">\(q\)</span> -state clock model. Instead of using the raw data obtained from Monte Carlo simulations as proposed in <span class="math inline">\([137],\)</span> Kenta et al considered the configuration of a specific long-range spatial correlation function for each model, effectively exploiting feature engineering, hence providing meaningful data to the NN, which now contains relevant information from the systems at hand. This strategy has the advantage of generalization for the already trained NN, thus it can be readily applied to similar systems without further manipulation of the physical model or the production of new simulation data. The strategy is also quite general in the sense that it can be applied to multi-component systems, with the similar precision as standard theoretical methods.</p>
+<p>Finally, we remark some of the advances in topological electronic phases. The most fundamental quantity to characterize these states is the so called topological invariant, whose value determines the topological class of the system. In particular, interfaces between systems with different topological invariants show topologically protected excitations, resilient towards perturbations respecting the symmetry class of the system. Mappings of topological invariants using NN as performed in [157] shows that supervised learning is an efficient methodology to characterize the local topology of a system. DL has also seen some useful applications to these type of systems, e.g., for random quantum systems [158,159,160] .</p>
+<h3 id="classical-and-modern-ml-approaches">4.3. Classical and modern ML approaches</h3>
+<p>The amount of success that ML has seen in the area of Lattice Field Theory and Spin Systems has given it a special place in the toolboxes of physicists in order to provide a different perspective to a given problem based on different ML models, each with its own advantages and drawbacks. It is specially important to identify those tools as the ones that have seen the most use in this topic, the main one being FFNNs given its generalization and abstraction capabilities for which it has become the workhorse of most of the applications in this field - particularly when the problem can be formulated as a supervised learning problem.</p>
+<p>For more classical approaches, SVMs have also been implemented on the phase transition problem [148,153] with promising results given their ease of use and physical interpretation of the results, which we shall discuss in detail in section <span class="math inline">\(5.4 .\)</span> It is useful to compare the SVM method against the NN one presented in the previous subsection, specially given the fact that both techniques can yield very similar results; equivalently we can ask ourselves, when should we use one technique or the other? As mentioned in the previous subsection, SVMs are a great tool when the number of samples in the data set is low, this is because SVMs only need a small subset, i.e., the support vectors, to effectively predict some value. The main disadvantage of SVMs is their time complexity when training, as it completely depends on the implementation used and the data set. For example, the most popular implementation of a SVM solver is LIBSVM [82], which scales between <span class="math inline">\(O \left(M \times N^{2}\right)\)</span> and <span class="math inline">\(O \left(M \times N^{3}\right)\)</span>, where <span class="math inline">\(M\)</span> is the number of features and <span class="math inline">\(N\)</span> is the number of samples in the data set. SVMs depend strongly on the hyperparameters used, so in the case of an incorrectly tuned SVM the time it takes to train could be <span class="math inline">\(O \left(N^{3}\right)\)</span> in the worst-case scenario, while also yielding poor results. On the other hand, if the user is careful in tuning and selecting a good kernel as presented in <span class="math inline">\([153],\)</span> one can solve a CMP problem with very high precision; in this case some Physics insight of the problem can be helpful in providing good parameters for the SVM.</p>
+<p>If we now turn our attention to NNs and their training time complexity, it normally scales as <span class="math inline">\(O \left(N^{3}\right)\)</span> provided the NN use an efficient linear algebra and matrix multiplication implementation. If we also account for the backpropagation operations, which scale linearly with the number of layers in the network, we can see that NNs are significantly more difficult to train than SVMs. Research is being carried out to understand why NN are hard to train for and at the same time they are efficiently trained in practice <span class="math inline">\([161,162] .\)</span> The reason for this is that modern numerical linear algebra implementations are efficient, and they can be accelerated with modern computing technologies, such as GPUs. This makes NNs a great tool when the number of data samples is large, while training can also happen online, i.e. feeding the network with newly created samples. In short, both techniques give similar results provided there are enough representative data samples from the problem. A simple criterion for choosing between both methodologies depends greatly on the data set and the problem, but starting off with SVMs can give a good approximation, and in the case of needing even more precision or if the data set contains a large number of features then NNs might be a better choice for the problem at hand.</p>
+<p>Many other classical techniques- specifically the ones that stem from unsupervised learning methods - have become prominent algorithms. For instance, one such technique is the nonlinear dimensionality reduction algorithm t-distributed Stochastic Neighbor Embedding (t-SNE) [163] that Zhang et al [151] used to map high-dimensional features onto lower dimensional spaces in order to identify three distinct phases in the site percolation model. In this methodology, the idea is to use different site configurations, handled as a single array of values from the lattice, and using t-SNE to map this large dimensional space into a 2 -dimensional one, such that when enough iterations are performed three distinct clusters appear: one for each ordered phase (percolating and non-percolating phases), and the transition phase between these two phases. Although t-SNE is mostly a visualization tool, by employing other unsupervised learning techniques such as <span class="math inline">\(k\)</span> -means [154] or spectral clustering [164] , together with the results obtained from t-SNE one could possibly obtain a good approximation of the transition point in the percolation model.</p>
+<p>Another prime example is Principal Component Analysis (PCA) [165,154] which has proved to be one of the best feature extraction algorithms that can be used in Spin Systems <span class="math inline">\([166,167],\)</span> as it can be readily applied to raw configurations and use the information from the system and build different features, which then can be compared to physical observables like structure factors and order parameters. For instance, Wei [167] established a methodology to build a matrix <span class="math inline">\(M\)</span> with different site configurations from the Ising model-using a simplified version of the Hamiltonian from Eq. <span class="math inline">\((1)-\)</span> and then performing PCA on <span class="math inline">\(M\)</span>. This yields a set of new component vectors that describe the large dimensional space of <span class="math inline">\(M\)</span> in a new, lower dimensional space. These new vectors are used as a basis set to project the original samples in this space and it is in this new space that clustering techniques like <span class="math inline">\(k\)</span> -means can be used in order to find a phase transition.</p>
+<p>DL has also been wielded as a powerful technique to understand quantum phase transitions [168] in the form of adversarial NNs [169] ; to provide a thorough description of many-body quantum systems [170] by employing Variational Autoencoders [171,6]<span class="math inline">\(;\)</span> and CNNs [6] have been applied, for instance, to learn quantum topological invariants [172], or to solve frustrated many-body models [173]. One of the main reasons for DL to be such a strong asset is that it can handle complex data representations and achieve good accuracy results, provided these models have enough data to learn from. The main drawbacks of these models is precisely the fact that the data needed must be representative of the task at hand; the data must also preserve invariants of the system in the case that the system has such invariants, such as invariance to translation and rotations. These type of issues are mostly solved with data augmentation techniques, such as adding some white noise to the data samples, or creating some additional samples that are mirrored, although there are other such modifications that can be done. But again, this implies that the user of such models must know the problem well enough to perform such adjustments for the sake of stable training and yielding good results.</p>
+<h3 id="enhanced-simulation-methods">4.4. Enhanced Simulation Methods</h3>
+<h2 id="物理启发下的机器学习">5 物理启发下的机器学习</h2>
+<h2 id="物质模型">6 物质模型</h2>
+<h2 id="软物质">7 软物质</h2>
+<h2 id="挑战与展望">8 挑战与展望</h2>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Machine-learning/">Machine learning</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Machine-learning/">Machine learning</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/25/ML_04_TensorNetwork1/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python张量网络</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/20/Entenglement_04_Percolation6_presentation/">
+                        <span class="hidden-mobile">演讲稿：纠缠相变，渗流模型和共形场论</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "凝聚态物理中的机器学习&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
