@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      264 字
+      8k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      156
        分钟
     </span>
   
@@ -208,6 +208,9 @@
               <p>[TOC]</p>
 <h3 id="简介">简介</h3>
 <h3 id="reference">Reference</h3>
+<ol type="1">
+<li>Topological superconductivity and Majorana fermions in <span class="math inline">\(2 D\)</span> lattice models</li>
+</ol>
 <h2 id="模型">模型</h2>
 <p>the electrons of a 2D square lattice crystal. <span class="math display">\[
 \begin{aligned}
@@ -232,10 +235,891 @@ H &amp;=-t \sum_{\langle i, j\rangle, \sigma} c_{i, \sigma}^{\dagger} c_{j, \sig
 </ul>
 <p>This model will be used to study crystals with</p>
 <ol type="1">
-<li>periodic,</li>
+<li>periodic</li>
 <li>semi-periodic</li>
 <li>open boundaries.</li>
 </ol>
+<h3 id="real-space">real space</h3>
+<p>write the Hamiltonian in the so called Nambu basis:</p>
+<p><span class="math display">\[
+\begin{aligned}
+H &amp;=\left(\begin{array}{llll}
+c_{i \uparrow}^{\dagger} &amp; c_{i \downarrow}^{\dagger} &amp; c_{i \uparrow} &amp; c_{i \downarrow}
+\end{array}\right) H \left(\begin{array}{c}
+c_{i \uparrow} \\
+c_{i \downarrow} \\
+c_{i \uparrow}^{\dagger} \\
+c_{i \downarrow}^{\dagger}
+\end{array}\right) \\
+&amp;=\left(\begin{array}{llll}
+c_{i \uparrow}^{\dagger} &amp; c_{i \downarrow}^{\dagger} &amp; c_{i \uparrow} &amp; c_{i \downarrow}
+\end{array}\right)\left(\begin{array}{cc}
+\widehat{N} &amp; \widehat{\Delta} \\
+-\widehat{\Delta}^{*} &amp; -\hat{N}^{T}
+\end{array}\right)\left(\begin{array}{c}
+c_{i \uparrow} \\
+c_{i \downarrow} \\
+c_{i \uparrow}^{\dagger} \\
+c_{i \downarrow}^{\dagger}
+\end{array}\right)
+\end{aligned}
+\]</span> the matrix <span class="math inline">\(H\)</span> can be diagonalize, where <span class="math inline">\(U\)</span> is a unitary matrix</p>
+<p><span class="math display">\[
+\begin{aligned}
+H &amp;=\left(\begin{array}{llll}
+c_{i \uparrow}^{\dagger} &amp; c_{i \downarrow}^{\dagger} &amp; c_{i \uparrow} &amp; c_{i \downarrow}
+\end{array}\right) H \left(\begin{array}{c}
+c_{i \uparrow} \\
+c_{i \downarrow} \\
+c_{i \uparrow}^{\dagger} \\
+c_{i \downarrow}^{\dagger}
+\end{array}\right) \\
+&amp;=\left(\begin{array}{llll}
+c_{i \uparrow}^{\dagger} &amp; c_{i \downarrow}^{\dagger} &amp; c_{i \uparrow} &amp; c_{i \downarrow}
+\end{array}\right) U D U^{\dagger}\left(\begin{array}{c}
+c_{i \uparrow} \\
+c_{i \downarrow} \\
+c_{i \uparrow}^{\dagger} \\
+c_{i \downarrow}^{\dagger}
+\end{array}\right) \\
+&amp;=\left(\begin{array}{llll}
+\gamma_{n \uparrow}^{\dagger(-E)} &amp; \gamma_{n \downarrow}^{\dagger(-E)} &amp; \gamma_{n \downarrow}^{\dagger(E)} &amp; \gamma_{n \uparrow}^{(E)}
+\end{array}\right) D \left(\begin{array}{c}
+\gamma_{n \uparrow}^{(-E)} \\
+\gamma_{n \uparrow}^{(-E)} \\
+\gamma_{n \uparrow}^{(E)} \\
+\gamma_{n \uparrow}^{(E)} \\
+\gamma_{n \downarrow}^{(E)}
+\end{array}\right)
+\\&amp;=\left(\begin{array}{llll}
+\gamma_{n \uparrow}^{\dagger(-E)} &amp; \gamma_{n \downarrow}^{\dagger(-E)} &amp; \gamma_{n \downarrow}^{\dagger(E)} &amp; \gamma_{n \uparrow}^{(E)}
+\end{array}\right)\left(\begin{array}{cccc}
+-E_{\uparrow} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -E_{\downarrow} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; E_{\downarrow}^{\prime} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; E_{\uparrow}^{\prime}
+\end{array}\right)\left(\begin{array}{l}
+\gamma_{n \uparrow}^{(-E)} \\
+\gamma_{n \uparrow}^{(-E)} \\
+\gamma_{n \uparrow}^{(E)} \\
+\gamma_{n \uparrow}^{(E)} \\
+\gamma_{n \downarrow}^{(E)}
+\end{array}\right)
+\\&amp;=\sum_{n}-E_{n \uparrow} \gamma_{n \uparrow}^{\dagger(-E)} \gamma_{n \uparrow}^{(-E)}-E_{n \downarrow \gamma_{n \downarrow}}^{\dagger(-E)} \gamma_{n \downarrow}^{(-E)}+E_{n \downarrow}^{\dagger} \gamma_{n \downarrow}^{\dagger(E)} \gamma_{n \downarrow}^{(E)}+E_{n \uparrow}^{\dagger} \gamma_{n \uparrow}^{\dagger(E)} \gamma_{n \uparrow}^{(E)}
+\end{aligned}
+\]</span></p>
+<h3 id="periodic-eigenvalues">periodic: Eigenvalues</h3>
+<ol type="1">
+<li>Imposing periodic boundary conditions on the Hamiltonian in</li>
+<li>and Fourier transforming it, we obtain:</li>
+</ol>
+<p><span class="math display">\[
+H=-\sum_{ k , \sigma, \sigma^{\prime}}\left(\epsilon( k ) I _{\sigma, \sigma^{\prime}}+\gamma B \sigma_{\sigma, \sigma^{\prime}}^{(z)}- E _{s o}( k ) \cdot \sigma _{\sigma, \sigma^{\prime}}\right) c_{ k \sigma}^{\dagger} c_{ k \sigma^{\prime}}+\sum_{ k } \Delta( k ) c_{ k \uparrow}^{\dagger} c_{- k \downarrow}^{\dagger}+\Delta^{*}( k ) c_{- k \downarrow} c_{ k \uparrow}
+\]</span></p>
+<p>write the Hamiltonian as a matrix product:</p>
+<p><span class="math display">\[
+\begin{aligned}
+H&amp;=\left(\begin{array}{cc} 
+c _{ k }^{\dagger} &amp; c _{- k }
+\end{array}\right) H \left(\begin{array}{c} 
+c _{ k } \\
+c _{- k }^{\dagger}
+\end{array}\right)
+\\&amp;=\left(\begin{array}{cc} 
+c _{ k }^{\dagger} &amp; c _{- k }
+\end{array}\right)\left(\begin{array}{cc}
+\widehat{H_{0}}( k ) &amp; i \sigma_{y} \Delta \\
+-i \sigma_{y} \Delta^{*} &amp; -\widehat{H_{0}}^{T}(- k )
+\end{array}\right)\left(\begin{array}{c} 
+c _{ k } \\
+c _{- k }^{\dagger}
+\end{array}\right)
+\end{aligned}
+\]</span> The eigenvalues of the Hamiltonian, <span class="math inline">\(H\)</span>. <span class="math display">\[
+E( k )=\pm \sqrt{\epsilon( k )^{2}+|\Delta|^{2}+\gamma^{2} B^{2}+ E _{ so }( k )^{2} \pm 2 \sqrt{\epsilon( k )^{2} E _{ so }( k )^{2}+\left(\epsilon( k )^{2}+|\Delta|^{2}\right) \gamma^{2} B^{2}}}
+\]</span></p>
+<h3 id="semi-periodic">Semi-periodic:</h3>
+<p>The periodic boundary conditions enable us to write Hamiltonian in the <span class="math inline">\(\left(x, k_{y}\right)\)</span> -basis by Fourier transform in the <span class="math inline">\(y\)</span> -direction.</p>
+<ul>
+<li>impose open boundary conditions in the x-direction of the crystal</li>
+<li>but keep periodic boundary conditions in the <span class="math inline">\(y\)</span> -direction of the crystal.</li>
+</ul>
+<p>In this basis, the Hamiltonian is: <span class="math display">\[
+\begin{aligned}
+H &amp;=-t \sum_{i_{x}, \delta_{x}, k_{y}, \sigma, \sigma^{\prime}} I _{\sigma, \sigma^{\prime}}^{2 \times 2}\left(2 \cos \left(k_{y}\right) c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}, k_{y}, \sigma^{\prime}}+\left(c_{i_{x}+\delta_{x}, k_{y}, \sigma}^{\dagger}+c_{i_{x}-\delta_{x}, k_{y}, \sigma}^{\dagger}\right) c_{i_{x}, k_{y}, \sigma^{\prime}}\right) \\
+&amp;-\mu \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}} I _{\sigma, \sigma^{\prime}}^{2 \times 2} c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}, k_{y}, \sigma^{\prime}} \\
+&amp;+E_{s o} \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}, \delta_{x}}-2 \sin \left(k_{y}\right) c_{i_{x}, k_{y}, \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(x)} c_{i_{x}, k_{y}, \sigma^{\prime}}+i \sigma_{\sigma, \sigma^{\prime}}^{(y)}\left(c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}+\delta_{x}, k_{y}, \sigma^{\prime}}-h . c .\right) \\
+&amp;-\gamma B \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}} c_{i_{x}, k_{y}, \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(z)} c_{i_{x}, k_{y}, \sigma^{\prime}}+\sum_{i_{x}, k_{y}} \Delta c_{i_{x}, k_{y}, \uparrow}^{\dagger} c_{i_{x},-k_{y}, \downarrow}^{\dagger}+h . c .
+\end{aligned}
+\]</span> Due to the open boundary conditions, we cannot write the Hamiltonian purely in the <span class="math inline">\(k\)</span> -basis. Thus the previous analytical method of finding eigenvalues of <span class="math inline">\(H\)</span> cannot be applied. Instead we numerically diagonalizeto <span class="math inline">\(H\)</span> find eigenenergies.</p>
+<p><span class="math display">\[
+\begin{array}{crcrrrrr}
+0 &amp; -1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; -1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}
+\]</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210502191354790.png" srcset="/img/loading.gif" /></p>
+<p><span class="math inline">\(-2 * t * \cos ( ky ( i ))\)</span></p>
+<p>for <span class="math inline">\(-\mu \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}} I _{\sigma, \sigma^{\prime}}^{2 \times 2} c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}, k_{y}, \sigma^{\prime}}\)</span></p>
+<ul>
+<li><span class="math inline">\(\mu=1\)</span></li>
+<li><span class="math inline">\(N=2\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{rrrrrrrr}
+-4 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -4 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 4 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 4 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -2 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -2
+\end{array}
+\]</span></p>
+<p>Spin vs Bilayer</p>
+<p>[TOC]</p>
+<h2 id="spin-vs-bilayer">Spin vs Bilayer</h2>
+<h3 id="real-space-hamiltonian">Real space Hamiltonian</h3>
+<p>Hamiltonian of a 2D square lattice <span class="math display">\[
+\begin{aligned}H &amp;=-t \sum_{\langle i, j\rangle, \sigma}[ c_{i, \sigma}^{\dagger} c_{j, \sigma}+hc]-\mu \sum_{i, \sigma} c_{i, \sigma}^{\dagger} c_{i, \sigma} \\&amp;+E_{s o} \sum_{j \delta_{x} \delta_{y}} \sum_{\sigma, \sigma^{\prime}} i\left(c_{j \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(x)} c_{j+\delta_{y} \sigma^{\prime}}-c_{j \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(y)} c_{j+\delta_{x} \sigma^{\prime}}+\text {h.c.}\right) \\&amp;-\gamma B \sum_{i, \sigma, \sigma^{\prime}} \sigma_{\sigma, \sigma^{\prime}}^{(z)} c_{i \sigma}^{\dagger} c_{i \sigma^{\prime}}+\sum_{i} \Delta c_{i \uparrow}^{\dagger} c_{i \downarrow}^{\dagger}+\Delta^{*} c_{i \downarrow} c_{i \uparrow}\end{aligned}
+\]</span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(t\)</span>: hopping between nearest neighbors</li>
+<li><span class="math inline">\(\mu\)</span>: chemical potential</li>
+<li><span class="math inline">\(E_{s o}\)</span>: Rashba spin-orbit coupling</li>
+<li><span class="math inline">\(\delta_{x}\)</span>: the lattice spacing in the <span class="math inline">\(x\)</span>-direction</li>
+<li><span class="math inline">\(\gamma B\)</span>: Zeeman effect</li>
+<li><span class="math inline">\(\sigma=(\uparrow, \downarrow)\)</span>: Spin</li>
+</ul>
+<h3 id="bdg-hamiltonian">BdG Hamiltonian</h3>
+<ul>
+<li>spin</li>
+</ul>
+<p><span class="math display">\[
+\left(\begin{array}{cccc}\xi(\mathbf{k})-\gamma B &amp; E_{s o} &amp; 0 &amp; \Delta(\mathbf{k}) \\E_{s o} &amp; \xi(\mathbf{k})+\gamma B &amp; -\Delta(-\mathbf{k}) &amp; 0 \\0 &amp; -\Delta^{*}(-\mathbf{k}) &amp; -\xi(\mathbf{k})+\gamma B &amp; -E_{s o} \\\Delta^{*}(\mathbf{k}) &amp; 0 &amp; -E_{s o} &amp; -\xi(\mathbf{k})-\gamma B\end{array}\right)
+\]</span></p>
+<ul>
+<li>bilayer</li>
+</ul>
+<p><span class="math display">\[
+\left(\begin{array}{cccc}\xi_{k} &amp; -t_{z} &amp; 2 \Delta_{p \uparrow}^{*} &amp; \Delta_{s}^{*} \\-t_{z} &amp; \xi_{k} &amp; -\Delta_{s}^{*} &amp; 2 \Delta_{p \downarrow}^{*} \\2 \Delta_{p \uparrow} &amp; -\Delta_{s} &amp; -\xi_{k} &amp; t_{z} \\\Delta_{s} &amp; 2 \Delta_{p \downarrow} &amp; t_{z} &amp; -\xi_{k}\end{array}\right)
+\]</span></p>
+<h3 id="semi-obc">semi-OBC</h3>
+<p>Fourier transform y-direction</p>
+<ul>
+<li>spin</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}H &amp;=-t \sum_{i_{x}, \delta_{x}, k_{y}, \sigma, \sigma^{\prime}} \mathbb{I}_{\sigma, \sigma^{\prime}}^{2 \times 2}\left(2 \cos \left(k_{y}\right) c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}, k_{y}, \sigma^{\prime}}+\left(c_{i_{x}+\delta_{x}, k_{y}, \sigma}^{\dagger}+c_{i_{x}-\delta_{x}, k_{y}, \sigma}^{\dagger}\right) c_{i_{x}, k_{y}, \sigma^{\prime}}\right) \\&amp;-\mu \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}} \mathbb{I}_{\sigma, \sigma^{\prime}}^{2 \times 2} c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}, k_{y}, \sigma^{\prime}} \\&amp;+E_{s o} \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}, \delta_{x}}-2 \sin \left(k_{y}\right) c_{i_{x}, k_{y}, \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(x)} c_{i_{x}, k_{y}, \sigma^{\prime}}+i \sigma_{\sigma, \sigma^{\prime}}^{(y)}\left(c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}+\delta_{x}, k_{y}, \sigma^{\prime}}-h . c_{\cdot}\right) \\&amp;-\gamma B \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}} c_{i_{x}, k_{y}, \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(z)} c_{i_{x}, k_{y}, \sigma^{\prime}}+\sum_{i_{x}, k_{y}} \Delta c_{i_{x}, k_{y}, \uparrow}^{\dagger} c_{i_{x},-k_{y}, \downarrow}^{\dagger}+h . c .\end{aligned}
+\]</span></p>
+<p>re-range <span class="math display">\[
+\begin{aligned}H =&amp;[-\mu-2 t\cos \left(k_{y}\right)-\gamma B ] \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}} \mathbb{I}_{\sigma, \sigma^{\prime}}^{2 \times 2} c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}, k_{y}, \sigma^{\prime}} \\&amp;-t \sum_{i_{x}, \delta_{x}, k_{y}, \sigma, \sigma^{\prime}} \mathbb{I}_{\sigma, \sigma^{\prime}}^{2 \times 2}\left( c_{i_{x}+\delta_{x}, k_{y}, \sigma}^{\dagger}c_{i_{x}, k_{y}, \sigma^{\prime}}+c_{i_{x}-\delta_{x}, k_{y}, \sigma}^{\dagger}c_{i_{x}, k_{y}, \sigma^{\prime}}\right)   \\&amp; +\sum_{i_{x}, k_{y}} \Delta_s c_{i_{x}, k_{y}, \uparrow}^{\dagger} c_{i_{x},-k_{y}, \downarrow}^{\dagger}+h . c .\\&amp;+E_{s o} \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}, }-2 \sin \left(k_{y}\right) c_{i_{x}, k_{y}, \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(x)} c_{i_{x}, k_{y}, \sigma^{\prime}} \\&amp;+E_{s o} \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}, \delta_{x}}i \sigma_{\sigma, \sigma^{\prime}}^{(y)}\left(c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}+\delta_{x}, k_{y}, \sigma^{\prime}}-h . c_{\cdot}\right) \end{aligned}
+\]</span></p>
+<ul>
+<li>bilayer</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}H_{k_{y}}=&amp;\sum_{x, \sigma=\uparrow, \downarrow}\left[\left(-\mu-2 t \cos k_{y}\right) c_{x, k_{y}, \sigma}^{\dagger} c_{x, k_{y}, \sigma}\right. \\&amp;-t c_{x, k_{y}, \sigma}^{\dagger} c_{x+1, k_{y}, \sigma}+e^{i \phi_{\sigma}} \Delta_{p} c_{x, k_{y}, \sigma}^{\dagger} c_{x+1,-k_{y}, \sigma}^{\dagger} \\&amp;\left.+i e^{i \alpha_{\sigma}} e^{i \phi_{\sigma}} \Delta_{p} e^{i k_{y}} c_{x, k_{y}, \sigma}^{\dagger} c_{x,-k_{y}, \sigma}^{\dagger}+h . c .\right] \\&amp;+\sum_{x}\left[-t_{z} c_{x, k_{y}, \uparrow}^{\dagger} c_{x, k_{y}, \downarrow}+\Delta_{s} c_{x, k_{y}, \uparrow}^{\dagger} c_{x,-k_{y}, \downarrow}^{\dagger}+\text {h.c.}\right]\end{aligned}
+\]</span></p>
+<h3 id="comparison">comparison</h3>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 27%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>spin</th>
+<th>bilayer</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\left[-\mu-2 t \cos \left(k_{y}\right)-\gamma B\right]\)</span></td>
+<td><span class="math inline">\(\left(-\mu-2 t \cos k_{y}\right)\)</span></td>
+<td style="text-align: left;">Zeeman as tunable <span class="math inline">\(\mu\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(-t\)</span></td>
+<td><span class="math inline">\(-t\)</span></td>
+<td style="text-align: left;">hopping</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\Delta_{s}\)</span></td>
+<td><span class="math inline">\(\Delta_{s}\)</span></td>
+<td style="text-align: left;">s-wave</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(E_{s o}\)</span></td>
+<td><span class="math inline">\(-t_{z}\)</span></td>
+<td style="text-align: left;">spin-orbit as hopping interlayer</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(E_{s o}(k_y)\)</span></td>
+<td>??</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td>??</td>
+<td><span class="math inline">\(\Delta_{p}(k_y)\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>gap form
+<ul>
+<li><span class="math inline">\(\Delta_{s}=\left[\gamma_{0}^{s}+\gamma_{1}^{s}\left(\cos k _{x}+\cos k _{y}\right)\right]\)</span></li>
+<li><span class="math inline">\(\Delta_{p, \uparrow}=2 i e^{i \phi_{\uparrow}}\left|\Delta_{p}\right|\left(\sin k_{x}+i \sin k_{y}\right)\)</span></li>
+<li><span class="math inline">\(\Delta_{p, \downarrow}=2 i e^{i \phi_{\downarrow}}\left|\Delta_{p}\right|\left(\sin k_{x}+i e^{i \alpha} \sin k_{y}\right)\)</span></li>
+</ul></li>
+</ul>
+<h2 id="properties-of-spin-system">Properties of Spin System</h2>
+<p>The eigenvalues of the BdG Hamiltonian of Spin System <span class="math display">\[
+E(\mathbf{k})=\pm \sqrt{\xi(\mathbf{k})^{2}+|\Delta|^{2}+\gamma^{2} B^{2}+\mathbf{E}_{\mathbf{s o}}(\mathbf{k})^{2} \pm 2 \sqrt{\xi(\mathbf{k})^{2} \mathbf{E}_{\mathbf{s o}}(\mathbf{k})^{2}+\left(\xi(\mathbf{k})^{2}+|\Delta|^{2}\right) \gamma^{2} B^{2}}}
+\]</span> Bilayer System (Symmetric case) <span class="math display">\[
+E_{ka}=\pm\sqrt{\gamma_{p}^2(  \sin^{2} k_x +  \sin^{2} k_y )+\xi_{\mathrm{k}}^{2}+t_{z}^{2}+\left|\Delta_{s}\right|^{2}\pm 2 \sqrt{\xi_{\mathbf{k}}^{2} t_{z}^{2}+t_{z}^{2} \Delta_{s}^{2}+4|\gamma_{p}|^{2}\left(\sin k_{x}\right)^{2} \Delta_{s}^{2}}}
+\]</span></p>
+<h3 id="zero-condition">zero condition</h3>
+<p>conditions for zero energy eigenvalues <span class="math inline">\(E(\mathbf{k})=0\)</span> <span class="math display">\[
+\xi(\mathbf{k})^{2}+|\Delta|^{2}+\gamma^{2} B^{2}+\mathbf{E}_{\mathbf{s o}}(\mathbf{k})^{2} \pm 2 \sqrt{\xi(\mathbf{k})^{2} \mathbf{E}_{\mathbf{s o}}(\mathbf{k})^{2}+\left(\xi(\mathbf{k})^{2}+|\Delta|^{2}\right) \gamma^{2} B^{2}}
+\]</span> only if <span class="math display">\[
+\begin{array}{l}
+\xi(\mathbf{k})^{2}+|\Delta|^{2}=\gamma^{2} B^{2}+\mathbf{E}_{\mathbf{s o}}(\mathbf{k})^{2} \\
+|\Delta|^{2} \mathbf{E}_{\mathbf{s o}}(\mathbf{k})^{2}=0
+\end{array}
+\]</span> the second one: s-wvae gap is assumed constant and non-zero, therefore only if <span class="math inline">\(\mathbf{E}_{\mathbf{s o}}(\mathbf{k})=0\)</span></p>
+<ul>
+<li><span class="math inline">\(E_{s o}\left(\sin \left(k_{y}\right)-i \sin \left(k_{x}\right)\right)=0\)</span></li>
+<li><span class="math inline">\(E_{s o}\left(\sin \left(k_{y}\right)+i \sin \left(k_{x}\right)\right)=0\)</span></li>
+</ul>
+<p>Thus <span class="math display">\[
+\mathbf{k}=(0,0),(0, \pi),(\pi, 0),(\pi, \pi)
+\]</span> where <span class="math inline">\(\xi(k)=-2 t\left(\cos \left(k_{x}\right)+\cos \left(k_{y}\right)\right)-\mu\)</span> become</p>
+<ul>
+<li><span class="math inline">\(\mathbf{k}=(0,0)\)</span>: <span class="math inline">\(\xi(k)=-(4 t+\mu)\)</span></li>
+<li><span class="math inline">\(\mathbf{k}=(\pi, \pi)\)</span>: <span class="math inline">\(\xi(k)=(4 t-\mu)\)</span></li>
+<li><span class="math inline">\(\mathbf{k}=(0, \pi),(\pi, 0)\)</span>: $(k)= -$</li>
+</ul>
+<p>first condition become <span class="math display">\[
+\begin{array}{ll}
+(4 t+\mu)^{2}+|\Delta|^{2}=\gamma^{2} B^{2}, &amp; \mathbf{k}=(0,0) \\
+\mu^{2}+|\Delta|^{2}=\gamma^{2} B^{2}, &amp; \mathbf{k}=(0, \pi),(\pi, 0) \\
+(4 t-\mu)^{2}+|\Delta|^{2}=\gamma^{2} B^{2}, &amp; \mathbf{k}=(\pi, \pi)
+\end{array}
+\]</span> there are three bulk-<strong>gap closings</strong> <span class="math display">\[
+\mu \leq-2 t, \quad-2 t&lt;\mu \leq 0 \quad 0&lt;\mu \leq 2 t, \quad 2 t&lt;\mu
+\]</span> Parameter values:</p>
+<ul>
+<li><span class="math inline">\(t=1\)</span></li>
+<li><span class="math inline">\(\mu=-2.5\)</span></li>
+<li><span class="math inline">\(E_{s o}=0.75\)</span></li>
+<li><span class="math inline">\(\Delta=1\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{c}
+(4 t+\mu)^{2}+|\Delta|^{2}=1.80^{2} \\
+\mu^{2}+|\Delta|^{2}=2.7^{2} \\
+(4 t-\mu)^{2}+|\Delta|^{2}=6.58^{2}
+\end{array}
+\]</span></p>
+<h3 id="edge-in-bands">edge in bands</h3>
+<h2 id="correspondence-trying">Correspondence Trying</h2>
+<blockquote>
+<p>what if <span class="math inline">\(E_{s o}\left(k_{y}\right)\)</span> corresponding to <span class="math inline">\(\Delta_{p}\left(k_{y}\right)\)</span>?</p>
+</blockquote>
+<p>increase $$</p>
+<p>other parameters various were also calculate. But there is no need show here because it since no contribute to our paper.</p>
+<p>2D Spin Topological Superconductor</p>
+<p>Bulk State</p>
+<ul>
+<li>Real space Hamiltonian</li>
+<li>Fourier transforming into Momentum space</li>
+<li>BdG formalism Matrix</li>
+<li>Dispersion: Eigenvalues of BdG Matrix</li>
+<li>zero-energy condition of Dispersion</li>
+</ul>
+<p>Edge State</p>
+<ul>
+<li>Real space Hamiltonian</li>
+<li>Fourier transforming only one direction, for example: y-direction</li>
+<li>Matrix</li>
+<li>sites</li>
+</ul>
+<p>[TOC]</p>
+<h2 id="edge-state">Edge State</h2>
+<h3 id="real-space-hamiltonian-1">Real space Hamiltonian</h3>
+<p>Hamiltonian of a 2D square lattice <span class="math display">\[
+\begin{aligned}
+H &amp;=-t \sum_{\langle i, j\rangle, \sigma}[ c_{i, \sigma}^{\dagger} c_{j, \sigma}+hc]-\mu \sum_{i, \sigma} c_{i, \sigma}^{\dagger} c_{i, \sigma} \\
+&amp;+E_{s o} \sum_{j \delta_{x} \delta_{y}} \sum_{\sigma, \sigma^{\prime}} i\left(c_{j \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(x)} c_{j+\delta_{y} \sigma^{\prime}}-c_{j \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(y)} c_{j+\delta_{x} \sigma^{\prime}}+\text {h.c.}\right) \\
+&amp;-\gamma B \sum_{i, \sigma, \sigma^{\prime}} \sigma_{\sigma, \sigma^{\prime}}^{(z)} c_{i \sigma}^{\dagger} c_{i \sigma^{\prime}}+\sum_{i} \Delta c_{i \uparrow}^{\dagger} c_{i \downarrow}^{\dagger}+\Delta^{*} c_{i \downarrow} c_{i \uparrow}
+\end{aligned}
+\]</span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(t\)</span>: hopping between nearest neighbors</li>
+<li><span class="math inline">\(\mu\)</span>: chemical potential</li>
+<li><span class="math inline">\(E_{s o}\)</span>: Rashba spin-orbit coupling</li>
+<li><span class="math inline">\(\delta_{x}\)</span>: the lattice spacing in the <span class="math inline">\(x\)</span>-direction</li>
+<li><span class="math inline">\(\gamma B\)</span>: Zeeman effect</li>
+<li><span class="math inline">\(\sigma=(\uparrow, \downarrow)\)</span>: Spin</li>
+</ul>
+<p>Fourier transform y-direction into <span class="math display">\[
+\begin{aligned}
+H &amp;=-t \sum_{i_{x}, \delta_{x}, k_{y}, \sigma, \sigma^{\prime}} \mathbb{I}_{\sigma, \sigma^{\prime}}^{2 \times 2}\left(2 \cos \left(k_{y}\right) c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}, k_{y}, \sigma^{\prime}}+\left(c_{i_{x}+\delta_{x}, k_{y}, \sigma}^{\dagger}+c_{i_{x}-\delta_{x}, k_{y}, \sigma}^{\dagger}\right) c_{i_{x}, k_{y}, \sigma^{\prime}}\right) \\
+&amp;-\mu \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}} \mathbb{I}_{\sigma, \sigma^{\prime}}^{2 \times 2} c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}, k_{y}, \sigma^{\prime}} \\
+&amp;+E_{s o} \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}, \delta_{x}}-2 \sin \left(k_{y}\right) c_{i_{x}, k_{y}, \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(x)} c_{i_{x}, k_{y}, \sigma^{\prime}}+i \sigma_{\sigma, \sigma^{\prime}}^{(y)}\left(c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}+\delta_{x}, k_{y}, \sigma^{\prime}}-h . c_{\cdot}\right) \\
+&amp;-\gamma B \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}} c_{i_{x}, k_{y}, \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(z)} c_{i_{x}, k_{y}, \sigma^{\prime}}+\sum_{i_{x}, k_{y}} \Delta c_{i_{x}, k_{y}, \uparrow}^{\dagger} c_{i_{x},-k_{y}, \downarrow}^{\dagger}+h . c .
+\end{aligned}
+\]</span> re-range $$ \begin{aligned} H =&amp;[--2 t(k_{y})-B ] <em>{i</em>{x}, k_{y}, , ^{}} <em>{, <sup>{}}</sup>{2 2} c</em>{i_{x}, k_{y}, }^{} c_{i_{x}, k_{y}, ^{}} \ &amp;-t <em>{i</em>{x}, <em>{x}, k</em>{y}, , ^{}} <em>{, <sup>{}}</sup>{2 2}( c</em>{i_{x}+<em>{x}, k</em>{y}, }^{}c_{i_{x}, k_{y}, ^{}}+c_{i_{x}-<em>{x}, k</em>{y}, }^{}c_{i_{x}, k_{y}, ^{}}) \</p>
+<p>&amp; +<em>{i</em>{x}, k_{y}} <em>s c</em>{i_{x}, k_{y}, }^{} c_{i_{x},-k_{y}, }^{}+h . c .\ &amp;+E_{s o} <em>{i</em>{x}, k_{y}, , ^{}, }-2 (k_{y}) c_{i_{x}, k_{y}, }^{} <em>{, <sup>{}}</sup>{(x)} c</em>{i_{x}, k_{y}, ^{}} \ &amp;+E_{s o} <em>{i</em>{x}, k_{y}, , ^{}, <em>{x}}i </em>{, <sup>{}}</sup>{(y)}(c_{i_{x}, k_{y}, }^{} c_{i_{x}+<em>{x}, k</em>{y}, ^{}}-h . c_{}) \end{aligned} $$ <span class="math inline">\(N\)</span> sites on each edge, resulting in <span class="math inline">\(N^{2}\)</span> sites lattice. OPC Hamiltonian therefore is a <span class="math inline">\(4N\times 4N\)</span> matrix</p>
+<pre><code class="hljs matlab">N=<span class="hljs-number">30</span>;
+Ny=N;
+<span class="hljs-comment">%哈密顿量矩阵，然后填充数值</span>
+A=<span class="hljs-built_in">zeros</span>(<span class="hljs-number">4</span>*N,<span class="hljs-number">4</span>*N,N);
+<span class="hljs-comment">% y方向是动量空间，所以用动量ky来表示</span>
+<span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:Ny
+    ky(<span class="hljs-built_in">i</span>)=-<span class="hljs-built_in">pi</span>+<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>/Ny*<span class="hljs-built_in">i</span>;
+<span class="hljs-keyword">end</span></code></pre>
+<p><span class="math inline">\(ky=[0;1\cdot\frac{2\pi}{N};2\cdot\frac{2\pi}{N};3\cdot\frac{2\pi}{N}\cdots \cdots (N-1)\cdot\frac{2\pi}{N}]\)</span></p>
+<h4 id="hopping">hopping</h4>
+<p><span class="math inline">\(-t \sum_{i_{x}, \delta_{x}, k_{y}, \sigma, \sigma^{\prime}} \mathbb{I}_{\sigma, \sigma^{\prime}}^{2 \times 2}\left[\left(c_{i_{x}+\delta_{x}, k_{y}, \sigma}^{\dagger}+c_{i_{x}-\delta_{x}, k_{y}, \sigma}^{\dagger}\right) c_{i_{x}, k_{y}, \sigma^{\prime}}\right]\)</span> <span class="math display">\[
+\left(\begin{array}{ccccccccc}
+0 &amp; -t &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+-t &amp; 0 &amp; -t &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -t &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0&amp; 0 &amp; -t &amp; 0 &amp; -t &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp;0 &amp; 0 &amp; -t &amp; 0 &amp; -t &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; -t &amp; 0 &amp; -t &amp; 0 &amp;0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -t &amp; 0 &amp; -t &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp;0 &amp; 0 &amp; -t &amp; 0 &amp; -t \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -t &amp; 0
+\end{array}\right)
+\]</span></p>
+<ul>
+<li>（第1行第2个）和（第N行第N-1个） 不能参与循环，所以单独输入</li>
+<li>用方式 'A(k+1,k,i)=A(k+1,k,i)-t;' 可以在原来元素的基础上添加</li>
+</ul>
+<pre><code class="hljs matlab"><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:Ny
+    A(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)-t;  
+    A(N,N<span class="hljs-number">-1</span>,<span class="hljs-built_in">i</span>)=A(N,N<span class="hljs-number">-1</span>,<span class="hljs-built_in">i</span>)-t;
+    <span class="hljs-comment">%A(1,N,i)=A(1,N,i)-t;</span>
+    <span class="hljs-comment">%A(N,1,i)=A(N,1,i)-t;</span>
+    
+    <span class="hljs-keyword">for</span> k=<span class="hljs-number">1</span>:N<span class="hljs-number">-2</span>
+        A(k+<span class="hljs-number">1</span>,k,<span class="hljs-built_in">i</span>)=A(k+<span class="hljs-number">1</span>,k,<span class="hljs-built_in">i</span>)-t;
+        A(k+<span class="hljs-number">1</span>,k+<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)=A(k+<span class="hljs-number">1</span>,k+<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)-t;
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span></code></pre>
+<h4 id="on-site">on site</h4>
+<p><span class="math inline">\(-2t \cos \left(k_{y}\right) c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}, k_{y}, \sigma^{\prime}}\)</span> <span class="math display">\[
+\left(\begin{array}{ccccccccc}
+-2t \cos \left(k_{y}\right) &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -2t \cos \left(k_{y}\right) &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; -2t \cos \left(k_{y}\right) &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0&amp; 0 &amp; 0 &amp; -2t \cos \left(k_{y}\right) &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp;0 &amp; 0 &amp; 0 &amp; -2t \cos \left(k_{y}\right) &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -2t \cos \left(k_{y}\right) &amp; 0 &amp; 0 &amp;0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -2t \cos \left(k_{y}\right) &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp;0 &amp; 0 &amp; 0 &amp; -2t \cos \left(k_{y}\right) &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -2t \cos \left(k_{y}\right)
+\end{array}\right)
+\]</span></p>
+<pre><code class="hljs matlab"><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:Ny
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N
+        A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)<span class="hljs-number">-2</span>*t*<span class="hljs-built_in">cos</span>(ky(<span class="hljs-built_in">i</span>));
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span></code></pre>
+<ul>
+<li>一开始设矩阵的时候不是 A=zeros(4N,4N); 而是A=zeros(4N,4N,N)</li>
+<li>预留的一个维度是给 <span class="math inline">\(k_{y}\)</span> 动量的</li>
+</ul>
+<h4 id="chemistry-potential">chemistry potential</h4>
+<p><span class="math inline">\(-\mu \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}} \mathbb{I}_{\sigma, \sigma^{\prime}}^{2 \times 2} c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}, k_{y}, \sigma^{\prime}}\)</span> <span class="math display">\[
+\left(\begin{array}{ccccccccc}
+-\mu &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -\mu &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; -\mu &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0&amp; 0 &amp; 0 &amp; -\mu &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp;0 &amp; 0 &amp; 0 &amp; -\mu &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -\mu &amp; 0 &amp; 0 &amp;0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -\mu &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp;0 &amp; 0 &amp; 0 &amp; -\mu &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -\mu
+\end{array}\right)
+\]</span></p>
+<pre><code class="hljs matlab"><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:Ny
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N
+        A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)-u;
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span></code></pre>
+<ul>
+<li>其实和 on site 是一样的位置</li>
+</ul>
+<h4 id="quadrant">(1,4) quadrant</h4>
+<p><span class="math display">\[
+H=\left(\begin{array}{cccc}
+c_{i \uparrow}^{\dagger} &amp; c_{i \downarrow}^{\dagger} &amp; c_{i \uparrow} &amp; c_{i \downarrow}
+\end{array}\right)\left(\begin{array}{cc}
+\widehat{N} &amp; \widehat{\Delta} \\
+-\widehat{\Delta}^{*} &amp; -\widehat{N}^{T}
+\end{array}\right)\left(\begin{array}{c}
+c_{i \uparrow} \\
+c_{i \downarrow} \\
+c_{i \uparrow}^{\dagger} \\
+c_{i \downarrow}^{\dagger}
+\end{array}\right)
+\]</span></p>
+<p>其中 <span class="math display">\[
+\left(\begin{array}{cc}
+\widehat{N} &amp; \widehat{\Delta} \\
+-\widehat{\Delta}^{*} &amp; -\hat{N}^{T}
+\end{array}\right) \Rightarrow \widehat{N}=\left(\begin{array}{c|c}
+N_{-(t+\mu)} &amp; N_{s o} \\
+\hline\left(N_{s o}\right)^{*} &amp; N_{-(t+\mu)}
+\end{array}\right)
+\]</span> 我们构建了 <span class="math inline">\(N\times N\)</span> 的矩阵，只是矩阵的 1/8.。接下来把这个 <span class="math inline">\(N\times N\)</span> 矩阵复制到 2/8 处。</p>
+<pre><code class="hljs matlab"><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:Ny
+    <span class="hljs-keyword">for</span> k=<span class="hljs-number">1</span>:N
+        <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N
+        A(k+N,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)=A(k,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>);
+    	<span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span></code></pre>
+<h4 id="zeeman">Zeeman</h4>
+<p><span class="math inline">\(-\gamma B \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}} c_{i_{x}, k_{y}, \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(z)} c_{i_{x}, k_{y}, \sigma^{\prime}}+\sum_{i_{x}, k_{y}} \Delta c_{i_{x}, k_{y}, \uparrow}^{\dagger} c_{i_{x},-k_{y}, \downarrow}^{\dagger}+h . c .\)</span></p>
+<pre><code class="hljs matlab"><span class="hljs-comment">%z: Zeemann parameter</span>
+<span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:Ny
+   <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N
+       A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)-z;
+       A(<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)+z;
+   <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span></code></pre>
+<ul>
+<li><span class="math inline">\(N\times N\)</span> 矩阵对角的地方 <span class="math inline">\(-\gamma B\)</span></li>
+<li>拓展到 <span class="math inline">\(2N\times 2N\)</span> 矩阵 的是 <span class="math inline">\(+\gamma B\)</span></li>
+</ul>
+<p>我们可以小结一下在对角线上的元素 <span class="math display">\[
+\left(\begin{array}{cccc}
+-2 t\cos \left(k_{y}\right)-\mu-\gamma B &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \ddots &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; -2 t\cos \left(k_{y}\right)-\mu+\gamma B &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; \ddots
+\end{array}\right)
+\]</span></p>
+<h4 id="rashba-so">Rashba SO</h4>
+<p><span class="math inline">\(E_{s o} \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}, \delta_{x}}i \sigma_{\sigma, \sigma^{\prime}}^{(y)}\left(c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}+\delta_{x}, k_{y}, \sigma^{\prime}}-h . c .\right)\)</span> <span class="math display">\[
+\left(\begin{array}{c|c}
+N_{-(t+\mu)} &amp; N_{s o} \\
+\hline\left(N_{s o}\right)^{*} &amp; N_{-(t+\mu)}
+\end{array}\right)
+\]</span></p>
+<ul>
+<li>左侧第2个矩阵，所以+N平移过去</li>
+</ul>
+<p><span class="math display">\[
+\left(\begin{array}{ccccccccc}
+0 &amp; E_{s o} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+-E_{s o} &amp; 0 &amp; E_{s o} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; -E_{s o} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0&amp; 0 &amp; -E_{s o} &amp; 0 &amp; E_{s o} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp;0 &amp; 0 &amp; -E_{s o} &amp; 0 &amp; E_{s o} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; -E_{s o} &amp; 0 &amp; E_{s o} &amp; 0 &amp;0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -E_{s o} &amp; 0 &amp; E_{s o} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp;0 &amp; 0 &amp; -E_{s o} &amp; 0 &amp; E_{s o} \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -E_{s o} &amp; 0
+\end{array}\right)
+\]</span></p>
+<ul>
+<li>矩阵左上，右下，不能循环赋值，就手动补值</li>
+<li>下侧第2个矩阵，所以+N平移过去</li>
+</ul>
+<pre><code class="hljs matlab"><span class="hljs-comment">%ts: Rashba parameter</span>
+<span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:Ny
+	A(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>+N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>+N,<span class="hljs-built_in">i</span>)+ts;
+    <span class="hljs-comment">%A(1,2*N,i)=A(1,2*N,i)-ts; %</span>
+    
+    A(<span class="hljs-number">1</span>+N,<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-number">1</span>+N,<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)-ts;
+    <span class="hljs-comment">%A(1+N,N,i)=A(1+N,N,i)+ts;%</span>
+    
+    A(N,N<span class="hljs-number">-1</span>+N,<span class="hljs-built_in">i</span>)=A(N,N<span class="hljs-number">-1</span>+N,<span class="hljs-built_in">i</span>)-ts;
+    <span class="hljs-comment">%A(N,1+N,i)=A(N,1+N,i)+ts;%</span>
+    
+    A(N+N,N<span class="hljs-number">-1</span>,<span class="hljs-built_in">i</span>)=A(N+N,N<span class="hljs-number">-1</span>,<span class="hljs-built_in">i</span>)+ts;
+    <span class="hljs-comment">%A(N+N,1,i)=A(N+N,1,i)-ts;%</span>
+    
+    
+   <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N<span class="hljs-number">-2</span>
+       A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>+N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>+N,<span class="hljs-built_in">i</span>)+ts;
+       A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>+N,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>+N,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)-ts;
+       A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)-ts;
+       A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>+N,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>+N,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)+ts;
+   <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span></code></pre>
+<h4 id="quadrant-1">(4)-quadrant</h4>
+<p><span class="math display">\[
+\left(\begin{array}{cc}
+\widehat{N} &amp; \widehat{\Delta} \\
+-\widehat{\Delta}^{*} &amp; -\hat{N}^{T}
+\end{array}\right) \Rightarrow \widehat{N}=\left(\begin{array}{c|c}
+N_{-(t+\mu)} &amp; N_{s o} \\
+\hline\left(N_{s o}\right)^{*} &amp; N_{-(t+\mu)}
+\end{array}\right)
+\]</span></p>
+<pre><code class="hljs matlab"><span class="hljs-comment">%(4)-quadrant</span>
+ <span class="hljs-keyword">for</span> k=<span class="hljs-number">1</span>:<span class="hljs-number">2</span>*N
+     <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:<span class="hljs-number">2</span>*N
+         A(k+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">i</span>)=-A(<span class="hljs-built_in">j</span>,k,<span class="hljs-built_in">i</span>);
+     <span class="hljs-keyword">end</span>
+ <span class="hljs-keyword">end</span></code></pre>
+<p>左上 1/4 的两个矩阵，复制到右下，转置取负</p>
+<h4 id="rashba-sok-dependence">Rashba SO（k-dependence）</h4>
+<p><span class="math inline">\(E_{s o} \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}, \delta_{x}}-2 \sin \left(k_{y}\right) c_{i_{x}, k_{y}, \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(x)} c_{i_{x}, k_{y}, \sigma^{\prime}}\)</span></p>
+<pre><code class="hljs matlab"><span class="hljs-comment">%ts: Rashba parameter</span>
+<span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:Ny
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N
+        A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)<span class="hljs-number">-2</span>*ts*<span class="hljs-built_in">sin</span>(ky(<span class="hljs-built_in">i</span>));
+        A(<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)<span class="hljs-number">-2</span>*ts*<span class="hljs-built_in">sin</span>(ky(<span class="hljs-built_in">i</span>));
+        A(<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">j</span>+N+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">j</span>+N+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">i</span>)+<span class="hljs-number">2</span>*ts*<span class="hljs-built_in">sin</span>(-ky(<span class="hljs-built_in">i</span>));
+        A(<span class="hljs-built_in">j</span>+N+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+N+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">i</span>)+<span class="hljs-number">2</span>*ts*<span class="hljs-built_in">sin</span>(-ky(<span class="hljs-built_in">i</span>));
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span></code></pre>
+<ul>
+<li>在（1/4; 2/4）矩阵的对角线上</li>
+<li>在（2/4; 1/4）矩阵的对角线上</li>
+</ul>
+<p><span class="math display">\[
+\left(\begin{array}{cccc}
+0  &amp; 0 &amp; -2 E_{s o}\sin \left(k_{y}\right) &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; \ddots \\
+-2 E_{s o}\sin \left(k_{y}\right) &amp; 0 &amp;  0  &amp; 0\\
+0 &amp; \ddots &amp; 0 &amp; 0
+\end{array}\right)
+\]</span></p>
+<ul>
+<li>复制到（3/4; 4/4）矩阵的对角线上</li>
+<li>复制到（4/4; 3/4）矩阵的对角线上</li>
+</ul>
+<p><span class="math display">\[
+\left(\begin{array}{cccc}
+0  &amp; 0 &amp; 2 E_{s o}\sin \left(-k_{y}\right) &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; \ddots \\
+2 E_{s o}\sin \left(-k_{y}\right) &amp; 0 &amp;  0  &amp; 0\\
+0 &amp; \ddots &amp; 0 &amp; 0
+\end{array}\right)
+\]</span></p>
+<h4 id="superconductor-gap">superconductor gap</h4>
+<p><span class="math display">\[
+\left(\begin{array}{cc}
+\widehat{N} &amp; \widehat{\Delta} \\
+-\widehat{\Delta}^{*} &amp; -\hat{N}^{T}
+\end{array}\right) \Rightarrow \widehat{\Delta}=\left(\begin{array}{c|c}
+0 &amp; \Delta \\
+\hline-\Delta &amp; 0
+\end{array}\right)
+\]</span></p>
+<ul>
+<li>与对角线交叉对称的线</li>
+</ul>
+<p><span class="math display">\[
+\widehat{\Delta}=
+\left(\begin{array}{cccc}
+0 &amp; 0 &amp; 0 &amp; \Delta  \\
+0 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; -\Delta^{*}  &amp; 0 &amp; 0 \\
+\cdots &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)
+\]</span></p>
+<pre><code class="hljs matlab"><span class="hljs-comment">%s and p: the superconducting gap and its conjugate</span>
+<span class="hljs-comment">%c1 and c2: the real and imaginary parts of the superconducting gap</span>
+<span class="hljs-comment">%V: The squared modulus of the superconducting gap</span>
+<span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:Ny
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N
+       A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>+<span class="hljs-number">3</span>*N,<span class="hljs-built_in">i</span>)=-s;<span class="hljs-comment">%+A(j,j+3*N,i);</span>
+       A(<span class="hljs-built_in">j</span>+<span class="hljs-number">3</span>*N,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)=-p;<span class="hljs-comment">%A(j+3*N,j,i);</span>
+       A(<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">i</span>)=s;<span class="hljs-comment">%A(j+N,j+2*N,i);</span>
+       A(<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)=p;<span class="hljs-comment">%A(j+2*N,j+N,i);</span>
+    <span class="hljs-keyword">end</span> 
+<span class="hljs-keyword">end</span></code></pre>
+<h3 id="diagonalization">Diagonalization</h3>
+<pre><code class="hljs matlab"><span class="hljs-comment">%E是本征值向量</span>
+<span class="hljs-comment">%c1 and c2: the real and imaginary parts of the superconducting gap</span>
+<span class="hljs-comment">%V: The squared modulus of the superconducting gap</span>
+<span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:Ny
+	E(<span class="hljs-built_in">i</span>,:,<span class="hljs-number">1</span>)=eig(A(:,:,<span class="hljs-built_in">i</span>));
+    [E1(:,:,<span class="hljs-built_in">i</span>),B(:,:,<span class="hljs-built_in">i</span>)]=eig(A(:,:,<span class="hljs-built_in">i</span>));
+<span class="hljs-keyword">end</span></code></pre>
+<h4 id="figure">figure</h4>
+<h4 id="代码集合">代码集合</h4>
+<pre><code class="hljs matlab"><span class="hljs-comment">%Constructing 2D Hamiltonian </span>
+clear all
+close all
+clc
+
+<span class="hljs-comment">%This sub-script is working with a lattice assuming periodic boundaries</span>
+
+<span class="hljs-comment">%N: the number of lattice sites</span>
+<span class="hljs-comment">%t: hopping parameter</span>
+<span class="hljs-comment">%ts: Rashba parameter</span>
+<span class="hljs-comment">%c1 and c2: the real and imaginary parts of the superconducting gap</span>
+<span class="hljs-comment">%s and p: the superconducting gap and its conjugate</span>
+<span class="hljs-comment">%V: The squared modulus of the superconducting gap</span>
+<span class="hljs-comment">%z: Zeemann parameter</span>
+<span class="hljs-comment">%u: chemical potential</span>
+
+N=<span class="hljs-number">40</span>;
+Ny=N;
+t=<span class="hljs-number">1</span>;
+ts=<span class="hljs-number">0.75</span>;
+c1=<span class="hljs-number">1</span>;
+c2=<span class="hljs-number">0</span>;
+s=c1+<span class="hljs-number">1</span><span class="hljs-built_in">i</span>*c2;
+p=<span class="hljs-built_in">conj</span>(s);
+V=s*p;
+u=<span class="hljs-number">-2.5</span>*t;
+
+
+<span class="hljs-comment">%lp=8;</span>
+
+<span class="hljs-comment">%for l=1:lp</span>
+    z=<span class="hljs-number">2.1</span>;
+   
+<span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:Ny
+    ky(<span class="hljs-built_in">i</span>)=-<span class="hljs-built_in">pi</span>+<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>/Ny*<span class="hljs-built_in">i</span>;
+<span class="hljs-keyword">end</span>
+
+A=<span class="hljs-built_in">zeros</span>(<span class="hljs-number">4</span>*N,<span class="hljs-number">4</span>*N,N);
+<span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:Ny
+    A(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)-t;  
+    A(N,N<span class="hljs-number">-1</span>,<span class="hljs-built_in">i</span>)=A(N,N<span class="hljs-number">-1</span>,<span class="hljs-built_in">i</span>)-t;
+    <span class="hljs-comment">%A(1,N,i)=A(1,N,i)-t;</span>
+    <span class="hljs-comment">%A(N,1,i)=A(N,1,i)-t;</span>
+    
+    <span class="hljs-keyword">for</span> k=<span class="hljs-number">1</span>:N<span class="hljs-number">-2</span>
+        A(k+<span class="hljs-number">1</span>,k,<span class="hljs-built_in">i</span>)=A(k+<span class="hljs-number">1</span>,k,<span class="hljs-built_in">i</span>)-t;
+        A(k+<span class="hljs-number">1</span>,k+<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)=A(k+<span class="hljs-number">1</span>,k+<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)-t;
+    <span class="hljs-keyword">end</span>
+    
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N
+        A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)<span class="hljs-number">-2</span>*t*<span class="hljs-built_in">cos</span>(ky(<span class="hljs-built_in">i</span>));
+    <span class="hljs-keyword">end</span>
+    
+    <span class="hljs-comment">%chemical potential</span>
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N
+        A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)-u;
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-comment">%(1,4) quadrant</span>
+    <span class="hljs-keyword">for</span> k=<span class="hljs-number">1</span>:N
+        <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N
+        A(k+N,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)=A(k,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>);
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+    
+    <span class="hljs-comment">%Zeeman</span>
+   <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N
+       A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)-z;
+       A(<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)+z;
+   <span class="hljs-keyword">end</span>
+
+    <span class="hljs-comment">%Rashba SO</span>
+    A(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>+N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>+N,<span class="hljs-built_in">i</span>)+ts;
+    <span class="hljs-comment">%A(1,2*N,i)=A(1,2*N,i)-ts; %</span>
+    
+    A(<span class="hljs-number">1</span>+N,<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-number">1</span>+N,<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)-ts;
+    <span class="hljs-comment">%A(1+N,N,i)=A(1+N,N,i)+ts;%</span>
+    
+    A(N,N<span class="hljs-number">-1</span>+N,<span class="hljs-built_in">i</span>)=A(N,N<span class="hljs-number">-1</span>+N,<span class="hljs-built_in">i</span>)-ts;
+    <span class="hljs-comment">%A(N,1+N,i)=A(N,1+N,i)+ts;%</span>
+    
+    A(N+N,N<span class="hljs-number">-1</span>,<span class="hljs-built_in">i</span>)=A(N+N,N<span class="hljs-number">-1</span>,<span class="hljs-built_in">i</span>)+ts;
+    <span class="hljs-comment">%A(N+N,1,i)=A(N+N,1,i)-ts;%</span>
+    
+   <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N<span class="hljs-number">-2</span>
+       A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>+N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>+N,<span class="hljs-built_in">i</span>)+ts;
+       A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>+N,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>+N,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>,<span class="hljs-built_in">i</span>)-ts;
+       A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)-ts;
+       A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>+N,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>+N,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)+ts;
+   <span class="hljs-keyword">end</span>
+        
+   <span class="hljs-comment">%(4)-quadrant</span>
+    <span class="hljs-keyword">for</span> k=<span class="hljs-number">1</span>:<span class="hljs-number">2</span>*N
+        <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:<span class="hljs-number">2</span>*N
+            A(k+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">i</span>)=-A(<span class="hljs-built_in">j</span>,k,<span class="hljs-built_in">i</span>);
+        <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+    
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N
+        A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)<span class="hljs-number">-2</span>*ts*<span class="hljs-built_in">sin</span>(ky(<span class="hljs-built_in">i</span>));
+        A(<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)<span class="hljs-number">-2</span>*ts*<span class="hljs-built_in">sin</span>(ky(<span class="hljs-built_in">i</span>));
+        A(<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">j</span>+N+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">j</span>+N+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">i</span>)+<span class="hljs-number">2</span>*ts*<span class="hljs-built_in">sin</span>(-ky(<span class="hljs-built_in">i</span>));
+        A(<span class="hljs-built_in">j</span>+N+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">i</span>)=A(<span class="hljs-built_in">j</span>+N+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">i</span>)+<span class="hljs-number">2</span>*ts*<span class="hljs-built_in">sin</span>(-ky(<span class="hljs-built_in">i</span>));
+    <span class="hljs-keyword">end</span>
+    
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:N
+       A(<span class="hljs-built_in">j</span>,<span class="hljs-built_in">j</span>+<span class="hljs-number">3</span>*N,<span class="hljs-built_in">i</span>)=-s;<span class="hljs-comment">%+A(j,j+3*N,i);</span>
+       A(<span class="hljs-built_in">j</span>+<span class="hljs-number">3</span>*N,<span class="hljs-built_in">j</span>,<span class="hljs-built_in">i</span>)=-p;<span class="hljs-comment">%A(j+3*N,j,i);</span>
+       A(<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">i</span>)=s;<span class="hljs-comment">%A(j+N,j+2*N,i);</span>
+       A(<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>*N,<span class="hljs-built_in">j</span>+N,<span class="hljs-built_in">i</span>)=p;<span class="hljs-comment">%A(j+2*N,j+N,i);</span>
+    <span class="hljs-keyword">end</span> 
+
+   E(<span class="hljs-built_in">i</span>,:,<span class="hljs-number">1</span>)=eig(A(:,:,<span class="hljs-built_in">i</span>));
+   [E1(:,:,<span class="hljs-built_in">i</span>),B(:,:,<span class="hljs-built_in">i</span>)]=eig(A(:,:,<span class="hljs-built_in">i</span>));
+<span class="hljs-keyword">end</span>
+
+
+<span class="hljs-comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% plot %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+
+<span class="hljs-comment">%for l=1:lp</span>
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:N
+       
+        
+        <span class="hljs-built_in">figure</span>(<span class="hljs-number">1</span>)
+        <span class="hljs-built_in">plot</span>(ky,E(:,<span class="hljs-built_in">i</span>,<span class="hljs-number">1</span>),<span class="hljs-string">'color'</span>,<span class="hljs-string">'green '</span>)<span class="hljs-comment">%</span>
+        <span class="hljs-built_in">hold</span> on
+        ylabel(<span class="hljs-string">'E'</span>)
+        xlabel(<span class="hljs-string">'k_y'</span>)
+        axis([<span class="hljs-built_in">min</span>(ky) <span class="hljs-built_in">max</span>(ky) <span class="hljs-number">-11</span> <span class="hljs-number">11</span>])
+        title([<span class="hljs-string">'Zeemann parameter='</span>,num2str(z),<span class="hljs-string">' '</span>]);
+        <span class="hljs-comment">%zh=(l-1)/2</span>
+        <span class="hljs-comment">%pause(0.5);</span>
+    <span class="hljs-keyword">end</span>
+    
+        <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=N+<span class="hljs-number">1</span>:<span class="hljs-number">2</span>*N
+       
+        
+        <span class="hljs-built_in">figure</span>(<span class="hljs-number">1</span>)
+        <span class="hljs-built_in">plot</span>(ky,E(:,<span class="hljs-built_in">i</span>,<span class="hljs-number">1</span>),<span class="hljs-string">'color'</span>,<span class="hljs-string">'blue'</span>)<span class="hljs-comment">%</span>
+        <span class="hljs-built_in">hold</span> on
+        ylabel(<span class="hljs-string">'E'</span>)
+        xlabel(<span class="hljs-string">'k_y'</span>)
+        axis([<span class="hljs-built_in">min</span>(ky) <span class="hljs-built_in">max</span>(ky) <span class="hljs-number">-11</span> <span class="hljs-number">11</span>])
+        title([<span class="hljs-string">'Zeemann parameter='</span>,num2str(z),<span class="hljs-string">' '</span>]);
+        <span class="hljs-comment">%zh=(l-1)/2</span>
+        <span class="hljs-comment">%pause(0.5);</span>
+        <span class="hljs-keyword">end</span>
+    
+        
+  <span class="hljs-comment">%%%%%%%%%%%%%%%%%%% eage state %%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+        
+       <span class="hljs-built_in">plot</span>(ky,E(:,<span class="hljs-number">2</span>*N,<span class="hljs-number">1</span>),<span class="hljs-string">'color'</span>,<span class="hljs-string">'red'</span>,<span class="hljs-string">'LineWidth'</span>,<span class="hljs-number">1</span>)<span class="hljs-comment">%</span>
+                <span class="hljs-built_in">hold</span> on
+       <span class="hljs-built_in">plot</span>(ky,E(:,<span class="hljs-number">2</span>*N+<span class="hljs-number">1</span>,<span class="hljs-number">1</span>),<span class="hljs-string">'color'</span>,<span class="hljs-string">'black'</span>)<span class="hljs-comment">%</span>
+       
+  <span class="hljs-comment">%%%%%%%%%%%%%%%%%%% eage state %%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+       
+       
+ <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">2</span>*N+<span class="hljs-number">2</span>:<span class="hljs-number">3</span>*N
+        
+        
+        <span class="hljs-built_in">figure</span>(<span class="hljs-number">1</span>)
+        <span class="hljs-built_in">plot</span>(ky,E(:,<span class="hljs-built_in">i</span>,<span class="hljs-number">1</span>),<span class="hljs-string">'color'</span>,<span class="hljs-string">'cyan'</span>)<span class="hljs-comment">%</span>
+        <span class="hljs-built_in">hold</span> on
+        ylabel(<span class="hljs-string">'E'</span>)
+        xlabel(<span class="hljs-string">'k_y'</span>)
+        axis([<span class="hljs-built_in">min</span>(ky) <span class="hljs-built_in">max</span>(ky) <span class="hljs-number">-11</span> <span class="hljs-number">11</span>])
+        title([<span class="hljs-string">'Zeemann parameter='</span>,num2str(z),<span class="hljs-string">' '</span>]);
+        <span class="hljs-comment">%zh=(l-1)/2</span>
+        <span class="hljs-comment">%pause(0.5);</span>
+ <span class="hljs-keyword">end</span>
+
+
+ 
+  <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">3</span>*N+<span class="hljs-number">1</span>:<span class="hljs-number">4</span>*N
+        
+        
+        <span class="hljs-built_in">figure</span>(<span class="hljs-number">1</span>)
+        <span class="hljs-built_in">plot</span>(ky,E(:,<span class="hljs-built_in">i</span>,<span class="hljs-number">1</span>),<span class="hljs-string">'color'</span>,<span class="hljs-string">' magenta'</span>)<span class="hljs-comment">%</span>
+        <span class="hljs-built_in">hold</span> on
+        ylabel(<span class="hljs-string">'E'</span>)
+        xlabel(<span class="hljs-string">'k_y'</span>)
+        axis([<span class="hljs-built_in">min</span>(ky) <span class="hljs-built_in">max</span>(ky) <span class="hljs-number">-11</span> <span class="hljs-number">11</span>])
+        title([<span class="hljs-string">'Zeemann parameter='</span>,num2str(z),<span class="hljs-string">' '</span>]);
+        <span class="hljs-comment">%zh=(l-1)/2</span>
+        <span class="hljs-comment">%pause(0.5);</span>
+ <span class="hljs-keyword">end</span></code></pre>
+<h3 id="bdg-hamiltonian-1">BdG Hamiltonian</h3>
+<p><span class="math display">\[
+\begin{aligned}
+H &amp;=\frac{1}{2} \sum_{\mathbf{k}, \sigma, \sigma^{\prime}}\left(-\epsilon(\mathbf{k}) \mathbb{I}_{\sigma, \sigma^{\prime}}-\gamma B \sigma_{\sigma, \sigma^{\prime}}^{(z)}+\mathbf{E}_{s o}(\mathbf{k}) \cdot \boldsymbol{\sigma}_{\sigma, \sigma^{\prime}}\right)\left(c_{\mathbf{k} \sigma}^{\dagger} c_{\mathbf{k} \sigma^{\prime}}-c_{\mathbf{k} \sigma^{\prime}} c_{\mathbf{k} \sigma}^{\dagger}\right) \\
+&amp;\quad + \frac{1}{2} \sum_{\mathbf{k}} \Delta(\mathbf{k})\left(c_{\mathbf{k} \uparrow}^{\dagger} c_{-\mathbf{k} \downarrow}^{\dagger}-c_{-\mathbf{k} \downarrow}^{\dagger} c_{\mathbf{k} \uparrow}^{\dagger}\right)+\Delta^{*}(\mathbf{k})\left(c_{-\mathbf{k} \downarrow} c_{\mathbf{k} \uparrow}-c_{\mathbf{k} \uparrow} c_{-\mathbf{k} \downarrow}\right)+\text { const. } \\
+&amp;=\frac{1}{2} \sum_{\mathbf{k}, \sigma, \sigma^{\prime}}\left(-\epsilon(\mathbf{k}) \mathbb{I}_{\sigma, \sigma^{\prime}}-\gamma B \sigma_{\sigma, \sigma^{\prime}}^{(z)}+\mathbf{E}_{s o}(\mathbf{k}) \cdot \boldsymbol{\sigma}_{\sigma, \sigma^{\prime}}\right)\left(c_{\mathbf{k} \sigma}^{\dagger} c_{\mathbf{k} \sigma^{\prime}}-c_{\mathbf{k} \sigma^{\prime}} c_{\mathbf{k} \sigma}^{\dagger}\right)\\
+&amp;\quad +\frac{1}{2} \sum_{\mathbf{k}}\left(\Delta(\mathbf{k}) c_{\mathbf{k} \uparrow}^{\dagger} c_{-\mathbf{k} \downarrow}^{\dagger}+\Delta^{*}(\mathbf{k}) c_{-\mathbf{k} \downarrow} c_{\mathbf{k} \uparrow}\right)
+\\
+&amp;\quad -\frac{1}{2} \sum_{\mathbf{k}}\left(\Delta(-\mathbf{k}) c_{\mathbf{k} \downarrow}^{\dagger} c_{-\mathbf{k} \uparrow}^{\dagger}+\Delta^{*}(-\mathbf{k}) c_{-\mathbf{k} \uparrow} c_{\mathbf{k} \downarrow}\right)+\text { const. }
+\end{aligned}
+\]</span></p>
+<p>in Nambu-vectors <span class="math display">\[
+\left(c_{\mathrm{k} \uparrow}^{\dagger} c_{\mathrm{k} \downarrow}^{\dagger} \quad c_{-\mathrm{k} \uparrow} \quad c_{-\mathrm{k} \downarrow}\right)=\left(\mathrm{c}_{\mathrm{k}}^{\dagger} \quad \mathrm{c}_{-\mathrm{k}}\right) \\
+\]</span></p>
+<p><span class="math display">\[
+\left(\begin{array}{c}
+c_{\mathbf{k} \uparrow} \\
+c_{\mathbf{k} \downarrow} \\
+c_{-\mathbf{k} \uparrow}^{\dagger} \\
+c_{-\mathbf{k} \downarrow}^{\dagger}
+\end{array}\right)=\left(\begin{array}{c}
+\mathbf{c}_{\mathbf{k}} \\
+\mathbf{c}_{-\mathbf{k}}^{\dagger}
+\end{array}\right)
+\]</span></p>
+<p>Hamiltonian <span class="math inline">\(\mathcal{H}\)</span> read <span class="math display">\[
+\left(\begin{array}{cccc}
+-2 t\left(\cos \left(k_{x}\right)+\cos \left(k_{y}\right)\right)-\mu-\gamma B &amp; E_{s o}\left(\sin \left(k_{y}\right)+i \sin \left(k_{x}\right)\right) &amp; 0 &amp; \Delta(\mathbf{k}) \\
+E_{s o}\left(\sin \left(k_{y}\right)-i \sin \left(k_{x}\right)\right) &amp; -2 t\left(\cos \left(k_{x}\right)+\cos \left(k_{y}\right)\right)-\mu+\gamma B &amp; -\Delta(-\mathbf{k}) &amp; 0 \\
+0 &amp; -\Delta^{*}(-\mathbf{k}) &amp; 2 t\left(\cos \left(-k_{x}\right)+\cos \left(-k_{y}\right)\right)+\mu+\gamma B &amp; -E_{s o}\left(\sin \left(-k_{y}\right)-i \sin \left(-k_{x}\right)\right) \\
+\Delta^{*}(\mathbf{k}) &amp; 0 &amp; -E_{s o}\left(\sin \left(-k_{y}\right)+i \sin \left(-k_{x}\right)\right) &amp; 2 t\left(\cos \left(-k_{x}\right)+\cos \left(-k_{y}\right)\right)+\mu-\gamma B
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathcal{H} &amp;=\left(-2 t\left(\cos \left(k_{x}\right)+\cos \left(k_{y}\right)-\mu\right)\left[\mathbb{I}_{2 \times 2}^{\sigma} \otimes \tau_{z}\right]-\gamma B\left[\sigma_{z} \otimes \tau_{z}\right]\right.\\
+&amp;+E_{s o}\left(\sin \left(k_{y}\right)\left[\sigma_{x} \otimes \mathbb{I}_{2 \times 2}^{\tau}\right]-\sin \left(k_{x}\right)\left[\sigma_{y} \otimes \tau_{z}\right]\right)
+\\&amp;+\Re(\Delta)\left[i \sigma_{y} \otimes i \tau_{y}\right]+\Im(\Delta)\left[-\sigma_{y} \otimes \tau_{x}\right]
+\end{aligned}
+\]</span></p>
+<h3 id="matrix-of-semi-open">matrix of semi-open</h3>
+<p><span class="math display">\[
+\left(\begin{array}{cccc}
+-2 t\left(\cos \left(k_{x}\right)+\cos \left(k_{y}\right)\right)-\mu-\gamma B &amp; E_{s o}\left(\sin \left(k_{y}\right)+i \sin \left(k_{x}\right)\right) &amp; 0 &amp; \Delta(\mathbf{k}) \\
+E_{s o}\left(\sin \left(k_{y}\right)-i \sin \left(k_{x}\right)\right) &amp; -2 t\left(\cos \left(k_{x}\right)+\cos \left(k_{y}\right)\right)-\mu+\gamma B &amp; -\Delta(-\mathbf{k}) &amp; 0 \\
+0 &amp; -\Delta^{*}(-\mathbf{k}) &amp; 2 t\left(\cos \left(-k_{x}\right)+\cos \left(-k_{y}\right)\right)+\mu+\gamma B &amp; -E_{s o}\left(\sin \left(-k_{y}\right)-i \sin \left(-k_{x}\right)\right) \\
+\Delta^{*}(\mathbf{k}) &amp; 0 &amp; -E_{s o}\left(\sin \left(-k_{y}\right)+i \sin \left(-k_{x}\right)\right) &amp; 2 t\left(\cos \left(-k_{x}\right)+\cos \left(-k_{y}\right)\right)+\mu-\gamma B
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+\left(\begin{array}{cccc}
+-2 t\left(\cos \left(k_{y}\right)\right)-\mu-\gamma B &amp; E_{s o}\left(\sin \left(k_{y}\right) \right) &amp; 0 &amp; \Delta(\mathbf{k}) \\
+E_{s o}\left(\sin \left(k_{y}\right) \right) &amp; -2 t\left(+\cos \left(k_{y}\right)\right)-\mu+\gamma B &amp; -\Delta(-\mathbf{k}) &amp; 0 \\
+0 &amp; -\Delta^{*}(-\mathbf{k}) &amp; 2 t\left( \cos \left(-k_{y}\right)\right)+\mu+\gamma B &amp; -E_{s o}\left(\sin \left(-k_{y}\right)\right) \\
+\Delta^{*}(\mathbf{k}) &amp; 0 &amp; -E_{s o}\left(\sin \left(-k_{y}\right) \right) &amp; 2 t\left( \cos \left(-k_{y}\right)\right)+\mu-\gamma B
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+\left(\begin{array}{cccc}\xi_{k} &amp; -t_{z} &amp; 2 \Delta_{p \uparrow}^{*} &amp; \Delta_{s}^{*} \\-t_{z} &amp; \xi_{k} &amp; -\Delta_{s}^{*} &amp; 2 \Delta_{p \downarrow}^{*} \\2 \Delta_{p \uparrow} &amp; -\Delta_{s} &amp; -\xi_{k} &amp; t_{z} \\\Delta_{s} &amp; 2 \Delta_{p \downarrow} &amp; t_{z} &amp; -\xi_{k}\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+\left(\begin{array}{cccc}-2 t\left(\cos \left(k_{x}\right)+\cos \left(k_{y}\right)\right)-\mu &amp; -t_{z} &amp; 2 \Delta_{p \uparrow}^{*} &amp; \Delta_{s}^{*} \\-t_{z} &amp; -2 t\left(\cos \left(k_{x}\right)+\cos \left(k_{y}\right)\right)-\mu &amp; -\Delta_{s}^{*} &amp; 2 \Delta_{p \downarrow}^{*} \\2 i e^{i \phi_{\uparrow}}\left|\Delta_{p}\right|\left(\sin k_{x}+i \sin k_{y}\right) &amp; -\Delta_{s} &amp; 2 t\left(\cos \left(k_{x}\right)+\cos \left(k_{y}\right)\right)+\mu &amp; t_{z} \\\Delta_{s} &amp; \Delta_{p, \downarrow}=2 i e^{i \phi_{\downarrow}}\left|\Delta_{p}\right|\left(\sin k_{x}+i e^{i \alpha} \sin k_{y}\right) &amp; t_{z} &amp; 2 t\left(\cos \left(k_{x}\right)+\cos \left(k_{y}\right)\right)+\mu\end{array}\right)
+\]</span></p>
+<ul>
+<li>gap form
+<ul>
+<li><span class="math inline">\(\Delta_{s}=\left[\gamma_{0}^{s}+\gamma_{1}^{s}\left(\cos k _{x}+\cos k _{y}\right)\right]\)</span></li>
+<li><span class="math inline">\(\Delta_{p, \uparrow}=2 i e^{i \phi_{\uparrow}}\left|\Delta_{p}\right|\left(\sin k_{x}+i \sin k_{y}\right)\)</span></li>
+<li><span class="math inline">\(\Delta_{p, \downarrow}=2 i e^{i \phi_{\downarrow}}\left|\Delta_{p}\right|\left(\sin k_{x}+i e^{i \alpha} \sin k_{y}\right)\)</span></li>
+</ul></li>
+</ul>
 
             </article>
             <hr>
@@ -304,6 +1188,7 @@ H &amp;=-t \sum_{\langle i, j\rangle, \sigma} c_{i, \sigma}^{\dagger} c_{j, \sig
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div id="tocbot"></div>
 </div>
+
 
       </div>
     
@@ -405,7 +1290,7 @@ H &amp;=-t \sum_{\langle i, j\rangle, \sigma} c_{i, \sigma}^{\dagger} c_{j, \sig
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
+        collapseDepth: 1,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });

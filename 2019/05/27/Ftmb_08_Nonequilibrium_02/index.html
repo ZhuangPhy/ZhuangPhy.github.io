@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>二次量子化 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2019-05-27 14:23">
+      May 27, 2019 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      189
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>参考文献</p>
+<p>《Nonequilibrium Many-Body Theory of Quantum Systems: A Modern Introduction》Gianluca Stefanucci</p>
+<h2 id="noninteracting-models">Noninteracting models</h2>
+<h3 id="bloch-theorem-and-band-structure">1 Bloch theorem and band structure</h3>
+<p>A crystal consists of a unit cell repeated periodically in three, two, or one dimensions. Each unit cell contains the same (finite) number of atoms arranged in the same geometry. An example is graphene, i.e., a planar structure of <span class="math inline">\(s p^{2}\)</span> -bonded carbon atoms arranged in a honeycomb lattice as illustrated in Fig. 2.4. In this case the unit cell consists of two carbon atoms, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in the figure, repeated periodically along the directions <span class="math inline">\(v _{+}\)</span> and <span class="math inline">\(v _{-}\)</span>. The unit cells can be labeled with a vector of integers <span class="math inline">\(n =\left(n_{1}, \ldots, n_{d}\right)\)</span> where <span class="math inline">\(d\)</span> is the dimension of the crystal, see again Fig. <span class="math inline">\(2.4 .\)</span> The expansion of the vector <span class="math inline">\(n\)</span> over the orthonormal basis <span class="math inline">\(\left\{ e _{i}\right\}\)</span> with <span class="math inline">\(\left( e _{i}\right)_{j}=\delta_{i j}\)</span> reads <span class="math display">\[
+n =\sum_{i=1}^{d} n_{i} e _{i}
+\]</span> Two unit cells with labels <span class="math inline">\(n\)</span> and <span class="math inline">\(n ^{\prime}\)</span> are nearest neighbor if <span class="math inline">\(\left| n - n ^{\prime}\right|=1 .\)</span> As for the PPP model we assign to each unit cell a set of localized orbitals <span class="math inline">\(\left\{\varphi_{ n s \sigma}\right\}\)</span> which we assume already orthonormal and denote by <span class="math inline">\(\hat{d}_{ n s \sigma}^{\dagger}\)</span> and <span class="math inline">\(\hat{d}_{ n s \sigma}\)</span>, the creation and annihilation operators for electrons in the orbital <span class="math inline">\(\varphi_{ n s \sigma}\)</span>. The index <span class="math inline">\(s\)</span> runs over all orbitals of a given unit cell. In the case of graphene we may assign a single <span class="math inline">\(p_{z}\)</span> orbital to each carbon, so <span class="math inline">\(s=1,2\)</span>.</p>
+<p>In the absence of magnetic fields or other couplings that break the spin symmetry, the matrix elements of <span class="math inline">\(\hat{h}\)</span> are <span class="math display">\[
+h_{ n s \sigma n ^{\prime} s^{\prime} \sigma^{\prime}}=\delta_{\sigma \sigma^{\prime}} h_{ n s n ^{\prime} s^{\prime}}
+\]</span> If we choose orbitals localized around the atomic positions then the matrix elements <span class="math inline">\(h_{ n s n ^{\prime} s^{\prime}}\)</span> are very small for <span class="math inline">\(\left| n - n ^{\prime}\right| \gg 1 .\)</span> We then discard <span class="math inline">\(h_{ n s n ^{\prime} s^{\prime}}\)</span> unless <span class="math inline">\(n\)</span> and <span class="math inline">\(n ^{\prime}\)</span> are nearest neighbors. The periodicity of a crystal is reflected in the fact that the unit cell Hamiltonian <span class="math inline">\(h_{ n s n s^{\prime}},\)</span> as well as the Hamiltonian connecting two nearest neighbor cells <span class="math inline">\(h_{ n s} n \pm e _{i} s^{\prime},\)</span> does not depend on <span class="math inline">\(n\)</span>. We therefore define the matrices <span class="math display">\[
+h_{s s^{\prime}} \equiv h_{ ns ns ^{\prime}}
+\]</span> and <span class="math display">\[
+\begin{aligned}
+T_{i, s s^{\prime}} \equiv h_{ n + e _{i} s n s^{\prime}}, \quad \Rightarrow \quad T_{i, s s^{\prime}}^{\dagger} &amp;=h_{ n + e _{i} s^{\prime} n s}^{*}=h_{ n s n + e _{i} s^{\prime}} \\
+&amp;=h_{ n - e _{i} s n s^{\prime}}
+\end{aligned}
+\]</span> With these definitions our model for the noninteracting Hamiltonian of a crystal takes the form <span class="math display">\[
+\hat{H}_{0}=\sum_{ n \sigma} \sum_{s s^{\prime}}\left(h_{s s^{\prime}} \hat{d}_{ n s \sigma}^{\dagger} \hat{d}_{ n s^{\prime} \sigma}+\sum_{i=1}^{d} T_{i, s s^{\prime}} \hat{d}_{ n + e _{i} s \sigma}^{\dagger} \hat{d}_{ n s^{\prime} \sigma}+T_{i, s s^{\prime}}^{\dagger} \hat{d}_{ n - e _{i} s \sigma}^{\dagger} \hat{d}_{ n s^{\prime} \sigma}\right)
+\]</span> To better visualize the matrix structure of <span class="math inline">\(\hat{H}_{0}\)</span> we introduce the vector of <span class="math inline">\(\hat{d}\)</span> -operators <span class="math display">\[
+\hat{ d }_{ n \sigma}^{\dagger} \equiv\left(\hat{d}_{ n 1 \sigma}^{\dagger}, \hat{d}_{ n 2 \sigma}^{\dagger}, \ldots\right), \quad \hat{ d }_{ n \sigma}=\left(\hat{d}_{ n 1 \sigma}^{\dagger}, \hat{d}_{ n 2 \sigma}^{\dagger}, \ldots\right)^{\dagger}
+\]</span> and rewrite <span class="math inline">\(\hat{H}_{0}\)</span> in terms of the product between these vectors and the matrices <span class="math inline">\(h, T_{i}\)</span> and <span class="math inline">\(T_{i}^{\dagger}\)</span> <span class="math display">\[
+\hat{H}_{0}=\sum_{ n \sigma}\left(\hat{ d }_{ n \sigma}^{\dagger} h \hat{ d }_{ n \sigma}+\sum_{i=1}^{d} \hat{ d }_{ n + e _{i} \sigma}^{\dagger} T_{i} \hat{ d }_{ n \sigma}+\hat{ d }_{ n - e _{i} \sigma}^{\dagger} T_{i}^{\dagger} \hat{ d }_{ n \sigma}\right)
+\]</span> The strategy to find the one-particle eigenvalues of <span class="math inline">\(\hat{H}_{0}\)</span> consists of considering a finite block of the crystal and then letting the volume of the block go to infinity. This block is, for convenience, chosen as a parallelepiped with edges given by <span class="math inline">\(d\)</span> linearly independent vectors of integers <span class="math inline">\(N _{1}, \ldots, N _{d}\)</span> each radiating from a given unit cell. Without loss of generality we can choose the radiating unit cell at the origin. The set <span class="math inline">\(V _{b}\)</span> of all unit cells contained in the block is then <span class="math display">\[
+V _{b}=\left\{ n : \frac{ n \cdot N _{i}}{ N _{i} \cdot N _{i}}&lt;1 \text { for all } i\right\}
+\]</span> In the case of a one-dimensional crystal we can choose only one vector <span class="math inline">\(N _{1}=N\)</span> and the unit cells of the block <span class="math inline">\(n =n \in V _{b}\)</span> are those with <span class="math inline">\(n=0,1, \ldots, N-1\)</span>. For the two-dimensional graphene, instead, we may choose, e.g., <span class="math inline">\(N _{1}=(N, 0)\)</span> and <span class="math inline">\(N _{2}=(0, M)\)</span> or <span class="math inline">\(N _{1}=(N, N)\)</span> and <span class="math inline">\(N _{2}=(M,-M)\)</span> or any other couple of linearly independent vectors. When the volume of the block tends to infinity the eigenvalues of the crystal are independent of the choice of the block. Interestingly, however, the procedure below allows us to know the eigenvalues of <span class="math inline">\(\hat{H}_{0}\)</span> for any finite <span class="math inline">\(N _{1}, \ldots, N _{d},\)</span> and hence to have access to the eigenvalues of blocks of different shapes. We come back to this aspect at the end of the section. To simplify the mathematical treatment we impose periodic boundary conditions along <span class="math inline">\(N _{1}, \ldots, N _{d}\)</span>, i.e., we "wrap" the block onto itself forming a ring in <span class="math inline">\(d=1\)</span>, a torus in <span class="math inline">\(d=2\)</span>, etc. This choice of boundary conditions is known as the Born-von Karman (BvK) boundary condition and turns out to be very convenient. Other kinds of boundary condition would lead to the same results in the limit of large <span class="math inline">\(V _{b}\)</span>. The Bvk condition implies that the cells <span class="math inline">\(n\)</span> and <span class="math inline">\(n + N _{i}\)</span> are actually the same cell and we therefore make the identifications <span class="math display">\[
+\hat{ d }_{ n + N _{i} \sigma}^{\dagger} \equiv \hat{ d }_{ n \sigma}^{\dagger}, \quad \hat{ d }_{ n + N _{i} \sigma} \equiv \hat{ d }_{ n \sigma}
+\]</span> for all <span class="math inline">\(N _{i}\)</span>. We are now in the position to show how the diagonalization procedure works. Consider the Hamiltonian (2.8) in which the sum over <span class="math inline">\(n\)</span> is restricted to unit cells in <span class="math inline">\(V _{b}\)</span> and the identification (2.10) holds for all boundary terms with one <span class="math inline">\(\hat{d}\)</span> -operator outside <span class="math inline">\(V _{b}\)</span>. To bring <span class="math inline">\(\hat{H}_{0}\)</span> into a diagonal form we must find a suitable linear combination of the <span class="math inline">\(\hat{d}\)</span> -operators that preserves the anti-commutation relations, as discussed in Section <span class="math inline">\(1.6 .\)</span> For this purpose we construct the matrix <span class="math inline">\(U\)</span> with elements <span class="math display">\[
+U_{ nk }=\frac{1}{\sqrt{\left| V _{b}\right|}} e^{ ik \cdot n }
+\]</span> where <span class="math inline">\(\left| V _{b}\right|\)</span> is the number of unit cells in <span class="math inline">\(V _{b} .\)</span> In (2.11) the row index runs over all <span class="math inline">\(n \in V _{b}\)</span> whereas the column index runs over all vectors <span class="math inline">\(k =\left(k_{1}, \ldots, k_{d}\right)\)</span> with components <span class="math inline">\(-\pi&lt;\)</span> <span class="math inline">\(k_{i} \leq \pi\)</span> and, more importantly, fulfilling <span class="math display">\[
+k \cdot N _{i}=2 \pi m_{i}, \quad \text { with } m_{i} \text { integers. }
+\]</span> We leave it as an exercise for the reader to prove that the number of <span class="math inline">\(k\)</span> vectors with these properties is exactly <span class="math inline">\(\left| V _{b}\right|\)</span> and hence that <span class="math inline">\(U\)</span> is a square matrix. Due to property (2.12) the quantity <span class="math inline">\(U_{ nk }\)</span> is periodic in <span class="math inline">\(n\)</span> with periods <span class="math inline">\(N _{1}, \ldots, N _{d}\)</span>. It is this periodicity that we now exploit to prove that <span class="math inline">\(U\)</span> is unitary. Consider the following set of equalities and the likes with <span class="math inline">\(k_{2}^{\prime}, \ldots, k_{d}^{\prime} .\)</span> In the second line of the above identities we use the fact that the sum over all <span class="math inline">\(n \in V _{b}\)</span> of a periodic function <span class="math inline">\(f( n )\)</span> is the same as the sum of <span class="math inline">\(f\left( n - e _{1}\right)\)</span>. For the left and the right hand side of these equations to be the same we must either have <span class="math inline">\(k = k ^{\prime}\)</span> or <span class="math display">\[
+\sum_{ n } U_{ n k }^{*} U_{ n k ^{\prime}}=0 \quad \text { for } k \neq k ^{\prime}
+\]</span> Since for <span class="math inline">\(k = k ^{\prime}\)</span> the sum <span class="math inline">\(\sum_{ n } U_{ n k }^{*} U_{ n k }=1\)</span>, the matrix <span class="math inline">\(U\)</span> is unitary and hence the operators <span class="math display">\[
+\hat{ c }_{ k \sigma}=\frac{1}{\sqrt{\left| V _{b}\right|}} \sum_{ n \in V _{b}} e^{- i k \cdot n } \hat{ d }_{ n \sigma}, \quad \hat{ c }_{ k \sigma}^{\dagger}=\frac{1}{\sqrt{\left| v _{b}\right|}} \sum_{ n \in V _{b}} e^{ i k \cdot n } \hat{ d }_{ n \sigma}^{\dagger}
+\]</span> preserve the anti-commutation relations. The inverse relations read <span class="math display">\[
+\hat{ d }_{ n \sigma}=\frac{1}{\sqrt{\left| V _{b}\right|}} \sum_{ k } e^{i k \cdot n } \hat{ c }_{ k \sigma}, \quad \hat{ d }_{ n \sigma}^{\dagger}=\frac{1}{\sqrt{\left| V _{b}\right|}} \sum_{ k } e^{- i k \cdot n } \hat{ c }_{ k \sigma}^{\dagger}
+\]</span> and the reader can easily check that due to property (2.12) the <span class="math inline">\(\hat{d}\)</span> -operators satisfy the BvK boundary conditions (2.10). Inserting these inverse relations into (2.8) (in which the sum is restricted to <span class="math inline">\(n \in V _{b}\)</span> ) we get the Hamiltonian <span class="math display">\[
+\hat{H}_{0}=\sum_{ k \sigma} \hat{ c }_{ k \sigma}^{\dagger}\left(h+\sum_{i=1}^{d}\left(T_{i} e^{- i k_{i}}+T_{i}^{\dagger} e^{ i k_{i}}\right)\right) \hat{ c }_{ k \sigma}
+\]</span> In this expression the matrix <span class="math inline">\(h_{ k }\)</span> is Hermitian and can be diagonalized. Let <span class="math inline">\(\epsilon_{ k \nu}\)</span> be the eigenvalues of <span class="math inline">\(h_{ k }\)</span> and <span class="math inline">\(u_{ k }\)</span> be the unitary matrix that brings <span class="math inline">\(h_{ k }\)</span> into the diagonal form, i.e., <span class="math inline">\(h_{ k }=u_{ k } \operatorname{diag}\left(\epsilon_{ k 1}, \epsilon_{ k 2}, \ldots\right) u_{ k }^{\dagger} .\)</span> The unitary matrix <span class="math inline">\(u_{ k }\)</span> has the dimension of the number of orbitals in the unit cell and should not be confused with the matrix <span class="math inline">\(U\)</span> whose dimension is <span class="math inline">\(\left| V _{b}\right| .\)</span> We now perform a further change of basis and construct the following linear combinations of the <span class="math inline">\(\hat{c}\)</span> -operators with fixed <span class="math inline">\(k\)</span> vector <span class="math display">\[
+\hat{ b }_{ k \sigma}=u_{ k }^{\dagger} \hat{ c }_{ k \sigma}, \quad \hat{ b }_{ k \sigma}^{\dagger}=\hat{ c }_{ k \sigma}^{\dagger} u_{ k }
+\]</span> Denoting by <span class="math inline">\(u_{ k \nu}(s)=\left(u_{ k }\right)_{s \nu}\)</span> the <span class="math inline">\((s, \nu)\)</span> matrix element of <span class="math inline">\(u_{ k }\)</span> the explicit form of the <span class="math inline">\(\hat{b}\)</span> -operators is <span class="math display">\[
+\hat{b}_{ k \nu \sigma}=\sum_{s} u_{ k \nu}^{*}(s) \hat{c}_{ k s \sigma}, \quad \hat{b}_{ k \nu \sigma}^{\dagger}=\sum_{s} u_{ k \nu}(s) \hat{c}_{ k s \sigma}^{\dagger}
+\]</span> With these definitions the Hamiltonian <span class="math inline">\(\hat{H}_{0}\)</span> takes the desired form since <span class="math display">\[
+\begin{aligned}
+\hat{H}_{0} &amp;=\sum_{ k \sigma} \hat{ c }_{ k \sigma}^{\dagger} u_{ k } \operatorname{diag}\left(\epsilon_{ k 1}, \epsilon_{ k 2}, \ldots\right) u_{ k }^{\dagger} \hat{ c }_{ k \sigma} \\
+&amp;=\sum_{ k \nu \sigma} \epsilon_{ k \nu} \hat{b}_{ k \nu \sigma}^{\dagger} \hat{b}_{ k \nu \sigma}
+\end{aligned}
+\]</span> We have derived the Bloch theorem: the one-particle eigenvalues of <span class="math inline">\(\hat{H}_{0}\)</span> are obtained by diagonalizing <span class="math inline">\(h_{ k }\)</span> for all <span class="math inline">\(k\)</span> and the corresponding one-particle eigenkets <span class="math inline">\(| k \nu \sigma\rangle=\hat{b}_{ k \nu \sigma}^{\dagger}|0\rangle\)</span> have overlap with the original basis functions <span class="math inline">\(\left| n s \sigma^{\prime}\right\rangle=d_{n s \sigma^{\prime}}^{\dagger}|0\rangle\)</span> given by <span class="math display">\[
+\psi_{ k \nu \sigma}\left( n s \sigma^{\prime}\right)=\left\langle n s \sigma^{\prime} \mid k \nu \sigma\right\rangle=\frac{\delta_{\sigma \sigma^{\prime}}}{\sqrt{\left| V _{b}\right|}} e^{i k \cdot n } u_{ k \nu}(s)
+\]</span> which is a plane-wave with different amplitudes on different atoms of the same unit cell. When the volume of the block <span class="math inline">\(\left| V _{b}\right| \rightarrow \infty\)</span> the eigenvalues <span class="math inline">\(\epsilon_{ k \nu}\)</span> become a continuum called a band. <span class="math inline">\(^{3}\)</span> We then have a band for each <span class="math inline">\(\nu\)</span> and the total number of bands coincides with the number of localized orbitals per unit cell. Each crystal is characterized by its band structure and, as we see in Section 6.3 .4 , the band structure can be experimentally measured. If we choose the localized basis functions to be of the form (2.1) and subsequently we want to increase the accuracy of the calculations by reducing the spacing <span class="math inline">\(\Delta\)</span>, then in the limit <span class="math inline">\(\Delta \rightarrow 0\)</span> the quantities <span class="math inline">\(u_{ k \nu}(s) \rightarrow u_{ k \nu}( r )\)</span> become continuous functions of the position <span class="math inline">\(r\)</span> in the cell. These functions can be periodically extended to all space by imposing a requirement that they assume the same value in the same point of all unit cells. In the literature the periodic functions <span class="math inline">\(u_{ k \nu}( r )\)</span> are called Bloch functions. Below we illustrate some elementary applications of this general framework.</p>
+<h3 id="one-band-model">One-band model</h3>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210108173539787.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>Figure 2.5 (a) A ring with <span class="math inline">\(N\)</span> unit cells. (b) Eigenvalues of the ring Hamiltonian with <span class="math inline">\(t=-1\)</span> and <span class="math inline">\(\epsilon=2\)</span> for different numbers <span class="math inline">\(N\)</span> of unit cells. The eigenvalues with <span class="math inline">\(N=61\)</span> and 121 are shifted upward by 1 and 2 respectively.</p>
+</blockquote>
+<p>The simplest example is a one-dimensional crystal with one orbital per unit cell, see Fig. <span class="math inline">\(2.5( a ) .\)</span> Then the matrices <span class="math inline">\(h \equiv \epsilon\)</span> and <span class="math inline">\(T \equiv t\)</span> are <span class="math inline">\(1 \times 1\)</span> matrices and the one-particle eigenvalues are <span class="math display">\[
+\epsilon_{k}=\epsilon+t e^{- i k}+t e^{ i k}=\epsilon+2 t \cos k
+\]</span> If the number <span class="math inline">\(N\)</span> of unit cells is, e.g., odd, then the one-dimensional <span class="math inline">\(k\)</span> vector takes the values <span class="math inline">\(k=2 \pi m / N\)</span> with <span class="math inline">\(m=-\frac{(N-1)}{2}, \ldots, \frac{(N-1)}{2},\)</span> as follows from (2.12). The eigenvalues (2.14) are displayed in Fig. <span class="math inline">\(2.5( b )\)</span> for different <span class="math inline">\(N\)</span>. It is clear that when <span class="math inline">\(N \rightarrow \infty\)</span> they become a continuum and form one band.</p>
+<h3 id="two-band-model">Two-band model</h3>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210108173639282.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>Figure 2.6 (a) A ring with <span class="math inline">\(N\)</span> unit cells and two atoms per cell. (b) Eigenvalues of the ring Hamiltonian with <span class="math inline">\(t=-1, \epsilon=2\)</span> and <span class="math inline">\(\Delta=1 / 2\)</span> for different numbers <span class="math inline">\(N\)</span> of unit cells.</p>
+</blockquote>
+<p>Another example of a one-dimensional crystal is shown in Fig. <span class="math inline">\(2.6( a ) .\)</span> Each unit cell consists of two different atoms, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in the figure. We assign a single orbital per atom and neglect all off-diagonal matrix elements except those connecting atoms of type <span class="math inline">\(a\)</span> to atoms of type <span class="math inline">\(b\)</span>. For simplicity we also consider the case that the distance between two nearest neighbor atoms is everywhere the same along the crystal. Then the matrices <span class="math inline">\(h\)</span> and <span class="math inline">\(T\)</span> are <span class="math inline">\(2 \times 2\)</span> matrices with the following structure <span class="math display">\[
+h=\left(\begin{array}{cc}
+\epsilon+\Delta &amp; t \\
+t &amp; \epsilon-\Delta
+\end{array}\right), \quad T=\left(\begin{array}{ll}
+0 &amp; t \\
+0 &amp; 0
+\end{array}\right)
+\]</span> where <span class="math inline">\(\Delta\)</span> is an energy parameter that takes into account the different nature of the atoms. The structure of <span class="math inline">\(T_{s s^{\prime}}=h_{n+1 s n s^{\prime}},\)</span> see <span class="math inline">\((2.7),\)</span> can be derived by checking the overlap between atom <span class="math inline">\(s\)</span> in cell <span class="math inline">\(n+1\)</span> and atom <span class="math inline">\(s^{\prime}\)</span> in cell <span class="math inline">\(n\)</span>. For instance, if we take cell 2 we see from Fig. 2.6 (a) that atom <span class="math inline">\(a\)</span> has overlap with atom <span class="math inline">\(b\)</span> in cell 1 , hence <span class="math inline">\(T_{a b}=t\)</span>, but it does not have overlap with atom <span class="math inline">\(a\)</span> in cell 1 , hence <span class="math inline">\(T_{a a}=0 .\)</span> On the other hand atom <span class="math inline">\(b\)</span> in cell 2 does not have overlap with any atom in cell <span class="math inline">\(1,\)</span> and hence <span class="math inline">\(T_{b a}=T_{b b}=0 .\)</span> The eigenvalues of <span class="math display">\[
+h_{k}=h+T e^{- i k}+T^{\dagger} e^{ i k}=\left(\begin{array}{cc}
+\epsilon+\Delta &amp; t\left(1+e^{- i k}\right) \\
+t\left(1+e^{ i k}\right) &amp; \epsilon-\Delta
+\end{array}\right)
+\]</span> are <span class="math display">\[
+\epsilon_{k \pm}=\epsilon \pm \sqrt{\Delta^{2}+2 t^{2}(1+\cos k)}
+\]</span> and are displayed in Fig. <span class="math inline">\(2.6( b )\)</span> for different numbers <span class="math inline">\(N\)</span> of unit cells. As in the previous example, the values of <span class="math inline">\(k\)</span> have the form <span class="math inline">\(2 \pi m / N\)</span> with <span class="math inline">\(m=-\frac{(N-1)}{2}, \ldots, \frac{(N-1)}{2}\)</span> for odd <span class="math inline">\(N\)</span>. When <span class="math inline">\(N \rightarrow \infty\)</span> the <span class="math inline">\(\epsilon_{k \pm}\)</span> become a continuum and form two bands separated by an energy gap of width <span class="math inline">\(2 \Delta\)</span>. If the crystal contains two electrons per unit cell then the lower band is fully occupied whereas the upper band is empty. In this situation we must provide a minimum energy <span class="math inline">\(2 \Delta\)</span> to excite one electron in an empty state; the crystal behaves like an insulator if the gap is large and like a semiconductor if the gap is small. It is also worth noting that for <span class="math inline">\(\Delta=0\)</span> we recover the previous example but with <span class="math inline">\(2 N\)</span> atoms rather than <span class="math inline">\(N\)</span>.</p>
+<h3 id="graphene">Graphene</h3>
+<p>Another important example that we wish to discuss is the two-dimensional crystal with which we opened this section. Graphene is a single layer of graphite and, as such, not easy to isolate. It was not until 2004 that graphene was experimentally realized by transferring a single layer of graphite onto a silicon dioxide substrate [9] , an achievement which was rewarded with the Nobel prize in physics in <span class="math inline">\(2010 .\)</span> The coupling between the graphene and the substrate is very weak and does not alter the electrical properties of the graphene. Before 2004 experimentalists were already able to produce tubes of graphene with a diameter of few nanometers. These carbon nanotubes can be considered as an infinitely long graphene strip wrapped onto a cylinder. Due to their mechanical (strong and stiff) and electrical properties, carbon nanotubes are among the most studied systems at the time of writing this book. There exist several kinds of nanotube depending on how the strip is wrapped. The wrapping is specified by a pair of integers <span class="math inline">\((P, Q)\)</span> so that atoms separated by <span class="math inline">\(P_{ V _{+}}+Q_{ v -}\)</span> are identified. Below we consider the armchair nanotubes for which <span class="math inline">\((P, Q)=(N, N)\)</span> and hence the axis of the tube is parallel to <span class="math inline">\(v _{+}- v _{-}\)</span></p>
+<p>Let us define the vector <span class="math inline">\(N _{1}=(N, N)\)</span> and the vector parallel to the tube axis <span class="math inline">\(N _{2}=\)</span> <span class="math inline">\((M,-M)\)</span>. The armchair nanotube is recovered when <span class="math inline">\(M \rightarrow \infty\)</span>. For simplicity we assign a single <span class="math inline">\(p_{z}\)</span> orbital to each carbon atom and consider only those off-diagonal matrix elements that connect atoms <span class="math inline">\(a\)</span> to atoms <span class="math inline">\(b\)</span>. From Fig. 2.4 we then see that the matrices <span class="math inline">\(h, T_{1}\)</span> and <span class="math inline">\(T_{2}\)</span> must have the form <span class="math inline">\(^{4}\)</span> <span class="math display">\[
+h=\left(\begin{array}{cc}
+0 &amp; t \\
+t &amp; 0
+\end{array}\right), \quad T_{1}=\left(\begin{array}{cc}
+0 &amp; t \\
+0 &amp; 0
+\end{array}\right), \quad T_{2}=\left(\begin{array}{cc}
+0 &amp; t \\
+0 &amp; 0
+\end{array}\right)
+\]</span> The eigenvalues of <span class="math display">\[
+h_{ k }=h+\sum_{i=1}^{2}\left(T_{i} e^{-i k_{i}}+T_{i}^{\dagger} e^{i k_{i}}\right)=\left(\begin{array}{cc}
+0 &amp; t\left(1+e^{-i k_{1}}+e^{-i k_{2}}\right) \\
+t\left(1+e^{i k_{1}}+e^{i k_{2}}\right) &amp; 0
+\end{array}\right)
+\]</span> can easily be calculated and read <span class="math display">\[
+\epsilon_{ k \pm}=\pm t \sqrt{1+4 \cos \frac{k_{1}-k_{2}}{2}\left(\cos \frac{k_{1}-k_{2}}{2}+\cos \frac{k_{1}+k_{2}}{2}\right)}
+\]</span> The possible values of <span class="math inline">\(k\)</span> belong to a square with vertices in <span class="math inline">\((\pm \pi, \pm \pi)\)</span> and fulfill (2.12), i.e., <span class="math display">\[
+\begin{array}{l} 
+k \cdot N _{1}=N\left(k_{1}+k_{2}\right)=2 \pi m_{1} \\
+k \cdot N _{2}=M\left(k_{1}-k_{2}\right)=2 \pi m_{2}
+\end{array}
+\]</span> <img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210108173829490.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>Figure 2.7 (a) Equivalent domain of <span class="math inline">\(k\)</span> vectors. The grey areas with the same roman numbers are separated either by the vector <span class="math inline">\((2 \pi, 0)\)</span> or by the vector <span class="math inline">\((0,2 \pi)\)</span>. (b) Eigenvalues of a (5,5) armchair nanotube. The thick lines correspond to the valence band (below zero) and the conduction band (above zero). All bands in between the top and the conduction band and in between the bottom and the valence band are doubly degenerate.</p>
+</blockquote>
+<p>From these relations it is evident that an equivalent domain of <span class="math inline">\(k\)</span> vectors, like the one illustrated in Fig. <span class="math inline">\(2.7( a ),\)</span> is more convenient for our analysis. This equivalent domain is a rectangle tilted by <span class="math inline">\(\pi / 4,\)</span> with the short edge equal to <span class="math inline">\(\sqrt{2} \pi\)</span> and the long edge equal to <span class="math inline">\(2 \sqrt{2} \pi\)</span>. If we define <span class="math inline">\(k_{x}=k_{1}+k_{2}\)</span> and <span class="math inline">\(k_{y}=k_{1}-k_{2}\)</span> then <span class="math inline">\(-2 \pi&lt;k_{x} \leq 2 \pi\)</span> and <span class="math inline">\(-\pi&lt;k_{y} \leq \pi\)</span> and hence <span class="math display">\[
+\begin{array}{l}
+k_{x}=2 \pi \frac{m_{1}}{N}, \quad \text { with } m_{1}=-N+1, \ldots, N \\
+k_{y}=2 \pi \frac{m_{2}}{M}, \quad \text { with } m_{2}=-\frac{(M-1)}{2}, \ldots, \frac{M-1}{2}
+\end{array}
+\]</span> for odd <span class="math inline">\(M\)</span>. The reader can easily check that the number of <span class="math inline">\(k\)</span> is the same as the number of atoms in the graphene block. In the limit <span class="math inline">\(M \rightarrow \infty\)</span> the quantum number <span class="math inline">\(k_{y}\)</span> becomes a continuous index and we obtain <span class="math inline">\(2 \times 2 N\)</span> one-dimensional bands corresponding to the number of carbon atoms in the transverse direction, <span class="math inline">\(^{5}\)</span> <span class="math display">\[
+\epsilon_{k_{y} k_{x} \pm}=\pm t \sqrt{1+4 \cos \frac{k_{y}}{2}\left(\cos \frac{k_{y}}{2}+\cos \frac{k_{x}}{2}\right)}
+\]</span> The set of all carbon atoms in the transverse direction can be considered as the unit cell of the one-dimensional crystal, which is the nanotube.</p>
+<p>In Fig. <span class="math inline">\(2.7( b )\)</span> we plot the eigenvalues <span class="math inline">\(\epsilon_{k_{y} k_{x} \pm}\)</span> for the <span class="math inline">\((N, N)=(5,5)\)</span> armchair nanotube. Since the neutral nanotube has one electron per atom, all bands with negative energy are fully occupied. It is noteworthy that the highest occupied band (valence band) and the lowest unoccupied band (conduction band) touch only in two points. Around these points the energy dispersion is linear and the electrons behave as if they were relativistic [10] . Increasing the diameter of the nanotube also, <span class="math inline">\(k_{x}\)</span> becomes a continuous index and the <span class="math inline">\(\epsilon_{k \pm}\)</span> become the eigenvalues of the two-dimensional graphene. In this limit the <span class="math inline">\(\epsilon_{ k \pm}\)</span> form two two-dimensional bands which still touch in only two points. Due to its so peculiar band structure graphene is classified as a semi-metal, that is a crystal with properties between a metal and a semiconductor.</p>
+<h2 id="fano-model">Fano model</h2>
+<p>The Fano model is ubiquitous in condensed matter physics as it represents the simplest schematization of a discrete state "interacting" with a continuum of states. It was originally introduced by Fano to explain a universal asymmetric line-shape observed in the absorption spectrum of several physical systems [14]. We introduce it here to model an atom or a molecule adsorbed on the surface of a metal, see the schematic illustration below.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210108174022836.png" srcset="/img/loading.gif" /></p>
+<p>Let <span class="math inline">\(|\epsilon Q\rangle\)</span> be the single-particle energy eigenket of the metal, where <span class="math inline">\(Q\)</span> is a quantum number (continuous or discrete) that accounts for the degeneracy of the eigenvalue <span class="math inline">\(\epsilon\)</span>. In this section the spin index carried by states and operators is understood since everything is diagonal in spin space. Equivalently, we can think of fermions with spin zero. For the atom we consider only a single localized orbital and denote by <span class="math inline">\(\left|\epsilon_{0}\right\rangle\)</span> the corresponding ket. For large distances between the atom and the surface the Hamiltonian of the system is the sum of the Hamiltonian <span class="math inline">\(\hat{H}_{\text {met }}\)</span> of the metal and the Hamiltonian <span class="math inline">\(\hat{H}_{\text {at }}\)</span> of the atom <span class="math display">\[
+\hat{H}_{ met }+\hat{H}_{ at }=\int d \epsilon d Q \epsilon \hat{d}_{\epsilon Q}^{\dagger} \hat{d}_{\epsilon Q}+\epsilon_{0} \hat{d}_{0}^{\dagger} \hat{d}_{0}
+\]</span> where the <span class="math inline">\(\hat{d}\)</span> -operators create or annihilate electrons and hence satisfy the anti-commutation relations <span class="math display">\[
+\left[\hat{d}_{\epsilon Q}, \hat{d}_{\epsilon^{\prime} Q^{\prime}}^{\dagger}\right]_{+}=\delta\left(\epsilon-\epsilon^{\prime}\right) \delta\left(Q-Q^{\prime}\right), \quad\left[\hat{d}_{0}, \hat{d}_{0}^{\dagger}\right]_{+}=1
+\]</span> When the atom approaches the surface the overlap <span class="math inline">\(T_{\epsilon Q} \equiv\left\langle\epsilon Q|\hat{h}| \epsilon_{0}\right\rangle\)</span> increases and cannot be neglected any longer. In this regime the Hamiltonian of the system becomes <span class="math display">\[
+\hat{H}_{0}=\hat{H}_{ met }+\hat{H}_{ at }+\int d \epsilon d Q\left(T_{\epsilon Q} \hat{d}_{\epsilon Q}^{\dagger} \hat{d}_{0}+T_{\epsilon Q}^{*} \hat{d}_{0}^{\dagger} \hat{d}_{\epsilon Q}\right)
+\]</span> This is the general structure of the Fano model. It is common (and for later purposes also instructive) to discretize the continuum of states by retaining only one state <span class="math inline">\(\left|\epsilon_{k} Q_{k}\right\rangle\)</span> in the volume element <span class="math inline">\(\Delta \epsilon \Delta Q\)</span>. Then, for small volume elements the Fano Hamiltonian can be approximated as <span class="math display">\[
+\hat{H}_{0}=\sum_{k} \epsilon_{k} \hat{d}_{k}^{\dagger} \hat{d}_{k}+\epsilon_{0} \hat{d}_{0}^{\dagger} \hat{d}_{0}+\sum_{k}\left(T_{k} \hat{d}_{k}^{\dagger} \hat{d}_{0}+T_{k}^{*} \hat{d}_{0}^{\dagger} \hat{d}_{k}\right)
+\]</span> where the discrete <span class="math inline">\(\hat{d}\)</span> -operators satisfy the anti-commutation relations <span class="math inline">\(\left[\hat{d}_{k}, \hat{d}_{k^{\prime}}\right]_{+}=\delta_{k k^{\prime}} .\)</span> To recover the continuum limit we establish the correspondence <span class="math display">\[
+T_{k}=\sqrt{\Delta \epsilon \Delta Q} T_{\epsilon_{k} Q_{k}}
+\]</span> for the off-diagonal matrix elements of <span class="math inline">\(\hat{h}\)</span>, and <span class="math display">\[
+\hat{d}_{k}=\sqrt{\Delta \epsilon \Delta Q} \hat{d}_{\epsilon_{k} Q_{k}}, \quad \hat{d}_{k}^{\dagger}=\sqrt{\Delta \epsilon \Delta Q} \hat{d}_{\epsilon_{k} Q_{k}}^{\dagger}
+\]</span> for the fermionic operators. Letting <span class="math inline">\(\Delta \epsilon \Delta Q \rightarrow 0\)</span> the discrete Hamiltonian (2.18) reduces to the continuum Hamiltonian (2.17) and <span class="math display">\[
+\left[\hat{d}_{\epsilon_{k} Q_{k}}, \hat{d}_{\epsilon_{k^{\prime}} Q_{k^{\prime}}}^{\dagger}\right]_{+}=\frac{\delta_{k k^{\prime}}}{\Delta \epsilon \Delta Q} \rightarrow \delta\left(\epsilon-\epsilon^{\prime}\right) \delta\left(Q-Q^{\prime}\right)
+\]</span> We now calculate the atomic occupation <span class="math inline">\(n_{0}\)</span> for a given Fermi energy <span class="math inline">\(\epsilon_{ F }\)</span>, which is the energy of the highest occupied level of the metal. Let <span class="math inline">\(|\lambda\rangle\)</span> be the single-particle eigenkets of <span class="math inline">\(\hat{H}_{0}\)</span> with eigenenergies <span class="math inline">\(\epsilon_{\lambda}\)</span>. The corresponding annihilation and creation operators <span class="math inline">\(\hat{c}_{\lambda}\)</span> and <span class="math inline">\(\hat{c}_{\lambda}^{\dagger}\)</span> are a linear combination of the original <span class="math inline">\(\hat{d}\)</span> -operators as discussed in Section 1.5 , <span class="math display">\[
+\hat{c}_{\lambda}^{\dagger}=\left\langle\epsilon_{0} \mid \lambda\right\rangle \hat{d}_{0}^{\dagger}+\sum_{k}\langle k \mid \lambda\rangle \hat{d}_{k}^{\dagger}
+\]</span> and with a similar equation for the adjoint. The ground state <span class="math inline">\(\left|\Phi_{0}\right\rangle\)</span> of the system is obtained by occupying all the <span class="math inline">\(|\lambda\rangle\)</span> s with energies <span class="math inline">\(\epsilon_{\lambda} \leq \epsilon_{ F }\)</span> and reads <span class="math display">\[
+\left|\Phi_{0}\right\rangle=\prod_{\lambda: \epsilon_{\lambda} \leq \epsilon_{F}} \hat{c}_{\lambda}^{\dagger}|0\rangle
+\]</span> To calculate the atomic occupation <span class="math inline">\(n_{0}=\left\langle\Phi_{0}\left|\hat{d}_{0}^{\dagger} \hat{d}_{0}\right| \Phi_{0}\right\rangle\)</span> we evaluate the ket <span class="math inline">\(\hat{d}_{0}\left|\Phi_{0}\right\rangle\)</span> by moving the operator <span class="math inline">\(\hat{d}_{0}\)</span> through the string of <span class="math inline">\(\hat{c}^{\dagger}\)</span> -operators, as we did in (1.57). The difference here is that the anti-commutator is <span class="math inline">\(\left[\hat{d}_{0}, \hat{c}_{\lambda}^{\dagger}\right]_{+}=\left\langle\epsilon_{0} \mid \lambda\right\rangle\)</span> rather than a Kronecker delta. We then find <span class="math display">\[
+\hat{d}_{0}\left|\Phi_{0}\right\rangle=\sum_{\lambda}(-)^{p_{\lambda}}\left\langle\epsilon_{0} \mid \lambda\right\rangle \prod_{\lambda^{\prime} \neq \lambda} \hat{c}_{\lambda^{\prime}}^{\dagger}|0\rangle
+\]</span> where the sum and the product are restricted to states below the Fermi energy. The integer <span class="math inline">\(p_{\lambda}\)</span> in the above equation refers to the position of <span class="math inline">\(\hat{c}_{\lambda}^{\dagger}\)</span> in the string of operators (2.20) in agreement with (1.57). The atomic occupation <span class="math inline">\(n_{0}\)</span> is the inner product of the manyparticle state <span class="math inline">\(\hat{d}_{0}\left|\Phi_{0}\right\rangle\)</span> with itself. In this inner product all cross terms vanish since they are proportional to the inner product of states with different strings of <span class="math inline">\(\hat{c}_{\lambda}^{\dagger}\)</span> operators, see (1.58). Taking into account that <span class="math inline">\(\prod_{\lambda^{\prime} \neq \lambda} \hat{c}_{\lambda^{\prime}}^{\dagger}|0\rangle\)</span> is normalized to 1 for every <span class="math inline">\(\lambda\)</span> we obtain the intuitive result <span class="math display">\[
+n_{0}=\sum_{\lambda: \epsilon_{\lambda} \leq \epsilon_{F}}\left|\left\langle\epsilon_{0} \mid \lambda\right\rangle\right|^{2}
+\]</span> the atomic occupation is the sum over all occupied states of the probability of finding an electron in <span class="math inline">\(\left|\epsilon_{0}\right\rangle .\)</span></p>
+<p>From (2.21) it seems that we need to know the eigenkets <span class="math inline">\(|\lambda\rangle\)</span> and eigenenergies <span class="math inline">\(\epsilon_{\lambda}\)</span> in order to determine <span class="math inline">\(n_{0}\)</span>. We now show that this is not strictly the case. Let us rewrite <span class="math inline">\(n_{0}\)</span> as <span class="math display">\[
+n_{0}=\int_{-\infty}^{\epsilon_{ F }} \frac{d \omega}{2 \pi} \sum_{\lambda} 2 \pi \delta\left(\omega-\epsilon_{\lambda}\right)\left|\left\langle\epsilon_{0} \mid \lambda\right\rangle\right|^{2}
+\]</span> The eigenkets <span class="math inline">\(|\lambda\rangle\)</span> satisfy <span class="math inline">\(\hat{h}|\lambda\rangle=\epsilon_{\lambda}|\lambda\rangle\)</span> where <span class="math inline">\(\hat{h}\)</span> is the one-particle Hamiltonian in first quantization. For the Fano model <span class="math inline">\(\hat{h}\)</span> has the following ket-bra form: <span class="math display">\[
+\hat{h}=\sum_{k} \epsilon_{k}|k\rangle\left\langle k\left|+\epsilon_{0}\right| \epsilon_{0}\right\rangle\left\langle\epsilon_{0}\right|+\sum_{k}\left(T_{k}|k\rangle\left\langle\epsilon_{0}\left|+T_{k}^{*}\right| \epsilon_{0}\right\rangle\langle k|\right)
+\]</span> where we use (1.86) . Then <span class="math display">\[
+\sum_{\lambda} \delta\left(\omega-\epsilon_{\lambda}\right)\left|\left\langle\epsilon_{0} \mid \lambda\right\rangle\right|^{2}=\sum_{\lambda}\left\langle\epsilon_{0}|\delta(\omega-\hat{h})| \lambda\right\rangle\left\langle\lambda \mid \epsilon_{0}\right\rangle=\left\langle\epsilon_{0}|\delta(\omega-\hat{h})| \epsilon_{0}\right\rangle
+\]</span> where we use the completeness relation <span class="math inline">\(\sum_{\lambda}|\lambda\rangle\langle\lambda|=\hat{ 1 }\)</span>. Inserting this result into (2.22) we get <span class="math display">\[
+n_{0}=\int_{-\infty}^{\epsilon_{ F }} \frac{d \omega}{2 \pi}\left\langle\epsilon_{0}|2 \pi \delta(\omega-\hat{h})| \epsilon_{0}\right\rangle
+\]</span> This is our first encounter with the spectral function (first quantization) operator <span class="math display">\[
+\hat{ A }(\omega) \equiv 2 \pi \delta(\omega-\hat{h})= i \left[\frac{1}{\omega-\hat{h}+ i \eta}-\frac{1}{\omega-\hat{h}- i \eta}\right]
+\]</span> In the second equality <span class="math inline">\(\eta\)</span> is an infinitesimally small positive constant and we used the Cauchy relation <span class="math display">\[
+\frac{1}{\omega-\epsilon \pm i \eta}=P \frac{1}{\omega-\epsilon} \mp i \pi \delta(\omega-\epsilon)
+\]</span> where <span class="math inline">\(P\)</span> denotes the principal part. Thus we can calculate <span class="math inline">\(n_{0}\)</span> if we find a way to determine the matrix element <span class="math inline">\(A_{00}(\omega)=\left\langle\epsilon_{0}|\hat{ A }(\omega)| \epsilon_{0}\right\rangle\)</span> of the spectral function. As we see in Chapter 6 , this matrix element can be interpreted as the probability that an electron in <span class="math inline">\(\left|\epsilon_{0}\right\rangle\)</span> has energy <span class="math inline">\(\omega^{6}\)</span> To determine <span class="math inline">\(A_{00}(\omega)\)</span> we separate <span class="math inline">\(\hat{h}=\hat{ E }+\hat{ T }\)</span> into a sum of the metal+atom Hamiltonian <span class="math inline">\(\hat{ E }\)</span> and the off-diagonal part <span class="math inline">\(\hat{ T },\)</span> and use the identity <span class="math display">\[
+\frac{1}{\zeta-\hat{h}}=\frac{1}{\zeta-\hat{ E }}+\frac{1}{\zeta-\hat{h}} \hat{ T } \frac{1}{\zeta-\hat{ E }}
+\]</span> where <span class="math inline">\(\zeta\)</span> is an arbitrary complex number. This identity can easily be verified by multiplying both sides from the left by <span class="math inline">\((\zeta-\hat{h})\)</span>. Sandwiching of (2.24) between <span class="math inline">\(\left\langle\epsilon_{0}\right|\)</span> and <span class="math inline">\(\left|\epsilon_{0}\right\rangle\)</span> and between <span class="math inline">\(\left\langle\epsilon_{0}\right|\)</span> and <span class="math inline">\(|k\rangle\)</span> we find <span class="math display">\[
+\begin{aligned}
+\left\langle\epsilon_{0}\left|\frac{1}{\zeta-\hat{h}}\right| \epsilon_{0}\right\rangle &amp;=\frac{1}{\zeta-\epsilon_{0}}+\sum_{k} T_{k}\left\langle\epsilon_{0}\left|\frac{1}{\zeta-\hat{h}}\right| k\right\rangle \frac{1}{\zeta-\epsilon_{0}} \\
+\left\langle\epsilon_{0}\left|\frac{1}{\zeta-\hat{h}}\right| k\right\rangle &amp;=T_{k}^{*}\left\langle\epsilon_{0}\left|\frac{1}{\zeta-\hat{h}}\right| \epsilon_{0}\right\rangle \frac{1}{\zeta-\epsilon_{k}}
+\end{aligned}
+\]</span> Substituting the second of these equations into the first we arrive at the following important result <span class="math display">\[
+\left\langle\epsilon_{0}\left|\frac{1}{\zeta-\hat{h}}\right| \epsilon_{0}\right\rangle=\frac{1}{\zeta-\epsilon_{0}-\Sigma_{ em }(\zeta)}, \quad \text { with } \quad \Sigma_{ em }(\zeta)=\sum_{k} \frac{\left|T_{k}\right|^{2}}{\zeta-\epsilon_{k}}
+\]</span> The embedding self-energy <span class="math inline">\(\Sigma_{ em }(\zeta)\)</span> appears because the atom is not isolated; we can think of it as a correction to the atomic level <span class="math inline">\(\epsilon_{0}\)</span> induced by the presence of the metal. Taking <span class="math inline">\(\zeta=\omega+ i \eta\)</span> we can separate <span class="math inline">\(\Sigma_{ em }(\zeta)\)</span> into a real and an imaginary part, <span class="math display">\[
+\Sigma_{ em }(\omega+ i \eta)=\sum_{k} \frac{\left|T_{k}\right|^{2}}{\omega-\epsilon_{k}+ i \eta}=P \sum_{k} \frac{\left|T_{k}\right|^{2}}{\omega-\epsilon_{k}}-\frac{ i }{2} 2 \pi \sum_{k}\left|T_{k}\right|^{2} \delta\left(\omega-\epsilon_{k}\right)
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\Lambda(\omega)=P \sum_{k} \frac{\left|T_{k}\right|^{2}}{\omega-\epsilon_{k}}\)</span></li>
+<li><span class="math inline">\(\Gamma(\omega)=2 \pi \sum_{k}\left|T_{k}\right|^{2} \delta\left(\omega-\epsilon_{k}\right)\)</span></li>
+</ul>
+<p>The real and imaginary parts are not independent but instead related by a Hilbert transformation <span class="math display">\[
+\Lambda(\omega)=P \int \frac{d \omega^{\prime}}{2 \pi} \frac{\Gamma\left(\omega^{\prime}\right)}{\omega-\omega^{\prime}}
+\]</span> as can be verified by inserting the explicit expression for <span class="math inline">\(\Gamma(\omega)\)</span> into the r.h.s.. In conclusion, we have obtained an expression for <span class="math inline">\(n_{0}\)</span> in terms of the quantity <span class="math inline">\(\Gamma(\omega)\)</span> only <span class="math display">\[
+\begin{aligned}
+n_{0} &amp;=\int_{-\infty}^{\epsilon_{ F }} \frac{d \omega}{2 \pi} A_{00}(\omega) \\
+&amp;=\int_{-\infty}^{\epsilon_{ F }} \frac{d \omega}{2 \pi} i \left[\frac{1}{\omega+ i \eta-\epsilon_{0}-\Sigma_{ em }(\omega+ i \eta)}-\frac{1}{\omega- i \eta-\epsilon_{0}-\Sigma_{ em }(\omega- i \eta)}\right] \\
+&amp;=-2 \int_{-\infty}^{\epsilon_{ F }} \frac{d \omega}{2 \pi} \operatorname{Im} \frac{1}{\omega-\epsilon_{0}-\Lambda(\omega)+\frac{i}{2} \Gamma(\omega)+ i \eta}
+\end{aligned}
+\]</span> If the coupling <span class="math inline">\(T_{k}\)</span> between the atom and the metal is weak then <span class="math inline">\(\Lambda\)</span> and <span class="math inline">\(\Gamma\)</span> are small and the dominant contribution to the above integral comes from a region around <span class="math inline">\(\epsilon_{0}\)</span>. In the continuum limit the function <span class="math inline">\(\Gamma(\omega)\)</span> is a smooth function since <span class="math display">\[
+\Gamma(\omega) \rightarrow 2 \pi \int d \epsilon d Q\left|T_{\epsilon Q}\right|^{2} \delta(\omega-\epsilon)=2 \pi \int d Q\left|T_{\omega Q}\right|^{2}
+\]</span> and in the integral (2.27) we can approximate <span class="math inline">\(\Gamma(\omega)\)</span> by a constant <span class="math inline">\(\Gamma=\Gamma\left(\epsilon_{0}\right)\)</span>. This approximation is known as the Wide Band Limit Approximation (WBLA) since for the r.h.s. of (2.28) to be <span class="math inline">\(\omega\)</span> independent the spectrum of the metal must extend from <span class="math inline">\(-\infty\)</span> and <span class="math inline">\(+\infty\)</span>. For a <span class="math inline">\(\Gamma(\omega)=\Gamma\)</span> independent of <span class="math inline">\(\omega\)</span> the Hilbert transform <span class="math inline">\(\Lambda(\omega)\)</span> vanishes and the formula for the atomic occupation simplifies to <span class="math inline">\({ }^{7}\)</span> <span class="math display">\[
+n_{0}=\int_{-\infty}^{\epsilon_{ F }} \frac{d \omega}{2 \pi} \frac{\Gamma}{\left(\omega-\epsilon_{0}\right)^{2}+\Gamma^{2} / 4}
+\]</span> We thus see that in the WBLA <span class="math inline">\(n_{0}\)</span> is the integral up to the Fermi energy of a Lorentzian of width <span class="math inline">\(\Gamma\)</span> centered at <span class="math inline">\(\epsilon_{0}\)</span>. The atomic level is occupied <span class="math inline">\(\left(n_{0} \sim 1\right)\)</span> if <span class="math inline">\(\epsilon_{0}&lt;\epsilon_{ F }+\Gamma\)</span>, whereas it is empty <span class="math inline">\(\left(n_{0} \sim 0\right)\)</span> if <span class="math inline">\(\epsilon_{0}&gt;\epsilon_{ F }+\Gamma\)</span>. This result should be compared with the atomic limit, <span class="math inline">\(\Gamma=0\)</span>, corresponding to the isolated atom. In this limit the Lorentzian becomes a <span class="math inline">\(\delta\)</span> -function since <span class="math display">\[
+\lim _{\Gamma \rightarrow 0} \frac{1}{\pi} \frac{\Gamma / 2}{\left(\omega-\epsilon_{0}\right)^{2}+\Gamma^{2} / 4}=\delta\left(\omega-\epsilon_{0}\right)
+\]</span> as follows immediately from the Cauchy relation (2.23). In the atomic limit the atomic occupation is exactly 1 for <span class="math inline">\(\epsilon_{0}&lt;\epsilon_{ F }\)</span> and zero otherwise. We say that the presence of the metal broadens the sharp atomic level and transforms it into a resonance of finite width as illustrated in Fig. <span class="math inline">\(2.8 .\)</span> This broadening is a general feature of discrete levels "interacting" or "in contact" with a continuum and it is observed in interacting systems as well.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210108174448715.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>Figure 2.8 (a) The metallic band and the sharp level in the atomic limit. (b) The metallic band and the spectral function <span class="math inline">\(A_{00}\)</span> for finite <span class="math inline">\(\Gamma\)</span>.</p>
+</blockquote>
+<h2 id="hubbard-model">Hubbard model</h2>
+<p>The Hubbard model was originally introduced to describe transition metals and rare-earth metals, i.e., solids composed of atoms with very localized outer electrons <span class="math inline">\((d\)</span> or <span class="math inline">\(f\)</span> shells). In these materials the degree of localization of the outer-electron orbitals is so high that the Coulomb integrals <span class="math inline">\(v_{s_{1} s_{2} s_{3} s_{4}}\)</span> can be approximated as in (2.3) with the diagonal elements <span class="math inline">\(U_{s} \equiv v_{s s}\)</span> about an order of magnitude larger than the off-diagonal ones. For this reason Hubbard, in a milestone paper from 1963 [15], included only the diagonal interaction <span class="math inline">\(U_{s}\)</span> in his treatment and wrote the model Hamiltonian <span class="math display">\[
+\hat{H}=\hat{H}_{0}+\hat{H}_{ int }=\sum_{\sigma} \sum_{s s^{\prime}} h_{s s^{\prime}} \hat{d}_{s \sigma}^{\dagger} \hat{d}_{s^{\prime} \sigma}+\sum_{s} U_{s} \hat{n}_{s \uparrow} \hat{n}_{s \downarrow}
+\]</span> that today carries his name. In this Hamiltonian the sums run over the lattice position <span class="math inline">\(s\)</span> of the nuclei, the <span class="math inline">\(\hat{d}\)</span> -operators are fermionic annihilation and creation operators for electrons with the usual anti-commutation relations <span class="math display">\[
+\left[\hat{d}_{s \sigma}, \hat{d}_{s^{\prime} \sigma^{\prime}}^{\dagger}\right]_{+}=\delta_{\sigma \sigma^{\prime}} \delta_{s s^{\prime}}, \quad\left[\hat{d}_{s \sigma}, \hat{d}_{s^{\prime} \sigma^{\prime}}\right]_{+}=0
+\]</span> and <span class="math inline">\(\hat{n}_{s \sigma}=\hat{d}_{s \sigma}^{\dagger} \hat{d}_{s \sigma}\)</span> is the occupation operator for electrons in <span class="math inline">\(s\)</span> with spin <span class="math inline">\(\sigma\)</span>. The matrix elements <span class="math inline">\(h_{s s^{\prime}}\)</span> are typically set to zero if the distance between <span class="math inline">\(s\)</span> and <span class="math inline">\(s^{\prime}\)</span> exceeds a few lattice spacings. In the context of model Hamiltonians the off-diagonal matrix elements <span class="math inline">\(h_{s s^{\prime}}\)</span> are also called hopping integrals or simply hoppings since they multiply the operator <span class="math inline">\(\hat{d}_{s \sigma}^{\dagger} \hat{d}_{s^{\prime} \sigma}\)</span>, which destroys an electron in <span class="math inline">\(s^{\prime}\)</span> and creates an electron in <span class="math inline">\(s,\)</span> an operation that can be pictured as the hopping of an electron from <span class="math inline">\(s^{\prime}\)</span> to <span class="math inline">\(s\)</span>. It is interesting to note that in the Hubbard model two electrons interact only if they occupy the same atomic site (and of course have opposite spins).</p>
+<p>To gain some insight into the physics of the Hubbard model we compare two limiting situations, i.e., <span class="math inline">\(\hat{H}_{\text {int }}=0\)</span> and <span class="math inline">\(\hat{H}_{0}=0 .\)</span> We see that electrons behave as "waves" if <span class="math inline">\(\hat{H}_{\text {int }}=0\)</span> and as "particles" if <span class="math inline">\(\hat{H}_{0}=0\)</span>; how they behave when both <span class="math inline">\(\hat{H}_{0}\)</span> and <span class="math inline">\(\hat{H}_{\text {int }}\)</span> are nonzero is a fascinating problem intimately related to wave-particle dualism. To readers interested in the physics of the Hubbard model we suggest the review article in Ref. [16] and the books in Refs. [17,18].</p>
+<p>For <span class="math inline">\(\hat{H}_{\text {int }}=0\)</span> the Hubbard Hamiltonian describes noninteracting electrons on a lattice. Let <span class="math inline">\(|k \sigma\rangle=c_{k \sigma}^{\dagger}|0\rangle\)</span> be the one-particle eigenkets with energies <span class="math inline">\(\epsilon_{k} .\)</span> If we order the energies <span class="math inline">\(\epsilon_{k} \leq \epsilon_{k+1}\)</span>, the state of lowest energy with <span class="math inline">\(N_{\uparrow / \downarrow}\)</span> electrons of spin up/down is <span class="math display">\[
+|\Phi\rangle=\prod_{k=1}^{N_{\uparrow}} \prod_{k^{\prime}=1}^{N_{\downarrow}} \hat{c}_{k \uparrow}^{\dagger} \hat{c}_{k^{\prime} \downarrow}^{\dagger}|0\rangle \quad \text { with } \quad \hat{H}_{0}|\Phi\rangle=\left(\sum_{k=1}^{N_{\uparrow}} \epsilon_{k}+\sum_{k^{\prime}=1}^{N_{\downarrow}} \epsilon_{k^{\prime}}\right)|\Phi\rangle
+\]</span> We can say that in <span class="math inline">\(|\Phi\rangle\)</span> the electrons behave as "waves" since they have probability 0 or 1 of being in a delocalized state <span class="math inline">\(|k \sigma\rangle .\)</span> The <span class="math inline">\(N\)</span> -particle ground state of <span class="math inline">\(\hat{H}_{0}\)</span> is obtained by minimizing the eigenvalue in (2.30) with respect to <span class="math inline">\(N_{\uparrow}\)</span> and <span class="math inline">\(N_{\downarrow}\)</span> under the constraint <span class="math inline">\(N_{\uparrow}+N_{\downarrow}=N\)</span>. For nondegenerate energies <span class="math inline">\(\epsilon_{k}&lt;\epsilon_{k+1}\)</span>, the ground state of <span class="math inline">\(\hat{H}_{0}\)</span> with an even number <span class="math inline">\(N\)</span> of electrons is unique and reads <span class="math display">\[
+\left|\Phi_{0}\right\rangle=\prod_{k=1}^{N / 2} \hat{c}_{k \uparrow}^{\dagger} \hat{c}_{k \downarrow}^{\dagger}|0\rangle
+\]</span> We leave it as an exercise for the reader to show that <span class="math inline">\(\left|\Phi_{0}\right\rangle\)</span> is also an eigenstate of the total spin operators [see (1.92)], <span class="math display">\[
+\hat{ S }=\left(\hat{S}^{x}, \hat{S}^{y}, \hat{S}^{z}\right) \equiv \sum_{s} \hat{ S }_{s}=\sum_{s}\left(\hat{S}_{s}^{x}, \hat{S}_{s}^{y}, \hat{S}_{s}^{z}\right)
+\]</span> with vanishing eigenvalue, i.e., it is a singlet. If we perturb the system with a weak external magnetic field <span class="math inline">\(B\)</span> along, say, the <span class="math inline">\(z\)</span> axis and discard the coupling to the orbital motion, the noninteracting part of the Hamiltonian changes to <span class="math display">\[
+\hat{H}_{0} \rightarrow \hat{H}_{0}-g \mu_{ B } \hat{ S } \cdot B =\hat{H}_{0}-\frac{1}{2} g \mu_{ B } B\left(\hat{N}_{\uparrow}-\hat{N}_{\downarrow}\right)
+\]</span> with <span class="math inline">\(g\)</span> the electron gyromagnetic ratio, <span class="math inline">\(\mu_{ B }\)</span> the Bohr magneton, and <span class="math inline">\(\hat{N}_{\sigma}=\sum_{s} \hat{n}_{s \sigma}\)</span> the operator for the total number of particles of spin <span class="math inline">\(\sigma\)</span>. The eigenkets (2.30) are also eigenkets of this new Hamiltonian but with a different eigenvalue <span class="math display">\[
+\left(\hat{H}_{0}-g \mu_{ B } \hat{ S } \cdot B \right)|\Phi\rangle=\left(\sum_{k=1}^{N_{\uparrow}}\left(\epsilon_{k}-\frac{1}{2} g \mu_{ B } B\right)+\sum_{k^{\prime}=1}^{N_{\downarrow}}\left(\epsilon_{k^{\prime}}+\frac{1}{2} g \mu_{ B } B\right)\right)|\Phi\rangle
+\]</span> Thus, in the presence of an external magnetic field the state (2.31) is no longer the lowest in energy since for, e.g., <span class="math inline">\(B&gt;0,\)</span> it becomes energetically convenient to have more electrons of spin up than of spin down. This is the typical behavior of a Pauli paramagnet, that is a system whose total spin is zero for <span class="math inline">\(B=0\)</span> and grows parallel to <span class="math inline">\(B\)</span> for <span class="math inline">\(B \neq 0 .\)</span></p>
+<p>Next we discuss the case <span class="math inline">\(\hat{H}_{0}=0\)</span>. The Hamiltonian <span class="math inline">\(\hat{H}_{\text {int }}\)</span> is already in a diagonal form and the generic eigenket can be written as <span class="math display">\[
+\left|\Phi_{X Y}\right\rangle=\prod_{s \in X} \prod_{s^{\prime} \in Y} \hat{d}_{s \uparrow}^{\dagger} \hat{d}_{s^{\prime} \downarrow}^{\dagger}|0\rangle
+\]</span> where <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two arbitrary collections of atomic sites. We can say that in <span class="math inline">\(\left|\Phi_{X Y}\right\rangle\)</span> the electrons behave like "particles" since they have probability 0 or 1 of being on a given atomic site. The energy eigenvalue of <span class="math inline">\(\left|\Phi_{X Y}\right\rangle\)</span> is <span class="math display">\[
+E_{X Y}=\sum_{s \in X \cap Y} U_{s}
+\]</span> The ground state(s) for a given number <span class="math inline">\(N=N_{\uparrow}+N_{\downarrow}\)</span> of electrons can be constructed by choosing <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> that minimize the energy <span class="math inline">\(E_{X Y}\)</span>. Denoting by <span class="math inline">\(N_{ V }\)</span> the total number of atomic sites, we have that for <span class="math inline">\(N \leq N_{ V }\)</span> all states with <span class="math inline">\(X \cap Y=\emptyset\)</span> are ground states (with zero energy) and, again, the system behaves like a Pauli paramagnet.</p>
+<p>In conclusion, neither <span class="math inline">\(\hat{H}_{0}\)</span> nor <span class="math inline">\(\hat{H}_{\text {int }}\)</span> favors any kind of magnetic order. However, their sum <span class="math inline">\(\hat{H}_{0}+\hat{H}_{\text {int }}\)</span> sometimes does. In Section 2.5 we illustrate an example of this phenomenon.</p>
+<h3 id="particle-hole-symmetry">Particle-hole symmetry</h3>
+<p>In this section we solve explicitly the Hubbard model with only two sites, the so called Hubbard dimer, with Hamiltonian <span class="math display">\[
+\hat{H}=T \sum_{\sigma}\left(\hat{d}_{1 \sigma}^{\dagger} \hat{d}_{2 \sigma}+\hat{d}_{2 \sigma}^{\dagger} \hat{d}_{1 \sigma}\right)+U\left(\hat{n}_{1 \uparrow} \hat{n}_{1 \downarrow}+\hat{n}_{2 \uparrow} \hat{n}_{2 \downarrow}\right)
+\]</span> This Hamiltonian belongs to a general class of Hubbard Hamiltonians defined on bipartite lattices, i.e., lattices that can be divided into two sets of sites <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> with hoppings only from sites of <span class="math inline">\(A\)</span> to sites of <span class="math inline">\(B\)</span> and vice versa, i.e. <span class="math display">\[
+\hat{H}_{ bip }=\sum_{\sigma} \sum_{s \in A \atop s^{\prime} \in B}\left(h_{s s^{\prime}} \hat{d}_{s \sigma}^{\dagger} \hat{d}_{s^{\prime} \sigma}+h_{s^{\prime} s} \hat{d}_{s^{\prime} \sigma}^{\dagger} \hat{d}_{s \sigma}\right)+\sum_{s} U_{s} \hat{n}_{s \uparrow} \hat{n}_{s \downarrow}
+\]</span> In the Hubbard dimer <span class="math inline">\(A\)</span> is site 1 and <span class="math inline">\(B\)</span> is site 2 and <span class="math inline">\(h_{12}=T .\)</span> If the lattice is bipartite and if <span class="math inline">\(h_{s s^{\prime}}=h_{s^{\prime} s}\)</span> and <span class="math inline">\(U_{s}=U\)</span> is independent of <span class="math inline">\(s\)</span>, the Hubbard Hamiltonian enjoys an interesting particle-hole symmetry which can be used to simplify the calculation of eigenvalues and eigenkets. Let us first explain what this symmetry is. The fermionic operators <span class="math display">\[
+\hat{b}_{ s \sigma} \equiv\left\{\begin{aligned}
+\hat{d}_{s \sigma}^{\dagger} &amp; s \in A \\
+-\hat{d}_{s \sigma}^{\dagger} &amp; s \in B
+\end{aligned}\right.
+\]</span> satisfy the same anti-commutation relations as the original <span class="math inline">\(\hat{d}\)</span> operators, and in terms of them <span class="math inline">\(\hat{H}_{\text {bip }}\)</span> becomes <span class="math display">\[
+\begin{aligned}
+\hat{H}_{\text {bip }} &amp;=-\sum_{\sigma} \sum_{s \in A \atop s^{\prime} \in B}\left(h_{s s^{\prime}}, \hat{b}_{s \sigma} \hat{b}_{s^{\prime} \sigma}^{\dagger}+h_{s^{\prime} s} \hat{b}_{s^{\prime} \sigma} \hat{b}_{s \sigma}^{\dagger}\right)+U \sum_{s} \hat{b}_{s \uparrow} \hat{b}_{s \uparrow}^{\dagger} \hat{b}_{s \downarrow} \hat{b}_{s \downarrow}^{\dagger} \\
+&amp;=\sum_{\sigma} \sum_{s \in A \atop s^{\prime} \in B}\left(h_{s s^{\prime}} \hat{b}_{s \sigma}^{\dagger} \hat{b}_{s^{\prime} \sigma}+h_{s^{\prime} s} \hat{b}_{s^{\prime} \sigma}^{\dagger} \hat{b}_{s \sigma}\right)+U \sum_{s} \hat{n}_{s \uparrow}^{(b)} \hat{n}_{s \downarrow}^{(b)}-U \hat{N}^{(b)}+U N_{V}
+\end{aligned}
+\]</span> where <span class="math inline">\(\hat{n}_{s \sigma}^{(b)}=\hat{b}_{s \sigma}^{\dagger} \hat{b}_{s \sigma}, \hat{N}^{(b)}=\sum_{s \sigma} \hat{n}_{s \sigma}^{(b)}\)</span> and <span class="math inline">\(N_{ V }\)</span> is the total number of sites. Except for the last two terms, which both commute with the first two terms, the Hamiltonian written with the <span class="math inline">\(\hat{b}\)</span> -operators is identical to the Hamiltonian written with the <span class="math inline">\(\hat{d}\)</span> -operators. This means that if <span class="math display">\[
+|\Psi\rangle=\sum_{s_{1} \ldots s_{N_{\uparrow}}} \sum_{s_{1}^{\prime} \ldots s_{N_{\downarrow}}^{\prime}} \Psi\left(s_{1} \uparrow, \ldots, s_{N_{\uparrow}} \uparrow, s_{1}^{\prime} \downarrow, \ldots, s_{N_{\downarrow}}^{\prime} \downarrow\right) \hat{d}_{s_{1} \uparrow}^{\dagger} \ldots \hat{d}_{s_{N_{\uparrow}} \uparrow}^{\dagger} \hat{d}_{s_{1}^{\prime} \downarrow}^{\dagger} \ldots \hat{d}_{s_{N_{\downarrow}}^{\prime}}^{\dagger}|0\rangle
+\]</span> is an eigenstate of <span class="math inline">\(\hat{H}_{\text {bip }}\)</span> with <span class="math inline">\(N_{\sigma}\)</span> electrons of spin <span class="math inline">\(\sigma\)</span> and energy <span class="math inline">\(E\)</span>, then the state <span class="math inline">\(\left|\Psi^{(b)}\right\rangle\)</span> obtained from <span class="math inline">\(|\Psi\rangle\)</span> by replacing the <span class="math inline">\(\hat{d}\)</span> -operators with the <span class="math inline">\(\hat{b}\)</span> -operators and the empty ket |0with the empty ket <span class="math inline">\(\left|0^{(b)}\right\rangle\)</span> of the <span class="math inline">\(\hat{b}\)</span> -operators is also an eigenstate of <span class="math inline">\(\hat{H}_{ bip }\)</span> but with energy <span class="math inline">\(E-U\left(N_{\uparrow}+N_{\downarrow}\right)+U N_{ V }\)</span>. The empty ket <span class="math inline">\(\left|0^{(b)}\right\rangle\)</span> is by definition the ket for which <span class="math inline">\(\hat{b}_{s \sigma}\left|0^{(b)}\right\rangle=0 \quad\)</span> for all <span class="math inline">\(s\)</span> and <span class="math inline">\(\sigma\)</span></p>
+<p>Recalling the definition of the <span class="math inline">\(\hat{b}\)</span> -operators, this is equivalent to saying that <span class="math inline">\(\hat{d}_{s \sigma}^{\dagger}\left|0^{(b)}\right\rangle=0\)</span> for all <span class="math inline">\(s\)</span> and <span class="math inline">\(\sigma\)</span>, i.e., the ket <span class="math inline">\(\left|0^{(b)}\right\rangle\)</span> is the full ket with one electron of spin up and down on every site. Thus the state <span class="math inline">\(\left|\Psi^{(b)}\right\rangle\)</span> can alternatively be written as a linear combination of products of annihilation <span class="math inline">\(\hat{d}\)</span> -operators acting on the full ket. The number of electrons of spin <span class="math inline">\(\sigma\)</span> in <span class="math inline">\(\left|\Psi^{(b)}\right\rangle\)</span> is therefore <span class="math inline">\(N_{ V }-N_{\sigma} .\)</span> In conclusion we can say that if <span class="math inline">\(E\)</span> is an eigenvalue of <span class="math inline">\(\hat{H}_{ bip }\)</span> with <span class="math inline">\(N_{\sigma}\)</span> electrons of spin <span class="math inline">\(\sigma\)</span> then <span class="math inline">\(E-U\left(N_{\uparrow}+N_{\downarrow}\right)+U N_{ V }\)</span> is also an eigenvalue of <span class="math inline">\(\hat{H}_{\text {bip }}\)</span> but with <span class="math inline">\(N_{ V }-N_{\sigma}\)</span> electrons of spin <span class="math inline">\(\sigma\)</span>. The relation between the corresponding eigenkets is that the empty ket is replaced by the full ket and the creation operators are replaced by the annihilation operators. Let us now return to the Hubbard dimer. The Fock space <span class="math display">\[
+F = H _{0} \oplus H _{1} \oplus H _{2} \oplus H _{3} \oplus H _{4}
+\]</span> is in this case finite because we cannot have more than four electrons. The zero-particle Hilbert space <span class="math inline">\(H _{0}\)</span> contains only the empty ket which is an eigenket of <span class="math inline">\(\hat{H}\)</span> with eigenvalue 0 . In <span class="math inline">\(H _{1}\)</span> we have four possible kets <span class="math inline">\(|i \sigma\rangle=\hat{d}_{i \sigma}^{\dagger}|0\rangle\)</span> with <span class="math inline">\(i=1,2\)</span>. They are all eigenkets of the interaction operator with eigenvalue <span class="math inline">\(0 .\)</span> Furthermore the matrix <span class="math inline">\(\left\langle i \sigma|\hat{H}| j \sigma^{\prime}\right\rangle=\delta_{\sigma \sigma^{\prime}} h_{i j}\)</span> is spin diagonal. The eigenvalues of <span class="math inline">\(h=\left(\begin{array}{cc}0 &amp; T \\ T &amp; 0\end{array}\right)\)</span> are <span class="math inline">\(\pm T\)</span> and the corresponding eigenvectors are <span class="math inline">\(\frac{1}{\sqrt{2}}(1,\pm 1)\)</span>. Thus, the one-particle eigenkets of the Hubbard dimer are <span class="math inline">\(\frac{1}{\sqrt{2}}\left(\hat{d}_{1 \sigma}^{\dagger} \pm \hat{d}_{2 \sigma}^{\dagger}\right)|0\rangle\)</span> see also Table <span class="math inline">\(2.1 .\)</span> Let us now consider the two-particle Hilbert space <span class="math inline">\(H _{2} .\)</span> If both electrons have spin <span class="math inline">\(\sigma\)</span> then the only possible ket is <span class="math inline">\(\hat{d}_{1 \sigma}^{\dagger} \hat{d}_{2 \sigma}^{\dagger}|0\rangle\)</span> due to the Pauli exclusion principle. The reader can easily verify that this ket is an eigenket of <span class="math inline">\(\hat{H}\)</span> with eigenvalue <span class="math inline">\(0 .\)</span> In particular it is also an eigenket of the interaction Hamiltonian with eigenvalue 0 since the electrons have parallel spin. On the other hand, if the electrons have opposite spin then we have four possible kets: <span class="math display">\[
+\left|\Psi_{1}\right\rangle=\hat{d}_{1 \uparrow}^{\dagger} \hat{d}_{1 \downarrow}^{\dagger}|0\rangle, \quad\left|\Psi_{2}\right\rangle=\hat{d}_{2 \uparrow}^{\dagger} \hat{d}_{2 \downarrow}^{\dagger}|0\rangle, \quad\left|\Psi_{3}\right\rangle=\hat{d}_{1 \uparrow}^{\dagger} \hat{d}_{2 \downarrow}^{\dagger}|0\rangle, \quad\left|\Psi_{4}\right\rangle=\hat{d}_{1 \downarrow}^{\dagger} \hat{d}_{2 \uparrow}^{\dagger}|0\rangle
+\]</span></p>
+<p>$$ \begin{array}{|c|c|c|}  &amp;  &amp;  \ H <em>{0} &amp; 0 &amp; |0\ H </em>{1} &amp; T &amp; (<em>{1 }^{} </em>{2 }^{})|0\ </p>
+<p>H <em>{3} &amp; T+U &amp; (</em>{1 }^{} <em>{2 }^{} </em>{2 }^{} <em>{1 }^{} </em>{1 }^{} <em>{2 }^{})|0\ H </em>{4} &amp; 2 U &amp; <em>{1 }^{} </em>{1 }^{} <em>{2 }^{} </em>{2 }^{}|0\  H <em>{2} &amp; 0 &amp;</em>{1 }^{} <em>{2 }^{}|0\ &amp; 0 &amp;</em>{1 }^{} <em>{2 }^{}|0\ &amp; 0 &amp; |0\ &amp; U &amp; |0\ &amp; E</em>{3}=(U-) &amp; |0\ &amp; E_{4}=(U+) &amp; |0\  \end{array} $$</p>
+<blockquote>
+<p>Table 2.1 Eigenvalues and normalized eigenkets of the Hubbard dimer in the different Hilbert spaces. In the table the quantity <span class="math inline">\(\Delta=\sqrt{16 T^{2}+U^{2}}\)</span>.</p>
+</blockquote>
+<p>The Hamiltonian does not couple these states to those with parallel spin. Therefore, we can calculate the remaining eigenvalues and eigenkets in <span class="math inline">\(H _{2}\)</span> by diagonalizing the matrix <span class="math inline">\(h_{2}\)</span> with elements <span class="math inline">\(\left(h_{2}\right)_{i j}=\left\langle\Psi_{i}|\hat{H}| \Psi_{j}\right\rangle .\)</span> After some simple algebra one finds <span class="math display">\[
+h_{2}=\left(\begin{array}{cccc}
+U &amp; 0 &amp; T &amp; -T \\
+0 &amp; U &amp; T &amp; -T \\
+T &amp; T &amp; 0 &amp; 0 \\
+-T &amp; -T &amp; 0 &amp; 0
+\end{array}\right)
+\]</span> This matrix has eigenvalues <span class="math inline">\(E_{1}=0, E_{2}=U, E_{3}=\frac{1}{2}(U-\Delta),\)</span> and <span class="math inline">\(E_{4}=\frac{1}{2}(U+\Delta)\)</span> where <span class="math inline">\(\Delta=\sqrt{16 T^{2}+U^{2}}\)</span>. Let us take, e.g., <span class="math inline">\(U&gt;0\)</span> so that <span class="math inline">\(E_{3}&lt;0\)</span> and <span class="math inline">\(E_{4}&gt;0 .\)</span> The normalized eigenkets corresponding to these eigenvalues are reported in Table <span class="math inline">\(2.1 .\)</span> The occurrence of the zero eigenvalue <span class="math inline">\(E_{1}\)</span> should not come as a surprise. The Hamiltonian commutes with the total spin operator <span class="math inline">\(\hat{S}^{2}=\left(\hat{ S }_{1}+\hat{ S }_{2}\right) \cdot\left(\hat{ S }_{1}+\hat{ S }_{2}\right),\)</span> as well as with <span class="math inline">\(\hat{S}^{z}=\hat{S}_{1}^{z}+\hat{S}_{2}^{z}\)</span> (the spin operators were defined in (1.92)<span class="math inline">\()\)</span>. Therefore the degenerate eigenkets of <span class="math inline">\(\hat{H}\)</span> must belong to spin multiplets. It is easy to see that the three eigenkets with vanishing eigenvalue belong to a triplet whereas the eigenkets with eigenvalues <span class="math inline">\(E_{2}, E_{3}\)</span> and <span class="math inline">\(E_{4}\)</span> are singlets. To conclude our analysis we must calculate the eigenkets and eigenvalues with three and four particles. This can be done using the particle-hole symmetry and the results are reported in Table <span class="math inline">\(2.1 .\)</span> It is interesting to observe that when <span class="math inline">\(T \rightarrow 0\)</span> the eigenvalues in <span class="math inline">\(H _{2}\)</span> become 0 (4 times degenerate) and <span class="math inline">\(U\)</span> (two times degenerate). This is the dissociation limit which corresponds to pulling the two atomic sites infinitely far apart. The results agree with our physical intuition; if two isolated (Hubbard) atoms have one electron each (either with spin up or down) then the energy is zero whereas if both electrons are on the same atom then the energy is <span class="math inline">\(U\)</span>.</p>
+<h2 id="heisenberg-model">Heisenberg model</h2>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/">Fields of Quantum ManyBody</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/Nonequilibrium-ManyBody/">Nonequilibrium ManyBody</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Green-Function/">Green Function</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/08/15/Math_04_integral01/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">The Gaussian Integral</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2018/12/18/CS_02_python/">
+                        <span class="hidden-mobile">Python学习记录</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "二次量子化&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

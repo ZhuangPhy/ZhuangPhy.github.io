@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      65 字
+      1.7k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      28
        分钟
     </span>
   
@@ -208,16 +208,191 @@
               <p>[TOC]</p>
 <h3 id="简介">简介</h3>
 <p>看到关济寰博士的个人博客网站上有很多</p>
+<p>能带</p>
+<ol type="1">
+<li><a href="https://www.guanjihuan.com/archives/5025" target="_blank" rel="noopener">SSH模型的哈密顿量、能带图和卷绕数（附Python代码）</a></li>
+<li><a href="https://www.guanjihuan.com/archives/408" target="_blank" rel="noopener">石墨烯哈密顿量与能带图（附Python代码）</a></li>
+<li><a href="https://www.guanjihuan.com/archives/410" target="_blank" rel="noopener">Haldane模型哈密顿量与能带图（附Python代码）</a></li>
+<li><a href="https://www.guanjihuan.com/archives/2327" target="_blank" rel="noopener">BHZ模型哈密顿量与准一维体系的能带图（附Python代码）</a></li>
+<li><a href="https://www.guanjihuan.com/archives/4829" target="_blank" rel="noopener">Kane-Mele模型的哈密顿量和能带图</a></li>
+</ol>
+<p>拓扑数</p>
+<ol type="1">
+<li><a href="https://www.guanjihuan.com/archives/3932" target="_blank" rel="noopener">陈数Chern number的计算（定义法）（附Python、Matlab代码）</a></li>
+<li><a href="https://www.guanjihuan.com/archives/4179" target="_blank" rel="noopener">陈数Chern number的计算（高效法）（附Python、Matlab代码）</a></li>
+<li><a href="https://www.guanjihuan.com/archives/8536" target="_blank" rel="noopener">空间反演对称性破缺的石墨烯的贝里曲率分布（附Python代码）</a></li>
+<li><a href="https://www.guanjihuan.com/archives/5025" target="_blank" rel="noopener">SSH模型的卷绕数（附Python代码）</a></li>
+</ol>
 <p>量子输运</p>
 <ol type="1">
 <li><a href="https://www.guanjihuan.com/archives/948" target="_blank" rel="noopener">用非平衡格林函数计算电导（附Python代码）</a></li>
 <li><a href="https://www.guanjihuan.com/archives/6075" target="_blank" rel="noopener">多端体系的量子输运（附Python代码）</a></li>
 </ol>
 <p>外尔半金属</p>
-<h3 id="reference">Reference</h3>
+<p>其他</p>
 <ol type="1">
-<li><a href="https://chaoli.club/index.php/4485/0" target="_blank" rel="noopener">Kane-Mele Model 代码</a></li>
+<li></li>
 </ol>
+<h2 id="能带">1 能带</h2>
+<h3 id="方格子模型的哈密顿量形式在实空间中">方格子模型的哈密顿量形式（在实空间中）</h3>
+<p><a href="https://www.guanjihuan.com/archives/5375" target="_blank" rel="noopener">方格子模型的哈密顿量形式（在实空间中）</a></p>
+<p>哈密顿量 <span class="math display">\[
+H=\sum_{x, y}\left\{t_{x}|x, y\rangle\left\langle x+1, y\left|+t_{y}\right| x, y\right\rangle\langle x, y+1|\right\}+\text { h.c. }
+\]</span> 写成矩阵形式，以3×3点方格子为例 <span class="math display">\[
+\begin{aligned}
+H &amp;=(|1\rangle,|2\rangle,|3\rangle,|4\rangle,|5\rangle,|6\rangle,|7\rangle,|8\rangle,|9\rangle) \\
+&amp;\left(\begin{array}{ccccccccc}
+0 &amp; t_{x} &amp; 0 &amp; t_{y} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+t_{x}^{\dagger} &amp; 0 &amp; t_{x} &amp; 0 &amp; t_{y} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; t_{x}^{\dagger} &amp; 0 &amp; 0 &amp; 0 &amp; t_{y} &amp; 0 &amp; 0 &amp; 0 \\
+t_{y}^{\dagger} &amp; 0 &amp; 0 &amp; 0 &amp; t_{x} &amp; 0 &amp; t_{y} &amp; 0 &amp; 0 \\
+0 &amp; t_{y}^{\dagger} &amp; 0 &amp; t_{x}^{\dagger} &amp; 0 &amp; t_{x} &amp; 0 &amp; t_{y} &amp; 0 \\
+0 &amp; 0 &amp; t_{y}^{\dagger} &amp; 0 &amp; t_{x}^{\dagger} &amp; 0 &amp; 0 &amp; 0 &amp; t_{y} \\
+0 &amp; 0 &amp; 0 &amp; t_{y}^{\dagger} &amp; 0 &amp; 0 &amp; 0 &amp; t_{x} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; t_{y}^{\dagger} &amp; 0 &amp; t_{x}^{\dagger} &amp; 0 &amp; t_{x} \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; t_{y}^{\dagger} &amp; 0 &amp; t_{x}^{\dagger} &amp; 0
+\end{array}\right)\left(\begin{array}{l}
+\langle 1| \\
+\langle 2| \\
+\langle 3| \\
+\langle 4| \\
+\langle 5| \\
+\langle 6| \\
+\langle 7| \\
+\langle 8| \\
+\langle 9|
+\end{array}\right)
+\end{aligned}
+\]</span></p>
+<h3 id="石墨烯哈密顿量与能带图附python代码">石墨烯哈密顿量与能带图（附Python代码）</h3>
+<p><a href="https://www.guanjihuan.com/archives/408" target="_blank" rel="noopener">石墨烯哈密顿量与能带图（附Python代码）</a></p>
+<h3 id="kane-mele模型的哈密顿量和能带图">Kane-Mele模型的哈密顿量和能带图</h3>
+<p><a href="https://www.guanjihuan.com/archives/4829" target="_blank" rel="noopener">Kane-Mele模型的哈密顿量和能带图</a></p>
+<pre><code class="hljs python"><span class="hljs-string">"""</span>
+<span class="hljs-string">This code is supported by the website: https://www.guanjihuan.com</span>
+<span class="hljs-string">The newest version of this code is on the web page: https://www.guanjihuan.com/archives/4829</span>
+<span class="hljs-string">"""</span>
+
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> *   <span class="hljs-comment"># 引入sqrt(), pi, exp等</span>
+<span class="hljs-keyword">import</span> cmath  <span class="hljs-comment"># 要处理复数情况，用到cmath.exp()</span>
+<span class="hljs-keyword">import</span> functools  <span class="hljs-comment"># 使用偏函数functools.partial()</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hamiltonian</span><span class="hljs-params">(k, N, M, t1, t2, phi)</span>:</span>  <span class="hljs-comment"># Kane-Mele model</span>
+    <span class="hljs-comment"># 初始化为零矩阵</span>
+    h00 = np.zeros((<span class="hljs-number">2</span>*<span class="hljs-number">4</span>*N, <span class="hljs-number">2</span>*<span class="hljs-number">4</span>*N), dtype=complex)  <span class="hljs-comment"># 因为自旋有上有下，所以整个维度要乘2。这里4是元胞内部重复单位的大小，规定元胞大小以4来倍增。</span>
+    h01 = np.zeros((<span class="hljs-number">2</span>*<span class="hljs-number">4</span>*N, <span class="hljs-number">2</span>*<span class="hljs-number">4</span>*N), dtype=complex)
+
+    <span class="hljs-keyword">for</span> spin <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>):
+        <span class="hljs-comment"># 原胞内的跃迁h00</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(N):
+            <span class="hljs-comment"># 最近邻</span>
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin] = t1 
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin] = t1
+
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin] = t1  
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin] = t1
+
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin] = t1  
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin] = t1
+
+            <span class="hljs-comment"># 次近邻</span>
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin] = t2*cmath.exp(<span class="hljs-number">-1j</span>*phi)*sign_spin(spin)    
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin] = h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin].conj()
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin] = t2*cmath.exp(<span class="hljs-number">-1j</span>*phi)*sign_spin(spin) 
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin] = h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin].conj()
+            
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(N<span class="hljs-number">-1</span>):
+            <span class="hljs-comment"># 最近邻</span>
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin, (i+<span class="hljs-number">1</span>)*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin] = t1  
+            h00[(i+<span class="hljs-number">1</span>)*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin] = t1
+
+            <span class="hljs-comment"># 次近邻</span>
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin, (i+<span class="hljs-number">1</span>)*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin] = t2*cmath.exp(<span class="hljs-number">1j</span>*phi)*sign_spin(spin) 
+            h00[(i+<span class="hljs-number">1</span>)*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin] = h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin, (i+<span class="hljs-number">1</span>)*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin].conj()
+            h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin, (i+<span class="hljs-number">1</span>)*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin] = t2*cmath.exp(<span class="hljs-number">1j</span>*phi)*sign_spin(spin) 
+            h00[(i+<span class="hljs-number">1</span>)*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin] = h00[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin, (i+<span class="hljs-number">1</span>)*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin].conj()
+
+        <span class="hljs-comment"># 原胞间的跃迁h01</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(N):
+            <span class="hljs-comment"># 最近邻</span>
+            h01[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin] = t1  
+            h01[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin] = t1
+
+            <span class="hljs-comment"># 次近邻</span>
+            h01[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin] = t2*cmath.exp(<span class="hljs-number">1j</span>*phi)*sign_spin(spin)  
+            h01[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin] = t2*cmath.exp(<span class="hljs-number">-1j</span>*phi)*sign_spin(spin) 
+            h01[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin] = t2*cmath.exp(<span class="hljs-number">1j</span>*phi)*sign_spin(spin) 
+            h01[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin] = t2*cmath.exp(<span class="hljs-number">-1j</span>*phi)*sign_spin(spin) 
+
+            h01[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin] = t2*cmath.exp(<span class="hljs-number">1j</span>*phi)*sign_spin(spin)  
+            h01[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin, i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin] = t2*cmath.exp(<span class="hljs-number">-1j</span>*phi)*sign_spin(spin) 
+
+            <span class="hljs-keyword">if</span> i != <span class="hljs-number">0</span>:
+                h01[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>*<span class="hljs-number">2</span>+spin, (i<span class="hljs-number">-1</span>)*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">3</span>*<span class="hljs-number">2</span>+spin] = t2*cmath.exp(<span class="hljs-number">1j</span>*phi)*sign_spin(spin)   
+                
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(N<span class="hljs-number">-1</span>):
+            h01[i*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>*<span class="hljs-number">2</span>+spin, (i+<span class="hljs-number">1</span>)*<span class="hljs-number">4</span>*<span class="hljs-number">2</span>+<span class="hljs-number">0</span>*<span class="hljs-number">2</span>+spin] = t2*cmath.exp(<span class="hljs-number">-1j</span>*phi)*sign_spin(spin) 
+
+    matrix = h00 + h01*cmath.exp(<span class="hljs-number">1j</span>*k) + h01.transpose().conj()*cmath.exp(<span class="hljs-number">-1j</span>*k)
+    <span class="hljs-keyword">return</span> matrix
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sign_spin</span><span class="hljs-params">(spin)</span>:</span>
+    <span class="hljs-keyword">if</span> spin==<span class="hljs-number">0</span>:
+        sign=<span class="hljs-number">1</span>
+    <span class="hljs-keyword">else</span>:
+        sign=<span class="hljs-number">-1</span>
+    <span class="hljs-keyword">return</span> sign
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    hamiltonian0 = functools.partial(hamiltonian, N=<span class="hljs-number">20</span>, M=<span class="hljs-number">0</span>, t1=<span class="hljs-number">1</span>, t2=<span class="hljs-number">0.03</span>, phi=pi/<span class="hljs-number">2</span>)  <span class="hljs-comment"># 使用偏函数，固定一些参数</span>
+    k = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>*pi, <span class="hljs-number">300</span>)
+    plot_bands_one_dimension(k, hamiltonian0)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plot_bands_one_dimension</span><span class="hljs-params">(k, hamiltonian, filename=<span class="hljs-string">'bands_1D'</span>)</span>:</span>
+    dim = hamiltonian(<span class="hljs-number">0</span>).shape[<span class="hljs-number">0</span>]
+    dim_k = k.shape[<span class="hljs-number">0</span>]
+    eigenvalue_k = np.zeros((dim_k, dim))  <span class="hljs-comment"># np.zeros()里要用tuple</span>
+    i0 = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> k0 <span class="hljs-keyword">in</span> k:
+        matrix0 = hamiltonian(k0)
+        eigenvalue, eigenvector = np.linalg.eig(matrix0)
+        eigenvalue_k[i0, :] = np.sort(np.real(eigenvalue[:]))
+        i0 += <span class="hljs-number">1</span>
+    <span class="hljs-keyword">for</span> dim0 <span class="hljs-keyword">in</span> range(dim):
+        plt.plot(k, eigenvalue_k[:, dim0], <span class="hljs-string">'-k'</span>)  <span class="hljs-comment"># -.</span>
+    plt.ylim(<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>)
+    <span class="hljs-comment"># plt.savefig(filename + '.jpg')</span>
+    <span class="hljs-comment"># plt.savefig(filename+'.eps')</span>
+    plt.show()
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:  <span class="hljs-comment"># 如果是当前文件直接运行，执行main()函数中的内容；如果是import当前文件，则不执行。</span>
+    main()</code></pre>
+<h2 id="拓扑数">2 拓扑数</h2>
+<h2 id="其他">4 其他</h2>
+<h3 id="哈密顿量常见的三种形式">哈密顿量常见的三种形式</h3>
+<p>哈密顿量是一个算符，常见有以下三种形式：</p>
+<ol type="1">
+<li>用Dirac记号表示</li>
+<li>用产生/湮灭算符来表示</li>
+<li>用场算符来表示</li>
+</ol>
+<h4 id="用dirac记号表示">用Dirac记号表示</h4>
+<p>外积： <span class="math inline">\(|\psi\rangle\langle\phi|\)</span>, 表示为一个算付。</p>
+<p>在 <span class="math inline">\(A\)</span> 表象下，有一组正交归一的完备基 <span class="math inline">\(\left\{\left|a_{i}\right\rangle\right\}\)</span> 在该表象下，算符写为： <span class="math display">\[
+\begin{aligned}
+\hat{H} &amp;=\sum_{i}\left|a_{i}\right \rangle \langle a_{i} |\hat{H} \sum_{j} | a_{j} \rangle \langle a_{j} | \\
+&amp;=\sum_{i j}\left|a_{i}\right\rangle\left\langle a_{i}|\hat{H}| a_{j}\right\rangle\left\langle a_{j}\right| \\
+&amp;=\sum_{i j} H_{i j}\left|a_{i}\right\rangle\left\langle a_{j}\right|
+\end{aligned}
+\]</span></p>
+<h3 id="reference">Reference</h3>
 
             </article>
             <hr>
@@ -262,8 +437,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2021/04/27/topology03_Numical04/">
-                        <span class="hidden-mobile">凝聚态物理数值方法学习-4身边的同学</span>
+                      <a href="/2021/04/27/topology03_Numical06/">
+                        <span class="hidden-mobile">凝聚态物理数值方法学习-6 PythTB库</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -284,6 +459,7 @@
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div id="tocbot"></div>
 </div>
+
 
       </div>
     
@@ -385,7 +561,7 @@
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
+        collapseDepth: 1,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });

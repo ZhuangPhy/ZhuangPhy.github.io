@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      91 字
+      1.3k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      26
        分钟
     </span>
   
@@ -222,6 +222,100 @@
 <p>start from a tight-binding Hamiltonian <span class="math display">\[
 H=\sum_{r, r^{\prime}} \psi^{\dagger}(r) H \left(r, r^{\prime}\right) \psi\left(r^{\prime}\right)
 \]</span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(\psi(r)\)</span> is an <span class="math inline">\(N_{f}\)</span> -component fermion annihilation operator,</li>
+<li>index <span class="math inline">\(r=\left(r_{1}, r_{2}, \ldots, r_{d}\right)\)</span> labels a site on a <span class="math inline">\(d\)</span> -dimensional lattice (the internal indices are suppressed).</li>
+<li>Each block in the single particle Hamiltonian <span class="math inline">\(H \left(r, r^{\prime}\right)\)</span> is an <span class="math inline">\(N_{f} \times N_{f}\)</span> matrix, satisfying the hermiticity condition <span class="math inline">\(H ^{\dagger}\left(r^{\prime}, r\right)= H \left(r, r^{\prime}\right) .\)</span></li>
+</ul>
+<p>We assume the total size of the single particle Hamiltonian is <span class="math inline">\(N_{f} V \times N_{f} V\)</span>, where <span class="math inline">\(V\)</span> is the total number of lattice sites. The components in <span class="math inline">\(\psi(r)\)</span> can describe, e.g., orbitals or spin degrees of freedom, as well as different sites within a crystal unit cell centered at <span class="math inline">\(r\)</span>.</p>
+<h3 id="symmetries-in-band-insulators-and-superconductors">2.1 Symmetries in band insulators and superconductors</h3>
+<p>Provided the system has translational symmetry, <span class="math inline">\(H \left(r, r^{\prime}\right)= H \left(r-r^{\prime}\right)\)</span>, with periodic boundary conditions in each spatial direction ( i.e., the system is defined on a torus <span class="math inline">\(T^{d}\)</span> ), we can perform the Fourier transformation and obtain in momentum space <span class="math display">\[
+H=\sum_{k \in Bz } \psi^{\dagger}(k) H (k) \psi(k)
+\]</span> where</p>
+<ul>
+<li>the crystal momentum <span class="math inline">\(k\)</span> runs over the first Brillouin zone <span class="math inline">\(( Bz )\)</span>,</li>
+<li>the Fourier component of the fermion operator and the Hamiltonian are given by</li>
+</ul>
+<p><span class="math display">\[
+\psi(r)=V^{-1 / 2} \sum_{k \in Bz } e^{i k \cdot r} \psi(k)
+\]</span></p>
+<p><span class="math display">\[
+H (k)=\sum_{r} e^{-i k \cdot r} H (r)
+\]</span></p>
+<p>respectively. The Bloch Hamiltonian <span class="math inline">\(H (k)\)</span> is diagonalized by <span class="math display">\[
+H (k)\left|u^{a}(k)\right\rangle=\varepsilon^{a}(k)\left|u^{a}(k)\right\rangle, \quad a=1, \ldots, N_{f}
+\]</span></p>
+<p><span class="math display">\[
+\begin{array}{|c|cccccccc|ccc|}
+\hline \text { AZ class } \backslash d &amp; 0 &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; T &amp; C &amp; S \\
+\hline \hline \text { A } &amp; Z &amp; 0 &amp; Z &amp; 0 &amp; Z &amp; 0 &amp; Z &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\text { AIII } &amp; 0 &amp; Z &amp; 0 &amp; Z &amp; 0 &amp; Z &amp; 0 &amp; Z &amp; 0 &amp; 0 &amp; 1 \\
+\hline \text { AI } &amp; Z &amp; 0 &amp; 0 &amp; 0 &amp; 2 Z &amp; 0 &amp; Z _{2} &amp; Z _{2} &amp; + &amp; 0 &amp; 0 \\
+\text { BDI } &amp; Z _{2} &amp; Z &amp; 0 &amp; 0 &amp; 0 &amp; 2 Z &amp; 0 &amp; Z _{2} &amp; + &amp; + &amp; 1 \\
+\text { D } &amp; Z _{2} &amp; Z _{2} &amp; Z &amp; 0 &amp; 0 &amp; 0 &amp; 2 Z &amp; 0 &amp; 0 &amp; + &amp; 0 \\
+\text { DIII } &amp; 0 &amp; Z _{2} &amp; Z _{2} &amp; Z &amp; 0 &amp; 0 &amp; 0 &amp; 2 Z &amp; - &amp; + &amp; 1 \\
+\text { AII } &amp; 2 Z &amp; 0 &amp; Z _{2} &amp; Z _{2} &amp; Z &amp; 0 &amp; 0 &amp; 0 &amp; - &amp; 0 &amp; 0 \\
+\text { CII } &amp; 0 &amp; 2 Z &amp; 0 &amp; Z _{2} &amp; Z _{2} &amp; Z &amp; 0 &amp; 0 &amp; - &amp; - &amp; 1 \\
+\text { C } &amp; 0 &amp; 0 &amp; 2 Z &amp; 0 &amp; Z _{2} &amp; Z _{2} &amp; Z &amp; 0 &amp; 0 &amp; - &amp; 0 \\
+\text { CI } &amp; 0 &amp; 0 &amp; 0 &amp; 2 Z &amp; 0 &amp; Z _{2} &amp; Z _{2} &amp; Z &amp; + &amp; - &amp; 1 \\
+\hline
+\end{array}
+\]</span></p>
+<h3 id="quantum-phase-transition-qpt">2.2 Quantum Phase Transition (QPT)</h3>
+<h3 id="例子1">例子1</h3>
+<blockquote>
+<p>One of the systems that can be used to study these <span class="math inline">\(Z_{2}\)</span> insulators is given by the graphene model.</p>
+<ul>
+<li><span class="math inline">\(Z_{2}\)</span> time reversal topological insulators in two spatial dimensions in class AII, where <span class="math inline">\(T^{2}=-1\)</span></li>
+</ul>
+</blockquote>
+<p>Hamiltonian for the graphene model <span class="math display">\[
+H=t \sum_{&lt;i j&gt;\sigma} c_{i \sigma}^{\dagger} c_{j \sigma}+i \lambda_{s o} \sum_{&lt;&lt;i j&gt;&gt;\sigma \delta} \nu_{i j} c_{i \sigma}^{\dagger} s_{\sigma \delta}^{z} c_{j \delta}+\lambda_{\nu} \sum_{i, \sigma} \zeta_{i} c_{i \sigma}^{\dagger} c_{i \sigma}
+\]</span></p>
+<h4 id="edge-mode-hopping">Edge mode: hopping</h4>
+<p>The Hamiltonian of nearest neighbor hopping from site to site <span class="math display">\[
+H_{t}=-t \sum_{\sigma, m, n}\left[a_{\sigma}^{\dagger}(m, n) b_{\sigma}(m, n)+a_{\sigma}^{\dagger}(m, n) b_{\sigma}(m-1, n)+a_{\sigma}^{\dagger}(m, n) b_{\sigma}(m, n-1)+H . c .\right]
+\]</span> the length of strip is infinite in the <span class="math inline">\(x\)</span> direction so the Hamiltonian can be Fourier transformed in this direction. <span class="math display">\[
+H=-t \sum_{n, \sigma}\left(a_{\sigma k}^{\dagger}(n) b_{\sigma k}(n)\left(1+e^{i k a}\right)+a_{\sigma k}^{\dagger}(n) b_{\sigma k}(n-1)+\text { H.c. }\right)
+\]</span> the eigenstates of the Hamiltonian</p>
+<p><span class="math display">\[
+\mid k, \sigma \rangle =\sum_{n}\left[\alpha_{k, n}\left|a, k, n, \sigma \rangle+\beta_{k, n}\right| b, k, n, \sigma \rangle\right]
+\]</span> where the symbols <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> describe the A and B sublattice basis. Compare the two sides of the Schrödinger equation <span class="math inline">\(H\left|k, \sigma \rangle=E_{k}\right| k, \sigma \rangle\)</span> We neglect the spin index now since spin up and down give the same result.</p>
+<p>The relations between <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are <span class="math display">\[
+\begin{array}{l}
+E_{k} \alpha_{k, n}=-t\left[\left(1+e^{i k a}\right) \beta_{k, n}+\beta_{k, n-1}\right] \\
+E_{k} \beta_{k, n}=-t\left[\left(1+e^{-i k a}\right) \alpha_{k, n}+\alpha_{k, n+1}\right]
+\end{array}
+\]</span> The strip of graphene has a finite size <span class="math inline">\(N\)</span> in the <span class="math inline">\(y\)</span> direction. The boundary condition is imposed as <span class="math display">\[
+\alpha_{k,-1}=\beta_{k,-1}=\alpha_{k, N+1}=\beta_{k, N+1}=0
+\]</span> Consider <span class="math inline">\(E=0\)</span> at the boundary <span class="math inline">\(n=1\)</span> and <span class="math inline">\(n=N\)</span> <span class="math display">\[
+\begin{array}{c}
+\beta_{k, 0}=0 \\
+\alpha_{k, N}=0
+\end{array}
+\]</span> The nearest neighbor hopping does not imply either <span class="math inline">\(\beta_{k, N}=0\)</span> or <span class="math inline">\(\alpha_{k, 0}=0\)</span>.</p>
+<p>Also Eqs read as recurrence equations <span class="math display">\[
+\begin{array}{l}
+E_{k} \alpha_{k, n}=-t\left[\left(1+e^{i k a}\right) \beta_{k, n}+\beta_{k, n-1}\right] \\
+E_{k} \beta_{k, n}=-t\left[\left(1+e^{-i k a}\right) \alpha_{k, n}+\alpha_{k, n+1}\right]\\
+\qquad \qquad \Downarrow 
+\end{array}
+\]</span></p>
+<p><span class="math display">\[
+\begin{array}{l}
+0=\left(1+e^{i k a}\right) \beta_{k, n}+\beta_{k, n-1} \\
+0=\left(1+e^{-i k a}\right) \alpha_{k, n}+\alpha_{k, n+1}
+\end{array}
+\]</span></p>
+<p>The solutions for <span class="math inline">\(\alpha_{k, n}\)</span> and <span class="math inline">\(\beta_{k, N-n}\)</span> are <span class="math display">\[
+\begin{array}{c}
+\alpha_{k, n}=(-2 \cos (k a / 2))^{n} e^{-i n k a / 2} \alpha_{k, 0} \\
+\beta_{k, N-n}=(-2 \cos (k a / 2))^{n} e^{i n k a / 2} \beta_{k, N}
+\end{array}
+\]</span> as <span class="math inline">\(n \rightarrow N, \alpha_{k, n}\)</span> and <span class="math inline">\(\beta_{k, N-n}\)</span> converge to zero as the behavior of the edge states.</p>
+<p>That is, <span class="math inline">\(|-2 \cos (k a / 2)|&lt;1\)</span>. Hence, zero energy edge states are present at <span class="math inline">\(4 \pi / 3&gt;k a&gt;2 \pi / 3\)</span>. The two solutions <span class="math inline">\(\alpha_{k, n}\)</span> and <span class="math inline">\(\beta_{k, n}\)</span> are two independent edge states in the top/bottom of the strip in A/B sublattice, respectively.</p>
+<h4 id="edge-mode-spin-orbit-coupling">Edge mode: spin-orbit coupling</h4>
 
             </article>
             <hr>
@@ -286,6 +380,7 @@ H=\sum_{r, r^{\prime}} \psi^{\dagger}(r) H \left(r, r^{\prime}\right) \psi\left(
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div id="tocbot"></div>
 </div>
+
 
       </div>
     
@@ -387,7 +482,7 @@ H=\sum_{r, r^{\prime}} \psi^{\dagger}(r) H \left(r, r^{\prime}\right) \psi\left(
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
+        collapseDepth: 1,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });

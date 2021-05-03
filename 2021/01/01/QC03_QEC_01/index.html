@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.6k 字
+      6.2k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      85
+      102
        分钟
     </span>
   
@@ -246,6 +246,67 @@
 <li><a href="https://silky.github.io/posts/2014-09-09-intro-to-qc-and-the-surface-code.html" target="_blank" rel="noopener">Introduction to quantum computing and the surface code</a></li>
 <li><a href="https://link.springer.com/article/10.1007/s42484-020-00015-9" target="_blank" rel="noopener">Decoding surface code with a distributed neural network–based decoder</a></li>
 <li><a href="https://github.com/yaleqc/qiskit_surface_codes" target="_blank" rel="noopener">Qiskit Surface Code</a> Surface code implementation for Qiskit</li>
+</ol>
+<h3 id="更新">4.28 更新</h3>
+<h4 id="怎样理解toric-code-model的哈密顿量">怎样理解toric code model的哈密顿量</h4>
+<ul>
+<li><a href="https://www.zhihu.com/question/413211693/answer/1404574344" target="_blank" rel="noopener">怎样理解toric code model的哈密顿量?</a></li>
+</ul>
+<ol type="1">
+<li>对于一个比特, 我们能做的事情只有翻转 <span class="math inline">\((0 \rightarrow 1)\)</span></li>
+<li>但是对于一个量子比特
+<ul>
+<li>比特翻转 <span class="math inline">\((|0\rangle \rightarrow|1\rangle)\)</span>, 用 Pauli X 矩阵</li>
+<li>相位翻转 <span class="math inline">\((|1\rangle \rightarrow-|1\rangle )\)</span> , 用 Pauli Z 矩阵</li>
+</ul></li>
+</ol>
+<h4 id="量子计算机的物理基础">量子计算机的物理基础</h4>
+<ul>
+<li>参考： 对称性与拓扑序：新型量子计算机的物理基础——众妙之门</li>
+</ul>
+<p>在寒冷的条件下，相互作用粒子由于其量子特性，在时空中作十分有规则的集体运动，掩盖了单个粒子的个性，从而导出了全新的量子物态。这些集体运动就像是完美的集体舞。</p>
+<ol type="1">
+<li>分数量子霍尔效应（fractional quantum Hall effect）就对应于一类像华尔兹一样的集体舞。
+<ul>
+<li>如果电子集体运动中有点缺陷，那么这些缺陷会有较高的能量，代表基态上的<strong>激发</strong>。</li>
+<li>实验表明，这些激发有时表现的像1/3个电子，或其它分数电子（带<strong>分数电荷</strong>）。像华尔兹一样的电子集体运动还会导致材料完全没有电阻的导电表面。</li>
+</ul></li>
+<li>在另外一些材料中，电子的集体运动表现的像是有<strong>零质量</strong>的电子。</li>
+<li>还有一些材料中，电子集体运动像是有分叉的<strong>弦网液体</strong>，这会导出更加奇特的、以前从没想到过的新性质。</li>
+</ol>
+<p>理解可能产生的不同集体行为背后的模式，目标是列举和分类所有可能的物相。</p>
+<p>出现的“有能隙”物相进行了分类，方法是将物质与其量子纠缠结构（也被称之为量子拓扑结构）联系起来。</p>
+<ol type="1">
+<li>有能隙相（gapped phase）的基态具有如下特性：
+<ul>
+<li>最低能量态足够地远离高能量态，或者说与高能量态存在能隙，所以系统稳定地处于最低能量的基态。</li>
+<li>只有有能隙量子相具有明确的粒子形式的激发。</li>
+</ul></li>
+<li>无能隙相（gapless phase）如同漩涡状的物质迷雾或者量子汤一般，在相的图景中，很大程度上仍然是未知的领域。</li>
+</ol>
+<ul>
+<li>列举物质的相可能就像是“集邮”，“每一张邮票只有一点不同，且不同的邮票之间彼此没有联系”。</li>
+<li>相反，物相的分类“更像是元素周期表，存在很多元素，但元素都可以被划分为人们可以理解的不同的类。”</li>
+</ul>
+<p>对量子物态及其演生粒子的行为进行分类对理解自然的基本定律看似并不具有重要性，但包括麻省理工学院的文小刚在内的一些专家却认为，各种不同的量子物态会演生岀各种不同的物理规律，而这些物理规律，有些正是描写自然的基本物理定律。所以基本粒子本身可能起源于许许多多有纠缠的量子信息（量子比特），文小刚称之为“量子比特海”（qubit ocean）。</p>
+<p>最简单的拓扑相——所谓的“量子自旋液体”，量子自旋液体由二维的“自旋”晶格组成，或是由指向上下两个不同方向、或以某种概率同时指向上下两个方向的粒子组成。</p>
+<p><strong>量子计算机</strong></p>
+<p>受局域形变或环境干扰影响的拓扑基态“提供了一种存储量子信息的方法，因为信息位元可以存在于基态” 。</p>
+<p>有拓扑序的自旋液体在环面上一般都拥有拓扑保护的基态（topologically protected ground state），但研究人员最喜欢的对象其实是 Z2 自旋液体（Read-Sachdev 1990, 文小刚 1990）或 Toric 编码（Toric code）模型。Toric 编码模型是加州理工学院的数学物理学家 Alexei Kitaev 在1997年从理论上构建的、能实现 Z2 自旋液体的严格可解模型。在过去的十年里，Z2 自旋液体已经在实验上实现。Z2自旋液体（Toric 编码）是一种拓扑量子纠错码（topological quantum error correcting code），是定义在二维自旋晶格上的稳定子码（stabilizer code）的例子。</p>
+<p><strong>Haah 编码</strong></p>
+<p>Haah 编写了一个算法来搜索三维相，以避免通常的弦算符。计算机给出了17种确切的解答方案，接着他开始亲自研究：其中四种物相被证实没有弦算符，当中对称性最高的那个现在被称为 Haah 编码（Haah code）。</p>
+<ul>
+<li>Haah 编码对于量子存储有潜在的用途</li>
+<li>Haah 编码的数学形式相对简单：一个两项的能量公式的解，描述了立方晶格中与八个最近邻相互作用的自旋。</li>
+<li>Haah 编码的特点是，电子集体运动的点缺陷具有分形结构，这种点缺陷被称为 fracton（分形子）。一般拓扑相中的电子集体运动没有固定的形状，属于一种液态集体运动，而分形拓扑相中的集体运动是非液态的，有固定的层状结构。只有当晶格的位点被一种分形模式作用时，粒子（在分形晶格中是分形子）才能在这些位点之间跳跃。也就是说，为了使分形子交换位置，必须向系统，比如连接四个分形子的正四面体的每个角注入能量；但是当系统放大的时候，原本看似只是点状的角会随之放大，成为一个小的正四面体，必须向这些小正四面体的每个角也注入能量。在更精细的尺度上，会看到更小的正四面体，如此层层深入，直到晶格最精细的尺度。</li>
+<li>这种分形行为意味着 Haah 编码永远不会“忘记”组成它们的底层晶格，也永远无法如同在量子场论当中那样，用一个平滑的流形来近似。</li>
+<li>Haah 编码的量子态非常安全，因为一个完全命中所有晶格位点的“分形算符”（fractal operator）不太可能随机出现。</li>
+</ul>
+<h4 id="fracton">Fracton</h4>
+<ol type="1">
+<li><a href="https://chaoli.club/index.php/6049" target="_blank" rel="noopener">Fracton topological order 超理论坛</a></li>
+<li><a href="https://arxiv.org/pdf/1112.3252.pdf" target="_blank" rel="noopener">Analytic and numerical demonstration of quantum self-correction in the $3 D $ Cubic Code</a></li>
+<li><a href="https://stellar.mit.edu/S/course/8/sp15/8.514/courseMaterial/topics/topic5/lectureNotes/5Mar2015-WenLecture/5Mar2015-WenLecture.pdf" target="_blank" rel="noopener">Cubic Code</a></li>
 </ol>
 <h2 id="进展">进展</h2>
 <p>五量子比特纠错 | 潘建伟</p>
@@ -430,7 +491,7 @@ H=\left(\begin{array}{l}
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/12/31/QC302_graph/">
+                      <a href="/2020/12/31/QC05_paper_01_graph/">
                         <span class="hidden-mobile">图论问题的量子计算处理</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -452,6 +513,7 @@ H=\left(\begin{array}{l}
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div id="tocbot"></div>
 </div>
+
 
       </div>
     
@@ -553,7 +615,7 @@ H=\left(\begin{array}{l}
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
+        collapseDepth: 1,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });

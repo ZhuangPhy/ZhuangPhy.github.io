@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      4.9k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      29
+      87
        分钟
     </span>
   
@@ -286,7 +286,48 @@ M_{A}\left(x_{1}, k_{y 4}\right) &amp; M_{B}\left(x_{1}, k_{y 4}\right) &amp; 0 
 \end{aligned}
 \]</span></p>
 <p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20201201125618458.png" srcset="/img/loading.gif" /></p>
+<ul>
+<li>当 <span class="math inline">\(m=-1.5\)</span> 时，系统的体态是绝缘态，而边界态是金属态，正是拓扑绝塚体 的特征, 此时系统处于拓扑非平庸相</li>
+<li>当 <span class="math inline">\(m=4.0\)</span> 时，系统的体态为绝缘态，但是连接导带和价带的边界态消失, 此时系统处在拓扑非平庸相</li>
+</ul>
 <p>代码</p>
+<pre><code class="hljs matlab">clc
+m=<span class="hljs-number">-1.5</span>;
+Nx=<span class="hljs-number">50</span>;
+Ny=<span class="hljs-number">200</span>;
+kxarray=<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>/Nx*((-Nx/<span class="hljs-number">2</span><span class="hljs-number">-1</span>/<span class="hljs-number">2</span>):<span class="hljs-number">1</span>:(Nx/<span class="hljs-number">2</span><span class="hljs-number">-1</span>/<span class="hljs-number">2</span>));
+kyarray=<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>/Ny*((-Ny/<span class="hljs-number">2</span><span class="hljs-number">-1</span>/<span class="hljs-number">2</span>):<span class="hljs-number">1</span>:(Ny/<span class="hljs-number">2</span><span class="hljs-number">-1</span>/<span class="hljs-number">2</span>));
+MB = <span class="hljs-built_in">zeros</span>(<span class="hljs-number">2</span>*Nx);
+<span class="hljs-keyword">for</span> iky=<span class="hljs-number">1</span>:<span class="hljs-built_in">length</span>(kyarray)
+    ky=kyarray(iky);
+    A1 = m+<span class="hljs-built_in">cos</span>(ky);
+    A2 = <span class="hljs-number">1</span><span class="hljs-built_in">i</span>*<span class="hljs-built_in">sin</span>(ky);
+    A3 = <span class="hljs-number">-1</span><span class="hljs-built_in">i</span>*<span class="hljs-built_in">sin</span>(ky);
+    A4 = -(m+<span class="hljs-built_in">cos</span>(ky));
+    A = [A1,A2;A3,A4];
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span> = <span class="hljs-number">1</span>:Nx
+        MA((<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span><span class="hljs-number">-1</span>):(<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span>),(<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span><span class="hljs-number">-1</span>):(<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span>)) = A;
+    <span class="hljs-keyword">end</span>
+    
+    B1 = <span class="hljs-number">1</span>/<span class="hljs-number">2</span>;
+    B2 = <span class="hljs-number">1</span>/(<span class="hljs-number">2</span>*<span class="hljs-number">1</span><span class="hljs-built_in">i</span>);
+    B3 = <span class="hljs-number">1</span>/(<span class="hljs-number">2</span>*<span class="hljs-number">1</span><span class="hljs-built_in">i</span>);
+    B4 = <span class="hljs-number">-1</span>/<span class="hljs-number">2</span>;
+    B = [B1,B2;B3,B4];
+    
+    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span> = <span class="hljs-number">1</span>:Nx<span class="hljs-number">-1</span>
+        MB((<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span>+<span class="hljs-number">1</span>):(<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span>+<span class="hljs-number">2</span>),(<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span><span class="hljs-number">-1</span>):(<span class="hljs-number">2</span>*<span class="hljs-built_in">j</span>)) = B;
+    <span class="hljs-keyword">end</span>
+    
+    H = MA+MB+MB';
+   
+    [V,D] = eig(H);
+    F(:,iky) = <span class="hljs-built_in">diag</span>(D);
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">figure</span>
+<span class="hljs-built_in">plot</span>(kyarray,F,<span class="hljs-string">'k'</span>)</code></pre>
+<p>代码解读</p>
 <pre><code class="hljs matlab">clc
 m=<span class="hljs-number">-1.5</span>;
 Nx=<span class="hljs-number">50</span>;
@@ -478,6 +519,205 @@ y=y+<span class="hljs-number">0.5</span>;
 <span class="hljs-keyword">end</span>
 xlabel(<span class="hljs-string">'$x$'</span>,<span class="hljs-string">'Interpreter'</span>,<span class="hljs-string">'LaTex'</span>);
 ylabel(<span class="hljs-string">'$z$'</span>,<span class="hljs-string">'Interpreter'</span>,<span class="hljs-string">'LaTex'</span>);</code></pre>
+<h3 id="kane-mele-model---mathematica">Kane-Mele Model - mathematica</h3>
+<p><a href="https://chaoli.club/index.php/4485/0" target="_blank" rel="noopener">Kane-Mele Model能带的mathematica代码</a></p>
+<p>布拉维格子的正格矢 Direct lattice <span class="math display">\[
+\vec{a}_{1}=\frac{a}{2}(\hat{x}+\sqrt{3} \hat{y}), \quad \vec{a}_{2}=\frac{a}{2}(-\hat{x}+\sqrt{3} \hat{y})
+\]</span> <img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210502172831923.png" srcset="/img/loading.gif" /></p>
+<p>对应的倒格矢 Reciprocal lattice: <span class="math display">\[
+\vec{b}_{1}=\frac{1}{a}\left(\hat{x}+\frac{\hat{y}}{\sqrt{3}}\right), \quad \vec{b}_{2}=\frac{1}{a}\left(-\hat{x}+\frac{\hat{y}}{\sqrt{3}}\right)
+\]</span> <img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210502172935900.png" srcset="/img/loading.gif" /></p>
+<p>石墨烯中的紧束缚模型 <span class="math display">\[
+H=-t \sum_{\langle i \alpha, j \beta\rangle}\left(c_{i \alpha}^{\dagger} c_{j \beta}+\text { h.c. }\right)+\sum_{i \alpha} m_{\alpha} c_{i \alpha}^{\dagger} c_{i \alpha}
+\]</span> 式中</p>
+<ul>
+<li><span class="math inline">\(i, j\)</span> 代表原胞的位置</li>
+<li><span class="math inline">\(\alpha, \beta=1,2\)</span> 代表了原胞中两个原子。</li>
+<li>这里令 <span class="math inline">\(m_{\alpha}=(-1)^{\alpha} m\)</span> 加入 了原胞中两原子的差异性。</li>
+</ul>
+<p>傅里叶变换 <span class="math display">\[
+c_{i \alpha}^{\dagger}=\frac{1}{\sqrt{N}} \sum_{ k \alpha} c_{ k \alpha}^{\dagger} e^{-i k \cdot R _{i}}
+\]</span> 仅考虑最邻近作用 <span class="math display">\[
+\begin{aligned}
+H=&amp;-t \sum_{i}\left(c_{i 1}^{\dagger} c_{i 2}+c_{i 1}^{\dagger} c_{i-\vec{a}_{1}, 2}+c_{i 1}^{\dagger} c_{i-\vec{a}_{2}, 2}+\text { h.c. }\right)+\sum_{i \alpha} m_{\alpha} c_{i \alpha}^{\dagger} c_{i \alpha} \\
+=&amp;-t \sum_{ k }\left[c_{ k 1}^{\dagger} c_{ k 2}\left(1+e^{-i k \cdot \vec{a}_{1}}+e^{-i k \cdot \vec{a}_{2}}\right)+c_{ k 2}^{\dagger} c_{ k 1}\left(1+e^{i k \cdot \vec{a}_{1}}+e^{i k \cdot \vec{a}_{2}}\right)\right] \\
+&amp;+\sum_{ k \alpha} m_{\alpha} c_{ k \alpha}^{\dagger} c_{ k \alpha}
+\end{aligned}
+\]</span></p>
+<h4 id="新表示">新表示</h4>
+<p>引入代表原胞中两个原子的二自由度雁自旋 <span class="math inline">\(\vec{\sigma}\)</span> <span class="math display">\[
+\sigma^{+}=\left(\begin{array}{ll}
+0 &amp; 2 \\
+0 &amp; 0
+\end{array}\right), \sigma^{-}=\left(\begin{array}{ll}
+0 &amp; 0 \\
+2 &amp; 0
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+\sigma^{\pm}=\sigma^{x} \pm i \sigma^{y}
+\]</span></p>
+<p>哈密顿量可以写成 <span class="math display">\[
+\begin{aligned}
+H=&amp;-\frac{t}{2} \sum_{ k \alpha \beta}\left[\sigma_{\alpha \beta}^{+} c_{ k \alpha}^{\dagger} c_{ k \beta}\left(1+e^{-i k \cdot \vec{a}_{1}}+e^{-i k \cdot \vec{a}_{2}}\right)+\sigma_{\alpha \beta}^{-} c_{ k \alpha}^{\dagger} c_{ k \beta}\left(1+e^{i k \cdot \vec{a}_{1}}+e^{i k \cdot \vec{a}_{2}}\right)\right] \\
+&amp;+m \sum_{ k \alpha} \sigma_{\alpha \alpha}^{z} c_{ k \alpha}^{\dagger} c_{ k \alpha}
+\end{aligned}
+\]</span> 为了让计算更为简洁，并引入一种有用的技巧，定义 <span class="math display">\[
+\begin{aligned}
+d^{z}( k ) &amp;=m \\
+d^{\pm}( k ) &amp;=-t\left(1+e^{\mp i k \cdot \vec{a}_{1}}+e^{\mp i k \cdot \vec{a}_{2}}\right) \\
+d^{x}( k ) &amp;=\frac{1}{2}\left(d^{+}( k )+d^{-}( k )\right)=-t\left(1+\cos k \cdot \vec{a}_{1}+\cos k \cdot \vec{a}_{2}\right) \\
+d^{y}( k ) &amp;=\frac{1}{2 i}\left(d^{+}( k )-d^{-}( k )\right)=-t\left(\sin k \cdot \vec{a}_{1}+\sin k \cdot \vec{a}_{2}\right)
+\end{aligned}
+\]</span> 考虑到 <span class="math inline">\(\sigma^{\pm} d^{\pm}( k )=d^{x}( k ) \sigma^{x}+d^{y}( k ) \sigma^{y}\)</span>, 哈密顿量可以写成 <span class="math display">\[
+H=\sum_{ k , \alpha, \beta} d ( k ) \cdot \vec{\sigma}_{\alpha \beta} c_{ k \alpha}^{\dagger} c_{ k \beta}
+\]</span> 要计算其本征值，只需要对角化 <span class="math display">\[
+H( k )= d ( k ) \cdot \vec{\sigma}
+\]</span> 考虑到泡利自旋矩阵的特性 <span class="math inline">\(\sigma^{i} \sigma^{j}=\epsilon_{i j k} \sigma^{k},(i \neq j), \sigma^{i} \sigma^{i}= 1 ,(i=j)\)</span> <span class="math display">\[
+H( k )^{2}=d^{i} d^{j} \sigma^{i} \sigma^{j}=d^{i} d^{i}+\epsilon_{i j k} d^{i} d^{j} \sigma^{k}= d ( k ) \cdot d ( k )
+\]</span> 其中第二项因其为对称张量和反对称张量的乘积为零。因 <span class="math inline">\(H( k )^{2}\)</span> 对角，本征值可以容易地看出 <span class="math display">\[
+\epsilon_{\pm}( k )=\pm \sqrt{ d ( k ) \cdot d ( k )}
+\]</span></p>
+<h4 id="狄拉克锥-kane-mele-model">狄拉克锥 Kane-Mele Model</h4>
+<p>作为一个广为人知的结论，当原胞中的原子相同，即 <span class="math inline">\(m=0\)</span> 时，石墨烯的能带中将出现狄拉克雉，狄 拉克雉的顶点被称作狄拉克点，可以由能带的零点给出。在本文的坐标下，狄拉克点的坐标为 : <span class="math display">\[
+\begin{aligned}
+k_{x} &amp;=\frac{4 \pi}{3 a}, k_{y}=0 \\
+k_{x} &amp;=\frac{-4 \pi}{3 a}, k_{y}=0
+\end{aligned}
+\]</span> 在这两点附近展开 <span class="math inline">\((9)\)</span> 可得到狄拉克点附近的哈密顿量 <span class="math display">\[
+H_{+}( k )=v\left(k_{x} \sigma^{x}+k_{y} \sigma^{y}\right)+m \sigma^{z}
+\]</span> <span class="math display">\[
+H_{-}( k )=v\left(-k_{x} \sigma^{x}+k_{y} \sigma^{y}\right)+m \sigma^{z}
+\]</span> 其中 <span class="math inline">\(v=\frac{\sqrt{3} t a}{2}\)</span>, 类似于上面引入 <span class="math inline">\(\vec{\sigma}\)</span>, 引入代表两个狄拉克点的谷自旋 <span class="math inline">\(\vec{\tau}\)</span>, 上式可以写成 <span class="math display">\[
+H( k )=v\left(k_{x} \tau^{z} \sigma^{x}+k_{y} \sigma^{y}\right)+m \sigma^{z}
+\]</span> 这就是 Kane-Mele Model</p>
+<h4 id="对称性">对称性</h4>
+<ul>
+<li>宇称变换 <span class="math inline">\(( P : k \rightarrow- k )\)</span></li>
+<li>时间反演 <span class="math inline">\(( T : k \rightarrow- k , \quad S \rightarrow- S )\)</span></li>
+</ul>
+<p>宇称变换通俗来说是一个空间反演变换，在这个变换下原胞中的两原子将互换，所以 <span class="math inline">\(\vec{\sigma}\)</span> 将由下式给 出: <span class="math display">\[
+P : \vec{\sigma} \rightarrow\left(\begin{array}{ll}
+0 &amp; 1 \\
+1 &amp; 0
+\end{array}\right) \vec{\sigma}\left(\begin{array}{ll}
+0 &amp; 1 \\
+1 &amp; 0
+\end{array}\right)
+\]</span> 所以有 <span class="math inline">\(P : \sigma^{x} \rightarrow \sigma^{x}, \sigma^{y} \rightarrow-\sigma^{y}, \sigma^{z} \rightarrow-\sigma^{z}\)</span> 动量空间的反演显然会让两个狄拉克点交换，故 <span class="math inline">\(\vec{\tau}\)</span> 在 <span class="math inline">\(P\)</span> 下变换同上。而时间反演下动量的变换关系和宇称变换相同，故 <span class="math inline">\(\vec{\tau}\)</span> 的变换也相同。时间反演下原胞 中两原子显然不会变化，故 <span class="math inline">\(\vec{\sigma}\)</span> 不变。电子自旋 <span class="math inline">\(\vec{S}\)</span> 显然在宇称变换下不变。以上总结为表。 <span class="math display">\[
+\begin{array}{c|c|c} 
+&amp; P &amp; T \\
+\hline \sigma^{x} &amp; \sigma^{x} &amp; \sigma^{x} \\
+\sigma^{y} &amp; -\sigma^{y} &amp; \sigma^{y} \\
+\sigma^{z} &amp; -\sigma^{z} &amp; \sigma^{z} \\
+\tau^{z} &amp; -\tau^{z} &amp; -\tau^{z} \\
+S^{z} &amp; S^{z} &amp; -S^{z}
+\end{array}
+\]</span> 猜到一个满足PT联合对称的自旋轨道耦合哈密顿量： <span class="math display">\[
+\sigma^{z} \tau^{z}\left(S^{z}\right)_{\alpha \beta}
+\]</span></p>
+<h4 id="次近邻自旋轨道耦合">次近邻&amp;自旋轨道耦合</h4>
+<p><span class="math display">\[
+H_{S O}=i t_{2} \sum_{\langle\langle i, j\rangle\rangle \alpha \beta} \nu_{i j}\left(S^{z}\right)_{\alpha \beta} c_{i \alpha}^{\dagger} c_{j \beta}
+\]</span></p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(v_{i j}=\pm 1\)</span> 取决于跃迁时是向左抛还是向右抛 <span class="math inline">\((\)</span> 图中即为左抛 <span class="math inline">\()\)</span>, 这对应于电子顺逆时针的旋转。</li>
+<li>由于A位原子得到次近邻仍为A位原子，且容易看出 <span class="math inline">\(A , B\)</span> 两位置的对应的次近邻跃迁的抛弯方向相反, <span class="math inline">\(v_{i j}\)</span> 的贡献可以用 <span class="math inline">\(\sigma^{z}\)</span> 描述，</li>
+</ul>
+<p>故自旋轨道耦合哈密顿量如下，对其进行傅里叶变换得 <span class="math display">\[
+\begin{aligned}
+H_{S O} &amp;=i t_{2} \sum_{i \alpha \beta} \sigma_{\alpha \beta}^{z}\left(S^{z}\right)_{\alpha \beta}\left(c_{i+\vec{c}_{1}, \alpha}^{\dagger} c_{i \beta}-c_{i+\vec{c}_{2}, \alpha}^{\dagger} c_{i \beta}-c_{i-\vec{c}_{1}, \alpha}^{\dagger} c_{i \beta}+c_{i-\vec{c}_{2}, \alpha}^{\dagger} c_{i \beta}\right.\\
+&amp;\left.-c_{i+\vec{c}_{1}-\vec{c}_{2}, \alpha}^{\dagger} c_{i \beta}+c_{i-\vec{c}_{1}+\vec{c}_{2}, \alpha}^{\dagger} c_{i \beta}\right) \\
+&amp;=i t_{2} \sum_{k \alpha \beta} \sigma_{\alpha \beta}^{z}\left(S^{z}\right)_{\alpha \beta} c_{k \alpha}^{\dagger} c_{k \beta}\left(e^{-i k \cdot \vec{a}_{1}}-e^{-i k \cdot \vec{a}_{2}}-e^{i k \cdot \vec{a}_{2}}+e^{i k \cdot \vec{a}_{2}}\right.\\
+&amp;\left.-e^{-i k \cdot\left(\vec{a}_{1}-\vec{a}_{2}\right)}+e^{i k \cdot\left(\vec{a}_{1}-\vec{a}_{2}\right)}\right) \\
+&amp;=-4 t_{2} \sum_{k \alpha \beta} \sigma_{\alpha \beta}^{z}\left(S^{z}\right)_{\alpha \beta} c_{k \alpha}^{\dagger} c_{k \beta} \sin \frac{a k_{x}}{2}\left(\cos \frac{a k_{x}}{2}-\cos \frac{\sqrt{3} a k_{y}}{2}\right)
+\end{aligned}
+\]</span> 在两个狄拉克点处展开至一阶可以得到 <span class="math display">\[
+H_{S O}^{\pm}=\pm 3 \sqrt{3} t_{2} \sigma^{z} S^{z}
+\]</span> 即 <span class="math display">\[
+H_{S O}=\Delta_{S O} \sigma^{z} \tau^{z} S^{z}
+\]</span></p>
+<h4 id="边缘态">边缘态</h4>
+<p>为考虑石墨烯的边缘态, 这里考虑一个石墨烯条带, <span class="math inline">\(x\)</span> 方向无限长， <span class="math inline">\(y\)</span> 方向有限，写出哈密顿量如下: <span class="math display">\[
+\begin{aligned}
+H &amp;=\sum_{s=0,1} \sum_{i=-\infty}^{\infty}\left[\sum_{j=2}^{n} t\left(c_{i, j, 1, s}^{\dagger} c_{i, j, 2, s}+c_{i, j, 1, s}^{\dagger} c_{i-1, j, 2, s}+c_{i, j, 1, s}^{\dagger} c_{i, j-1,2, s}\right)\right.\\
+&amp;+i t_{2} \sum_{j=2}^{n-1}(-1)^{s}\left(c_{i, j, 1, s}^{\dagger} c_{i, j+1,1, s}+c_{i, j, 1, s}^{\dagger} c_{i+1, j-1,1, s}+c_{i, j, 1, s}^{\dagger} c_{i-1, j, 1, s}\right.\\
+&amp;\left.\left.+c_{i, j, 2, s}^{\dagger} c_{i, j-1,2, s}+c_{i, j, 2, s}^{\dagger} c_{i-1, j+1,2, s}+c_{i, j, 2, s}^{\dagger} c_{i+1, j, 2, s}\right)+\text { h.c. }\right] \\
+&amp;+\sum_{s=0,1} \sum_{i=-\infty}^{\infty}\left[t\left(c_{i, 1,1, s}^{\dagger} c_{i, 1,2, s}+c_{i, 1,1, s}^{\dagger} c_{i-1,1,2, s}\right)\right.\\
+&amp;+i t_{2}(-1)^{s}\left(c_{i, n, 1, s}^{\dagger} c_{i+1, n-1,1, s}+c_{i, n, 1, s}^{\dagger} c_{i-1, n, 1, s}+c_{i, n, 2, s}^{\dagger} c_{i+1, n, 2, s}\right.\\
+&amp;+c_{i, n, 2, s}^{\dagger} c_{i, n-1,2, s}+c_{i, 1,1, s}^{\dagger} c_{i, 2,1, s}+c_{i, 1,1, s}^{\dagger} c_{i-1,1,1, s} \\
+&amp;\left.\left.+c_{i, 1,2, s}^{\dagger} c_{i+1,1,2, s}+c_{i, 1,2, s}^{\dagger} c_{i-1,2,2, s}\right)+\text { h.c. }\right]
+\end{aligned}
+\]</span> 傅里叶变换后变为： <span class="math display">\[
+\begin{aligned}
+H_{k_{x}} &amp;=\sum_{s=0,1}\left[\sum_{j=2}^{n} t\left(c_{j, 1, s}^{\dagger} c_{j, 2, s}+c_{j, 1, s}^{\dagger} c_{j-1,2, s}+e^{-i a k_{x}} c_{j, 1, s}^{\dagger} c_{j, 2, s}\right)\right.\\
+&amp;+i t_{2} \sum_{j=2}^{n-1}(-1)^{s}\left(c_{j, 1, s}^{\dagger} c_{j+1,1, s}+e^{-i a k_{x}} c_{j, 1, s}^{\dagger} c_{j, 1, s}+e^{i a k_{x}} c_{j, 1, s}^{\dagger} c_{j-1,1, s}\right.\\
+&amp;\left.\left.+c_{j, 2, s}^{\dagger} c_{j-1,2, s}+e^{i a k_{x}} c_{j, 2, s}^{\dagger} c_{j, 2, s}+e^{-i a k_{x}} c_{j, 2, s}^{\dagger} c_{j+1,2, s}\right)+ h.c \right] \\
+&amp;+\sum_{s=0,1}\left[t\left(c_{1,1, s}^{\dagger} c_{1,2, s}+e^{-i a k_{x}} c_{1,1, s}^{\dagger} c_{1,2, s}\right)\right.\\
+&amp;+i t_{2}(-1)^{s}\left(e^{i a k_{x}} c_{n, 1, s}^{\dagger} c_{n-1,1, s}+e^{-i a k_{x}} c_{n, 1, s}^{\dagger} c_{n, 1, s}+e^{i a k_{x}} c_{n, 2, s}^{\dagger} c_{n, 2, s}\right.\\
+&amp;+c_{n, 2, s}^{\dagger} c_{n-1,2, s}+c_{1,1, s}^{\dagger} c_{2,1, s}+e^{-i a k_{x}} c_{1,1, s}^{\dagger} c_{1,1, s} \\
+&amp;\left.\left.+e^{i a k_{x}} c_{1,2, s}^{\dagger} c_{1,2, s}+e^{-i a k_{x}} c_{1,2, s}^{\dagger} c_{2,2, s}\right)+\text { h. } c .\right]
+\end{aligned}
+\]</span> 对角化绘制能谱如图，可以看到 <span class="math inline">\(k=\frac{\pi}{a}\)</span> 处的能带交叉，这两条能带代表边缘态。</p>
+<pre><code class="hljs mathematica">a1 = &#123;a/<span class="hljs-number">2</span>, (<span class="hljs-keyword">Sqrt</span>[<span class="hljs-number">3</span>] a)/<span class="hljs-number">2</span>&#125;;
+a2 = &#123;-(a/<span class="hljs-number">2</span>), (<span class="hljs-keyword">Sqrt</span>[<span class="hljs-number">3</span>] a)/<span class="hljs-number">2</span>&#125;;
+k = &#123;kx, ky&#125;;
+r = I t2 (E^(-I k.a1) - E^(-I k.a2) - E^(I k.a1) + E^(I k.a2) - 
+       E^(-I k.(a1 - a2)) + E^(I k.(a1 - a2)) // <span class="hljs-keyword">ComplexExpand</span> // 
+     <span class="hljs-keyword">TrigExpand</span> // <span class="hljs-keyword">Simplify</span>)
+     
+<span class="hljs-keyword">Series</span>[r, &#123;kx, (<span class="hljs-number">4</span> \[<span class="hljs-keyword">Pi</span>])/(<span class="hljs-number">3</span> a), <span class="hljs-number">1</span>&#125;, &#123;ky, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>&#125;]
+<span class="hljs-keyword">Series</span>[r, &#123;kx, -((<span class="hljs-number">4</span> \[<span class="hljs-keyword">Pi</span>])/(<span class="hljs-number">3</span> a)), <span class="hljs-number">1</span>&#125;, &#123;ky, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>&#125;]
+
+n = <span class="hljs-number">32</span>; t2 = <span class="hljs-number">0.05</span>; a = <span class="hljs-number">1</span>;
+H = <span class="hljs-keyword">Sum</span>[<span class="hljs-keyword">Normal</span>[
+      <span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> j + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> j + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>&#125; -&gt; <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">4</span> n, 
+        <span class="hljs-number">4</span> n&#125;]] + 
+     <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> j + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> j - <span class="hljs-number">4</span> + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>&#125; -&gt; 
+         <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]] + 
+     <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> j + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> j + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>&#125; -&gt; 
+         E^(-I kx a)&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]], &#123;j, <span class="hljs-number">2</span>, n&#125;, &#123;s, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>&#125;] + 
+   I t2 <span class="hljs-keyword">Sum</span>[(<span class="hljs-number">-1</span>)^
+      s (<span class="hljs-keyword">Normal</span>[
+         <span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> j + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> j + <span class="hljs-number">4</span> + s - <span class="hljs-number">3</span>&#125; -&gt; <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">4</span> n, 
+           <span class="hljs-number">4</span> n&#125;]] + 
+        <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> j + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> j + s - <span class="hljs-number">3</span>&#125; -&gt; 
+            E^(-I kx a)&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]] + 
+        <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> j + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> j - <span class="hljs-number">4</span> + s - <span class="hljs-number">3</span>&#125; -&gt; 
+            E^(I kx a)&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]] + 
+        <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> j + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> j - <span class="hljs-number">4</span> + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>&#125; -&gt; 
+            <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]] + 
+        <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> j + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> j + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>&#125; -&gt; 
+            E^(I kx a)&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]] + 
+        <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> j + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> j + <span class="hljs-number">4</span> + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>&#125; -&gt; 
+            E^(-I kx a)&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]]), &#123;j, <span class="hljs-number">2</span>, n - <span class="hljs-number">1</span>&#125;, &#123;s, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>&#125;] + 
+   <span class="hljs-keyword">Sum</span>[<span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">1</span> + s, <span class="hljs-number">1</span> + <span class="hljs-number">2</span> + s&#125; -&gt; <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]] + 
+     <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">1</span> + s, <span class="hljs-number">1</span> + <span class="hljs-number">2</span> + s&#125; -&gt; E^(-I kx a)&#125;, &#123;<span class="hljs-number">4</span> n, 
+        <span class="hljs-number">4</span> n&#125;]]
+     + I t2 (<span class="hljs-number">-1</span>)^
+      s (<span class="hljs-keyword">Normal</span>[
+         <span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> n + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> n - <span class="hljs-number">4</span> + s - <span class="hljs-number">3</span>&#125; -&gt; 
+            E^(I kx a)&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]] + 
+        <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> n + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> n + s - <span class="hljs-number">3</span>&#125; -&gt; 
+            E^(-I kx a)&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]] + 
+        <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> n + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> n + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>&#125; -&gt; 
+            E^(I kx a)&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]] + 
+        <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">4</span> n + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>, <span class="hljs-number">4</span> n - <span class="hljs-number">4</span> + <span class="hljs-number">2</span> + s - <span class="hljs-number">3</span>&#125; -&gt; 
+            <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]] + 
+        <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">1</span> + s, <span class="hljs-number">1</span> + <span class="hljs-number">4</span> + s&#125; -&gt; <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]] + 
+        <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">1</span> + s, <span class="hljs-number">1</span> + s&#125; -&gt; E^(-I kx a)&#125;, &#123;<span class="hljs-number">4</span> n, 
+           <span class="hljs-number">4</span> n&#125;]] + 
+        <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">1</span> + <span class="hljs-number">2</span> + s, <span class="hljs-number">1</span> + <span class="hljs-number">2</span> + s&#125; -&gt; 
+            E^(I kx a)&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]] + 
+        <span class="hljs-keyword">Normal</span>[<span class="hljs-keyword">SparseArray</span>[&#123;&#123;<span class="hljs-number">1</span> + <span class="hljs-number">2</span> + s, <span class="hljs-number">1</span> + <span class="hljs-number">4</span> + <span class="hljs-number">2</span> + s&#125; -&gt; 
+            E^(-I kx a)&#125;, &#123;<span class="hljs-number">4</span> n, <span class="hljs-number">4</span> n&#125;]]), &#123;s, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>&#125;];
+H = H + <span class="hljs-keyword">ConjugateTranspose</span>[H] // <span class="hljs-keyword">ComplexExpand</span>;
+band = <span class="hljs-keyword">ParallelTable</span>[
+   <span class="hljs-keyword">Sort</span>[<span class="hljs-keyword">Eigenvalues</span>[H // N]], &#123;kx, <span class="hljs-number">0</span>, <span class="hljs-number">2</span> \[<span class="hljs-keyword">Pi</span>], \[<span class="hljs-keyword">Pi</span>]/<span class="hljs-number">100</span>&#125;];
+<span class="hljs-keyword">ListLinePlot</span>[<span class="hljs-keyword">Transpose</span>@band, <span class="hljs-keyword">Frame</span> -&gt; <span class="hljs-keyword">True</span>, 
+ <span class="hljs-keyword">FrameLabel</span> -&gt; &#123;<span class="hljs-string">"ka"</span>, <span class="hljs-string">"E/t"</span>&#125;]</code></pre>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210502173854365.png" srcset="/img/loading.gif" /></p>
 <h3 id="reference">Reference</h3>
 <ol type="1">
 <li><a href="https://chaoli.club/index.php/4485/0" target="_blank" rel="noopener">Kane-Mele Model 代码</a></li>
@@ -550,6 +790,7 @@ ylabel(<span class="hljs-string">'$z$'</span>,<span class="hljs-string">'Interpr
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div id="tocbot"></div>
 </div>
+
 
       </div>
     
@@ -651,7 +892,7 @@ ylabel(<span class="hljs-string">'$z$'</span>,<span class="hljs-string">'Interpr
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
+        collapseDepth: 1,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>读书笔记 Berry Phases in Electronic Structure Theory - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2016-11-03 14:23">
+      November 3, 2016 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      102
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>拓扑入门第一例</p>
+<p>[TOC]</p>
+<h2 id="简介">简介</h2>
+<h2 id="参考">参考</h2>
+<ul>
+<li>《Berry Phases in Electronic Structure Theory》Electric Polarization, Orbital Magnetization and Topological Insulators - DAVID VANDERBILT</li>
+</ul>
+<h2 id="topological-insulators-and-semimetals">5 Topological Insulators and Semimetals</h2>
+<p>Beginning in about 2005, the investigation of topological phases of matter emerged as an exciting theme, and has since become established as an important new subfield in the condensed matter physics research community. The seeds for this development were planted by Thouless, Haldane, and other investigators <span class="math inline">\({ }^{1}\)</span> in the years following the discovery of the quantum Hall effect with the theoretical prediction of a possible insulating <span class="math inline">\(2 D\)</span> state now known as a quantum anomalous Hall insulator. However, the field didn't really take off until the appearance of the papers of Kane and Mele <span class="math inline">\((2005 a, 2005 b)\)</span> and Fu and Kane <span class="math inline">\((2006)\)</span>, who identified a class of <span class="math inline">\(2 D\)</span> nonmagnetic spin Hall insulators whose Bloch states are topologically twisted in a certain sense. The term topological insulator (TI) came to be attached to both types of states. The concept of TIs was then rapidly extended to describe 3D nonmagnetic insulators, where "weak" and "strong" TIs were identified (see, for example, Fu et al., 2007; Moore and Balents, 2007), and eventually to topological crystalline insulators, topological superconductors, topological semimetals, and other topological phases.</p>
+<p>The impact of these developments has been dramatic in part because they reflect a paradigm shift in the understanding of the classification of phases of matter. Until recently, the dominant framework was that of phase transitions governed by symmetry breaking and order parameters. A canonical example is that of a ferromagnet such as bcc iron as it is cooled through its Curie temperature, below which there is a reduction of symmetry and the appearance of an order parameter, the magnetization, which was absent in the high-temperature paramagnetic state. Identified with the school of Landau, this paradigm has been used with outstanding success to describe an enormous variety of phase transitions in condensed matter physics. In the case of TIs such as the quantum spin Hall state, however, there is no symmetry that distinguishes the topological from the trivial state, and no order parameter that becomes nonzero on the topological side.</p>
+<p>Instead, the basic paradigm for defining TIs is quite different. Two insulators are said to belong to the same topological class if and only if their Hamiltonians can be continuously connected, at least in principle, in such a way that the gap never closes at any point along the connecting path. Here there is a close analogy to the classification of closed geometric surfaces by genus, where two surfaces are said to be topologically equivalent if they can be deformed into one another without any "violent events" such as poking new holes or healing old ones. In this sense, a coffee cup and a doughnut belong to the same classification (genus 1<span class="math inline">\()\)</span> but are distinct from a sphere (genus zero). In the classification of TIs, the "violent events" are gap closures at which the system becomes metallic at some points or in some intervals along the connecting path. An insulating crystal is said to be trivial if it can be adiabatically connected without gap closure to an atomic limit (crystal of wellseparated atoms with discrete sets of occupied and unoccupied atomic orbitals), and is topological otherwise.</p>
+<p>A systematic review of the developments of the theory of TIs and related topological states will not be attempted here. The reader is referred to excellent reviews by Kane (2008), Hasan and Kane (2010), Moore (2010), Qi and Zhang (2011), and Bansil et al. (2016), and the book by Bernevig (2013). The goal in the present chapter is to introduce the concept of TIs by building, in a natural way, on the theory of Berry phases and curvatures developed in the previous chapters, but now applied to crystalline insulators in <span class="math inline">\(2 D\)</span> and <span class="math inline">\(3 D\)</span>. We shall begin with the quantum anomalous Hall (QAH) state, which was introduced phenomenologically in Section 1.3.2, and which can be regarded as the parent state from which other topological states are derived. We shall then build from there to understand the topological classifications of nonmagnetic and magnetic systems in <span class="math inline">\(2 D\)</span> and <span class="math inline">\(3 D\)</span> more generally.</p>
+<h2 id="quantum-anomalous-hall-insulators">5.1 Quantum Anomalous Hall Insulators</h2>
+<p>The physics of the QAH effect is closely related to the phenomenon of <span class="math inline">\(1 D\)</span> quantum adiabatic transport discussed in Section 4.2.3. There we saw that if there is a nonzero Chern number <span class="math inline">\(C\)</span> associated with the Bloch bands on the 2 -torus <span class="math inline">\((\lambda, k)\)</span>, where <span class="math inline">\(\lambda\)</span> labels progress around an adiabatic loop and <span class="math inline">\(k\)</span> is the Bloch wavevector, then this corresponds to a charge pump of <span class="math inline">\(C\)</span> electrons by a unit cell per cycle, as illustrated, for example, by the winding of the Wannier centers in Fig. 4.5. We now focus instead on the 2D parameter space <span class="math inline">\(\left(k_{x}, k_{y}\right)\)</span> describing the Bloch wavevector of a 2D crystalline insulator, and see what physics can be attached to the Chern index defined on the 2 -torus in this case.</p>
+<h3 id="d-chern-insulators"><span class="math inline">\(2 D\)</span> Chern Insulators</h3>
+<p>In a landmark paper, Haldane (1988) introduced a simple tight-binding model demonstrating the possibility of such a nonzero Chern number in the <span class="math inline">\(2 D\)</span> Brillouin zone (BZ). This model describes spinless electrons hopping between sites as sketched in Fig. <span class="math inline">\(5.1(\)</span> a) . There are two sites (labeled '1' and '2' and shown as filled and open circles, respectively) on a honeycomb lattice, with an <span class="math inline">\(s\)</span> -like orbital on each site. The real-space lattice vectors <span class="math inline">\(a _{1}\)</span> and <span class="math inline">\(a _{2}\)</span> form the shaded parallelogram unit cell. The Hamiltonian written in second quantized notation [c.f. Eq. (2.60)] is <span class="math display">\[
+H=\Delta \sum_{i}(-)^{\tau_{i}} c_{i}^{\dagger} c_{i}+t_{1} \sum_{\langle i j\rangle}\left(c_{i}^{\dagger} c_{j}+\text { h.c. }\right)+t_{2} \sum_{\langle\langle i j\rangle\rangle}\left(i c_{i}^{\dagger} c_{j}+\text { h.c. }\right)
+\]</span> where <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> run over all sites, <span class="math inline">\(\tau_{i}=\{1,2\}\)</span> is the sublattice index of the site, and <span class="math inline">\(t_{1}\)</span> is the nearest-neighbor hopping strength for first-neighbor pairs indicated by <span class="math inline">\(\langle i j\rangle\)</span> (each pair counted once). The model is assumed to be half filled. In the absence of the <span class="math inline">\(t_{2}\)</span> term, this Hamiltonian describes a nonmagnetic system like the <span class="math inline">\(p_{z}\)</span> orbitals of single-layer graphene <span class="math inline">\((\Delta=0)\)</span> or boron nitride <span class="math inline">\((\Delta \neq 0)\)</span>.</p>
+<p>Crucially, Haldane added the last term, which ascribes a complex hopping amplitude <span class="math inline">\(i t_{2}\)</span> to each second-neighbor pair <span class="math inline">\(\langle\langle i j\rangle\rangle\)</span>, where the sites are arranged such that the dashed arrows in Fig. <span class="math inline">\(5.1(\)</span> a <span class="math inline">\()\)</span> point from site <span class="math inline">\(j\)</span> to site <span class="math inline">\(i ;\)</span> the Hermitian conjugate term indicated by 'h.c.' describes corresponding hopping amplitudes <span class="math inline">\(-i t_{2}\)</span> for hops in the reverse direction. This term breaks time-reversal (TR) symmetry, since complex conjugation reverses its sign. We have essentially broken TR "by hand" by adding this term, so we now have to think of this as a model of a ferromagnetic system with some orbital magnetization <span class="math inline">\(M_{z}\)</span>, where <span class="math inline">\(z\)</span> is the direction normal to the plane. Thus, even in its topologically trivial phase, this model should display macroscopic edge currents given by <span class="math inline">\(M_{z}\)</span> as discussed in Section <span class="math inline">\(1.2 .\)</span></p>
+<p>This model can be extended in various ways. In fact, Haldane's original model had a general complex hopping amplitude <span class="math inline">\(t_{2} e^{i \varphi}\)</span>, but later authors often specialize, as we have done here, to the case of <span class="math inline">\(\varphi=\pi / 2 .\)</span> More distant-neighbor hoppings could also be added. However, the model given in the form of Eq. (5.1) is perhaps the simplest model having a topological phase, and has come to be regarded as a kind of "hydrogen atom of the TIs."</p>
+<p>The reciprocal space associated with the Haldane model of Eq. <span class="math inline">\((5.1)\)</span> is shown in Fig. 5.1(b). The Wigner-Seitz <span class="math inline">\(BZ\)</span> is shown by the hexagonal outline, but we prefer to focus on the parallelogram BZ indicated by the shaded region, and to imagine it as wrapped into a 2-torus by the primitive reciprocal lattice vectors <span class="math inline">\(b _{1}\)</span> and <span class="math inline">\(b _{2}\)</span>.</p>
+<p>The model is solved by the PyTHTB program haldane_bsr.py appearing in Appendix D.11. Typical results are shown in Fig. 5.2, where <span class="math inline">\(\Delta=0.7\)</span> and <span class="math inline">\(t_{1}=-1\)</span> were held fixed while <span class="math inline">\(t_{2}\)</span> was set to <span class="math inline">\(0,-0.06,-0.1347\)</span>, and <span class="math inline">\(-0.24\)</span>, respectively, in panels <span class="math inline">\(( a - d )\)</span>. The interesting action is at the <span class="math inline">\(K\)</span> and <span class="math inline">\(K^{\prime}\)</span> points, where it happens that the contribution of <span class="math inline">\(t_{1}\)</span> to <span class="math inline">\(H_{ k }\)</span> drops out due to a cancellation of phases, and the energies are given by the analytic solutions <span class="math display">\[
+E_{ k }=\pm\left\{\begin{array}{ll}
+\Delta-3 \sqrt{3} t_{2} &amp; \text { at } K \\
+\Delta+3 \sqrt{3} t_{2} &amp; \text { at } K^{\prime}
+\end{array}\right.
+\]</span> When <span class="math inline">\(t_{2}=0\)</span>, the states at <span class="math inline">\(K\)</span> and <span class="math inline">\(K^{\prime}\)</span> are related by TR symmetry and so necessarily have the same energies, but as <span class="math inline">\(t_{2}\)</span> is turned on the gaps at <span class="math inline">\(K\)</span> and <span class="math inline">\(K^{\prime}\)</span> develop an asymmetry. We take <span class="math inline">\(t_{2}&lt;0\)</span>, in which case the gap grows at <span class="math inline">\(K\)</span> and shrinks at <span class="math inline">\(K^{\prime}\)</span> as <span class="math inline">\(t_{2}\)</span> gets more negative. Eventually the gap at <span class="math inline">\(K^{\prime}\)</span> closes at the critical value <span class="math inline">\(t_{2 c }=-\Delta / 3 \sqrt{3} \simeq-0.1347\)</span>, and then reopens for <span class="math inline">\(t_{2}&lt;t_{2 c }\)</span> There is also an important change of character of the band-edge states at <span class="math inline">\(t_{2 c }\)</span>. Because <span class="math inline">\(t_{1}\)</span> has no influence at <span class="math inline">\(K\)</span> or <span class="math inline">\(K^{\prime}\)</span>, the states at these locations are either of pure atom-1 character (filled circles), or atom-2 character (open circles), as shown in Fig. 5.2. Significantly, a reversal between the character of the valence-band maximum and the conduction-band minimum is visible at <span class="math inline">\(K^{\prime}\)</span> for <span class="math inline">\(t_{2}&lt;t_{2 c }\)</span></p>
+<p>It turns out that such a band inversion is typical of many kinds of topological transition. Indeed, for <span class="math inline">\(t_{2}&gt;t_{2 c }\)</span>, we can adiabatically send <span class="math inline">\(t_{1}\)</span> and <span class="math inline">\(t_{2}\)</span> to zero at fixed <span class="math inline">\(\Delta\)</span> and convert the system into a trivial atomic state (completely flat bands of simple atom- 1 or atom-2 character), corresponding to our notion of an "atomic limit" in this system. For <span class="math inline">\(t_{2}&lt;t_{2 c }\)</span>, however, this cannot be done without a gap closure at <span class="math inline">\(K^{\prime}\)</span>, suggesting that the system is in a nontrivial topological class in this region of parameter space.</p>
+<p>Let us now see what the connection is to the theory of Berry curvatures and Chern numbers developed in the earlier chapters. Since the system is at half-filling, we concentrate on the properties of the occupied lower band. At <span class="math inline">\(t_{2}=0\)</span> the system has TR symmetry, and as discussed on p. 105, this enforces that <span class="math inline">\(\Omega( k )=-\Omega(- k ) ;\)</span> that is, the Berry curvature is an odd function of wavevector. <span class="math inline">\({ }^{2}\)</span> As a result, the integrated Berry flux vanishes due to cancellations between contributions at <span class="math inline">\(k\)</span> and <span class="math inline">\(- k\)</span>, and the Chern number of the band (total Berry flux divided by <span class="math inline">\(2 \pi\)</span> ) is zero. This is confirmed in Fig. <span class="math inline">\(5.3(\)</span> a <span class="math inline">\()\)</span>, which shows a contour plot of the Berry curvature in the BZ for this case. The plot was generated by program haldane_bcurv.py in Appendix D.12, and shows that there are positive and negative concentrations of Berry curvature near <span class="math inline">\(K\)</span> and <span class="math inline">\(K^{\prime}\)</span>, which will obviously cancel when integrated over the BZ. Program haldane_bcurv.py also integrates the Berry curvature over the <span class="math inline">\(2 D BZ\)</span> so as to report the Chern number, which is zero as expected for this case.</p>
+<p>Because it is constrained to be an integer, the Chern number must remain zero as long as <span class="math inline">\(t_{2}\)</span> is gradually decreasing without gap closure. Fig. <span class="math inline">\(5.3( b )\)</span> shows how this comes about: The concentration of Berry curvature becomes more diffuse near <span class="math inline">\(K\)</span> where the gap is increasing, while it becomes more strongly peaked near <span class="math inline">\(K^{\prime}\)</span> where it is decreasing, in such a way that the positive and negative concentrations continue to cancel. As <span class="math inline">\(t_{2}\)</span> approaches <span class="math inline">\(t_{2 c }\)</span> where the gap closure occurs, the concentration of <span class="math inline">\(\Omega\)</span> near <span class="math inline">\(K^{\prime}\)</span>, which amounts to a total Berry flux of about <span class="math inline">\(-\pi\)</span>, approaches the form of a delta function. When the gap opens again for <span class="math inline">\(t_{2}\)</span> just below <span class="math inline">\(t_{2 c }\)</span>, the <span class="math inline">\(-\pi\)</span> Berry flux is replaced by a <span class="math inline">\(+\pi\)</span> Berry flux, which becomes more diffuse as <span class="math inline">\(t_{2}\)</span> decreases further as shown in Fig. <span class="math inline">\(5.3( c ) .\)</span> The program also reports the Chern number for each case, revealing a jump from <span class="math inline">\(C=0\)</span> to <span class="math inline">\(C=1\)</span> as <span class="math inline">\(t_{2}\)</span> passes through <span class="math inline">\(t_{2 c } .\)</span> A <span class="math inline">\(2 D\)</span> insulator having a nonzero Chern index, as in Fig. <span class="math inline">\(5.3( c )\)</span>, is often termed a Chern insulator.</p>
+<p>As discussed in Sections <span class="math inline">\(3.2 .3\)</span> and <span class="math inline">\(3.2 .4\)</span>, the Chern index on a torus in <span class="math inline">\((\mu, \nu)\)</span> parameter space can also be obtained by observing the winding of the Berry phase <span class="math inline">\(\phi^{(\nu)}\)</span> as <span class="math inline">\(\mu\)</span> is carried around its cycle. In the case of a simple <span class="math inline">\(2 D\)</span> insulator with Cartesian lattice vectors, the corresponding parameter space would be that of the wavevector components <span class="math inline">\(\left(k_{x}, k_{y}\right)\)</span>, and we would seek to track the Berry phase in the <span class="math inline">\(k_{y}\)</span> direction, or equivalently the hybrid Wannier center <span class="math inline">\(\bar{y}\left(k_{x}\right)\)</span> (see Section 4.5.4), as <span class="math inline">\(k_{x}\)</span> is carried around the loop from 0 to <span class="math inline">\(2 \pi / a_{1} .\)</span> As we shall see, this viewpoint helps clarify what is "topological" about the Chern phase where <span class="math inline">\(C \neq 0\)</span>.</p>
+<p>In the case of the Haldane model, the lattice vectors are not orthogonal, so it is more convenient to work with the reduced wavevector components <span class="math inline">\(\left(\kappa_{1}, \kappa_{2}\right)\)</span> related to <span class="math inline">\(k\)</span> by Eq. (2.31). Thus, we shall compute <span class="math inline">\(\phi^{(2)}\left(\kappa_{1}\right)\)</span>, or equivalently the hybrid Wannier center <span class="math inline">\(\bar{s}_{2}\left(\kappa_{1}\right)\)</span>, as <span class="math inline">\(\kappa_{1}\)</span> is carried adiabatically around the loop from 0 to <span class="math inline">\(2 \pi .\)</span> Here we are using the notation of Eq. (4.96) in Section <span class="math inline">\(4.5 .4\)</span>, except that we now have a <span class="math inline">\(2 D\)</span> bulk with a <span class="math inline">\(1 D\)</span> "surface" (edge). The PyTHTB program haldane_topo.py in Appendix D.13 performs the needed calculation for the cases of <span class="math inline">\(t_{2}=-0.06\)</span> and <span class="math inline">\(t_{2}=-0.24\)</span>, which we know are in the trivial and topologically phases, respectively, from Fig. <span class="math inline">\(5.3( b - c )\)</span>.</p>
+<p>In the trivial case, the hybrid Wannier centers plotted in Fig. <span class="math inline">\(5.4( a )\)</span> are simply periodic in <span class="math inline">\(\kappa_{1}\)</span>; the lack of winding again confirms that <span class="math inline">\(C=0 .\)</span> For the topological state, Fig. 5.4(c) shows the corresponding behavior. Now the hybrid Wannier centers <span class="math inline">\(\bar{s}_{2}\left(\kappa_{1}\right)\)</span> shift up by one unit as <span class="math inline">\(\kappa_{1}\)</span> cycles through <span class="math inline">\(2 \pi\)</span>, confirming that the Chern number is <span class="math inline">\(C=1 .\)</span> We also see that the flow of the hybrid Wannier centers becomes most rapid at about <span class="math inline">\(\kappa_{1} \simeq 2 \pi / 3\)</span>, at the projection of the point <span class="math inline">\(K^{\prime}\)</span> where the gap closure occurred, and where there is still a significant concentration of Berry curvature visible in Fig. <span class="math inline">\(5.3( c )\)</span>.</p>
+<p>Within the hybrid Wannier viewpoint, then, the meaning of the topological index <span class="math inline">\(C\)</span> is just that it records the number of times the Wannier center <span class="math inline">\(\bar{s}_{2}\)</span> wraps by a lattice vector as <span class="math inline">\(\kappa_{1}\)</span> cycles around the <span class="math inline">\(BZ\)</span>. It is very much like the story of the quantized adiabatic charge transport discussed in Section 4.2.3, except that the adiabatic parameter <span class="math inline">\(\lambda\)</span> of the 1 D system treated there is now replaced by one wavevector component of our <span class="math inline">\(2 D\)</span> system. Of course, the analysis could also have been done by tracing <span class="math inline">\(\bar{s}_{1}\left(\kappa_{2}\right)\)</span> instead, making allowance for the fact that <span class="math inline">\(C=C^{(12)}=-C^{(21)}\)</span>. An alternative method for determining the <span class="math inline">\(Z\)</span> index is to inspect the flow of the entanglement spectrum as illustrated in Fig. D.3 generated by the PyTHTB program haldane_entang.py in Appendix D.14. This requires a calculation on an artificially partitioned finite-width ribbon, however, so the method based on tracking the flow of the hybrid Wannier function (HWF) centers is generally recommended as more natural and straightforward.</p>
+<h3 id="edge-states">Edge States</h3>
+<p>In Section 4.5.3 we studied what happens at the ends of a long but finite <span class="math inline">\(1 D\)</span> insulating chain undergoing a cyclic modification of the Hamiltonian, and found that a nonzero Chern number necessarily causes surface states to appear and cross the gap during the adiabatic cycle. We see exactly the same kind of behavior here. Figure <span class="math inline">\(5.4( b )\)</span> shows a surface state emerging out of the conduction band on the top edge of the ribbon, and another coming from the valence band on the bottom edge, but neither crosses the gap. The behavior is therefore trivial, <span class="math inline">\(^{3}\)</span> and with some modification of the surface Hamiltonian the appearance of surface states could be eliminated entirely. For the QAH system with <span class="math inline">\(C=1\)</span> in Fig. <span class="math inline">\(5.4( d )\)</span>, by contrast, we see that there is an up-crossing of one surface state on the top edge of the ribbon and a down-crossing of another surface state on the bottom edge, signaling a topological behavior.</p>
+<p>The qualitative similarity between the flow of the Wannier centers and the surface states that is visible in Fig. <span class="math inline">\(5.4\)</span> is not an accident; it is a consequence of the bulkboundary correspondence discussed at the end of Section 4.5.3. As <span class="math inline">\(\kappa_{1}\)</span> evolves through <span class="math inline">\(2 \pi\)</span>, the effective <span class="math inline">\(1 D\)</span> system along direction <span class="math inline">\(s_{2}\)</span> defined by that <span class="math inline">\(\kappa_{1}\)</span> acts like a quantized adiabatic charge pump, as illustrated in Fig. <span class="math inline">\(4.16( b ) .\)</span> The cyclic adiabatic parameter <span class="math inline">\(\lambda\)</span> appearing there is the analogue of the cyclic wavevector <span class="math inline">\(\kappa_{1}\)</span> in the present case. In the last few paragraphs of Section <span class="math inline">\(4.5 .3\)</span> we pointed out that the flow of the Wannier centers requires a corresponding flow of the surface states based on charge conservation. To repeat the argument in the present context, we know that a cycle of <span class="math inline">\(\kappa_{1}\)</span> pumps one electron from the bottom to the top edge of the ribbon <span class="math inline">\((C=1)\)</span>, but the contribution of this <span class="math inline">\(\kappa_{1}\)</span> to the edge charge is the same at the beginning and end of the cycle; this is possible only if there is one up-crossing surface state at the top edge that can serve to remove an electron when the energy of this state rises past the Fermi energy, and a down-crossing one at the bottom surface to inject an electron there.</p>
+<p>The parameters chosen for Fig. <span class="math inline">\(5.4( c - d )\)</span> produce a state with Chern number <span class="math inline">\(C=+1\)</span>, but it is trivial to check that reversing the sign of <span class="math inline">\(t_{2}\)</span> produces a state with <span class="math inline">\(C=-1 .\)</span> Further modifications to the model (Fruchart and Carpentier, 2013) can easily generate states with <span class="math inline">\(C=\pm 2\)</span>, and so on. By making plots like those in Fig. <span class="math inline">\(5.4\)</span>, one can easily check that the flow of hybrid Wannier centers and edge states is consistent in every case, with the Chern number corresponding to the net number of up-crossings on these diagrams.</p>
+<h3 id="connection-to-quantum-anomalous-hall-physics">Connection to Quantum Anomalous Hall Physics</h3>
+<p>This is an excellent time to review the discussion in Section <span class="math inline">\(1.3\)</span>, since the up-crossing surface state in Fig. <span class="math inline">\(5.4( b )\)</span> is exactly like the one we anticipated in Fig. <span class="math inline">\(1.10( b ) .\)</span> From the discussion there, we argued that if an edge has a single up-crossing surface state (or in general an excess of one up-crossing surface state over down-crossing ones) in the clockwise direction, then this must be true on all edges of the sample, reflecting a bulk integer index <span class="math inline">\(C\)</span> that we tentatively called "chirality" there. We now finally see that <span class="math inline">\(C\)</span> is just the Chern number!</p>
+<p>We have been illustrating the issues involved using the Haldane model, for which the relevant Chern number is just that of a single occupied band, but the generalization to multiband insulators is straightforward. If the bands are isolated, then the "chirality" determining the count of crossing edge states is just the total Chern number <span class="math inline">\(C=\sum_{n}^{ occ } C_{n} ;\)</span> more generally it is given in terms of the <span class="math inline">\(BZ\)</span> integral of the band-traced Berry curvature in Eq. (3.136). Importantly, in Section <span class="math inline">\(1.3\)</span> we argued on physical grounds that the "chirality," which we now know to be the Chern number, is directly related to the anomalous Hall conductivity ( <span class="math inline">\(AHC\)</span> ) by <span class="math display">\[
+\sigma_{ AHC }=\sigma_{y x}=C \frac{e^{2}}{h}
+\]</span> This finally provides an answer to the question of what physical response corresponds to the Chern number. The arguments given there were based on charge conservation at the edge of the sample when subjected to a weak electric field, but we can also give two other demonstrations of this relation. The first is heuristic, and the second is based on the linear response theory developed in Section <span class="math inline">\(4.2\)</span>. The heuristic derivation proceeds as follows. We consider a single-band Chern insulator (we assume <span class="math inline">\(C=1\)</span> ) with an <span class="math inline">\(a \times b\)</span> rectangular unit cell, although relaxing these restrictions is not difficult (see, for example, Ex. 5.2). According to the semiclassical Boltzmann transport theory,which will be developed later in Section 5.1.7, a wave packet centered at wavevector <span class="math inline">\(k\)</span> evolves in response to a weak electric field by translating in reciprocal space at a rate <span class="math inline">\({ }^{4}\)</span> <span class="math display">\[
+\dot{ k }=-\frac{e}{\hbar} E
+\]</span> Letting the field point to the left, <span class="math inline">\(E = E _{x} \hat{x}=- E _{0} \hat{x}\)</span>, this means that <span class="math inline">\(k_{x}\)</span> shifts to the right by one reciprocal lattice vector <span class="math inline">\(2 \pi / a\)</span> in a "Bloch oscillation time" <span class="math inline">\(T_{ B }=(2 \pi / a) /\left(e E _{0} / \hbar\right)=h / e a E _{0} .\)</span> In this period of time, every occupied electron is shifted in the real-space <span class="math inline">\(\hat{y}\)</span> direction by a distance <span class="math inline">\(b\)</span> according to the Wannier flow picture of Fig. <span class="math inline">\(5.4( c )\)</span>, generating a sheet current <span class="math inline">\(K_{y}=-e b / T_{ B } A_{\text {cell }}=\left(e^{2} / h\right) E _{x} .\)</span> In other words, <span class="math inline">\(\sigma_{y x}=e^{2} / h\)</span> as claimed!</p>
+<p>A second, and more formal, derivation of this result is obtained using the linear response formalism of Section 4.2.1. There we arrived at Eq. (4.22), which in <span class="math inline">\(2 D\)</span> takes the form <span class="math display">\[
+\frac{\partial_{\nu}\langle O \rangle}{A_{\text {cell }}}=\frac{-e \hbar}{(2 \pi)^{2}} \sum_{n}^{\text {occ }} \int_{ BZ } 2 \operatorname{Im}\left\langle u_{n k }\left| O T_{n k }^{2} v_{ k , \nu}\right| u_{n k }\right\rangle d^{2} k
+\]</span> This describes the linear response of some operator <span class="math inline">\(O\)</span> (or more precisely, its expectation value density) to a first-order electric field applied in Cartesian direction <span class="math inline">\(\nu .\)</span> From this it is straightforward to compute the induced current in direction <span class="math inline">\(\mu\)</span> : <span class="math display">\[
+\begin{aligned}
+\sigma_{\mu \nu} &amp;=\partial_{\nu} K_{\mu} \\
+&amp;=\frac{\partial_{\nu}\left\langle-e v_{\mu}\right\rangle}{A_{\text {cell }}} \\
+&amp;=\frac{e^{2} \hbar}{(2 \pi)^{2}} \sum_{n}^{\text {occ }} \int_{ BZ } 2 \operatorname{Im}\left\langle u_{n k }\left|v_{ k , \mu} T_{n k }^{2} v_{ k , \nu}\right| u_{n k }\right\rangle d^{2} k
+\end{aligned}
+\]</span> For <span class="math inline">\(\mu=\nu\)</span> the expectation value on the right-hand side is clearly pure real, so that the longitudinal conductivities <span class="math inline">\(\sigma_{x x}\)</span> and <span class="math inline">\(\sigma_{y y}=0\)</span> vanish when the imaginary part is taken, as they must. In contrast, the off-diagonal elements do not. Using Eq. (4.29) twice to remove velocity operators in favor of wavevector derivatives, we find <span class="math display">\[
+\sigma_{y x}=\frac{e^{2}}{(2 \pi)^{2} \hbar} \sum_{n}^{ occ } \int_{ BZ } 2 \operatorname{Im}\left\langle\partial_{y} u_{n k }\left|Q_{n k }\right| \partial_{x} u_{n k }\right\rangle d^{2} k
+\]</span> But <span class="math inline">\(Q_{n k }=1-\left|u_{n k }\right\rangle\left\langle u_{n k }\right|\)</span> can be replaced here by the identity operator because the additional term entering Eq. (5.7) is of the form <span class="math inline">\(\left\langle\partial_{y} u \mid u\right\rangle\left\langle u \mid \partial_{x} u\right\rangle=\left(i A_{y}\right)\left(-i A_{x}\right)\)</span>, which is pure real. With the <span class="math inline">\(Q_{n k }\)</span> factor gone, we use the Berry curvature formula of Eq. (3.67) to write this as <span class="math display">\[
+\sigma_{y x}=\frac{e^{2}}{(2 \pi)^{2} \hbar} \sum_{n}^{ occ } \int_{ BZ } \Omega_{n, x y} d^{2} k
+\]</span> For a Chern insulator, we can use Eq. (3.68) and <span class="math inline">\(\hbar=h / 2 \pi\)</span> to write this as <span class="math display">\[
+\sigma_{y x}=\frac{e^{2}}{h} \sum_{n}^{\text {occ }} C_{n}
+\]</span> which is again just Eq. (5.3) with <span class="math inline">\(C\)</span> being the total Chern number of the occupied band space. Eq. (5.9) was originally derived by D. J. Thouless et al. (1982) in the context of the integer quantum Hall effect in the presence of a periodic potential. The presence of a nonzero transverse induced current <span class="math inline">\(\partial\left\langle v_{y}\right\rangle / \partial E _{x}\)</span> in Eq. (5.6) came to be referred to as an anomalous velocity effect.</p>
+<p>To summarize, we saw in Chapter 1 that the presence of an AHC of <span class="math inline">\(\sigma_{ AHC }=\)</span> <span class="math inline">\(Ce ^{2} / h\)</span> in a <span class="math inline">\(2 D\)</span> insulator is not ruled out on physical grounds as long as the "chirality" <span class="math inline">\(C\)</span> is an integer, in which case <span class="math inline">\(C\)</span> must correspond to the count of chiral edge states at the boundaries. In Section <span class="math inline">\(5.1 .1\)</span> we found that any <span class="math inline">\(2 D\)</span> insulator is characterized by a "Chern number" <span class="math inline">\(C\)</span> describing the total Berry flux of the occupied bands integrated over the <span class="math inline">\(2 D BZ\)</span> or, equivalently, the flow of Berry phases (or hybrid Wannier centers) in one lattice direction as the wavevector component in the other lattice direction is varied. We have now also shown, using two independent arguments, that these two constants <span class="math inline">\(C\)</span> are one and the same. We thus have in hand our first kind of TI, namely the "Chern insulator" or "QAH insulator" in <span class="math inline">\(2 D\)</span>. Systems with <span class="math inline">\(C=0\)</span> are said to be "normal" or "trivial," while those with <span class="math inline">\(C \neq 0\)</span> are "topological." Because the topological index runs over the set <span class="math inline">\(Z\)</span> of all integers, this is referred to as a topological " <span class="math inline">\(Z\)</span> classification."</p>
+<h3 id="experimental-realizations">Experimental Realizations</h3>
+<p>While the QAH or Chern-insulating state is arguably the simplest paradigmatic example of a TI, attempts at an experimental realization of this state were slow to bear fruit. While the theoretical prediction of the existence of <span class="math inline">\(3 D\)</span> nonmagnetic TIs (Fu and Kane, 2007; Fu et al., 2007; Moore and Balents, 2007) was rapidly followed by experimental verification (Hsieh et al., 2008; Xia et al., 2009 ), and despite the fact that the Haldane model dates to 1988, it was not until 2013 that the first <span class="math inline">\(2 D\)</span> QAH state was experimentally demonstrated.</p>
+<p>Theorists were not idle in the interim. An excellent review of theoretical efforts to propose materials systems that could realize the QAH state can be found in Weng et al. (2015). The essential ingredients are as follows:</p>
+<ul>
+<li>The system has to be two-dimensional. It may occur naturally at the surface of some crystal or at the interface between two crystals, or in the form of a naturally 2D material such as graphene. It may also be engineered by some chemical addition or substitution to such <span class="math inline">\(2 D\)</span> systems, or by the intentional growth of ultrathin films with a chosen composition.</li>
+<li>It must be magnetic, with the TR symmetry spontaneously broken in such a way as to allow the appearance of a magnetization component normal to the plane. This constraint arises because the conditions allowing the integrated Berry flux <span class="math inline">\(\int_{ BZ } \Omega_{x y} d^{2} k\)</span> to be nonzero are the same as those allowing a nonzero <span class="math inline">\(M_{z} .\)</span> The paradigmatic case is a ferromagnet with magnetization normal to the plane, but a ferrimagnetic system (having two or more distinct magnetic sublattices such that the magnetic moments do not cancel) and certain noncollinear magnetic states are also possibilities. In any case, long-range magnetic order must be established.</li>
+<li>It must be insulating. Unfortunately, antiferromagnetic insulators and magnetic metals seem to be more common in nature than ferromagnetic insulators.</li>
+<li>The spin-orbit coupling (SOC) must be strong enough to induce the desired band inversion (discussed later in this section). Systems containing heavy atoms from the lower region of the Periodic Table are therefore favored.</li>
+<li>The system must be sufficiently stable that it can form, or be synthesized, with good structural and chemical order.</li>
+</ul>
+<p>It is not easy to satisfy all of these constraints simultaneously.</p>
+<p>The need for strong SOC arises as follows, at least in the conventional framework in which a collinear magnetic state develops in response to ferromagnetic exchange couplings in the spin sector. <span class="math inline">\({ }^{5}\)</span> In the limit that the <span class="math inline">\(SOC\)</span> strength <span class="math inline">\(\lambda_{ SOC }=0\)</span> vanishes, such a system is well described by the local spin-density approximation (LSDA) of Eq. (2.18), in which the up-spin and down-spin systems are independent and each is governed by a real Hamiltonian (i.e., obeying <span class="math inline">\(K H=H K\)</span>, where <span class="math inline">\(K\)</span> is complex conjugation). From this it follows that the Berry curvature obeys <span class="math inline">\(\Omega_{x y}( k )=-\Omega_{x y}(- k )\)</span>, so that its integral vanishes <span class="math inline">\((C=0)\)</span> and a Chern-insulating state is impossible. <span class="math inline">\(^{6}\)</span> Essentially, the spontaneously broken TR symmetry in the spin channel is not communicated to the orbital channel, which is the one that governs the AHC.</p>
+<p>If we now imagine that <span class="math inline">\(\lambda_{ SOC }\)</span> is gradually tuned from zero to its physical value, and if the final state is to be a QAH state, then it must be the case that the gap closes and reopens, establishing a band inversion, in the manner of Figs. <span class="math inline">\(5.2\)</span> and 5.3. Since the maximum shift of the band-edge states that can occur during this process is set by the SOC strength, the size of the final inverted gap is bounded in the same way. The heaviest commonly occurring elements in the Periodic Table</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/">Topological Physics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/Book/">Book</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/11/03/topology07_Quantization02_BerryPhase/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Berry Phase</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2016/11/03/topology07_book_TISC04_edge/">
+                        <span class="hidden-mobile">读书笔记 Edge Modes</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "读书笔记 Berry Phases in Electronic Structure Theory&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

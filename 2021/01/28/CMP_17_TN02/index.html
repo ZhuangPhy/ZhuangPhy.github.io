@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>张量网络态与几何 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-01-28 13:01">
+      January 28, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      47
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<p>《<a href="https://arxiv.org/pdf/1106.1082.pdf" target="_blank" rel="noopener">Tensor network states and geometry</a>》</p>
+<p>others</p>
+<ol type="1">
+<li><a href="https://physics.iitm.ac.in/~suresh/sgtalk/talk_html/introcft.pdf" target="_blank" rel="noopener">Introduction to Conformal Field Theory</a> Suresh Govindarajan
+<ul>
+<li>applications to Condensed Matter Physics</li>
+</ul></li>
+<li>Introducing Conformal Field Theory
+<ul>
+<li>many applications outside of string theory, most notably in <strong>statistical physics</strong> where it offers a description of <strong>critical phenomena</strong>.</li>
+<li>conformal field theories in <strong>two dimensions</strong> provide rare examples of <strong>interacting</strong>, yet <strong>exactly solvable</strong>, quantum field theories.</li>
+<li>Attention has focussed on conformal field theories in <strong>higher dimensions</strong> due to their role in the <strong>AdS/CFT correspondence</strong>.</li>
+</ul></li>
+<li><a href="http://galileo.phys.virginia.edu/~pf7a/msmCFT.pdf" target="_blank" rel="noopener">A conformal field theory primer</a></li>
+<li><a href="https://arxiv.org/pdf/0807.3472.pdf" target="_blank" rel="noopener">Conformal Field Theory and Statistical Mechanics</a></li>
+<li><a href="http://theory.caltech.edu/~dsd/ph229ab/2017-2018/" target="_blank" rel="noopener">Ph229ab</a> Advanced Mathematical Methods of Physics: Conformal Field Theory (2017)</li>
+</ol>
+<p>[TOC]</p>
+<h2 id="摘要">摘要</h2>
+<p>Tensor network states are used to approximate ground states of local Hamiltonians on a lattice in <span class="math inline">\(D\)</span> spatial dimensions. Different types of tensor network states can be seen to generate different geometries. Matrix product states (MPS) in <span class="math inline">\(D=1\)</span> dimensions, as well as projected entangled pair states (PEPS) in <span class="math inline">\(D&gt;1\)</span> dimensions, reproduce the <span class="math inline">\(D\)</span> -dimensional physical geometry of the lattice model; in contrast, the multi-scale entanglement renormalization ansatz (MERA) generates a <span class="math inline">\((D+1)\)</span> -dimensional holographic geometry. Here we focus on homogeneous tensor networks, where all the tensors in the network are copies of the same tensor, and argue that certain structural properties of the resulting many-body states are preconditioned by the geometry of the tensor network and are therefore largely independent of the choice of variational parameters. Indeed, the asymptotic decay of correlations in homogeneous MPS and MERA for <span class="math inline">\(D=1\)</span> systems is seen to be determined by the structure of geodesics in the physical and holographic geometries, respectively; whereas the asymptotic scaling of entanglement entropy is seen to always obey a simple boundary law that is, again in the relevant geometry. This geometrical interpretation offers a simple and unifying framework to understand the structural properties of, and helps clarify the relation between, different tensor network states. In addition, it has recently motivated the branching MERA, a generalization of the MERA capable of reproducing violations of the entropic boundary law in <span class="math inline">\(D&gt;1\)</span> dimensions.</p>
+<h2 id="introduction">Introduction</h2>
+<p>张量网络在量子多体中的主要应用</p>
+<ul>
+<li>物相分类</li>
+<li>基态的数值变分求法</li>
+</ul>
+<p>In recent years tensor network states <span class="math inline">\(^{1-50}\)</span> have emerged as an important theoretical tool to investigate quantum many-body systems.</p>
+<ul>
+<li>They offer a novel conceptual framework to describe and classify the possible phases of matter <span class="math inline">\(^{51-54}\)</span>.</li>
+<li>At the same time, as variational ansätze, tensor network states are the basis of numerical approaches to quantum many-body problems.</li>
+</ul>
+<p>矩阵乘积态MPS是一维的tensor network</p>
+<ul>
+<li>运用到DMRG
+<ul>
+<li>自旋链</li>
+</ul></li>
+<li>动力学TEBD</li>
+</ul>
+<p>The simplest and best known tensor network state is the matrix product state <span class="math inline">\(( MPS )^{1-4}\)</span>.</p>
+<ul>
+<li>The MPS is at the core of the extraordinary success of White's density matrix renormalization group <span class="math inline">\(( DMRG )^{5-8},\)</span> which for almost twenty years has dominated numerical research in one dimensional lattice models, such as quantum spin chains, providing extremely accurate ground state properties.</li>
+<li>The MPS is also used to simulate dynamics with the time-evolving block decimation <span class="math inline">\(( TEBD )^{9-12}\)</span> algorithm and variations thereof, often referred to as time-dependent DMRG.</li>
+</ul>
+<p>Other tensor network states for one-dimensional systems include</p>
+<ul>
+<li>the tree tensor network <span class="math inline">\(( TTN )^{13,14}\)</span></li>
+<li>the multi-scale entanglement renormalization ansatz <span class="math inline">\(( MERA )^{15-20}\)</span>, with the later being particularly successful at describing ground states at quantum critical points.</li>
+</ul>
+<p>Each of the above tensor network states for <span class="math inline">\(D=\)</span> 1 dimensional systems has a natural generalization in <span class="math inline">\(D&gt;1\)</span> dimensions. The projected entangled-pair state <span class="math inline">\(( PEPS )^{21-30}\)</span> generalizes the MPS, whereas <span class="math inline">\(D&gt;1\)</span> versions of <span class="math inline">\(TTN ^{31} \underline{3}\)</span> and <span class="math inline">\(\operatorname{MERA}^{33-39}\)</span> also exist. Among those generalizations, PEPS and MERA stand out for offering efficient representations of many-body wave functions, thus leading to scalable simulations in <span class="math inline">\(D&gt;1\)</span> dimensions; and, importantly, for also being able to address systems that are beyond the reach of quantum Monte Carlo approaches due to the so-called sign problem, including frustrated spins 30,39 and interacting fermions <span class="math inline">\(^{40}-50\)</span></p>
+<p>An attractive feature of tensor network states is that they are largely unbiased variational ansätze, in the sense that they are capable of representing many different types of ground states through a proper choice of variational parameters, as clearly witnessed by two decades of MPS explorations with <span class="math inline">\(DMRG ^{5-8}\)</span>. By increasing the bond dimension <span class="math inline">\(\chi\)</span> of the <span class="math inline">\(\operatorname{MPS}^{4}, \underline{9}\)</span>, which governs the size of its tensors and therefore the number of variational parameters, more entanglement can be reproduced and a more accurate approximation to the ground state of a lattice model is obtained.</p>
+<p>As a matter of fact, an MPS can exactly reproduce any many-body state of the system provided that the bond dimension <span class="math inline">\(\chi\)</span> is large enough <span class="math inline">\(^{4,9}\)</span>, although this will typically require a prohibitively large value of <span class="math inline">\(\chi,\)</span> namely a value exponentially large in the system size - leading to an inefficient representation. What makes the MPS interesting is that some moderately small value of <span class="math inline">\(\chi\)</span> is often already capable of accurately approximating the ground state of a local Hamiltonian in <span class="math inline">\(D=1\)</span> dimensions <span class="math inline">\(^{5-8},\)</span> as recently clarified by Hastings 55,56 . For instance, for most gapped Hamiltonians, an accurate MPS approximation is obtained already with some finite bond dimension <span class="math inline">\(\chi\)</span> that depends on <span class="math inline">\(H\)</span> but is essentially independent of the size of the system. For critical (and thus gapless) systems much of the same is true of the MERA <span class="math inline">\(15-19\)</span>, which with a fixed bond dimension <span class="math inline">\(\chi\)</span> is capable of accurately reproducing large scale properties of the ground state, such as the asymptotic scaling of two-point correlators and of entanglement entropy.</p>
+<p>Tensor network states in <span class="math inline">\(D&gt;1\)</span> dimensions, such as PEPS <span class="math inline">\(^{21-30}\)</span> and MERA <span class="math inline">\(\underline{33-39}\)</span>, are also thought to be capable of accurately describing a large variety of ground states. This is supported both by growing numerical evidence and by the existence of analytical MERA <span class="math inline">\(\underline{35,38}\)</span> and PEPS <span class="math inline">\(^{57}, \underline{58}\)</span> constructions for some topologically ordered ground states in <span class="math inline">\(D=2\)</span> dimensions. However, a sharp increase of computational costs with bond dimension <span class="math inline">\(\chi\)</span> implies that, in practice, simulations in <span class="math inline">\(D&gt;1\)</span> dimensions are restricted to small values of <span class="math inline">\(\chi .\)</span> This restriction implies favouring low entangled states over more robustly entangled states. And as a result, and unless specific preventive measures are taken, tensor network states in <span class="math inline">\(D&gt;1\)</span> dimensions may artificially favour local order over topological order, or may effectively open a gap in a critical system.</p>
+<p>It is therefore important to understand how a finite bond dimension preconditions the properties of a given tensor network ansatz. The goal of our review paper is to collect together a number of previous results in this direction, which can be found scattered through the literature, and to present them under a simple and unifying framework. We consider homogeneous tensor network states with a finite bond dimension <span class="math inline">\(\chi\)</span> and look into those structural properties (in practice, scaling of correlators and of entanglement entropy) that follow from the way the tensors are connected into a network <span class="math inline">\(-\)</span> and are therefore independent of the choice of variational parameters. Those properties can be directly associated with properties of the (discrete) geometry reproduced by the network.</p>
+<h3 id="论文结构">论文结构</h3>
+<p>A main merit of this presentation is that it exposes, in very simple geometric terms, the main structural differences between the MPS and the scale invariant MERA in <span class="math inline">\(D=1\)</span> dimensions, while also explaining why these two tensor network states are a natural ansatz to represent ground states of gapped and gapless Hamiltonians, respectively. The situation turns out to be much less clear-cut in <span class="math inline">\(D&gt;1\)</span> dimensions, where not only the scale invariant MERA but also PEPS can describe certain type of gapless ground states; in addition, both PEPS and MERA fail to describe another type of more robustly entangled, gapless ground states. A second merit of our presentation is that it allows us to express, again in simple geometric terms, the limitations experienced by PEPS and MERA in <span class="math inline">\(D&gt;1\)</span> dimensions, while preparing the stage to announce how to overcome these limitations, namely by using tensor networks corresponding to more sophisticated geometries, as recently proposed in Ref. <span class="math inline">\(59 .\)</span></p>
+<p>The rest of the paper is divided into sections as follows. Section II briefly reviews the typical behaviour of correlations and entanglement entropy in ground states of local Hamiltonians. In Sect. III we argue that a key difference between MPS/PEPS and MERA is in the geometry that these tensor network states describe. MPS and PEPS reproduce the <span class="math inline">\(D\)</span> -dimensional physical geometry of the lattice model, whereas the MERA describes a <span class="math inline">\((D+1)\)</span> -dimensional holographic geometry, with the additional dimension corresponding to length scale. Then Sect. IV points out that the decay of correlations in the MPS and the scale invariant MERA can be regarded as following from the structure of geodesics in the physical and holographic geometries, respectively. Similarly, Sect. V argues that the scaling of entanglement entropy in the MPS and the scale invariant MERA can be understood to follow from a simple boundary law in some appropriate region of the physical and holographic geometries. Sect. VI considers the holographic geometry of ground states of gapped systems and a related tensor network state, the finite range MERA, which in some sense interpolates between the MPS and the scale invariant MERA.</p>
+<p>Finally, Sect. VII argues that thinking about tensor network states in terms of geometry offers more than just an attractive way of presenting previously known results. As demonstrated by the recent proposal of the branching MERA, it can also stimulate further progress in the field. Specifically, the restriction experienced by PEPS and MERA to obeying the boundary law for entanglement entropy in <span class="math inline">\(D&gt;1\)</span> dimensions is overcome by considering tensor network states that reproduce a <span class="math inline">\(D+1\)</span> holographic geometry with a more sophisticated structure, including branching in the length scale direction.</p>
+<h2 id="局域哈密顿量的基态">局域哈密顿量的基态</h2>
+<p>Let <span class="math inline">\(L\)</span> denote a lattice in <span class="math inline">\(D\)</span> spatial dimensions made of <span class="math inline">\(N\)</span> sites, where each site is described by a complex vector space <span class="math inline">\(V ,\)</span> and let <span class="math inline">\(H: V ^{\otimes N} \rightarrow V ^{\otimes N},\)</span> with <span class="math inline">\(H^{\dagger}=H\)</span> be a Hamiltonian that decomposes as a sum of terms, with each term involving only a few neighbouring sites. We refer to any such Hamiltonian, made of short-range interactions, as a local Hamiltonian. The ground state <span class="math inline">\(\left|\Psi_{ GS }\right\rangle \in V ^{\otimes N}\)</span> of <span class="math inline">\(H\)</span> is the state that minimizes the expectation value <span class="math inline">\(\langle\Psi|H| \Psi\rangle .\)</span> Typically, the ground state <span class="math inline">\(\left|\Psi_{ GS }\right\rangle\)</span> of a given local Hamiltonian <span class="math inline">\(H\)</span> has a number of structural properties that are common to most ground states of local Hamiltonians. Here we consider two such structural properties: the behaviour of two-point correlation functions and the scaling of entanglement entropy.</p>
+<h3 id="correlations">Correlations</h3>
+<p>Let us first consider the two-point correlator <span class="math display">\[
+C\left(x_{1}, x_{2}\right) \equiv\left\langle P_{x_{1}} Q_{x_{2}}\right\rangle-\left\langle P_{x_{1}}\right\rangle\left\langle Q_{x_{2}}\right\rangle
+\]</span> where <span class="math inline">\(P_{x_{1}}\)</span> and <span class="math inline">\(Q_{x_{2}}\)</span> denote two local operators acting on (a neighborhood of) sites <span class="math inline">\(x_{1}, x_{2} \in L ,\)</span> and <span class="math inline">\(\langle O\rangle\)</span> stand for the ground state expectation value <span class="math inline">\(\left\langle\Psi_{ GS }|O| \Psi_{ GS }\right\rangle .\)</span> In most ground states of local Hamiltonians, <span class="math inline">\(C\left(x_{1}, x_{2}\right)\)</span> decays with the distance between positions <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2} .\)</span> In the limit of large distances, this happens in one of two characteristic ways. When the Hamiltonian <span class="math inline">\(H\)</span> is gapped, correlations decay exponentially <span class="math inline">\(\underline{60}\)</span>, <span class="math display">\[
+C\left(x_{1}, x_{2}\right) \approx e^{-\left|x_{1}-x_{2}\right| / \xi}
+\]</span> where <span class="math inline">\(\xi \geq 0\)</span> denotes a correlation length. Instead, when the Hamiltonian <span class="math inline">\(H\)</span> is gapless, correlations decay polynomially <span class="math inline">\(^{61}\)</span>, <span class="math display">\[
+C\left(x_{1}, x_{2}\right) \approx\left|x_{1}-x_{2}\right|^{-q}
+\]</span> where <span class="math inline">\(q \geq 0\)</span> is some exponent. In this paper we refer to gapped systems also as non-critical systems, and to gapless systems as critical systems. A gapped/non-critical system that is close to a critical point may display twopoint correlations that decay according to the more refined, combined form <span class="math inline">\(^{62}\)</span> <span class="math display">\[
+C\left(x_{1}, x_{2}\right) \approx \frac{e^{-\left|x_{1}-x_{2}\right| / \xi}}{\left|x_{1}-x_{2}\right|^{q}},
+\]</span> which is dominated by the polynomial decay for distances smaller than the correlation length, <span class="math inline">\(\left|x_{1}-x_{2}\right| \ll \xi,\)</span> and reduces to the exponential decay of Eq. 2 at larger distances, <span class="math inline">\(\left|x_{1}-x_{2}\right| \gg \xi\)</span></p>
+<h3 id="entanglement-entropy">Entanglement entropy</h3>
+<p>The amount of entanglement between a region <span class="math inline">\(A\)</span> of the lattice and the rest of the system can be measured by the entanglement entropy <span class="math display">\[
+S(A) \equiv-\operatorname{tr}\left(\rho_{A} \log _{2} \rho_{A}\right)
+\]</span> where <span class="math inline">\(\rho_{A}\)</span> is the reduced density matrix for region <span class="math inline">\(A\)</span>, obtained from the ground state <span class="math inline">\(\left|\Psi_{ GS }\right\rangle\)</span> by tracing out the rest of the system, denoted <span class="math inline">\(B\)</span>, <span class="math display">\[
+\rho_{A} \equiv \operatorname{tr}_{B}\left|\Psi_{ GS }\right\rangle\left\langle\Psi_{ GS }\right|
+\]</span> In <span class="math inline">\(D\)</span> spatial dimensions, most ground states of local Hamiltonians obey a boundary law (often also referred to as "area law") for entanglement entropy <span class="math inline">\(^{63-70}\)</span>, in the sense that the entanglement entropy of a hyperblock <span class="math inline">\(A\)</span> of <span class="math inline">\(L^{D}\)</span> sites scales as the size <span class="math inline">\(|\partial A|\)</span> of its boundary <span class="math inline">\(\partial A\)</span>, <span class="math display">\[
+S(A) \approx|\partial A| \approx L^{D-1}, \quad \text { (boundary law) }
+\]</span> instead of scaling as the size <span class="math inline">\(|A|=L^{D}\)</span> of the bulk of the block <span class="math inline">\(A\)</span>. However, there are also ground states that display logarithmic corrections to the above boundary <span class="math inline">\(\operatorname{law}^{71} \underline{-83}\)</span> <span class="math display">\[
+S(A) \approx L^{D-1} \log _{2}(L)
+\]</span> Specifically, in <span class="math inline">\(D=1\)</span> dimensions, gapped systems obey a boundary law, which in this case means that the entanglement entropy saturates to a constant <span class="math inline">\(S_{0}\)</span> as a function of the block size <span class="math inline">\(L\)</span> <span class="math display">\[
+S(A) \leq S_{0}
+\]</span></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Tensor-Network/">Tensor Network</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/28/ML_05_toric/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">强化学习对toric code量子纠错</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/27/topology10_Quantization03_high_order_SC/">
+                        <span class="hidden-mobile">拓扑晶体超导体中的高阶拓扑数</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "张量网络态与几何&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>格林函数 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2017-06-27 14:23">
+      June 27, 2017 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      78
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>参考</p>
+<ul>
+<li>《Fundamentals of Many-body》 Wolfgang Nolting Theoretical Physics 9</li>
+</ul>
+<h2 id="the-quasi-particle-concept">The Quasi-particle Concept</h2>
+<p>In Sect. <span class="math inline">\(3.3,\)</span> we discussed relatively simple, exactly solvable model systems, which strictly speaking do not require the Green's function formalism. They were intended merely to introduce the solution techniques. The full scope of the method becomes clear only when it is applied to the treatment of interacting systems. In most such cases, to be sure, we will then no longer be able to treat the many-body problem in a mathematically strict manner. Approximations are unavoidable and must be tolerated. The concept of <span class="math display">\[
+quasi-particles
+\]</span> has proven to be extraordinarily useful in this connection, and we shall consider it in detail in the present section. To be more concrete, we will first keep interacting electron systems in mind. The extension to other many-body systems will cause no difficulties.</p>
+<p>We wish to investigate which statements about interacting electron systems can be made using Green's functions. To this end, we must first define the operators (or combinations of operators) <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> which are to be used to construct the Green's function being considered. In most practical cases, the type of this function is quite unambiguously fixed by the physical problem and by the representation of the model Hamiltonian used.</p>
+<h3 id="one-electron-greens-functions">One-Electron Green's Functions</h3>
+<p>As in <span class="math inline">\((2.55),\)</span> the Hamiltonian of a system of <span class="math inline">\(N_{ e }\)</span> mutually-interacting electrons in the Bloch representation is given by: <span class="math display">\[
+H=\sum_{k \sigma} \varepsilon(k) a_{k \sigma}^{+} a_{k \sigma}+\frac{1}{2} \sum_{k p q \atop \sigma \sigma^{\prime}} v_{k p}(q) a_{k+q \sigma}^{+} a_{p-q \sigma^{\prime}}^{+} a_{p \sigma^{\prime}} a_{k \sigma}
+\]</span> We limit our considerations to the electrons of a single energy band, so that we can suppress the band indices. For the so-called Bloch energies <span class="math inline">\(\varepsilon(k),\)</span> from (2.14) and (2.21) we have: <span class="math display">\[
+\varepsilon( k )=\int d ^{3} r \psi_{k}^{*}( r )\left[-\frac{\hbar^{2}}{2 m} \Delta+V( r )\right] \psi_{k}( r )
+\]</span> <span class="math inline">\(\psi_{k}( r )\)</span> is a Bloch function and <span class="math inline">\(V( r )\)</span> is the periodic lattice potential. We treat <span class="math inline">\(\varepsilon( k )\)</span> in the following as a given model parameter. We calculated the Coulomb matrix element in (2.54): <span class="math display">\[
+v_{k p}(q)=\frac{e^{2}}{4 \pi \varepsilon_{0}} \iint d ^{3} r_{1} d ^{3} r_{2} \frac{\psi_{k+q}^{*}\left( r _{1}\right) \psi_{p-q}^{*}\left( r _{2}\right) \psi_{p}\left( r _{2}\right) \psi_{k}\left( r _{1}\right)}{\left| r _{1}- r _{2}\right|}
+\]</span> With a constant lattice potential <span class="math inline">\(V( r ) \equiv\)</span> const, this becomes <span class="math display">\[
+v_{k p}(q) \frac{e^{2}}{V(r)= const } v_{0}(q)=\frac{e^{2}}{\varepsilon_{0} V q^{2}}
+\]</span> Frequently, one uses the model Hamiltonian (3.311) also in its Wannier representation (cf. e.g. (2.115)): <span class="math display">\[
+H=\sum_{i j \sigma} T_{i j} a_{i \sigma}^{+} a_{j \sigma}+\frac{1}{2} \sum_{i j k l \atop \sigma \sigma^{\prime}} v(i j ; k l) a_{i \sigma}^{+} a_{j \sigma^{\prime}}^{+} a_{l \sigma^{\prime}} a_{k \sigma}
+\]</span> The so-called hopping integrals <span class="math display">\[
+T_{i j}=\int d ^{3} r \omega^{*}\left( r - R _{i}\right)\left\{-\frac{\hbar^{2}}{2 m} \Delta+V( r )\right\} \omega\left( r - R _{j}\right)
+\]</span> are related to the Bloch energies via a Fourier transform <span class="math inline">\(\varepsilon(k)\)</span> (cf. (2.113)). <span class="math inline">\(\omega\left( r - R _{i}\right)\)</span> is the Wannier function centered at <span class="math inline">\(R_{i}\)</span>. <span class="math display">\[
+\begin{aligned}
+v(i j ; k l)=&amp; \frac{e^{2}}{4 \pi \varepsilon_{0}} \iint d ^{3} r_{1} d ^{3} r_{2} \omega^{*}\left( r _{1}- R _{i}\right) \omega^{*}\left( r _{2}- R _{j}\right) \\
+&amp; \cdot \frac{1}{\left| r _{1}- r _{2}\right|} \omega\left( r _{2}- R _{l}\right) \omega\left( r _{1}- R _{k}\right)
+\end{aligned}
+\]</span> In this section, we show that the one-electron Green's function, already introduced in Eq. (3.193) <span class="math display">\[
+\begin{aligned}
+G_{k \sigma}^{\alpha}(E) \equiv &amp;\left\langle\left\langle a_{k \sigma} ; a_{k \sigma}^{+}\right\rangle\right\rangle_{E}^{\alpha} \\
+G_{i j \sigma}^{\alpha}(E) \equiv &amp;\left\langle\left\langle a_{i \sigma} ; a_{j \sigma}^{+}\right\rangle\right\rangle_{E}^{\alpha} \\
+&amp; \alpha=\text { ret, } adv , c \quad(\varepsilon=-)
+\end{aligned}
+\]</span> or the equivalent one-electron spectral density <span class="math display">\[
+\begin{array}{l}
+S_{k \sigma}(E)=\frac{1}{2 \pi} \int_{-\infty}^{+\infty} d \left(t-t^{\prime}\right) \exp \left(-\frac{ i }{\hbar} E\left(t-t^{\prime}\right)\right)\left\langle\left[a_{k \sigma}(t), a_{k \sigma}^{+}\left(t^{\prime}\right)\right]_{+}\right\rangle \\
+S_{i j \sigma}(E)=\frac{1}{2 \pi} \int_{-\infty}^{+\infty} d \left(t-t^{\prime}\right) \exp \left(-\frac{ i }{\hbar} E\left(t-t^{\prime}\right)\right)\left\langle\left[a_{i \sigma}(t), a_{j \sigma}^{+}\left(t^{\prime}\right)\right]_{+}\right\rangle
+\end{array}
+\]</span> determine the entire equilibrium thermodynamics, even for systems of interacting electrons. This of course presumes that one was able in some manner to compute these functions.</p>
+<p>To show this, we first write the equation of motion of the <span class="math inline">\(k\)</span> -dependent Green's function, for which we require the following commutator: <span class="math display">\[
+\begin{aligned}
+\left[a_{k \sigma}, H \right]_{-}=&amp;(\varepsilon( k )-\mu) a_{k \sigma}+\\
+&amp;+\sum_{p, q \atop \sigma^{\prime}} v_{p, k+q}( q ) a_{p+q \sigma^{\prime}}^{+} a_{p \sigma^{\prime}} a_{k+q \sigma}
+\end{aligned}
+\]</span> (Its derivation can be carried out by the reader as an exercise!). With the higherorder Green's function <span class="math display">\[
+{ }^{\alpha} \Gamma_{p k ; q}^{\sigma^{\prime} \sigma}(E) \equiv\left\langle\left\langle a_{p+q \sigma^{\prime}}^{+} a_{p \sigma^{\prime}} a_{k+q \sigma} ; a_{k \sigma}^{+}\right\rangle\right\rangle_{E}^{\alpha}
+\]</span> the equation of motion is then given by: <span class="math display">\[
+(E-\varepsilon(k)+\mu) G_{k \sigma}^{\alpha}(E)=\hbar+\sum_{p, q, \sigma^{\prime}} v_{p, k+q}(q)^{\alpha} \Gamma_{p k ; q}^{\sigma^{\prime} \sigma}(E)
+\]</span> The unknown function <span class="math inline">\(\Gamma\)</span> on the right-hand side prevents a direct solution of this equation. However, we postulate that the following decomposition is permitted: <span class="math display">\[
+\begin{aligned}
+\left\langle\left\langle\left[a_{k \sigma}, H - H _{0}\right]_{-} ; a_{k \sigma}^{+}\right\rangle\right\rangle_{E}^{\alpha} &amp;=\sum_{p, q, \sigma^{\prime}} v_{p, k+q}(q) \Gamma_{p k ; q}^{\sigma^{\prime} \sigma}(E) \equiv \\
+&amp; \equiv \Sigma_{\sigma}^{\alpha}(k, E) G_{k \sigma}^{\alpha}(E)
+\end{aligned}
+\]</span> This equation defines the so-called <span class="math display">\[
+\text { self-energy, } \quad \Sigma_{\sigma}^{\alpha}(k, E)
+\]</span> which we wish to discuss in more detail. With it, the equation of motion (3.324) can be formally solved in a simple fashion: <span class="math display">\[
+G_{k \sigma}^{\alpha}(E)=\frac{\hbar}{E-\left(\varepsilon(k)-\mu+\Sigma_{\sigma}^{\alpha}(k, E)\right)}
+\]</span> Comparing this expression with that for the non-interacting system <span class="math inline">\((3.197),\)</span> we see that the entire influence of the particle interactions is contained in the self-energy <span class="math inline">\(\Sigma_{\sigma}(k, E) .\)</span> As a rule, this is a complex-valued function of <span class="math inline">\((k, E),\)</span> whose real part determines the energy and whose imaginary part the lifetime of the quasi-particles, which we have yet to define.</p>
+<p>We can reformulate Eq. (3.326) to some extent. We denote the one-electron Green's function of the non-interacting electrons by <span class="math inline">\(G_{k c}^{(0)}(E) ;\)</span> then from (3.326) it follows that: <span class="math display">\[
+\begin{aligned}
+G_{k \sigma}(E)=\hbar\left\{\hbar\left[G_{k \sigma}^{(0)}(E)\right]^{-1}-\Sigma_{\sigma}(k, E)\right\}^{-1} \\
+\Longrightarrow\left\{\left[G_{k \sigma}^{(0)}(E)\right]^{-1}-\frac{1}{\hbar} \Sigma_{\sigma}(k, E)\right\} G_{k \sigma}(E)=1
+\end{aligned}
+\]</span> Here, we have suppressed the index <span class="math inline">\(\alpha\)</span> to make the expressions clearer. Finally, we arrive at the so-called</p>
+<blockquote>
+<p>Dyson equation <span class="math display">\[
+G_{k \sigma}(E)=G_{k \sigma}^{(0)}(E)+\frac{1}{\hbar} G_{k \sigma}^{(0)}(E) \Sigma_{\sigma}(k, E) G_{k \sigma}(E)
+\]</span></p>
+</blockquote>
+<p>Our goal will be to obtain at least an approximate determination of the self-energy. Inserting an approximate expression for <span class="math inline">\(\Sigma_{\sigma}(k, E)\)</span> into the Dyson equation already implies summation over an infinite partial series. We recall however that for the derivation of <span class="math inline">\((3.327),\)</span> we had to postulate the decomposition (3.325) of the higherorder Green's function.</p>
+<h3 id="the-electronic-self-energy">The Electronic Self-Energy</h3>
+<p>In this section, we wish to obtain an overview of the general structures of the fundamental quantities self-energy, Green's functions, and spectral density. Our starting point is the representation (3.326) of the single-particle Green's function, whereby in the case of the self-energy, we are dealing in general with a complex quantity: <span class="math display">\[
+\Sigma_{\sigma}^{\alpha}(k, E)=R_{\sigma}^{\alpha}(k, E)+ i I_{\sigma}^{\alpha}(k, E)
+\]</span> The index <span class="math inline">\(\alpha\)</span> stands for retarded, advanced, or causal. The corresponding selfenergies are quite distinct. Thus, for example, according to (3.186) and (3.187) for a real spectral density, we have: <span class="math display">\[
+\left(G_{k \sigma}^{ adv }(E)\right)^{*}=G_{k \sigma}^{ ret }(E)
+\]</span> This implies <span class="math display">\[
+\left(\Sigma_{\sigma}^{ adv }(k, E)\right)^{*}=\Sigma_{\sigma}^{ ret }(k, E)
+\]</span> The relationship is thus simple. We may limit our considerations without loss of generality to the retarded functions. We then leave off the supplement <span class="math inline">\(+ i 0^{+},\)</span> if <span class="math inline">\(I_{\sigma} \neq\)</span> 0. We omit the index "ret" on the self-energy in the following. First, we rearrange Eq. (3.326) slightly: <span class="math display">\[
+G_{k \sigma}^{ ret }(E)=\hbar \frac{\left\{E-\left(\varepsilon(k)-\mu+R_{\sigma}(k, E)\right)\right\}+ i I_{\sigma}(k, E)}{\left\{E-\left(\varepsilon(k)-\mu+R_{\sigma}(k, E)\right)\right\}^{2}+I_{\sigma}^{2}(k, E)}
+\]</span> From (3.154), we then have for the spectral density: <span class="math display">\[
+S_{k \sigma}(E)=-\frac{\hbar}{\pi} \frac{I_{\sigma}(k, E)}{\left\{E-\left(\varepsilon(k)-\mu+R_{\sigma}(k, E)\right)\right\}^{2}+I_{\sigma}^{2}(k, E)}
+\]</span> With (3.146), we could have given the general spectral representation of the spectral density, which - for the case of the one-electron spectral density which interests us here-becomes: <span class="math display">\[
+\begin{aligned}
+S_{k \sigma}(E)=&amp; \frac{\hbar}{\Xi} \sum_{n, m}\left|\left\langle E_{n}\left|a_{k \sigma}^{+}\right| E_{m}\right\rangle\right|^{2} e ^{-\beta E_{n}}\left( e ^{\beta E}+1\right) \\
+&amp; \cdot \delta\left[E-\left(E_{n}-E_{m}\right)\right]
+\end{aligned}
+\]</span> <span class="math inline">\(S_{k \sigma}(E)\)</span> is thus non-negative for all <span class="math inline">\((k, \sigma, E)\)</span>. This, however, according to (3.331), gives <span class="math display">\[
+I_{\sigma}(k, E) \leq 0
+\]</span> for the imaginary part of the self-energy (retarded!). We now want to investigate the expression (3.331) somewhat more precisely. Without explicit knowledge of <span class="math inline">\(R_{\sigma}(k, E)\)</span> and <span class="math inline">\(I_{\sigma}(k, E),\)</span> we nevertheless expect in the usual case to find more or less prominent maxima in the spectral density at the resonance energies <span class="math inline">\(E_{i \sigma}(k)\)</span> defined by <span class="math display">\[
+E_{i \sigma}(k) \stackrel{!}{=} \varepsilon(k)-\mu+R_{\sigma}\left(k, E_{i \sigma}(k)\right) ; \quad i=1,2,3, \ldots
+\]</span> Here, we must distinguish between two cases. Case A: Let <span class="math display">\[
+I_{\sigma}(k, E) \equiv 0
+\]</span> hold in a certain energy range, which contains the resonance <span class="math inline">\(E_{i \sigma} .\)</span> Then, in <span class="math inline">\((3.331),\)</span> we must go to the limit <span class="math inline">\(I_{\sigma} \rightarrow-0^{+} .\)</span> Using the formulation of the <span class="math inline">\(\delta\)</span> -function as a limiting expression, <span class="math display">\[
+\delta\left(E-E_{0}\right)=\frac{1}{\pi} \lim _{x \rightarrow 0} \frac{x}{\left(E-E_{0}\right)^{2}+x^{2}}
+\]</span> we then find: <span class="math display">\[
+S_{k \sigma}(E)=\hbar \delta\left[E-\left(\varepsilon(k)-\mu+R_{\sigma}(k, E)\right)\right]
+\]</span> We then make use of <span class="math display">\[
+\delta[f(x)]=\sum_{i} \frac{1}{\left|f^{\prime}\left(x_{i}\right)\right|} \delta\left(x-x_{i}\right) ; \quad f\left(x_{i}\right)=0
+\]</span> which allows us to write the following expression in place of (3.337) : <span class="math display">\[
+\begin{array}{l}
+S_{k \sigma}(E)=\hbar \sum_{i=1}^{n} \alpha_{i \sigma}(k) \delta\left(E-E_{i \sigma}(k)\right) \\
+\alpha_{i \sigma}(k)=\left|1-\frac{\partial}{\partial E} R_{\sigma}(k, E)\right|_{E=E_{i \sigma}}^{-1}
+\end{array}
+\]</span> The sums extend over those resonances <span class="math inline">\(E_{i \sigma}\)</span> which lie within the energy range where (3.335) is valid.</p>
+<p>Case B: We assume <span class="math display">\[
+I_{\sigma}(k, E) \neq 0
+\]</span> where, however, <span class="math display">\[
+\left|I_{\sigma}(k, E)\right| \ll\left|\varepsilon(k)-\mu+R_{\sigma}(k, E)\right|
+\]</span> is valid within a certain neighbourhood of the resonance <span class="math inline">\(E_{i \sigma} .\)</span> Then we can expect a prominent maximum at the energy <span class="math inline">\(E=E_{i \sigma} .\)</span> To see this, we expand the expression <span class="math display">\[
+F_{\sigma}(k, E) \equiv \varepsilon(k)-\mu+R_{\sigma}(k, E)
+\]</span> around the resonance position and terminate the series after the linear term: <span class="math display">\[
+\begin{aligned}
+F_{\sigma}(k, E) &amp;=F_{\sigma}\left(k, E_{i \sigma}\right)+\left.\left(E-E_{i \sigma}\right) \frac{\partial F_{\sigma}}{\partial E}\right|_{E=E_{i \sigma}}+\cdots \\
+&amp;=E_{i \sigma}(k)+\left.\left(E-E_{i \sigma}\right) \frac{\partial R_{\sigma}}{\partial E}\right|_{E=E_{i \sigma}}+\cdots
+\end{aligned}
+\]</span> This means that: <span class="math display">\[
+\begin{aligned}
+\left(E-\varepsilon( k )+\mu-R_{\sigma}( k , E)\right)^{2} &amp; \simeq\left(E-E_{i \sigma}\right)^{2}\left(1-\left.\frac{\partial R_{\sigma}}{\partial E}\right|_{E=E_{i \sigma}}\right)^{2}=\\
+&amp;=\alpha_{i \sigma}^{-2}( k )\left(E-E_{i \sigma}( k )\right)^{2}
+\end{aligned}
+\]</span> We insert this expression into <span class="math inline">\((3.331) .\)</span> Let us now further assume that <span class="math inline">\(I_{\sigma}(k, E)\)</span> in the neighbourhood of the resonance <span class="math inline">\(E_{i \sigma}\)</span> is a continuous, only weakly varying function of <span class="math inline">\(E,\)</span> so that to a good approximation in the energy region of interest, we can set <span class="math display">\[
+I_{\sigma}(k, E) \approx I_{\sigma}\left(k, E_{i \sigma}(k)\right) \equiv I_{i \sigma}(k)
+\]</span> then the spectral density can be approximated as follows: <span class="math display">\[
+S_{k \sigma}^{(i)}(E) \approx-\frac{\hbar}{\pi} \frac{\alpha_{i \sigma}^{2}(k) I_{i \sigma}(k)}{\left(E-E_{i \sigma}(k)\right)^{2}+\left(\alpha_{i \sigma}(k) I_{i \sigma}(k)\right)^{2}}
+\]</span> Under the given assumptions, the spectral density has a Lorentz shape in the neighbourhood of the resonance <span class="math inline">\(E_{i \sigma}\)</span>. Note however, that for this to hold, in particular (3.342) must be fulfilled. This condition can however unfortunately be verified only after a complete solution of the problem is at hand. It thus remains speculative for the time being, but is satisfactorily confirmed by a number of examples of concrete applications. However, we shall also encounter systems for which the shape of the spectral density is found to be quite different from the Lorentz form, i.e. for which (3.342) is not obeyed (Fig. 3.4).</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210108180551921.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>Fig. 3.4 The qualitative shape of the spectral density for a system of interacting Fermions</p>
+</blockquote>
+<p>As a rule, however, according to our preliminary considerations, the spectral density will be a linear combination of weighted Lorentz and <span class="math inline">\(\delta\)</span> -functions.</p>
+<p>This structure of the spectral density will lead us in the next section to the concept of the quasi-particle. In this connection, it is interesting to examine the behaviour of the time-dependent spectral density, which one sometimes calls the propagator. (Occasionally, this term is also used for the time-dependent Green's function.) In the case of a non-interacting particle system, it represents a non-damped harmonic oscillation, as one can see from Eq. <span class="math inline">\((3.207) .\)</span> This is true in the system of interacting particles only for case <span class="math inline">\(A ,\)</span> when the spectral density can be written as a <span class="math inline">\(\delta\)</span> -function (3.337). From (3.339), it then namely follows that: <span class="math display">\[
+S_{k \sigma}\left(t-t^{\prime}\right)=\frac{1}{2 \pi} \sum_{i=1}^{n} \alpha_{i \sigma}(k) \exp \left(-\frac{ i }{\hbar} E_{i \sigma}(k)\left(t-t^{\prime}\right)\right)
+\]</span> The frequencies of oscillation are then determined by the resonance energies <span class="math inline">\(E_{i \sigma}(k)\)</span></p>
+<p>For case <span class="math inline">\(B\)</span>, in contrast, the Lorentz peaks require exponentially damped oscillators. To see this, we assume for the moment that (3.345) holds to a good approximation over the entire energy range. Then we can write: <span class="math display">\[
+\begin{aligned}
+S_{k \sigma}^{(i)}\left(t-t^{\prime}\right) \approx &amp; \frac{1}{4 \pi^{2} i } \int_{-\infty}^{+\infty} d E \exp \left(-\frac{ i }{\hbar} E\left(t-t^{\prime}\right)\right) \alpha_{i \sigma}( k ) \\
+&amp;\cdot\{ \frac{1}{E-\left(E_{i \sigma}( k )- i \alpha_{i \sigma}( k ) I_{i \sigma}( k )\right)}-\\
+&amp;\left.-\frac{1}{E-\left(E_{i \sigma}( k )+ i \alpha_{i \sigma}( k ) I_{i \sigma}( k )\right)}\right\}
+\end{aligned}
+\]</span> We solve the integrals using the residual theorem. The spectral weights are positive definite, so that due to (3.333), we must have: <span class="math display">\[
+\alpha_{i \sigma}(k) I_{i \sigma}(k) \leq 0
+\]</span> The first term thus has a pole in the upper half-plane, and the second term has a pole in the lower half-plane. If we choose the following integration paths,</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210108180735063.png" srcset="/img/loading.gif" /></p>
+<p>then the exponential function in (3.347) guarantees that the semicircle which is closed at infinity makes no contribution. According to the residual theorem, for <span class="math inline">\(t-t^{\prime}&gt;0\)</span> then only the second term makes a contribution to the integral in (3.347) whilst for <span class="math inline">\(t-t^{\prime}&lt;0,\)</span> only the first term contributes. This yields finally: <span class="math display">\[
+\begin{aligned}
+S_{k \sigma}^{(i)}\left(t-t^{\prime}\right) \approx &amp; \frac{1}{2 \pi} \alpha_{i \sigma}( k ) \exp \left(-\frac{ i }{\hbar} E_{i \sigma}( k )\left(t-t^{\prime}\right)\right) \\
+&amp; \cdot \exp \left(-\frac{1}{\hbar}\left|\alpha_{i \sigma}( k ) I_{i \sigma}( k )\right|\left|t-t^{\prime}\right|\right)
+\end{aligned}
+\]</span> The time-dependent spectral density indeed represents a damped oscillation, whose frequency again corresponds to a resonance <span class="math inline">\(E_{i \sigma},\)</span> whilst the damping is essentially determined by the imaginary part of the self-energy.</p>
+<p>Thus, in general for interacting systems, we can expect that <span class="math inline">\(S_{k \sigma}\left(t-t^{\prime}\right)\)</span> will consist of a superposition of damped and undamped oscillations, whose frequencies correspond to the resonance energies <span class="math inline">\(E_{i \sigma}\)</span>. The resulting time dependence can then become quite complicated.</p>
+<p>Precisely this qualitative picture of the time dependence of the spectral density will lead us in the next section to the concept of the quasi-particle, which is typical of many-body theory.</p>
+<h3 id="quasi-particles">Quasi-particles</h3>
+<p>In this section, we will draw some preliminary conclusions. What is in fact the <span class="math inline">\(n e w\)</span> aspect of the Green's function formalism as compared to conventional methods? What do Green's functions or spectral densities have to do with quasi-particles? What are quasi-particles after all? We presume that they are related to the more or less prominent resonance peaks in the spectral density which we discussed in the last section. We want to clarify this point qualitatively by considering a special case <span class="math display">\[
+T=0 ; \quad|k|&gt;k_{ F } ; \quad t&gt;t^{\prime}
+\]</span> <span class="math inline">\(k_{ F }\)</span> denotes the Fermi wavevector. We presume the system to be in its ground state <span class="math inline">\(\left|E_{0}\right\rangle .\)</span> Upon adding a <span class="math inline">\(( k , \sigma)\)</span> electron at the time <span class="math inline">\(t,\)</span> the state <span class="math display">\[
+\left|\varphi_{0}(t)\right\rangle=a_{k \sigma}^{+}(t)\left|E_{0}\right\rangle
+\]</span> is created, which must not necessarily be an eigenstate of the Hamiltonian. Owing to <span class="math inline">\(| k |&gt;k_{ F },\)</span> only one of the two terms in the definition of the propagator (3.127) <span class="math inline">\(S_{k \sigma}\left(t-t^{\prime}\right)\)</span> can contribute. We therefore have <span class="math display">\[
+2 \pi S_{k \sigma}\left(t-t^{\prime}\right)=\left\langle\varphi_{0}(t) \mid \varphi_{0}\left(t^{\prime}\right)\right\rangle
+\]</span> With this, the time-dependent spectral density acquires a clear interpretation. <span class="math inline">\(2 \pi S_{k \sigma}\left(t-t^{\prime}\right)\)</span> is the probability amplitude that the state <span class="math inline">\(\left|\varphi_{0}\right\rangle,\)</span> which was formed from the ground state <span class="math inline">\(\left|E_{0}\right\rangle\)</span> by adding a <span class="math inline">\((k, \sigma)\)</span> electron at the time <span class="math inline">\(t^{\prime},\)</span> still exists at a time <span class="math inline">\(t&gt;t^{\prime} . S_{k \sigma}\left(t-t^{\prime}\right)\)</span> thus characterises the time evolution (propagation)</p>
+<p>of an additional <span class="math inline">\(( k , \sigma)\)</span> electron in the <span class="math inline">\(N\)</span> -particle system. If we had presupposed <span class="math inline">\(|k|&lt;k_{ F },\)</span> then <span class="math inline">\(S_{k \sigma}\left(t-t^{\prime}\right)\)</span> would describe the propagation of a hole. We must now distinguish between two typical cases: <span class="math display">\[
+\left|\left\langle\varphi_{0}(t) \mid \varphi_{0}\left(t^{\prime}\right)\right\rangle\right|^{2}=\text { const } \Longleftrightarrow \text { stationary state }
+\]</span> <span class="math display">\[
+\left|\left\langle\varphi_{0}(t) \mid \varphi_{0}\left(t^{\prime}\right)\right\rangle\right|^{2} \underset{t-t^{\prime} \rightarrow \infty}{\longrightarrow} 0 \Longleftrightarrow \text { state with a finite lifetime. }
+\]</span></p>
+<p>First, we again consider</p>
+<h5 id="non-interacting-electrons">(1) Non-interacting electrons</h5>
+<p>described by <span class="math display">\[
+H _{0}=\sum_{k, \sigma}(\varepsilon( k )-\mu) a_{k \sigma}^{+} a_{k \sigma}
+\]</span> One readily obtains <span class="math display">\[
+\left[ H _{0}, a_{k \sigma}^{+}\right]_{-}=(\varepsilon( k )-\mu) a_{k \sigma}^{+}
+\]</span> with which we find <span class="math display">\[
+\begin{aligned}
+H _{0}\left(a_{k \sigma}^{+}\left|E_{0}\right\rangle\right) &amp;=a_{k \sigma}^{+} H _{0}\left|E_{0}\right\rangle+\left[ H _{0}, a_{k \sigma}^{+}\right]_{-}\left|E_{0}\right\rangle=\\
+&amp;=\left(E_{0}+\varepsilon( k )-\mu\right)\left(a_{k \sigma}^{+}\left|E_{0}\right\rangle\right)
+\end{aligned}
+\]</span> In this special case, we thus have <span class="math inline">\(a_{k \sigma}^{+}\left|E_{0}\right\rangle\)</span> which is an eigenstate of <span class="math inline">\(H _{0}\)</span>. Continuing, we obtain: <span class="math display">\[
+\begin{aligned}
+\left|\varphi_{0}(t)\right\rangle &amp;=\exp \left(\frac{ i }{\hbar} H _{0} t\right) a_{ k \sigma}^{+} \exp \left(-\frac{ i }{\hbar} H _{0} t\right)\left|E_{0}\right\rangle=\\
+&amp;=\exp \left(-\frac{ i }{\hbar} E_{0} t\right) \exp \left(\frac{ i }{\hbar} H _{0} t\right)\left(a_{ k \sigma}^{+}\left|E_{0}\right\rangle\right)=\\
+&amp;=\exp \left(\frac{ i }{\hbar}(\varepsilon( k )-\mu) t\right)\left(a_{k \sigma}^{+}\left|E_{0}\right\rangle\right)
+\end{aligned}
+\]</span> Due to <span class="math inline">\(|k|&gt;k_{ F }\)</span> and <span class="math inline">\(\left\langle E_{0} \mid E_{0}\right\rangle=1,\)</span> we also have: <span class="math display">\[
+\left\langle E_{0}\left|a_{k \sigma} a_{k \sigma}^{+}\right| E_{0}\right\rangle=\left\langle E_{0} \mid E_{0}\right\rangle-\left\langle E_{0}\left|a_{k \sigma}^{+} a_{k \sigma}\right| E_{0}\right\rangle=1
+\]</span> We then finally obtain: <span class="math display">\[
+\left\langle\varphi_{0}(t) \mid \varphi_{0}\left(t^{\prime}\right)\right\rangle=\exp \left[-\frac{ i }{\hbar}(\varepsilon( k )-\mu)\left(t-t^{\prime}\right)\right]
+\]</span> The propagator <span class="math inline">\(S_{k \sigma}^{(0)}\left(t-t^{\prime}\right)\)</span> thus represents an undamped harmonic oscillation, as we have already seen by another method. Its frequency corresponds to an exact excitation energy of the system, namely <span class="math inline">\((\varepsilon( k )-\mu) .\)</span> Because of <span class="math display">\[
+\left|\left\langle\varphi_{0}(t) \mid \varphi_{0}\left(t^{\prime}\right)\right\rangle\right|^{2}=1
+\]</span> this is a stationary state (see Fig. 3.5 ).</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/">Fields of Quantum ManyBody</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/Fundamentals-of-Many-body/">Fundamentals of Many-body</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Green-Function/">Green Function</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/09/24/Thesis00_write_00/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">论文英语写作</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2017/05/16/ML_01_introduction/">
+                        <span class="hidden-mobile">机器学习概览</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "格林函数&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
