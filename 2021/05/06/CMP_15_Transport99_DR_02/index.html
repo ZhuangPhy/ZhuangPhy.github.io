@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>纳米尺度下量子输运理论-2 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-05-06 23:01">
+      May 6, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      22
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<ol type="1">
+<li>《Theory of Quantum Transport at Nanoscale - An Introduction》 Dmitry A. Ryndyk</li>
+</ol>
+<p>outline</p>
+<p>[TOC]</p>
+<h2 id="概览">概览</h2>
+<h2 id="green-functions">Green Functions</h2>
+<p>In this chapter we formulate the Landauer approach using the Green function (GF) formalism. It is a mathematically elegant and numerically effective method to describe quantum scattering and transport. In Sect.3.1 we consider definitions and basic properties of retarded (and advanced) Green functions and discuss the <strong>relations</strong> between</p>
+<ol type="1">
+<li>Schrödinger equation,</li>
+<li>wave functions,</li>
+<li>GFs,</li>
+<li>and the scattering matrix.</li>
+</ol>
+<p>Atomic and molecular scale systems are naturally described by discrete-level models, based, for example, on atomic orbitals and molecular orbitals. For continuous systems with complex geometries and/or disorder, <strong>discretization is a first step towards numerical computational methods</strong>.</p>
+<ol type="1">
+<li>Starting from discrete-level representations we come to matrix Green functions, being the main theoretical tool at nanoscale. On the other hand, electrodes are assumed to be infinitely large and have continuous energy spectrum.</li>
+<li>To include the electrode effects systematically, it is reasonable to start from the discrete-level representation for the whole system. It can be made with a help of the tight-binding (TB) model, which was proposed to describe quantum systems in which the localized electronic states play essential role, it is widely used as an alternative to the plane wave description of electrons in solids, and also as a method to calculate the electronic structure of molecules in quantum chemistry.</li>
+<li>All effects of the equilibrium electrodes can be included into the matrix equations for the central region through the self-energies.</li>
+</ol>
+<p>框架</p>
+<ol type="1">
+<li>We consider the matrix formalism in general in Sect. <span class="math inline">\(3.2\)</span></li>
+<li>and the recursive method for long or complex systems in Sect. <span class="math inline">\(3.3\)</span>.</li>
+<li>Finally, calculation of self-energies for semi-infinite electrodes requires some special methods, which are considered in Sect. <span class="math inline">\(3.4\)</span>.</li>
+</ol>
+<p>Note that Green functions introduced in this section are single-particle GFs in non-interacting systems. The extension of the technique to many-body systems with interactions will be considered in Chap. 7 .</p>
+<h2 id="green-functions-and-the-scattering-problem">3.1 Green Functions and the Scattering Problem</h2>
+<h3 id="retarded-and-advanced-green-functions">3.1.1 Retarded and Advanced Green Functions</h3>
+<p>Green functions are known to be a convenient tool to solve linear differential equations, including the Schrödinger equation in quantum mechanics. Being completely equivalent to the Landauer scattering approach, the GF technique has the advantage that it calculates relevant transport quantities (e.g. transmission function) using effective numerical techniques. Besides, the Green function formalism is well adopted for atomic and molecular discrete-level systems and can be easily extended to include inelastic and many-body effects. First of all, we give the formal general definition and the basic properties of retarded and advanced Green functions (also called propagators). Let us start from the time-dependent Schrödinger equation <span class="math display">\[
+i \hbar \frac{\partial|\Psi(t)\rangle}{\partial t}=\hat{H}|\Psi(t)\rangle
+\]</span> In this section we use general Dirac notations <span class="math inline">\(|\ldots\rangle\)</span> for quantum states and general operator notations <span class="math inline">\(\hat{.} .\)</span> to show that the representation is arbitrary (coordinate and matrix representations considered below are special cases). The solution of this equation at time <span class="math inline">\(t\)</span> can be written in terms of the solution at time <span class="math inline">\(t^{\prime}:\)</span> <span class="math display">\[
+|\Psi(t)\rangle=\hat{U}\left(t, t^{\prime}\right)\left|\Psi\left(t^{\prime}\right)\right\rangle
+\]</span> where <span class="math inline">\(\hat{U}\left(t, t^{\prime}\right)\)</span> is called the time-evolution operator.</p>
+<p>Below we consider only the case of a time-independent Hermitian Hamiltonian <span class="math inline">\(\hat{H}\)</span>, so that the eigenstates <span class="math inline">\(\left|\Psi_{n}(t)\right\rangle=e^{-i E_{n} t / \hbar}\left|\Psi_{n}\right\rangle\)</span> with energies <span class="math inline">\(E_{n}\)</span> are found from the stationary Schrödinger equation <span class="math display">\[
+\hat{H}\left|\Psi_{n}\right\rangle=E_{n}\left|\Psi_{n}\right\rangle
+\]</span> The eigenfunctions <span class="math inline">\(\left|\Psi_{n}\right\rangle\)</span> are orthogonal and normalized, for discrete energy levels : <span class="math display">\[
+\left\langle\Psi_{n} \mid \Psi_{m}\right\rangle=\delta_{n m}
+\]</span> and form a complete set of states ( <span class="math inline">\(\hat{I}\)</span> is the unity operator) <span class="math display">\[
+\sum_{n}\left|\Psi_{n}\right\rangle\left\langle\Psi_{n}\right|=\hat{I}
+\]</span> For continuous spectrum the orthogonality condition is <span class="math display">\[
+\left\langle\Psi_{k} \mid \Psi_{k^{\prime}}\right\rangle=\delta\left(k-k^{\prime}\right),
+\]</span> and the completeness in the case of combined (discrete and continuous) spectrum is written explicitly as <span class="math display">\[
+\sum_{n}\left|\Psi_{n}\right\rangle \langle\Psi_{n} |+\int d k | \Psi_{k} \rangle\left\langle\Psi_{k}\right|=\hat{I} .
+\]</span> The time-evolution operator for a time-independent Hamiltonian can be written as <span class="math display">\[
+\hat{U}\left(t-t^{\prime}\right)=e^{-i\left(t-t^{\prime}\right) \hat{H} / \hbar}
+\]</span> This formal solution is difficult to use directly in most cases, but one can obtain the useful eigenstate representation from it. From the identity <span class="math inline">\(\hat{U}=\hat{U} \hat{I}\)</span> and <span class="math inline">\((3.3),(3.5)\)</span>, (3.8) it follows that 2 <span class="math display">\[
+\hat{U}\left(t-t^{\prime}\right)=\sum_{n} e^{-\frac{i}{\hbar} E_{n}\left(t-t^{\prime}\right)}\left|\Psi_{n}\right\rangle\left\langle\Psi_{n}\right| \text { , }
+\]</span> which demonstrates the superposition principle. The wave function at time <span class="math inline">\(t\)</span> is <span class="math display">\[
+|\Psi(t)\rangle=\hat{U}\left(t, t^{\prime}\right)\left|\Psi\left(t^{\prime}\right)\right\rangle=\sum_{n} e^{-\frac{i}{\hbar} E_{n}\left(t-t^{\prime}\right)}\left\langle\Psi_{n} \mid \Psi\left(t^{\prime}\right)\right\rangle\left|\Psi_{n}\right\rangle
+\]</span> where <span class="math inline">\(\left\langle\Psi_{n} \mid \Psi\left(t^{\prime}\right)\right\rangle\)</span> are the coefficients of the expansion of the initial function <span class="math inline">\(\left|\Psi\left(t^{\prime}\right)\right\rangle\)</span> in the basis of eigenstates.</p>
+<p>It is equivalent and more convenient to introduce two Green operators, called also propagators, retarded <span class="math inline">\(\hat{G}^{R}\left(t, t^{\prime}\right)\)</span> and advanced <span class="math inline">\(\hat{G}^{A}\left(t, t^{\prime}\right)\)</span> : <span class="math display">\[
+\begin{array}{c}
+\hat{G}^{R}\left(t, t^{\prime}\right)=-\frac{i}{\hbar} \theta\left(t-t^{\prime}\right) \hat{U}\left(t, t^{\prime}\right)=-\frac{i}{\hbar} \theta\left(t-t^{\prime}\right) e^{-i\left(t-t^{\prime}\right) \hat{H} / \hbar} \\
+\hat{G}^{A}\left(t, t^{\prime}\right)=\frac{i}{\hbar} \theta\left(t^{\prime}-t\right) \hat{U}\left(t, t^{\prime}\right)=\frac{i}{\hbar} \theta\left(t^{\prime}-t\right) e^{-i\left(t-t^{\prime}\right) \hat{H} / \hbar}
+\end{array}
+\]</span> so that at <span class="math inline">\(t&gt;t^{\prime}\)</span> one has <span class="math display">\[
+|\Psi(t)\rangle=i \hbar \hat{G}^{R}\left(t-t^{\prime}\right)\left|\Psi\left(t^{\prime}\right)\right\rangle
+\]</span> while at <span class="math inline">\(t&lt;t^{\prime}\)</span> it follows <span class="math display">\[
+|\Psi(t)\rangle=-i \hbar \hat{G}^{A}\left(t-t^{\prime}\right)\left|\Psi\left(t^{\prime}\right)\right\rangle
+\]</span></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Green-Function/">Green Function</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Transport/">Transport</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/06/CMP_15_Transport99_DR_01/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">纳米尺度下量子输运理论</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/04/CMP_03_SC_05_TSC/">
+                        <span class="hidden-mobile">拓扑超导</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "纳米尺度下量子输运理论-2&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
