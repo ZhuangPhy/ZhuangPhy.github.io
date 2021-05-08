@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>格林函数概览 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-05-07 09:01">
+      May 7, 2021 am
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      29
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="basics-of-many-body-greens-function-theory">Basics of many-body Green's function theory</h2>
+<h4 id="reference">Reference:</h4>
+<ol type="1">
+<li>Basics of many-body Green's function theory - Vittorio Somà (CEA Saclay) 2015 ESNT workshop</li>
+</ol>
+<p>outline</p>
+<ol type="1">
+<li>Introduction and definitions</li>
+<li>Spectral representation and connection to experiments</li>
+<li>Calculation methods</li>
+<li>Approximations to the exact self-energy</li>
+<li>Extra time: three-body forces and Gorkov formalism</li>
+</ol>
+<h4 id="semantics-history">Semantics &amp; history</h4>
+<ol type="1">
+<li>Many-body Green's function theory: set of techniques that originated in quantum field theory and have then been imported to the many-body problem.</li>
+<li>Green's function: mathematical object</li>
+<li>Many-body Green's functions are applicable to all sorts of complex/many-body systems: crystals, molecules, atoms, atomic nuclei, ...</li>
+<li>Self-consistent Green's functions: many-body Green's functions with dressed propagators (see later).</li>
+<li>Many-body Green's functions are not Green's function Monte Carlo.</li>
+<li>Late 1950 s, 1960 s: import of ideas from QFT and development of formalism.</li>
+<li><span class="math inline">\(1970 s \rightarrow\)</span> today: applications and technical developments.</li>
+</ol>
+<h4 id="greens-function-in-maths">Green's function in maths</h4>
+<ol type="1">
+<li>In mathematics: Green's function is solution of a inhomogeneous differential equation</li>
+</ol>
+<p><span class="math display">\[
+[z-L( r )] G\left( r , r ^{\prime} ; z\right)=\delta\left( r - r ^{\prime}\right)
+\]</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507094304791.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<ol start="2" type="1">
+<li>Green's function Contains information about <strong>eigenstates &amp; eigenvalues</strong> of <span class="math inline">\(L\)</span></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+G\left( r , r ^{\prime} ; z\right)&amp;= \langle r  |\frac{1}{z-L} \left[\sum_{n} |\phi_{n} \rangle \langle\phi_{n} | \right] | r ^{\prime} \rangle
+\\&amp;=\sum_{n}\langle r |\frac{1}{z-L} | \phi_{n}\rangle\left\langle\phi_{n} \mid r^{\prime}\right\rangle
+\\&amp;=\sum_{n} \frac{\left\langle r \mid \phi_{n}\right\rangle\left\langle\phi_{n} \mid r ^{\prime}\right\rangle}{z-\lambda_{n}}
+\end{aligned}
+\]</span></p>
+<p>more generally <span class="math display">\[
+G\left( r , r ^{\prime} ; z\right)=\sum_{n} \frac{\phi_{n}( r ) \phi_{n}^{*}\left( r ^{\prime}\right)}{z-\lambda_{n}}+\int d c \frac{\phi_{c}( r ) \phi_{c}^{*}\left( r ^{\prime}\right)}{z-\lambda_{c}}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\sum_{n} \frac{\phi_{n}(r) \phi_{n}^{*}\left(r^{\prime}\right)}{z-\lambda_{n}}\)</span> is discrete spectrum</li>
+<li><span class="math inline">\(\int d c \frac{\phi_{c}(r) \phi_{c}^{*}\left(r^{\prime}\right)}{z-\lambda_{c}}\)</span> is continuous spectrum</li>
+</ul>
+<h4 id="one-body-system">One-body system</h4>
+<p>Substituting <span class="math inline">\(L( r ) \rightarrow H ( r ), \lambda \rightarrow E\)</span> with <span class="math inline">\(H ( r )\)</span> a one-particle Hamiltonian <span class="math display">\[
+[E- H ( r )] G\left( r , r ^{\prime} ; E\right)=\delta\left( r - r ^{\prime}\right)
+\]</span> which corresponds to the one-particle Schrödinger equation <span class="math display">\[
+[E- H ( r )] \psi( r )=0
+\]</span> The Green's function in the case reads <span class="math display">\[
+G\left( r , r ^{\prime} ; z\right)=\sum_{n} \frac{\phi_{n}( r ) \phi_{n}^{*}\left( r ^{\prime}\right)}{z-E_{n}}
+\]</span></p>
+<h4 id="many-body-system">Many-body system</h4>
+<p>By introducing second-quantised annihilation &amp; creation operators we can express</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507095204047.png" srcset="/img/loading.gif" /></p>
+<p>where</p>
+<ul>
+<li><p><span class="math inline">\(\left|\Psi_{0}^{N}\right\rangle\)</span> (Exact) ground state of <span class="math inline">\(N\)</span> -body system</p></li>
+<li><p><span class="math inline">\(\left|\Psi_{\kappa}^{N \pm 1}\right\rangle\)</span> is <span class="math inline">\(\kappa\)</span> -excited state of <span class="math inline">\((N \pm 1)\)</span> -body system</p></li>
+<li><p><span class="math inline">\(E_{\mu}^{+} \equiv E_{\mu}^{N+1}-E_{0}^{N} \longrightarrow\)</span> one-particle (addition) separation energy</p></li>
+<li><p><span class="math inline">\(E_{\nu}^{-} \equiv E_{0}^{N}-E_{\nu}^{N-1} \longrightarrow\)</span> one-particle (removal) separation energy</p></li>
+</ul>
+<h4 id="definition">Definition</h4>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507095354762.png" srcset="/img/loading.gif" /></p>
+<ol type="1">
+<li>It describes the process of adding a particle at time <span class="math inline">\(t^{\prime}\)</span> and removing it at time <span class="math inline">\(t\)</span> (or viceversa if <span class="math inline">\(t^{\prime}&gt;t\)</span> )</li>
+<li>Hence the equivalent name of single-particle propagator</li>
+</ol>
+<p>For time-independent Hamiltonians <span class="math display">\[
+G_{a b}\left(t, t^{\prime}\right)=G_{a b}\left(t-t^{\prime}\right) \quad {\text { Fourier transform }} \quad G_{a b}(z)
+\]</span> Lehmann representation <span class="math display">\[
+G_{a b}(z)=\sum_{\mu} \frac{\left\langle\Psi_{0}^{N}\left|a_{a}\right| \Psi_{\mu}^{N+1}\right\rangle\left\langle\Psi_{\mu}^{N+1}\left|a_{b}^{\dagger}\right| \Psi_{0}^{N}\right\rangle}{z-E_{\mu}^{+}+i \eta}+\sum_{\nu} \frac{\left\langle\Psi_{0}^{N}\left|a_{b}^{\dagger}\right| \Psi_{\nu}^{N-1}\right\rangle\left\langle\Psi_{\nu}^{N-1}\left|a_{a}\right| \Psi_{0}^{N}\right\rangle}{z-E_{\nu}^{-}-i \eta}
+\]</span></p>
+<h2 id="introduction-to-many-body-theory">Introduction to Many-body Theory</h2>
+<p>参考 Introduction to Many-body Theory</p>
+<ul>
+<li>Robert van Leeuwen</li>
+<li>Department of Physics Nanoscience Center University of Jyväskylä Finland</li>
+</ul>
+<p>Part I: Basics</p>
+<ul>
+<li>Time-dependent Schrödinger equation</li>
+<li>Second quantization</li>
+<li>Time-evolution</li>
+<li>The contour idea</li>
+</ul>
+<p>Part II : Feynman diagrams and the Green's function</p>
+<ul>
+<li>Why Green's functions?</li>
+<li>Feynman diagrams and the self-energy</li>
+<li>The physical meaning of the Green's function</li>
+<li>Spectral function and photo-emission</li>
+</ul>
+<p>Part III: Linear response and examples</p>
+<ul>
+<li>The 2-particle Green's function and optical spectra (Bethe-Salpeter)</li>
+<li>Hedin's equations</li>
+<li>Linear response</li>
+<li>Examples: Time-dependent screening in an electron gas</li>
+</ul>
+<h4 id="second-quantization">Second quantization</h4>
+<p>There is a unique operator <span class="math inline">\(\hat{\psi}^{\dagger}( x )\)</span> that generates the position basis. It is defined by <span class="math display">\[
+\begin{aligned}
+\left| x _{1}\right\rangle &amp;=\hat{\psi}^{\dagger}\left( x _{1}\right)|0\rangle \\
+\left| x _{1} x _{2}\right\rangle &amp;=\hat{\psi}^{\dagger}\left( x _{2}\right)\left| x _{1}\right\rangle=\hat{\psi}^{\dagger}\left( x _{2}\right) \hat{\psi}^{\dagger}\left( x _{1}\right)|0\rangle \\
+\left| x _{1} \ldots x _{N}\right\rangle &amp;=\hat{\psi}^{\dagger}\left( x _{N}\right)\left| x _{1} \ldots x _{N-1}\right\rangle=\hat{\psi}^{\dagger}\left( x _{N}\right) \ldots \hat{\psi}^{\dagger}\left( x _{1}\right)|0\rangle
+\end{aligned}
+\]</span></p>
+<h4 id="second-quantization-take-home-message">Second quantization: Take home message</h4>
+<ul>
+<li>Second quantization is nothing but a convenient way to generate a many-particle basis that automatically has the correct (anti)symmetry.</li>
+<li>Basis states are created by (anti)-commuting operators with simple (anti)-commutation relations</li>
+<li>As we will see, second quantization is very convenient in many-body theory as it allows for simple manipulation of perturbative terms without the need to deal with (anti)-symmetrized orbital products</li>
+<li>The derivation of the Hamiltonian in second quantization is easy in position basis as the Hamiltonian is almost diagonal in this basis</li>
+</ul>
+<h3 id="part-ii-feynman-diagrams-and-the-greens-function">Part II : Feynman diagrams and the Green's function</h3>
+<h2 id="资源整理">资源整理</h2>
+<p>WolframAlpha <a href="https://www.wolframalpha.com/examples/mathematics/complex-analysis/" target="_blank" rel="noopener">Examples for Complex Analysis</a></p>
+<p>WolframAlpha <a href="https://www.wolframalpha.com/calculators/integral-calculator/" target="_blank" rel="noopener">在线积分计算器</a></p>
+<p><a href="https://zqw.ink/2018/10/20/%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86%E8%AF%BB%E4%B9%A6%E4%BC%9A%EF%BC%9A%E6%A0%BC%E6%9E%97%E5%87%BD%E6%95%B0%E5%88%86%E6%AF%8D%E4%B8%AD%E6%97%A0%E7%A9%B7%E5%B0%8F%E7%9A%84%E6%9D%A5%E6%BA%90/" target="_blank" rel="noopener">格林函数分母中无穷小的来源</a></p>
+<p><span class="math display">\[
+\begin{aligned}
+A &amp;=\int_{0}^{+\infty} d t f(t) G(t) \\
+&amp;=\int_{0}^{+\infty} d t \cdot \int_{-\infty}^{+\infty} d \omega e^{ i \omega t} f(\omega) \cdot \int_{-\infty}^{+\infty} d \omega^{\prime} e^{ i \omega^{\prime} t} G\left(\omega^{\prime}\right) \\
+&amp;=\int_{-\infty}^{+\infty} d \omega f(\omega) \cdot \int_{-\infty}^{+\infty} d \omega^{\prime} G\left(\omega^{\prime}\right) \cdot \int_{0}^{+\infty} d t e^{ i \left(\omega+\omega^{\prime}\right) t}\\
+&amp;=\int_{-\infty}^{+\infty} d \omega f(\omega) \cdot \int_{-\infty}^{+\infty} d \omega^{\prime} G\left(\omega^{\prime}\right) \frac{-1}{ i \left(\omega+\omega^{\prime}+ i 0^{+}\right)}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+e^{ i \left(\omega+\omega^{\prime}\right) t}=\cos \left[\left(\omega+\omega^{\prime}\right) t\right]+ i \sin \left[\left(\omega+\omega^{\prime}\right) t\right]
+\]</span> 是一个振荡的三角函数函数，对t的积分是不收玫的。原来的积分顺序是先对 <span class="math inline">\(\omega\)</span> 和 <span class="math inline">\(\omega^{\prime}\)</span> 积分，再对 <span class="math inline">\(t\)</span> 积分，但是我们想交换积分 的顺序，想先对 <span class="math inline">\(t\)</span> 积分。但是交换顺序后发现，对 <span class="math inline">\(t\)</span> 的积分不收敘，但早就已知整个积分是收敘的，所以直接交换积分是不被允许的，它会导致发散的错误的结果。是也是一个不一致收玫不能交换积分顺序的例子。</p>
+<p>但是我们可以对其改造，使得其满足一致收玫，而且改造后的积分与原来的积分的值是相等的。这样，经过改造我们就可以交换积分顺序，从而把t给积掉。</p>
+<p>定理</p>
+<p>先不加证明地说明一个结论。如果积分 <span class="math display">\[
+\int_{0}^{+\infty} d t f(t)
+\]</span> 收敛，那么将有下面的结论 <span class="math display">\[
+\int_{0}^{+\infty} d t f(t)=\lim _{\eta \rightarrow 0^{+}} \int_{0}^{+\infty} d t f(t) e^{-\eta t}
+\]</span></p>
+<p>加入这一因子改造的本质是加入一个衰减因子，当 <span class="math inline">\(\eta \rightarrow 0^{+}\)</span> 时, 这个哀减因子decay地非常慢，而原来的积分是收敘的，也就是在无穷远处的值应该趋近于零，类似于一个波包，所以可以认为在波包的值不为零时，这个decay对于它的作用是可以忽略的。将 <span class="math inline">\(t\)</span> 的积分算出 <span class="math display">\[
+\lim _{\eta \rightarrow 0^{+}} \int_{0}^{+\infty} d t e^{ i \left(\omega+\omega^{\prime}\right) t-\eta t}=\lim _{\eta \rightarrow 0^{+}} \frac{-1}{ i \left(\omega+\omega^{\prime}+ i \eta\right)}
+\]</span> 般就简记为 <span class="math display">\[
+\lim _{\eta \rightarrow 0^{+}} \frac{-1}{ i \left(\omega+\omega^{\prime}+ i \eta\right)} \equiv \frac{-1}{ i \left(\omega+\omega^{\prime}+ i 0^{+}\right)}
+\]</span> <span class="math inline">\(i 0^{+}\)</span> 在中间计算过程中的出现原因有两点： 1. 数学上的事实： <span class="math inline">\(i 0^{+}\)</span> 的出现是正确的，不会使得原积分的值发生改变。 2. 操作上的便利性： <span class="math inline">\(i 0^{+}\)</span> 的出现能够使得我们交换积分的顺序，从而先把 <span class="math inline">\(t\)</span> 积分掉。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Green-Function/">Green Function</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/07/CMP_06_SC02_Hub/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">一维Hubbard模型</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/07/CMP_14_Green03/">
+                        <span class="hidden-mobile">格林函数 数值模拟</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "格林函数概览&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

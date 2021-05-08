@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>笔记1 拓扑绝缘体《sun kai 凝聚态物理讲义》 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507195802083.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2017-01-24 14:23">
+      January 24, 2017 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      15.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      315
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="http://www-personal.umich.edu/~sunkai/index.html" target="_blank" rel="noopener">个人网站 sun kai 凝聚态物理讲义</a></li>
+<li>Chapter 5: Topological insulators Part III: tight-binding models</li>
+</ul>
+<p>Topological insulators: tight-binding models</p>
+<p>[TOC]</p>
+<h2 id="tight-binding-models">1 tight-binding models</h2>
+<h3 id="discrete-fourier-transformation-and-fourier-series">1.1 Discrete Fourier transformation and Fourier series</h3>
+<h4 id="fourier-series">Fourier series:</h4>
+<ul>
+<li>real space is discrete</li>
+<li>continuous <span class="math inline">\(\mathrm{k}\)</span> -space</li>
+</ul>
+<p>typically, Fourier series is used to describe a periodic function in the real space, which will have a describe set of wave vectors in the <span class="math inline">\(\mathrm{k}\)</span> space. Here, it is the opposite. We have a continuous <span class="math inline">\(\mathrm{k}\)</span> -space and it is periodic (the Brillouin zone), but the real space is discrete. <span class="math display">\[
+\begin{aligned}&amp;c_{k}=\frac{\sqrt{a}}{\sqrt{2 \pi}} \sum_{i} c_{i} e^{-i k x}\\&amp;c_{i}=\frac{\sqrt{a}}{\sqrt{2 \pi}} \int_{\mathrm{BZ}} d k c_{k} e^{i k x}\end{aligned}
+\]</span></p>
+<ul>
+<li>对易性</li>
+</ul>
+<p>Because <span class="math inline">\(\left\{c_{i}, c_{j}^{\dagger}\right\}=\delta_{\mathrm{ij}},\)</span> it is easy to check that <span class="math display">\[
+\begin{aligned}\left\{c_{k}, c_{k}^{\dagger}\right\}&amp;=\left\{\frac{1}{\sqrt{2 \pi / a}} \sum_{i} c_{i} e^{-i k x_{i}}, \frac{1}{\sqrt{2 \pi / a}} \sum_{j} c_{j}^{\dagger} e^{i k x_{j}}\right\} \\&amp;=\sum_{i, j}\left\{c_{i}, c_{j}^{\dagger}\right\} \frac{1}{2 \pi / a} e^{-i k x_{i}} e^{i k x_{j}}=\sum_{i, j} \delta_{i, j} \frac{1}{2 \pi / a} e^{-i(k-k) x_{i}}\\&amp;=\sum_{i} \frac{1}{2 \pi / a} e^{-i(k-k) i a}=a \delta\left(\left(k-k^{\prime}\right) a\right)=\delta\left(k-k^{\prime}\right)\end{aligned}
+\]</span> If we know <span class="math inline">\(\left\{c_{k}, c_{k^{\dagger}}\right\}=\delta\left(k-k^{\prime}\right),\)</span> we can also show that <span class="math inline">\(\left\{c_{i}, c_{j}^{\dagger}\right\}=\delta_{\mathrm{ij}}\)</span> <span class="math display">\[
+\begin{aligned}\left\{c_{i}, c_{j}^{\dagger}\right\}&amp;=\left\{\frac{1}{\sqrt{2 \pi / a}} \int_{\mathrm{BZ}} d k c_{k} e^{i k x_{i}}, \frac{1}{\sqrt{2 \pi / a}} \int_{\mathrm{B} \mathrm{Z}} d k^{\prime} c_{k}^{\dagger} e^{-i k x_{j}}\right\} \\&amp;=\frac{1}{2 \pi / a} \int_{\mathrm{BZ}} d k \int_{\mathrm{BZ}} d k^{\prime}\left\{c_{k}, c_{k}^{\dagger}\right\} e^{i k x_{i}} e^{-i k x_{j}}\\&amp;=\frac{1}{2 \pi / a} \int_{\mathrm{Bz}} d k \int_{\mathrm{BZ}} d k^{\prime} \delta\left(k-k^{\prime}\right) e^{i k x_{i}} e^{-i k x_{j}}\\&amp;=\frac{1}{2 \pi / a} \int_{\mathrm{BZ}} d k e^{i k\left(x_{i}-x_{j}\right)}=\delta_{i j}\end{aligned}
+\]</span></p>
+<h4 id="discrete-fourier-transform.">Discrete Fourier transform.</h4>
+<p>Here, we briefly discuss about the discrete Fourier transform.</p>
+<ol type="1">
+<li>Consider a discrete function <span class="math inline">\(f_{i}\)</span>, where <span class="math inline">\(i=1,2,3 \ldots N\)</span> marks different lattice site.</li>
+<li>In addition, we assume the periodic boundary condition <span class="math inline">\(f_{N+i}=f_{i}\)</span>.</li>
+</ol>
+<p>We can define <span class="math display">\[
+\tilde{f}_{k}=\frac{1}{\sqrt{N}} \sum_{j} f_{j} e^{-i k a j}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(a\)</span> is the lattice constant</li>
+<li><span class="math inline">\(j\)</span> marks different lattice sites</li>
+</ul>
+<p>And it is easy to prove that <span class="math display">\[
+f_{j}=\frac{1}{\sqrt{N}} \sum_{k} \tilde{f}_{k} e^{i k a j}
+\]</span> Same as <span class="math inline">\(j\)</span>, the wave vector <span class="math inline">\(k\)</span> here is also a discrete variable.</p>
+<p>compare the two equations <span class="math display">\[
+\begin{array}{l}
+f_{j+N}=\frac{1}{\sqrt{N}} \sum_{k} \tilde{f}_{k} e^{i k(a j+a N)}=\frac{1}{\sqrt{N}} \sum_{k} \tilde{f}_{k} e^{i k a j} e^{i k a N} \\
+f_{j}=\frac{1}{\sqrt{N}} \sum_{k} \tilde{f}_{k} e^{i k a j}
+\end{array}
+\]</span> because <span class="math inline">\(f_{N+j}=f_{N}\)</span>, we find that <span class="math inline">\(e^{i k a N}=1\)</span>, which implies <span class="math display">\[
+k a N=2\pi
+\]</span></p>
+<p><span class="math display">\[
+k=\frac{2 \pi }{N a}=\frac{2 \pi  }{L}
+\]</span></p>
+<p>Same as j, k also have a periodicity, and the periodicity is also <span class="math inline">\(N .\)</span> This periodicity is just the Brillouin zone.</p>
+<p>Define <span class="math inline">\(k_{m}=2 \pi m / L\)</span> and by definition, <span class="math display">\[
+\tilde{f}_{k_{m}}=\frac{1}{\sqrt{N}} \sum_{j} f_{j} e^{-i k_{m} a j}=\frac{1}{\sqrt{N}} \sum_{j} f_{j} e^{-i\left(\frac{2 \pi}{N a} m\right) a j}=\frac{1}{\sqrt{N}} \sum_{j} f_{j} e^{-i \frac{2 \pi}{N} m j}
+\]</span> For <span class="math inline">\(k_{m+N}\)</span>, by definition <span class="math display">\[
+\tilde{f}_{k_{m+N}}=\frac{1}{\sqrt{N}} \sum_{j} f_{j} e^{-i k_{m+N} a j}=\frac{1}{\sqrt{N}} \sum_{j} f_{j} e^{-i\left[\frac{2 \pi}{N a}(m+N)\right] a j}=\frac{1}{\sqrt{N}} \sum_{j} f_{j} e^{-i \frac{2 \pi}{N} m j} e^{-i 2 \pi j}
+\]</span> Because <span class="math inline">\(j\)</span> is an integer, the factor <span class="math inline">\(e^{-i 2 \pi j}=1\)</span>. Therefore <span class="math display">\[
+\tilde{f}_{k_{m+N}}=\frac{1}{\sqrt{N}} \sum_{j} f_{j} e^{-i \frac{2 \pi}{N} m j}=\tilde{f}_{k_{m}}
+\]</span> As a result, we can limit the value of <span class="math inline">\(m\)</span> to be <span class="math inline">\(-N / 2 \leq m&lt;N / 2\)</span>. If <span class="math inline">\(m\)</span> is not in this range, the value of <span class="math inline">\(\tilde{f}_{k_{m}}\)</span> can be obtained using the periodic condition <span class="math inline">\(\tilde{f}_{k_{m+N}}=\tilde{f}_{k_{m}}\)</span> <span class="math display">\[
+m=-\frac{N}{2},-\frac{N}{2}+1, \ldots \frac{N}{2}-1
+\]</span> For the wave vector <span class="math inline">\(k\)</span>, this means that <span class="math display">\[
+\tilde{f}_{k+2 \pi / a}=\tilde{f}_{k}
+\]</span> So, we can confine the value of <span class="math inline">\(k\)</span> into the range of <span class="math inline">\(-\pi / a \leq k&lt;\pi / a\)</span>, which is the first Brillouin zone. For <span class="math inline">\(k\)</span> outside the first Brillouin zone, we can find the corresponding <span class="math inline">\(\tilde{f}_{k}\)</span> using the periodicity <span class="math inline">\(\tilde{f}_{k+2 \pi / a}=\tilde{f}_{k}\)</span> <span class="math display">\[
+k=-\frac{\pi}{a},-\frac{\pi}{a}+1 \times \frac{2 \pi}{L},-\frac{\pi}{a}+2 \times \frac{2 \pi}{L}, \ldots \frac{\pi}{a}-\frac{2 \pi}{L},
+\]</span> Two useful Identities: <span class="math display">\[
+\begin{aligned}
+\frac{1}{N} \sum_{k} e^{i k a j} e^{-i k a j^{\prime}}=\delta_{j, j^{\prime}} \\
+\frac{1}{N} \sum_{j} e^{i k a j} e^{-i k^{\prime} a j}=\delta_{k, k^{\prime}}
+\end{aligned}
+\]</span></p>
+<h3 id="example-1-a-one-band-model">1.2 Example 1: a one-band model</h3>
+<p>Lets consider a 1D lattice with one atom per unit cell. For each atom, we consider only one quantum state. The creation (annihilation) operator <span class="math inline">\(i^{\dagger}\left(c_{i}\right)\)</span> creates and annihilates one particle on site <span class="math inline">\(i .\)</span> The non-interacting Hamiltonian can be written as <span class="math display">\[
+H=-\sum_{i j}\left(t_{i j} c_{i}^{\dagger} c_{j}+t_{j i} c_{j}^{\dagger} c_{i}\right)+\sum_{i} V_{i} c_{i}^{\dagger} c_{i}
+\]</span></p>
+<ul>
+<li>The first term <span class="math inline">\(\sum_{i j} t_{i j} c_{i}^{\dagger} c_{j}\)</span> describes hoppings from site <span class="math inline">\(j\)</span> to i.</li>
+<li>The second term <span class="math inline">\(\sum_{i j} t_{j i} c_{j}^{\dagger} c_{i}\)</span> describes the hopping from i to <span class="math inline">\(j\)</span>.</li>
+<li>The last term is the potential energy, which tells us how much energy we need to put an electron on each site <span class="math inline">\(V_{i}\)</span>.</li>
+</ul>
+<p>Because the lattice contains only one type of atoms, <span class="math inline">\(V_{i}=\)</span> constant (i.e. translational symmetry).</p>
+<p>Because <span class="math inline">\(H\)</span> is Hermitian, we find that <span class="math inline">\(t_{i j}=t_{i i^{*}}\)</span> and <span class="math inline">\(V_{i}\)</span> is a real number.</p>
+<h4 id="proof-hermitian">Proof: Hermitian</h4>
+<p><span class="math display">\[
+\begin{aligned}
+H^{\dagger} &amp;=\left[-\sum_{i j}\left(t_{i j} c_{i}^{\dagger} c_{j}+t_{j i} c_{j}^{\dagger} c_{i}\right)+\sum_{i} V_{i} c_{i}^{\dagger} c_{i}\right]^{\dagger}
+\\
+&amp;=-\sum_{i j}\left(t_{i j}^{*} c_{j}^{\dagger} c_{i}+t_{j i}^{*} c_{i}^{\dagger} c_{j}\right)+\sum_{i} V_{i}^{*} c_{i}^{\dagger} c_{i}
+\\&amp;=-\sum_{i j}\left(t_{i j} c_{i}^{\dagger} c_{j}+t_{j i} c_{j}^{\dagger} c_{i}\right)+\sum_{i} V_{i} c_{i}^{\dagger} c_{i}
+\\
+&amp;=H
+\end{aligned}
+\]</span></p>
+<p>By comparing the two sides, we find that <span class="math inline">\(t_{\mathrm{ij}}^{*}=t_{\mathrm{ji}}\)</span> and <span class="math inline">\(V_{i}=V_{i}^{*}\)</span> Therefore, we can simplify the Hamiltonian <span class="math display">\[
+\begin{aligned}
+H&amp;=-\sum_{\mathrm{ij}}\left(t_{\mathrm{ij}} c_{i}^{\dagger} c_{j}+t_{\mathrm{ij}}^{*} c_{j}^{\dagger} c_{i}\right)+V \sum_{i} c_{i}^{\dagger} c_{i}
+\\&amp;=-\sum_{\mathrm{ij}}\left(t_{\mathrm{ij}} c_{i}^{\dagger} c_{j}+t_{\mathrm{ij}}^{*} c_{j}^{\dagger} c_{i}\right)+V N
+\end{aligned}
+\]</span></p>
+<p>In the last term, <span class="math inline">\(N=\Sigma_{i} c_{i}^{\dagger} c_{i}\)</span> is the total number of electrons in the system. Because <span class="math inline">\(V N\)</span> is a constant, this term just shifts the total energy by a constant, and thus has no other physical contribution (can be ignored if we are not interested in the total energy).</p>
+<h4 id="nearest-hopping">nearest hopping</h4>
+<p>For tight-binding models, a typically approximation is to assume that electrons can only hop to its nearest-neighbor sites. In reality, long-range hopping is allowed, but their amplitudes are small (decay exponentially as distance increases). Therefore, in many cases, we just need the nearest-neighbor hopping terms to describe the systems. Due to the translational symmetry, all nearest-neighbor hoppings shall have the same hopping strength. If we assume that this hopping strength is a real number <span class="math inline">\(t,\)</span> the Hamiltonian is <span class="math display">\[
+H=-t \sum_{\langle ij \rangle}\left(c_{i}^{\dagger} c_{j}+c_{j}^{\dagger} c_{i}\right)=-t \sum_{i} c_{i}^{\dagger} c_{i+1}+h . c .
+\]</span> Here,<span class="math inline">\(\langle i j\rangle\)</span> implies that i and j must be neighbors. On the right hand side, h.c. means Hermitian conjugate. Notice that the second term is in fact the Hermitian conjugate of the first term, so we just use h.c. to represent it.</p>
+<h4 id="hamiltonian-in-k-space">Hamiltonian in k-space</h4>
+<p>We can transfer the Hamiltonian into the k-space. In real space, it looks like <span class="math display">\[
+H=-t \sum_{i} c_{i}^{\dagger} c_{i+1}+h . c .
+\]</span> The first term is <span class="math display">\[
+\begin{aligned}
+\sum_{j} c_{j}^{\dagger} c_{j+1}&amp;=\sum_{j} \frac{1}{\sqrt{2 \pi / a}} \int_{\mathrm{B} z} d k c_{k}^{\dagger} e^{-i k a j} \frac{1}{\sqrt{2 \pi / a}} \int_{\mathrm{B} \mathrm{Z}} d k^{\prime} c_{k} e^{i k^{\prime}(j+1) a} \\
+&amp;=\sum_{j} \frac{1}{2 \pi / a} \int_{\mathrm{BZ}} d k \int_{\mathrm{BZ}} d k^{\prime} c_{k}^{\dagger} c_{k k} e^{i k a} e^{-i(k-k) a j}\\
+&amp;=\int_{\mathrm{BZ}} d k \int_{\mathrm{BZ}} d k^{\prime} c_{k}^{\dagger} c_{k} \cdot e^{i k^{\prime} a} \delta\left(k-k^{\prime}\right)\\
+&amp;=\int_{\mathrm{BZ}} d k c_{k}^{\dagger} c_{k} e^{i k a}
+\end{aligned}
+\]</span> The second term is the Hermitian conjugate of the first term, so <span class="math display">\[
+h . c .=\left(\sum_{j} c_{j}^{\dagger} c_{j+1}\right)^{\dagger}=\left(\int_{\mathrm{BZ}} d k c_{k}^{\dagger} c_{k} e^{i k a}\right)^{\dagger}=\int_{\mathrm{BZ}} d k c_{k}^{\dagger} c_{k} e^{-i k a}
+\]</span> Hamiltonian in k-space <span class="math display">\[
+\begin{aligned}
+H&amp;=-t \sum_{i} c_{i}^{\dagger} c_{i+1}+h . c .
+\\
+&amp;=-t \int_{\mathrm{BZ}} d k c_{k}^{\dagger} c_{k} e^{i k a}-t \int_{\mathrm{BZ}} d k c_{k}^{\dagger} c_{k} e^{-i k a}
+\\
+&amp;=-2 t \int_{\mathrm{BZ}} d k c_{k}^{\dagger} c_{k} \cos k a
+\\
+&amp;=\int_{\mathrm{BZ}} d k(-2 t \cos k a) c_{k}^{\dagger} c_{k}
+\end{aligned}
+\]</span> For a solid, we know that the total energy of electrons (ignore interactions) is <span class="math display">\[
+E=\sum_{n} \int_{\mathrm{BZ}} d k \epsilon_{n}(k) n_{n}(k)
+\]</span> where <span class="math inline">\(\Sigma_{n}\)</span> sums over all bands, <span class="math inline">\(\epsilon_{n}(k)\)</span> is the dispersion relation for band <span class="math inline">\(n\)</span> and <span class="math inline">\(n_{n}(k)\)</span> is the occupation number for the Bloch wave state in band <span class="math inline">\(n\)</span> with momentum <span class="math inline">\(k\)</span>. In second quantization, this formula implies that the Hamiltonian is <span class="math display">\[
+H=\sum_{n} \int_{\mathrm{Bz}} d k \epsilon_{n}(k) \gamma_{n k}^{\dagger} \gamma_{n k}
+\]</span> Here, <span class="math inline">\(\gamma_{n, k}^{\dagger}\)</span> is the creation operator for a Bloch wave <span class="math inline">\(\psi_{n k}(r)=u_{n k}(r) e^{i k r}\)</span>. If we compare this formula with the tight-binding Hamiltonian (in <span class="math inline">\(\mathrm{k}-\)</span>space), we find immediately that the tight-binding model we considered here has only one energy band. And our <span class="math inline">\(c_{k}^{\dagger}\)</span> operator is in fact the creation operator for Bloch waves. And the dispersion relation for this band is <span class="math inline">\(\epsilon_{k}=-2 t \cos k a .\)</span> Notice that <span class="math inline">\(\epsilon_{k}\)</span> is a periodic function of <span class="math inline">\(k\)</span> with periodicity <span class="math inline">\(2 \pi / a,\)</span> which is exactly what we expect for Bloch waves.</p>
+<h3 id="example-2-a-two-band-model-in-1d">1.3 Example 2: a two-band model in 1D</h3>
+<p>Now, let us consider a slightly more complicated situation, i.e. a <span class="math inline">\(1 d\)</span> chain formed by two different types of atoms <span class="math inline">\((a\)</span> and <span class="math inline">\(b)\)</span>. <span class="math display">\[
+H=-t \sum_{i}\left(a_{i}^{\dagger} b_{i}+b_{i}^{\dagger} a_{i+1}+\text { h.c. }\right)+V_{a} \sum_{i} a_{i}^{\dagger} a_{i}+V_{b} \sum_{i} b_{i}^{\dagger} b_{i}
+\]</span> Here, the position of <span class="math inline">\(a\)</span> sites in the jth unit cells is <span class="math display">\[
+r=a \times j+r_{a}
+\]</span> and the position of <span class="math inline">\(b\)</span> sites in the <span class="math inline">\(j\)</span> th unit cells is <span class="math display">\[
+r=a \times j+r_{b}
+\]</span> where, <span class="math inline">\(a\)</span> is the lattice constant (the size of a unit cell)</p>
+<h4 id="discrete-fourier-transform">Discrete Fourier transform</h4>
+<p>(as discussed in the previous section) <span class="math display">\[
+\begin{aligned}
+a_{k}&amp;=\frac{1}{\sqrt{N}} \sum_{i} a_{i} e^{i k x} \\
+a_{i}&amp;=\frac{1}{\sqrt{N}} \sum_{k} a_{k} e^{-i k x} \\
+b_{k}&amp;=\frac{1}{\sqrt{N}} \sum_{i} a_{i} e^{i k x} \\
+b_{i}&amp;=\frac{1}{\sqrt{N}} \sum_{k} a_{k} e^{-i k x}
+\end{aligned}
+\]</span> Therefore, we know that <span class="math display">\[
+\begin{aligned}
+\sum_{j} a_{j}^{\dagger} b_{j}=&amp;\sum_{j} \frac{1}{\sqrt{N}} \sum_{k} a_{k}^{\dagger} e^{-i k\left(a j+r_{a}\right)} \frac{1}{\sqrt{N}} \sum_{k^{\prime}} b_{k^{\prime}} e^{i k^{\prime}\left(a j+r_{b}\right)}\\=&amp;\frac{1}{N} \sum_{k} \sum_{k^{\prime}} a_{k}^{\dagger} b_{k^{\prime}} \sum_{j} e^{-i k\left(a j+r_{a}\right)} e^{i k^{\prime}\left(a j+r_{b}\right)}
+\\=&amp;
+\sum_{k} \sum_{k^{\prime}} a_{k}^{\dagger} b_{k^{\prime}} \frac{1}{N} \sum_{j} e^{-i\left(k-k^{\prime}\right) a j} e^{-i k r_{a}} e^{i k^{\prime} r_{b}}
+\\=&amp;\sum_{k} \sum_{k^{\prime}} a_{k}^{\dagger} b_{k^{\prime}} \delta_{k, k^{\prime}} e^{-i k r_{a}} e^{i k^{\prime} r_{b}}
+\\=&amp;\sum_{k} a_{k}^{\dagger} b_{k} e^{i k\left(r_{b}-r_{a}\right)}
+\end{aligned}
+\]</span> This conclusion is generic. In k-space, hoppings from <span class="math inline">\(b\)</span> to a result in a term in Hamiltonian <span class="math inline">\(\sim \sum_{k} a _{ k }{ }^{\dagger} b _{ k } e^{ i i k\left(r_{ b }- r _{ a }\right)}\)</span>. The phase factor here is determined by how far the electron hop, i.e. <span class="math inline">\(r_{b}-r_{a}\)</span>. If we apply the same conclusion to the hopping from a to b, we find immediately that <span class="math display">\[
+\sum_{j} b_{j}^{\dagger} a_{j+1}=\sum_{k} b_{k}^{\dagger} a_{k} e^{i k\left(r_{a}-r_{b}\right)}
+\]</span> If <span class="math inline">\(r_{b}-r_{a}=\frac{a}{2}\)</span>,</p>
+<ul>
+<li><span class="math inline">\(\sum_{j} a_{j}^{\dagger} b_{j}=\sum_{k} a_{k}^{\dagger} b_{k} e^{i k a / 2}\)</span></li>
+<li><span class="math inline">\(\sum_{j} b_{j}^{\dagger} a_{j+1}=\sum_{k} b_{k}^{\dagger} a_{k} e^{i k a / 2}\)</span></li>
+</ul>
+<p>For the potential term, we also know that <span class="math display">\[
+\sum_{i} a_{i}^{\dagger} a_{i}=\sum_{k} a_{k}^{\dagger} a_{k}
+\]</span></p>
+<p><span class="math display">\[
+\sum_{i} b_{i}^{\dagger} b_{i}=\sum_{k} b_{k}^{\dagger} b_{k}
+\]</span></p>
+<p>Therefore, in the k-space, the Hamiltonian looks like <span class="math display">\[
+\begin{aligned}
+H=&amp;-t \sum_{k}\left(a_{k}^{\dagger} b_{k} e^{i k a / 2}+b_{k}^{\dagger} a_{k} e^{i k a / 2}+b_{k}^{\dagger} a_{k} e^{-i k a / 2}+a_{k}^{\dagger} b_{k} e^{-i k a / 2}\right)\\
+&amp;+V_{a} \sum_{k} a_{k}^{\dagger} a_{k}+V_{b} \sum_{k} b_{k}^{\dagger} b_{k}\\
+=&amp;-2 t \sum_{k}\left[\left(a_{k}^{\dagger} b_{k} \cos \left(\frac{k a}{2}\right)+b_{k}^{\dagger} a_{k} \cos \left(\frac{k a}{2}\right)\right)+V_{a} a_{k}^{\dagger} a_{k}+V_{b} b_{k}^{\dagger} b_{k}\right]
+\end{aligned}
+\]</span></p>
+<h2 id="eigen-problem-energy-band">2 Eigen-problem &amp; Energy Band</h2>
+<p>we can write two band model in a matrix form: <span class="math display">\[
+H=\sum_{k}\left(a_{k}^{\dagger}, b_{k}^{\dagger}\right)\left(\begin{array}{cc}
+V_{a} &amp; -2 t \cos \left(\frac{k a}{2}\right) \\
+-2 t \cos \left(\frac{k a}{2}\right) &amp; V_{b}
+\end{array}\right)\left(\begin{array}{c}
+a_{k} \\
+b_{k}
+\end{array}\right)
+\]</span> For any tight-binding models with two quantum states per unit cell, the Hamiltonian can be written in terms of a two-by-two matrix in the k space: <span class="math display">\[
+H=\sum_{k}\left(a_{k}^{\dagger}, b_{k}^{\dagger}\right) \mathcal{H}(k)\left(\begin{array}{l}
+a_{k} \\
+b_{k}
+\end{array}\right)
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\mathcal{H}\)</span> is a <span class="math inline">\(2 \times 2\)</span> Hermitian matrix as a function of <span class="math inline">\(k\)</span>.</li>
+</ul>
+<p>It is called the kernel of the Hamiltonian. Because <span class="math inline">\(\mathcal{H}(k)\)</span> contains all the information of the Hamiltonian <span class="math inline">\(H,\)</span> it is often called the Hamiltonian in literature. However, it is important to keep in mind that <span class="math inline">\(\mathcal{H}(k)\)</span> is only part of the Hamiltonian.</p>
+<blockquote>
+<p>The Hamiltonian <span class="math inline">\(H\)</span> must be gauge invariant, but <span class="math inline">\(\mathcal{H}(k)\)</span> is not.</p>
+</blockquote>
+<p>For example, if we change <span class="math inline">\(a^{\dagger} \rightarrow a^{\dagger} e^{i \phi}\)</span>, the Hamiltonian <span class="math inline">\(H\)</span> is invariant, but the kernel <span class="math inline">\(\mathcal{H}(k)\)</span> is NOT.</p>
+<blockquote>
+<p>For more generic cases, if one have <span class="math inline">\(m\)</span> quantum states per unit cell, <span class="math inline">\(\mathcal{H}(\mathbf{k})\)</span> will be a <span class="math inline">\(m \times m\)</span> Hermitian matrix.</p>
+</blockquote>
+<p>When we have a matrix, we know what to do. We need to find the eigenvalue and eigenfunctions of the Hamiltonian, i.e. diagonalizing the matrix. The next two sections discuss the physical meanings of the eigenvalues and eigenvectors of <span class="math inline">\(\mathcal{H}(k)\)</span></p>
+<h3 id="eigenvalues">Eigenvalues</h3>
+<blockquote>
+<p>The eigenvalues of <span class="math inline">\(\mathcal{H}(k)\)</span> give us the dispersion relations.</p>
+<p>At each <span class="math inline">\(\mathrm{k}\)</span> point, one can define a unitary transformation</p>
+</blockquote>
+<p><span class="math display">\[
+\left(\begin{array}{l}
+c_{k} \\
+d_{k}
+\end{array}\right)=U_{k}^{-1}\left(\begin{array}{l}
+a_{k} \\
+b_{k}
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+\left(\begin{array}{ll}c_{k}^{\dagger} &amp; d_{k}^{\dagger}\end{array}\right)=\left(\begin{array}{ll}a_{k}^{\dagger} &amp; b_{k}^{\dagger}\end{array}\right) U_{k}
+\]</span></p>
+<p>where <span class="math inline">\(U_{k}^{-1}=U_{k}^{\dagger}\)</span> <span class="math display">\[
+H=\sum_{k}\left(c_{k}^{\dagger}, d_{k}^{\dagger}\right) U_{k}^{+} \mathcal{H} U_{k}\left(\begin{array}{c}
+c_{k} \\
+d_{k}
+\end{array}\right)
+\]</span> If we choose <span class="math inline">\(U_{k}\)</span> such that <span class="math inline">\(U_{\mathrm{k}}^{+} \mathcal{H} \mathrm{U}_{\mathrm{k}}\)</span> is a diagonal matrix, <span class="math display">\[
+U_{k} \mathcal{H} U_{k}^{-1}=\left(\begin{array}{cc}
+\epsilon_{c} &amp; 0 \\
+0 &amp; \epsilon_{d}
+\end{array}\right)
+\]</span> Then, the Hamiltonian becomes <span class="math display">\[
+\begin{aligned}
+H&amp;=\sum_{k}\left(c_{k}^{\dagger}, d_{k}^{\dagger}\right)\left(\begin{array}{cc}
+\epsilon_{c} &amp; 0 \\
+0 &amp; \epsilon_{d}
+\end{array}\right)\left(\begin{array}{l}
+c_{k} \\
+d_{k}
+\end{array}\right)
+\\&amp;=\sum_{k} \epsilon_{c}(k) c_{k}^{\dagger} c_{k}+\sum_{k} \epsilon_{d}(k) d_{k}^{\dagger} d_{k}
+\end{aligned}
+\]</span> We know that using Bloch waves (which are eigenstates of the Hamiltonian), the total energy is <span class="math display">\[
+\begin{aligned}
+E&amp;=\sum_{k, m} \epsilon_{m}(k) n_{m}(k)
+\\&amp;=\sum_{k} \epsilon_{1} n_{1}(k)+\sum_{k} \epsilon_{2} n_{2}(k)+\sum_{k} \epsilon_{3} n_{3}(k)+\ldots
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\epsilon_{m}(k)\)</span> is the dispersion relation for the m-th band</li>
+<li><span class="math inline">\(n_{m}(k)\)</span> is the occupation number for the quantum state in the m-th band with momentum <span class="math inline">\(k\)</span>.</li>
+</ul>
+<p>Therefore, in terms of Bloch waves, the Hamiltonian should take the form: <span class="math display">\[
+H=\sum_{k} \epsilon_{1}(k) \gamma_{1, k}^{\dagger} \gamma_{1, k}+\sum_{k} \epsilon_{2}(k) \gamma_{2, k}^{\dagger} \gamma_{2, k}+\sum_{k} \epsilon_{3}(k) \gamma_{3, k}^{\dagger} \gamma_{3, k}+\ldots
+\]</span> where <span class="math inline">\(\gamma_{n, k^{\top}}\)</span> is the creation operator for a Bloch wave in band <span class="math inline">\(\mathrm{n}\)</span> at momentum <span class="math inline">\(k\)</span>.</p>
+<p>therefore we can interpreter the Hamiltonian <span class="math display">\[
+\begin{aligned}
+H=\sum_{k} \epsilon_{c}(k) c_{k}^{\dagger} c_{k}+\sum_{k} \epsilon_{d}(k) d_{k}^{\dagger} d_{k}
+\end{aligned}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(c_{k}^{\dagger}\)</span> creates a Bloch wave with momentum <span class="math inline">\(k\)</span> in one of the bands</li>
+<li><span class="math inline">\(d_{k}^{\dagger}\)</span> creates a Bloch wave with momentum <span class="math inline">\(k\)</span> in the other band</li>
+<li>For the bands created by <span class="math inline">\(c_{k}^{\dagger}\)</span>, its dispersion relation is <span class="math inline">\(\epsilon_{c}(k)\)</span></li>
+</ul>
+<p>For two-band model in 1D, the dispersions are <span class="math display">\[
+\begin{aligned}
+&amp;\epsilon_{c}=\frac{V_{a}+V_{b}}{2}-\sqrt{\left[2 t \cos \left(\frac{k a}{2}\right)\right]^{2}+\left(\frac{V_{a}-V_{b}}{2}\right)^{2}}\\
+&amp;\epsilon_{d}=\frac{V_{a}+V_{b}}{2}+\sqrt{\left[2 t \cos \left(\frac{k a}{2}\right)\right]^{2}+\left(\frac{V_{a}-V_{b}}{2}\right)^{2}}
+\end{aligned}
+\]</span> which are the eigenvalues of the matrix <span class="math inline">\(\mathcal{H}(k)\)</span></p>
+<blockquote>
+<p>If we have a model with m orbitals per unit cell, <span class="math inline">\(\mathcal{H}(k)\)</span> would be a <span class="math inline">\(m \times m\)</span> matrix. This matrix will have <span class="math inline">\(m\)</span> eigenvalues, which results in a m-band model and each eigenvalue <span class="math inline">\(\epsilon_{n}(k)\)</span> is the dispersion relation for one of the bands.</p>
+</blockquote>
+<h3 id="eigenvectors">Eigenvectors</h3>
+<blockquote>
+<p>The eigenvectors <span class="math inline">\(\mathcal{H}(k)\)</span> gives us the Bloch waves.</p>
+</blockquote>
+<p>Let's start from the two band model discussed above as an example. Here, the two-by-two matrix <span class="math inline">\(\mathcal{H}(k)\)</span> has two eigenvalues, <span class="math inline">\(\epsilon_{c}(k)\)</span> and <span class="math inline">\(\epsilon_{d}(k)\)</span>. For each eigenvalue, the corresponding eignevector is a 2-component vector: <span class="math display">\[
+\begin{aligned}
+&amp;\mathcal{H}\left(\begin{array}{c}
+v^{(-)} a(k) \\
+v^{(-)}_{b}(k)
+\end{array}\right)=\epsilon_{c}\left(\begin{array}{c}
+v^{(-)} a(k) \\
+v^{(-)}_{b}(k)
+\end{array}\right)\\
+&amp;\mathcal{H}\left(\begin{array}{c}
+v^{(+)} a(k) \\
+v^{(+)}_{b}(k)
+\end{array}\right)=\epsilon_{d}\left(\begin{array}{c}
+v^{(+)} a(k) \\
+v^{(+)}_{b}(k)
+\end{array}\right)
+\end{aligned}
+\]</span> It can be easily checked that（其实就是一个旋转） <span class="math display">\[
+\begin{aligned}
+&amp;c_{k}^{\dagger}=v^{(-)}_{a}(k) a_{k}^{\dagger}+v_{b}^{(-)}(k) b_{k}^{\dagger}\\
+&amp;d_{k}^{\dagger}=v^{(+)}_{a}(k) a_{k}^{\dagger}+v^{(+)}_{b}(k) b_{k}^{\dagger}
+\end{aligned}
+\]</span> We know that</p>
+<ul>
+<li><span class="math inline">\(a^{\dagger}\)</span> and <span class="math inline">\(b^{\dagger}\)</span> are the creation operators for plane waves (because they come from Fourier transformations)</li>
+<li><span class="math inline">\(c_{k}^{\dagger}\)</span> and <span class="math inline">\(d_{k}^{\dagger}\)</span> create Bloch waves.</li>
+</ul>
+<p>The relation between plane waves and Bloch waves is <span class="math display">\[
+\psi_{n, k}(x)=u_{n, k}(x) \frac{e^{i k x}}{\sqrt{N}}
+\]</span> So, the coefficients <span class="math inline">\(v^{(\pm)}_{a}\)</span> and <span class="math inline">\(v^{(\pm)}_{b}(k)\)</span> here are in fact the <strong>discrete version</strong> of <span class="math inline">\(u_{n, k}(x)\)</span></p>
+<blockquote>
+<p>Bottom line: eigenvectors of <span class="math inline">\(H ( k )\)</span> tell us <span class="math inline">\(u _{n, k} .\)</span></p>
+</blockquote>
+<h4 id="berry-connection">Berry connection</h4>
+<p>We have learned that the Berry connection <span class="math inline">\(\mathcal{H}_{n}(k)\)</span> is defined as <span class="math display">\[
+\overrightarrow{\mathcal{A}}_{n}=-i\left\langle u_{n, k}\left|\nabla_{-}\right| u_{n, k}\right\rangle
+\]</span> For continuous models, this formula means <span class="math display">\[
+\overrightarrow{\mathcal{A}}_{n}=-i \int d x\left[u_{n, k}(x)\right]^{*} \nabla_{-} u_{n, k}(x)
+\]</span> For lattice models (tight-binding models) <span class="math display">\[
+\begin{array}{l}
+\overrightarrow{\mathcal{A}}_{-}=-i\left(v^{(-)}_{a}(k)^{*} \quad v^{(-)}_{b}(k)^{*}\right) \nabla_{-}\left(\begin{array}{c}
+v^{(-)} a(k) \\
+v^{(-)}_{b}(k)
+\end{array}\right) \\
+\overrightarrow{\mathcal{A}}_{+}=-i\left(v^{(+)}_{a}(k)^{*} \quad v^{(+)}_{b}(k)^{*}\right) \nabla_{-}\left(\begin{array}{c}
+v^{(+)} a(k) \\
+v^{(+)}_{b}(k)
+\end{array}\right)
+\end{array}
+\]</span> In general, for a <span class="math inline">\(m\)</span> band model, where <span class="math inline">\(\mathcal{H}(k)\)</span> is a <span class="math inline">\(m \times m\)</span> matrix, each of the eigenvector gives us the Bloch wavefunction for one of the <span class="math inline">\(m\)</span> bands. We can use each eigenvector to compute the Berry connection, the Berry curvature and the Chern number for that band</p>
+<blockquote>
+<p>Bottom line: the eigenvectors are Bloch wave functions.</p>
+</blockquote>
+<h3 id="summary">Summary</h3>
+<ul>
+<li><p>The key properties of a tight-binding model is coded in <span class="math inline">\(H _{k}\)</span>, which is a <span class="math inline">\(m \times m\)</span> Hermitian matrix. Each component is a function of <span class="math inline">\(k\)</span>. (In other words, <span class="math inline">\(H _{k}\)</span> is a matrix function of <span class="math inline">\(k\)</span>.)</p></li>
+<li><p>The eigenvalues if <span class="math inline">\(H\)</span> (as a function of <span class="math inline">\(k\)</span> ) gives the band structure (the dispersion relation) for each bands <span class="math inline">\(\epsilon_{n}(k)\)</span> with <span class="math inline">\(n=1,2, \ldots m\)</span></p></li>
+<li><p>The eigenvectors as a function of <span class="math inline">\(k\)</span> gives the Bloch wave: <span class="math inline">\(u_{n, k}(\alpha)\)</span>, where <span class="math inline">\(n =1,2, \ldots, m\)</span> is the band index and <span class="math inline">\(\alpha=1,2 \ldots m\)</span> marks different site in a unit cell.</p></li>
+<li><p>Using these <span class="math inline">\(u_{n, k}(\alpha)\)</span>, we can define the Berry connection, Berry curvature and the Chern number. Just replace the integral in the real space by summing over <span class="math inline">\(\alpha=1 \ldots m\)</span></p></li>
+</ul>
+<p>Before 80s, people stop at step #2 (computing the eigenvalues), without calculating the eigenvectors. This is because eigenvectors are the wavefunction, which cannot be measured directly in experiments. After the discovery of topological insulators, physicists realized that although the wavefunction can not be measured directly, it contains the topological information, which is a physical observable (e.g. the Hall conductivity).</p>
+<p>In a one-band model, the eigenvector is trivial, which is just identity. Therefore, the Berry connection <span class="math inline">\(\overrightarrow{ A }_{n}=-i \int d x\left[u_{n, k}(x)\right]^{*} \nabla_{\vec{k}} u_{n, k}(x)\)</span> must be trivial <span class="math inline">\(\overrightarrow{ A }_{n}=0\)</span>. This tells us that a one-band model can never show quantum Hall effect. We need at least two bands. In fact, one can prove that the total Chern number summing over all bands must be zero.</p>
+<h2 id="topologically-nontrivial-insulator">3 topologically nontrivial insulator</h2>
+<p>In a one-band model, the eigenvector is trivial, which is just identity. Therefore, the Berry connection <span class="math inline">\(\overrightarrow{\mathcal{A}}_{n}=-i \int d x\left[u_{n, k}(x)\right]^{*} \nabla_{-} u_{n, k}(x)\)</span> must be trivial <span class="math inline">\(\overrightarrow{\mathcal{A}}_{n}=0 .\)</span> This tells us that a one-band model can never show quantum Hall effect. We need at least two bands. In fact, one can prove that the total Chern number summing over all bands must be zero.</p>
+<p>Let's consider a 2-band model, whose kernel i <span class="math display">\[
+\mathcal{H}(k)=\left(\begin{array}{cc}
+-2 t \cos k_{x}-2 t \cos k_{y}-\mu &amp; \Delta\left(\sin k_{x}-i \sin k_{y}\right) \\
+\Delta\left(\sin k_{x}+i \sin k_{y}\right) &amp; 2 t \cos k_{x}+2 t \cos k_{y}+\mu
+\end{array}\right)
+\]</span> Here, we assume <span class="math inline">\(\Delta&gt;0\)</span> and <span class="math inline">\(t&gt;0\)</span> and <span class="math inline">\(-4|t|&lt;\mu&lt;4\)</span> | <span class="math inline">\(|t|\)</span>. In real space, this Hamiltonian corresponds to a square lattice and on each site there are two quantum states. Please notice that here I use <span class="math inline">\(\mu\)</span> to refer to a control parameter, which is NOT the chemical potential.</p>
+<h3 id="two-band-models-and-pauli-matrices">3.1 Two-band models and Pauli matrices</h3>
+<p>For any two-band models, <span class="math inline">\(\mathcal{H}\)</span> is a two-by-two Hermitian matrix. For a two-by-two Hermitian matrix, one can always separate it into the identity and Pauli matrices <span class="math inline">\(I,\)</span> and <span class="math inline">\(\sigma_{i}\)</span> <span class="math display">\[
+\mathcal{H}=\mathcal{H}_{0}(k) I+\mathcal{H}_{x}(k) \sigma_{x}+\mathcal{H}_{y}(k) \sigma_{y}+\mathcal{H}_{z}(k) \sigma_{z}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\mathcal{H}_{0}(k), \mathcal{H}_{x}(k), \mathcal{H}_{y}(k)\)</span> and <span class="math inline">\(\mathcal{H}_{z}(k)\)</span> are real functions of <span class="math inline">\(k\)</span>.</li>
+</ul>
+<p>If we define <span class="math inline">\(\overrightarrow{\mathcal{H}}(k)=\left(\mathcal{H}_{x}(k), \mathcal{H}_{y}(k), \mathcal{H}_{z}(k)\right),\)</span> we find that <span class="math display">\[
+\mathcal{H}=\mathcal{H}_{0}(k) I+\overrightarrow{\mathcal{H}}(k) \cdot \vec{\sigma}
+\]</span> This Hamiltonian is rather <strong>similar to</strong> a spin <span class="math inline">\(S=1 / 2\)</span> under magnetic fields. <span class="math display">\[
+H=\mathrm{constant}+\mu \vec{B} \cdot \vec{\sigma}
+\]</span> For the case studied here <span class="math display">\[
+\begin{aligned}
+&amp;\mathcal{H}_{0}(k)=0\\
+&amp;\mathcal{H}_{x}(k)=\Delta \sin \left(k_{x}\right)\\
+&amp;\mathcal{H}_{y}(k)=\Delta \sin \left(k_{y}\right)\\
+&amp;\mathcal{H}_{z}(k)=-2 t \cos k_{x}-2 t \cos k_{y}-\mu
+\end{aligned}
+\]</span></p>
+<h4 id="eigen-energy">eigen-energy</h4>
+<p>The eigenvalues of <span class="math inline">\(\mathcal{H}\)</span> are <span class="math display">\[
+E_{\pm}=\mathcal{H}_{0}(k) \pm|\overrightarrow{\mathcal{H}}(k)|=\mathcal{H}_{0}(k) \pm \sqrt{\mathcal{H}_{x}(k)^{2}+\mathcal{H}_{y}(k)^{2}+\mathcal{H}_{z}(k)^{2}}
+\]</span> This is pretty much <strong>the same as</strong> the spin system, where the eigen-energies of the are <span class="math display">\[
+E=\text { constant } \pm \mu|\vec{B}|
+\]</span> For a two band model, the top band has energy <span class="math inline">\(E_{+} \geq \mathcal{H}_{0}\)</span>, while the lower band has <span class="math inline">\(E_{-} \leq \mathcal{H}_{0}\)</span>. The energy gap between the two bands is: <span class="math display">\[
+\Delta(k)=E_{+}(k)-E_{-}(k)=2|\overrightarrow{\mathcal{H}}(k)|
+\]</span> As long as <span class="math inline">\(\overrightarrow{\mathcal{H}}\)</span> ( <span class="math inline">\(\mathrm{k}\)</span> ) <span class="math inline">\(\neq 0,\)</span> the two band will not cross with each other.</p>
+<h4 id="eigen-vector">eigen-vector</h4>
+<p>Let's now focus on the lower band <span class="math inline">\(\left(E_{-}\right)\)</span>, its eigenvector is <span class="math display">\[
+u^{(I)}_-(k)=\frac{1}{\mathcal{N}^{(l)}}\left(\begin{array}{I}
+\mathcal{H}_{z}(k)-|\overrightarrow{\mathcal{H}}(k)| \\
+\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)
+\end{array}\right)
+\]</span> This wavefunction is singular if <span class="math inline">\(\mathcal{H}_{x}(k)=\mathcal{H}_{y}(k)=0\)</span> and <span class="math inline">\(\mathcal{H}_{z}&gt;0\)</span> <span class="math display">\[
+\begin{aligned}
+u^{(I)}_-(k)&amp;=\frac{1}{N^{(I)}}\left(\begin{array}{c}
+\mathcal{H}_{z}-|\overrightarrow{\mathcal{H}}(k)| \\
+\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)
+\end{array}\right)
+\\&amp;=\frac{1}{\mathcal{N}^{(I)}}\left(\begin{array}{c}
+\mathcal{H}_{z}-\sqrt{\mathcal{H}_{z}(k)^{2}} \\
+0
+\end{array}\right)
+\\&amp;=\frac{1}{\mathcal{N}^{(I)}}\left(\begin{array}{c}
+\mathcal{H}_{z}-\left|\mathcal{H}_{z}(k)\right| \\
+0
+\end{array}\right)
+\\&amp;=\frac{1}{\mathcal{N}^{(I)}}\left(\begin{array}{l}
+0 \\
+0
+\end{array}\right)
+\end{aligned}
+\]</span> This is indeed a problem for the Hamiltonian shown above. At <span class="math inline">\(k_{x}=k_{y}=\pi\)</span> <span class="math display">\[
+\begin{array}{l}
+\mathcal{H}_{0}(k)=0\\
+\mathcal{H}_{x}(k)=\Delta \sin \left(k_{x}\right)=0 \\
+\mathcal{H}_{y}(k)=\Delta \sin \left(k_{y}\right)=0 \\
+\mathcal{H}_{z}(k)=-2 t \cos k_{x}-2 t \cos k_{y}-\mu=4 t-\mu&gt;0
+\end{array}
+\]</span> Remember that we assumed <span class="math inline">\(|\mu|&lt;4 t .\)</span></p>
+<h4 id="another-way-to-eigenvector">another way to eigenvector</h4>
+<p>In fact, there is another way to write down the same eigenvector (i.e. a phase shift) <span class="math display">\[
+\begin{aligned}
+u^{(\mathrm{II})}_{-}(k)&amp;=\frac{1}{\mathcal{N}^{(\mathrm{II})}}\left(\begin{array}{c}
+\mathcal{H}_{z}-|\overrightarrow{\mathcal{H}}(k)| \\
+\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)
+\end{array}\right) \times \frac{\frac{\mathcal{H}_{t}+\vec{H}(k)}{\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)}}{\left|\frac{\mathcal{H}_{t}+\vec{H}(k)}{\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)}\right|}
+\\
+&amp;=\frac{1}{\mathcal{N}^{(\mathrm{II})}}\left(\begin{array}{c}
+\frac{-\mathcal{H}_{x}\left(k^{2}-\mathcal{H}_{y}(k)^{2}\right.}{\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)} \\
+\mathcal{H}_{z}+|\overrightarrow{\mathcal{H}}(k)|
+\end{array}\right)
+\\
+&amp;=\frac{1}{\mathcal{N}^{(\mathrm{II})}}\left(\begin{array}{c}
+-\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k) \\
+\mathcal{H}_{z}+|\overrightarrow{\mathcal{H}}(k)|
+\end{array}\right)
+\end{aligned}
+\]</span> The two wavefunctions <span class="math inline">\(u^{(I)}_{-}(k)\)</span> and <span class="math inline">\(u^{(\mathrm{II})}_{-}(k)\)</span> differ by a <strong>phase</strong> <span class="math display">\[
+u^{(\mathrm{II})}_{-}(k)=u^{(I)}_{-}(k) e^{i \phi(k)}
+\]</span> where <span class="math display">\[
+e^{i \phi(k)}=\frac{\frac{\mathcal{H}_{z}+|\overrightarrow{\mathcal{H}}(k)|}{\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)}}{\left|\frac{\mathcal{H}_{z}+|\overrightarrow{\mathcal{H}}(k)|}{\mathcal{H}_{x}(k)+\dot{i} \mathcal{H}_{y}(k)}\right|}
+\]</span></p>
+<ul>
+<li>This new wavefunction is well defined at <span class="math inline">\(\mathcal{H}_{x}(k)=\mathcal{H}_{y}(k)=0\)</span> and <span class="math inline">\(\mathcal{H}_{z}(k)&gt;0\)</span>.</li>
+<li>However, it is NOT well defined at <span class="math inline">\(\mathcal{H}_{x}(k)=\mathcal{H}_{y}(k)=0\)</span> and <span class="math inline">\(\mathcal{H}_{z}(k)&lt;0 .\)</span></li>
+</ul>
+<p>There, we find <span class="math display">\[
+\begin{aligned}
+u^{(\mathrm{II})}-(k)&amp;=\frac{1}{\mathcal{N}^{(\mathrm{II})}}\left(\begin{array}{c}
+-\mathcal{H}_{\mathrm{x}}(k)+i \mathcal{H}_{y}(k) \\
+\mathcal{H}_{z}(k)+|\overrightarrow{\mathcal{H}}(k)|
+\end{array}\right)
+\\&amp;=\frac{1}{\mathcal{N}^{\mathrm{II}}}\left(\begin{array}{c}
+0 \\
+\mathcal{H}_{z}(k)+\sqrt{\mathcal{H}_{z}(k)^{2}}
+\end{array}\right)
+\\&amp;=\frac{1}{\mathcal{N}^{\mathrm{II}}}\left(\begin{array}{c} 0 \\ \mathcal{H}_{z}(k)+\left|\mathcal{H}_{z}(k)\right|
+\end{array}\right)
+\\&amp;=\frac{1}{\mathcal{N}^{\mathrm{II}}}\left(\begin{array}{c}
+0 \\
+\mathcal{H}_{z}(k)-\mathcal{H}_{z}(k)
+\end{array}\right)
+\\&amp;=0
+\end{aligned}
+\]</span> For the Hamiltonian shown above, the origin is such a point. <span class="math inline">\(k_{x}=k_{y}=0\)</span></p>
+<h4 id="cut-two">cut two</h4>
+<p>Therefore, we need to cut the <span class="math inline">\(\mathrm{BZ}\)</span> into two areas and use two different wave functions to describe the Bloch waves. They are connected by a gauge transformation <span class="math display">\[
+\begin{aligned}
+&amp;\mathcal{H}_{0}(k)=0\\
+&amp;\mathcal{H}_{x}(k)=\Delta \sin \left(k_{x}\right)=0\\
+&amp;\mathcal{H}_{y}(k)=\Delta \sin \left(k_{y}\right)=0\\
+&amp;\mathcal{H}_{z}(k)=-2 t \cos k_{x}-2 t \cos k_{y}-\mu=-4 t-\mu&lt;0
+\end{aligned}
+\]</span> This is in strong analogy to the magnetic monopole case, where we need to different gauge fields. <span class="math display">\[
+\begin{array}{l}
+u^{(\mathrm{II})}_{-}(k)=u^{(I)}_{-}(k) e^{i \phi(k)} \\
+\mathcal{A}_{-}^{(\mathrm{II})}(k)=\mathcal{A}_{-}^{(I)}(k)+\nabla_{k} \phi(k)
+\end{array}
+\]</span> This is in strong analogy to the magnetic monopole case, where we need to different gauge fields</p>
+<h4 id="some-comments">Some comments</h4>
+<ul>
+<li>These singularities are NOT physical. If one measures any physical observables, there is no singularity anywhere in the momentum space. However. for the wavefunction and the Berry connection, which are not physical observables, there is always some singularity for this Hamiltonian.</li>
+<li>The location of these singularity points depends on the gauge (phase) choice. In other words, the location of the singularities has no physical meaning either.</li>
+<li>Only one thing about these singularities is physical, its existence. There must be some singularity points. This statement is independent of gauge choice and it tells us that the topological index is nonzero.</li>
+</ul>
+<p>Let's compute the topological index for this model. For these model, there are four special points which satisfy <span class="math inline">\(\mathcal{H}_{x}=\mathcal{H}_{y}=0 .\)</span> They are <span class="math display">\[
+\vec{k}=(0,0), \vec{k}=(\pi, \pi), \vec{k}=(0, \pi) ,  \vec{k}=(\pi, 0)
+\]</span> At these four points, the values of <span class="math inline">\(\mathcal{H}_{z}\)</span> are: <span class="math inline">\(\mathcal{H}_{z}=-4 t-\mu, 4 t-\mu,-\mu\)</span> and <span class="math inline">\(-\mu\)</span> respectively.</p>
+<h3 id="case-study">3.2 case study</h3>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507162816900.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210507162816900</figcaption>
+</figure>
+<h4 id="case-l-mu-4-t">case l: <span class="math inline">\(\mu&lt;-4 t\)</span></h4>
+<p>If <span class="math inline">\(\mu&lt;-4 t,\)</span> all the four special points has <span class="math inline">\(\mathcal{H}_{z}&gt;0 .\)</span> So we can use <span class="math inline">\(u^{(\mathrm{II})}_{-}(k)\)</span> for the whole Brillouin zone, and there is no singularity points. <span class="math display">\[
+u^{(\mathrm{II})}_{-}(k)=\frac{1}{\mathcal{N}^{(I)}}\left(\begin{array}{c}
+\mathcal{H}_{z}(k)-|\overrightarrow{\mathcal{H}}(k)| \\
+\mathcal{H}_{x}(k)+\dot{i} \mathcal{H}_{y}(k)
+\end{array}\right)
+\]</span> Then we can get Berry connection <span class="math display">\[
+\mathcal{A}_{-}^{(\mathrm{II})}=-i\left\langle u^{(\mathrm{II})}_{-}(k)\left|\partial_{k}\right|\left(u^{(\mathrm{II})}\right)_{-}(k)\right\rangle
+\]</span> The Berry curvature for the lower band is <span class="math display">\[
+\Omega_{-}=\nabla \times \mathcal{A}
+\]</span> Thus. the total Berry curvature ( <span class="math inline">\(2 \pi\)</span> times the Chern number) is <span class="math display">\[
+\oiint_{\mathrm{BZ}} d k \Omega_{-}=\oiint_{\mathrm{BZ}} d k \nabla \times \mathcal{A}_{-}=\oint_{\partial \mathrm{BZ}} d k \mathcal{A}_{-}=0
+\]</span> So, the Chern number is zero <span class="math display">\[
+C=\frac{1}{2 \pi} \oiint_{\mathrm{BZ}} d k \Omega_{-}=0
+\]</span></p>
+<h4 id="marginal-case-mu-4-t">Marginal case: <span class="math inline">\(\mu=-4 t\)</span></h4>
+<p><span class="math inline">\(\mathcal{H}_{x}(k)=\mathcal{H}_{y}(k)=\mathcal{H}_{z}(k)=0\)</span> at <span class="math inline">\(k=(\pi, \pi)\)</span> Because the gap between the two bands is <span class="math display">\[
+\Delta(k)=E_{+}-E_{-}=2|\overrightarrow{\mathcal{H}}(k)|
+\]</span> The gap closes at <span class="math inline">\(k=(\pi, \pi)\)</span>, (because <span class="math inline">\(\Delta(k)=0\)</span> at <span class="math inline">\(k=(\pi, \pi)\)</span>. )i.e. the two energy bands touch with each other at <span class="math inline">\(k=(\pi, \pi)\)</span>. This gives us a <strong>Dirac point</strong>. Here, the system is not an insulator, but a metal (a semi-metal). So we cannot define a topological index.</p>
+<blockquote>
+<p>Remember that we showed early on, to change the topology of an insulator, one need to close the gap. And here is the gap closing.</p>
+</blockquote>
+<h4 id="case-ii--4-tmu0">case II: <span class="math inline">\(-4 t&lt;\mu&lt;0\)</span></h4>
+<p>For <span class="math inline">\(-4 t&lt;\mu&lt;0, \mathcal{H}_{z}&lt;0\)</span> at <span class="math inline">\(k=(0,0),\)</span> and <span class="math inline">\(\mathcal{H}_{z}&gt;0\)</span> for the other three points <span class="math inline">\(k=(0, \pi),(\pi, 0)\)</span> and <span class="math inline">\((\pi, \pi) .\)</span> Therefore, we need two functions. First, we draw a small circle around the origin.</p>
+<ul>
+<li>Inside this small circle, which we will call region <span class="math inline">\(D_{I},\)</span> we</li>
+</ul>
+<p><span class="math display">\[
+u^{(\mathrm{I})}-(k)=\frac{1}{\mathcal{N}^{(I)}}\left(\begin{array}{c}
+\mathcal{H}_{z}(k)-|\overrightarrow{\mathcal{H}}(k)| \\
+\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)
+\end{array}\right)
+\]</span></p>
+<ul>
+<li>Outside the circle, which we will call region <span class="math inline">\(D_{\mathrm{II}},\)</span> we choose</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+u^{(\mathrm{II})}_{-}(k)=\frac{1}{\mathcal{N}^{(\mathrm{II})}}\left(\begin{array}{c}
+-\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k) \\
+\mathcal{H}_{z}+|\overrightarrow{\mathcal{H}}(k)|
+\end{array}\right)
+\end{aligned}
+\]</span></p>
+<p>The wavefunctions for these two regions are connected by a gauge transformation <span class="math display">\[
+u^{(\mathrm{II})}_{-}(k)=u^{(I)}_{-}(k) e^{i \phi(k)}
+\]</span> And the Berry connection are related also by the same gauge transformation <span class="math display">\[
+\mathcal{A}_{-}^{(\mathrm{II})}(k)=\mathcal{A}_{-}^{(I)}(k)+\nabla_{k} \phi(k)
+\]</span> The total Berry curvature ( <span class="math inline">\(2 \pi\)</span> times the Chern number) is <span class="math display">\[
+\begin{aligned}
+\oiint_{\mathrm{BZ}} d k \Omega_{-}&amp;=\iint_{D_{i}} d k \nabla \times \mathcal{H}_{\mathrm{L}}^{(l)}+\iint_{D_{\mathrm{u}}} d k \nabla \times \mathcal{A}_{\mathrm{L}}^{(\mathrm{M})}
+\\&amp; =\oint_{o D_{l}} d k \mathcal{A}_{-}^{(l)}+\oint_{\partial D_{\mathrm{u}}} d k \mathcal{R}_{-}^{(\mathrm{m})}
+\\&amp;=\oint_{\partial D_{i}} d k \mathcal{A}^{(l)}-\oint_{o D_{l}} d \mathrm{k} \mathcal{A}_{-}^{(\mathrm{m})}
+\\&amp;=\oint_{\partial D_{I}} d k\left(\mathcal{A}_{-}^{(I)}-\mathcal{A}^{(\Pi)}\right)
+\\&amp;=-\oint_{\partial D_{I}} d k \nabla_{k} \phi(k)
+\\&amp;=-\int_{0}^{2 \pi} d \theta \partial_{\theta} \phi
+\\&amp;=-[\phi(\theta=2 \pi)-\phi(\theta=0)]
+\\&amp;=\phi(\theta=0)-\phi(\theta=2 \pi)
+\end{aligned}
+\]</span> We know that <span class="math inline">\(\phi(\theta=0)-\phi(\theta=2 \pi)\)</span> is quantized <span class="math display">\[
+\phi(\theta=0)-\phi(\theta=2 \pi)=2 \pi n
+\]</span></p>
+<h5 id="expand-to-chern-number">expand to chern number</h5>
+<p>Therefore, the Chern number is quantized. For the model we considered here: <span class="math display">\[
+\begin{aligned}
+&amp;\begin{array}{l}
+\mathcal{H}_{0}(k)=0 \\
+\mathcal{H}_{x}(k)=\Delta \sin \left(k_{x}\right)
+\end{array}\\
+&amp;\mathcal{H}_{y}(k)=\Delta \sin \left(k_{y}\right)\\
+&amp;\mathcal{H}_{z}(k)=-2 t \cos k_{x}-2 t \cos k_{y}-\mu
+\end{aligned}
+\]</span> If we choose <span class="math inline">\(D_{I}\)</span> to be a very small circle with radius <span class="math inline">\(k \sim 0\)</span>, then around the circle, we can expand everything as a power series of small <span class="math inline">\(k\)</span> <span class="math display">\[
+\begin{aligned}
+&amp;\mathcal{H}_{x}(k)=\Delta \sin \left(k_{x}\right) \approx \Delta k_{x}+O\left(k^{2}\right)\\
+&amp;\mathcal{H}_{y}(k)=\Delta \sin \left(k_{y}\right) \approx \Delta k_{y}+O\left(k^{2}\right)\\
+&amp;\mathcal{H}_{z}(k)=-2 t \cos k_{x}-2 t \cos k_{y}-\mu=-2 t-\mu+O\left(k^{2}\right)
+\end{aligned}
+\]</span> the phase become <span class="math display">\[
+\begin{aligned}
+e^{i \phi(k)}&amp;=\frac{\frac{\mathcal{H}_{i}+|\vec{H}(k)|}{\mathcal{H}_{i}(k)+i \not H_{j}(k)}}{\left|\frac{\mathcal{H}_{i}+| \vec{\mu}(k)}{\mathcal{H}_{i}(k)+i \mathcal{H}_{y}(k)}\right|}=\frac{\frac{1}{\mathcal{H}_{i}(k)+i \mathcal{H}_{j}(k)}}{\left|\frac{1}{\mathcal{H}_{i}(k)+i \mathcal{H}_{j}(k)}\right|}
+\\
+&amp;=\frac{\left|\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)\right|}{\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)}=\frac{\left|\Delta k_{x}+i \Delta k_{y}\right|}{\Delta k_{x}+i \Delta k_{y}}
+\\
+&amp;=\frac{\left|k_{x}+i k_{y}\right|}{k_{x}+i k_{y}}=\frac{\left|k e^{i \theta}\right|}{k e^{i \theta}}
+\\
+&amp;=\frac{1}{e^{i \theta}}=e^{-i \theta}
+\end{aligned}
+\]</span> Here, we transfer <span class="math inline">\(k_{x}+i k_{y}\)</span> into polar coordinate, which is <span class="math inline">\(k e^{i \theta} .\)</span> This result tells us that <span class="math display">\[
+\phi(k)=-\theta
+\]</span> Therefore, <span class="math display">\[
+\oiint_{\mathrm{BZ}} d k \Omega_{-}=\phi(\theta=0)-\phi(\theta=2 \pi)=0-(-2 \pi)=2 \pi
+\]</span> So, <span class="math display">\[
+C=\frac{1}{2 \pi} \oiint_{\mathrm{BZ}} d k \Omega_{-}=1
+\]</span> This is a topological insulator with <span class="math inline">\(C=1\)</span></p>
+<h4 id="marginal-case-mu0">Marginal case: <span class="math inline">\(\mu=0\)</span></h4>
+<p>The gap closes at <span class="math inline">\(k=(0, \pi)\)</span> and <span class="math inline">\((\pi, 0) .\)</span> The system is not an insulator, so we cannot define the Chern number.</p>
+<h4 id="case-iii-0mu4-t">case III: <span class="math inline">\(0&lt;\mu&lt;4 t\)</span></h4>
+<p>For <span class="math inline">\(0&lt;\mu&lt;4 t, \mathcal{H}_{z}&gt;0\)</span> at <span class="math inline">\(\mathrm{k}=(\pi, \pi),\)</span> and <span class="math inline">\(\mathcal{H}_{z}&lt;0\)</span> for the other three points. Here,we can draw a small circle centered at <span class="math inline">\((\pi, \pi)\)</span> to cut the system into two parts. Inside the circle, near <span class="math inline">\((\pi, \pi),\)</span> we use <span class="math inline">\(u^{\text {II }}\)</span> and outside the circle, near (0,0) we use <span class="math inline">\(u^{I}\)</span>. Same as case II, we get a topological insulator with <span class="math inline">\(C\)</span></p>
+<h4 id="marginal-case-mu4-t">Marginal case: <span class="math inline">\(\mu=4 t\)</span></h4>
+<p>The gap closes at <span class="math inline">\(k=(\pi, \pi)\)</span>. Not an insulator.</p>
+<h4 id="case-iv-mu4-t">case IV: <span class="math inline">\(\mu&gt;4 t\)</span></h4>
+<p>All the four special points has <span class="math inline">\(\mathcal{H}_{z}&lt;0 .\)</span> So we just use <span class="math inline">\(u^{I}\)</span> for the whole BZ. No singularity, and thus <span class="math inline">\(C=0\)</span></p>
+<h3 id="the-top-band-summary">3.3 the top band &amp; Summary</h3>
+<p>Chern number for <strong>Bottom Band</strong> in Different Regime</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507162629216.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<p>Chern number for <strong>Top Band</strong> in Different Regime</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507162942735.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<p>The top band has the opposite Chern number <span class="math inline">\(C_{+}=-C_{-} .\)</span> This is because for any tight-binding models, the total Chern number for all the bands is always 0. So here, we have <span class="math inline">\(C_{+}+C_{-}=0\)</span></p>
+<ol type="1">
+<li>This model has four phases. Two topological phases with <span class="math inline">\(\mathrm{C}=+1\)</span> and two trivial insulator phase with <span class="math inline">\(\mathrm{C}=0\)</span>.</li>
+<li>A topological phase and a trivial insulator phase are always separated by a phase transition, which is known as a topological phase transition.
+<ul>
+<li>Across the topological phase transition, the topological index changes its value</li>
+<li>Across a topological transition, the insulating gap closes and then reopens (generically true)</li>
+</ul></li>
+<li>Gap closing is the necessary condition for a topological transition, but it is not sufficient. One may close and reopen the gap without changing the topological index. e.g. the <span class="math inline">\(\mu=0\)</span> point here.</li>
+</ol>
+<h2 id="haldane-honeycomb-model">4 Haldane honeycomb Model</h2>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507163034955.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<h3 id="the-honeycomb-lattice">the Honeycomb lattice</h3>
+<p>Two sites per unit cell (two sublattices) <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> (red and black respectively). The green arrow indicates the lattice vectors <span class="math inline">\(\vec{v}_{1}\)</span> and <span class="math inline">\(\vec{v}_{2}\)</span>. If we shift the lattices by <span class="math inline">\(m \vec{v}_{1}+n \vec{v}_{2}\)</span> with <span class="math inline">\(\mathrm{m}\)</span> and <span class="math inline">\(\mathrm{n}\)</span> being integers, the lattice is invariant. <span class="math display">\[
+V(\vec{r})=V\left(\vec{r}+m \vec{v}_{1}+n \vec{v}_{2}\right)
+\]</span> Define <span class="math inline">\(a\)</span> to the length of the nearest-neighbor (NN) bonds. Then we can show that <span class="math inline">\(\vec{v}_{1}=(\sqrt{3} a, 0)\)</span> and <span class="math inline">\(\vec{v}_{2}=(-\sqrt{3} / 2 a, 3 / 2 a)\)</span>. If we only consider hoppings between the nearest-neighbor (NN) sites, the Hamiltonian is <span class="math display">\[
+H=-t \sum_{i, j, \gamma} a_{i}^{\dagger} b_{j}-t \sum_{i, j, j} b_{i}^{\dagger} a_{j}
+\]</span> where (i.j) means nearest neighbors.</p>
+<h3 id="band-structures">Band structures</h3>
+<p>There are three type of NN bonds: (1) along the y axis with <span class="math inline">\(\theta=\pi / 2,\)</span> (2) along <span class="math inline">\(\theta=\pi / 2+2 \pi / 3=7 \pi / 6,(3)\)</span> along <span class="math inline">\(\theta=\pi / 2+4 \pi / 3=11 \pi / 6,\)</span> and we need to write them out separately. <span class="math display">\[
+H=-t \sum_{t_{i}^{+}}^{t} b_{r_{r}+\vec{e}_{1}}-t \sum_{a_{r}^{+}} b_{r_{r+}-a_{2}}-t \sum_{a_{r}^{+}}^{+} b_{r_{r}+\vec{e}_{3}}+h . c_{-}
+\]</span> with</p>
+<ul>
+<li><span class="math inline">\(\vec{e}_{1}=(0, a)\)</span></li>
+<li><span class="math inline">\(\vec{e}_{2}=\left(-\frac{\sqrt{3}}{2} a,-\frac{a}{2}\right)\)</span></li>
+<li><span class="math inline">\(\vec{e}_{3}=\left(\frac{\sqrt{3}}{2} a,-\frac{a}{2}\right)\)</span></li>
+</ul>
+<p>Here the sum <span class="math inline">\(\Sigma_{i}\)</span> sums over all unit cells (or say all red sites).</p>
+<h4 id="fourier-to-momentum-space">Fourier to momentum space</h4>
+<p>If we go to the momentum space, by performing the 2 D Fourier transformation, <span class="math display">\[
+\begin{aligned}
+&amp;a_{k}=\frac{1}{\sqrt{N}} \sum_{i} a_{i} e^{i \vec{k} \cdot \vec{r}}\\
+&amp;a_{i}=\frac{1}{\sqrt{N}} \sum_{k} a_{k} e^{-i \vec{k} \cdot \vec{r}}\\
+&amp;b_{k}=\frac{1}{\sqrt{N}} \sum_{i} a_{i} e^{i \vec{k} \cdot \vec{r}}\\
+&amp;b_{i}=\frac{1}{\sqrt{N}} \sum_{k} a_{k} e^{-i \vec{k} \cdot \vec{r}}
+\end{aligned}
+\]</span> the first term in the Hamiltonian becomes <span class="math display">\[
+\begin{aligned}
+-t \sum_{i} a_{r_{i}}^{\dagger} b_{r_{i}+e_{1}}&amp;=-\frac{t}{N} \sum_{i} \sum_{k} \sum_{k^{\prime}} a_{k}^{\dagger} e^{i \vec{k} \cdot \vec{r}_{i}} b_{k^{\prime}} e^{-i \vec{k} \cdot\left(\vec{r}_{i}+\vec{e}_{1}\right)}
+\\&amp;=-t \sum_{k} \sum_{k^{\prime}} a_{k}^{\dagger} b_{k^{\prime}} e^{-i \vec{k} \cdot \overrightarrow{e_{1}}} \frac{1}{N} \sum_{i} e^{i\left(\vec{k}-\vec{k}^{\prime}\right) \vec{r}_{i}}
+\\&amp;=-t \sum_{k} \sum_{k^{\prime}} a_{k}^{\dagger} b_{k^{\prime}} e^{-i \vec{k} \cdot \overrightarrow{e_{1}}} \delta_{k, k^{\prime}}
+\\&amp;=-t \sum_{k} a_{k}^{\dagger} b_{k} e^{-i \vec{k} \cdot \overrightarrow{e_{1}}}
+\end{aligned}
+\]</span> Notice that, as we proved early on, we get a phase factor <span class="math inline">\(\exp \left[i \vec{k} \cdot\left(\vec{r}_{a}-\vec{r}_{b}\right)\right]\)</span>, which only depends on the separation between a and <span class="math inline">\(b\)</span> sites. If we repeat the same procedure for the other two bonds, we get $$ \begin{aligned} H&amp;=-t <em>{i} a</em>{r_{i}}^{} b_{r_{i}+e_{1}}-t <em>{i} a</em>{r_{i}}^{} b_{r_{i}+e_{2}}-t <em>{i} a</em>{r_{i}}^{} b_{r_{i}+e_{2}}+h . c . \ &amp;=-t <em>{k} a</em>{k}^{} b_{k}(e^{-i  }+e^{-i  }+e^{-i  })-t <em>{k} b</em>{k}^{} a_{k}(e^{i  }+e^{i  }+e^{i  }) \ &amp;=<em>{k}(\begin{array}{ccc} a</em>{k} &amp; b_{k}^{} \end{array})(\begin{array}{cc} 0 &amp; <em>{12}() \ </em>{21}() &amp; 0 \end{array})(\begin{array}{c} a_{k} \ b_{k} \end{array})</p>
+<p>\end{aligned} <span class="math display">\[
+where 
+\]</span> \begin{aligned} &amp;_{12}()=-t\end{aligned} $$</p>
+<h4 id="eigenvalues-1">eigenvalues</h4>
+<p>The kernel of the Hamiltonian <span class="math display">\[
+\mathcal{H}(\vec{k})=\left(\begin{array}{cc}
+0 &amp; \mathcal{H}_{12}(\vec{k}) \\
+\mathcal{H}_{21}(\vec{k}) &amp; 0
+\end{array}\right)
+\]</span> The eigenvalues of <span class="math inline">\(\mathcal{H}(\mathrm{k})\)</span> gives the dispersion relation. <span class="math display">\[
+\epsilon_{\pm}(\vec{k})=\pm\left|\mathcal{H}_{12}(\vec{k})\right|=\pm|t| \sqrt{3+2 \cos \left(\sqrt{3} k_{x} a\right)+4 \cos \left(\frac{\sqrt{3}}{2} k_{x} a\right) \cos \left(\frac{3}{2} k_{y} a\right)}
+\]</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507163125098.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<blockquote>
+<p>Fig. 2. The contour plot of the energy dispersion for the lower band <span class="math inline">\(\left(\epsilon_{-}\right.\)</span> as a function of <span class="math inline">\(k_{x}\)</span> and <span class="math inline">\(k_{y}\)</span> ). The red dash lines mark the first <span class="math inline">\(BZ\)</span>, which is a hexagon.</p>
+</blockquote>
+<p>The dispersion <span class="math inline">\(\epsilon_{\pm}\)</span> is a periodic function of <span class="math inline">\(\vec{k}\)</span> space (the hexagon repeats itself in the figure shown above). For the lower band, its energy minimum is located at <span class="math inline">\(k=0\)</span>. The maximum of <span class="math inline">\(\epsilon_{-}\)</span> is reached at the corners of the BZ. The first <span class="math inline">\(\mathrm{BZ}\)</span> is a hexagon. It has six corners. However, due to the periodic structure in <span class="math inline">\(\mathrm{k}\)</span> -space,</p>
+<ul>
+<li>the three corner points with <span class="math inline">\(\theta=0, \theta=2 \pi / 3\)</span> and <span class="math inline">\(\theta=4 \pi / 3\)</span> are the same point (their momenta differ by a reciprocal vector).</li>
+<li>Similarly, the three corners with <span class="math inline">\(\theta=\pi, \theta=\pi+2 \pi / 3\)</span> and <span class="math inline">\(\theta=\pi+4 \pi / 3\)</span> are the same point.</li>
+</ul>
+<p>Therefore, there are only two different corner points and they are known as the <span class="math inline">\(K\)</span> and <span class="math inline">\(K\)</span> ' points, where <span class="math display">\[
+\begin{aligned}
+K&amp;=\left(\frac{4 \pi}{3 \sqrt{3} a}, 0\right)\\
+K^{\prime}&amp;=\left(-\frac{4 \pi}{3 \sqrt{3} a}, 0\right)
+\end{aligned}
+\]</span> For most of the momentum points, one of the two bands has positive energy <span class="math inline">\(\epsilon_{+}&gt;0\)</span> and the other one has negative energy <span class="math inline">\(\epsilon_{-}&lt;0\)</span>. However the corner of the <span class="math inline">\(\mathrm{BZ}, \mathrm{K}\)</span> and <span class="math inline">\(\mathrm{K}\)</span> ', the two bands are degenerate <span class="math inline">\(\epsilon_{+}=\epsilon_{-}=0\)</span> <span class="math display">\[
+\begin{aligned}
+\epsilon_{\pm}(\vec{K}) &amp;=\pm\left|\mathcal{H}_{12}(\vec{K})\right|=\pm|t| \sqrt{3+2 \cos \left(\sqrt{3} k_{x} a\right)+4 \cos \left(\frac{\sqrt{3}}{2} k_{x} a\right) \cos \left(\frac{3}{2} k_{y} a\right)}
+\\&amp;=
+\pm |t| \sqrt{\left(3+2 \cos \left(\sqrt{3} \frac{4 \pi}{3 \sqrt{3} a} a\right)+4 \cos \left(\frac{\sqrt{3}}{2} \frac{4 \pi}{3 \sqrt{3} a}\right) \cos \left(\frac{3}{2} \times 0\right)\right)}
+\\&amp;=
+ \pm|t| \sqrt{3+2 \cos \left(\frac{4 \pi}{3}\right)+4 \cos \left(\frac{2 \pi}{3}\right)}
+ \\&amp;=\pm|t| \sqrt{3+2 \times\left(-\frac{1}{2}\right)+4 \times\left(-\frac{1}{2}\right)}
+ \\&amp;=\sqrt{3-3}=0
+\end{aligned}
+\]</span> Two bands have the same energy at <span class="math inline">\(\mathrm{K}\)</span> and <span class="math inline">\(\mathrm{K}\)</span> ', and they are in fact band crossing points.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507163301124.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<blockquote>
+<p>Fig. 3 . The energy dispersion for both bands <span class="math inline">\(\left(\epsilon_{\pm}\right.\)</span> as a function of <span class="math inline">\(k_{x}\)</span> and <span class="math inline">\(k_{y}\)</span> ) in the first <span class="math inline">\(B Z\)</span> (within the red dash lines mark in the figure above).</p>
+</blockquote>
+<h4 id="dirac-point">Dirac Point</h4>
+<p>Near <span class="math inline">\(\mathrm{K}\)</span> or <span class="math inline">\(\mathrm{K}^{\prime}\)</span> points, the energies of the two bands are linear functions of momentum <span class="math inline">\(\epsilon_{\pm} \propto \pm(k-K) .\)</span> To see this, we expand <span class="math inline">\(\epsilon_{\pm}(\vec{k})\)</span> near <span class="math inline">\(\vec{k} \sim \vec{K}\)</span> <span class="math inline">\(\operatorname{and} \vec{k}-\vec{K}^{\prime}\)</span> <span class="math display">\[
+\begin{aligned}
+\epsilon_{\pm}(\vec{k})  &amp;=\epsilon_{\pm}(\vec{K}+\vec{q})
+\\
+&amp;=\pm|t| \sqrt{\left(3+2 \cos \left[\sqrt{3}\left(\frac{4 \pi}{3 \sqrt{3} a}+q_{x}\right) a\right]+4 \cos \left[\frac{\sqrt{3}}{2}\left(\frac{4 \pi}{3 \sqrt{3} a}+q_{x}\right) a\right] \cos \left(\frac{3}{2} q_{y} a\right)\right)}
+\\
+&amp; =\pm \frac{3}{2}|t| a \sqrt{q_{x}^{2}+q_{y}^{2}}+O\left(q^{2}\right)\\
+&amp;=\pm \frac{3}{2}|t| a q+O\left(q^{2}\right)
+\end{aligned}
+\]</span></p>
+<blockquote>
+<p>Q: Fermions with linear dispersion <span class="math inline">\(\epsilon \propto k .\)</span> What are they? A: A Massless Dirac fermion.</p>
+</blockquote>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507163406068.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<blockquote>
+<p>Fig. 4. A zoom in to the Dirac point.</p>
+</blockquote>
+<p>Near the K point, we have <span class="math display">\[
+\begin{aligned}
+\mathcal{H}(k)&amp;=\mathcal{H}(K+q)\\
+&amp;=\frac{3}{2} t a\left(\begin{array}{cc}
+0 &amp; q_{x}-i q_{y} \\
+q_{x}+i q_{y} &amp; 0
+\end{array}\right)+O\left(q^{2}\right) \approx \frac{3}{2} t a\left(q_{x} \sigma_{x}+q_{y} \sigma_{y}\right)\\
+&amp;=c \vec{q} \cdot \vec{\sigma}
+\end{aligned}
+\]</span> Near the K' point, we have <span class="math display">\[
+\begin{aligned}
+\mathcal{H}(k)&amp;=\mathcal{H}\left(K^{\prime}+q\right)\\
+&amp;=-\frac{3}{2} \operatorname{ta}\left(\begin{array}{cc}
+0 &amp; q_{x}+i q_{y} \\
+q_{x}-i q_{y} &amp; 0
+\end{array}\right)+O\left(q^{2}\right) 
+\\
+&amp;\approx-\frac{3}{2} \operatorname{ta}\left(q_{x} \sigma_{x}-q_{y} \sigma_{y}\right)\\
+&amp;=-c \vec{q} \cdot\left(\sigma_{x} \vec{\sigma} \sigma_{x}\right)
+\end{aligned}
+\]</span> Here c is the "speed of light”. Each of them is a Weyl fermion. These two Weyl fermions with opposite chirality forms a Dirac fermion. Dirac fermions we learned in quantum mechanics: <span class="math display">\[
+i \partial_{t} \psi=\left(\begin{array}{cc}
+0 &amp; c \vec{q} \cdot \vec{\sigma} \\
+c \vec{q} \cdot \vec{\sigma} &amp; 0
+\end{array}\right) \psi
+\]</span> If one make an unitary transformation (changing the basis, which doesn't change any physics) <span class="math display">\[
+\psi^{\prime}=\left(\begin{array}{cccc}
+0 &amp; \frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} &amp; 0 \\
+\frac{1}{\sqrt{2}} &amp; 0 &amp; 0 &amp; \frac{1}{\sqrt{2}} \\
+0 &amp; -\frac{1}{\sqrt{2}} &amp; \frac{1}{\sqrt{2}} &amp; 0 \\
+-\frac{1}{\sqrt{2}} &amp; 0 &amp; 0 &amp; \frac{1}{\sqrt{2}}
+\end{array}\right) \psi
+\]</span> The equation turns into <span class="math display">\[
+i \partial_{t} \psi^{\prime}=\left(\begin{array}{cc}
+-c \vec{q} \cdot\left(\sigma_{x} \vec{\sigma} \sigma_{x}\right) &amp; 0 \\
+0 &amp; c \vec{q} \cdot \vec{\sigma}
+\end{array}\right) \psi^{\prime}
+\]</span></p>
+<h4 id="common-on">common on</h4>
+<p>The Dirac point (band crossing points) in a honeycomb lattice is stable as long as</p>
+<ul>
+<li>the space inversion symmetry <span class="math inline">\(r \rightarrow-r\)</span> and</li>
+<li>the time reversal symmetry <span class="math inline">\(t \rightarrow-t\)</span> are preserved.</li>
+</ul>
+<p>We will come back to this point latter. No matter how one perturb the systems (e.g. adding longer-range hoppings), the Dirac point is always there as long as the two symmetries mentioned above are preserved.</p>
+<p>For graphene, the lower band is filled and the upper band is empty, which is known as "<strong>half-filling</strong>”. The "half' here means that the number of electrons <span class="math inline">\(N_{e}\)</span> over the number of sites If <span class="math inline">\(N_{s}\)</span> is <span class="math inline">\(N_{e} / N_{s}=1 / 2\)</span>. However, it is worthwhile to notice that the ratio between <span class="math inline">\(N_{e}\)</span> and the number of unit cells <span class="math inline">\(N\)</span> is <span class="math inline">\(1,\)</span> because there are two site in each unit cell. So one of the two bands are totally filled. By gating, one can tune the Fermi energy slightly <strong>away from</strong> the Dirac point, which is known as a <strong>dopped graphene</strong>.</p>
+<h3 id="ab-effect-and-complex-hopping">AB effect and complex hopping</h3>
+<p>Aharonov–Bohm effect and complex hopping</p>
+<blockquote>
+<p>Q: Can hopping strength <span class="math inline">\(t\)</span> be complex?</p>
+<p>A: Yes, and the phase can come from the Aharonov-Bohm effect in the presence of a magnetic field or spin-orbital couplings.</p>
+</blockquote>
+<p>The Aharonov-Bohm effect: if one moves a charged particle around a closed contour. The phase difference between the final and initial states is proportional to the magnetic flux enclosed by the contour <span class="math display">\[
+\phi=e / \hbar \iint B \cdot d S=e / \hbar \oint A \cdot d l
+\]</span> Now, let's consider a discrete lattice. Consider three sites a, b and c. The hopping strength between these three sites are <span class="math inline">\(t_{\mathrm{ab}} t_{\mathrm{bc}}\)</span> and <span class="math inline">\(t_{\mathrm{ca}}\)</span> respectively. If a particle hops from a to b and then to c, the hopping strength around this loop is: <span class="math display">\[
+t_{\mathrm{ab}} t_{\mathrm{bc}} t_{\mathrm{ca}}=\left|t_{\mathrm{ab}}\right| e^{i \phi_{\mathrm{b}}} *\left|t_{\mathrm{bc}}\right| e^{i \phi_{\mathrm{c}}} *\left|t_{\mathrm{ca}}\right| e^{i \delta_{\mathrm{ca}}}=\left|t_{\mathrm{ab}} t_{\mathrm{bc}} t_{\mathrm{ca}}\right| e^{i\left(\phi_{\mathrm{w}}+\phi_{\mathrm{c}}+\phi_{\mathrm{ca}}\right)}
+\]</span> The phase picked up by the electron is: <span class="math display">\[
+\phi_{\mathrm{ab}}+\phi_{\mathrm{bc}}+\phi_{\mathrm{ca}}=\frac{e}{\hbar} \iint {B \cdot d S}
+\]</span> If <span class="math inline">\(\mathrm{B}\)</span> is nonzero inside the triangle formed by these three sites, the phase for these hoppings are nonzero.</p>
+<p>Please notice that</p>
+<ol type="1">
+<li><p><span class="math inline">\(t_{\text {ab }}\)</span> and <span class="math inline">\(t_{\text {ba }}\)</span> has opposite phase, due to the Hermitian condition (One can also prove this using the Fermi's golden rule, which says that the tunneling amplitude from the state <span class="math inline">\(| \mathrm{f}\rang\)</span> to <span class="math inline">\(| \mathrm{i}\rang\)</span> is the complex conjugate of the tuning amplitude from <span class="math inline">\(| \mathrm{i}\rang\)</span> to <span class="math inline">\(| \mathrm{f}\rang\)</span> .</p></li>
+<li><p>The individual phases for <span class="math inline">\(t_{\mathrm{ab}}, t_{\mathrm{bc}}\)</span> and <span class="math inline">\(t_{\mathrm{ca}}\)</span> have no physical meaning and their phases depend on the gauge choice. However, the total phase around a loop is independent of gauge, and in fact it is a physical observable, i.e. the magnetic flux.</p></li>
+</ol>
+<h4 id="proof">Proof</h4>
+<p>We know that the phase of the hopping term is <span class="math display">\[
+\phi_{\mathrm{ab}}=e / \hbar \int_{a}^{b} A \cdot d l
+\]</span> Underage transformation: <span class="math inline">\(A \rightarrow A+\nabla \chi\)</span> <span class="math display">\[
+\begin{aligned}\phi_{\mathrm{ab}} \rightarrow \phi_{\mathrm{ab}}^{\prime}&amp;=e / \hbar \int_{a}^{b}(A+\nabla \chi) \cdot d l\\&amp;=e / \hbar \int_{a}^{b} A \cdot d l+e / \hbar \int_{a}^{b} \nabla \chi \cdot d l\\&amp;=\phi_{\mathrm{ab}}+\left(\chi_{b}-\chi_{a}\right) \frac{e}{\hbar}\end{aligned}
+\]</span> Obviously, <span class="math inline">\(\phi_{\mathrm{ab}}\)</span> is not a physical observables, since it relies on the gauge choice. However, the total phase around a loop is different. It is a loop integral of <span class="math inline">\(A,\)</span> which is gauge independent and the physics meaning of this Integral is the magnetic flux. <span class="math display">\[
+\begin{aligned}\phi_{\mathrm{ab}}+\phi_{\mathrm{bc}}+\phi_{\mathrm{ca}}&amp;=e / \hbar \oint  A \cdot d l \\\rightarrow \phi_{\mathrm{ab}}^{\prime}+\phi_{\mathrm{bc}}^{\prime}+\phi_{\mathrm{ca}^{\prime}} &amp; =e / \hbar \oint\left(A+\nabla_{\chi}\right) \cdot d l\\&amp;=e / \hbar \oint A \cdot d l+e  / \hbar  \oint \nabla_{\chi }\cdot d l\\&amp;=e / \hbar \oint A \cdot d l\\&amp;=\phi_{\mathrm{ab}}+\phi_{\mathrm{bc}}+\phi_{\mathrm{ca}}\end{aligned}
+\]</span> The complex hopping strength induced by <span class="math inline">\(B\)</span> fields breaks the time-reversal symmetry because <span class="math inline">\(B \rightarrow-B\)</span> under time reversal. (in other words, under time-reversal one needs to flip the sign of all these phases).</p>
+<h2 id="haldane-model-with-breaking-t-symmetry">5 Haldane Model with breaking T-symmetry</h2>
+<blockquote>
+<p>Ref: F. D. M. Haldane, Model for a Quantum Hall Effect without Landau Levels: Condensed-Matter Realization of the "Parity Anomaly" Phys. Rev. Lett. 61, 2015-2018 (1988).</p>
+</blockquote>
+<p>Now let us add some NNN hoppings and assume their hopping amplitudes are complex. For simplicity, we choose the amplitude and the complex phase to be the same for all NNN bonds. If the hopping is along the arrows marked in the figure, the phase of the hopping strength is b. If one hops in the opposite direction, the phase is - <span class="math inline">\(\phi\)</span>.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507163625360.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<p>This complex phases can be realized (in theory) by applying a staggered B field, which is positive near the center of each hexagon and negative near the edges. The NNN hoppings are from an <span class="math inline">\(a\)</span> -site to another <span class="math inline">\(a\)</span> -site (and from a <span class="math inline">\(b\)</span> -site to another <span class="math inline">\(b\)</span> -site). For a-to-a hoppings, there are three different types of NNN bonds, along <span class="math inline">\(\theta=0,2 \pi / 3\)</span> and <span class="math inline">\(4 \pi / 3\)</span>. Same is true for <span class="math inline">\(b\)</span> -to-b hoppings. So the Hamiltonian is: <span class="math display">\[
+\begin{aligned}H_{\mathrm{NNN}}=&amp;-t^{\prime} e^{i \phi} \sum_{i} a_{r_{i}}^{\dagger} a_{r_{i}+v_{1}}-t^{\prime} e^{i \phi} \sum_{i} a_{r_{i}+v_{1}}^{\dagger} a_{r_{i}-v_{3}}\\&amp;-t^{\prime} e^{i \phi} \sum_{i} a_{r_{i}-v_{3}}^{\dagger} a_{r_{i}}+h . c .+(a \rightarrow b \text { and } \phi \rightarrow-\phi)\end{aligned}
+\]</span> Here, <span class="math inline">\(v_{1}\)</span> and <span class="math inline">\(v_{2}\)</span> are marked on the first figure of this section with</p>
+<ul>
+<li><span class="math inline">\(\vec{v}_{1}=(\sqrt{3} a, 0)\)</span></li>
+<li><span class="math inline">\(\vec{v}_{2}=(-\sqrt{3} / 2 a, 3 / 2 a)\)</span></li>
+<li><span class="math inline">\(\vec{v}_{3}=(-\sqrt{3} / 2 a,-3 / 2 a)\)</span></li>
+</ul>
+<p>Fourier to momentum space <span class="math display">\[
+\begin{aligned}H_{\mathrm{NNN}}=&amp;-t^{\prime} e^{i \phi} \sum_{i} a_{r_{i}}^{\dagger} a_{r_{i}+v_{1}}-t^{\prime} e^{i \phi} \sum_{i} a_{r_{i}+v_{1}}^{\dagger} a_{r_{i}-v_{3}}\\&amp;-t^{\prime} e^{i \phi} \sum_{i} a_{r_{i}-v_{3}}^{\dagger} a_{r_{i}}+h . c .+(a \rightarrow b \text { and } \phi \rightarrow-\phi)\\=&amp;-t^{\prime} e^{i \phi} \sum_{k} a_{k}^{\dagger} a_{k}\left(e^{-i k \cdot v_{1}}+e^{-i k \cdot v_{2}}+e^{-i k \cdot v_{3}}\right)+h . c .+(a \rightarrow b \text { and } \phi \rightarrow-\phi)\\ =&amp;-2 t^{\prime} \sum_{k} a_{k}^{\dagger} a_{k}\left[\cos \left(k \cdot v_{1}-\phi\right)+\cos \left(k \cdot v_{2}-\phi\right)+\cos \left(k \cdot v_{3}-\phi\right)\right]\\&amp;-2 t^{\prime} \sum_{k} b_{k}^{\dagger} b_{k}\left[\cos \left(k \cdot v_{1}+\phi\right)+\cos \left(k \cdot v_{2}+\phi\right)+\cos \left(k \cdot v_{3}+\phi\right)\right]\end{aligned}
+\]</span> The total Hamiltonian <span class="math display">\[
+H=H_{\mathrm{NN}}+H_{\mathrm{NMN}}=\sum_{k}\left(a_{k}^{\dagger} \quad b_{k}^{\dagger}\right)\left(\begin{array}{cc}\mathcal{H}_{11}(k) &amp; \mathcal{H}_{12}(k) \\\mathcal{H}_{21}(k) &amp; \mathcal{H}_{22}(k)\end{array}\right)\left(\begin{array}{l}a_{k} \\b_{k}\end{array}\right)
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\mathcal{H}_{12}(k)=-t\left(e^{-i \vec{k} \cdot \overrightarrow{e_{1}}}+e^{-i \vec{k} \cdot \overrightarrow{e_{2}}}+e^{-i \vec{k} \cdot \overrightarrow{e_{3}}}\right)\)</span></li>
+<li><span class="math inline">\(\mathcal{H}_{21}(k)=\mathcal{H}_{12}(k)^{*}=-t\left(e^{i \vec{k} \cdot \overrightarrow{e_{1}}}+e^{i \vec{k} \cdot \overrightarrow{e_{2}}}+e^{i \vec{k} \cdot \overrightarrow{e_{3}}}\right)\)</span></li>
+<li><span class="math inline">\(\mathcal{H}_{11}(k)=-2 t^{\prime}\left[\cos \left(k \cdot v_{1}-\phi\right)+\cos \left(k \cdot v_{2}-\phi\right)+\cos \left(k \cdot v_{3}-\phi\right)\right]\)</span></li>
+<li><span class="math inline">\(\mathcal{H}_{22}(k)=-2 t^{\prime}\left[\cos \left(k \cdot v_{1}+\phi\right)+\cos \left(k \cdot v_{2}+\phi\right)+\cos \left(k \cdot v_{3}+\phi\right)\right]\)</span></li>
+</ul>
+<p>If one computes the eigenvalues of <span class="math inline">\(\mathcal{H}(\mathrm{k}),\)</span> one find that the two bands never cross with each other for any <span class="math inline">\(\mathrm{k}\)</span> (if <span class="math inline">\(\mathrm{t}^{\prime}\)</span> is non-zero and <span class="math inline">\(\phi\)</span> is <span class="math inline">\(\mathrm{NOT}\)</span> an integer multiplied by <span class="math inline">\(\pi\)</span> ).</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507163756293.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<blockquote>
+<p>Fig. 6 . The energy dispersion for both bands <span class="math inline">\(\left(\epsilon_{\pm}\right.\)</span> as a function of <span class="math inline">\(k_{x}\)</span> and <span class="math inline">\(k_{y}\)</span> ) in the first <span class="math inline">\(B Z\)</span> (within the red dash lines mark in the figure above).</p>
+</blockquote>
+<h3 id="pauli-expression">Pauli expression</h3>
+<p>Using Pauli matrices <span class="math display">\[
+\mathcal{H}=\mathcal{H}_{0}(k) I+\mathcal{H}_{x}(k) \sigma_{x}+\mathcal{H}_{y}(k) \sigma_{y}+\mathcal{H}_{z}(k) \sigma_{z}
+\]</span> where <span class="math display">\[
+\begin{aligned}
+&amp;\mathcal{H}_{0}=\frac{\mathcal{H}_{11}(k)+\mathcal{H}_{22}(k)}{2}=-2 t^{\prime} \cos \phi\left[\cos \left(k \cdot v_{1}\right)+\cos \left(k \cdot v_{2}\right)+\cos \left(k \cdot v_{3}\right)\right]\\&amp;\mathcal{H}_{z}=\frac{\mathcal{H}_{11}(k)-\mathcal{H}_{22}(k)}{2}=-2 t^{\prime} \sin \phi\left[\sin \left(k \cdot v_{1}\right)+\sin \left(k \cdot v_{2}\right)+\sin \left(k \cdot v_{3}\right)\right]\\&amp;\mathcal{H}_{x}=\operatorname{Re}\left[\mathcal{H}_{21}(k)\right]=-t[\cos (\vec{k} \cdot \overrightarrow{e_{1}})+\cos (\vec{k} \cdot \overrightarrow{e_{2}})+\cos (\vec{k} \cdot \overrightarrow{e_{3}})]\\&amp;\mathcal{H}_{y}=\operatorname{Im}\left[\mathcal{H}_{21}(k)\right]=-t\left[\sin \left(\vec{k} \cdot \vec{e}_{1}\right)+\sin \left(\vec{k} \cdot \vec{e}_{2}\right)+\sin \left(\vec{k} \cdot \vec{e}_{3}\right)\right]
+\end{aligned}
+\]</span> The energy dispersions <span class="math display">\[
+\epsilon_{\pm}(\vec{k})=\mathcal{H}_{0}(\vec{k}) \pm \sqrt{\mathcal{H}_{x}(\vec{k})^{2}+\mathcal{H}_{y}(\vec{k})^{2}+\mathcal{H}_{z}(\vec{k})^{2}}
+\]</span> The gap between the two bands <span class="math display">\[
+\epsilon_{+}(\vec{k})-\epsilon_{-}(\vec{k})=2 \sqrt{\mathcal{H}_{x}(\vec{k})^{2}+\mathcal{H}_{y}(\vec{k})^{2}+\mathcal{H}_{z}(\vec{k})^{2}}
+\]</span> At <span class="math inline">\(\mathrm{K}\)</span> or <span class="math inline">\(\mathrm{K}^{\prime}, \mathcal{H}_{x}(\vec{k})=\mathcal{H}_{y}(\vec{k})=0\)</span> and the gap is: <span class="math display">\[
+\begin{aligned}\epsilon_{+}(\vec{k})-\epsilon_{-}(\vec{k})&amp;=2 \sqrt{\mathcal{H}_{x}(\vec{k})^{2}+\mathcal{H}_{y}(\vec{k})^{2}+\mathcal{H}_{2}(\vec{k})^{2}}\\&amp;=2\left|\mathcal{H}_{2}(\vec{k}=K)\right|\\&amp;=6 \sqrt{3} t^{\prime} \sin \phi\end{aligned}
+\]</span> In fact</p>
+<ul>
+<li>at the <span class="math inline">\(\mathrm{K}\)</span> point, <span class="math inline">\(\mathcal{H}_{z}=-3 \sqrt{3} t^{\prime} \sin \phi\)</span></li>
+<li>at the <span class="math inline">\(\mathrm{K &#39;}\)</span> point, <span class="math inline">\(\mathcal{H}_{z}=3 \sqrt{3} t^{\prime} \sin \phi\)</span></li>
+</ul>
+<p>They have opposite signs (as long as <span class="math inline">\(\phi\)</span> is not <span class="math inline">\(\mathrm{n} \pi\)</span> ). Based on what we learned last time, this means that one cannot define the wavefunction the whole BZ. We need to cut the systems into two regions.</p>
+<ul>
+<li>The region I contains the K point,</li>
+<li>the region II contains the K' points.</li>
+</ul>
+<p>And we need to use different eigenvectors for these two regions. Using the same method we learned in the last lecture, one finds that the Chern number here is ±1</p>
+<p>Here, we can draw a small circle around the K point. Inside the circle, we use wavefunction <span class="math inline">\(u^{(I)}\)</span>. Outside it, we use <span class="math inline">\(u^{(\mathrm{II})}\)</span>. <span class="math display">\[
+\begin{aligned}e^{i\phi(k)}&amp;=\frac{\frac{\mathcal{H}_{z}+|\overrightarrow{\mathcal{H}}(k)|}{\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)}}{\left|\frac{\mathcal{H}_{z}+|\overrightarrow{\mathcal{H}}(k)|}{\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)}\right|}\\&amp;=\frac{\left|\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)\right|}{\mathcal{H}_{x}(k)+i \mathcal{H}_{y}(k)}\\&amp;=\frac{\left|q_{x}+i q_{y}\right|}{q_{x}+i q_{y}}\\&amp;=\frac{1}{e^{i \theta}}=e^{-i \theta}\end{aligned}
+\]</span></p>
+<h3 id="potential-energy-breaking-inversion-symmetry">Potential energy (breaking inversion symmetry)</h3>
+<p>Let's keep NNN hoppings to be zero for now and add some potential energy to the Hamiltonian. <span class="math display">\[
+\begin{aligned}H_{\text {Potentiti }}&amp;=(V+M) \sum_{i} a_{i}^{\dagger} a_{i}+(V-M) \sum_{i} b_{i}^{\dagger} b_{i}\\&amp;=V N+M \sum_{i} a_{i}^{\dagger} a_{i}-M \sum_{i} b_{i}^{\dagger} b_{i}\end{aligned}
+\]</span> The V part (average potential between a and b sites) just adds a constant term to the energy, since the total particle number <span class="math inline">\(\mathrm{N}\)</span> is conserved. So we can drop the <span class="math inline">\(\mathrm{V}\)</span> term and only consider the difference between the potential energies at a and <span class="math inline">\(\mathrm{b}\)</span> sites (M). In k-space <span class="math display">\[
+\begin{aligned}H_{\mathrm{Potentai}}&amp;=M \sum_{i} a_{i}^{\dagger} a_{i}-M \sum_{i} b_{i}^{\dagger} b_{i}\\&amp;=M \sum_{k k} a_{k}^{\dagger} a_{k}-M \sum_{k} b_{k}^{\dagger} b_{k}\\&amp;=\sum_{k}\left(a_{k}^{\dagger} b_{k}^{\dagger}\right) M \sigma_{z}\left(\begin{array}{l}a_{k} \\b_{k}\end{array}\right)\end{aligned}
+\]</span> It adds a <span class="math inline">\(\sigma_{z}\)</span> component to the Hamiltonian. Same as the NNN complex hopping, this term also opens a gap at the Dirac points. At <span class="math inline">\(\mathrm{K}\)</span> and <span class="math inline">\(\mathrm{K}^{\prime}, \mathcal{H}\)</span> now has the same sign ( <span class="math inline">\(\mathcal{H}=M\)</span> for any <span class="math inline">\(k\)</span> ). So, we can use one wave-function for the whole <span class="math inline">\(\mathrm{BZ}\)</span> and thus the system is a trivial insulator.</p>
+<blockquote>
+<p>Q: What will happen if we have both <span class="math inline">\(H_{\text {potential }}\)</span> and <span class="math inline">\(H_{\mathrm{MN}}\)</span> ?</p>
+<p>A: We just need to look at the signs of <span class="math inline">\(\mathcal{H}_{z}\)</span> at <span class="math inline">\(\mathrm{K}\)</span> and <span class="math inline">\(\mathrm{K}\)</span> ' points. If they have the same sign, we can use one wavefunction to cover the whole <span class="math inline">\(\mathrm{BZ}\)</span>, so <span class="math inline">\(C=0\)</span> (trivial insulator). If they have opposite signs, the system is a topological insulator with <span class="math inline">\(\mathrm{C}=\pm 1\)</span></p>
+</blockquote>
+<ul>
+<li>At the K point, <span class="math inline">\(\mathcal{H}_{z}=M-3 \sqrt{3} t^{\prime} \sin \phi\)</span></li>
+<li>At the K' point, <span class="math inline">\(\mathcal{H}_{z}=M+3 \sqrt{3} t^{\prime} \sin \phi\)</span></li>
+</ul>
+<p>Therefore</p>
+<ol type="1">
+<li>as long as <span class="math inline">\(|M|&lt;\left|3 \sqrt{3} t^{\prime} \sin \phi\right|\)</span>, the system is an topological insulator ( <span class="math inline">\(\mathcal{H}_{z}\)</span> flips sign).</li>
+<li>If <span class="math inline">\(|M|&gt;\left|3 \sqrt{3} t^{\prime} \sin \phi\right|, \mathcal{H}_{z}\)</span> is always positive (or negative) and thus the system is topologically trivial.</li>
+<li>The marginal case <span class="math inline">\(|M|=\left|3 \sqrt{3} t^{\prime} \sin \phi\right|\)</span> is a topological transition, where <span class="math inline">\(\mathcal{H}_{z}=0\)</span> at either the <span class="math inline">\(\mathrm{K}\)</span> point or the <span class="math inline">\(\mathrm{K}\)</span> ' point. Because <span class="math inline">\(\mathcal{H}_{x}=\mathcal{H}_{y}=0\)</span> at these two points, the gap must be zero at one of the two points.</li>
+</ol>
+<h3 id="remarks">Remarks</h3>
+<ul>
+<li>The model of Haldane is the first <strong>example</strong> of a topological insulator beyond quantum Hall effect.</li>
+<li>It demonstrates that topological insulator is a <strong>generic</strong> concept, which may appear in any insulating systems (NOT just quantum Hall).</li>
+<li>It also demonstrates that as long as the <strong>topological index</strong> is nonzero, one will observe all the topological phenomena expected for a quantum Hall state, including the quantized Hall conductivity and the existence of the edge states.</li>
+<li>The key <strong>differences</strong> between the model of Haldane and the quantum Hall effects are
+<ul>
+<li><ol type="1">
+<li>the B field is on average zero in the model of Haldane while the QHE has a uniform B field</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>there is a very strong lattice background in the model of Haldane while the QHE requires weak lattice potential.</li>
+</ol></li>
+</ul></li>
+<li>Systems similar to the Haldane's model are known as topological <strong>Chern insulators</strong> or Chern insulators (average B is 0 and have a strong lattice potential). But sometimes, Chern insulators are also used to refer to the quantum Hall effect.</li>
+<li>The model of Haldane is also the foundation to explore more complicated and exotic topological states. For example, the time-reversal invariant topological insulators was first proposed using a modified Haldane's models, which we will study latter in the semester.</li>
+</ul>
+<h2 id="symmetry-properties-of-the-berry-curvature">6 symmetry properties of the Berry curvature</h2>
+<h3 id="time-reversal-symmetry">time-reversal symmetry</h3>
+<p>In this section, we consider systems with time-reversal symmetry and shows that in the presence of the time-reversal symmetry, the Chern number must be zero. Therefore, to get a topological insulator with nonzero <span class="math inline">\(C,\)</span> one must break the time-reversal symmetry.</p>
+<h4 id="dispersion-relation">Dispersion relation</h4>
+<p>Dispersion relation under time-reversal transformation: <span class="math display">\[
+\mathcal{T} \epsilon_{n}(k)=\epsilon_{n}(-k)
+\]</span> This is because <span class="math inline">\(\mathcal{T}\)</span> turns <span class="math inline">\(k\)</span> into <span class="math inline">\(-\vec{k}\)</span>. There are two ways to see that <span class="math inline">\(\mathcal{T}\)</span> turns <span class="math inline">\(\vec{k}\)</span> into <span class="math inline">\(-\vec{k}\)</span>.</p>
+<ul>
+<li><span class="math inline">\(k\)</span> is the momentum. Under time-reversal, velocity changes sign, so does the momentum.</li>
+<li><span class="math inline">\(\vec{k}=-i \partial_{r} .\)</span> Under <span class="math inline">\(\mathcal{T}, \partial_{r}\)</span> remains invariant. However, because <span class="math inline">\(\mathcal{T}\)</span> is an anti-unitary transformation (which changes a complex number to its complex conjugate), it flips the sign of <span class="math inline">\(i .\)</span> Therefore, <span class="math inline">\(\mathcal{T} \vec{k}=\mathcal{T}\left(-i \partial_{r}\right)=i \partial_{r}=-\vec{k}\)</span></li>
+</ul>
+<p>If the system is time-reversal invariant, the time-reversal symmetry implies that <span class="math inline">\(\epsilon_{n}(k)\)</span> is invariant under time-reversal transformation <span class="math display">\[
+\mathcal{T} \epsilon_{n}(k)=\epsilon_{n}(k)
+\]</span> Compare the two equations, we have: <span class="math display">\[
+\epsilon_{n}(k)=\epsilon_{n}(-k)
+\]</span> Bottom line: for systems with time-reversal symmetry, the dispersion is an even function of the momentum <span class="math inline">\(\vec{k}\)</span>.</p>
+<h4 id="bloch-wave-function">Bloch wave function</h4>
+<p>Bloch wave under time-reversal transformation: <span class="math display">\[
+\mathcal{T} u_{n, k}(r)=u_{n,-k}(r)^{*}
+\]</span> Here, <span class="math inline">\(\mathcal{T}\)</span> changes <span class="math inline">\(k\)</span> to <span class="math inline">\(-k\)</span>. In addition, because <span class="math inline">\(u_{n, k}(r)\)</span> is in general a complex function, <span class="math inline">\(\mathcal{T}\)</span> changes the function to its complex conjugate. If the system is time-reversely invariant, <span class="math display">\[
+\mathcal{T} u_{n, k}(r)=e^{i \phi(k)} u_{n, k}(r)
+\]</span> By comparing the two equations above, we found that for a system with time-reversal symmetry, <span class="math display">\[
+u_{n_{,-} k}(r)^{*}=e^{i \phi(k)} u_{n, k}(r)
+\]</span> This arbitrary phase is here because wavefunctions are defined up to an arbitrary phase</p>
+<p>note: <span class="math inline">\(\psi_{n, k}(r)=u_{n, k}(r) e^{i k r}\)</span> relation between Bloch wave function and wave function</p>
+<h4 id="berry-connection-1">Berry connection</h4>
+<p>The Berry connection is defined as: <span class="math display">\[
+\mathcal{A}_{n}(k)=-i\left\langle u_{n, k}\left|\nabla_{k}\right| u_{n, k}\right\rangle=-i \int d \vec{r} u_{n, k}(\vec{r})^{*} \partial_{k} u_{n, k}(\vec{r})
+\]</span> The under time-reversal, the new <span class="math inline">\(\mathcal{H}_{n}(k)\)</span> is defined as <span class="math display">\[
+\begin{aligned}\mathcal{T} \mathcal{A}_{n}(k)&amp;=-i\left\langle\mathcal{T} u_{n, k}\left|\nabla_{k}\right| \mathcal{T} u_{n, k}\right\rangle\\&amp;=-i \int d \vec{r} u_{n_{n-k}}(\vec{r}) \partial_{k} u_{n_{n}-k}(\vec{r})^{*}\\&amp;=i \int d \vec{r} \partial_{k} u_{n_{n-k}}(\vec{r}) u_{n_{n-k} k}(\vec{r})^{*}\\&amp;=-i \int d \vec{r} u_{n_{n}-k}(\vec{r})^{*} \partial_{-k} u_{n_{n-k}}(\vec{r})\\&amp;=-i\left\langle u_{n_{n-k}}\left|\nabla_{-k}\right| u_{n_{1}-k}\right\rangle\\&amp;=\mathcal{A}_{n}(-k)\end{aligned}
+\]</span> If the system has time-reversal symmetry <span class="math display">\[
+\mathcal{T} \mathcal{A}_{n}(k)=\mathcal{H}_{n}(k)+\nabla_{k} \chi(k)
+\]</span> So we have <span class="math display">\[
+\mathcal{A}_{n}(-k)=\mathcal{A}_{n}(k)+\nabla_{k} \chi(k)
+\]</span> Bottom line: For systems with time-reversal symmetry, <span class="math inline">\(\mathcal{A}_{\mathrm{n}}(-\mathrm{k})\)</span> and <span class="math inline">\(\mathcal{A}_{\mathrm{n}}\)</span> ( <span class="math inline">\(\mathrm{k}\)</span> ) differs by a gauge transformation <span class="math inline">\(\nabla_{k} \chi(k)\)</span></p>
+<h4 id="berry-curvature">Berry curvature</h4>
+<p>The Berry curvature is defined as: <span class="math display">\[
+\begin{aligned}\mathcal{F}_{n}(k)&amp;=-i \epsilon_{i j}\left\langle\partial_{k_{1} i} u_{n, k} | \partial_{k_{j}} u_{n, k}\right\rangle\\&amp;=-i \epsilon_{i j} \int d \vec{r} \partial_{k_{1} i} u_{n, k}(\vec{r})^{*} \partial_{k_{j} j} u_{n, k}(\vec{r})\end{aligned}
+\]</span> The under time-reversal, the new <span class="math inline">\(\mathcal{F}_{n}(k)\)</span> is defined as <span class="math display">\[
+\begin{aligned}\mathcal{T} \mathcal{F}_{n}(k)&amp;=-i \epsilon_{\mathfrak{i} {\mathfrak{j}}}\left\langle\partial_{\mathrm{k} {\mathfrak{i}}} \mathcal{T}\mathfrak{u}_{n, k} | \partial_{\mathrm{kj} } \mathcal{T}_{\mathfrak{n}, k}\right\rangle\\&amp;=  -i \epsilon_{\mathfrak{i} {\mathfrak{j}}} \int d \vec{r} \partial_{\mathrm{k} {\mathfrak{i}}} \mathcal{T} \mathfrak{u}_{n, k}\left(\vec{r}\right)^{*} \partial_{\mathrm{k} {\mathfrak{j}}}  \mathcal{T}_{ {n}, -k}(\vec{r})\\&amp;=-i \epsilon_{\mathfrak{i} {\mathfrak{j}}} \int d \vec{r} \partial_{\mathrm{ki}} u_{n_{n}, k}(\vec{r}) \partial_{\mathrm{k} {\mathfrak{j}}}  u_{n, -k}(\vec{r})^{*}\\&amp;=-i \epsilon_{\mathfrak{i} {\mathfrak{j}}} \int d \vec{r} \partial_{\mathrm{k}  i} u_{n , k}(\vec{r})^{*} \partial_{\mathrm{k} {\mathfrak{j}}} u_{n,-k}(\vec{r})\end{aligned}
+\]</span> If we swap i and j here <span class="math display">\[
+\begin{aligned}\mathcal{T} \mathcal{F}_{n}(k)&amp;=-i \epsilon_{\mathrm{ji}} \int d \vec{r} \partial_{\mathrm{k } i} u_{n,-k}(\vec{r})^{*} \partial_{\mathrm{k } j} u_{n-k}(\vec{r})\\&amp;=i \epsilon_{\mathrm{ij}} \int d \vec{r} \partial_{\mathrm{k } i} u_{n,-k}(\vec{r})^{*} \partial_{\mathrm{kj}} u_{n_{1}-k}(\vec{r})\\&amp;=-\mathcal{F}_{n}(-k)\end{aligned}
+\]</span> If the system has time-reversal symmetry <span class="math display">\[
+\mathcal{T F}_{n}(k)=\mathcal{F}_{n}(k)
+\]</span> So we have <span class="math display">\[
+\mathcal{F}_{n}(-k)=-\mathcal{F}_{n}(k)
+\]</span> Bottom line: For systems with time-reversal symmetry, <span class="math inline">\(\mathcal{F}_{n}(k)\)</span> is an odd function of <span class="math inline">\(\mathrm{k}\)</span></p>
+<blockquote>
+<p>Because the integral of an odd function over the whole Brillouin zone must be zero, (the contribution from <span class="math inline">\(k\)</span> and <span class="math inline">\(- k\)</span> cancels each other), the Chern number for a time-reversally invariant system must be <span class="math inline">\(C = 0\)</span>. The Chern number <span class="math inline">\(C=\frac{1}{2 \pi} \iint d k \mathcal{F} _{n}(k)\)</span> <span class="math display">\[
+\begin{aligned}
+\mathcal{T} C &amp;= \mathcal{T} \frac{1}{2 \pi} \iint d k_{x} d k_{y} \mathcal{F}_{n}(k)
+\\&amp;=-\frac{1}{2 \pi} \iint d k_{x} d k_{y} \mathcal{F}_{n}(-k)
+\\&amp;=-\frac{1}{2 \pi} \iint d k_{x} d k_{y} \mathcal{F}_{n}(k)
+\\&amp;=-C
+\end{aligned}
+\]</span> If the system has time-reversal symmetry, <span class="math display">\[
+\mathcal{T} C=C
+\]</span> So we have <span class="math inline">\(C=-C\)</span>, which means <span class="math inline">\(C=0\)</span>.</p>
+<p>Bottom line: to have a nontrivial Chern number, the system must break the time-reversal symmetry (using external B field or some other method).</p>
+</blockquote>
+<h3 id="space-inversion-symmetry">space-inversion symmetry</h3>
+<p>Space inversion transformation <span class="math inline">\(I\)</span> turns a vector <span class="math inline">\(\vec{r}\)</span> into <span class="math inline">\(-\vec{r}\)</span>. It also changes <span class="math inline">\(\vec{k}\)</span> into <span class="math inline">\(-\vec{k},\)</span> which is similar to <span class="math inline">\(\mathcal{T}\)</span>. However, <span class="math inline">\(T\)</span> is an unitary transformation, while <span class="math inline">\(\mathcal{T}\)</span> is anti-unitary.</p>
+<h4 id="dispersion-relation-1">Dispersion relation</h4>
+<p>Dispersion relation under time-reversal transformation: <span class="math display">\[
+I \epsilon_{n}(k)=\epsilon_{n}(-k)
+\]</span> If the system is invariant under space inversion <span class="math display">\[
+I \in_{n}(k)=\epsilon_{n}(k)
+\]</span> Compare the two equations, we have: <span class="math display">\[
+\epsilon_{n}(k)=\epsilon_{n}(-k)
+\]</span> Bottom line: For systems invariant under space inversion, the dispersion is an even function of the momentum</p>
+<blockquote>
+<p>If one want make a system where the dispersion is NOT an even function, one need to break both space inversion symmetry and time reversal symmetry.</p>
+</blockquote>
+<h4 id="bloch-wave-function-1">Bloch wave function</h4>
+<p><span class="math display">\[
+I u_{n, k}(r)=u_{n,-k}(r)
+\]</span></p>
+<p>If the system is invariant under space inversion <span class="math display">\[
+I u_{n, k}(r)=e^{i \phi(k)} u_{n, k}(r)
+\]</span> By comparing the two equations above, we found that for a system with time-reversal symmetry, <span class="math display">\[
+u_{n,-k}(r)=e^{i \phi(k)} u_{n, k}(r)
+\]</span></p>
+<h4 id="berry-connection-2">Berry connection</h4>
+<p>Berry connection <span class="math inline">\(\mathcal{A}_{n}(\boldsymbol{k})=-i\left\langle\boldsymbol{u}_{n, k}\left|\nabla_{k}\right| \boldsymbol{u}_{n, k}\right\rangle\)</span> <span class="math display">\[
+I \mathcal{A}_{n}(k)=\mathcal{A}_{n}(-k)
+\]</span> If the system is invariant under space inversion <span class="math display">\[
+I \mathcal{A}_{n}(k)=\mathcal{A}_{n}(k)+\nabla_{k} \chi(k)
+\]</span> So we have <span class="math display">\[
+\mathcal{A}_{n}(-k)=\mathcal{A}_{n}(k)+\nabla_{k} \chi(k)
+\]</span> Bottom line: For systems invariant under space inversion, <span class="math inline">\(\mathcal{A}(-\mathrm{k})\)</span> and <span class="math inline">\(\mathcal{A}_{\mathrm{n}}\)</span> ( <span class="math inline">\(\mathrm{k}\)</span> ) differs by a gauge transformation <span class="math inline">\(\nabla_{k} \chi(k)\)</span></p>
+<h4 id="berry-curvature-1">Berry curvature</h4>
+<p><span class="math inline">\(\mathcal{F}_{n}(k)=-i \epsilon_{i j}\left\langle\partial_{i} u_{n, k} | \partial_{j} u_{n, k}\right\rangle\)</span> <span class="math display">\[
+I \mathcal{F}_{n}(k)=\mathcal{F}_{n}(-k)
+\]</span> If the system is invariant under space inversion <span class="math display">\[
+I \mathcal{F}_{n}(k)=\mathcal{F}_{n}(k)
+\]</span> So we have <span class="math display">\[
+\mathcal{F}_{n}(k)=\mathcal{F}_{n}(-k)
+\]</span> Bottom line: For systems invariant under space inversion, <span class="math inline">\(\mathcal{F}_{n}(k)\)</span> is an even function of <span class="math inline">\(\mathrm{k}\)</span></p>
+<p>Time-reversal symmetry tell us <span class="math inline">\(\mathcal{F}_{n}(k)\)</span> is an odd function of <span class="math inline">\(\mathrm{k}\)</span>. If system have both <span class="math inline">\(\mathcal{T}\)</span> and <span class="math inline">\(I\)</span> symmetry, <span class="math inline">\(\mathcal{F}\)</span> must be both an even function and an odd function. So <span class="math inline">\(\mathcal{F}=0\)</span> at any k point.</p>
+<h4 id="the-chern-number">The Chern number</h4>
+<p><span class="math inline">\(C=\frac{1}{2 \pi} \iint d k \mathcal{F}_{n}(k)\)</span> <span class="math display">\[
+\mathcal{I} C=C
+\]</span></p>
+<h3 id="it-symmetry">IT symmetry</h3>
+<p>Under <span class="math inline">\(I T\)</span>, <span class="math display">\[
+I T F _{n}(k)=I\left[- F _{n}(-k)\right]=- F _{n}(k)
+\]</span> If system is invariant under <span class="math inline">\(I T\)</span>, <span class="math display">\[
+I T F _{n}(k)=- F _{n}(k)
+\]</span> So, we have <span class="math display">\[
+F _{n}(k)=- F _{n}(k)
+\]</span> Bottom line: For systems invariant under <span class="math inline">\(I T , F _{n}(k)=0\)</span> at every <span class="math inline">\(k\)</span>.</p>
+<ul>
+<li>For <span class="math inline">\(T\)</span> symmetry, the integral of <span class="math inline">\(F\)</span> is zero <span class="math inline">\(( C =0)\)</span>, but <span class="math inline">\(F\)</span> can be nonzero at each <span class="math inline">\(k\)</span> point.</li>
+<li>For <span class="math inline">\(I T\)</span> symmetry, <span class="math inline">\(F\)</span> is zero at every single k point. This is a stronger statement!</li>
+</ul>
+<p>Please notice that all these conclusions assumes that the system is gapped. For gapless systems with <span class="math inline">\(I T\)</span> symmetry, <span class="math inline">\(F\)</span> can actually be nonzero and quantized, which will be discussed in the next section.</p>
+<h3 id="flux-and-dirac-points">flux and Dirac points</h3>
+<h4 id="magnetic-field-aharonov-bohm-effect-and-magnetic-pi---flux">1 magnetic field, Aharonov-Bohm effect and magnetic <span class="math inline">\(\pi\)</span> - flux</h4>
+<blockquote>
+<p>Q: Why <span class="math inline">\(B\)</span> changes sign under <span class="math inline">\(T\)</span> ?</p>
+<p>A: Many ways to see it. Here, I use the <span class="math inline">\(A - B\)</span> effect.</p>
+</blockquote>
+<p>In the presence of <span class="math inline">\(B\)</span> field, Aharonov and Bohm tells us that if we move a charged-particle around a closed loop, the electron will pick up a phase, and the phase is the total magnetic field enclosed by the loop (times <span class="math inline">\(e / \hbar)\)</span> <span class="math display">\[
+\phi=e / \hbar \iint B \cdot d S=e / \hbar \oint A \cdot d l
+\]</span> Under time-reversal <span class="math inline">\(e^{i \phi}\)</span> turns into <span class="math inline">\(e^{-i \phi}\)</span>, because time-reversal is anti-unitary. So the A-B phase changes sign <span class="math display">\[
+T \phi=-\phi
+\]</span> In other words, the integral of <span class="math inline">\(B\)</span> changes sign <span class="math display">\[
+T \iint_{D} B \cdot d S=-\iint_{D} B \cdot d S
+\]</span> Because this equation is true for any region <span class="math inline">\(D\)</span>, we have <span class="math inline">\(B=-B\)</span>.</p>
+<p>If a system has time-reversal symmetry, everything must remain the same before and after we flip the arrow of time, including the <span class="math inline">\(A - B\)</span> phase <span class="math display">\[
+e^{i \phi}=e^{-i \phi}
+\]</span> Therefore, we have <span class="math inline">\(\phi=-\phi\)</span>. So we have <span class="math inline">\(\phi=0\)</span> for any region <span class="math inline">\(D\)</span>, which implies that <span class="math inline">\(B=0\)</span>.</p>
+<blockquote>
+<p>Q: Do we really need to have <span class="math inline">\(B=0\)</span> to preserve the time-reversal symmetry.</p>
+<p>A: NO!</p>
+</blockquote>
+<p>This is because phase is only well-define up to mod <span class="math inline">\(2 \pi\)</span>. The time-reversal symmetry requires <span class="math inline">\(e^{i \phi}=e^{-i \phi}\)</span>, which does NOT implies <span class="math inline">\(\phi=-\phi\)</span>. In fact, as long as <span class="math inline">\(\phi=-\phi+2 n \pi\)</span>, the <span class="math inline">\(A - B\)</span> phase will be the same before and after the time-reversal transformation. This means that to preserve the time-reversal symmetry we just need <span class="math inline">\(\phi=n \pi\)</span> while <span class="math inline">\(n\)</span> don't need to be 0 . So we need to have <span class="math inline">\(\iint_{D} B \cdot d S=n \pi\)</span> for any <span class="math inline">\(D\)</span>. This means that <span class="math inline">\(B\)</span> can contains some delta functions. <span class="math display">\[
+B=\frac{\hbar}{e} \sum_{i} n_{i} \pi \delta\left(r-r_{i}\right)
+\]</span> For this <span class="math inline">\(B\)</span> field, the integral of <span class="math inline">\(B\)</span> in region <span class="math inline">\(D\)</span> is just <span class="math display">\[
+\phi=e / \hbar \iint B \cdot d S=\left(\sum_{i}^{\prime} n_{i}\right) \pi
+\]</span> Here the sum <span class="math inline">\(\sum_{i}^{\prime}\)</span> is over all <span class="math inline">\(r_{i}\)</span> inside <span class="math inline">\(D\)</span>. A delta function in <span class="math inline">\(B\)</span> is a magnetic flux, which is known as a <span class="math inline">\(n \times \pi\)</span> -flux. These fluxes don't break the time-reversal symmetry. In addition, it worthwhile to point out that for the <span class="math inline">\(A - B\)</span> phase is only well defined up to mod <span class="math inline">\(2 \pi\)</span>. So all the <span class="math inline">\(2 n \pi\)</span> fluxes give the same <span class="math inline">\(A - B\)</span> phase, which is 0 . All the <span class="math inline">\((2 n +1) \pi\)</span> fluxes give the same <span class="math inline">\(A - B\)</span> phase, which is <span class="math inline">\(\pi\)</span>.</p>
+<h4 id="berry-flux">2 Berry flux</h4>
+<p>We can do the same thing for the Berry curvature <span class="math inline">\(F ( k )\)</span>. If we goes around a contour in the <span class="math inline">\(k\)</span> -space, the phase change of the Bloch wave function around this contour is <span class="math display">\[
+\phi=\iint_{D} F d k^{2}
+\]</span> This is known as the Berry phase. Under <span class="math inline">\(I T , D\)</span> is invariant so <span class="math display">\[
+I T \phi=I T \iint_{D} F (k) d k^{2}=-\iint_{D} F (k) d k^{2}=-\phi
+\]</span> If the system is <span class="math inline">\(I T\)</span> invariant, we must have <span class="math inline">\(\phi=-\phi\)</span> (but up to <span class="math inline">\(\bmod 2 \pi)\)</span> <span class="math display">\[
+\phi=-\phi+2 n \pi
+\]</span> so <span class="math display">\[
+\phi=n \pi
+\]</span> As a result, if we have <span class="math inline">\(I T\)</span> symmetry, <span class="math inline">\(\iint_{D} F d k^{2}= n \pi\)</span> for any region <span class="math inline">\(D\)</span>. So <span class="math inline">\(F\)</span> must be either 0 or some delta functions. <span class="math display">\[
+F (k)=\sum_{i} n_{i} \pi \delta\left(k-k_{i}\right)
+\]</span> These delta functions are known as Berry fluxes. Because the Berry phase is only well defined up to mod <span class="math inline">\(2 \pi\)</span>, we have in general two types of Berry fluxes: 0 and <span class="math inline">\(\pi\)</span>. And a <span class="math inline">\(\pi\)</span> flux is a Dirac point.</p>
+<h4 id="dirac-point-1">3 Dirac point</h4>
+<p>Near a Dirac point, the kernel of the Hamiltonian is: <span class="math display">\[
+H =v_{F}\left(\begin{array}{cc}
+0 &amp; kx -i ky \\
+kx +i ky &amp; 0
+\end{array}\right)
+\]</span> Using polar coordinates <span class="math display">\[
+H =v_{F} k\left(\begin{array}{cc}
+0 &amp; e^{-i \phi} \\
+e^{i \phi} &amp; 0
+\end{array}\right)
+\]</span> The eigenvalues for this matrix is <span class="math inline">\(\epsilon_{\pm}=\pm v_{F} k .\)</span> The eigenvectors are: <span class="math display">\[
+u_{+}=\frac{1}{\sqrt{2}}\left(\begin{array}{c}
+e^{-i \phi} \\
+1
+\end{array}\right) \text { and } u_{-}=\frac{1}{\sqrt{2}}\left(\begin{array}{c}
+-e^{-i \phi} \\
+1
+\end{array}\right)
+\]</span> The Berry connection in the polar coordinates has two components, radius and angle. <span class="math display">\[
+A_{+k}=-i\left\langle u_{+}\left|\partial_{k}\right| u_{+}\right\rangle=0
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+A_{+\phi}&amp;=-\frac{i}{k}\left\langle u_{+}\left|\partial_{\phi}\right| u_{+}\right\rangle
+\\&amp;=-\frac{i}{k} \frac{1}{\sqrt{2}}\left(-e^{i \phi} \quad 1\right) \partial_{\phi} \frac{1}{\sqrt{2}}\left(\begin{array}{c}
+-e^{-i \phi} \\
+1
+\end{array}\right)
+\\&amp;=-\frac{i}{k} \frac{1}{2}\left(e^{i \phi} \quad 1\right)\left(\begin{array}{c}
+-i e^{-i \phi} \\
+1
+\end{array}\right)
+\\&amp;=-\frac{1}{2 k}
+\end{aligned}
+\]</span> Let's choose a small circle around the Dirac point, the flux through this circle is: <span class="math display">\[
+\begin{aligned}
+\chi &amp;=\iint F d k\\&amp;=\oint A \cdot d k
+\\&amp;=\int_{0}^{2 \pi} A _{\phi} k d \phi
+\\&amp;=-\int_{0}^{2 \pi} \frac{1}{2 k} k d \phi
+\\&amp;=-\frac{1}{2} \int_{0}^{2 \pi} d \phi
+\\&amp;=-\pi
+\end{aligned}
+\]</span></p>
+<blockquote>
+<p>Why is a Dirac point stable?</p>
+</blockquote>
+<p>This is because the Berry fluxes are very stable. If one has <span class="math inline">\(T I\)</span> symmetry, the Berry flux is quantized to integer values. Once its value is fixed (say <span class="math inline">\(\pi)\)</span>, no perturbation can change it. The only thing that can change continuously is the location of the delta functions. In other words, without break the <span class="math inline">\(T I\)</span> symmetry, one can only move the Dirac points around in the <span class="math inline">\(k\)</span> -space, but they cannot just disappear. To get ride of Dirac points, one need to move two Dirac points together and let them annihilate each other (let a <span class="math inline">\(\pi\)</span> flux meet a <span class="math inline">\(-\pi\)</span> flux, so that we get zero flux). Another way to get ride of Dirac points is to break either the <span class="math inline">\(T\)</span> or the <span class="math inline">\(I\)</span> symmetry.</p>
+<h2 id="edge-states-numerical-calculations">7 Edge states (numerical calculations)</h2>
+<h3 id="why-energy-is-a-function-of-k_x-and-k_y">Why energy is a function of <span class="math inline">\(k_{x}\)</span> and <span class="math inline">\(k_{y}\)</span></h3>
+<p>Consider one electron moving in an infinite 2D lattice (for simplicity, we consider a square lattice here). Because the lattice is invariant under lattice translations <span class="math inline">\((x \rightarrow x+a\)</span> and <span class="math inline">\(y \rightarrow y+a)\)</span>, lattice momentum is a good quantum number (a conserved quantity). Momentum conservation means that <span class="math display">\[
+\left[k_{x}, H\right]=\left[k_{y}, H\right]=0
+\]</span> In addition, we know <span class="math inline">\(\left[k_{x}, k_{y}\right]=0\)</span>. With three operators which commute with each other, quantum mechanics tells us that we can find common eigenstates for all these three operators, and we can use these eigenstates as the basis for the Hilbert space. This set of basis looks like: <span class="math display">\[
+\left|\psi_{\epsilon_{n}, k_{x}, k_{y}}\right\rangle
+\]</span> This state is the eigenstate of <span class="math inline">\(H , k_{x}\)</span> and <span class="math inline">\(k_{y}\)</span> with eigenvalues <span class="math inline">\(\epsilon_{n}, k_{x}\)</span> and <span class="math inline">\(k_{y}\)</span> respectively. Here, one need a sub-index (n) to distinguish different bands. So we have the band structure: <span class="math display">\[
+\epsilon_{n}\left(k_{x}, k_{y}\right)
+\]</span></p>
+<h3 id="what-if-we-have-an-finite-system">What if we have an finite system?</h3>
+<p>To study edge states, we must have an edge. So we cannot use an infinite 2D plan. Let's consider the simplest case here, a infinitely long stripe. We assumes that the system is infinitely long along <span class="math inline">\(x\)</span>, but it has a finite width along y. Now, the translational symmetry along <span class="math inline">\(x\)</span> is still preserved. But there is no translational symmetry along y (due to the existence of the edge). So <span class="math inline">\(k_{x}\)</span> is still a good quantum number but <span class="math inline">\(k_{y}\)</span> is NOT. <span class="math display">\[
+\left[k_{x}, H\right]=0 \quad \text { but } \quad\left[k_{y}, H\right] \neq 0
+\]</span> So we cannot define common eigenstates for <span class="math inline">\(H, k_{x}\)</span> and <span class="math inline">\(k_{y}\)</span>, but we can still find eigenstates for <span class="math inline">\(H\)</span> and <span class="math inline">\(k_{x}\)</span>, because they commute with each other. <span class="math display">\[
+\left|\psi_{\epsilon_{m}, k_{x}}\right\rangle
+\]</span> Here, again, we need an extra index distinguish different states with the same <span class="math inline">\(k_{x}\)</span>. Here I emphasize that <span class="math inline">\(m\)</span> is NOT just the band index <span class="math inline">\(n\)</span>. It includes information for both <span class="math inline">\(n\)</span> and <span class="math inline">\(k_{y}\)</span>. So now, energy is a bunch of function of <span class="math inline">\(k_{x}\)</span> <span class="math display">\[
+\epsilon_{m}\left(k_{x}\right)
+\]</span> where <span class="math inline">\(m=1,2,3 \ldots N _{S}\)</span>. We have <span class="math inline">\(N_{S}\)</span> functions of <span class="math inline">\(k_{x}\)</span>. We can draw these <span class="math inline">\(N_{S}\)</span> functions on the <span class="math inline">\(k_{x}-\epsilon\)</span> plane, which gives us <span class="math inline">\(N_{S}\)</span> curves, which is our 1D dispersion.</p>
+<h3 id="examples">Examples</h3>
+<p>We consider the model of Haldane for a system with infinite size along <span class="math inline">\(x\)</span>, by finite width along y. The Hamiltonian is invariant under translations along the <span class="math inline">\(x\)</span> axis <span class="math inline">\((x \rightarrow x+\sqrt{3} a)\)</span>, so the <span class="math inline">\(x\)</span> -component of the momentum is a conserved quantity <span class="math inline">\(\left[k_{x}, H\right]=0\)</span>. So we can find common eigenstates of <span class="math inline">\(k_{x}\)</span> and <span class="math inline">\(H\)</span>. The system has two edges: one on the top, one at the bottom. We can consider this lattice as a bunch of <span class="math inline">\(1 D\)</span> (horizontal) lines coupled together, so the width are described by the number of chains one have in this infinite stripe <span class="math inline">\((N)\)</span>. For <span class="math inline">\(\epsilon_{m}\left(k_{x}\right)\)</span>, we have <span class="math inline">\(m =1,2, \ldots 2 N\)</span>. This factor of 2 comes from the fact that we have two sites in each unit cell for a honeycomb lattice.</p>
+<p>First, lets consider the case without NNN hopping (graphene, with two Dirac cones). Here, for the first panel, we show <span class="math inline">\(\epsilon_{m}\left(k_{x}\right)\)</span> for a system with width <span class="math inline">\(N =10\)</span> (so there are <span class="math inline">\(N_{S}=2 N=20\)</span> ) lines. The second panel is the same calculation for a system with width <span class="math inline">\(N =100\left(N_{S}=2 N=200\right)\)</span>. The last panel shows the bulk band structure (side view).</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507195802083.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<blockquote>
+<p>Fig. 7. the energy spectrum for a infinite-long ribbon (the honeycomb lattice)</p>
+</blockquote>
+<p>The 2D figure of <span class="math inline">\(\epsilon_{m}\left(k_{x}\right)\)</span> is in some sense the 3D band structure <span class="math inline">\(\epsilon_{n}\left(k_{x}, k_{y}\right)\)</span> projected onto a 2D plane. We can see here an upper band and a lower band and 2 Dirac cones. The system is gapless.</p>
+<p>Now, let's consider the topological case, with complex NNN hoppings. The first panel shows the energy dispersion for an infinite stripe and the second one shows the bulk band structure for an infinite 2D system.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507200008101.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<blockquote>
+<p>Fig. 8. the energy spectrum for a infinite-long ribbon (the model of Haldane)</p>
+</blockquote>
+<p>Here, I choose the parameter <span class="math inline">\(\phi=\pi / 2, t_{ NN }=1\)</span> and <span class="math inline">\(t_{ NNN }=0.2 .\)</span> As one can see, for the infinite stripe, there are two bands, whose energy spectrum coincide with the bulk band structure for infinite systems. But in addition, there are two extra lines shown inside the gap, which are the metallic edge states. By looking at the wavefunctions (see the interactive figures on the course website), one find that one of the in gap state is localized near the top edge, while the other is localized near the bottom edge. If we consider the momentum region <span class="math inline">\((0,2 \pi)\)</span>, instead of <span class="math inline">\((-\pi, \pi)\)</span>, we find that one of the two edge states has positive slop and the other one has negative slop (left moving). Because the slop is the velocity of electrons <span class="math inline">\((v=\partial \epsilon / \partial k)\)</span>, one of the edge states has positive velocity (right moving) while the other one is right moving (negative velocity).</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507200108781.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<blockquote>
+<p>Fig. 9 . the velocity of the edge states</p>
+</blockquote>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/">Fields of Quantum ManyBody</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Fields-of-Quantum-ManyBody/sun-kai/">sun kai</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/01/24/Ftmb_15_sunkai_03/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">笔记2 费米液体与格林函数《sun kai 凝聚态物理讲义》</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2017/01/24/Ftmb_15_sunkai_05/">
+                        <span class="hidden-mobile">笔记-相变《sun kai 凝聚态物理讲义》</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "笔记1 拓扑绝缘体《sun kai 凝聚态物理讲义》&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

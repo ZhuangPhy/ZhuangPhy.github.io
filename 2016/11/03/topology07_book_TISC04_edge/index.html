@@ -210,6 +210,8 @@
 <h2 id="参考">参考</h2>
 <ol type="1">
 <li>《Topological Insulators and Topological Superconductors》 - B. Andrei Bernevig</li>
+<li>Chapter-6</li>
+<li>Chapter-7</li>
 </ol>
 <h2 id="chapter-6-square-lattice">Chapter-6 square lattice</h2>
 <p>We have so far computed the Hall conductance of lattice electrons in a magnetic field. The system was an insulator (we were always able to place the Fermi level in the gap), and we used periodic boundary conditions in real space. We obtained a nonzero Hall conductance, indicating transport, even though the system has a gap. How can this be possible? The answer lies in the presence of edge states. Even though the system is a bulk insulator, when edges are made in the system (such as by the application of contacts, which are needed in order to measure anything), there will be gapless edge modes traversing the bulk gap: the system is a bulk insulator but an edge Fermi liquid. In this chapter, we show that the presence of edges is an unescapable conclusion of multiple factors: one of them, as described later, is that the system transports electrons from one edge to another during a flux insertion-and there must be a band of states on each edge ready to receive/donate such electrons. We also present a direct calculation of the spectrum with open boundary conditions (which means we have edges) based on a transfer matrix formalism due to Hatsugai [38]. Gapless edge states, as it turns out, are a fundamental aspect of many topological insulators; indeed, the triviality or nontriviality of such an insulator usually depends on the presence or absence of edge states.</p>
@@ -251,7 +253,7 @@ H=\sum_{m, k_{y}}\left[-t_{x} c_{m+1, k_{y}}^{\dagger} c_{m, k_{y}}-t_{y} e^{i 2
 \end{array}\right)
 \]</span> where <span class="math inline">\(\epsilon=E / t_{x}\)</span>. This equation relates the wavefunction at advanced sites, <span class="math inline">\(m+1, m\)</span> to the wavefunction at the previous sites, <span class="math inline">\(m, m-1\)</span>. This is called the transfer matrix formalism, and it was applied to the magnetic field lattice problem by Hatsugai [38] . The site-dependent matrix <span class="math inline">\(\tilde{M}_{m}\left(\epsilon, k_{y}, \Phi\right)\)</span> is <span class="math display">\[
 \tilde{M}_{m}\left(\epsilon, k_{y}, \Phi\right)=\left(\begin{array}{rr}
--\epsilon-2 \frac{t_{y}}{t_{x}} \cos \left(k_{y}-2 \pi \frac{\Phi}{L_{y}}-2 \pi \phi m\right)-1 \\
+-\epsilon-2 \frac{t_{y}}{t_{x}} \cos \left(k_{y}-2 \pi \frac{\Phi}{L_{y}}-2 \pi \phi m\right)&amp;-1 \\
 1 &amp; 0
 \end{array}\right)
 \]</span> We drop the explicit functional dependence on <span class="math inline">\(k_{y}, \Phi-\)</span> it is trivial to restore it when needed. Because the system has a natural periodicity in the <span class="math inline">\(x\)</span> -direction via translations by a magnetic unit cell, we take the full length of the system, <span class="math inline">\(L_{x}\)</span>, to be an integer multiple of (commensurate with) <span class="math inline">\(q ; L_{x}=q l\)</span>, with <span class="math inline">\(l \in Z\)</span>. In this case, several things can be obtained analytically, whereas in the incommensurate case only numerical solutions are available. In this case, we can define a <span class="math inline">\(q\)</span> -site transfer matrix, which will be our building block for the edge-state theory: <span class="math display">\[
