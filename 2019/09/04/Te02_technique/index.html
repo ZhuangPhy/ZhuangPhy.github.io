@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4k 字
+      4.4k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      47
+      54
        分钟
     </span>
   
@@ -448,6 +448,7 @@ systemctl <span class="hljs-keyword">status</span> docker <span class="hljs-comm
 <li>优化和修改网页</li>
 </ul>
 <p><a href="https://fluid-dev.github.io/hexo-fluid-docs/guide/" target="_blank" rel="noopener">Fluid主题配置指南</a></p>
+<p><a href="https://hexo.fluid-dev.com/" target="_blank" rel="noopener">新功能博客</a></p>
 <ul>
 <li>Hexo博客部署</li>
 </ul>
@@ -533,6 +534,58 @@ light
 password: ****
 message: 知识产权型加密文章。若需观看，请联系我要密码。
 abstract: 这是一篇加密文章，查看需要输入密码。内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系取得密码。</code></pre>
+<h4 id="文章修饰">(6) 文章修饰</h4>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align:center;color:#8EC0E4;font-size:1.5em;font-weight: bold;"</span>&gt;</span>
+综合演示
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+优雅使用 Fluid 写文章
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<p style="text-align:center;color:#8EC0E4;font-size:1.5em;font-weight: bold;">
+综合演示 <br> 优雅使用 Fluid 写文章
+</p>
+<h5 id="折叠">折叠</h5>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>Demo<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>好友申请备注：fluid<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>提问之前请先仔细查阅用户文档<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"200"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.png"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"wechat"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span></code></pre>
+<p>效果展示</p>
+<details>
+<summary>Demo</summary>
+<p>
+<b>好友申请备注：fluid</b>
+</p>
+<p>
+<b>提问之前请先仔细查阅用户文档</b>
+</p>
+<img width="200" src="https://cdn.jsdelivr.net/gh/fluid-dev/static@master/hexo-theme-fluid/wechat.png" srcset="/img/loading.gif" alt="wechat">
+</details>
+<h5 id="可以折叠公式">可以折叠公式</h5>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>推导细节<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>$$
+\begin&#123;aligned&#125;
+W^&#123;j+1&#125;-W^&#123;j&#125; &amp;=-2 \sum_&#123;x, y \in S&#125; \sum_&#123;i=1&#125;^&#123;n&#125;\left(\Gamma_&#123;i&#125;\right)_&#123;x y&#125; a_&#123;x&#125;^&#123;*&#125; a_&#123;y&#125;\left\langle\psi_&#123;x&#125;^&#123;j&#125;\left|P_&#123;i&#125;\right| \psi_&#123;y&#125;^&#123;j&#125;\right\rangle \\
+&amp;=-2 \sum_&#123;i=1&#125;^&#123;n&#125; \operatorname&#123;tr&#125;\left(Q_&#123;i&#125; \Gamma_&#123;i&#125; Q_&#123;i&#125;^&#123;\dagger&#125;\right)
+\end&#123;aligned&#125;
+$$<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>$W^&#123;j+1&#125;-W^&#123;j&#125;$<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span></code></pre>
+<details>
+<summary>推导细节</summary>
+<p>
+<b><span class="math display">\[
+\begin{aligned}
+W^{j+1}-W^{j} &amp;=-2 \sum_{x, y \in S} \sum_{i=1}^{n}\left(\Gamma_{i}\right)_{x y} a_{x}^{*} a_{y}\left\langle\psi_{x}^{j}\left|P_{i}\right| \psi_{y}^{j}\right\rangle \\
+&amp;=-2 \sum_{i=1}^{n} \operatorname{tr}\left(Q_{i} \Gamma_{i} Q_{i}^{\dagger}\right)
+\end{aligned}
+\]</span></b>
+</p>
+<p>
+<b><span class="math inline">\(W^{j+1}-W^{j}\)</span></b>
+</p>
+</details>
 <h4 id="其他问题">其他问题</h4>
 <p>同步</p>
 <ul>

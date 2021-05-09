@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      9.6k 字
+      16.9k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      191
+      338
        分钟
     </span>
   
@@ -251,12 +251,17 @@
 <li>it calculates relevant transport quantities (e.g. transmission function) using effective numerical techniques.</li>
 <li>Besides, the Green function formalism is well adopted for atomic and molecular discrete-level systems and can be easily extended to include inelastic and many-body effects.</li>
 </ol>
+<h4 id="time-dependent">time-dependent</h4>
 <p>First of all, we give the formal general definition and the basic properties of retarded and advanced Green functions (also called propagators). Let us start from the time-dependent Schrödinger equation <span class="math display">\[
 i \hbar \frac{\partial|\Psi(t)\rangle}{\partial t}=\hat{H}|\Psi(t)\rangle
 \]</span> In this section we use general Dirac notations <span class="math inline">\(|\ldots\rangle\)</span> for quantum states and general operator notations <span class="math inline">\(\hat{.} .\)</span> to show that the representation is arbitrary (coordinate and matrix representations considered below are special cases).</p>
 <p>The solution of this equation at time <span class="math inline">\(t\)</span> can be written in terms of the solution at time <span class="math inline">\(t^{\prime}:\)</span> <span class="math display">\[
 |\Psi(t)\rangle=\hat{U}\left(t, t^{\prime}\right)\left|\Psi\left(t^{\prime}\right)\right\rangle
-\]</span> where <span class="math inline">\(\hat{U}\left(t, t^{\prime}\right)\)</span> is called the time-evolution operator.</p>
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\hat{U}\left(t, t^{\prime}\right)\)</span> is called the time-evolution operator.</li>
+</ul>
+<h4 id="time-independent">time-independent</h4>
 <p>Below we consider only the case of a time-independent Hermitian Hamiltonian <span class="math inline">\(\hat{H}\)</span>, so that the eigenstates <span class="math inline">\(\left|\Psi_{n}(t)\right\rangle=e^{-i E_{n} t / \hbar}\left|\Psi_{n}\right\rangle\)</span> with energies <span class="math inline">\(E_{n}\)</span> are found from the stationary Schrödinger equation <span class="math display">\[
 \hat{H}\left|\Psi_{n}\right\rangle=E_{n}\left|\Psi_{n}\right\rangle
 \]</span> The eigenfunctions <span class="math inline">\(\left|\Psi_{n}\right\rangle\)</span> are orthogonal and normalized, for discrete energy levels : <span class="math display">\[
@@ -267,13 +272,15 @@ i \hbar \frac{\partial|\Psi(t)\rangle}{\partial t}=\hat{H}|\Psi(t)\rangle
 \left\langle\Psi_{k} \mid \Psi_{k^{\prime}}\right\rangle=\delta\left(k-k^{\prime}\right),
 \]</span> and the completeness in the case of combined (discrete and continuous) spectrum is written explicitly as <span class="math display">\[
 \sum_{n}\left|\Psi_{n}\right\rangle \langle\Psi_{n} |+\int d k | \Psi_{k} \rangle\left\langle\Psi_{k}\right|=\hat{I} .
-\]</span> The time-evolution operator for a time-independent Hamiltonian can be written as <span class="math display">\[
+\]</span> #### time-evolution operator</p>
+<p>The <strong>time-evolution operator</strong> for a time-independent Hamiltonian can be written as <span class="math display">\[
 \hat{U}\left(t-t^{\prime}\right)=e^{-i\left(t-t^{\prime}\right) \hat{H} / \hbar}
-\]</span> This formal solution is difficult to use directly in most cases, but one can obtain the useful eigenstate representation from it. From the identity <span class="math inline">\(\hat{U}=\hat{U} \hat{I}\)</span> and <span class="math inline">\((3.3),(3.5)\)</span>, (3.8) it follows that 2 <span class="math display">\[
+\]</span> This formal solution is difficult to use directly in most cases, but one can obtain the useful eigenstate representation from it. From the identity <span class="math inline">\(\hat{U}=\hat{U} \hat{I}\)</span> and <span class="math inline">\((3.3),(3.5)\)</span>, (3.8) it follows that <span class="math display">\[
 \hat{U}\left(t-t^{\prime}\right)=\sum_{n} e^{-\frac{i}{\hbar} E_{n}\left(t-t^{\prime}\right)}\left|\Psi_{n}\right\rangle\left\langle\Psi_{n}\right| \text { , }
 \]</span> which demonstrates the superposition principle. The wave function at time <span class="math inline">\(t\)</span> is <span class="math display">\[
 |\Psi(t)\rangle=\hat{U}\left(t, t^{\prime}\right)\left|\Psi\left(t^{\prime}\right)\right\rangle=\sum_{n} e^{-\frac{i}{\hbar} E_{n}\left(t-t^{\prime}\right)}\left\langle\Psi_{n} \mid \Psi\left(t^{\prime}\right)\right\rangle\left|\Psi_{n}\right\rangle
 \]</span> where <span class="math inline">\(\left\langle\Psi_{n} \mid \Psi\left(t^{\prime}\right)\right\rangle\)</span> are the coefficients of the expansion of the initial function <span class="math inline">\(\left|\Psi\left(t^{\prime}\right)\right\rangle\)</span> in the basis of eigenstates.</p>
+<h4 id="green-operators---propagators">Green operators - propagators</h4>
 <p>It is equivalent and more convenient to introduce two Green operators, called also propagators,</p>
 <ol type="1">
 <li>retarded <span class="math inline">\(\hat{G}^{R}\left(t, t^{\prime}\right)\)</span></li>
@@ -301,11 +308,19 @@ i \hbar \frac{\partial|\Psi(t)\rangle}{\partial t}=\hat{H}|\Psi(t)\rangle
 <li>retarded functions describe propagation into future,</li>
 <li>while advanced into past.</li>
 </ul>
+<h4 id="green-operators---schrödinger-equation">Green operators - Schrödinger equation</h4>
 <p>Actually retarded and advanced propagators are related because of the <strong>time-symmetry of quantum mechanics</strong> (we neglect here any dissipation). The operators <span class="math inline">\(\hat{G}^{R}\left(t, t^{\prime}\right)\)</span> at <span class="math inline">\(t \geqslant t^{\prime}\)</span> and <span class="math inline">\(\hat{G}^{A}\left(t, t^{\prime}\right)\)</span> at <span class="math inline">\(t \leqslant t^{\prime}\)</span> are the solutions of the equation <span class="math display">\[
 \left[i \hbar \frac{\partial}{\partial t}-\hat{H}\right] \hat{G}^{R(A)}\left(t, t^{\prime}\right)=\hat{I} \delta\left(t-t^{\prime}\right)
-\]</span> with the boundary conditions <span class="math inline">\(\hat{G}^{R}\left(t, t^{\prime}\right)=0\)</span> at <span class="math inline">\(t&lt;t^{\prime}, \hat{G}^{A}\left(t, t^{\prime}\right)=0\)</span> at <span class="math inline">\(t&gt;t^{\prime}\)</span>. Indeed, at <span class="math inline">\(t&gt;t^{\prime}\)</span> (3.13) satisfies the Schrödinger equation (3.1) due to (3.16). And integrating (3.16) from <span class="math inline">\(t=t^{\prime}-\eta\)</span> to <span class="math inline">\(t=t^{\prime}+\eta\)</span>, where <span class="math inline">\(\eta\)</span> is an infinitesimally small positive number <span class="math inline">\(\eta=0^{+}\)</span>, one gets <span class="math display">\[
+\]</span> with</p>
+<ul>
+<li>the boundary conditions <span class="math inline">\(\hat{G}^{R}\left(t, t^{\prime}\right)=0\)</span> at $t&lt;t^{}, $</li>
+<li>the boundary conditions <span class="math inline">\(\hat{G}^{A}\left(t, t^{\prime}\right)=0\)</span> at <span class="math inline">\(t&gt;t^{\prime}\)</span>.</li>
+</ul>
+<p>Indeed, at <span class="math inline">\(t&gt;t^{\prime}\)</span> (3.13) <span class="math inline">\(|\Psi(t)\rangle=i \hbar \hat{G}^{R}\left(t-t^{\prime}\right)\left|\Psi\left(t^{\prime}\right)\right\rangle\)</span> satisfies the Schrödinger equation <span class="math inline">\(i \hbar \frac{\partial|\Psi(t)\rangle}{\partial t}=\hat{H}|\Psi(t)\rangle\)</span> due to <span class="math inline">\(\left[i \hbar \frac{\partial}{\partial t}-\hat{H}\right] \hat{G}^{R(A)}\left(t, t^{\prime}\right)=\hat{I} \delta\left(t-t^{\prime}\right)\)</span>.</p>
+<p>And integrating <span class="math inline">\(\left[i \hbar \frac{\partial}{\partial t}-\hat{H}\right] \hat{G}^{R(A)}\left(t, t^{\prime}\right)=\hat{I} \delta\left(t-t^{\prime}\right)\)</span> from <span class="math inline">\(t=t^{\prime}-\eta\)</span> to <span class="math inline">\(t=t^{\prime}+\eta\)</span>, where <span class="math inline">\(\eta\)</span> is an infinitesimally small positive number <span class="math inline">\(\eta=0^{+}\)</span>, one gets <span class="math display">\[
 \hat{G}^{R}\left(t+\eta, t^{\prime}\right)=\frac{1}{i \hbar} \hat{I},
 \]</span> giving correct boundary condition at <span class="math inline">\(t=t^{\prime} .\)</span> Thus, if we know the retarded Green operator <span class="math inline">\(\hat{G}^{R}\left(t, t^{\prime}\right)\)</span>, we can find the time-dependent wave function at any initial condition (and make many other useful things, as we will see below).</p>
+<h4 id="fourier-transform-of-green-function">Fourier transform of Green function</h4>
 <p>For a time-independent Hamiltonian the Green function is a function of the time difference <span class="math inline">\(\tau=t-t^{\prime}\)</span>, and one can consider the Fourier transform <span class="math display">\[
 \hat{G}^{R(A)}(E)=\int_{-\infty}^{\infty} \hat{G}^{R(A)}(\tau) e^{i E \tau / \hbar} d \tau
 \]</span> This transform, however, can not be performed in all cases, because <span class="math inline">\(G^{R(A)}(\tau)\)</span> includes oscillating terms <span class="math inline">\(e^{-\frac{i}{\hbar} E_{n} \tau} .\)</span> To avoid this problem we define the retarded Fourier transform <span class="math display">\[
@@ -313,8 +328,9 @@ i \hbar \frac{\partial|\Psi(t)\rangle}{\partial t}=\hat{H}|\Psi(t)\rangle
 \]</span> and the advanced one <span class="math display">\[
 \hat{G}^{A}(E)=\lim _{\eta \rightarrow 0^{+}} \int_{-\infty}^{\infty} \hat{G}^{A}(\tau) e^{i(E-i \eta) \tau / \hbar} d \tau
 \]</span> where the limit <span class="math inline">\(\eta \rightarrow 0\)</span> is assumed in the end of calculation. With this addition the integrals are convergent. This definition is equivalent to the definition of a retarded (advanced) function as a function of complex energy variable at the upper (lower) part of the complex plain.</p>
-<p>Applying this transform to (3.16), we get the equation for the retarded Green <span class="math display">\[
-\text { operator } \hat{G}^{R}(E)
+<h4 id="fourier-transform-of-equation">Fourier transform of equation</h4>
+<p>Applying this transform to <span class="math inline">\(\left[i \hbar \frac{\partial}{\partial t}-\hat{H}\right] \hat{G}^{R(A)}\left(t, t^{\prime}\right)=\hat{I} \delta\left(t-t^{\prime}\right)\)</span>, we get the equation for the retarded Green operator <span class="math inline">\(\hat{G}^{R}(E)\)</span> <span class="math display">\[
+[(E+i \eta) \hat{I}-\hat{H}] \hat{G}^{R}(E)=\hat{I},
 \]</span> Or <span class="math display">\[
 \hat{G}^{R}(E)=[(E+i \eta) \hat{I}-\hat{H}]^{-1}
 \]</span> The advanced operator <span class="math inline">\(\hat{G}^{A}(E)\)</span> is related to the retarded one through <span class="math display">\[
@@ -327,14 +343,21 @@ i \hbar \frac{\partial|\Psi(t)\rangle}{\partial t}=\hat{H}|\Psi(t)\rangle
 \hat{G}^{R}(E)=\sum_{n} \frac{\left|\Psi_{n}\right\rangle\left\langle\Psi_{n}\right|}{E-E_{n}+i \eta}
 \]</span> Note, that if we apply the ordinary inverse Fourier transform to <span class="math inline">\(\hat{G}^{R}(E)\)</span>, we automatically obtain the retarded function <span class="math display">\[
 \hat{G}^{R}(\tau)=\int_{-\infty}^{\infty} \hat{G}^{R}(E) e^{-i E \tau / \hbar} \frac{d E}{2 \pi \hbar}=-\frac{i}{\hbar} \theta(\tau) \sum_{n} e^{-\frac{i}{\hbar} E_{n} \tau}\left|\Psi_{n}\right\rangle\left\langle\Psi_{n}\right|
-\]</span> Indeed, a simple pole in the complex <span class="math inline">\(E\)</span> plain is at <span class="math inline">\(E=E_{n}-i \eta\)</span>, the residue in this point determines the integral at <span class="math inline">\(\tau&gt;0\)</span> when the integration contour is closed through the lower half-plane, while at <span class="math inline">\(\tau&lt;0\)</span> the integration should be closed through the upper half-plane and the integral is zero.</p>
+\]</span> &gt; Indeed, a simple pole in the complex <span class="math inline">\(E\)</span> plain is at <span class="math inline">\(E=E_{n}-i \eta\)</span>, the residue in this point determines the integral at <span class="math inline">\(\tau&gt;0\)</span> when the integration contour is closed through the lower half-plane, while at <span class="math inline">\(\tau&lt;0\)</span> the integration should be closed through the upper half-plane and the integral is zero.</p>
 <h3 id="green-functions-in-the-coordinate-representation">3.1.2 Green Functions in the Coordinate Representation</h3>
-<p>The formalism of retarded Green functions is quite general and can be applied to quantum systems in an arbitrary representation. Below in this section we consider the scattering problem in the coordinate representation for the wave function <span class="math inline">\(|\Psi(t)\rangle \equiv \Psi( r , t) .\)</span> The coordinate representation can be obtained from the general equations of the previous section, if one uses the position states <span class="math inline">\(| r \rangle(\)</span> the eigenvectors of the position operator) as a basis. The orthonormality conditions are <span class="math display">\[
+<p>The formalism of retarded Green functions is quite general and can be applied to quantum systems in an arbitrary representation. Below in this section we consider the scattering problem in the coordinate representation for the wave function <span class="math inline">\(|\Psi(t)\rangle \equiv \Psi( r , t) .\)</span></p>
+<h4 id="obtain-coordinate-representation">obtain coordinate representation</h4>
+<p>The coordinate representation can be obtained from the general equations of the previous section, if one uses the position states <span class="math inline">\(| r \rangle(\)</span> the eigenvectors of the position operator) as a basis.</p>
+<p>The orthonormality conditions are <span class="math display">\[
 \begin{array}{c}
 \left\langle r \mid r ^{\prime}\right\rangle=\delta\left( r - r ^{\prime}\right) \\
 \int d r | r \rangle\langle r |=1
 \end{array}
-\]</span> The scalar product is defined as <span class="math inline">\(\langle\Phi \mid \Psi\rangle=\int \Phi^{*}( r ) \Psi( r ) d r\)</span>, the unity operator is <span class="math inline">\(\hat{I}=\delta\left( r - r ^{\prime}\right)\)</span></p>
+\]</span> where</p>
+<ul>
+<li>The scalar product is defined as <span class="math inline">\(\langle\Phi \mid \Psi\rangle=\int \Phi^{*}( r ) \Psi( r ) d r\)</span>,</li>
+<li>the unity operator is <span class="math inline">\(\hat{I}=\delta\left( r - r ^{\prime}\right)\)</span></li>
+</ul>
 <p>The following transition rules relate the Dirac states and operators with the states and operators in the ordinary coordinate representation (time or energy variable is omitted): <span class="math display">\[
 \Psi( r )=\langle r \mid \Psi\rangle, \quad \Psi^{*}( r )=\langle\Psi \mid r \rangle
 \]</span></p>
@@ -344,29 +367,63 @@ i \hbar \frac{\partial|\Psi(t)\rangle}{\partial t}=\hat{H}|\Psi(t)\rangle
 G^{R}\left( r , r ^{\prime}\right)=&amp; \langle r  |\hat{G}^{R} | r ^{\prime} \rangle \\
 \sum_{n} \Psi_{n}( r ) \Psi_{n}^{*}\left( r ^{\prime}\right)=&amp;\delta\left( r - r ^{\prime}\right)
 \end{aligned}
-\]</span> Applying these rules to (3.13), we obtain <span class="math display">\[
+\]</span> Applying these rules to <span class="math display">\[
+|\Psi(t)\rangle=i \hbar \hat{G}^{R}\left(t-t^{\prime}\right)\left|\Psi\left(t^{\prime}\right)\right\rangle
+\]</span></p>
+<blockquote>
+<p>注释 <span class="math display">\[
+\begin{aligned}
+|\Psi(t)\rangle &amp;=i \hbar \hat{G}^{R}\left(t-t^{\prime}\right)\left|\Psi\left(t^{\prime}\right)\right\rangle \\
+\langle r |\Psi(t)\rangle &amp;=i \hbar\langle r | \hat{G}^{R}\left(t-t^{\prime}\right)\left|\Psi\left(t^{\prime}\right)\right\rangle \\
+\langle r |\Psi(t)\rangle &amp;=i \hbar\langle r | \hat{G}^{R}\left(t-t^{\prime}\right)\int d r^{\prime}| r ^{\prime}\rangle \langle  r ^{\prime}\left|\Psi\left(t^{\prime}\right)\right\rangle \\
+\Psi( r , t)&amp;=i \hbar \int d r ^{\prime} G^{R}\left( r , t, r ^{\prime}, t^{\prime}\right) \Psi\left( r ^{\prime}, t^{\prime}\right)
+\end{aligned}
+\]</span></p>
+</blockquote>
+<p>we obtain <span class="math display">\[
 \Psi( r , t)=i \hbar \int d r ^{\prime} G^{R}\left( r , t, r ^{\prime}, t^{\prime}\right) \Psi\left( r ^{\prime}, t^{\prime}\right)
-\]</span> where <span class="math inline">\(G^{R}\left( r , t, r ^{\prime}, t^{\prime}\right)\)</span> is the retarded Green function, to be defined from the equation <span class="math display">\[
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(G^{R}\left( r , t, r ^{\prime}, t^{\prime}\right)\)</span> is the retarded Green function, to be defined from the equation</li>
+</ul>
+<p><span class="math display">\[
 \left[i \hbar \frac{\partial}{\partial t}-\hat{H}( r )\right] G^{R}\left( r , t, r ^{\prime}, t^{\prime}\right)=\delta\left( r - r ^{\prime}\right) \delta\left(t-t^{\prime}\right)
-\]</span> where <span class="math inline">\(\hat{H}( r )\)</span> is the single-particle Hamiltonian <span class="math display">\[
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\hat{H}( r )\)</span> is the single-particle Hamiltonian</li>
+</ul>
+<p><span class="math display">\[
 \hat{H}( r )=-\frac{\hbar^{2}}{2 m} \nabla^{2}+V( r )
-\]</span> The equation (3.34) is obtained from the operator equation (3.16), if one takes the matrix element <span class="math inline">\(\left\langle r |\ldots| r ^{\prime}\right\rangle\)</span> of the left and right parts of <span class="math inline">\((3.16)\)</span> The equation for the stationary retarded Green function is <span class="math display">\[
+\]</span> #### retarded Green function</p>
+<p>The equation <span class="math inline">\(\left[i \hbar \frac{\partial}{\partial t}-\hat{H}( r )\right] G^{R}\left( r , t, r ^{\prime}, t^{\prime}\right)=\delta\left( r - r ^{\prime}\right) \delta\left(t-t^{\prime}\right)\)</span> is obtained from the operator equation (3.16), <span class="math display">\[
+\left[i \hbar \frac{\partial}{\partial t}-\hat{H}\right] \hat{G}^{R(A)}\left(t, t^{\prime}\right)=\hat{I} \delta\left(t-t^{\prime}\right)
+\]</span> if one takes the matrix element <span class="math inline">\(\left\langle r |\ldots| r ^{\prime}\right\rangle\)</span> of the left and right parts of <span class="math inline">\((3.16)\)</span> The equation for the stationary retarded Green function is <span class="math display">\[
 [E+i \eta-\hat{H}( r )] G^{R}\left( r , r ^{\prime}, E\right)=\delta\left( r - r ^{\prime}\right)
 \]</span> This Green function corresponds to the Schrödinger equation <span class="math display">\[
 \left[-\frac{\hbar^{2}}{2 m} \nabla^{2}+V( r )\right] \Psi( r )=E \Psi( r )
-\]</span> Let us consider as an example the one dimensional GF for free electrons. The corresponding equation is <span class="math display">\[
+\]</span> #### example - free electrons</p>
+<p>Let us consider as an example the one dimensional GF for free electrons. The corresponding equation is <span class="math display">\[
 \left[E \pm i \eta+\frac{\hbar^{2}}{2 m} \frac{\partial^{2}}{\partial x^{2}}\right] G^{R(A)}\left(x, x^{\prime}, E\right)=\delta\left(x-x^{\prime}\right)
 \]</span> This equation has two exact solutions: <span class="math display">\[
 \begin{array}{l}
 G_{1}\left(x-x^{\prime}, E\right)=-\frac{i m}{\hbar^{2} k} e^{i k\left|x-x^{\prime}\right|} \\
 G_{2}\left(x-x^{\prime}, E\right)=\frac{i m}{\hbar^{2} k} e^{-i k\left|x-x^{\prime}\right|}
 \end{array}
-\]</span> where <span class="math inline">\(\hbar k=\sqrt{2 m(E \pm i \eta)}\)</span>. Note, that <span class="math inline">\(k\)</span> has an imaginary part, positive for retarded and negative for advanced Green functions: <span class="math display">\[
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\hbar k=\sqrt{2 m(E \pm i \eta)}\)</span>.</li>
+</ul>
+<p>Note, that <span class="math inline">\(k\)</span> has an imaginary part, positive for retarded and negative for advanced Green functions: <span class="math display">\[
 k=\frac{\sqrt{2 m(E \pm i \eta)}}{\hbar}=\frac{\sqrt{2 m E}}{\hbar} \sqrt{1 \pm \frac{i \eta}{E}} \approx \frac{\sqrt{2 m E}}{\hbar}\left(1 \pm \frac{i \eta}{2 E}\right) .
-\]</span> From the condition of being finite at infinity, we select <span class="math inline">\(G_{1}\left(x-x^{\prime}, E\right)\)</span> to be the retarded function <span class="math inline">\((\hbar k=\sqrt{2 m(E+i \eta)})\)</span> and <span class="math inline">\(G_{2}\left(x-x^{\prime}, E\right)\)</span> to be the advanced function <span class="math inline">\((\hbar k=\sqrt{2 m(E-i \eta)}) .\)</span> At the same time, we can consider <span class="math inline">\(x^{\prime}\)</span> as a position of the scatterer. From this point of view, <span class="math inline">\(G_{1}\left(x-x^{\prime}, E\right)\)</span> corresponds to the outgoing wave, while <span class="math inline">\(G_{2}\left(x-x^{\prime}, E\right)\)</span> for incoming.</p>
+\]</span> From the condition of being finite at infinity, we select</p>
+<ol type="1">
+<li><span class="math inline">\(G_{1}\left(x-x^{\prime}, E\right)\)</span> to be the retarded function <span class="math inline">\((\hbar k=\sqrt{2 m(E+i \eta)})\)</span></li>
+<li><span class="math inline">\(G_{2}\left(x-x^{\prime}, E\right)\)</span> to be the advanced function <span class="math inline">\((\hbar k=\sqrt{2 m(E-i \eta)}) .\)</span></li>
+</ol>
+<p>At the same time, we can consider <span class="math inline">\(x^{\prime}\)</span> as a position of the scatterer. From this point of view, <span class="math inline">\(G_{1}\left(x-x^{\prime}, E\right)\)</span> corresponds to the outgoing wave, while <span class="math inline">\(G_{2}\left(x-x^{\prime}, E\right)\)</span> for incoming.</p>
 <p>The coordinate retarded function has many useful properties. In particular, it is related to the local density of states <span class="math inline">\(\rho( r , E)\)</span>, which can be determined as <span class="math display">\[
 \rho( r , E)=\sum_{n}\left|\Psi_{n}( r )\right|^{2} \delta\left(E-E_{n}\right)
-\]</span> On the other hand, from (3.25) we get the eigenstate expansion <span class="math display">\[
+\]</span> On the other hand, from (3.25) <span class="math inline">\(\hat{G}^{R}(E)=\sum_{n} \frac{\left|\Psi_{n}\right\rangle\left\langle\Psi_{n}\right|}{E-E_{n}+i \eta}\)</span> we get the eigenstate expansion <span class="math display">\[
 G^{R}\left( r , r ^{\prime}, E\right)=\sum_{n} \frac{\left\langle r \mid \Psi_{n}\right\rangle\left\langle\Psi_{n} \mid r ^{\prime}\right\rangle}{E-E_{n}+i \eta}=\sum_{n} \frac{\Psi_{n}( r ) \Psi_{n}^{*}\left( r ^{\prime}\right)}{E-E_{n}+i \eta}
 \]</span> or for the coinciding coordinates <span class="math inline">\(r = r ^{\prime}\)</span> : <span class="math display">\[
 G^{R}( r , r , E)=\sum_{n} \frac{\left\langle r \mid \Psi_{n}\right\rangle\left\langle\Psi_{n} \mid r \right\rangle}{E-E_{n}+i \eta}=\sum_{n} \frac{\left|\Psi_{n}( r )\right|^{2}}{E-E_{n}+i \eta}
@@ -380,15 +437,38 @@ G^{R}( r , r , E)=\sum_{n} \frac{\left\langle r \mid \Psi_{n}\right\rangle\left\
 G^{R(A)}( r , r , E)=\int_{-\infty}^{\infty} \frac{\rho\left( r , E^{\prime}\right) d E^{\prime}}{E-E^{\prime} \pm i \eta}
 \]</span></p>
 <h3 id="用格林算散射-lippmann-schwinger-equation">3.1.3 用格林算散射 Lippmann-Schwinger Equation</h3>
-<p>Using Green functions, we can reformulate the scattering theory. Assume that our system can be divided into an unperturbed part with the Hamiltonian <span class="math inline">\(\hat{H}_{0}\)</span> and the perturbation <span class="math inline">\(\hat{V}\)</span>, both time-independent: <span class="math display">\[
+<blockquote>
+<p>Using Green functions, we can reformulate the scattering theory.</p>
+</blockquote>
+<p>Assume that our system can be divided into</p>
+<ul>
+<li>an unperturbed part with the Hamiltonian <span class="math inline">\(\hat{H}_{0}\)</span></li>
+<li>and the perturbation <span class="math inline">\(\hat{V}\)</span></li>
+</ul>
+<p>both time-independent: <span class="math display">\[
 \hat{H}=\hat{H}_{0}+\hat{V}
-\]</span> This decomposition can be naturally done for scattering of particles in free space, where <span class="math inline">\(\hat{H}_{0}\)</span> includes only (the operators of) kinetic energies and <span class="math inline">\(\hat{V}\)</span> is the scattering potential. For quantum junctions <span class="math inline">\(\hat{H}_{0}\)</span> can be taken for infinite electrodes and <span class="math inline">\(\hat{V}\)</span> should then describe all possible scattering events between electrodes and channels. Usually it is difficult to formulate such a problem explicitly, but the analysis is important for qualitative understanding.</p>
-<p>Writing the time-dependent equation <span class="math inline">\((3.16)\)</span> for the full Hamiltonian <span class="math inline">\(\hat{H}=\hat{H}_{0}+\hat{V}\)</span> and for <span class="math inline">\(\hat{H}_{0}\)</span> only: <span class="math display">\[
+\]</span> This decomposition can be naturally done for scattering of particles in free space, where</p>
+<ul>
+<li><span class="math inline">\(\hat{H}_{0}\)</span> includes only (the operators of) kinetic energies</li>
+<li><span class="math inline">\(\hat{V}\)</span> is the scattering potential.</li>
+</ul>
+<p>For quantum junctions <span class="math inline">\(\hat{H}_{0}\)</span> can be taken for infinite electrodes and <span class="math inline">\(\hat{V}\)</span> should then describe all possible scattering events between electrodes and channels. Usually it is difficult to formulate such a problem explicitly, but the analysis is important for qualitative understanding.</p>
+<p>Writing the time-dependent equation <span class="math inline">\((3.16)\)</span> <span class="math display">\[
+\left[i \hbar \frac{\partial}{\partial t}-\hat{H}\right] \hat{G}^{R(A)}\left(t, t^{\prime}\right)=\hat{I} \delta\left(t-t^{\prime}\right)
+\]</span></p>
+<ul>
+<li>for the full Hamiltonian <span class="math inline">\(\hat{H}=\hat{H}_{0}+\hat{V}\)</span></li>
+</ul>
+<p><span class="math display">\[
 \left[i \hbar \frac{\partial}{\partial t}-\hat{H}_{0}-\hat{V}\right] \hat{G}^{R}\left(t, t_{0}\right)=\hat{I} \delta\left(t-t_{0}\right)
 \]</span></p>
+<ul>
+<li>for <span class="math inline">\(\hat{H}_{0}\)</span> only:</li>
+</ul>
 <p><span class="math display">\[
 \left[i \hbar \frac{\partial}{\partial t}-\hat{H}_{0}\right] \hat{G}_{0}^{R}\left(t, t_{0}\right)=\hat{I} \delta\left(t-t_{0}\right)
-\]</span> combining these equations together and integrating over the time we get the Lippmann-Schwinger equation for the Green functions in two different forms: <span class="math display">\[
+\]</span></p>
+<p>combining these equations together and integrating over the time we get the Lippmann-Schwinger equation for the Green functions in two different forms: <span class="math display">\[
 \hat{G}^{R}\left(t-t_{0}\right)=\hat{G}_{0}^{R}\left(t-t_{0}\right)+\int_{t_{0}}^{t} \hat{G}_{0}^{R}\left(t-t^{\prime}\right) \hat{V} \hat{G}^{R}\left(t^{\prime}-t_{0}\right) d t^{\prime}
 \]</span> Or <span class="math display">\[
 \hat{G}^{R}\left(t-t_{0}\right)=\hat{G}_{0}^{R}\left(t-t_{0}\right)+\int_{t_{0}}^{t} \hat{G}^{R}\left(t-t^{\prime}\right) \hat{V} \hat{G}_{0}^{R}\left(t^{\prime}-t_{0}\right) d t^{\prime}
@@ -417,6 +497,7 @@ G^{R(A)}( r , r , E)=\int_{-\infty}^{\infty} \frac{\rho\left( r , E^{\prime}\rig
 \]</span> Or <span class="math display">\[
 \Psi_{E}( r )=\Psi_{E}^{i n}( r )+\int d r ^{\prime} G_{0}^{R}\left( r , r ^{\prime}, E\right) V\left( r ^{\prime}\right) \Psi_{E}\left( r ^{\prime}\right)
 \]</span> Both equations describe the wave function as a superposition of incoming wave and all outgoing waves produced by this incoming wave. As a direct computational tool the Lippmann-Schwinger equations are useful in free space with localized scattering region or in rather simple geometries, when the unperturbed Green functions can be easily defined analytically.</p>
+<h4 id="example-delta--potential">example: <span class="math inline">\(\delta\)</span> -potential</h4>
 <p>Consider as an example scattering at the <span class="math inline">\(\delta\)</span> -potential <span class="math inline">\(V(x)=\alpha \delta(x)\)</span>. The retarded Green function for free <span class="math inline">\(1 D\)</span> electrons is given by <span class="math inline">\((3.39)\)</span> : <span class="math display">\[
 G_{0}^{R}\left(x-x^{\prime}, E\right)=-\frac{i m}{\hbar^{2} k} e^{i k\left|x-x^{\prime}\right|}
 \]</span> Using the equation (3.63) we get <span class="math inline">\(\left(\Psi^{i n}(x)=e^{i k x}\right)\)</span> : <span class="math display">\[
@@ -430,7 +511,9 @@ t e^{i k x}, &amp; x&gt;0
 1+r=1-\frac{i m \alpha}{\hbar^{2} k}(1+r), \quad t=1-\frac{i m \alpha}{\hbar^{2} k} t,
 \]</span> with the solution <span class="math display">\[
 r=\frac{1}{i \frac{\hbar^{2} k}{m \alpha}-1}, \quad t=\frac{i \frac{\hbar^{2} k}{m \alpha}}{i \frac{\hbar^{2} k}{m \alpha}-1} .
-\]</span> It is exactly the same result which we obtained solving the Schrödinger equation <span class="math inline">\((2.29)-(2.36)\)</span> For more details about the Lippmann-Schwinger equations we recommend the book of M. Di Ventra [1], Sect. 3.4. 3.1.4 Fisher-Lee Relation Between <span class="math inline">\(S\)</span> and <span class="math inline">\(G^{R}\)</span> Finally, let us establish the relation between the Green function <span class="math inline">\(G^{R}\left( r _{1}, r _{2}, E\right)\)</span> and the scattering matrix <span class="math inline">\(S\)</span>. Although we will not use it explicitly below (instead we derive more practical matrix formulas), it is important to demonstrate equivalence between the Landauer's scattering approach based on the wave function picture and the Green function formalism.</p>
+\]</span> It is exactly the same result which we obtained solving the Schrödinger equation <span class="math inline">\((2.29)-(2.36)\)</span> For more details about the Lippmann-Schwinger equations we recommend the book of M. Di Ventra [1], Sect. 3.4.</p>
+<h3 id="fisher-lee-relation-between-s-and-gr">3.1.4 Fisher-Lee Relation Between <span class="math inline">\(S\)</span> and <span class="math inline">\(G^{R}\)</span></h3>
+<p>Finally, let us establish the relation between the Green function <span class="math inline">\(G^{R}\left( r _{1}, r _{2}, E\right)\)</span> and the scattering matrix <span class="math inline">\(S\)</span>. Although we will not use it explicitly below (instead we derive more practical matrix formulas), it is important to demonstrate equivalence between the Landauer's scattering approach based on the wave function picture and the Green function formalism.</p>
 <p>Let us start from a simple <span class="math inline">\(1 D\)</span> case. The multi-channel scattering states <span class="math inline">\((2.126)\)</span>, (2.127) become <span class="math display">\[
 \begin{array}{l}
 \Psi_{L E}(z)=\left\{\begin{array}{l}
@@ -697,6 +780,10 @@ T(E)=\operatorname{Tr}\left[\tilde{\Gamma}_{L}\left(E-e \varphi_{L}\right) G^{R}
 <p>The recursive Green function method is an approach to calculate the Green functions of multi-component systems if the Green functions of isolated subsystems and the coupling matrices between subsystems are known. Starting at one end of the system (usually one of the electrodes), the subsystems are added one by one, finally the Green function of the whole system can be found. It is a convenient way to calculate the relevant Green function components for large complex systems which can be divided into many connected parts. From computational point of view the recursive method can be much faster than direct solution of the equations for large systems. The method is based on the Dyson equation <span class="math inline">\(^{5}\)</span> for the full Green function <span class="math inline">\(G\)</span>, the Green function for a disconnected system <span class="math inline">\(G _{0}\)</span> and the coupling matrix <span class="math inline">\(V\)</span> : <span class="math display">\[
 G = G _{0}+ G _{0} V G
 \]</span> The full GF is defined by the full Hamiltonian <span class="math inline">\(H = H _{0}+ V :( E - H ) G = I\)</span>, the GF of the particular parts of the system is defined as <span class="math inline">\(\left( E - H _{0}\right) G _{0}= I\)</span>. Comparing this two equations, it is easy to get (3.135). The advantage of the Dyson equation is that if one connects an additional external system to the system of interest, it is enough to know the Green function of this external system (independently of how it was calculated) and the coupling matrix. Note, that this procedure works only for non-interacting systems or as a perturbation in <span class="math inline">\(V\)</span> for interacting systems, otherwise <span class="math inline">\(V\)</span> should be replaced by a more general self-energy. However, the recursive method can be applied to interacting systems in combination with the iterative procedure.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210508103852331.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<blockquote>
+<p>Fig. 3.3 Two subsystems <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> with known Green functions are connected by the coupling <span class="math inline">\(V\)</span> forming the system <span class="math inline">\(A+B\)</span></p>
+</blockquote>
 <p>Consider how this equation works if we couple two systems with Green functions <span class="math inline">\(G_{A}^{0}\)</span> and <span class="math inline">\(G_{B}^{0}\)</span> (Fig.3.3), note that we do not need any explicit Hamiltonian for the subsystems <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, they can be connected to an arbitrary number of other systems and electrodes through corresponding self-energies. The functions <span class="math inline">\(G _{A}^{0}\)</span> and <span class="math inline">\(G _{B}^{0}\)</span> are defined in the subspaces <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> with the numbers of states <span class="math inline">\(N_{A}\)</span> and <span class="math inline">\(N_{B}\)</span> respectively, the full matrices <span class="math inline">\(G , G _{0}, V\)</span> have the dimensions <span class="math inline">\(\left(N_{A}+N_{B}\right) \times\left(N_{A}+N_{B}\right)\)</span>, and we write the equation <span class="math inline">\((3.135)\)</span> as <span class="math display">\[
 \left(\begin{array}{cc} 
 G _{A} &amp; G _{A B} \\
@@ -714,7 +801,409 @@ V _{B A} &amp; 0
 G _{A} &amp; G _{A B} \\
 G _{B A} &amp; G _{B}
 \end{array}\right)
-\]</span> where <span class="math inline">\(V _{A B}\)</span> is the coupling matrix between subsystems with the dimensions <span class="math inline">\(N_{A} \times N_{B}\)</span>. We are interested in calculation of the function <span class="math inline">\(G^{A}\)</span> describing the subsystem <span class="math inline">\(A\)</span> and</p>
+\]</span> where <span class="math inline">\(V _{A B}\)</span> is the coupling matrix between subsystems with the dimensions <span class="math inline">\(N_{A} \times N_{B}\)</span>. We are interested in calculation of the function <span class="math inline">\(G^{A}\)</span> describing the subsystem <span class="math inline">\(A\)</span> and <span class="math inline">\(G_{B A}\)</span> describing mixing between subsystems <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. After simple calculations we get <span class="math display">\[
+\begin{array}{c}
+\left(\left(G_{A}^{0}\right)^{-1}-V_{A B} G_{B}^{0} V_{B A}\right) G_{A}=\left(\left(G_{A}^{0}\right)^{-1}-\Sigma_{A B}\right) G_{A}=I \\
+G_{B A}=G_{B}^{0} V_{B A} G_{A}
+\end{array}
+\]</span> We reproduce in a more general way the calculation of the self-energy (3.120) <span class="math display">\[
+\Sigma _{A B}= V _{A B} G _{B}^{0} V _{B A}
+\]</span> introduced by the system <span class="math inline">\(B\)</span> into the system <span class="math inline">\(A\)</span>. As an other example we prove that the multi-electrode self-energy (3.122) is a sum of the self-energies for particular electrodes. Assume that we add one more electrode with the Green function (of the isolated electrode) <span class="math inline">\(G_{s}\)</span> through the coupling matrix <span class="math inline">\(V _{s C} .\)</span> The Green function of the system before is <span class="math inline">\(G _{C}^{(0)}=\left[ E - H _{C}- \Sigma ^{(0)}\right]^{-1}\)</span>, with <span class="math inline">\(\Sigma ^{(0)}\)</span> being the self-energy of all electrodes coupled earlier. Using the equation (3.137) we get <span class="math display">\[
+\left(\left(G_{C}^{0}\right)^{-1}-V_{C s} G_{s} V_{s C}\right) G_{C}=\left(E-H_{C}-\Sigma^{(0)}-\Sigma_{C s}\right) G_{C}=I
+\]</span> so that the new self-energy is <span class="math inline">\(\Sigma = \Sigma ^{(0)}+ \Sigma _{C s}\)</span>.</p>
+<h3 id="recursive-method-for-1d-systems">3.3.2 Recursive Method for 1D Systems</h3>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210508104338074.png" srcset="/img/loading.gif" style="zoom: 50%;" /></p>
+<blockquote>
+<p>Fig. 3.4 The central region (in the dashed box) divided into <span class="math inline">\(N\)</span> slices</p>
+</blockquote>
+<p>Direct calculation of the retarded Green function by means of matrix inversion ( <span class="math inline">\(3.118\)</span> ) may be computationally intractable for large systems. In the particularly important case of "long" systems with high aspect ratio and short range coupling between base orbitals (important examples are carbon nanotubes and nanoribbons) the central system can be divided into many parts (slices) with only neighbor coupling between slices (Fig. 3.4), namely <span class="math inline">\(H _{i, i+1}\)</span> is the coupling of slice <span class="math inline">\(i\)</span> and <span class="math inline">\((i+1)\)</span>. The Hamiltonian has a tridiagonal form: <span class="math display">\[
+H =\left(\begin{array}{ccccc} 
+H _{11} &amp; H _{12} &amp; 0 &amp; \cdots &amp; 0 \\
+H _{21} &amp; H _{22} &amp; H _{23} &amp; \cdots &amp; \cdots \\
+0 &amp; H _{32} &amp; H _{33} &amp; &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \ddots &amp; H _{N N-1} \\
+0 &amp; \cdots &amp; 0 &amp; H _{N-1 N} &amp; H _{N N}
+\end{array}\right)
+\]</span> Besides, we assume here that 1 -st and <span class="math inline">\(N\)</span> -th slices are coupled to the left and right electrodes by the self-energies <span class="math inline">\(\Sigma _{L}\)</span> and <span class="math inline">\(\Sigma _{R}\)</span> respectively.</p>
+<p>The Green function <span class="math inline">\(G\)</span> can be represented as a matrix in the "slice space" with the elements being matrices in the basis of corresponding slices: <span class="math display">\[
+G=\left(\begin{array}{ccccc} 
+G _{11} &amp; G _{12} &amp; G _{13} &amp; \cdots &amp; G _{1 N} \\
+G _{21} &amp; G _{22} &amp; G _{23} &amp; \cdots &amp; G _{2 N} \\
+G _{31} &amp; G _{32} &amp; G _{33} &amp; \cdots &amp; G _{3 N} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+G _{N 1} &amp; G _{N 2} &amp; G _{N 3} &amp; \cdots &amp; G _{N N}
+\end{array}\right)
+\]</span> The full Green function can be found from the equation <span class="math display">\[
+( E - H - \Sigma ) G = I ,
+\]</span> where the electrode self-energy has only two components in slice space: <span class="math inline">\(\Sigma_{11}=\Sigma_{L}\)</span> and <span class="math inline">\(\Sigma _{N N}= \Sigma _{R}\)</span></p>
+<p>Usually the calculation of all elements is not required. Indeed, substituting (3.142) into the expressions for the transmission function (3.133) and the local density of states (3.104) and taking into account that only first and last slices are coupled to the electrodes <span class="math inline">\(\left( \Gamma _{L}\right.\)</span> has only one nonzero element <span class="math inline">\(\Gamma _{L, 11}=-2 \operatorname{Im} \Sigma _{L}\)</span> and <span class="math inline">\(\Gamma _{R, N N}=\)</span> <span class="math inline">\(\left.-2 \operatorname{Im} \Sigma _{R}\right)\)</span>, we find <span class="math inline">\(^{6}\)</span> <span class="math display">\[
+\begin{array}{l}
+T(E)=\operatorname{Tr}\left( \Gamma _{L} G _{1 N} \Gamma _{R} G _{1 N}^{\dagger}\right) \\
+\rho(E)=\sum_{i=1}^{N} \rho_{i}(E)=-\frac{1}{\pi} \sum_{i=1}^{N} \operatorname{Im}\left(\operatorname{Tr} G _{i i}\right)
+\end{array}
+\]</span> As one can see, for transmission and current calculation only <span class="math inline">\(G _{1 N}\)</span> is required, for DOS calculation also all <span class="math inline">\(G _{i i}\)</span></p>
+<p>The Green functions can be calculated starting from any end, first we consider the direction of recursion from left to right (forward recursion). At the first step the Green function <span class="math inline">\(G _{11}^{\rightarrow(1)}\)</span> is <span class="math display">\[
+G_{11}^{\rightarrow(1)}=\left[ E - H _{11}- \Sigma _{L}\right]^{-1}
+\]</span> this function is not the function <span class="math inline">\(G_{11}\)</span> in (3.142), it is just the function of the first slice connected to the left electrode (Fig. 3.5).</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210508104500586.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<blockquote>
+<p>Fig. 3.5 Two first steps of the recursive method "from the left"</p>
+</blockquote>
+<p>We repeat this procedure <span class="math inline">\(N\)</span> times for functions <span class="math inline">\(G _{i j}^{\rightarrow(i)}\)</span> and <span class="math inline">\(G _{1 i}^{\rightarrow(i)}\)</span>, for <span class="math inline">\(2 \leq i \leq N\)</span> : <span class="math display">\[
+\begin{aligned}
+G _{i i}^{\rightarrow(i)} &amp;=\left[ E - H _{i i}- \Sigma _{R} \delta_{i N}- H _{i, i-1} G _{i-1, i-1}^{\rightarrow(i-1)} H _{i-1, i}\right]^{-1} \\
+G _{1 i}^{\rightarrow(i)} &amp;= G _{1, i-1}^{\rightarrow(i-1)} H _{i-1, i} G _{i i}^{\rightarrow(i)}
+\end{aligned}
+\]</span> The equation (3.147) follows from (3.137). To get the equation (3.148) we consider the Dyson equation (3.135) taken <span class="math inline">\(G _{0}\)</span> before connecting of the <span class="math inline">\(i\)</span> th slice as (we show only the elements calculated by the forward method): <span class="math display">\[
+G _{0}=\left(\begin{array}{ccccc} 
+G _{11}^{\rightarrow} &amp; G _{12}^{\rightarrow(2)} &amp; \cdots &amp; G _{1, i-1}^{\rightarrow(i-1)} &amp; 0 \\
+&amp; G _{22}^{\rightarrow(2)} &amp; &amp; &amp; 0 \\
+&amp; &amp; \ddots &amp; &amp; \\
+&amp; &amp; &amp; G _{i-1, i-1}^{\rightarrow(i-1)} &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; 0 &amp; G _{i i}^{(0)}
+\end{array}\right) .
+\]</span> And the coupling matrix <span class="math inline">\(V\)</span> has only elements <span class="math inline">\(V _{i-1, i}= H _{i-1, i}\)</span> and <span class="math inline">\(V _{i, i-1}= H _{i, i-1}\)</span>. From the first line and <span class="math inline">\(i\)</span> -th column of (3.135) we get immediately the equation (3.148).</p>
+<p>At each step we get the Green function of the <span class="math inline">\(i\)</span> -th slice <span class="math inline">\(G _{i i}^{\rightarrow(i)}\)</span> and the propagator between the first and the <span class="math inline">\(i\)</span> -th slice <span class="math inline">\(G_{1 i}^{\rightarrow i}\)</span> for the system connected up to the <span class="math inline">\(i\)</span> -th slice to the left electrode. At the last step we get <span class="math inline">\(G _{1 N}^{\rightarrow(N)}\)</span>, which is the true function <span class="math inline">\(G _{1 N}\)</span> and is sufficient to calculate the transmission function, as can be seen from (3.144). Additional computational effort is required to calculate the density of states (3.145), as one needs all diagonal elements <span class="math inline">\(G _{i i}\)</span>, and during the recursion from left to right we got only intermediate functions <span class="math inline">\(G_{i i}^{\rightarrow(i)}\)</span> for partial systems. To get other slice Green functions we will apply the backward recursion, for <span class="math inline">\(N \geq i \geq 1\)</span> : <span class="math display">\[
+\begin{array}{l}
+G_{N N}^{\leftarrow(N)}=\left[ E - H _{N N}- \Sigma _{R}\right]^{-1} \\
+G_{i i}^{\leftarrow(i)}=\left[ E - H _{i i}- \Sigma _{L} \delta_{i 1}- H _{i, i+1} G _{i+1, i+1}^{\leftarrow(i+1)} H _{i+1, i}\right]^{-1},
+\end{array}
+\]</span> in the end of this procedure we get the right answer for <span class="math inline">\(G_{11}\)</span>, as well as in the forward recursion we obtained <span class="math inline">\(G _{N N}\)</span>, all other <span class="math inline">\(G _{i i}\)</span> for <span class="math inline">\(1&lt;i&lt;N\)</span> are calculated as <span class="math display">\[
+G_{i i}=\left[ E - H _{i i}- H _{i, i-1} G _{i-1, i-1}^{\rightarrow(i-1)} H _{i-1, i}- H _{i, i+1} G _{i+1, i+1}^{\leftarrow(i+1)} H _{i+1, i}\right]^{-1}
+\]</span> This is just the Dyson equation for slice <span class="math inline">\(i\)</span> with the left and right self-energies. Actually the first part in this expression is already calculated <span class="math inline">\(\left[G_{i i}^{\rightarrow(i)}\right]^{-1}\)</span>. So that we can rewrite this expression as <span class="math display">\[
+G_{i i}=G_{i i}^{\rightarrow(i)}\left[I-G_{i i}^{\rightarrow(i)} H_{i, i+1} G_{i+1, i+1}^{\leftarrow(i+1)} H_{i+1, i}\right]^{-1}
+\]</span> For long systems with short range interactions the time required for calculation scales as <span class="math inline">\(M^{3} N\)</span>, where <span class="math inline">\(M \times M\)</span> are typical dimensions of one slice matrix (the typical time of matrix inversion is <span class="math inline">\(M^{3}\)</span> ). If one uses the inversion for the whole system it scales as <span class="math inline">\((M N)^{3}\)</span> which is much larger for large <span class="math inline">\(N\)</span>.</p>
+<h3 id="multi-connected-systems">3.3.3 Multi-connected Systems</h3>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210508104636483.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<blockquote>
+<p>Fig. 3.6 Example of a multi-connected system</p>
+</blockquote>
+<p>In the case of <span class="math inline">\(2 D\)</span> and <span class="math inline">\(3 D\)</span> multi-connected systems the recursive method in the form discussed above can be applied if the system is divided into slices with several subsystems in every slice. Alternatively, the Dyson equation can be applied to multiconnected systems with Green functions of isolated subsystems included into <span class="math inline">\(G _{0}\)</span> and all couplings between subsystems into <span class="math inline">\(V\)</span>.</p>
+<p>Consider as an example three subsystems between two electrodes (Fig. 3.6). The fist slice consists of subsystems <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the second of subsystem <span class="math inline">\(C\)</span>. The self-energy <span class="math inline">\(\Sigma_{L}\)</span> should be calculated for the system <span class="math inline">\(A+B\)</span>. It has a general non-diagonal form, as well as the Green function of the system <span class="math inline">\(A+B\)</span> connected to the electrode, which should be determined from the Dyson equation: <span class="math display">\[
+\left(\begin{array}{cc}
+G_{A} &amp; G_{A B} \\
+G_{B A} &amp; G_{B}
+\end{array}\right)^{\rightarrow(1)}=\left(\begin{array}{cc}
+G_{A}^{0} &amp; 0 \\
+0 &amp; G_{B}^{0}
+\end{array}\right)+\left(\begin{array}{cc}
+G_{A}^{0} &amp; 0 \\
+0 &amp; G_{B}^{0}
+\end{array}\right)\left(\begin{array}{ll}
+\Sigma_{A A} &amp; \Sigma_{A B} \\
+\Sigma_{B A} &amp; \Sigma_{B B}
+\end{array}\right)\left(\begin{array}{cc}
+G_{A} &amp; G_{A B} \\
+G_{B A} &amp; G_{B}
+\end{array}\right)^{\rightarrow(1)}
+\]</span> this equation replaces the equation (3.146). The functions <span class="math inline">\(G _{A}\)</span> and <span class="math inline">\(G _{B}\)</span> are not independent and should be calculated simultaneously.</p>
+<p>Let us consider in detail how the off-diagonal components appear. Following the previous approach we consider the coupling of systems <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> to the "left" system <span class="math inline">\(L .\)</span> The equation equivalent to <span class="math inline">\((3.136)\)</span> is: <span class="math display">\[
+\begin{array}{c}
+\left(\begin{array}{ccc} 
+G _{A} &amp; G _{A B} &amp; G _{A C} \\
+G _{B A} &amp; G _{B} &amp; G _{B C} \\
+G _{L A} &amp; G _{L B} &amp; G _{L}
+\end{array}\right)=\left(\begin{array}{ccc} 
+G _{A}^{0} &amp; 0 &amp; 0 \\
+0 &amp; G _{B}^{0} &amp; 0 \\
+0 &amp; 0 &amp; G _{L}^{0}
+\end{array}\right)+ \\
+\left(\begin{array}{ccc} 
+G _{A}^{0} &amp; 0 &amp; 0 \\
+0 &amp; G _{B}^{0} &amp; 0 \\
+0 &amp; 0 &amp; G _{L}^{0}
+\end{array}\right)\left(\begin{array}{ccc}
+0 &amp; 0 &amp; V _{A L} \\
+0 &amp; 0 &amp; V _{B L} \\
+V _{L A} &amp; V _{L B} &amp; 0
+\end{array}\right)\left(\begin{array}{ccc} 
+G _{A} &amp; G _{A B} &amp; G _{A L} \\
+G _{B A} &amp; G _{B} &amp; G _{B L} \\
+G _{L A} &amp; G _{L B} &amp; G _{L}
+\end{array}\right)
+\end{array}
+\]</span> note that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are coupled to <span class="math inline">\(L\)</span>, but there is no direct coupling between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. From this equation one gets (3.154) with the self-energy <span class="math display">\[
+\left(\begin{array}{ll}
+\Sigma_{A A} &amp; \Sigma_{A B} \\
+\Sigma_{B A} &amp; \Sigma_{B B}
+\end{array}\right)=\left(\begin{array}{cc}
+V_{A L} G_{L}^{0} V_{L A} &amp; V_{A L} G_{L}^{0} V_{L B} \\
+V_{B L} G_{L}^{0} V_{L A} &amp; V_{B L} G_{L}^{0} V_{L B}
+\end{array}\right)
+\]</span> The diagonal elements reproduce (3.139), and the off-diagonal elements describe mutual influence of the systems <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Even if there is no direct coupling between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (if this coupling <span class="math inline">\(V_{A B}\)</span> is present, it should be also included in <span class="math inline">\(\left.(3.155)\right)\)</span>, the effective coupling is established through the electrode.</p>
+<p>The Green functions of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are calculated from <span class="math inline">\((3.154) .\)</span> At the second step the Green function of the system <span class="math inline">\(C\)</span> is determined as: <span class="math display">\[
+G _{C}=\left[ E - H _{C}- \Sigma _{R}- H _{C A} G _{A}{\vec{H}^{(1)}} H _{A C}- H _{C B} G _{B}^{\rightarrow(1)} H _{B C}\right]^{-1}
+\]</span> For large systems with many elements and complex topology, the application of the recursive method starts to be cumbersome. It seems that the methods based on the direct solution of the Dyson equation in a subsystem space should be preferable.</p>
+<h2 id="semi-infinite-electrodes">3.4 Semi-infinite Electrodes</h2>
+<h3 id="surface-green-function">3.4.1 Surface Green Function</h3>
+<p>Previously in this chapter we introduced the electrode self-energies <span class="math inline">\(\Sigma _{s}\)</span>, which are determined by (3.120), (3.121). Now let us discuss in more detail how these selfenergies can be calculated. The problem is that electrodes are usually assumed to be infinitely large at least in one direction. The direct matrix inversion (3.119) can not be performed in this case because the matrix has infinite size and the spectrum of an infinitely large system is continuous.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210508104823380.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<blockquote>
+<p>Fig. 3.7 A quantum system coupled to a semi-infinite <span class="math inline">\(1 D\)</span> electrode</p>
+</blockquote>
+<p>To proceed, we refine the model of electrodes and introduce the concept of surface Green function. First of all, one should note that usually (actually in all relevant cases) the electrode-to-system coupling <span class="math inline">\(V _{s C}\)</span> in the spatially localized (tight-binding) basis is nonzero only for limited number of close to the surface basis orbitals. We consider a semi-infinite electrode (Fig. 3.7) as a series of equivalent blocks with the Hamiltonian <span class="math inline">\(H_{0}\)</span> and interblock neighbor couplings <span class="math inline">\(H_{1}\)</span>. We assume that the size of the block is large enough to fulfill two conditions:</p>
+<ul>
+<li><ol type="i">
+<li>only couplings between neighbor blocks can be taken into account. The Hamiltonian of such an electrode is of the standard tridiagonal form:</li>
+</ol></li>
+</ul>
+<p><span class="math display">\[
+H =\left(\begin{array}{ccccc} 
+H _{0} &amp; H _{1} &amp; 0 &amp; 0 &amp; \cdots \\
+H _{1}^{\dagger} &amp; H _{0} &amp; H _{1} &amp; 0 &amp; \cdots \\
+0 &amp; H _{1}^{\dagger} &amp; H _{0} &amp; H _{1} &amp; \cdots \\
+0 &amp; 0 &amp; H _{1}^{\dagger} &amp; H _{0} &amp; \ddots \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \ddots
+\end{array}\right),
+\]</span> - (ii) the central system is coupled only to the edge block. It means that the coupling matrix has the form</p>
+<p><span class="math display">\[
+V _{s C}=\left(\begin{array}{cccc}
+\tilde{V}_{s C} &amp; 0 &amp; 0 &amp; \cdots \\
+0 &amp; 0 &amp; 0 &amp; \cdots \\
+0 &amp; 0 &amp; 0 &amp; \cdots \\
+\vdots &amp; \vdots &amp; \ddots
+\end{array}\right) .
+\]</span> The Green function <span class="math inline">\(G_{s}^{R}\)</span> is of a general type (not periodic): <span class="math display">\[
+G_{s}^{R}=\left(\begin{array}{cccc}
+\tilde{ G }_{s}^{R} &amp; G _{12} &amp; G _{13} &amp; \cdots \\
+G _{21} &amp; G _{22} &amp; G _{23} &amp; \cdots \\
+G _{31} &amp; G _{32} &amp; G _{33} &amp; \cdots \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots
+\end{array}\right)
+\]</span> We introduce here the Green function of the edge block (rigorously, it is the part of the Green function corresponding to the basis of the edge block) <span class="math inline">\(\tilde{G}_{s}^{R}\)</span> and call it surface Green function. Because of the condition (ii) the self-energy is determined by <span class="math inline">\(\tilde{ G }_{s}^{R}\)</span> only, namely <span class="math display">\[
+\Sigma _{s}^{R}=\tilde{ V }_{s C}^{\dagger} \tilde{ G }_{s}^{R} \tilde{ V }_{s C}
+\]</span> Thus, our aim is to calculate the surface Green function <span class="math inline">\(\tilde{G}_{s}^{R}\)</span>, all other parts of the matrix <span class="math inline">\((3.160)\)</span> are irrelevant.</p>
+<p>We consider two different approaches to this problem: first the analytical solution, and second the numerical iterative method.</p>
+<h3 id="analytical-solution">3.4.2 Analytical Solution</h3>
+<p>To proceed, we use the relation between the Green function and the eigenfunctions <span class="math inline">\(\Psi_{\lambda}\)</span> of a system, which are solutions of the Schrödinger equation (3.85). Let us define <span class="math inline">\(\Psi_{\lambda}(\alpha) \equiv c_{\lambda}\)</span> in the eigenstate <span class="math inline">\(|\lambda\rangle\)</span> in the sense of definition (3.82), then <span class="math display">\[
+G_{\alpha \beta}^{R}(\varepsilon)=\sum_{\lambda} \frac{\Psi_{\lambda}(\alpha) \Psi_{\lambda}^{*}(\beta)}{\varepsilon+i \eta-E_{\lambda}}
+\]</span> where <span class="math inline">\(\alpha\)</span> is the TB state (site) index, <span class="math inline">\(\lambda\)</span> denotes the eigenstate, <span class="math inline">\(E_{\lambda}\)</span> is the energy of the eigenstate. The summation in this formula can be easily replaced by integration in the case of a continuous spectrum. It is important to notice, that the eigenfunctions <span class="math inline">\(\Psi_{\lambda}(\alpha)\)</span> should be calculated for the semi-infinite lead separately, because the Green function of the isolated lead is entering into the contact self-energy.</p>
+<p>For example, for the semi-infinite <span class="math inline">\(1 D\)</span> chain of single-state sites <span class="math inline">\((n, m=1,2, \ldots)\)</span> we write <span class="math display">\[
+G_{n m}^{R}(\varepsilon)=\int_{-\pi}^{\pi} \frac{d k}{2 \pi} \frac{\Psi_{k}(n) \Psi_{k}^{*}(m)}{\varepsilon+i \eta-E_{k}}
+\]</span> with the eigenfunctions <span class="math inline">\(\Psi_{k}(n)=\sqrt{2} \sin k n\)</span>, and energies <span class="math inline">\(E_{k}=\varepsilon_{0}+2 t \cos k\)</span>.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210508105032332.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<blockquote>
+<p>Fig. <span class="math inline">\(3.8\)</span> A semi-infinite <span class="math inline">\(1 D\)</span> chain coupled to the system's central region</p>
+</blockquote>
+<p>Let us consider a simple situation, when the nanosystem is coupled only to the end site of the <span class="math inline">\(1 D\)</span> lead (Fig. <span class="math inline">\(3.8\)</span> ). From (3.120) we obtain the matrix elements of the self-energy <span class="math display">\[
+\Sigma_{\alpha \beta}=V_{1 \alpha}^{*} V_{1 \beta} G_{11}^{0 R}
+\]</span> where the matrix element <span class="math inline">\(V_{1 \alpha}\)</span> describes the coupling between the end site of the lead <span class="math inline">\((n=m=1)\)</span> and the state <span class="math inline">\(|\alpha\rangle\)</span> of the nanosystem.</p>
+<p>To make clear the main physical properties of the lead self-energy, let us analyze in detail the semi-infinite <span class="math inline">\(1 D\)</span> lead with the Green function (3.163). The integral can be calculated analytically <span class="math display">\[
+G_{11}^{R}(\varepsilon)=\frac{1}{\pi} \int_{-\pi}^{\pi} \frac{\sin ^{2} k d k}{\varepsilon+i \eta-\varepsilon_{0}-2 t \cos k}=-\frac{\exp (i K(\varepsilon))}{t}
+\]</span> where <span class="math inline">\(K(\varepsilon)\)</span> is determined from <span class="math inline">\(\varepsilon=\varepsilon_{0}+2 t \cos K .\)</span> Finally, we obtain the following expressions for the real and imaginary part of the self-energy <span class="math display">\[
+\begin{array}{c}
+\operatorname{Re} \Sigma_{\alpha \alpha}=\frac{\left|V_{1 \alpha}\right|^{2}}{t}\left(\kappa-\sqrt{\kappa^{2}-1}[\theta(\kappa-1)-\theta(-\kappa-1)]\right) \\
+\operatorname{Im} \Sigma_{\alpha \alpha}=-\frac{\left|V_{1 \alpha}\right|^{2}}{t} \sqrt{1-\kappa^{2}} \theta(1-|\kappa|) \\
+\kappa=\frac{\varepsilon-\varepsilon_{0}}{2 t}
+\end{array}
+\]</span> The real and imaginary parts of the self-energy, given by these expressions, are shown in Fig. <span class="math inline">\(3.9 .\)</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210508105159141.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<blockquote>
+<p>Fig. 3.9 Real (solid line) and imaginary (dashed line) parts of the electrode self-energy as a function of energy for a one-band one-dimensional lead</p>
+</blockquote>
+<p>There are several important general conclusion that we can make looking at the formulas and the curves.</p>
+<ul>
+<li><ol type="i">
+<li>The self-energy is a complex function, the real part describes the energy shift of the level, and the imaginary part describes broadening. The finite imaginary part appears as a result of the continuous spectrum in the leads. The imaginary part determines the level-width function</li>
+</ol></li>
+</ul>
+<p><span class="math display">\[
+\Gamma=i\left(\Sigma-\Sigma^{\dagger}\right) .
+\]</span></p>
+<ol start="2" type="i">
+<li>In the wide-band limit <span class="math inline">\((t \rightarrow \infty)\)</span>, at the energies <span class="math inline">\(\varepsilon-\varepsilon_{0} \ll t\)</span>, it is possible to neglect the real part of the self-energy, and the only effect of the leads is level broadening. So that the self-energy of the left (right) lead is <span class="math display">\[
+\Sigma_{L(R)}=-i \frac{\Gamma_{L(R)}}{2}
+\]</span> These expressions we will use soon in Sect. <span class="math inline">\(3.5\)</span>.</li>
+</ol>
+<h3 id="the-iterative-method-for-1d-electrodes">3.4.3 The Iterative Method for 1D Electrodes</h3>
+<p>In the case when analytical calculation of the electrode Green function is not possible, a numerical approach can be used. We consider the iterative method suggested in [5]. Here we first consider a 1D electrode: semi-infinite in one direction, but finite in other directions. The Hamiltonian in this case has the form (3.158) with all block matrices <span class="math inline">\(H _{0}, H _{1}\)</span> being finite-size, so that usual matrix inversion operations can be used for particular blocks.</p>
+<p>We start from the exact equations for the elements of the Green function matrix (3.160), function <span class="math inline">\(\tilde{ G } \equiv G _{11}\)</span> is the surface Green function, <span class="math display">\[
+\begin{array}{l}
+\left( E - H _{0}\right) \tilde{ G }= I + H _{1} G _{21} \\
+\left( E - H _{0}\right) G _{p 1}= H _{1}^{\dagger} G _{p-1,1}+ H _{1} G _{p+1,1}, \quad p \geqslant 2
+\end{array}
+\]</span> this infinite system of equations can be truncated to give the approximate answer. The convenient and numerically stable way to do it uses the following renormalization idea. Let us substitute the expression for <span class="math inline">\(G_{21}\)</span> from the second equation into the first one: <span class="math display">\[
+\left( E - H _{0}- H _{1}\left( E - H _{0}\right)^{-1} H _{1}^{\dagger}\right) \tilde{ G }= I + H _{1}\left( E - H _{0}\right)^{-1} H _{1} G _{31}
+\]</span> at the same time we rewrite (3.172) for only odd numbers <span class="math inline">\(p=3,5, \ldots\)</span> : <span class="math display">\[
+\begin{array}{r}
+\left( E - H _{0}- H _{1}\left( E - H _{0}\right)^{-1} H _{1}^{\dagger}- H _{1}^{\dagger}\left( E - H _{0}\right)^{-1} H _{1}\right) \tilde{ G }_{p, 1}= \\
+H _{1}^{\dagger}\left( E - H _{0}\right)^{-1} H _{1}^{\dagger} G _{p-2,1}+ H _{1}\left( E - H _{0}\right)^{-1} H _{1} G _{p+2,1}
+\end{array}
+\]</span> The structure of these equations is similar to the initial one, but they describe only odd slices. All even blocks participate through the renormalized coupling <span class="math inline">\(H _{1}^{\prime}=\)</span> <span class="math inline">\(H_{1}\left(E-H_{0}\right)^{-1} H_{1}\)</span>. If we change the numbering defining new Green functions at <span class="math inline">\(k&gt;1\)</span> as <span class="math inline">\(G _{k, 1}^{\prime}= G _{2 k-1,1}: G _{2,1}^{\prime}= G _{3,1},\)</span>$ G <em>{3,1}^{}= G </em>{5,1}$, etc., and redefine the functions <span class="math display">\[
+\begin{array}{l} 
+A = H _{1} \\
+B = H _{1}^{\dagger} \\
+C = E - H _{0} \\
+D = E - H _{0},
+\end{array}
+\]</span> with the following transformation <span class="math display">\[
+\begin{array}{l} 
+A^{\prime}=A D^{-1} A\\
+B ^{\prime}= B D ^{-1} B \\
+C ^{\prime}= C - A D ^{-1} B \\
+D ^{\prime}= D - A D ^{-1} B - B D ^{-1} A
+\end{array}
+\]</span> we arrive at the (3.171), (3.172) with renormalized parameters. Note that <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span> are the same in the beginning, but are transformed differently. Repeating the procedure <span class="math inline">\(n\)</span> times, we obtain the equations <span class="math display">\[
+\begin{array}{l} 
+C ^{(n)} \tilde{ G }= I + A ^{(n)} G _{21}^{(n)} \\
+D ^{(n)} G _{k 1}^{(n)}= B ^{(n)} G _{k-1,1}^{(n)}+ A ^{(n)} G _{k+1,1}^{(n)}, k \geqslant 2
+\end{array}
+\]</span> The Green functions at each step are related to the functions of the initial problem, e.g. <span class="math inline">\(G_{21}^{(n)}=G_{2^{n}+1}\)</span>, but the first (surface) Green function <span class="math inline">\(G_{11}\)</span> is not changed by this transformation.</p>
+<p>In the limit <span class="math inline">\(n \rightarrow \infty\)</span> one gets <span class="math inline">\(A^{(n)} \rightarrow 0\)</span> and <span class="math inline">\(\tilde{ G }=\left( C ^{(n)}\right)^{-1}\)</span>. The physical sense of this procedure is that the effective interaction for larger and larger distance between the blocks (at each step the number of "passive" slices between "active" is doubled) decreases and finally can be neglected. In practice, a large enough number of iterations should be done, the convergence criteria is small enough value of <span class="math inline">\(A^{(n)}\)</span>.</p>
+<h3 id="the-iterative-method-for-2-d-and-3-d-electrodes">3.4.4 The Iterative Method for <span class="math inline">\(2 D\)</span> and <span class="math inline">\(3 D\)</span> Electrodes</h3>
+<p>In the case of 2D (for example graphene) or 3D (usual metal and semiconductor) electrodes the iterative method should be combined with <span class="math inline">\(k\)</span> -sampling in the directions perpendicular to the surface. We assume here an ideal semi-infinite electrode formed from the blocks with the Hamiltonian <span class="math inline">\(H_{0}\)</span> and coupling dependent on the distance between blocks <span class="math inline">\(H_{\Delta n \Delta m \Delta l}\)</span>. <span class="math display">\[
+\begin{aligned}
+&amp;H=\sum_{n m l, n^{\prime} m^{\prime} l^{\prime}} H_{n m l, n^{\prime} m^{\prime} l^{\prime}}, n \in[0, \infty], m, l \in[-\infty, \infty] \\
+&amp;\Psi_{n m l}=\sum_{k_{x} k_{y}} \Psi_{n k} e^{i k_{x} m+i k_{y} l}, k_{x}, k_{y} \in[-\pi, \pi]\\
+&amp; \sum_{n m l, n^{\prime} m^{\prime} l^{\prime}} H_{n m l, n^{\prime} m^{\prime} l^{\prime}} \Psi _{n^{\prime} k} e^{i k_{x} m^{\prime}+i k_{y} l^{\prime}}=E_{k} \Psi _{n k} e^{i k_{x} m+i k_{y} l}\\
+&amp; \sum_{n^{\prime}} H_{n-n^{\prime}, k} \Psi_{n^{\prime} k}=E_{k} \Psi_{n k}
+\end{aligned}
+\]</span> where we introduced the <span class="math inline">\(k\)</span> -dependent Hamiltonian <span class="math display">\[
+H _{n-n^{\prime}, k}=\sum_{\Delta m \Delta l} H _{n-n^{\prime}, \Delta m \Delta l} e^{i k_{x} \Delta m+i k_{y} \Delta l} .
+\]</span> Now we assume that only neighbouring blocks in <span class="math inline">\(z\)</span> -direction are coupled and introduce the Hamiltonians <span class="math inline">\(H _{0}^{k}= H _{0, k }\)</span> and <span class="math inline">\(H _{1}^{k}= H _{1, k } .\)</span> We reduced the problem to the previously considered <span class="math inline">\(1 D\)</span> case, which can be solved by the iterative method. Thus for any <span class="math inline">\(k\)</span> we obtain the surface Green function <span class="math inline">\(\tilde{G}^{k}\)</span>.</p>
+<p>The last thing to do is to calculate the surface Green function <span class="math inline">\(\tilde{G}_{m l, m^{\prime} l^{\prime}}(E)\)</span> which takes all states into account. Using the eigenvalue expansion (3.25) and the Fourier representation (3.186) one gets: <span class="math display">\[
+\begin{array}{c}
+G_{n m l, n^{\prime} m^{\prime} l^{\prime}}(E)=\sum_{k}\left[\sum_{\lambda} \frac{\left| \Psi _{n k}^{\lambda}\right\rangle\left\langle \Psi _{n^{\prime} k}^{\lambda}\right|}{E+i \eta-E_{k}^{\lambda}}\right] e^{i k_{x}\left(m-m^{\prime}\right)+i k_{y}\left(l-l^{\prime}\right)} \\
+\tilde{ G }_{m l, m^{\prime} l^{\prime}}(E)=\sum_{k} \tilde{ G }^{k} e^{i k_{x}\left(m-m^{\prime}\right)+i k_{y}\left(l-l^{\prime}\right)}
+\end{array}
+\]</span> Or <span class="math display">\[
+\tilde{ G }_{\Delta m \Delta l}(E)=\sum_{k} \tilde{ G }^{k} e^{i k_{x} \Delta m+i k_{y} \Delta l}
+\]</span> The surface Green function within one block is given simply by <span class="math inline">\(\sum_{k} \tilde{G}^{k}\)</span>.</p>
+<h2 id="resonant-transport">3.5 Resonant Transport</h2>
+<p>We can now analyze the basic features of coherent transport through discrete-level systems and some general properties described by the retarded Green function (3.118): <span class="math display">\[
+G_{C}^{R}(E)=\left[ E - H _{C}- \Sigma ^{R}\right]^{-1}=\left[ E - H _{C}- \Sigma _{L}^{R}- \Sigma _{R}^{R}\right]^{-1}
+\]</span> the transmission function (3.133): <span class="math display">\[
+T(E)=\operatorname{Tr}\left( \Gamma _{L}(E) G _{C}^{R}(E) \Gamma _{R}(E) G _{C}^{A}(E)\right)
+\]</span> clarify the physical sense of the self-energy (3.120): <span class="math display">\[
+\begin{array}{c} 
+\Sigma _{s=L(R)}^{R}= V _{s C}^{\dagger} G _{s}^{R} V _{s C} \\
+\Sigma_{s=L(R) ; \alpha \beta}^{R}=\sum_{\delta \gamma}\left( V _{s C}^{\dagger}\right)_{\alpha \delta} G_{s ; \delta \gamma}^{R} V_{s ; \gamma \beta}=\sum_{\delta \gamma} V_{s ; \delta \alpha}^{*} V_{s ; \gamma \beta} G_{s ; \delta \gamma}^{R},
+\end{array}
+\]</span> and the level-width function (3.129): <span class="math display">\[
+\Gamma _{s}=i\left( \Sigma _{s}^{R}- \Sigma _{s}^{A}\right)
+\]</span> We introduce also one new important function, the spectral function ( matrix): <span class="math display">\[
+A =i\left( G ^{R}- G ^{A}\right)
+\]</span> Comparing this expression with <span class="math inline">\((3.104)\)</span> one can see that <span class="math inline">\(A_{\alpha \alpha}(E)=2 \pi \rho_{\alpha \alpha}(E)\)</span> describes the local density of states.</p>
+<p>The level-width function can be in principle complex, for example in the situations with the external magnetic filed, but we will consider only the cases with a real <span class="math inline">\(\Gamma\)</span>. Moreover, we assume that <span class="math inline">\(\Gamma\)</span> is symmetric matrix <span class="math inline">\(\Gamma_{\alpha \beta}=\Gamma_{\beta \alpha}\)</span> and determines the imaginary part of <span class="math inline">\(\Sigma ^{R}\)</span> : <span class="math display">\[
+\Gamma =i\left( \Sigma ^{R}- \Sigma ^{A}\right)=-2 \operatorname{Im} \Sigma ^{R}, \quad \Sigma ^{R}=\operatorname{Re} \Sigma ^{R}-\frac{i}{2} \Gamma
+\]</span> To understand the meaning of these functions, let us consider some simple examples of resonant transport, which take place for small couplings to the electrodes and energies close to the eigenenergies of the isolated system.</p>
+<h3 id="single-level-model">3.5.1 Single-Level Model</h3>
+<p>The simplest, but important case of resonant tunneling is transmission through a single level (Fig.3.10).</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210508141409525.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<blockquote>
+<p>Fig. 3.10 The single-level model</p>
+</blockquote>
+<p>We already considered it in Chap. 2 as the limiting case of transmission through a double-barrier potential and obtained the Lorentzian-shape formula (2.66). Now we get the same result using the Green function method. In the wide-band limit the energy independent electrode self-energies are <span class="math display">\[
+\Sigma^{R}=\Sigma_{L}^{R}+\Sigma_{R}^{R}, \quad \Sigma_{L}^{R}=-i \frac{\Gamma_{L}}{2}, \quad \Sigma_{R}^{R}=-i \frac{\Gamma_{R}}{2}
+\]</span> and for the retarded and advanced Green functions one gets <span class="math inline">\(\left(\varepsilon_{0}\right.\)</span> is the energy of the level): <span class="math display">\[
+\begin{array}{c}
+G^{R}(E)=\frac{1}{E-\varepsilon_{0}-\Sigma^{R}}=\frac{1}{E-\varepsilon_{0}+i\left(\Gamma_{L}+\Gamma_{R}\right) / 2}, \\
+G^{A}(E)=\frac{1}{E-\varepsilon_{0}-i\left(\Gamma_{L}+\Gamma_{R}\right) / 2}
+\end{array}
+\]</span> which gives the spectral function <span class="math display">\[
+A(E)=-2 \operatorname{Im} G^{R}=\frac{\Gamma_{L}+\Gamma_{R}}{\left(E-\varepsilon_{0}\right)^{2}+(1 / 4)\left(\Gamma_{L}+\Gamma_{R}\right)^{2}}=\frac{\Gamma}{\left(E-\varepsilon_{0}\right)^{2}+\Gamma^{2} / 4},
+\]</span> with <span class="math inline">\(\Gamma=\Gamma_{L}+\Gamma_{R}\)</span>. This function is shown in Fig. <span class="math inline">\(3.11\)</span> at three values of <span class="math inline">\(\Gamma=1,2,4\)</span>. It is nicely seen that <span class="math inline">\(\Gamma\)</span> determines the width of the curve at half-height.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210508141712213.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<blockquote>
+<p>Fig. 3.11 The spectral function for the single-level model</p>
+</blockquote>
+<p>Now using the general expression (3.194) we obtain the transmission function, recovering the result (2.66) generalized for asymmetric coupling: <span class="math display">\[
+T(E)=\frac{\Gamma_{L} \Gamma_{R}}{\left[E-\varepsilon_{0}\right]^{2}+\left(\Gamma_{L}+\Gamma_{R}\right)^{2} / 4}
+\]</span> This curve has the same Lorentzian shape as the spectral function. Interesting feature of the transmission for symmetric junctions <span class="math inline">\(\left(\Gamma_{L}=\Gamma_{R}\right)\)</span> is that its maximum value at <span class="math inline">\(E=\varepsilon_{0}\)</span> is always unity, even for very weak coupling.</p>
+<p>It is useful to have some expressions to estimate current and conductance in the limiting cases.</p>
+<h4 id="at-zero-temperature">At Zero Temperature</h4>
+<p>Note that the spin degeneracy is not taken into account and the Fermi distribution functions are assumed in the electrodes. The conductance at the Fermi energy is <span class="math display">\[
+G=\frac{e^{2}}{h} T\left(E_{F}\right)=\frac{e^{2}}{h} \frac{\Gamma_{L} \Gamma_{R}}{\left(E_{F}-\varepsilon_{0}\right)^{2}+\left(\Gamma_{L}+\Gamma_{R}\right)^{2} / 4}
+\]</span> with the maximum at <span class="math inline">\(\varepsilon_{0}=E_{F}\)</span>, we assume that the Fermi level is fixed by the electrodes and the energy of the level <span class="math inline">\(\varepsilon_{0}\)</span> is the parameter which can be changed. The maximum value of conductance is <span class="math display">\[
+G_{\max }=\frac{e^{2}}{h} \frac{4 \Gamma_{L} \Gamma_{R}}{\left(\Gamma_{L}+\Gamma_{R}\right)^{2}}
+\]</span> It is interesting that for symmetric junction <span class="math inline">\(\left(\Gamma_{L}=\Gamma_{R}\right)\)</span> it is always <span class="math inline">\(e^{2} / h\)</span> independently of the value of <span class="math inline">\(\Gamma_{L}\)</span>. For weaker coupling to the electrodes, exactly at the resonance the conductance is always the same, but the width of the resonance is decreasing.</p>
+<p>The other useful formula is the exact expression for the current at finite voltage <span class="math display">\[
+I(V)=\frac{e}{h} \frac{2 \Gamma_{L} \Gamma_{R}}{\Gamma_{L}+\Gamma_{R}}\left[\arctan \left(\frac{(1-\eta) e V-\varepsilon_{0}}{\left(\Gamma_{L}+\Gamma_{R}\right) / 2}\right)+\arctan \left(\frac{\eta e V+\varepsilon_{0}}{\left(\Gamma_{L}+\Gamma_{R}\right) / 2}\right)\right]
+\]</span> if one assumes the linear shift of the energy level with voltage <span class="math inline">\(\tilde{\varepsilon}_{0}(V)=\varepsilon_{0}+\eta e V\)</span>.</p>
+<p>The saturation current at large voltage is <span class="math display">\[
+I_{\max }=\frac{e}{h} \frac{2 \pi \Gamma_{L} \Gamma_{R}}{\Gamma_{L}+\Gamma_{R}}=\frac{e}{\hbar} \frac{\Gamma_{L} \Gamma_{R}}{\Gamma_{L}+\Gamma_{R}}
+\]</span></p>
+<h4 id="at-finite-temperature">At Finite Temperature</h4>
+<p>The linear conductance is given by <span class="math display">\[
+G(T)=\frac{e^{2}}{h} \frac{1}{4 T} \int_{-\infty}^{\infty}\left[\frac{\Gamma_{L} \Gamma_{R}}{\left(E-\varepsilon_{0}\right)^{2}+\left(\Gamma_{L}+\Gamma_{R}\right)^{2} / 4}\right] \frac{d E}{\cosh ^{2}(E /(2 T))} .
+\]</span> The off-resonant conductance at <span class="math inline">\(\left|\varepsilon_{0}\right| \gg \Gamma_{L}+\Gamma_{R}, T\)</span> is <span class="math display">\[
+G=\frac{e^{2}}{h} \frac{\Gamma_{L} \Gamma_{R}}{\varepsilon_{0}^{2}}
+\]</span> At weak coupling <span class="math inline">\(\Gamma_{L}, \Gamma_{R} \ll T\)</span> one gets <span class="math display">\[
+G=\frac{e^{2}}{h} \frac{\pi \Gamma_{L} \Gamma_{R}}{\Gamma_{L}+\Gamma_{R}} \frac{1}{T \cosh ^{2}\left(\varepsilon_{0} /(2 T)\right)}
+\]</span> These simple formulas are useful to estimate the currents and conductances.</p>
+<h3 id="two-level-model-interference">3.5.2 Two-Level Model, Interference</h3>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210508142333474.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<blockquote>
+<p>Fig. 3.12 Two-level model</p>
+</blockquote>
+<p>The other example (Fig. <span class="math inline">\(3.12\)</span> ) is the two-level model <span class="math inline">\((3.106)\)</span> : <span class="math display">\[
+H=\left(\begin{array}{cc}
+\varepsilon_{1} &amp; t \\
+t &amp; \varepsilon_{2}
+\end{array}\right)
+\]</span> we will consider the diagonal in level indices self-energies in the wide-band limit <span class="math display">\[
+\Sigma_{L}=\left(\begin{array}{cc}
+-\frac{i}{2} \Gamma_{L 1} &amp; 0 \\
+0 &amp; -\frac{i}{2} \Gamma_{L 2}
+\end{array}\right), \quad \Sigma_{R}=\left(\begin{array}{cc}
+-\frac{i}{2} \Gamma_{R 1} &amp; 0 \\
+0 &amp; -\frac{i}{2} \Gamma_{R 2}
+\end{array}\right) .
+\]</span> The expression for the Green function we obtain from (3.107) by replacing <span class="math inline">\(\eta\)</span> with the corresponding <span class="math inline">\(\Gamma_{1}=\left(\Gamma_{L 1}+\Gamma_{R 1}\right) / 2\)</span> or <span class="math inline">\(\Gamma_{2}=\left(\Gamma_{L 2}+\Gamma_{R 2}\right) / 2\)</span> : <span class="math display">\[
+G^{R}(E)=\frac{1}{\left(E+i \Gamma_{1}-\varepsilon_{1}\right)\left(E+i \Gamma_{2}-\varepsilon_{2}\right)-t^{2}}\left(\begin{array}{cc}
+E+i \Gamma_{2}-\varepsilon_{2} &amp; t \\
+t &amp; E+i \Gamma_{1}-\varepsilon_{1}
+\end{array}\right)
+\]</span> This model describes several important limiting cases:</p>
+<ul>
+<li><ol type="i">
+<li>the parallel coupling: <span class="math inline">\(\Gamma_{L 1}=\Gamma_{L 2}\)</span> and <span class="math inline">\(\Gamma_{R 1}=\Gamma_{R 2}\)</span>, in this case the levels are equivalently coupled to the electrodes and the current flows between the electrodes through both levels, also at <span class="math inline">\(t=0\)</span>;</li>
+</ol></li>
+<li><ol start="2" type="i">
+<li>the sequential coupling:</li>
+</ol></li>
+</ul>
+<p><span class="math display">\[
+\Sigma_{L}=\left(\begin{array}{rr}
+-\frac{i}{2} \Gamma_{L 1} 0 \\
+0 &amp; 0
+\end{array}\right), \quad \Sigma_{R}=\left(\begin{array}{cc}
+0 &amp; 0 \\
+0 &amp; -\frac{i}{2} \Gamma_{R 2}
+\end{array}\right)
+\]</span> in this case the current flows consequently through the first and the second level. At <span class="math inline">\(t=0\)</span> there is no current;</p>
+<ul>
+<li><ol start="3" type="i">
+<li><span class="math inline">\(T\)</span> -junction:</li>
+</ol></li>
+</ul>
+<p><span class="math display">\[
+\Sigma_{L}=\left(\begin{array}{rr}
+-\frac{i}{2} \Gamma_{L 1} 0 \\
+0 &amp; 0
+\end{array}\right), \quad \Sigma_{R}=\left(\begin{array}{rr}
+-\frac{i}{2} \Gamma_{R 1} 0 \\
+0 &amp; 0
+\end{array}\right)
+\]</span> in this case only first level is coupled to the electrodes, the second level participates in transport only through coupling <span class="math inline">\(t\)</span> to the first level.</p>
+<p>Also other configurations are possible. For different couplings to the electrodes the transmission shows qualitatively different behavior.</p>
+<p>Consider first symmetric parallel coupling with <span class="math inline">\(\Gamma_{L 1}=\Gamma_{R 1}=\Gamma_{L 2}=\Gamma_{R 2}=\Gamma / 2\)</span> thus <span class="math inline">\(\Gamma_{1}=\Gamma_{2}=\Gamma / 2\)</span>, which in the case of the uncoupled levels <span class="math inline">\((t=0)\)</span> gives the same broadening as for the single-level model above. The spectral function <span class="math inline">\(A(E)=\)</span> <span class="math inline">\(A_{11}+A_{22}=-2 \operatorname{Im}\left(G_{11}^{R}+G_{22}^{R}\right)\)</span> is presented in Fig. <span class="math inline">\(3.13\)</span> at <span class="math inline">\(\Gamma=1, \varepsilon_{1}=-2, \varepsilon_{2}=2\)</span> and three values of <span class="math inline">\(t=0,2,3 .\)</span> The dashed curve <span class="math inline">\((t=0)\)</span> is just a superposition of two spectral functions for two independent levels. At finite interaction between basis states <span class="math inline">\((t=2,3)\)</span> we observe the shift of the level positions, they reflect now the positions of the eigenenergies <span class="math inline">\(E_{1,2}\)</span>, and also some change of width. The transmission function looks again similar to the spectral function.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210508145721736.png" srcset="/img/loading.gif"  style="zoom: 50%;" /></p>
+<blockquote>
+<p>Fig. 3.13 The spectral function for the symmetric two-level model at <span class="math inline">\(\Gamma_{1}=1\)</span>, <span class="math inline">\(\varepsilon_{1}=-2, \varepsilon_{2}=2\)</span> and three values of <span class="math inline">\(t=0\)</span> (dashed line <span class="math inline">\(), t=2\)</span> (solid line), and <span class="math inline">\(t=3\)</span> (dotted line)</p>
+<p>Fig. 3.14 The <span class="math inline">\(T\)</span> -shape two-level junction</p>
+</blockquote>
+<p>In all examples we considered so far, the resonant transmission functions have the Lorentzian (Breit-Wigner) form with the maxima corresponding to the eigenenergies of the central system and broadening being dependent by the coupling to the electrodes (the level-width functions). Situation can be very different if the interference effects are more important. Consider, for example, the <span class="math inline">\(T\)</span> -junction case when the second state is not coupled to the electrodes: <span class="math inline">\(\Gamma_{L 2}=\Gamma_{R 2}=0 .\)</span> We assume also that the first level is symmetrically coupled to the electrodes <span class="math inline">\(\Gamma_{L 1}=\Gamma_{R 1}(\)</span> Fig. <span class="math inline">\(3.14)\)</span>.</p>
+<p>The spectral function is shown in Fig. <span class="math inline">\(3.15 .\)</span> The second peak is much thinner because the second level is not directly coupled to the electrodes and broadening is possible only indirectly through the first level. Thus the level broadening is smaller for smaller <span class="math inline">\(t\)</span>. The form of the peaks is still Lorentz-like.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210508144628483.png" srcset="/img/loading.gif" style="zoom: 50%;" /></p>
+<blockquote>
+<p>Fig. 3.15 The spectral function for the <span class="math inline">\(T\)</span> -shape two-level junction at <span class="math inline">\(t=2\)</span>, <span class="math inline">\(\varepsilon_{1}=-2, \varepsilon_{2}=2, \Gamma_{1}=1\)</span> (solid line). The case <span class="math inline">\(\Gamma_{1}=\Gamma_{2}=1, t=0\)</span> is shown by dashed line</p>
+<p>Fig. 3.16 Transmission for the <span class="math inline">\(T\)</span> -shape two-level junction at <span class="math inline">\(\Gamma_{1}=1, \varepsilon_{1}=-2\)</span>, <span class="math inline">\(\varepsilon_{2}=2, t=0\)</span> (dashed line), <span class="math inline">\(t=1\)</span> (solid line), <span class="math inline">\(t=2\)</span> <span class="math inline">\((\)</span> dotted line <span class="math inline">\(), t=4\)</span> (thin solid line)</p>
+</blockquote>
+<p>More interesting is the transmission function shown in Fig. <span class="math inline">\(3.16\)</span> at different interlevel couplings <span class="math inline">\(t\)</span>. First of all, at <span class="math inline">\(t=0\)</span> (dashed line) the transmission is nonzero only though the first level, the second level in this case is completely disconnected from the electrodes. Note that the spectral function takes the form <span class="math inline">\(A(\varepsilon) \propto \delta\left(E-\varepsilon_{2}\right)\)</span> near the energy of the second level. At finite <span class="math inline">\(t\)</span> the transmission appears near the energy of the second level (actually near the energy <span class="math inline">\(E_{2}\)</span> of the second eigenstate), but the shape of the resonance is not Lorentzian! Moreover, the transmission is exactly zero at the energy of the second level <span class="math inline">\(\varepsilon_{2}\)</span> independently of other parameters!</p>
+<p>Qualitatively, the transmission can be exactly zero at some energy in the case of destructive interference, when the amplitudes for transmission for two paths have the same absolute values, but opposite sign because of the phase shift equal to <span class="math inline">\(\pi .\)</span> In our case the first path is the direct path through the first level, and the second path is the path from the left electrode to the first level, then to the second level, back to the first and finally to the right electrode. This situation is also called antiresonance. Consider the analytic expression for the transmission function (which is quite easy to calculate in this case) <span class="math display">\[
+T(E)=\frac{\Gamma_{1}}{\left[E-\varepsilon_{1}-\frac{t^{2}}{E-\varepsilon_{2}}\right]^{2}+\Gamma_{1}^{2}}
+\]</span> At <span class="math inline">\(t=0\)</span> the Breit-Wigner resonance is reproduced. At small <span class="math inline">\(t\)</span> the antiresonance is strongly pronounced because the second resonant maximum is only slightly shifted from the antiresonant point <span class="math inline">\(E=\varepsilon_{2} .\)</span> At larger <span class="math inline">\(t\)</span> the second maximum is shifted to larger energies, the shape of this peak is more and more Lorentzian and the antiresonant feature is disappearing.</p>
 
             </article>
             <hr>

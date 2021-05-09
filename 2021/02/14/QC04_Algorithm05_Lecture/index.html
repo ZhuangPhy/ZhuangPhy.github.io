@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>Childs-量子行走 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-02-14 14:23">
+      February 14, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      778 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考">参考</h2>
+<ol type="1">
+<li><a href="https://www.cs.umd.edu/~amchilds/qa/qa.pdf" target="_blank" rel="noopener">Lecture Notes on Quantum Algorithms</a></li>
+</ol>
+<ul>
+<li>Andrew M. Childs University of Maryland
+<ul>
+<li>Part2: Quantum algorithms for algebraic problems</li>
+</ul></li>
+</ul>
+<ol start="2" type="1">
+<li><a href="https://www.youtube.com/watch?v=M0e5gkf7QSQ&amp;ab_channel=MunichCenterforQuantumScience%26Technology" target="_blank" rel="noopener">QIP2021 Tutorial: Quantum algorithms (Andrew Childs)</a>
+<ul>
+<li>这个演讲和讲义都是Andrew M. Childs</li>
+</ul></li>
+</ol>
+<h2 id="摘要">摘要</h2>
+<h2 id="chapter-16-continuous-time-quantum-walk">Chapter 16: Continuous-time quantum walk</h2>
+<p>We now turn to our second major topic in quantum algorithms, the concept of quantum walk. In this lecture we will introduce continuous-time quantum walk as a natural analog of continuous-time classical random walk, and we'll see some examples of how the two kinds of processes differ.</p>
+<h3 id="continuous-time-quantum-walk">16.1 Continuous-time quantum walk</h3>
+<p>Random walks come in two flavors:</p>
+<ul>
+<li>discrete time.</li>
+<li>continuous-time.</li>
+</ul>
+<p>It is easiest to define a quantum analog of a continuous-time random walk [43], so we consider this case first. Given a graph <span class="math inline">\(G=(V, E)\)</span>, we define the continuous-time random walk on <span class="math inline">\(G\)</span> as follows. Let <span class="math inline">\(A\)</span> be the adjacency matrix of <span class="math inline">\(G\)</span>, the <span class="math inline">\(|V| \times|V|\)</span> matrix with <span class="math display">\[
+A_{j, k}=\left\{\begin{array}{ll}
+1 &amp; (j, k) \in E \\
+0 &amp; (j, k) \notin E
+\end{array}\right.
+\]</span> for every pair <span class="math inline">\(j, k \in V\)</span>. In particular, if we disallow self loops, then the diagonal of <span class="math inline">\(A\)</span> is zero. There is another matrix associated with <span class="math inline">\(G\)</span> that is nearly as important: the Laplacian of <span class="math inline">\(G\)</span>, which has <span class="math display">\[
+L_{j, k}=\left\{\begin{array}{ll}
+-\operatorname{deg}(j) &amp; j=k \\
+1 &amp; (j, k) \in E \\
+0 &amp; \text { otherwise }
+\end{array}\right.
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\operatorname{deg}(j)\)</span> denotes the degree of vertex <span class="math inline">\(j .\)</span></li>
+</ul>
+<p>(The Laplacian is sometimes defined differently than this - e.g., sometimes with the opposite sign. We use this definition because it makes <span class="math inline">\(L\)</span> a discrete approximation of the Laplacian operator <span class="math inline">\(\nabla^{2}\)</span> in the continuum.)</p>
+<p>The continuous-time random walk on <span class="math inline">\(G\)</span> is defined as the solution of the differential equation <span class="math display">\[
+\frac{ d }{ d t} p_{j}(t)=\sum_{k \in V} L_{j k} p_{k}(t)
+\]</span> Here <span class="math inline">\(p_{j}(t)\)</span> denotes the probability associated with vertex <span class="math inline">\(j\)</span> at time <span class="math inline">\(t\)</span>.</p>
+<p>This can be viewed as a discrete analog of the diffusion equation. Note that <span class="math display">\[
+\frac{ d }{ d t} \sum_{j \in V} p_{j}(t)=\sum_{j, k \in V} L_{j k} p_{k}(t)=0
+\]</span> (since the columns of <span class="math inline">\(L\)</span> sum to 0 ), which shows that an initially normalized distribution remains normalized: the evolution of the continuous-time random walk for any time <span class="math inline">\(t\)</span> is a stochastic process. The solution of the differential equation can be given in closed form as <span class="math display">\[
+p(t)=e^{L t} p(0)
+\]</span> Now notice that the equation (16.3) is very similar to the Schrödinger equation <span class="math display">\[
+i \frac{ d }{ d t}|\psi\rangle=H|\psi\rangle
+\]</span> except that it lacks the factor of i. If we simply insert this factor, and rename the probabilities <span class="math inline">\(p_{j}(t)\)</span> as quantum amplitudes <span class="math inline">\(q_{j}(t)=\langle j \mid \psi(t)\rangle\)</span> (where <span class="math inline">\(\{|j\rangle: j \in V\}\)</span> is an orthonormal basis for the Hilbert space), then we obtain the equation <span class="math display">\[
+i \frac{ d }{ d t} q_{j}(t)=\sum_{k \in V} L_{j k} q_{k}(t)
+\]</span> which is simply the Schrödinger equation with the Hamiltonian given by the Laplacian of the graph. Since the Laplacian is a Hermitian operator, these dynamics preserve normalization in the sense that <span class="math inline">\(\frac{ d }{ d t} \sum_{j \in V}\left|q_{j}(t)\right|^{2}=0\)</span></p>
+<p>Again the solution of the differential equation can be given in closed form, but here it is <span class="math inline">\(|\psi(t)\rangle=\)</span> <span class="math inline">\(e^{-i L t}|\psi(0)\rangle\)</span> We could also define a continuous-time quantum walk using any Hermitian Hamiltonian that respects the structure of <span class="math inline">\(G\)</span>. For example, we could use the adjacency matrix <span class="math inline">\(A\)</span> of <span class="math inline">\(G\)</span>, even though this matrix cannot be used as the generator of a continuous-time classical random walk.</p>
+<h3 id="random-and-quantum-walks-on-the-hypercube">16.2 Random and quantum walks on the hypercube</h3>
+<p>Let's begin by investigating a simple, dramatic example of a difference between the behavior of random and quantum walks. Consider the Boolean hypercube, the graph with vertex set <span class="math inline">\(V=\{0,1\}^{n}\)</span> and edge set <span class="math inline">\(E=\left\{(x, y) \in V^{2}: \Delta(x, y)=1\right\}\)</span>, where <span class="math inline">\(\Delta(x, y)\)</span> denotes the Hamming distance between the strings <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. When <span class="math inline">\(n=1\)</span>, the hypercube is simply an edge, with adjacency matrix <span class="math display">\[
+\sigma_{x}:=\left(\begin{array}{ll}
+0 &amp; 1 \\
+1 &amp; 0
+\end{array}\right)
+\]</span> For general <span class="math inline">\(n\)</span>, the graph is the direct product of this graph with itself <span class="math inline">\(n\)</span> times, and the adjacency matrix is <span class="math display">\[
+A=\sum_{j=1}^{n} \sigma_{x}^{(j)}
+\]</span></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/Quantum-Algorithm/">Quantum Algorithm</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Quantum-Algorithm/">Quantum Algorithm</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/14/QC04_Algorithm03_Lecture/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Childs-量子线路</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/12/CMP_15_Transport01/">
+                        <span class="hidden-mobile">量子输运与费米液体理论</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Childs-量子行走&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

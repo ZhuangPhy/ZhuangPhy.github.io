@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>纳米尺度下量子输运理论-3 - JPZ</title>
+  <title>Childs-量子线路 - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -153,8 +153,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2021-02-12 23:01">
-      February 12, 2021 pm
+    <time datetime="2021-02-14 14:23">
+      February 14, 2021 pm
     </time>
   </div>
 
@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      548 字
+      497 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      9
        分钟
     </span>
   
@@ -206,35 +206,34 @@
             
             <article class="markdown-body">
               <p>[TOC]</p>
-<h4 id="reference">Reference:</h4>
+<h2 id="参考">参考</h2>
 <ol type="1">
-<li><a href="https://phy.ntnu.edu.tw/~changmc/Teach/SS/SSG_note/mchap17.pdf" target="_blank" rel="noopener">Transport phenomena and Fermi liquid theory</a> 台师大</li>
+<li><a href="https://www.cs.umd.edu/~amchilds/qa/qa.pdf" target="_blank" rel="noopener">Lecture Notes on Quantum Algorithms</a></li>
 </ol>
-<p>outline</p>
-<p>[TOC]</p>
-<h4 id="reference-1">Reference:</h4>
-<ol type="1">
-<li>《Theory of Quantum Transport at Nanoscale - An Introduction》 Dmitry A. Ryndyk</li>
+<ul>
+<li>Andrew M. Childs University of Maryland
+<ul>
+<li>Part2: Quantum algorithms for algebraic problems</li>
+</ul></li>
+</ul>
+<ol start="2" type="1">
+<li><a href="https://www.youtube.com/watch?v=M0e5gkf7QSQ&amp;ab_channel=MunichCenterforQuantumScience%26Technology" target="_blank" rel="noopener">QIP2021 Tutorial: Quantum algorithms (Andrew Childs)</a>
+<ul>
+<li>这个演讲和讲义都是Andrew M. Childs</li>
+</ul></li>
 </ol>
-<h2 id="chapter-4-tunneling">Chapter 4 Tunneling</h2>
-<style>
-  /* 设置整个页面的字体 */
-  html, body, .markdown-body {
-    font-family: KaiTi,"Microsoft YaHei",Georgia, sans, serif;
-    font-size: 15px;
-  }
-</style>
-<p>The Landauer-Büttiker scattering method, considered in the previous chapters, can be easily applied only in the case of noninteracting electrons and without inelastic scattering. Besides, it requires full quantum mechanical solution of the scattering problem and can be cumbersome for real geometries. The Green function formalism is a better starting point for generalization of the scattering approach, but its application is limited by available approximations for interacting systems. In the case of weak coupling to the electrodes, the other approach, known as the method of Tunneling (or Transfer) Hamiltonian, plays an important role, and is widely used in solid-state theory to describe tunneling effects in superconductors, ferromagnets, semiconductor quantum dots, and other nanostructures. The important advantage of this method is that it is combined easily with powerful methods of many-body theory for interacting systems. On the other hand, it is very convenient even for noninteracting electrons, when the coupling between subsystems is weak, and tunneling processes can be described by rather simple matrix elements.</p>
-<p>In Sect. <span class="math inline">\(4.1\)</span> we start from quantum mechanical description of tunneling through a planar barrier and consider different limiting cases. Then we introduce the Tunneling Hamiltonian method and apply it to calculation of the tunneling current. The important example of tunneling current calculation is the Tersoff-Hamann theory for scanning tunneling microscopy, considered in this section. In the following Sect. <span class="math inline">\(4.2\)</span> we consider sequential tunneling in multi-barrier structures, first we consider the noninteracting transport, then we formulate the master equation approach for sequential tunneling through interacting systems. This formalism is used in Chaps. 5 and 6 to describe Coulomb blockade phenomena and electron-vibron (polaron) effects.</p>
-<h2 id="tunneling-transfer-hamiltonian-method">4.1 Tunneling (Transfer) Hamiltonian Method</h2>
-<h3 id="planar-barrier">4.1.1 Planar Barrier</h3>
-<p>The starting point to consider tunneling phenomena is coherent transmission through a single barrier (coherent here means that there are no inelastic processes inside the barrier, but they can be present in the electrodes and between the barriers in multi-barrier systems). This problem is formally equivalent to the scattering problem in Chap. 2, but now we will focus on the case of weakly transmitted barriers and corresponding approximations.</p>
-<p>Previously we considered only (quasi-) <span class="math inline">\(1 D\)</span> motion, here we first extend the analysis to planar barriers in three-dimensional case. In <span class="math inline">\(3 D\)</span> the scattering can be still one-dimensional for ideal barriers, but in general it is more complicated. The two limiting cases are: (i) momentum-conserving tunneling through an ideal barrier with the potential dependent only on <span class="math inline">\(z\)</span> coordinate and independent from the parallel wave number <span class="math inline">\(k_{\|}\)</span> (Fig.4.1) and (ii) diffusive tunneling through strongly inhomogeneous barrier, when the incident plane wave is transmitted as (and reflected into) many waves with different <span class="math inline">\(k _{\|}\)</span> (Fig.4.2). In the framework of the Landauer-Büttiker approach the change of <span class="math inline">\(k _{\|}\)</span> is equivalent to multi-channel scattering.</p>
-<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210507202445330.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
-<blockquote>
-<p>Fig.4.1 Momentumconserving tunneling through a planar barrier</p>
-<p>Fig. 4.2 Diffusive tunneling through a planar barrier</p>
-</blockquote>
+<h2 id="摘要">摘要</h2>
+<h2 id="chapter-1-preliminaries">Chapter 1: Preliminaries</h2>
+<p>This chapter briefly reviews some background material on quantum computation. We cover these topics at a very high level, just to give a sense of what you should know to understand the rest of the lecture notes. If any of these topics are unfamiliar, you can learn more about them from a text on quantum computation such as Nielsen and Chuang [76]; Kitaev, Shen, and Vyalyi [62]; or Kaye, Laflamme, and Mosca [60].</p>
+<h3 id="quantum-data">1.1 Quantum data</h3>
+<p>A quantum computer is a device that uses a quantum mechanical representation of information to perform calculations. Information is stored in quantum bits, the states of which can be represented as <span class="math inline">\(\ell_{2}\)</span> -normalized vectors in a complex vector space. For example, we can write the state of <span class="math inline">\(n\)</span> qubits as <span class="math display">\[
+|\psi\rangle=\sum_{x \in\{0,1\}^{n}} a_{x}|x\rangle
+\]</span> where the <span class="math inline">\(a_{x} \in C\)</span> satisfy <span class="math inline">\(\sum_{x}\left|a_{x}\right|^{2}=1 .\)</span> We refer to the basis of states <span class="math inline">\(|x\rangle\)</span> as the computational basis. It will often be useful to think of quantum states as storing data in a more abstract form. For example, given a group <span class="math inline">\(G\)</span>, we could write <span class="math inline">\(|g\rangle\)</span> for a basis state corresponding to the group element <span class="math inline">\(g \in G\)</span>, and <span class="math display">\[
+|\phi\rangle=\sum_{g \in G} b_{g}|g\rangle
+\]</span> for an arbitrary superposition over the group. We assume that there is some canonical way of efficiently representing group elements using bit strings; it is usually unnecessary to make this representation explicit. If a quantum computer stores the state <span class="math inline">\(|\psi\rangle\)</span> and the state <span class="math inline">\(|\phi\rangle\)</span>, its overall state is given by the tensor product of those two states. This may be denoted <span class="math inline">\(|\psi\rangle \otimes|\phi\rangle=|\psi\rangle|\phi\rangle=|\psi, \phi\rangle\)</span>.</p>
+<h3 id="quantum-circuits">1.2 Quantum circuits</h3>
+<p>The allowed operations on (pure) quantum states are those that map normalized states to normalized states, namely unitary operators <span class="math inline">\(U\)</span>, satisfying <span class="math inline">\(U U^{\dagger}=U^{\dagger} U=I\)</span>. (You probably know that there are more general quantum operations, but for the most part we will not need to use them in this course.)</p>
+<p>To have a sensible notion of efficient computation, we require that the unitary operators appearing in a quantum computation are realized by quantum circuits. We are given a set of gates, each of which acts on one or two qubits at a time (meaning that it is a tensor product of a one- or two-qubit operator with the identity operator on the remaining qubits). A quantum computation begins in the <span class="math inline">\(|0\rangle\)</span> state, applies a sequence of one- and two-qubit gates chosen from the set of allowed gates, and finally reports an outcome obtained by measuring in the computational basis.</p>
 
             </article>
             <hr>
@@ -244,7 +243,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Quantum-Computation/Quantum-Algorithm/">Quantum Algorithm</a>
                     
                   </div>
                 
@@ -252,7 +253,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Transport/">Transport</a>
+                      <a class="hover-with-bg" href="/tags/Quantum-Computation/">Quantum Computation</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Quantum-Algorithm/">Quantum Algorithm</a>
                     
                   </div>
                 
@@ -265,9 +268,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/12/CMP_15_Transport05/">
+                      <a href="/2021/02/14/QC04_Algorithm04_Lecture/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">分子链中电荷量子输运的紧束缚模型</span>
+                        <span class="hidden-mobile">Childs-代数问题的量子算法</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -275,8 +278,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2021/02/10/QC05_guide_Lecture01/">
-                        <span class="hidden-mobile">量子普遍性</span>
+                      <a href="/2021/02/14/QC04_Algorithm05_Lecture/">
+                        <span class="hidden-mobile">Childs-量子行走</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -416,7 +419,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "纳米尺度下量子输运理论-3&nbsp;",
+        "Childs-量子线路&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
