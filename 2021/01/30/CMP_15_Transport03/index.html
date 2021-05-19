@@ -140,7 +140,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/tag-bg.jpg') no-repeat center center;
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/CMP_transport2.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      529 字
+      2.5k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      29
        分钟
     </span>
   
@@ -235,8 +235,107 @@
 <li>石墨烯纳米带中的瞬态电流，</li>
 <li>含自旋和多体效应的电子动力学演化等。</li>
 </ul>
-<h2 id="理论部分">理论部分</h2>
-<h3 id="量子输运简介">量子输运简介</h3>
+<h2 id="a-理论部分">A 理论部分</h2>
+<h2 id="量子输运简介">量子输运简介</h2>
+<h2 id="量子输运体系的说明">量子输运体系的说明</h2>
+<p>我们通常用下图来表示量了输运体系 <span class="math inline">\([2,7]\)</span>;</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210511134815094.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<p>系统总哈密顿量</p>
+<p><span class="math display">\[
+H = H _{ L / R }+ H _{ T }+ H _{ C }
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(H _{ L / R }\)</span> 描述了左/右电极 <span class="math inline">\((\)</span> lead <span class="math inline">\()\)</span> 的哈密顿量，</li>
+<li><span class="math inline">\(H _{ T }\)</span> 是两个电极和中 心区域的隧穿耦合哈密顿量，</li>
+<li><span class="math inline">\(H _{ C }\)</span> 是中心区域的哈密顿量。</li>
+</ul>
+<h4 id="电极">电极</h4>
+<p>电极部分一般是金属，其中的电子通常可以视为 非相互作用并且处于平衡状态的电子“库”中，由于 电极的部分通常远远大于中心区域的纳米体系，导电 时通过的电量也远小于电极中原来的电子数量，所以我们可以把电极想象为一个很大的水库。其水位等水 况不随放水过程而改变。 因此电子库（电极）拥有确定的能量分布和相应的温度，以及确定的其化学势相当于水库的水位 <span class="math inline">\(\mu_{\alpha}(\alpha= L , R )\)</span> 。电极中电子服 从费米狄拉克分布： <span class="math display">\[
+f_{\alpha}\left(\varepsilon_{k_{\alpha}}\right)=\frac{1}{1+\exp \left(\varepsilon_{k_{\alpha}}-\mu_{\alpha}\right) / k T}
+\]</span> 左右电极的哈密顿量可以写为: <span class="math display">\[
+H _{ LR }= H _{ L }+ H _{ R }=\sum_{\alpha \in L, R, k_{\alpha}} \varepsilon_{k_{\alpha}} c_{k_{\alpha}}^{\dagger} c_{k_{\alpha}}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\left\{c_{k_{\alpha}}^{\dagger}\right\}\)</span> 和 <span class="math inline">\(\left\{c_{k_{\alpha}}\right\}\)</span> 分别是电极中的电子产生和湮灭 算符，</li>
+<li><span class="math inline">\(k_{\alpha}\)</span> 是其中的动量本征值，</li>
+<li><span class="math inline">\(\varepsilon_{k_{\alpha}}\)</span> 是对应的能量。</li>
+</ul>
+<h4 id="耦合">耦合</h4>
+<p>而中心区域和电极的耦合哈密顿量写作: <span class="math display">\[
+H _{ C }=\sum_{\langle m n\rangle} t_{m, n} d_{m}^{\dagger} d_{n}+\sum_{n} \epsilon_{n} d_{n}^{\dagger} d_{n}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(t_{m, n}\)</span> 和 <span class="math inline">\(\epsilon_{n}\)</span> 分布表示跳跃 (hopping) 能量和坐 位 <span class="math inline">\((\)</span> on-site <span class="math inline">\()\)</span> 能量。</li>
+<li><span class="math inline">\(\langle\cdots\rangle\)</span> 表示对相邻格点 (原子) 求 和。</li>
+</ul>
+<p>如果我们考虑电子-电子之间的库伦相互作用， 那么中心区域的哈密顿量通常需要加上哈伯德 (Hubbard 哈密顿量 [8] <span class="math display">\[
+H _{ ee }=\sum_{\alpha, i} U n_{i \alpha,}^{\dagger} n_{i, \bar{\alpha}}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(U\)</span> 是 Hubbard 系数，通常由第一性计算拟合得到;</li>
+<li><span class="math inline">\(\bar{\alpha}\)</span> 是和 <span class="math inline">\(\alpha\)</span> 相反的自旋，</li>
+<li><span class="math inline">\(n_{i, \alpha}\)</span> 是第 <span class="math inline">\(i\)</span> 个格点上自旋 为 <span class="math inline">\(\alpha\)</span> 的粒子数算符。</li>
+</ul>
+<h4 id="自洽方程">自洽方程</h4>
+<p>通常我们会采用平均场近似来讲 算。如下式，上（下）自旋的座位能取决于下（上）自旋粒子密度的平均值 <span class="math display">\[
+\begin{aligned}
+H _{ MF }=&amp; U\left[\sum_{i} n_{i, \uparrow}^{\dagger}\left(\langle n_{i, \downarrow}\rangle -1 / 2\right)\right.\\
+&amp;\left.+\sum_{i} n_{i, \downarrow}^{\dagger}\left(\langle n_{i, \uparrow}\rangle-1 / 2\right)\right]
+\end{aligned}
+\]</span> 这是一个自洽方程，通常只能通过迭代方法数值求解。这个Hubbard 自洽方程也可以从Hartree-Fock 理论中，近似推导出来。此外，在第一性原理模型的 计算中，每个原子上的密度也满足泊松方程，而从而影响该原子的电势，而原子电势就是上式中的坐位 能 <span class="math inline">\(\epsilon_{n}\)</span>, 其也影响该原子位置的各个轨道的电子分布。 因而泊松方程和中心区域的电子输运方程也组成一个 自洽体系，通常只能通过数值迭代来得到自洽解 [9]。</p>
+<h4 id="分块矩阵">分块矩阵</h4>
+<p>在格林函数理论计算中，我们通常把总哈密顿量 写成如下的分块矩阵形式，即左右电极和中心区域三部分： <span class="math display">\[
+H=\left[\begin{array}{ccc}
+H_{ L } &amp; H_{ LC } &amp; 0 \\
+H_{ CL } &amp; H_{ C } &amp; H_{ CR } \\
+0 &amp; H_{ RC } &amp; H_{ R }
+\end{array}\right]
+\]</span> 通过引入自能的方式，将原本无限大的“电极 <span class="math inline">\(+\)</span> 中心区域 <span class="math inline">\(+\)</span> 电极”的体系，转换为中心区域的有限大的体系，而电极的影响，通过表面格林函数的方式，反映在了自能函数里面 [2]。</p>
+<h2 id="c.-计算方法简介">C. 计算方法简介</h2>
+<p>量子输运可以分为</p>
+<ul>
+<li>静态输运</li>
+<li>含时输运</li>
+</ul>
+<p>静态输运最有名的公式是郎道尔 (Landauer) 公式 <span class="math inline">\([10,11]\)</span> <span class="math display">\[
+J=\frac{2 e}{h} \int d \varepsilon T(\varepsilon)\left[f_{ L }(\varepsilon)-f_{ R }(\varepsilon)\right]
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(f_{ L }(\varepsilon)\)</span> 和 <span class="math inline">\(f_{ R }(\varepsilon)\)</span> 分别是左右电极的费米-狄拉克分布函数</li>
+<li><span class="math inline">\(T(\varepsilon)\)</span> 是通过中心区域的电子的透射率。</li>
+</ul>
+<p>从郎道尔公式出发，考虑零温度左右两端接头施加对称偏 压 <span class="math inline">\(\left(\right.\)</span> 即 $ <em>{ L }=E</em>{ F }+V / 2,$ $ <em>{ R }=E</em>{ F }-V / 2 $), 并考虑小偏压的线性响应的情况，我们可以得到电导率的计算 公式 <span class="math display">\[
+G=\left(2 e^{2} / h\right) T
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(T\)</span> 是费米能级 <span class="math inline">\(E_{ F }\)</span> 处计算得 到的电子透射率。</li>
+</ul>
+<p>透射率反映了纳米器件的几何和原子特性，可以通过格林函数公式计算得到 <span class="math inline">\([2,7]\)</span> <span class="math display">\[
+T(E)=\operatorname{tr}\left[ G ^{ r }(E) \Gamma _{ L }(E) G ^{ a }(E) \Gamma _{ R }(E)\right]
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(G^{ r }(E)\)</span> 是推迟 (retarded)格林函数，</li>
+<li><span class="math inline">\(G^{ a }(E)\)</span> 是推超前(advanced) 格林函数</li>
+<li><span class="math inline">\(\Gamma_{ L }(E)\)</span> 和 <span class="math inline">\(\Gamma_{ R }(E)\)</span> 分别是左边和右 边的线宽函数，其值为自能函数的虚部乘以 <span class="math inline">\((-2) 。\)</span></li>
+<li>$ []$ 表示对矩阵求迹。</li>
+</ul>
+<h4 id="ldos">LDOS</h4>
+<p>体系的局域能态密度 (local density of states，LDOS) 分布可以用下面公式计算 <span class="math display">\[
+\rho_{i}(E)=\frac{-1}{\pi} \operatorname{Im}\left[G_{i, i}^{ r }(E)\right]
+\]</span></p>
+<p>上式是针对平衡（无偏压）情况的，如果有偏压，应用下面的公式计算 <span class="math display">\[
+\begin{aligned}
+\rho_{i}(E) &amp;=\frac{1}{2 \pi} \operatorname{Im}\left[G_{i, i}^{&lt;}(E)\right] \\
+&amp;=\frac{1}{2 \pi} \operatorname{Im}\left[\left\{ G ^{ r }(E) \Sigma ^{&lt;}(E) G ^{ a }(E)\right\}_{i, i}\right]
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(G_{(i, i)}^{&lt;}(E)\)</span> 和 <span class="math inline">\(\Sigma ^{&lt;}(E)\)</span> 分别是小于 (lesser) 格林函数 和小于自能函数</li>
+<li>不难用格林函数 的理论验证，当偏压为零时，上面公式 <span class="math inline">\((11)\)</span> 自动回到 公式 <span class="math inline">\((10)[12] 。\)</span> 对 <span class="math inline">\(LDOS\)</span> 在能量域积分，就得到电子密度。对于较大体系，可以用留数定理加人计算精度 和计算速度 [12] 静态的量了输运的透射率计算，常见的方法有格 林函数方法，波函数匹配法，传输（散射）矩阵方法，线性响应理论等。具体可以参加相应的参考文献或书箱。</li>
+</ul>
+<p>如果电极或中心区域的哈密顿量随时间变化，就是含时输运问题。这时这种系统的计算分析比较复杂。目前主要有几类计算方法：基于非平衡格林函数(Nonequilibrium Green function, NEGF) 的方法[14–17]； 基于波函数的波函数演化方法[18,19]；基于量子主方程(Quantum Master Equation, QME) 的方法[20–23] 等。</p>
+<p>另外近年来人们对纳米体系中的热（声子）传输也做了很多研究（如新加坡国大的Wang, Jian-Sheng，李保文等）。由于声子是玻色子，和电子的格林函数理论（见后）类似，也可以用声子的产生和湮灭算符定义各种声子格林函数，从而建立声子的NEGF 输运理论[24,25]。这当中的粒子分布函数也相应地换为波色–爱因斯坦分布。另外对于电子–声子的相互作用，也有不少理论。其中有在自洽波恩近似(self-consistent Born approximation, SCBA) 框架下的低阶展开等方法[25,26]。</p>
+<p>本文中提到NEGF 理论框架下的密度矩阵运动方程(density matrix equation of motion, DM-EOM)方法[27]，是从Tanimura, 严以京, 陈冠华，郑晓等人提出的级联运动方程(Hierarchical Equation of Motio,HEOM) 理论[15,16,28,29] 进一步发展出来的。郑晓，严以京等人最近也把HEOM 理论应用到含多体相互作用的小体系，研究Kondo 共振等现象[30,31]。不过要了解这种运动方程理论，我们必须先要了解其前置理论：格林函数技术。</p>
 
             </article>
             <hr>

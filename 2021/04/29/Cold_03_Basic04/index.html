@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      2k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19
+      31
        分钟
     </span>
   
@@ -213,8 +213,13 @@
 <li>《维量子费米气体中的自旋轨道耦合效应》</li>
 <li>《二维光晶格中的BEC》人造规范场</li>
 <li>《具有自旋_轨道耦合的关联体系中的拓扑相以及新奇量子现象的研究》</li>
-<li><a href="https://staff.aist.go.jp/v.zayets/spin3_32_SpinOrbit.html" target="_blank" rel="noopener">Spin-Orbit Interaction - Spin and Charge Transport</a></li>
-<li><a href="https://tms16.sciencesconf.org/data/pages/SOC_lecture1.pdf" target="_blank" rel="noopener">Spin-orbit coupling: a relativistic effect</a></li>
+</ol>
+<p>目录</p>
+<ol type="1">
+<li>原子物理&amp;原子-光相互作用</li>
+<li>两个原子间的相互作用</li>
+<li>玻色-爱因斯坦凝聚与超流</li>
+<li>Bogoliubov理论</li>
 </ol>
 <h2 id="两个原子间的相互作用">两个原子间的相互作用</h2>
 <h2 id="bogoliubov理论">Bogoliubov理论</h2>
@@ -291,6 +296,48 @@ u_{ k }^{2}=\frac{1}{2}\left(\frac{\epsilon_{ k }+g n_{0}}{\sqrt{\epsilon_{ k }\
 v_{ k }^{2}=\frac{1}{2}\left(-\frac{\epsilon_{ k }+g n_{0}}{\sqrt{\epsilon_{ k }\left(\epsilon_{ k }+2 g n_{0}\right)}}+1\right)
 \]</span></p>
 <p>Hamiltonian就被对角化为</p>
+<p><span class="math display">\[
+\hat{H}=\frac{g N^{2}}{2 V}+\sum_{ k \neq 0} E_{ k } \hat{\alpha}_{ k }^{\dagger} \hat{\alpha}_{ k }-\frac{1}{2} \sum_{ k \neq 0}\left(\epsilon_{ k }+g n_{0}-E_{ k }\right)
+\]</span> 这个Hamiltonian得到的二体散射应该具有我们期待的现象，从而建立耦合常数 <span class="math inline">\(g\)</span> 与散射长度 <span class="math inline">\(a_{s}\)</span> 的联系： <span class="math display">\[
+g=U=\frac{4 \pi \hbar^{2} a_{s}}{m}
+\]</span> &gt; 补充：对比哈密顿量</p>
+<h4 id="色散">色散</h4>
+<p>可以看出, Hamiltonian里面的激发具有色散 <span class="math display">\[
+E_{ k }=\sqrt{\epsilon_{ k }\left(\epsilon_{ k }+2 g n_{0}\right)} 
+\]</span> 其在小动量区满足 线性色散 <span class="math display">\[
+E_{ k } \sim \hbar v| k |
+\]</span> 这部分激发是一种集体激发行为，被称为声子区间。在大动量区间色散近似 为 $ E_{ k } <em>{ k }+g n</em>{0} $, 仅仅在一般色散上多了一项HatreeFock能量移动（常数能量贡献）。这段区域被称为自由粒子区域。</p>
+<p>在动量增大的过程中经历了一个crosssover, 从近似线性色散到二次曲线色散。其分界的地方近似为满足 <span class="math display">\[
+\hbar v| k |=\hbar^{2}| k |^{2} / 2 m
+\]</span> 也就是有 <span class="math inline">\(k=2 m v / \hbar\)</span> 。它给出了一个尺度 <span class="math inline">\(\xi=1 / k=\hbar /(2 m v)\)</span>, 被称为关联 length, 其物理 意义是如果凝聚的状态被局域的破坏了，其能影响的凝聚破坏的尺度。</p>
+<h3 id="量子损耗">量子损耗</h3>
+<p>基态，也就是说Bogoliubov粒子的真空态</p>
+<p><span class="math display">\[
+\hat{\alpha}_{ k }|\phi\rangle=0
+\]</span> 其在无相互作用态下的粒子数为</p>
+<p><span class="math display">\[
+N= \langle\phi |\sum_{ k } \hat{a}_{ k }^{\dagger} \hat{a}_{ k } | \phi \rangle=N_{0}+\sum_{ k \neq 0} v_{ k }^{2}
+\]</span> 量子损耗我们就定义为单位空间内的非基态的粒子数 <span class="math display">\[
+n_{ dp }=\frac{1}{V} \sum_{ k \neq 0} v_{ k }^{2}=\frac{1}{3 \pi^{2}}\left(\frac{m v}{\hbar}\right)^{3} \propto \frac{1}{\xi^{3}}
+\]</span></p>
+<p><span class="math display">\[
+\frac{n_{ dp }}{n}=\frac{8}{3 \sqrt{\pi}}\left(n a_{s}\right)^{1 / 2}
+\]</span></p>
+<p>这里有一步求和比较tricky： <span class="math display">\[
+\begin{aligned}
+\int d ^{3} k \frac{\sqrt{k^{2}\left(k^{2}+2 a\right)}-\left(k^{2}+a\right)}{\sqrt{k^{2}\left(k^{2}+2 a\right)}} &amp;=\int d k 4 \pi k^{2} \frac{\sqrt{k^{2}\left(k^{2}+2 a\right)}-\left(k^{2}+a\right)}{\sqrt{k^{2}\left(k^{2}+2 a\right)}} \\
+&amp;=\int d k 4 \pi k \frac{\sqrt{k^{2}\left(k^{2}+2 a\right)}-\left(k^{2}+a\right)}{\sqrt{k^{2}+2 a}} \\
+&amp;=\int d k^{2} 2 \pi \frac{\sqrt{k^{2}\left(k^{2}+2 a\right)}-\left(k^{2}+a\right)}{\sqrt{k^{2}+2 a}} \\
+&amp;=\int d z 2 \pi \frac{\sqrt{z(z+2 a)}-(z+a)}{\sqrt{z+2 a}} \\
+&amp;=\int d z 2 \pi \frac{-a^{2}}{\sqrt{(z+2 a)(\sqrt{z(z+2 a)}+(z+a))}} \\
+&amp;=\int d z 2 \pi \frac{-a^{2}}{(z+2 a) \sqrt{z}+(z+a) \sqrt{z+2 a}} \\
+&amp;=-2 \pi a^{2} \int d \frac{z}{a} \cdot a \frac{1}{a \sqrt{a}\left(\left(\frac{z}{a}+2\right) \sqrt{\frac{z}{a}}+\left(\frac{z}{a}+1\right) \sqrt{\frac{z}{a}+2}\right)}
+&amp;=-2 \pi a^{3 / 2} \int d y \frac{1}{(y+2) \sqrt{y}+(y+1) \sqrt{y+2}} \\
+&amp;=-2 \pi \cdot 0.942809041582063 \cdot a^{3 / 2}
+\end{aligned}
+\]</span> 之，可以看出损耗的玻色子的数量大概相当于体积 <span class="math inline">\(\xi^{3}\)</span> 范围总内的玻色子数量，也就是说当 <span class="math inline">\(n a_{s} \ll 1\)</span> 的弱相互作用时候就 会很小</p>
+<h3 id="李-黄-杨修正">李-黄-杨修正</h3>
+<p>李-黄-杨修正（Lee-Huang-Yang Correction）</p>
 
             </article>
             <hr>

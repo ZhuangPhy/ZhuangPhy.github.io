@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.8k 字
+      7.5k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      86
+      128
        分钟
     </span>
   
@@ -207,6 +207,232 @@
             <article class="markdown-body">
               <p>拓扑入门第一例</p>
 <p>[TOC]</p>
+<h2 id="第二部分">第二部分</h2>
+<p>凝聚态物理中的拓扑不变量 <a href="https://chaoli.club/index.php/4379/0" target="_blank" rel="noopener">超理</a></p>
+<ol type="1">
+<li>几何相位</li>
+<li>量子Hall效应</li>
+<li>二维石墨烯（honeycomb）晶格</li>
+</ol>
+<h3 id="几何相位">几何相位</h3>
+<p>对于系统：</p>
+<ol type="1">
+<li>绝热</li>
+<li>缓变</li>
+<li>回归到原本参数</li>
+</ol>
+<p><span class="math display">\[
+| n (T)\rangle \rightarrow e^{i \alpha}| n (0)\rangle=| m (T)\rangle
+\]</span></p>
+<p>Schrödinger方程 <span class="math display">\[
+H(t)| n (t)\rangle=E_{n}| n (t)\rangle
+\]</span> 一个周期 <span class="math inline">\(T\)</span> 过后态矢就得到一整个相位 <span class="math display">\[
+\begin{array}{l}
+\alpha=\delta+\gamma 
+\end{array}
+\]</span> 其中动力学相位可以被规范变换吸收掉 <span class="math display">\[
+\delta=-\frac{1}{\hbar} \int_{0}^{T} d t\langle m(t)|H(t)| m(t)\rangle
+\]</span> 几何相位不可被规范变换吸收掉 <span class="math display">\[
+\gamma=i \int_{0}^{T} d t\left\langle n(t)\left|\frac{d}{d t}\right| n(t)\right\rangle
+\]</span> 几何相位随着时间演化的运动方程为 <span class="math display">\[
+\begin{aligned}
+\frac{d \gamma_{n}}{d t}(t) &amp;=i\left\langle n (t) \mid \frac{d n (t)}{d t}\right\rangle \\
+&amp;=i\left\langle n (t) \mid \nabla_{t} n (t)\right\rangle
+\end{aligned}
+\]</span> 可以看到, 决定了 <span class="math inline">\(\gamma_{n}(T) \neq \gamma_{n}(0)\)</span> 的就是右边的这个项 <span class="math display">\[
+\begin{aligned}
+\gamma_{n}(T)-\gamma_{n}(0)=\gamma_{n}(C) &amp;=\int_{0}^{T} d t \dot{\gamma}_{n}(t) \\
+&amp;=i \int_{0}^{T} d t\left\langle n (t) \mid \nabla_{t} n (t)\right\rangle \\
+&amp;=i \oint d t\left\langle n (t) \mid \nabla_{t} n (t)\right\rangle
+\end{aligned}
+\]</span> 于是利用Stokes公式 <span class="math display">\[
+\begin{aligned}
+\gamma_{n}(C) &amp;=i \oint_{C} d t A _{n}(t) \\
+&amp;=\iint_{S} d S \nabla \times A _{n}(t)
+\end{aligned}
+\]</span> #### 电磁场类比</p>
+<p>于是类比于电磁场，</p>
+<p>这个矢势 <span class="math display">\[
+A _{n}(t)=i\left\langle n (t)\left|\nabla_{t}\right| n (t)\right\rangle
+\]</span> 就称为 Berry联络; <span class="math display">\[
+B _{n}(t)=\nabla \times A _{n}(t)
+\]</span> 为Berry曲率。</p>
+<p>这里我们需要再次强调复归条件是很重要的，缺少此条件则几何相位就变得可通过规范变换任意调节而平庸地被吸收去掉了。因为我们可以对态矢作规范变 换 <span class="math inline">\(| n (t)\rangle \rightarrow e^{i \xi(t)}| n \rangle\)</span>, 于是就会对矢势相应造成改变 <span class="math inline">\(A _{n} \rightarrow A _{n}+i \nabla\)</span>, 然而 <span class="math inline">\(\nabla \times \nabla \xi=0\)</span>, 因此对复归系统的Berry相位不会造成影响。也就是说 <span class="math inline">\(\gamma_{n}(C)\)</span> 是规范不变量，只依赖于闭路径 <span class="math inline">\(C\)</span> 包含区域的几何性质，因此得名"几何相"。</p>
+<h4 id="二能级例子">二能级例子</h4>
+<p>一个磁场中的自旋系统哈密顿量 <span class="math display">\[
+H= B \cdot S
+\]</span> 单自旋态矢可用相干态构造出 <span class="math display">\[
+n \cdot S | n \rangle=S| n \rangle
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(| n \rangle=\left(z_{1}, z_{2}\right)^{T}\)</span></li>
+<li><span class="math inline">\(\left|z_{1}\right|^{2}+\left|z_{2}\right|^{2}=1\)</span></li>
+<li><span class="math inline">\(n =z^{\dagger} \sigma z\)</span></li>
+<li><span class="math inline">\(z=\left(e^{-i \phi} \cos \frac{\theta}{2}, \sin \frac{\theta}{2}\right)^{T}\)</span></li>
+<li><span class="math inline">\(\left\langle n _{b} \mid n _{a}\right\rangle=z_{b}^{\dagger} z_{a}\)</span> 正交</li>
+<li><span class="math inline">\(\int \frac{d n }{2 \pi}| n \rangle\langle n |=1\)</span> 完备</li>
+</ul>
+<p>这时作用量写为 <span class="math display">\[
+S [ n (t)]=\int d t\left(i z^{\dagger} \dot{z}- B \cdot n S\right)
+\]</span> 那么对于静磁场 <span class="math inline">\(B\)</span>, 自旋相干态不含时，因此总相位因子就只包含动力学相 <span class="math display">\[
+\left\langle n \left|e^{i \int_{0}^{T} d t B \cdot s }\right| n \right\rangle=e^{-i E_{0} T}
+\]</span> 对于绝热变化并复归的磁场 <span class="math inline">\(B (t)\)</span> 则有 <span class="math display">\[
+\begin{aligned}
+\left\langle n \left|e^{i S [ n (t)]}\right| n \right\rangle=&amp; \lim _{N \rightarrow \infty}\langle n (T)|U(T, T-\Delta t)| n (T-\Delta t)\rangle \ldots \\
+&amp; \ldots\langle n (2 \Delta t)|U(2 \Delta t, \Delta t)| n (\Delta t)\rangle\langle n (\Delta t)|U(\Delta t, 0)| n (0)\rangle \\
+=&amp; \int D \left[\frac{ n (t)}{2 \pi}\right] e^{i S [ n (t)]}\\
+=&amp;=e^{-i E_{0} T} e^{i \int d t z^{\dagger} \dot{z}}
+\end{aligned}
+\]</span> 可见这就多出了一个不依赖于时间变化的几何相位，并且在 <span class="math inline">\(B \rightarrow 0\)</span> 时也不为零, 所以这个几何相位是纯粹的量子效应造成的。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210516195411317.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<blockquote>
+<p>将Hilbert空间映射到仅用 <span class="math inline">\(n (t)(\theta, \phi)\)</span> 刻画的 <span class="math inline">\(S ^{2}\)</span> Bloch球空间</p>
+</blockquote>
+<p><span class="math display">\[
+| n (\theta, \phi)\rangle=\left(\begin{array}{cc}
+\cos \frac{\theta}{2}   e^{-i \phi} \\
+\sin \frac{\theta}{2}
+\end{array}\right)
+\]</span></p>
+<p>Berry曲率为 <span class="math display">\[
+\begin{aligned}
+&amp;\quad \nabla \times\langle n \mid \nabla n \rangle \\ &amp;=\left(\frac{1}{r} \partial_{\phi} e _{\phi}+\frac{1}{r \sin \phi} \partial_{\theta} e _{\theta}\right) \times z^{\dagger}\left(\frac{1}{r} \partial_{\phi} e _{\phi}+\frac{1}{r \sin \phi} \partial_{\theta} e _{\theta}\right) z \\
+&amp;=\frac{i}{2 r^{2}} e _{r}
+\end{aligned}
+\]</span> 可清晰地看见几何相位正是Bloch球面上闭回路面积对应的立体角（和乐群元） <span class="math display">\[
+\begin{aligned}
+\gamma(C) &amp;=-\frac{1}{2} \int \frac{1}{r^{2}} e _{r} \cdot d S \\
+&amp;=-\frac{1}{2} \int d \Omega\\
+&amp;=-\frac{1}{2} \Omega
+\end{aligned}
+\]</span> <img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210516200934877.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<p>因此根据此几何图像，作用量可完全用 <span class="math inline">\(n\)</span> 表示 <span class="math display">\[
+S [ n (t)]=-\oint_{\partial D} d t B \cdot n S+\int_{D} d t_{1} d t_{2} S n \cdot\left(\frac{d n }{d t_{1}} \times \frac{d n }{d t_{2}}\right)
+\]</span> 除了动力学部分外 <span class="math inline">\(-\oint_{\partial D} d t B \cdot n S\)</span>，</p>
+<p>还有一个拓扑项，从这个拓扑项可得到自旋的运动方程： <span class="math display">\[
+\frac{\delta S}{\delta n (t)}=0 \Rightarrow \dot{ n }(t)= B \times n (t)
+\]</span> 自旋系统的这种 <span class="math inline">\(O(3)\)</span> 规范对称的 (Wess-Zumino ) 拓扑项</p>
+<ol type="1">
+<li>在一些磁性系统里面可以产生类似skyrmion的拓扑激发;</li>
+<li>在拓扑超导系统中则可以产生Majorana零模激发。</li>
+</ol>
+<h3 id="量子hall效应">量子Hall效应</h3>
+<p>一个晶格空间变化磁场作用在二维电子气体(2DEG) 上，电子会将绝热地随着局部磁场方向运动。那么在电子自身参考系看来就相当于有一个随时间绝热演化的磁场，因此也就会如同上面的模型那样造成Berry相位。下面我们来将此模型映射成垂直于晶格的有效磁场，那么这也就意味着Hall效应的出现，而Berry相位则带来拓扑Hall效应。</p>
+<p>首先二维磁场晶格系统中电子运动的哈密顿量写为 <span class="math display">\[
+H=-\frac{\hbar^{2}}{2 m^{*}} \nabla^{2}-g M (r) \cdot \sigma
+\]</span> 紧束缚近似下哈密顿量为 <span class="math display">\[
+H=-t \sum_{\langle i j\rangle} \sum_{\alpha}|i \alpha\rangle \langle j \alpha |-g M \sum_{i} \sum_{\alpha, \beta} | i \alpha \rangle \sigma _{\alpha \beta} \cdot n _{i}\langle i \beta|
+\]</span> 可定义基矢 <span class="math inline">\(\{|i, \pm\rangle\}, \quad+,-\)</span> 为 <span class="math inline">\(i\)</span> 格点上占据电子自旋与磁场平行、反平行状态: <span class="math display">\[
+|i,+\rangle=\left(\begin{array}{c}
+\cos \frac{\theta_{i}}{2} e^{-i \phi_{i}} \\
+\sin \frac{\theta_{i}}{2}
+\end{array}\right), \quad|i,-\rangle=\left(\begin{array}{c}
+-\sin \frac{\theta_{i}}{2} \\
+\cos \frac{\theta_{i}}{2} e^{i \phi_{i}}
+\end{array}\right)
+\]</span> 定义投影算符 <span class="math display">\[
+P _{\pm}=\sum_{i}|i, \pm\rangle\langle i, \pm|
+\]</span> 将整个系统投影到自旋上、下基矢张成的两个子空间中 <span class="math display">\[
+\begin{aligned}
+H &amp;=H_{+} \oplus H_{-}\\
+&amp;=\left( P _{+}+ P _{-}\right) H\left( P _{+}+ P _{-}\right) \\
+&amp;= P _{+} H P _{+}+ P _{-} H P _{+}+ P _{+} H P _{-}+ P _{-} H P _{-}
+\end{aligned}
+\]</span> 当Zeeman分裂能 <span class="math inline">\(\Delta=2 g M\)</span> 足够大时，上自旋态便处于低能级，占据了几乎所有电子，而下自旋态则全空。电子自旋会绝热地跟随着晶格中局部磁场的方向而演化。 <span class="math display">\[
+H=\left(\begin{array}{cc}
+A &amp; T \\
+T^{\dagger} &amp; A
+\end{array}\right)
+\]</span> 其中 <span class="math display">\[
+A=\Delta\left(\begin{array}{cc}
+-\frac{1}{2} &amp; 0 \\
+0 &amp; \frac{1}{2}
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+T=-t\left(\begin{array}{cc}
+\sin \frac{\theta_{1}}{2} \sin \frac{\theta_{2}}{2}+\cos \frac{\theta_{1}}{2} \cos \frac{\theta_{2}}{2} e^{i\left(\phi_{1}-\phi_{2}\right)} &amp; \sin \frac{\theta_{1}}{2} \sin \frac{\theta_{2}}{2} e^{i \phi_{2}}-\cos \frac{\theta_{1}}{2} \sin \frac{\theta_{2}}{2} e^{i \phi_{1}} \\
+\sin \frac{\theta_{1}}{2} \sin \frac{\theta_{2}}{2} e^{-i \phi_{1}}-\cos \frac{\theta_{1}}{2} \sin \frac{\theta_{2}}{2} e^{-i \phi_{2}} &amp; \sin \frac{\theta_{1}}{2} \sin \frac{\theta_{2}}{2}+\cos \frac{\theta_{1}}{2} \cos \frac{\theta_{2}}{2} e^{-i\left(\phi_{1}-\phi_{2}\right)}
+\end{array}\right)
+\]</span></p>
+<h3 id="二维石墨烯honeycomb晶格">二维石墨烯（honeycomb）晶格</h3>
+<p>这时候Berry联络、曲率都是对Bloch的 <span class="math inline">\(U(1)\)</span> 丛而言，Berry相位是与选取的 闭合路径有关的几何性相位角，如果该区域包含的是几何的整体那这个Berry 相位就反映整个流形 (或丛) 的拓扑性贡; 我们选取局部的闭合路径，那么就是反映该局部区域的几何性质。如前面的模型一样，几何上直观理解就再把这 个系统从二维Brillouin流形 <span class="math inline">\(T ^{2}\)</span> 映射到Bloch球流形 <span class="math inline">\(S ^{2}\)</span> : <span class="math display">\[
+\begin{aligned}
+H &amp;=v_{F}\left(\begin{array}{cc}
+0 &amp; k_{1}-i k_{2} \\
+k_{1}+i k_{2} &amp; 0
+\end{array}\right) \\
+&amp;=v_{F} k\left(\begin{array}{cc}
+0 &amp; e^{-i \theta_{k}} \\
+e^{i \theta_{k}} &amp; 0
+\end{array}\right)
+\end{aligned}
+\]</span> 解出Bloch态矢为 <span class="math display">\[
+\left|u^{+}\right\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{c}
+e^{-i \theta_{k}} \\
+1
+\end{array}\right) \quad, \quad\left|u^{-}\right\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{c}
+-e^{-i \theta_{k}} \\
+1
+\end{array}\right)
+\]</span> 由此计算出Berry联络 <span class="math display">\[
+a_{k}^{+}=-i\left\langle u^{+}\left|\partial_{k}\right| u^{+}\right\rangle=0
+\]</span></p>
+<p><span class="math display">\[
+a_{\theta_{k}}^{+}=-i\left\langle u^{+}\left|k^{-1} \partial_{\theta_{k}}\right| u^{+}\right\rangle=-\frac{1}{2 k}
+\]</span></p>
+<p>这个Berry曲率就是含有非平庸的“磁单极”势 （演生拓扑缺陷） <span class="math display">\[
+b=\partial_{k} a_{\theta_{k}}-\partial_{\theta_{k}} a_{k}=\frac{1}{2 k^{2}}
+\]</span> 积分路径包含这个拓扑非平庸的奇性区域则Berry相位为 <span class="math display">\[
+\begin{aligned}
+\gamma_{C}&amp;=\iint_{S} b d^{2} k
+\\&amp;=\oint_{C} a \cdot d k\\&amp; =\int_{0}^{2 \pi} a_{\theta_{k}} k d \theta_{k}\\&amp;=-\pi
+\end{aligned}
+\]</span> 整体Berry相位就是等同于第一陈数（TKNN对IQHE提出的拓扑不变量就是基于此） <span class="math display">\[
+C_{1}=\frac{1}{2 \pi} \iint_{S} b d^{2} k=\gamma_{C} / 2 \pi=-\frac{1}{2}
+\]</span></p>
+<h3 id="kane-mele模型">Kane-Mele模型</h3>
+<p>映射后的 <span class="math inline">\(S U(2)\)</span> 哈密顿量写为 <span class="math display">\[
+\begin{aligned}
+H(k) &amp;=k_{x} \sigma^{x}+k_{y} \sigma^{y}+m \sigma^{z} \\
+&amp;=d_{i} \sigma^{i}
+\end{aligned}
+\]</span> 那么极化矢量 <span class="math inline">\(d_{i}(k)\)</span> 单位化后得到Bloch矢 <span class="math inline">\(\hat{d}_{i}(k)=\frac{d_{i}(k)}{\sqrt{d_{i} d^{i}}}\)</span> 对角化此哈密顿量，解出Bloch态矢是 <span class="math display">\[
+\left|u^{-}\right\rangle=\left(\begin{array}{c}
+-\frac{k e^{-i \theta_{k}}}{\sqrt{k^{2}+\left(m+E_{k}\right)^{2}}} \\
+\frac{E_{k}+m}{\sqrt{k^{2}+\left(E_{k}+m\right)^{2}}}
+\end{array}\right)
+\]</span></p>
+<blockquote>
+<p>我们已经知道如果对系统的哈密顿量作规范变换，那么Berry相位不会变化，那Berry曲率（联络）方面会如何表现？</p>
+</blockquote>
+<p>接下来我们考虑一个幺正变换 <span class="math inline">\(O(k)\)</span> <span class="math display">\[
+H^{\prime}=O H O^{\dagger}
+\]</span> 其中</p>
+<ul>
+<li><p><span class="math inline">\(H^{\prime}\)</span> 和 <span class="math inline">\(H\)</span> 的能谱是一样的</p></li>
+<li><p>能量为 <span class="math inline">\(E(k)\)</span> 的态<span class="math inline">\(|u(k)\rangle\)</span> 变成 <span class="math inline">\(\left|u^{\prime}(k)\right\rangle=O(k)|u(k)\rangle\)</span></p></li>
+</ul>
+<p>现在Berry 联络变了，和原来相差 <span class="math display">\[
+a_{i}^{\prime}(k)-a_{i}(k)=-i\left\langle u^{\prime}(k)\left|\left(\partial_{k_{i}} O(k)\right) O^{\dagger}(k)\right| u^{\prime}(k)\right\rangle
+\]</span></p>
+<blockquote>
+<p>具体地来对Kane-Mele模型</p>
+</blockquote>
+<p>能量为 <span class="math display">\[
+E_{-}(k)=-\sqrt{|k|^{2}+m^{2}}
+\]</span> 的态 <span class="math display">\[
+\left|u_{-}\right\rangle=\left(\begin{array}{c}
+-\frac{k e^{-i \theta_{k}}}{\sqrt{k^{2}+\left(m+E_{k}\right)^{2}}} \\
+\frac{E_{k}+m}{\sqrt{k^{2}+\left(E_{k}+m\right)^{2}}}
+\end{array}\right)
+\]</span> 作用幺正变换 <span class="math inline">\(O(k)=e^{i c k_{2} \sigma^{3}}\)</span> 后 <span class="math display">\[
+\left|u_{-}^{\prime}\right\rangle=O(k)\left|u_{-}\right\rangle=\left(\begin{array}{c}
+-\frac{e^{i c k_{2}-i \theta_{k} k}}{\sqrt{k^{2}+\left(m+E_{k}\right)^{2}}} \\
+\frac{e^{-i c k_{2}\left(m+E_{k}\right)}}{\sqrt{k^{2}+\left(m+E_{k}\right)^{2}}}
+\end{array}\right)
+\]</span></p>
+<h3 id="拓扑不变量的green函数形式">拓扑不变量的Green函数形式</h3>
 <h2 id="详细">详细</h2>
 <p>这个问题的起源是计算凝聚态系统中电流对于外电场的响应 <span class="math display">\[
 j_{\alpha}=\sum_{\beta} \sigma_{\alpha \beta} E_{\beta}
@@ -375,7 +601,7 @@ C_{\mu}^{\alpha \beta}&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \math
 \\&amp;=\frac{-\mu}{4 \pi} \int \mathrm{d} k_{x} \mathrm{d} k_{y} \hat{\mathbf{d}} \cdot\left(\partial^{\alpha} \hat{\mathbf{d}} \times \partial^{\beta} \hat{\mathbf{d}}\right)
 \end{aligned}
 \]</span></p>
-<h2 id="概述">概述</h2>
+<h3 id="简化">简化</h3>
 <p>Berry phase： <span class="math display">\[
 \gamma_{m 2}(t)=\int_{0}^{t} d t^{\prime}\left\langle m\left(t^{\prime}\right)\left|i \frac{\mathrm{d}}{\mathrm{d} t^{\prime}}\right| m\left(t^{\prime}\right)\right\rangle
 \]</span> 积分里面的部分（乘以i）被定义为Berry联络。引入矢量势 <span class="math inline">\(\vec{A}_{m}(\vec{R})=\left\langle m(\vec{R})\left|i \nabla_{\vec{R}}\right| m(\vec{R})\right\rangle\)</span> 因此 Berry 相可写作 <span class="math display">\[
@@ -386,7 +612,7 @@ C_{\mu}^{\alpha \beta}&amp;=\frac{\mathrm{i}}{2 \pi} \int \mathrm{d} k_{x} \math
 \]</span> 展开 <span class="math display">\[
 \overrightarrow{B_{m}}(\vec{R})=i \sum_{n \neq m} \frac{\left\langle m(\vec{R})\left|\left(\nabla_{\vec{R}} \hat{H}(\vec{R})\right)\right| n(\vec{R})\right\rangle \times\left\langle n(\vec{R})\left|\left(\nabla_{\vec{R}} \hat{H}(\vec{R})\right)\right| m(\vec{R})\right\rangle}{\left(E_{m}(\vec{R})-E_{n}(\vec{R})\right)^{2}}
 \]</span></p>
-<h2 id="参考">参考</h2>
+<h3 id="参考">参考</h3>
 <p>https://www.zhihu.com/question/381097729/answer/1164745113</p>
 
             </article>

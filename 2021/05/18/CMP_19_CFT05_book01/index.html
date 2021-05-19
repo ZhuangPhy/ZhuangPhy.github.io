@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>书籍-凝聚态物理中的Holoaraphic对偶 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/CMP_19_CFT05_book01.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-05-18 13:01">
+      May 18, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      181
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<ol type="1">
+<li>Holographic Duality in Condensed Matter Physic</li>
+</ol>
+<p>[TOC]</p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="a-tour-guide-of-holographic-matter">A tour guide of holographic matter</h2>
+<p>A quake is rumbling through the core of physics. Suddenly apparently unrelated areas appear to have a common ground, showing an eerie capacity to fertilise each other. In physics such occasions are invariably propelled by novel mathematical machinery and the present case is no exception. This new mathematical contraption is "holographic duality" (or "anti-de Sitter/conformal field theory correspondence"), which was originally discovered in string theory in the <span class="math inline">\(1990 s\)</span>. Until recently its use was limited to the historic scope of string theory <span class="math inline">\(-\)</span> particle physics and quantum gravity. At a breathtaking pace it has since rolled out over many of the subject areas of modern fundamental physics, even yielding new insights into old subjects such as the nineteenth-century theory of hydrodynamics.</p>
+<p>Several books of this kind could be written, and are being written, highlighting how anti-de Sitter/conformal field theory (AdS/CFT) impacts on various fields in physics. This book will focus on a prominent area where the developments have been particularly stunning. This is the application to equilibrium condensed matter physics. This started in 2007, and in a matter of a few years condensed matter theory was rewritten in a different mathematical language. This language is the one that one would perhaps least expect: general relativity. On its own a rewriting of condensed matter might not sound like a great advance, no matter how unconventional the language. However, the correspondence makes it possible to explore regimes of quantum many-body physics that are completely inaccessible with conventional techniques. In particular we refer to non-Fermi-liquid states of matter formed in finite-density systems of strongly interacting fermion systems. The holographic mathematics here becomes particularly expressive, suggesting that a general principle of a new kind is at work. It appears that this principle relates to the physics of compressible quantum matter: the notion that the nature of this state of matter is governed by a macroscopic quantum entanglement involving all of its constituents. This discovery is not just remarkable on its own. "Holographic strange matter" also has tantalisingly suggestive resemblances to the mysterious phenomena observed experimentally in strongly interacting electron systems that have been realised in special materials such as the high- <span class="math inline">\(T_{ c }\)</span> superconductors. First seen around thirty years ago, these have defied any reasonable explanation despite countless attempts resting on the available mathematical techniques. Could it be that holography supplies the mathematical equations that will shine light on this number-one mystery of condensed matter physics?</p>
+<p>The correspondence also has its limitations. Though much evidence has been collected in favour, the jury is still out both with regard to the quantum information aspects and regarding the empirical relevancy. At present holography is an exciting research programme with a potential to alter the fundaments of the theory of physics. This should be of interest to the physics community at large, but there is an intrinsic difficulty. String theory famously has to be a unified theory of physics, but by the discovery of AdS/CFT this was changed into the "unification of the theories of physics". The implication is that the physicist has to pay the price that he/she has to be expert in all fanciful, modern areas of physics at the same time! A head-on encounter with the application of holography often entails a nearly seamless switch between string theory and high-energy-style quantum field theory, sophisticated general relativity including the latest in black-hole physics, via modern condensed matter theory, all the way to the tedious data sorting that one encounters in dealing with the real world studied by experimental physics.</p>
+<p>Our aim has been to lower the barrier of entry to this field and make it readily accessible. At present the required knowledge is still predominantly scattered throughout a hard-to-penetrate research literature. We have done our best to write a comprehensive overview of the main current of anti-de Sitter/condensed matter theory (AdS/CMT). It is not exhaustive: we had to make choices, and we hope that expert readers will agree with our choice of the most substantive contributions. At the same time, we also had the ambition that the text can be employed as a textbook, for students who want to master the skill of doing the actual computations.</p>
+<p>Above all we wanted to provide a text that is an optimally user-friendly access point to the subject, also for those readers who are not in a position to make the big investments of effort required in order to acquire the full holographist's skill set, but who are eager to get a well-informed impression of the big picture.</p>
+<p>To accommodate these conflicting requirements, we have chosen to structure the text in a layered fashion, employing the time-tested use of boxes. The main text is rather descriptive, explaining what goes on conceptually and how the computations work. Equations are used only insofar as they are instrumental in getting the big picture across. We then supplement the main text by employing boxes found at the end of sections, where we present the actual calculations in some detail. For those readers who find even the main text too heavy, we have added in addition dual "rule boxes" summarising the punchlines of the neighbouring main text.</p>
+<p>The body of the book is formed by chapters <span class="math inline">\(6-13\)</span> focussed on the application of holography to condensed matter physics. We introduce these with several initial chapters of background material. Chapters 2 and 3 are intended as a collection of points from condensed matter physics that are of particular relevance to holography. Although these chapters are aimed in the first instance at string theorists and physicists of other fields, we strongly encourage also condensed matter experts to read them, since our presentation deviates significantly from the standard treatment in textbooks. Chapters 4 and 5 are intended to constitute a tutorial in the AdS/CFT apparatus, geared towards its use in the condensed matter context. We have avoided as much as possible the heavy string-theoretical machinery, and instead focussed on the pragmatic use of the correspondence. A reader equipped with a background acquired from entry-level graduate courses in general relativity, quantum field theory and condensed matter physics should be able to comprehend this book in some depth. One issue we had to consider is that detailed calculations in holography often resort to numerics. The level of these is fortunately not very challenging, and to assist the reader we will make the Mathematica codes for several basic calculations available via the website accompanying this book:</p>
+<p>www.cambridge.org/9781107080089.</p>
+<p>To offer the reader a first grip on the storyline of this book, let us use the remainder of this introductory chapter to present a grand vista on the AdS/CMT landscape.</p>
+<p>To offer the reader a first grip on the storyline of this book, let us use the remainder of this introductory chapter to present a grand vista on the AdS/CMT landscape.</p>
+<h2 id="the-adscft-correspondence-unifying-the-theories-of-physics">1.2 The AdS/CFT correspondence: unifying the theories of physics</h2>
+<p>The story that we will tell started in the mid 1990 s. These years found the stringtheory community in a euphoric state since it had become clear that there was much more to string theory than had previously been realised. The culmination of this second string revolution was the discovery in 1997 by the young theorist Juan Maldacena of what has become known as the "AdS/CFT correspondence" [1]. All along, string theory had been propelled by the insight that somehow general relativity is part of the quantum theory of relativistic strings, and that it therefore carried the inherent promise that it would eventually reveal the theory of quantum gravity. AdS/CFT was a great leap forward in this regard.</p>
+<p>Quantum field theory (QFT) and general relativity (GR) are the two grand theories of physics, but their mutual relationship is complicated, if not even antagonistic. Maldacena's discovery, however, connected these two pillars in a way that nobody had foreseen. He showed that in a special limit these theories can be two sides of the same coin! The two sides of this unification of quantum physics with general relativity are in a mathematical sense as opposite as can be. This refers to the meaning of "duality" in the title of this book. GR and QFT are in a dual relation with each other in the sense of the particle-wave duality of quantum mechanics. Particles and waves are opposites in the sense that they are related by Fourier transformation. But at the same time the particle and wave representations form a wholeness revealing what quantum mechanics is. Depending on the question one asks, either the particle or the wave description is the better viewpoint. In the same sense GR and QFT "merge in their oppositeness", albeit the resulting "wholeness" is much richer than quantum mechanics: in a sense it seems to encapsulate all theories of physics. Soon after Maldacena's discovery Gubser, Klebanov, Polyakov [2] and independently Witten [3] (GKPW) came up with a set of tight and general mathematical rules demonstrating precisely how one can quantitatively relate results in one description to the other side. The unveiling of this dictionary launched an enormous research effort: thousands of papers revolving around checks and double checks of the correspondence, applying the new viewpoint to pernicious open problems and diversifying it to a variety of physics subjects were published. This book is dedicated to perhaps the least anticipated success of this headlong dash of exploration: the application to condensed matter physics.</p>
+<p>Despite all the progress the correspondence is still shrouded in mystery. Metaphorically it is like the oracle of Greek mythology: upon throwing questions at the correspondence, it delivers answers that make sense, but it is far from clear why it works so well. This is the prevalent moral of the developments we will describe in this book <span class="math inline">\(-\)</span> particularly in the condensed matter context there is a real potential to challenge and mobilise experimental physics to check whether some of the most enigmatic answers of this oracle are actually correct. The mystery of AdS/CFT is rooted precisely in the quantum gravity side. In full generality, AdS/CFT relates stringy quantum gravity to certain quantum field theories. Stringy quantum gravity remains very poorly understood. However, in a special limit the stringy quantum gravity side reduces to the solid ground of classical general relativity. This limit has a corresponding incarnation in the dual quantum field theory. It requires that the field theory contains matrix-valued fields of rank <span class="math inline">\(N\)</span> and the limit means that one considers the system both in the regime of the "large <span class="math inline">\(N \rightarrow \infty\)</span> " limit and at "strong coupling". A typical example is a very strongly coupled <span class="math inline">\(S U(N)\)</span> Yang-Mills theory in the limit of a large number of colours <span class="math inline">\(N\)</span>. This sounds rather remote from the real world of condensed matter physics. To make matters even worse, to have full mathematical control in its string theory origin one also has to take a supersymmetric theory. Fortunately, in trying to apply the lessons of AdS/CFT more broadly, supersymmetry appears to be less crucial. The large- <span class="math inline">\(N\)</span> limit is the serious mathematical obstacle to consider. Our main goal will be to study field-theoretical problems that cannot be handled with existing field-theoretical techniques. Within the large- <span class="math inline">\(N\)</span> limit one can now use this AdS/CFT dictionary to call upon the great mathematical quality of Einstein's theory of general relativity to arrive at solutions that with the help of the dictionary can be translated back into field-theoretical answers. But the large- <span class="math inline">\(N\)</span> limit implies that this is trustworthy only on departing from an extremely symmetric physics at high energy, which is very different from the mundane "chemistry" of e.g. electrons in solids at the Ångström scale. One would therefore like to lower the <span class="math inline">\(N\)</span> -fold symmetry all the way to the puny symmetries governing the interacting electrons. In principle this is also possible in AdS/CFT. In practice, however, upon doing so the quantum-gravity hell breaks loose in the gravitational dual and, despite a very intense effort, we are still pretty much in the dark.</p>
+<p>How can AdS/CFT still deliver? Remarkably, in spite of the large- <span class="math inline">\(N\)</span> obstacle, the oracle seems to deliver answers to questions that do not depend sensitively on these matters. The string theorists refer to the relevant context by invoking "UV-independence". This is coincident with the notion of "strong emergence" of the condensed matter physicists. Both are about the theme that the "whole is more than the sum of the parts", which is familiar to all physicists, where we are interested in the circumstances under which the wholeness has such a strong logic of its own that the detailed nature of the parts is no longer of relevance. It is the independence of macroscopic phenomena from the details of the microscopic physics. This started seriously with Boltzmann's formulation of statistical physics in the nineteenth century for the description of classical matter. It triumphs in the form of an understanding of the solid, fluid and gas phases of simple thermal matter, including the microscopic origins of the phenomenological elasticity and Navier-Stokes theories. This was generalised to the zero-temperature "quantum" realms in condensed matter physics in the form of Landau-style order-parameter theories describing superfluids and superconductors, as well as the Fermi-liquid theory. The next great step was taken by the Wilsonian renormalisation-group revolution in the <span class="math inline">\(1970 s\)</span>, merging together the methodological underpinning of the description of the critical state realised at continuous phase transitions and the fundamental quantum field theories of high-energy physics.</p>
+<p>The correspondence builds further on this. Its "magical" power lies in its capacity to express the mathematical structure of the "strongly emergent" theories of matter through the very different geometrical structure of GR. We will unfold this story step by step in chapters <span class="math inline">\(6-12\)</span>, following closely the historical development, up to the state of the art involving predictions for states of matter that are ruled by macroscopic quantum entanglement.</p>
+<h2 id="adscft-the-geometrisation-of-the-renormalisation-group-and-the-quantum-critical-state">1.3 AdS/CFT, the geometrisation of the renormalisation group and the quantum critical state</h2>
+<p>What is actually the meaning of the abbreviations AdS and CFT, and especially the adjective "holographic" in the title of the book? This is all tied together with a mathematical relation that is seen by many as the most beautiful and stunning of all "emergence physics-general relativity" relations. It can be written as an "equation" <span class="math display">\[
+RG = GR
+\]</span> Here RG is short for the renormalisation group and GR is of course general relativity. The renormalisation group refers to the property of field theory that by integrating out short-distance degrees of freedom one induces a flow describing how the theory changes as one lowers the scale to longer and longer wavelength. This is enumerated in terms of differential equations expressing the running of coupling constants. What AdS/CFT miraculously tells us is that this scaling "direction" turns into an extra geometrical dimension in the gravitational dual. The scaling flow in the field theory is now encoded in the purely geometrical properties of this higher-dimensional gravitational space-time, which in turn is governed by solutions of the Einstein equations. When the field theory lives in a <span class="math inline">\((d+1)-\)</span> dimensional space-time, the corresponding bulk has <span class="math inline">\(d+2\)</span> dimensions; this extra dimension is often called the "radial direction". This is metaphorically like a hologram: one has a two-dimensional photographic plate with interference fringes (the field theory) and by shining through a laser beam (the dictionary of the AdS/CFT correspondence) a three-dimensional (3D) image (the bulk) is constructed. The miracle that makes this work is the quantum-gravitational "holographic principle" originating in black-hole physics (see section 4.1). It insists that the counting of degrees of freedom in a gravitational theory behaves similarly to a quantum field theory in one dimension fewer. This is why the members of the large family of AdS/CFT-type correspondences are called "holographic dualities": in the present context this metaphor acquires an extra appeal since we will see that the physics in the gravitational "bulk" is quite recognisable (the <span class="math inline">\(3 D\)</span> images) while the fieldtheory side is quite abstract and counterintuitive (the interference patterns on the plate).</p>
+<p>How precisely do we stitch these different worlds together? It is now the moment to explain the abbreviation. It stands for the particular configuration in which the duality between QFT and GR was first realised. The first part AdS stands for anti-de Sitter space. This is the space-time on the general-relativity side of the correspondence. This is a solution to Einstein's theory characterised by a negative cosmological constant. Geometrically it is the Lorentzian higher-dimensional generalisation of a hyperboloid. The properties of hyperbolic space are famously represented by Escher in a series of drawings, tessellating this space with fishes. devils and reptiles. Formally it appears that such hyperbolic spaces are infinitely large, but here one of the marvels of relativity comes into play. This is not true for light-like propagation. They reach the edge of space-time in a finite time. This means that one has to supplement the gravity theory with specific boundary conditions and boundary information. Since the boundary is naturally of one dimension fewer than the "bulk", one can now imagine that the boundary is correlated with the space-time where the field theory lives, while its <span class="math inline">\(RG\)</span> flow is associated with the extra radial direction moving from this boundary towards the centre of AdS: the "deep interior". This intuitive viewpoint is correct and will serve as a great support in understanding the quantitative dictionary between the two sides of the correspondence. The second abbreviation, CFT, stands for "conformal field theory". In the first explicit realisations of the correspondence the quantum theories were always of a very special type. They were conformally invariant. This means that "everything stays the same under arbitrary scale transformations that preserve angles". This is the category of the theories which are of great interest to contemporary condensed matter physics. Conformally invariant theories explain the universal behaviour at second-order phase transitions. Here, however, these conformal field theories arise naturally as zero-temperature relativistic field theories. They are "quantum critical theories" describing the universal physics near a zerotemperature "quantum phase transition" controlled by another external parameter. Now precisely the notion of quantum criticality appears to play a central role in all the big puzzles of strongly correlated matter revealed by experiment, most notably the strange metals found in high- <span class="math inline">\(T_{ c }\)</span> superconductors and other exotic materials. All along, quantum criticality will be a central motive linking the holographic-duality activities to the laboratory floor.</p>
+<p>These are still only glimpses of the beautiful relationship between quantum field theories and general relativity. But, using the pieces just revealed, anti-de Sitter spaces, conformal field theories and the quantum critical state, and the extra direction as somehow encoding the RG flow, we can already give a remarkably intuitive description of the dictionary relating the two sides.</p>
+<p>Let us start from the field-theory side of the correspondence, and take a relativistic conformal field theory as our starting point. The natural description of such a CFT is that it lives in a flat, <span class="math inline">\((d+1)\)</span> -dimensional non-dynamical Minkowski space-time, i.e. quantities that respect special relativity are expressed in terms of four-vectors/four-tensors with inner products defined by the metric <span class="math display">\[
+d s^{2}=\eta_{\mu \nu} d x^{\mu} d x^{\nu}=-d t^{2}+d x ^{2}
+\]</span> Here <span class="math inline">\(\mu, v=0\)</span> is the time direction, and <span class="math inline">\(\mu, v=1, \ldots, d\)</span> are spatial directions. In addition to manifest invariance under global Lorentz transformations, Minkowski space-time is invariant under time and spatial translations. Correspondingly one has conservation of energy and momentum.</p>
+<p>A generic field theory is also subject to renormalisation. Following Wilson, we can integrate out short-distance degrees of freedom consistently, provided that we change the coupling constants <span class="math inline">\(g_{i}\)</span> of the theory under scale transformations according to differential equations that are local in the RG scale <span class="math inline">\(u\)</span>, <span class="math display">\[
+u \frac{\partial g_{i}(u)}{\partial u}=\beta\left(g_{j}(u)\right)
+\]</span> Right at a critical point, however, the beta functions vanish by definition, <span class="math inline">\(\beta=0\)</span>, and the physics becomes scale-invariant. The combined space and time scale transformation <span class="math inline">\(x^{\mu} \rightarrow \lambda x^{\mu}\)</span> is now also a symmetry. For a relativistic Lorentz-invariant theory, scale invariance together with unitarity is conjectured to imply invariance under the full set of conformal transformations (see e.g. [4] for a review), i.e. all transformations that preserve angles but not necessarily lengths. These include so-called special conformal transformations that combine with scale and Lorentz transformations to form the group <span class="math inline">\(S O(d+1,2)\)</span>.</p>
+<p>Picture now a generic field theory evaluated at different values of the renormalisation-group scale <span class="math inline">\(r\)</span>, and put them in a sequence (Fig. 1.1). If we consider the label <span class="math inline">\(r\)</span> of each theory as a continuous variable, we get a new <span class="math inline">\((d+2)-\)</span> dimensional "space-time" that has one extra dimension that parametrises the <span class="math inline">\(RG\)</span> flow. On the field-theory side, i.e. for each field-theory slice, the RG scale <span class="math inline">\(r\)</span> is of course a non-geometrical entity that lets us know how the field theory behaves as we change the scale. The essence of AdS/CFT is that the full family of theories has an alternative dual geometric description in terms of a real <span class="math inline">\((d+2)\)</span> -dimensional space-time. To reflect the scaling properties of the underlying field theory, this space-time cannot be flat but has to have a curved shape, exactly as is familiar from Einstein's theory of general relativity. In such curved space-times, distances are measured with the help of the local metric <span class="math inline">\(d s^{2}=g_{\mu \nu}(x) d x^{\mu} d x^{v} .\)</span> Remarkably, if the field theory we started from was indeed a very special field theory with conformal and scale invariance, we can deduce what the form of the metric should be, solely from the symmetries of a conformal field theory. Generically any specific metric tensor <span class="math inline">\(g_{\mu \nu}(x)\)</span> also corresponds to a particular "gauge choice" associated with a preferred coordinate frame. However, if the space-time has a true physical symmetry, then the metric should respect this symmetry irrespective of the coordinate choice. Such a symmetry is called an isometry, to distinguish it from the choice-of-coordinate-frame symmetries (general covariance, or diffeomorphism) that are the basis of GR. Since the field theory we wish to describe is conformal and invariant under scale transformations, we must insist that its holographic gravitational dual is so too, if the two sides of the coin are to match. We must therefore find a metric in such a way that the total <span class="math inline">\((d+2)\)</span> -dimensional space-time has the scaling symmetry <span class="math inline">\(x^{\mu} \rightarrow \lambda x^{\mu}\)</span> as an isometry. The "stacking" picture of our field theory, which is Lorentz- and translation-invariant, already tells us that the metric must be of the form <span class="math display">\[
+d s^{2}=f(r) \eta_{\mu \nu} d x^{\mu} d x^{\nu}+g(r) d r^{2}
+\]</span> If we then use the coordinate freedom to set <span class="math inline">\(r\)</span> equal to the energy scale of the field theory, i.e. under scale transformations <span class="math inline">\(r\)</span> should scale as <span class="math inline">\(r \rightarrow r / \lambda\)</span>, the unique invariant <span class="math inline">\((d+2)\)</span> -dimensional metric is <span class="math display">\[
+d s^{2}=\frac{r^{2}}{L^{2}} \eta_{\mu \nu} d x^{\mu} d x^{\nu}+\frac{L^{2}}{r^{2}} d r^{2}
+\]</span> This is precisely the metric of <span class="math inline">\((d+2)\)</span> -dimensional anti-de Sitter space. We now see the explicit connection between AdS and CFT. A more detailed study of the AdS metric reveals not only that its full set of isometries is Lorentz plus scaling but also that it actually forms the group <span class="math inline">\(S O(d+1,2)\)</span>. This matches exactly to the conformal angle-preserving symmetry of a <span class="math inline">\((d+1)\)</span> -dimensional CFT, including the special conformal transformations.</p>
+<p>Let's inspect this geometry more closely. The anti-de Sitter <span class="math inline">\(AdS _{d+2}\)</span> geometry is thus a family of copies of Minkowski spaces parametrised by the "radial coordinate" <span class="math inline">\(r\)</span>, whose size is seen to shrink when <span class="math inline">\(r\)</span> decreases from the UV of the field theory at <span class="math inline">\(r \rightarrow \infty\)</span> to the IR at <span class="math inline">\(r \rightarrow 0\)</span>. The "UV" region where <span class="math inline">\(r \rightarrow \infty\)</span> is the earlier-mentioned boundary of the space-time, which light-like objects can reach in a finite time. One therefore needs to supply boundary conditions in addition to the dynamical laws, and this will play a very important role throughout. The "IR" region of the field theory is the deep interior of AdS. The free parameter <span class="math inline">\(L\)</span> with the dimension of length is called the "AdS radius", and its meaning for the field theory will become clear later. One can also make the extra holographic dimension an <span class="math inline">\(RG\)</span> "length" by changing coordinates to <span class="math inline">\(z=L^{2} / r\)</span>, for which the metric reads <span class="math display">\[
+d s^{2}=\frac{L^{2}}{z^{2}}\left(\eta_{\mu v} d x^{\mu} d x^{\nu}+d z^{2}\right)
+\]</span> We shall use the notations introduced here throughout. For convenience, we summarise them in Table 1.1.</p>
+<p>This simple geometrical picture (see Fig. 1.1) already teaches us that the field theory has an intricate relationship with a non-trivial Einstein space-time. The fact that we took a critical scale-invariant theory as the starting point imposed strong restrictions on the emergent geometry of the <span class="math inline">\((d+2)\)</span> -dimensional space-time. A critical theory is very special, however. If we now deform the conformal field theory such that we create a non-trivial flow to a new IR, it is clear that the geometrical structure must change, i.e. the space-time must be able to respond to the physics. The simplest dynamical gravitational theory that fulfils the Landau criteria of satisfying the symmetry requirements (in this case general covariance) with a minimal number of derivatives, and that also has the AdS space-time as a solution, is the Einstein-Hilbert action with an added negative cosmological constant, <span class="math display">\[
+S=\frac{1}{16 \pi G} \int d^{d+2} x \sqrt{-g}[R-2 \Lambda+\cdots]
+\]</span> where <span class="math inline">\(g=\operatorname{det} g_{\mu v}, R\)</span> is the Ricci scalar obtained from the metric, and <span class="math inline">\(G\)</span> is the gravitational coupling constant, while <span class="math inline">\(-2 \Lambda=d(d+1) / L^{2}\)</span> is a negative cosmological constant, parametrised in terms of the AdS radius <span class="math inline">\(L .\)</span> The ellipsis means that one can add matter (scalar, vector, fermion fields) and/or higherderivative gravity terms, if one so desires. The cosmological constant is formally the same as that which accounts for the expansion of the Universe discovered in 1998 , except for its sign. With a positive as opposed to a negative cosmological constant the resulting solution to Einstein's equations is the de Sitter space-time which describes an exponentially expanding universe. Let us remark that, even though the precise notion of holography which we will explain in chapters 4 and 5 is thought to work for all gravitational space-times, currently we know how to apply it only for (asymptotically) anti-de Sitter ones. The Einstein-Hilbert action Eq. (1.7) that should govern the gravitational response for a deformation of the CFT has introduced a new parameter: Newton's constant. In the natural units <span class="math inline">\((\hbar=c=1)\)</span> we are implicitly using above <span class="math inline">\(G\)</span> has dimensions <span class="math inline">\(G=\ell_{ pl }^{d}\)</span>, where <span class="math inline">\(\ell_{ pl }\)</span> is known as the Planck length. Explicitly <span class="math inline">\(\ell_{ pl }^{d}=G \hbar / c^{3} .\)</span> Since Newton's constant is the coupling constant of general relativity, controlling the fluctuations of space-time, we learn immediately that the AdS radius of curvature needs to be very faint, <span class="math inline">\(L \gg \ell_{ pl }\)</span>, in order to avoid large quantum-gravity effects. If the curvature becomes larger, our limitation to a minimal number of derivatives becomes invalid, and indeed the explicit constructions of AdS/CFT dual pairs from string theory actually tell us to add such corrections to the Einstein-Hilbert action when the curvature increases (section 1.4).</p>
+<p>The meaning for the field theory of this inherent limit that the curvature must be small in Planck units is the large- <span class="math inline">\(N\)</span> matrix limit mentioned earlier. This follows directly from explicit string-theoretical "top-down" constructions of AdS/CFT dual pairs. Generally, the AdS gravity theory corresponds to full string theory including all higher-derivative corrections. The simplification to the classical and weakly coupled Einstein gravity of Eq. (1.7) occurs only when the number of degrees of freedom in the CFT is appropriately large. For instance, for a <span class="math inline">\((3+1)\)</span> -dimensional CFT dual to a <span class="math inline">\((4+1)\)</span> -dimensional AdS space, one finds that the AdS curvature <span class="math inline">\(L\)</span> in units of the Planck length <span class="math inline">\(\ell_{ pl }\)</span> is related to the effective number of degrees of freedom in the <span class="math inline">\(CFT N\)</span>, <span class="math display">\[
+\frac{L^{4}}{\ell_{ pl }^{4}} \sim N
+\]</span> Thus we need <span class="math inline">\(N \gg 1\)</span> in order to have a reliable dual classical gravitational description.</p>
+<p>There is an additional further requirement if we are to trust Eq. (1.7). For the perturbative string-theory starting point to be reliable, the intrinsic string coupling constant must be small. This coupling <span class="math inline">\(g_{ s }\)</span> is proportional to the ratio of the gravitational Planck length <span class="math inline">\(\ell_{ pl }\)</span> to the intrinsic string length <span class="math inline">\(\ell_{ s } .\)</span> It also controls the coupling in the CFT. In the example of a <span class="math inline">\((3+1)\)</span> -dimensional CFT dual to a <span class="math inline">\((4+1)\)</span> -dimensional AdS space this translates into the condition <span class="math display">\[
+\frac{\ell_{ pl }^{4}}{\ell_{ s }^{4}} \sim g_{ s } \simeq g_{ CFT }^{2} \ll 1
+\]</span> A weak string coupling therefore suppresses the true scale at which quantumgravity effects become important. Microscopically, it is the string length <span class="math inline">\(\ell_{ s }\)</span> that sets the scale at which deviations from Einstein's relativity Eq. (1.7) become important, rather than the Planck length. The more precise version of Eq. (1.8) is therefore <span class="math display">\[
+\frac{L^{4}}{\ell_{ s }^{4}} \sim g_{ CFT }^{2} \gg 1
+\]</span> One thus finds that to rely on classical gravity in the bulk one has to make the number of degrees of freedom <span class="math inline">\((N)\)</span> in the field theory very large, so large that the combination <span class="math inline">\(g_{ CFT }^{2} N\)</span> with <span class="math inline">\(g_{ CFT }^{2} \ll 1\)</span> is also large. It is a well-known fact in field theory that such large- <span class="math inline">\(N\)</span> limits generically rearrange the perturbation expansion. Not coincidentally, in the top-down models derived from string theory the natural variables are the rearranged large- <span class="math inline">\(N\)</span> variables. An example is <span class="math inline">\((3+1)\)</span> -dimensional maximally supersymmetric <span class="math inline">\(S U(N)\)</span> Yang-Mills theory. In the large- <span class="math inline">\(N\)</span> limit the new effective 't Hooft coupling in the field theory is precisely the combination <span class="math inline">\(g_{ CFT }^{2} N\)</span> in the earlier equation (1.9). Because the large- <span class="math inline">\(N\)</span> limit rearranges the perturbation expansion, this means that the microscopic coupling <span class="math inline">\(g_{ CFT }^{2}\)</span> is no longer an accurate gauge of the theoretical control of the theory, even though it is small. What controls the theory is this new effective coupling, and it has to be very large for the correspondence to work. This duality that strongly coupled field physics in the field theory corresponds to weakly coupled general relativity is what makes AdS/CFT so powerful. It gives us insight into regimes of the field theory that were previously inaccessible. The first dictionary rule of the correspondence is</p>
+<blockquote>
+<p>Rule 1 AdS/CFT can map strongly coupled non-gravitational physics to a weakly coupled perturbative gravitational problem.</p>
+</blockquote>
+<p>The converse is also true: strongly coupled gravitational physics maps to a weakly coupled field theory, but this aspect is not the focus of this book.</p>
+<p>At this point one can still wonder whether the observation that one can draw a "geometrised" picture of renormalisation flow is no more than an interesting metaphor, even with the tantalising strong/weak-duality backbone. To render AdS/CFT a real computational framework one needs real equations. Gubser, Klebanov and Polyakov [2] and independently Witten [3] made the crucial step by realising how the physics on each side of the duality precisely translates into that on the other. Here we will try to introduce the essence from the bottom up; we will discuss the full mathematical "Gubser-Klebanov-Polyakov-Witten" (GKPW) rule in chapter 5 .</p>
+<p>Let us consider the following puzzle: take as given that the renormalisation group can be "geometrised" such that a quantum critical scale-invariant state can be encoded in terms of classical gravity in an anti-de Sitter geometry. How does one, for instance, "string together" the two-point correlation functions in the field theory from this starting point? Two-point correlation functions in a conformal field theory obey a very simple rule. For a Lorentz-invariant conformal field theory at zero temperature, their form is fixed by conformal and Lorentz invariance with the scaling dimension of the operator as the only free parameter. Consider two points separated by a distance <span class="math inline">\(x\)</span> in Euclidean space-time. Given a "bare" (UV) scalar operator <span class="math inline">\(O (x)\)</span> of the conformal field theory with conformal dimension <span class="math inline">\(\Delta\)</span>, i.e. under a scale transformation it transforms as <span class="math inline">\(O (\lambda x)=\lambda^{-\Delta} O (x)\)</span>, the two-point propagator will be <span class="math display">\[
+\langle O (x) O (0)\rangle=\frac{1}{|x|^{2 \Delta}}
+\]</span> Here we have fixed the arbitrary normalisation to one. This is probably familiar to the reader. The correlation function can only depend on the invariant distance <span class="math inline">\(|x|=\)</span> <span class="math inline">\(\sqrt{c^{2} \tau^{2}+x^{2}+y^{2}+\cdots}\)</span> with <span class="math inline">\(\tau\)</span> the Euclidean time. More importantly, given scale invariance it has to be the case that any response becomes an algebraic function of distance.</p>
+<p>To interpret experiments we are usually interested in the response as a function of energy and momentum. We can Fourier transform this expression, and after a Wick rotation from imaginary to real time with the appropriate prescription we obtain the retarded correlation function (chapter 5 ) <span class="math display">\[
+\begin{aligned}
+\langle O ( k , \omega) O (0)\rangle_{ R } &amp; \sim k^{2 \Delta-d-1} \\
+&amp; \sim\left(-\omega^{2} / c^{2}+ k ^{2}\right)^{\Delta-d / 2-1 / 2}
+\end{aligned}
+\]</span> These are the "branch-cut" propagators of the quantum critical state, as we know them in condensed matter physics (section 2.1). Focussing on the spectral function <span class="math inline">\(A( k , \omega)-\)</span> the imaginary part of Eq. (1.12) <span class="math inline">\(-\)</span> one finds at zero momentum a pure power law, <span class="math inline">\(A \sim \omega^{2 \Delta-d-1}\)</span>, whereas at finite momentum there is no spectral weight until <span class="math inline">\(\omega=c k\)</span>, after which the function tends asymptotically to the pure power law at very high frequency.</p>
+<p>The task is now to reconstruct such two-point correlators from objects that we can identify in the AdS space-time. The operators in the <span class="math inline">\(CFT\)</span> are associated with the "bare" high-energy degrees of freedom. According to the geometrisation roadmap of the RG these should be associated with going as far out as possible in the AdS space. Then the following statement appears to be obvious:</p>
+<blockquote>
+<p>Rule 2 The <span class="math inline">\((d+1)\)</span> -dimensional space-time of the (bare UV) field theory is coincident with the boundary of the gravitational <span class="math inline">\((d+2)\)</span> -dimensional AdS bulk space-time.</p>
+</blockquote>
+<p>At its deepest level the map between the AdS gravity and the CFT is more abstract and in principle one should not identify a location in AdS with the CFT. Nevertheless, it will be convenient and almost always perfectly safe to picture it in this simple fashion.</p>
+<p>Which object in the AdS gravity theory can correspond to the scalar operator <span class="math inline">\(O (x)\)</span> of the CFT? The most straightforward guess is just to consider a scalar field <span class="math inline">\(\phi\)</span> in AdS, and find out what can be done with it. The simplest action one can write down for the dynamics of this scalar in AdS is a quadratic action minimally coupled to the space-time, <span class="math display">\[
+S =\int d^{d+2} x \sqrt{-g}\left(-\frac{1}{2} g^{\mu v} \partial_{\mu} \phi \partial_{v} \phi-\frac{1}{2} m^{2} \phi^{2}+\cdots\right)
+\]</span> where <span class="math inline">\(g\)</span> and <span class="math inline">\(g^{\mu v}\)</span> are the determinant and the inverse of the metric <span class="math inline">\(g_{\mu \nu}\)</span>, respectively. To a first approximation we can consider this action as a classical field theory in the curved AdS space-time, with the metric Eq. (1.6) as the fixed background. Thus the equation of motion for <span class="math inline">\(\phi\)</span> is <span class="math display">\[
+\frac{1}{\sqrt{-g}} \partial_{\mu}\left(\sqrt{-g} g^{\mu v} \partial_{v} \phi\right)-m^{2} \phi=0
+\]</span> We now Fourier transform to frequency-momentum space, but only with regard to the flat space-time shared by the boundary and the bulk, and Wick rotate to a Euclidean signature <span class="math inline">\(\left(t \rightarrow-i \tau, \omega \rightarrow i \omega_{ E }\right) .\)</span> For two-point correlators at space-like momentum we can do this straightforwardly, since it is safe to Wick rotate back to real time at the end of the computation: <span class="math display">\[
+\begin{aligned}
+\phi\left(x^{\mu}, r\right) &amp;=\int \frac{d \omega d^{d} k }{(2 \pi)^{d+1}} f_{k}(r) e^{i k_{\mu} x^{\mu}} \\
+&amp;=\int \frac{d \omega d^{d} k }{(2 \pi)^{d+1}} f_{k}(r) e^{-i \omega t+i k \cdot x } \\
+&amp;=i \int \frac{d \omega_{ E } d^{d} k }{(2 \pi)^{d+1}} f_{k}(r) e^{-i \omega_{E} \tau_{E}+i k \cdot x }
+\end{aligned}
+\]</span> On choosing to use the "RG-energy" coordinates for AdS, <span class="math display">\[
+d s^{2}=\frac{L^{2}}{r^{2}} d r^{2}+\frac{r^{2}}{L^{2}} \eta_{\mu \nu} d x^{\mu} d x^{\nu} \text { , }
+\]</span> one obtains an equation of motion for the dependence on the radial direction of the Fourier components <span class="math inline">\(f_{k}\)</span>, <span class="math display">\[
+\left[\frac{\partial^{2}}{\partial r^{2}}+\frac{d+2}{r} \frac{\partial}{\partial r}-\left(\frac{k^{2} L^{4}}{r^{4}}+\frac{m^{2} L^{2}}{r^{2}}\right)\right] f_{k}(r)=0
+\]</span> where <span class="math inline">\(k^{2}=\omega_{ E }^{2} / c^{2}+ k ^{2}\)</span> (Euclidean signature). The equation is an ODE, but to avoid confusion with the <span class="math inline">\(d\)</span> denoting the number of spatial dimensions, we have kept the partial-derivative notation. An important aspect is that, on redefining <span class="math inline">\(r / k=\zeta\)</span>, the solution is a function of <span class="math inline">\(\zeta\)</span> alone. We can immediately infer the momentum dependence of the solution from the dependence on the radial coordinate <span class="math inline">\(r\)</span>. This is the notion that <span class="math inline">\(r\)</span> parametrises the energy scale in the field theory in action.</p>
+<p>Now we use rule <span class="math inline">\(2:\)</span> the field theory can be thought to live at the boundary. With the Ansatz that <span class="math inline">\(f_{k}(r / k)=f_{k}^{(0)}(r / k)^{\alpha}+\cdots\)</span> behaves as a power near the boundary <span class="math inline">\((r \rightarrow \infty)\)</span>, we find the two independent solutions to the second-order equation of motion <span class="math display">\[
+\begin{aligned}
+f_{k}(r / k)=&amp;(r)^{-d-1+\Delta}\left(A(k)+ O \left(\frac{k}{r}\right)\right) \\
+&amp;+(r)^{-\Delta}\left(B(k)+ O \left(\frac{k}{r}\right)\right)(r \rightarrow \infty)
+\end{aligned}
+\]</span> where <span class="math display">\[
+\Delta=\frac{d+1}{2}+\sqrt{\frac{(d+1)^{2}}{4}+m^{2} L^{2}}
+\]</span> and the coefficients <span class="math inline">\(A(k)=a k^{d+1-\Delta}\)</span> and <span class="math inline">\(B=b k^{\Delta}\)</span> have a fixed power-law dependence on <span class="math inline">\(k\)</span>. This directly follows from the fact that the right-hand side must be a function of <span class="math inline">\(\zeta=r / k\)</span> alone. Since our field is real, the exponents had better be real, which implies what is known as the Breitenlohner-Freedman (BF) bound [6], <span class="math display">\[
+m^{2} L^{2} \geq-\frac{(d+1)^{2}}{4}
+\]</span> Note that the mass squared can be negative. This is a special property of the AdS space-time. As long as this BF bound is satisfied, the AdS space itself is stable even in the presence of the somewhat negative mass-squared field <span class="math inline">\(\phi .\)</span> For large negative mass squared <span class="math inline">\(m^{2} L^{2}&lt;-(d+1)^{2} / 4\)</span>, the complex exponents do signal a conventional linear instability ("tachyon") of this space-time; the field will acquire a finite amplitude, which will in turn backreact on the geometry of the space-time. To give a brief preview of chapter 10 , such BF-bound violations will essentially be the way to gravitationally encode spontaneous symmetry breaking in the boundary field theory.</p>
+<p>Returning to our puzzle regarding how to determine the two-point correlation function in the AdS dual of a conformal field theory, we note that the information available near the boundary is contained in the universal asymptotes of the solutions to the equation of motion Eq. (1.18). The boundary field theory should not contain information regarding the "unphysical" dimension <span class="math inline">\(r\)</span>, but we note that the leading coefficients <span class="math inline">\(A(k)\)</span> and <span class="math inline">\(B(k)\)</span> of the two independent solutions each have a simple algebraic (monomial <span class="math inline">\(k^{n}\)</span> ) dependence on the frequency and momentum of the field theory. Using the bulk solutions to <span class="math inline">\(\phi(r)\)</span>, we can try to simply engineer a way to reconstruct the known answer in the CFT, in the form of the correlator Eq. (1.12). Given that the integration constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are undetermined, and that the overall normalisation should not play a role, one arrives at <span class="math display">\[
+\frac{B(k)}{A(k)}=\frac{b}{a} k^{2 \Delta-d-1}
+\]</span> Note that the mass that we put in by hand turns out to determine the scaling dimension of the boundary operator. The mass-scaling dimension relation is one of the essentials of the correspondence. This simple engineering result, which is coincident with the two-point correlation function of a Euclidean conformal scalar field <span class="math inline">\(O\)</span> with conformal dimension <span class="math inline">\(\Delta=(d+1) / 2+\sqrt{(d+1)^{2} / 4+m^{2} L^{2}}\)</span> in momentum space Eq. (1.12), is in fact the right dictionary rule. A similar massscaling relation exists for operators with spin, e.g. for massive vectors one finds <span class="math inline">\(\Delta_{\text {vector }}=(d+1) / 2 \pm \sqrt{(d-1)^{2} / 4+m^{2} L^{2}}[7]\)</span></p>
+<blockquote>
+<p>Rule 3 The CFT two-point correlation function for scalar operators with scaling dimension <span class="math inline">\(\Delta\)</span> can be expressed in terms of the ratio of the coefficients <span class="math inline">\(A(k)\)</span> and <span class="math inline">\(B(k)\)</span> of the leading and sub-leading asymptotes of the corresponding AdS massive scalar waves <span class="math inline">\(\phi(r, k)=A(k) r^{-d-1+\Delta}+B(k) r^{-\Delta}+\cdots\)</span> in the near-boundary region: <span class="math inline">\(\langle O (-k) O (k)\rangle=B(k) / A(k)\)</span>. The scaling dimension <span class="math inline">\(\Delta=(d+1) / 2+\sqrt{(d+1)^{2} / 4+m^{2} L^{2}}\)</span> is set by the mass of the <span class="math inline">\(\operatorname{AdS}\)</span> scalar wave.</p>
+</blockquote>
+<p>Let us continue with our engineering. The most basic object of the boundary theory is the relativistic energy-momentum tensor <span class="math inline">\(T_{\mu \nu}\)</span>. This operator is always there as the generator of time and space translations. In contrast with the scalar operator, one has to address the tensor indices <span class="math inline">\([8]\)</span>. Fortunately, due to the fact that <span class="math inline">\(T_{\mu \nu}\)</span> as a symmetry generator is conserved, <span class="math inline">\(\partial_{\mu} T^{\mu \nu}=0\)</span>, the result for its two-point correlation function is strongly constrained. One finds <span class="math display">\[
+\left\langle T_{\mu \nu}(x) T_{\rho \sigma}(y)\right\rangle=\frac{c_{T}}{s^{2 d+2}} J_{\mu \alpha}(s) J_{v \beta}(s) P_{\alpha \beta, \rho \sigma},
+\]</span> where <span class="math display">\[
+\begin{aligned}
+s &amp;=x-y \\
+J_{\mu \nu}(x) &amp;=\delta_{\mu \nu}-2 \frac{x_{\mu} x_{v}}{|x|^{2}}, \\
+P_{\mu v, \rho \sigma} &amp;=\frac{1}{2}\left(\delta_{\mu \rho} \delta_{v \sigma}+\delta_{\mu \sigma} \delta_{v \rho}\right)-\frac{1}{d+1} \delta_{\mu \nu} \delta_{\rho \sigma}
+\end{aligned}
+\]</span> and <span class="math inline">\(c_{T}\)</span> is a constant. One notices that the conformal dimension of the energymomentum tensor is fixed to be <span class="math inline">\(\Delta_{T_{\mu v}}=d+1\)</span>. This is just the requirement that the energy is subjected to "engineering scaling", because it is set by the volume. What object on the gravitational side encodes the dynamics of this everpresent operator? Given that <span class="math inline">\(T_{\mu v}\)</span> is a spin-2 tensor, there is only one candidate. It must be the graviton encoding the dynamical nature of space-time. It is the unique consistent interacting spin-2 field one can write down. The symmetries and tensor properties of <span class="math inline">\(T_{\mu \nu}\)</span> ensure that after repeating the above procedure for the gravitons one recovers precisely Eq. (1.21). An essential difference is that we know the mass of the gravitons a priori: by the same symmetry principle they are massless.</p>
+<p>We have uncovered here a further fundamental aspect of the holographic correspondence. The energy-momentum tensor <span class="math inline">\(T_{\mu \nu}\)</span> is the "Noether current" associated with global space and time translations. In the conformal field theory on the boundary it also generates the additional global scale and special conformal transformations. But in the previous section we showed that these global conformal transformations translate into isometries of the bulk geometry: they are part of the local coordinate transformations ("diffeomorphisms", "general covariance") which are at the heart of the structure of Einstein theory. Now we see that on the gravity side it is indeed the gauge field of the local symmetries, the graviton, that encodes the dynamics of the conserved current of the global symmetries in the boundary field theory. This is a very deep feature of the correspondence:</p>
+<blockquote>
+<p>Rule 4 AdS/CFT is a local-global duality. Global symmetry in the boundary field theory dualises in a local gauge symmetry in the bulk. The gauge bosons are the gravitational objects describing the dynamics of the boundary conserved currents.</p>
+</blockquote>
+<p>One is naturally led to infer that the same should happen for the conserved currents associated with global internal symmetries in the boundary. These should be encoded in Maxwell or Yang-Mills gauge fields in the bulk.</p>
+<h2 id="holographic-duality-and-the-nature-of-matter">1.4 Holographic duality and the nature of matter</h2>
+<p>These four rules should already allow the reader to understand a great deal of many of the holographic results in principle. Here we arrived at them with intuitive engineering, but they can be placed on a much firmer footing. We will do so in chapter 4 and chapter 5 in particular. These chapters will give a far more thorough background for the correspondence, including the precise quantitative GKPW rule which prescribes how to compute quantities in the field theory from the AdS gravity theory. This GKPW rule, an equality between the partition functions of the two sides, is the beating heart of the correspondence: it is what gives it its computational power. If one wants to understand how to practice holography, it is essential that one understands these chapters describing the dictionary thoroughly. Even then it is useful to have a translational aid readily available, and to this end we have included a literal dictionary table at the end of chapter 5 .</p>
+<p>The obvious question, however, is how to apply this dictionary to condensed matter puzzles. At first sight AdS/CFT seems far removed from this subject, since the relevance of the conformal boundary field theory to the real world is far from obvious. How can we connect this to the material world tested in the laboratory? It is hard-wired into the present formulation of holographic duality that conformal invariance controls the physics at short distances (the UV). The geometry in the bulk near the boundary has to be AdS in order for us to formulate the GKPW rule. However, there is no such restriction in the deep interior. The correspondence leaves us room to alter the geometry in this interior, as long as this satisfies the Einstein equations. Equivalently, one has complete freedom to break the conformal invariance in physically meaningful ways in the long-wavelength "infrared" (IR) regime of the boundary system. In this way one can address the question regarding the kind of collective "emergence" physics that governs the matter formed from the microscopic strongly interacting CFT degrees of freedom. To what extent do the phenomenological theories describing the collective physics in the IR remain dependent on the detailed nature of the UV degrees of freedom, and to what extent are these just reflecting ubiquitous principles governing the emergent physics? In a surprising development that nobody expected, the AdS/CFT "oracle" turns out to have much to report regarding these matters. This is the story we wish to tell.</p>
+<p>Before we delve into the specifics, let us first spell out the restrictions we imposed on ourselves in the writing of this book. There has been so much progress made with holography in recent years that a number of largely complementary books could be written. Indeed, while this book was being written, the first textbooks dedicated to the gauge-gravity duality on its own <span class="math inline">\([9,10]\)</span> and to its application to QCD in the context of the quark-gluon plasma studied in heavyion collisions appeared [11, 12]. There are in addition numerous excellent reviews on AdS/CFT or gauge/gravity duality more generally (e.g. <span class="math inline">\([7,9,13,14,15,16]\)</span> ), and even on the topic of this book, AdS/CMT (e.g. <span class="math inline">\([17,18,19,20,21,22])\)</span>.</p>
+<p>Our goal has been to provide a very pedagogical approach to holography that makes it easily accessible to a wide audience and at the same time places the recent developments into a coherent framework of modern condensed matter physics. We shall focus on equilibrium physics in the first place. Holography is actually unique in its capacity to deal with the non-equilibrium time-dependent physics of strongly interacting quantum systems as well. Technically, real-time evolutions of the boundary field theory amount to considering non-stationary gravitational physics in the dual bulk gravity description. At present the non-equilibrium agenda is rapidly developing, helped by exciting technical developments in numerical general relativity. These make it possible to reliably compute the non-stationary space-time evolution in the bulk AdS gravity, including dynamical black-hole formation. Both the physics and the methodology are complementary to what we cover here, and deserve their own treatises [23]. The equilibrium physics in the boundary of interest to us, on the other hand, is dual to stationary gravity in the bulk, and this is intrinsically easier to handle.</p>
+<p>Secondly, this book has a "bottom-up" orientation. This should be distinguished from "top-down" approaches, where the full firepower of string theory is mobilised to derive "high-precision" holographic correspondences. The first historical example of a top-down holographic duality is the correspondence found by Maldacena [1]: from a specific string theory one can deduce precisely the nature of both the boundary field theory (the maximally supersymmetric large- <span class="math inline">\(N\)</span> Yang-Mills theory) and its corresponding AdS bulk gravity (10-dimensional supergravity compactified on <span class="math inline">\(\left.AdS _{5} \times S ^{5}\right)\)</span>. In principle one even knows all the numbers here. This has been extended to a portfolio of top-down constructions that do play an important role in the background of the developments we will discuss. They serve both as sanity checks and as sources of inspiration.</p>
+<p>The "bottom-up" approach is the technically much simpler "phenomenological" approach. We will present the dictionary of the AdS/CFT correspondence in chapter 5 . In combination with symmetry principles and the intrinsic consistency of general relativity, this makes it possible to "engineer" unique and simple constructions for the mathematical structure of particular holographic correspondences. These have a similar quality to the phenomenological theories of physics such as the Landau-Ginzburg theory of phase transitions in that the structure of the equations is universal but the numbers occur as free parameters. Nevertheless, the bottom-up constructions cannot be seen as independent of the top-down portfolio. The latter provides an invaluable validation of physics encountered in bottom-up phenomenology and, when called for, we will refer to the top-down constructions in this book. To describe top-down constructions in detail, however, one needs much of the heavy formalism of string theory. This is beyond our scope, but we have included an extra chapter at the very end of the book (chapter 13) as a first entry into this subject for the reader who wants to know more about such top-down constructions.</p>
+<p>Finally, with regard to the potential applications to empirical physics, we focus on the typical questions arising in the context of strongly interacting electron systems in solids, and in closely related areas such as systems of cold atoms. The dream that has been motivating this particular development is that holographic duality can shed mathematical light on the mysterious behaviours discovered by condensed matter experimentalists during the last thirty years in strongly interacting electron systems as realised in high- <span class="math inline">\(T_{ c }\)</span> superconductors, the heavy-fermion systems and so forth. This context is extensively discussed in chapters 2 and 3 . The implication is that there will be a strong focus on what holography has to tell regarding these finite-density systems. This is in contrast with the other area where holography has proven to be of relevance, namely the study of the physics of QCD, where the specifics of the zero-density Yang-Mills theory are in the foreground. There is some quite useful overlap between these different areas, and we will present a very short summary of AdS/QCD in section 6.3. A full exposition of this area of holography can be found in the recent companion book [12].</p>
+<p>Within the context of equilibrium, bottom-up, finite-density holography AdS/CFT has given us some radical new perspectives on condensed matter physics. To give the reader an inkling of the excitement of these holographic perspectives and to aid him/her on his/her road through this book, let us now present a brief tour through the core of this book. In this way, a first-time visitor to the holographic universe will acquire an idea of what our destination looks like.</p>
+<h3 id="zero-density-conformal-matter-at-a-finite-temperature-chapters-6-and-7">1.4.1 Zero-density conformal matter at a finite temperature (chapters 6 and 7<span class="math inline">\()\)</span></h3>
+<p>The first question any condensed matter physicist will raise is that of how to address systems at finite temperature. The AdS/CFT answer is to introduce <span class="math inline">\(a\)</span> black hole in</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CFT/">CFT</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/18/CMP_19_CFT04_thesis01/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">学论 - AdS/CFT 对偶理论及其在凝聚态物理中的应用</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/18/CMP_19_CFT06_B/">
+                        <span class="hidden-mobile">边界CFT的Holographic对偶</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "书籍-凝聚态物理中的Holoaraphic对偶&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

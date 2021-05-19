@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.4k 字
+      3.8k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      38
+      42
        分钟
     </span>
   
@@ -411,6 +411,25 @@ C_{1}=\frac{1}{2 \pi} \int k_{x} \int k_{y} F_{x y}( k )
 <p><a href="https://zhuanlan.zhihu.com/p/143794380" target="_blank" rel="noopener">能带理论python入门——从Bloch到Wannier</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/70650173" target="_blank" rel="noopener">也疏寒：拓扑序的点缺陷理论</a></p>
 <p><a href="https://www.zhihu.com/answer/1250799330" target="_blank" rel="noopener">返朴：什么是任意子？</a></p>
+<h2 id="qa">Q&amp;A</h2>
+<p><a href="https://www.zhihu.com/question/393321903" target="_blank" rel="noopener">求能带的时候为什么要从 k 空间变到实空间？</a></p>
+<p>(kx,ky)空间</p>
+<ol type="1">
+<li>动量空间k是一个甜甜圈，是没有边界的，整个体系都是bulk。</li>
+<li>在(kx,ky)空间中，我们现在可以利用TKNN公式得到每条带的Chern数，但是这样的能带里面并没有边缘态，理由很简单，体系都没有边缘。</li>
+</ol>
+<p>(x,ky)空间</p>
+<ol type="1">
+<li>怎么得到边缘态呢？简单的来说就是利用单方向傅里叶变换把(kx,ky)-&gt;(x,ky)，也就是把torus砍开变成也给圆柱</li>
+<li>但是这样的体系(x, ky)并没有TKNN公式，可以用剩下的一个ky好量子数定义winding number</li>
+<li>但是Chern number到winding number有一个映射，这样的映射叫做Bulk-edge correspondence</li>
+</ol>
+<p>(x,y)空间</p>
+<ol type="1">
+<li><p>进一步的把ky也傅里叶变换到实空间，也就是把圆柱砍开变成2维的矩形</p></li>
+<li><p>现在连能带都没有了，只有分立的能谱</p></li>
+<li><p>但是如果计算态密度，依然可以看到和(x,ky)空间的圆柱几何一致，当然也可以计算所谓的实空间拓扑不变量，其实就是Kohn理论里的电导，得到的又可以和Chern数一一对应起来，这也叫做Bulk-edge correspondence。</p></li>
+</ol>
 
             </article>
             <hr>

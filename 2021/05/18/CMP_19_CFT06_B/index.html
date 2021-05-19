@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>边界CFT的Holographic对偶 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/CMP_19_CFT06_B.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-05-18 13:01">
+      May 18, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      10.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      217
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<ol type="1">
+<li>Holographic duality for Ising CFT with boundary</li>
+</ol>
+<p>[TOC]</p>
+<h2 id="abstract">ABSTRACT:</h2>
+<p>We extend the holographic duality between <span class="math inline">\(3 d\)</span> pure gravity and the <span class="math inline">\(2 d\)</span> Ising CFT proposed in Ref. [1] to CFTs with boundaries. Besides the usual asymptotic boundary, the dual bulk spacetime now has a real cutoff, on which live branes with finite tension, giving Neumann boundary condition on the metric tensor. The strongly coupled bulk theory requires that we dress the well-known semiclassical AdS/BCFT answer with boundary gravitons, turning the partition function into the form of Virasoro characters. Using this duality, we relate the brane tensions to the modular <span class="math inline">\(S\)</span> -matrix elements of the dual BCFT and derive the transformation between gravitational solutions with different brane tensions under modular <span class="math inline">\(S\)</span> action.</p>
+<h2 id="quad-introduction"><span class="math inline">\(1 \quad\)</span> Introduction</h2>
+<p>One out of several problems in the study of pure <span class="math inline">\(AdS _{3}\)</span> gravity is the infinite Poincaré series arising from the summation over semiclassical saddle points from Maloney and Witten [2], which requires extensive efforts to regularize. In the pioneering paper [1], the study was extended into the quantum regime where the Brown-Henneaux central charge [3] <span class="math inline">\(c=3 \ell_{A d S} / 2 G_{N}\)</span> is of order one. The Virasoro minimal models are considered as the conformal field theories dual to pure <span class="math inline">\(AdS _{3}\)</span> gravity. Interestingly, the summation becomes finite at least for unitary cases. The main idea is as follows. From the foundational work by Brown and Henneaux [3] we know that there are two copies of the Virasoro algebra with central charge <span class="math inline">\(c=3 \ell_{A d S} / 2 G_{N}\)</span> on the asymptotic <span class="math inline">\(AdS _{3}\)</span> boundary. This indicates that, under certain assumptions, the Virasoro characters of the corresponding CFT should be the result of a determination of the gravity partition function, which turns out to be given by the summation of modular images of a "vacuum seed", i.e. the vacuum conformal block of the dual CFT, over a finite-index mapping class group representing the enhanced gauge symmetry at strong coupling. In particular, for <span class="math inline">\(c=1 / 2\)</span>, one obtains a perfect match between the Ising CFT and the gravity partition functions, except for a mysterious proportionality constant, which persists in higher-genus in both handlebodies and nonhandlebodies <span class="math inline">\([4,5]\)</span>. A similar match can be found for the tricritical Ising model, but is difficult to extend to <span class="math inline">\(c&gt;7 / 10\)</span>. One can wonder whether this equivalence of pure 3 d gravity with <span class="math inline">\(c=1 / 2\)</span> and the Ising model extends to spacetimes with genuine boundaries. In order to support field theories with boundaries, the bulk theory has to be augmented with Randall-Sundrum (RS) branes [6]. It is known that RS branes with tensions can be used to smoothly truncate the bulk spacetime in order to yield the geometry dual to a CFT with a genuine boundary <span class="math inline">\([7-11]\)</span>. The brane introduces one more parameter into the theory, the brane tension. More precisely, for every possible boundary condition, a different brane with different tension needs to be introduced. Assuming the duality holds between the Ising BCFT and the bulk gravitational theory with RS brane at <span class="math inline">\(c=1 / 2\)</span>, three different kinds of branes are allowed, corresponding to the three primary fields in the theory [12]. The brane tensions can then be fixed by requiring that certain field theory quantities are correctly reproduced. They turn out to be related to the CFT boundary entropies first introduced in [13].</p>
+<p>In this paper, we propose an exact duality between the Ising model with boundaries and a pure <span class="math inline">\(AdS _{3}\)</span> bulk gravity with RS branes. We use the results for the CFT partition function on the disk, more precisely the boundary contribution to this partition function which is given by the boundary entropy, to fix the free parameter in the bulk: the brane tension. We then test the duality on cylinders, as tori truncated by one or two RS branes. Here we use the leading-order results in the high and low temperatures to fix the asymptotic forms of the gravitational partition function. While we do not explicitly perform the path integral over the <span class="math inline">\(2 d\)</span> boundary gravitons, the full partition function follows from the asymptotic form by Virasoro symmetry. As a byproduct of our analysis, we also obtain a prediction for the transformation properties of the gravitational partition function under modular <span class="math inline">\(S\)</span> transformations.</p>
+<p>The organization of the rest of this paper is as follows. In section 2, we review the works on establishing the duality between <span class="math inline">\(3 d\)</span> pure Einstein gravity and <span class="math inline">\(2 d\)</span> Ising CFT on torus <span class="math inline">\([1]\)</span> and closed Riemann surfaces of arbitrary genus [4]. We also summarize the semiclassical duality between AdS and boundary CFT (BCFT) and the partition function of BCFT on an annulus. In section 3 , we compute the bulk partition function dual to the Ising CFT on the cylinder both in the high- and low- temperature limits and match with field theory expectations. This section will be self-contained with regard to conventions and notations, to facilitate experts who would like to skip the review section. In section 4 we show that much of the structure we discovered for the Ising model carries over to general minimal models. However, in some of these latter cases it is questionable whether there even exists a simple duality between the CFT and pure gravity. Our analysis simply shows that the general structure of the partition functions would allow an extension to BCFTs by inclusion of RS branes if ever a gravity dual for these cases would be found. By assuming the validity of the duality, we also make a prediction about how brane tensions would change under modular <span class="math inline">\(S\)</span> transformations.</p>
+<h2 id="brief-review-of-relevant-concepts">2 Brief review of relevant concepts</h2>
+<p>In this section, we provide a short review of the Ising/gravity duality on closed manifolds, a brief introduction to boundary conformal field theory (BCFT) as well as the AdS/BCFT duality in the semi-classical regime.</p>
+<h3 id="review-of-the-isinggravity-duality">2.1 Review of the Ising/gravity duality</h3>
+<p>In ref. [1], the exact duality between 2 d Ising CFT and <span class="math inline">\(AdS _{3}\)</span> pure gravity on a hyperbolic solid torus with <span class="math inline">\(c=3 \ell_{A d S} / 2 G_{N}=1 / 2\)</span> is proposed by matching their partition functions up to a proportionality constant. The quantum partition function in the bulk is obtained as a sum over semi-classical saddle points (which are related to each other via <span class="math inline">\(S L(2, Z )\)</span> modular transformations), dressed by fluctuations of dynamical <span class="math inline">\(2 d\)</span> boundary gravitons. Since the theory is strongly coupled, there is no sense in which the latter sum can be done perturbatively. It is one of the key assumptions of the proposal of [1] that this procedure indeed accounts for the full bulk partition function.</p>
+<p>The modular sum can be organized into a summation of the modular images of the gravitational partition function of the thermal <span class="math inline">\(AdS _{3}\)</span> saddle <span class="math inline">\(Z_{v a c}\)</span> and the boundary graviton fluctuations around it. One new feature of the work of ref [1] compared with the semi-classical case [2] is that the summation is no longer over the infinite coset space <span class="math inline">\(\langle T\rangle \backslash S L(2, Z )\)</span>, where <span class="math inline">\(\langle T\rangle\)</span> is the translation subgroup of <span class="math inline">\(S L(2, Z ) .\langle T\rangle\)</span> is generated by <span class="math inline">\(T=\left(\begin{array}{ll}1 &amp; 1 \\ 0 &amp; 1\end{array}\right)\)</span>, which shifts the modular parameter <span class="math inline">\(\tau\)</span> of the asymptotic boundary torus by one and preserves the thermal <span class="math inline">\(\operatorname{AdS}_{3}\)</span> saddle in the semi-classical case. In the quantum regime, the summation is instead over <span class="math inline">\(\Gamma_{c} \backslash S L(2, Z )\)</span>, where <span class="math inline">\(\Gamma_{c}\)</span>, an finite-index subgroup of <span class="math inline">\(S L(2, Z )[14]\)</span>, is enlarged from <span class="math inline">\(\langle T\rangle\)</span> and leaves the quantum partition function <span class="math inline">\(Z_{v a c}\)</span> invariant. The key player <span class="math inline">\(Z_{v a c}\)</span> is also called the "vacuum seed", and is argued to be equal to <span class="math inline">\(\left|\chi_{1,1}(\tau)\right|^{2}\)</span>, the modulus square of the Virasoro character of the identity primary of the Ising CFT. The result of the summation yields the gravitational partition functions <span class="math inline">\(Z_{\text {grav }}=8 Z_{\text {Ising }}\)</span>. At this level, a similar duality can be proposed for the tricritical Ising model with <span class="math inline">\(c=7 / 10\)</span>, where <span class="math inline">\(Z_{\text {grav }}=48 Z_{\text {tri-Ising }}\)</span>. In ref. [4], the authors extended the duality to handlebodies. It is shown using topological quantum field theory techniques that the gravitational partition function for <span class="math inline">\(3 \ell_{A d S} / 2 G_{N}=1 / 2\)</span> is again equal to that of the Ising CFT up to an overall finite constant prefactor, which at genus two is 384 , namely <span class="math inline">\(Z_{\text {grav }}=384 Z_{\text {Ising }}\)</span>. Further extension to nonhandlebodies is achieved in [5], where non-handlebodies are systematically constructed. In particular, for the twisted I-bundles whose conformal boundary is of genus two, it is shown that <span class="math inline">\(Z_{ TIB }=96 Z_{\text {Ising }}\)</span>.</p>
+<h3 id="quad-review-of-bcft">2.2 <span class="math inline">\(\quad\)</span> Review of BCFT</h3>
+<p><span class="math inline">\(1+1\)</span> dimensional CFTs on manifolds with boundaries were introduced by Cardy in [12]. They can be defined with any number of boundary components. For one boundary component, the surface can be conformally mapped to the upper half-plane.</p>
+<p>More interesting is the case with two boundary components, e.g., a cylinder/annulus, where the conformally invariant boundary conditions <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> correspond to what we will call the Cardy states <span class="math inline">\(|a\rangle\)</span> and <span class="math inline">\(|b\rangle\)</span>. There is a one-to-one mapping between each of these allowed boundary conditions and each primary operator of the CFT.</p>
+<p>The cylinder is characterized by one dimensionless shape parameter <span class="math inline">\(\delta\)</span>, the ratio of circumference of the circle over the length of the cylinder. One can write down the corresponding partition function in either the closed (annulus) channel: <span class="math display">\[
+Z_{a b}(\delta)=\left\langle a\left|e^{-\hat{H} / \delta}\right| b\right\rangle,
+\]</span> or in the open (cylinder) channel: <span class="math display">\[
+Z_{a b}(\delta)=\operatorname{Tr}_{ H } e^{-\delta \hat{H}_{a b}}=\operatorname{Tr}_{ H } q^{\hat{L}_{0}-\pi c / 24}=\sum_{h} n_{h}^{a b} \chi_{h}(q)
+\]</span> The closed channel is interpreted as a theory on a circle of unit radius propagating over a finite Euclidean time <span class="math inline">\(1 / \delta\)</span> between initial and final states characterized by <span class="math inline">\(|a\rangle\)</span> and <span class="math inline">\(|b\rangle\)</span>. The open channel gives the finite temperature partition function of the theory on the unit interval with boundary conditions characterized by <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> and inverse temperature <span class="math inline">\(\beta=\delta\)</span>. In <span class="math inline">\((2.2), \chi_{h}(q)\)</span> is the Virasoro character of the irreducible representation <span class="math inline">\({ }^{1}\)</span> of highest weight <span class="math inline">\(h\)</span> (corresponds to the primary field of conformal dimension <span class="math inline">\(h)\)</span> and <span class="math inline">\(q=e^{-\pi \delta}\)</span>. The last equality is due to the decomposition of the Hilbert space into highest weight representations of the Virasoro algebra, <span class="math display">\[
+H =\bigoplus_{h, \bar{h}} n_{h, \bar{h}} V _{h} \otimes \overline{ V }_{\bar{h}}
+\]</span> where <span class="math inline">\(n_{h, h}\)</span> are integers. The rank-three tensor <span class="math inline">\(n_{h}^{a b}\)</span> in <span class="math inline">\((2.2)\)</span> also takes values in <span class="math inline">\(Z\)</span>, and their values will be derived below.</p>
+<p>Since the presence of the boundary ties the holomorphic sector of the CFT to the anti-holomorphic sector only, the partition function is a linear, not bilinear, combination of Virasoro characters [15]. The dilatation operator is now <span class="math inline">\(\hat{L}_{0}\)</span> instead of <span class="math inline">\(\hat{L}_{0}+\hat{\bar{L}}_{0}\)</span>. To determine the boundary states, one imposes the constraint <span class="math display">\[
+\hat{L}_{n}|B\rangle=\hat{\bar{L}}_{-n}|B\rangle
+\]</span> Because one can decompose the Hilbert space into vector spaces associated with conformal primaries as in <span class="math inline">\((2.3)\)</span>, we can define Ishibashi states <span class="math inline">\([16,17]\)</span> as <span class="math display">\[
+|h\rangle\rangle \equiv \sum_{N=0}^{\infty} \sum_{j=1}^{d_{h}(N)}|h, N ; j\rangle \otimes \overline{|h, N ; j\rangle},
+\]</span> where <span class="math inline">\(d_{h}(N)\)</span> is the dimension of the subspace of <span class="math inline">\(V _{h}\)</span> at level <span class="math inline">\(^{2} N\)</span>, and <span class="math inline">\(|h, N ; j\rangle, 1 \leq j \leq d_{h}(N)\)</span> is an orthonormal basis for <span class="math inline">\(V _{h}\)</span>.</p>
+<p>The state <span class="math inline">\(|a\rangle\)</span> associated to boundary <span class="math inline">\(a\)</span> is a linear combination of Ishibashi states. By equating open-channel and closed-channel partition functions and using the modular <span class="math inline">\(S\)</span> transformation on Virasoro characters, one obtains the Cardy conditions on the allowed boundary states <span class="math inline">\(|a\rangle\)</span> : <span class="math display">\[
+\begin{aligned}
+n_{a b}^{h} &amp;\left.=\sum_{h^{\prime}} S_{h^{\prime}}^{h}\left\langle a \mid h^{\prime}\right\rangle\right\rangle\left\langle\left\langle h^{\prime} \mid b\right\rangle\right.\\
+\left.\left\langle a \mid h^{\prime}\right\rangle\right\rangle\left\langle\left\langle h^{\prime} \mid b\right\rangle\right.&amp;=\sum_{h} S_{h}^{h^{\prime}} n_{a b}^{h} .
+\end{aligned}
+\]</span> These highly constraining equations enjoy unique solutions, Cardy states, for all diagonal minimal models: <span class="math display">\[
+\left.|h\rangle \equiv \sum_{h^{\prime}} \frac{S_{h}^{h^{\prime}}}{\sqrt{S_{0}^{h^{\prime}}}}\left|h^{\prime}\right\rangle\right\rangle
+\]</span> For each primary <span class="math inline">\(h\)</span> in the CFT, there is a corresponding conformal boundary condition, i.e., allowed boundary state. Plugging <span class="math inline">\((2.7)\)</span> back into <span class="math inline">\((2.6)\)</span>, one obtains <span class="math display">\[
+n_{h^{\prime} h^{\prime \prime}}^{h}=\sum_{l} \frac{S_{l}^{h} S_{h^{\prime}}^{l} S_{h^{\prime \prime}}^{l}}{S_{0}^{l}}
+\]</span> which is identical to the Verlinde formula [18] for the fusion coefficients <span class="math inline">\(N_{h^{\prime} h^{\prime \prime}}^{h}\)</span>, such that <span class="math display">\[
+n_{h^{\prime} h^{\prime \prime}}^{h}=N_{h^{\prime} h^{\prime \prime}}^{h}
+\]</span> For a recent nice and compact review, see [19] or chapter 11.3.2 of [15].</p>
+<p>Another important concept in BCFT is the boundary entropy, or the logarithm of <span class="math inline">\(g\)</span> function, first proposed by [13]. In the thermodynamic low-temperature limit where <span class="math inline">\(\delta\)</span> is small, only ground states of <span class="math inline">\(\hat{H}\)</span> contribute to <span class="math inline">\((2.1)\)</span> <span class="math display">\[
+Z_{a b} \sim\langle a \mid 0\rangle\langle 0 \mid b\rangle e^{\pi c / 6 \delta}
+\]</span> and the thermodynamic entropy simplifies to <span class="math display">\[
+S_{a b} \equiv \frac{\beta}{Z} \frac{\partial Z}{\partial \beta}-\ln Z=\frac{\pi c}{3 \delta}+g_{a}+g_{b},
+\]</span> where <span class="math inline">\(g_{a} \equiv \ln (\langle a \mid 0\rangle)\)</span> and <span class="math inline">\(g_{b} \equiv \ln (\langle b \mid 0\rangle)\)</span> are called boundary entropy. As can be observed from this equation, the boundary entropies for different boundary components decouple. Similar to Zamolodchikov's <span class="math inline">\(c\)</span> -function [20] for the <span class="math inline">\(2 d\)</span> bulk, boundary entropies are proved to be monotonic under RG flows <span class="math inline">\([21,22]\)</span>. The boundary entropy is a property of a single boundary and can already be extracted from studying the theory on the disk.</p>
+<h3 id="review-of-ads-bcft">2.3 Review of AdS /BCFT</h3>
+<p>One natural question is then: what is the possible gravitational theory dual to CFT living on bordered surfaces? According to the AdS/BCFT correspondence <span class="math inline">\([7-11]\)</span> the bulk dual to a BCFT is gravity with branes. In particular in [10, 11] Takayanagi and his collaborators calculated the semi-classical limit of gravitational saddle-point partition functions, and showed how to extract the boundary entropy of the dual BCFT, which we will review below.</p>
+<p>The spacetime <span class="math inline">\(N\)</span> in AdS/BCFT has a genuine boundary <span class="math inline">\(Q\)</span> in addition to the usual asymptotic (conformal) boundary <span class="math inline">\(M\)</span>. The dynamical degrees of freedom are Einstein gravity and a brane that terminates the spacetime. The combined action is <span class="math display">\[
+I=I_{G}+I_{Q}=\frac{1}{16 \pi G_{N}} \int_{N} \sqrt{-g}(R-2 \Lambda)+\frac{1}{8 \pi G_{N}} \sum_{a} \int_{Q} \sqrt{-h}\left(K-T_{a}\right)
+\]</span> where <span class="math inline">\(K=h^{\mu \nu} K_{\mu \nu}\)</span> is the trace of the extrinsic curvature <span class="math inline">\(K_{\mu \nu}=\nabla_{\mu} n_{\nu}\)</span> for an outward unit normal vector <span class="math inline">\(n\)</span> to <span class="math inline">\(Q\)</span>, and <span class="math inline">\(R\)</span> and <span class="math inline">\(\Lambda&lt;0\)</span> are Ricci scalar and cosmological constant, respectively. We allowed for branes with different tensions corresponding to the different allowed boundary conditions in the CFT. Since these allowed boundary conditions correspond to the primary operators in the dual CFT, they are labeled by the same label <span class="math inline">\(a\)</span>. In a given solution, not all allowed branes need to be present. In fact, since we will be only discussing disk and annulus, all our solution employ either one or two branes.</p>
+<p>Away from the brane sources the equations of motion are just the vacuum Einstein's equation. The stress tensor of the brane imposes <span class="math display">\[
+K_{\mu \nu}-h_{\mu \nu} K=8 \pi G_{N} T_{\mu \nu}^{Q}
+\]</span> at the end of spacetime. Here <span class="math display">\[
+T^{Q \mu \nu}=\frac{2}{\sqrt{-h}} \frac{\delta I_{Q}}{\delta h_{\mu \nu}}
+\]</span> On an <span class="math inline">\(\operatorname{AdS}_{d}\)</span> foliation of <span class="math inline">\(\operatorname{AdS}_{d+1}\)</span> <span class="math display">\[
+d s_{A d S_{d+1}}^{2}=d \rho^{2}+\cosh ^{2} \frac{\rho}{\ell_{A d S}} d s_{A d S_{d}}^{2}
+\]</span> where <span class="math inline">\(-\infty&lt;\rho&lt;\infty\)</span>, the cutoff surface <span class="math inline">\(Q\)</span> is located at <span class="math inline">\(\rho=\rho_{*}&gt;0\)</span>, one finds that <span class="math display">\[
+T_{a}=\frac{d-1}{d} K=\frac{d-1}{\ell_{A d S}} \tanh \frac{\rho_{*}^{a}}{\ell_{A d S}}
+\]</span> which will be a universal formula. The simplest case of AdS/BCFT is the one where the brane <span class="math inline">\(Q\)</span> is topologically a disk and anchors on a circle on the asymptotic boundary <span class="math inline">\(M\)</span> in the upper half-space model. In fact, we can write down a bulk geometry of this type for every brane with tension <span class="math inline">\(T_{a}\)</span> in our theory, corresponding to the various disk partition functions with boundary conditions a that one can evaluated in the dual BCFT. [10] calculates the semi-classical partition function</p>
+<p>for the CFT on the disk. From these semi-classical disk partition functions one can extract a relation between the brane tensions and the corresponding boundary entropies: <span class="math display">\[
+g_{a}=\frac{\rho_{*}^{a}}{4 G}=\frac{c}{6} \operatorname{arctanh} \frac{T_{a} \ell_{A d S}}{d-1} .
+\]</span> The important point here is that in order to match the disk partition functions, the input parameters <span class="math inline">\(T_{a}\)</span> in our bulk action are completely determined.</p>
+<p>The next interesting topology is the annulus or cylinder. There are two geometries with branes that can realize a cylinder on the boundary. <span class="math inline">\({ }^{3}\)</span> From the bulk point of view, we want to study the system at finite temperature. There are two such solutions. Both are locally <span class="math inline">\(AdS _{3}\)</span> and their topology are solid tori. The first is thermal <span class="math inline">\(AdS _{3}\)</span> and is expected to give the dominant saddle at low temperatures. If we take the boundary cylinder to be realized by an interval in the non-compact <span class="math inline">\(x\)</span> direction times the circle parametrized by Euclidean time <span class="math inline">\(\tau\)</span> this metric reads <span class="math display">\[
+d s^{2}=\frac{\ell_{A d S}^{2}}{z^{2}}\left(d \tau^{2}+\frac{d z^{2}}{h(z)}+h(z) d x^{2}\right),
+\]</span> where <span class="math inline">\(h(z)=1-\left(z / z_{0}\right)^{2}\)</span>. In this geometry the cycle that is contractible in the bulk is the spatial <span class="math inline">\(x\)</span> direction. Correspondingly, the only way to have a consistent brane configuration in the bulk is to have a single brane smoothly connect the two boundaries of the interval, since the brane can not end in the bulk unless it is wrapping a vanishing cycle. As a consequence, this connected solution only exists when both boundaries are described by the same boundary condition, since one and the same brane connects both.</p>
+<p>The explicit solution for this configuration has been found in <span class="math inline">\([10,11]\)</span>, the exact form is not relevant here. The total action turns out to be <span class="math display">\[
+I_{E}=-\frac{\pi c \delta}{24},
+\]</span> Interestingly, the contribution from the boundary/brane <span class="math inline">\(Q\)</span> cancels and so the action for this solution is completely independent of the brane tension, or in other words it is completely independent on which boundary condition we chose, as long as it is the same on both boundaries of the cylinder. This feature is in agreement with the behavior of boundary entropy of a 2d CFT on a very long cylinder [23].</p>
+<p>The second saddle is the BTZ black hole, dominant at high temperatures. The metric is given by <span class="math display">\[
+d s^{2}=\frac{\ell_{A d S}^{2}}{z^{2}}\left(f(z) d \tau^{2}+\frac{d z^{2}}{f(z)}+d x^{2}\right),
+\]</span> where <span class="math inline">\(f(z)=1-\left(z / z_{H}\right)^{2}\)</span>. This time the Euclidean time <span class="math inline">\(\tau\)</span> is compactified on a circle with period <span class="math inline">\(2 \pi z_{H}\)</span> so the BCFT temperature is <span class="math inline">\(\beta=2 \pi z_{H}\)</span>. Note that <span class="math inline">\(\tau\)</span> cycle is contractible since <span class="math inline">\(f(z)=0\)</span> when <span class="math inline">\(z=z_{H}\)</span>. So this time the branes wrapping the Euclidean time direction can smoothly end at <span class="math inline">\(z=z_{H}\)</span> and we can have a disconnected configuration with different branes ending on the two ends of the interval. Correspondingly, this configuration is allowed even when we impose different boundary conditions on the two ends of the interval. The branes <span class="math inline">\(Q_{1}\)</span> with tension <span class="math inline">\(T_{a}\)</span> and <span class="math inline">\(Q_{2}\)</span> with tension <span class="math inline">\(T_{b}\)</span> are perpendicular to the spatial slice and separated by <span class="math inline">\(\Delta x=\pi z_{0} .\)</span> In this case the total action turns out to be <span class="math display">\[
+I_{E}^{a b}=I_{\text {bdry }}^{a}+I_{\text {bdry }}^{b}+I_{\text {bulk }}=-\frac{c}{6}\left(\operatorname{arctanh}\left(\ell_{A d S} T_{a}\right)+\operatorname{arctanh}\left(\ell_{A d S} T_{b}\right)\right)-\frac{\pi c}{6 \beta} \Delta x
+\]</span> Note that this expression agrees with the universal form (2.11). In the holographic setting of [10] there is a sharp first-order phase transition between the two saddles. This is an artefact of the large central charge limit. We already saw in the previous section that the full cylinder partition function is a smooth function of <span class="math inline">\(\delta\)</span>. So the two saddles will always both contribute at finite central charge. <span class="math inline">\(^{4}\)</span> However, as we will see in detail, the leading contribution at high and low temperatures respectively will come from the corresponding saddles. Furthermore, working at <span class="math inline">\(c=1 / 2\)</span> means that we will have to move beyond the simple semi-classic answer of <span class="math inline">\([10]\)</span> and account for quantum fluctuations. We will argue that the form of these fluctuations is completely fixed by the conformal symmetry of the problem.</p>
+<h2 id="duality-for-the-ising-bcft">3 Duality for the Ising BCFT</h2>
+<p>In this section, we will match the semi-classical gravity partition functions in [10] with the leading terms of the BCFT results at different limits. We will focus on the case where the Brown-Henneaux central charge is <span class="math inline">\(1 / 2\)</span>, such that the corresponding BCFT is the Ising theory. The following notations will be used: <span class="math inline">\(1, \psi, \sigma\)</span> label the three primary fields in the <span class="math inline">\(2 d\)</span> Ising CFT with conformal dimensions <span class="math inline">\(0,1 / 2,1 / 16\)</span>, respectively. Since there is a bijection between the Cardy states and the bulk primary fields [19], we will denote the boundary states using <span class="math inline">\(1, \psi, \sigma\)</span> as well.</p>
+<h3 id="disk-partition-function">3.1 Disk Partition Function</h3>
+<p>As reviewed in section 2, in the semi-classical regime, the AdS/BCFT duality suggests a relationship between the brane tension and boundary entropy (2.17). This relation can already be extracted from studying the theory on the disk. If our conjectured duality is true in the quantum regime of <span class="math inline">\(c=3 \ell_{\text {AdS }} / 2 G_{N}&lt;1\)</span>, then a similar relation should hold. In particular, for the half-space model the with a single brane, we expect <span class="math display">\[
+\log g_{a}=\frac{c}{6} \operatorname{arctanh}\left(\ell_{A d S} T_{a}\right)
+\]</span> Here <span class="math inline">\(l \ell_{A d S}\)</span> is the AdS radius which we fix to be 1 from now on, <span class="math inline">\(T_{a}\)</span> is the RS brane tension for boundary condition <span class="math inline">\(a\)</span>, and <span class="math inline">\(\log g_{a}\)</span> is the boundary entropy in the BCFT with boundary condition <span class="math inline">\(a\)</span>. In particular for <span class="math inline">\(c=1 / 2\)</span>, we have <span class="math display">\[
+T_{1}=T_{\psi}=-\tanh (6 \log 2), \quad T_{\sigma}=0
+\]</span> The boundary state associate with <span class="math inline">\(\sigma\)</span> corresponds brane to a tensionless brane. The other two tensions are degenerate and negative.</p>
+<p>Negative tension branes are problematic if we think of them as fluctuating objects. The worldvolume scalar (or radion) representing transverse motion of the brane would have a negative kinetic term; the energy of the brane would be unbounded from below as the surface of the brane becomes arbitrarily rough. The way to avoid this is to declare the brane not to be an fluctuating object, but merely is a fixed defect that carries energy density which can deform the spacetime around it. Examples of such defects are orbifolds in string theory, which are fixed planes of a symmetry projection that removes states from the spectrum odd under the symmetry. It is quite common to require RS branes to be non-fluctuating orbifolds (as in the original RS1 model [24]), so this is not an unreasonable solution. While the zero tension brane (and the positive tension branes we will find in the tricritical Ising generalization) could in principle be fluctuating objects, self-consistency of the constructions seems to require to treat all branes on an equal footing and so we will treat all branes as not fluctuating.</p>
+<h3 id="cylinder-in-the-low-temperature-limit"><span class="math inline">\(3.2\)</span> Cylinder in the low-temperature limit</h3>
+<p>In the low-temperature limit, the dominant solution to the Einstein equation is that of the thermal <span class="math inline">\(AdS _{3}\)</span> (shorthand notation TAdS). Since we defined <span class="math inline">\(\delta\)</span> as the ratio between the circumference and the height of the cylinder <span class="math inline">\(^{5}\)</span>, the low-temperature case corresponds to large <span class="math inline">\(\delta\)</span>. In [10], the leading contribution to the TAdS partition function is found in the semi-classical regime to be <span class="math display">\[
+Z^{ TAdS }=e^{\pi \delta / 48}+\cdots=q^{-1 / 48}+\cdots
+\]</span> where in the second equality we have parametrized <span class="math inline">\(q=e^{-\pi \delta} \in R\)</span>.</p>
+<p>Now we turn to the BCFT perspective. For convenience, let us reproduce (2.2): <span class="math display">\[
+Z_{a b}(q)=\sum_{h} n_{a b}^{h} \chi_{h}(q)
+\]</span> namely, all <span class="math inline">\(Z_{a b}\)</span> 's are linear combinations of different characters. In the low-temperature limit, <span class="math inline">\(q\)</span> is small and the leading term in the series expansion for <span class="math inline">\(\chi_{h}(q)\)</span> is <span class="math inline">\(q^{h-1 / 48}\)</span>, where <span class="math inline">\(h\)</span> is the conformal weight of the primary field <span class="math inline">\(h\)</span>. Since <span class="math inline">\(h\)</span> is non-negative, the contribution of <span class="math inline">\(\chi_{1}(q)\)</span> is always dominant in the summation above whenever it is present. Consequently, we will be interested in the <span class="math inline">\(Z_{a b}\)</span> 's such that <span class="math inline">\(n_{a b}^{0}\)</span> is nonzero. This only happens when <span class="math inline">\(a=b\)</span> : <span class="math display">\[
+Z_{a b}^{\text {low }}=\delta_{a b} \chi_{1}(q)+ O \left(q^{23 / 48}\right)=\delta_{a b} q^{-1 / 48}+ O \left(q^{23 / 48}\right)
+\]</span> Equations (3.3) and (3.4) exhibit a match. It is thus attempting to conjecture that the match extends beyond the low-temperature limit: at Brown-Henneaux central charge <span class="math inline">\(c=3 \ell_{A d S} / 2 G_{N}=1 / 2\)</span>, the gravitational partition function for a cylinder with two branes is equal to the BCFT partition function on the cylinder at the same central charge. In other words, there is AdS/BCFT duality in the quantum regime of <span class="math inline">\(c=1 / 2\)</span>. The appearance of <span class="math inline">\(\delta_{a b}\)</span> in (3.4) also allows for a gravitational interpretation: For the TAdS saddle on a solid torus, Euclidean time is along the longitude direction, i.e., the constant time slices are disks. Since the RS brane cuts through a constant time slice, we are led to a bagel-like cut of the torus into two annuli, and the boundary conditions for corresponding boundaries of both annuli must be the same. We will revisit this claim in section <span class="math inline">\(3.4\)</span> after the high-temperature discussions.</p>
+<p>We note that the arguments in this subsection can be straightforwardly generalized to all diagonal minimal models, which will be discussed in section <span class="math inline">\(4 .\)</span></p>
+<h3 id="cylinder-in-high-temperature-limit"><span class="math inline">\(3.3\)</span> Cylinder in high-temperature limit</h3>
+<p>To completely pin down the partition functions for different boundary conditions, we move on to the case of a cylinder with general (meaning not necessarily equal) boundary conditions, and study the high-temperature limit where the BTZ black hole solutions are favored. Ref. <span class="math inline">\([10,11]\)</span> computed the case where the two branes on the cylinder have the same tension. The partition function separates into three decoupled contributions from the bulk and two boundaries. Slight generalization of their results leads to <span class="math display">\[
+Z_{a b}^{ BTZ }=g_{a b} e^{\pi / 12 \delta} \equiv g_{a b} \tilde{q}^{-1 / 48}
+\]</span> where <span class="math inline">\(\tilde{q}=e^{-4 \pi / \delta}\)</span>, and it is small when <span class="math inline">\(\delta\)</span> is small (same as in Footnote 5). The constants <span class="math inline">\(g_{a b}\)</span> satisfy <span class="math display">\[
+g_{a b}=g_{a} g_{b}
+\]</span> and <span class="math inline">\(q_{a}, g_{b}\)</span> are as in equation (3.1).</p>
+<p>On the BCFT side, since <span class="math inline">\(q\)</span> is close to 1 from below, it is no longer justified to take the leading term in the <span class="math inline">\(q\)</span> -expansion for the characters. Instead, we perform the modular <span class="math inline">\(S\)</span> transformation and expand in terms of <span class="math inline">\(\tilde{q}\)</span> : <span class="math display">\[
+\chi_{h}(q)=\sum_{h^{\prime}} S_{h h^{\prime}} \chi_{h^{\prime}}(\tilde{q})=S_{h 1} \tilde{q}^{-1 / 48}+ O \left(\tilde{q}^{h-1 / 48}\right)
+\]</span> Recall that in the order of basis <span class="math inline">\(\{1, \psi, \sigma\}\)</span>, the <span class="math inline">\(S\)</span> -matrix of the Ising theory is <span class="math display">\[
+S=\frac{1}{2}\left(\begin{array}{ccc}
+1 &amp; 1 &amp; \sqrt{2} \\
+1 &amp; 1 &amp; -\sqrt{2} \\
+\sqrt{2} &amp; -\sqrt{2} &amp; 0
+\end{array}\right)
+\]</span> This leads to, at leading order, <span class="math display">\[
+\chi_{1} \sim \frac{1}{2} \tilde{q}^{-1 / 48}, \quad \chi_{\psi} \sim \frac{1}{2} \tilde{q}^{-1 / 48}, \quad \chi_{\sigma} \sim \frac{1}{\sqrt{2}} \tilde{q}^{-1 / 48}
+\]</span> The corrections are of order <span class="math inline">\(O \left(\tilde{q}^{-23 / 48}\right)\)</span>. Using <span class="math inline">\((2.2)\)</span>, the partition functions are then of the form <span class="math display">\[
+Z_{a b}^{ high }=g_{a b} \tilde{q}^{-1 / 48}+ O \left(\tilde{q}^{-23 / 48}\right)
+\]</span> where again <span class="math inline">\(g_{a b}=g_{a} g_{b}\)</span> and <span class="math display">\[
+g_{1}=g_{\psi}=\frac{1}{\sqrt{2}}, \quad g_{\sigma}=1
+\]</span> Comparing with the gravity calculations, we observe a perfect match if the constants <span class="math inline">\(g_{a b}\)</span> in equation (3.5), factorized as <span class="math inline">\(g_{a b}=g_{a} g_{b}\)</span>, are identified with the boundary entropies of the BCFT (3.11). This serves as a nontrivial check of our starting point (3.1) in the disk case.</p>
+<h3 id="the-full-quantum-partition-function"><span class="math inline">\(3.4\)</span> The full quantum partition function</h3>
+<p>So far we have argued that the AdS/BCFT calculations reproduce correctly the high and low temperature limit of the BCFT partition function <span class="math inline">\(Z_{a b}(\delta) .\)</span> In order to reproduce the full partition functions, we have to sum over fluctuations around these semiclassical saddles arising from boundary gravitons. While it would be interesting to explicitly work out these fluctuations, we note that the general form of the partition function is fixed by the Virasoro symmetries of the problem. The form (2.2) is fixed by the underlying conformal invariance. In particular, the full <span class="math inline">\(a\)</span> dependence has to appear via characters <span class="math inline">\(\chi_{h}(q)\)</span>. The only dynamical information are the coefficients <span class="math inline">\(n_{a b}^{h}\)</span>. Our low and high temperature calculations show that we reproduce the right structure and fix these coefficients (to be 0 or 1 ). The boundary gravitons then, by symmetry, will have to reproduce the full Ising partition function. We here emphasize that we always assume RS branes are free of 2 d boundary gravitons (small diffeomorphisms), consistent with the non-fluctuating nature of branes as stated near the end of section <span class="math inline">\(3.1 .\)</span></p>
+<h2 id="general-minimal-models">4 General minimal models</h2>
+<p>In this section, we turn to the general correspondence between diagonal minimal model BCFTs and pure gravity in <span class="math inline">\(AdS _{3}\)</span>. A duality was only conjectured to be true in [1] for the Ising and the tricritical Ising model, with the latter running into difficulties at higher genus [4]. Here we will show that if a theory of gravity can be found to reproduce the partition function of the Virasoro minimal model on any closed surface, the extension of the duality between a gravitational bulk with RS branes and BCFT on the asymptotic boundary is straightforward. In particular, a general formula relating the brane tension with the modular <span class="math inline">\(S\)</span> -matrix in the corresponding BCFT will be presented and the case of tricritical Ising will be studied in detail.</p>
+<h3 id="low-temperature-limit">4.1 Low-temperature limit</h3>
+<p>For a general Brown-Henneaux central charge <span class="math inline">\(c&lt;1\)</span>, the leading low-temperature contribution to the thermal <span class="math inline">\(AdS _{3}\)</span> partition function is now <span class="math inline">\([10]\)</span>, <span class="math display">\[
+Z^{ TAdS }=q^{-c / 24}+\cdots
+\]</span> where again <span class="math inline">\(q=e^{-\pi \delta}\)</span>. The leading term in the small- <span class="math inline">\(q\)</span> series expansion for <span class="math inline">\(\chi_{h}(q)\)</span> is <span class="math inline">\(q^{h-c / 24}\)</span>. Since <span class="math inline">\(h\)</span> is non-negative, we still find that the contribution of the vacuum block <span class="math inline">\(\chi_{1}(q)\)</span> with <span class="math inline">\(h_{1}=0\)</span> is always dominant whenever it is present in the summation. Consequently, we will be interested in the <span class="math inline">\(Z_{a b}\)</span> 's such that <span class="math inline">\(n_{a b}^{0}\)</span> is nonzero. This only happens when <span class="math inline">\(a=b\)</span> : <span class="math display">\[
+Z_{a b}^{\text {low }}=\delta_{a b} \chi_{1}(q)+ O \left(q^{h_{*}-c / 24}\right)=\delta_{a b} q^{-c / 24}+ O \left(q^{h_{*}-c / 24}\right) .
+\]</span> Here <span class="math inline">\(h_{*}\)</span> is the smallest positive conformal weight in the CFT. The match between equations (4.1) and (4.2) suggests that if a duality between a theory of gravity and a diagonal minimal model <span class="math inline">\(^{6}\)</span> with the same central charge can be found, the bulk can be augmented to be a BCFT by the inclusion of the appropriate RS branes.</p>
+<h3 id="quad-high-temperature-limit"><span class="math inline">\(4.2 \quad\)</span> High-temperature limit</h3>
+<p>In the high-temperature limit, in a BCFT with central charge <span class="math inline">\(c\)</span>, the series expansion of <span class="math inline">\(\tilde{q}\)</span> gives: <span class="math display">\[
+\chi_{h}(q)=S_{h 1} \tilde{q}^{-c / 24}+ O \left(\tilde{q}^{h_{*}-c / 24}\right) .
+\]</span> This leads to the following partition functions <span class="math display">\[
+Z_{a b}^{\text {high }}=g_{a b} \tilde{q}^{-c / 24}+ O \left(\tilde{q}^{h_{*}-c / 24}\right)
+\]</span> where again <span class="math inline">\(g_{a b}=g_{a} g_{b}\)</span> and <span class="math inline">\([13,23]\)</span> <span class="math display">\[
+g_{a}=S_{0 a} / \sqrt{S_{00}}=d_{a} / \sqrt{D} .
+\]</span> Here <span class="math inline">\(d_{a}=S_{0 a} / S_{00}\)</span> is the quantum dimension for <span class="math inline">\(a\)</span> and <span class="math inline">\(D=\sqrt{\sum_{a} d_{a}^{2}}\)</span> is the total quantum dimension. Compared with the gravitational computation in [10], we identify <span class="math display">\[
+T_{a}=\tanh \left(\frac{6}{c} \log \frac{d_{a}}{\sqrt{D}}\right)
+\]</span> This relation can also be derived once again from the disk.</p>
+<h3 id="modular-s-transformation">4.3 Modular <span class="math inline">\(S\)</span> transformation</h3>
+<p>In this part, we will predict the transformation of the gravitational partition function under the modular <span class="math inline">\(S\)</span> -action based on the conjectured duality with BCFT. Under the <span class="math inline">\(S L(2, Z )\)</span> transformation <span class="math inline">\(S\)</span>, the BCFT partition functions change as <span class="math display">\[
+Z_{a b}(S \cdot q)=\sum_{h} n_{a b}^{h} \chi_{h}(S \cdot q)=\sum_{h, h^{\prime}} n_{a b}^{h} S_{h}^{h^{\prime}} \chi_{h^{\prime}}(q)
+\]</span> In the first two expressions, the <span class="math inline">\(S\)</span> 's are in the two-dimensional fundamental representation, while in the last expression, <span class="math inline">\(S\)</span> is in the conformal block basis. Alternatively, the transformed partition function can be written as a linear combination of various <span class="math inline">\(Z_{c d}\)</span> 's with different boundary conditions: <span class="math display">\[
+Z_{a b}(S \cdot q)=\sum_{c, d} f_{a b}^{c d} Z_{c d}(q)
+\]</span> These coefficients <span class="math inline">\(f\)</span> 's have the following form <span class="math display">\[
+f_{a b}^{c d}=\sum_{h, h^{\prime}} n_{a b}^{h}\left(S_{0 h}\right)^{2} S_{h}^{h^{\prime}} n_{c d}^{h^{\prime}}
+\]</span> One can show that (4.9), when plugged into (4.8), reduces to (4.7). The details are presented in appendix A.</p>
+<p>Equation (4.9) describe the transformation properties of the gravitational partition function under modular <span class="math inline">\(S\)</span> action, which is a new result of the duality. The other generator of <span class="math inline">\(T\)</span> of <span class="math inline">\(S L(2, Z )\)</span>, however, is not well-defined in the case with branes, as there is only one real parameter <span class="math inline">\(q\)</span> in the partition function, instead of two in the solid torus case. Hence, unlike in in <span class="math inline">\([2,25]\)</span>, there is no "summation over geometry" over <span class="math inline">\(Z\)</span>, the mapping class group of an annulus/cylinder.</p>
+<p>The relation (4.8) is interesting since it states that upon performing an <span class="math inline">\(S\)</span> transformation in the bulk of a gravitational solution with a given set of branes, the result arises as a nontrivial sum over several configurations employing different branes.</p>
+<h3 id="an-example-the-tricritical-ising-model">4.4 An example: the Tricritical Ising model</h3>
+<p>Now let us look at a specific example other than Ising CFT. The next simplest unitary minimal model is tricritical Ising. Its six primary fields are <span class="math display">\[
+\begin{array}{llllll}
+\chi_{1}, &amp; \chi_{\epsilon}, &amp; \chi_{\epsilon^{\prime}}, &amp; \chi_{\epsilon^{\prime \prime}}, &amp; \chi_{\sigma}, &amp; \chi_{\sigma^{\prime}}
+\end{array}
+\]</span> with conformal dimensions: <span class="math display">\[
+0, \quad \frac{1}{10}, \quad \frac{3}{5}, \quad \frac{3}{2}, \quad \frac{3}{80}, \quad \frac{7}{16},
+\]</span> respectively. The complete set of fusions rules is listed in [15] and all the fusion coefficients are either 0 or 1 , which can be seen from the Verlinde formula and the fact <span class="math inline">\((2.9)\)</span>. Explicit form of characters written in terms of generalized theta functions are written down in appendix C</p>
+<p>In ref. [1], the authors showed that Ising and tricritical Ising CFTs are possible dual to the bulk with corresponding AdS radii <span class="math inline">\(\ell_{A d S}\)</span>, as these are the only two theories with unique modular invariants. Further in [4], for an arbitrary higher-genus asymptotic boundary, the partition function of the bulk which is presumably dual to the tricritical Ising theory results in an infinite number of summands in the modular sum. The appropriate regularization over the mapping class group of <span class="math inline">\(\Sigma_{g, 0}\)</span> with <span class="math inline">\(g&gt;1\)</span> is unknown [4]. However, here we only focus on the case where the parent spacetime is a solid torus.</p>
+<h4 id="the-low-temperature-limit">4.4.1 The low-temperature limit</h4>
+<p>At low temperature where the parent spacetime is the thermal <span class="math inline">\(AdS _{3}\)</span>, again we have same boundary conditions on both "sides" of a single brane performing the "bagel cut". According to (C.8), in this limit all possible annulus partition functions with same boundary conditions</p>
+<p>are the same to the leading order: <span class="math display">\[
+\begin{aligned}
+Z_{\epsilon \epsilon}=Z_{\epsilon^{\prime} \epsilon^{\prime}} &amp; \sim \chi_{1} \sim q^{-7 / 240}=e^{7 \pi \delta / 240} \\
+Z_{\epsilon^{\prime \prime} \epsilon^{\prime \prime}}=Z_{11} &amp;=\chi_{1} \sim q^{-7 / 240} \\
+Z_{\sigma \sigma} &amp; \sim \chi_{1} \sim q^{-7 / 240} \\
+Z_{\sigma^{\prime} \sigma^{\prime}} &amp; \sim \chi_{1} \sim q^{-7 / 240}
+\end{aligned}
+\]</span> They agrees with the semi-classical result of <span class="math inline">\(I_{\text {bulk }}\)</span> as in (2.19) of [11], with Brown-Henneaux central charge <span class="math inline">\(c=7 / 10\)</span>. Again, this suggests a potential duality between <span class="math inline">\(AdS _{3}\)</span> and tricritical Ising CFT. We now further investigate this possibility.</p>
+<h4 id="the-high-temperature-limit">4.4.2 The high-temperature limit</h4>
+<p>In this the high-temperature case, the parent bulk is a BTZ black hole. Because now <span class="math inline">\(q\)</span> is large, in order to expand the proposed partition functions in terms of <span class="math inline">\(q\)</span>, we perform a modular <span class="math inline">\(S\)</span> transformation again. Now <span class="math inline">\(\tilde{q}=e^{-4 \pi / \delta}\)</span> is small when <span class="math inline">\(\delta\)</span> is small, and to the leading order we have <span class="math display">\[
+\chi_{h}(q)=\sum_{h^{\prime}} S_{h h^{\prime}} \chi_{h^{\prime}}(\tilde{q}) \sim \tilde{q}^{-c / 24}\left(S_{h 0}+S_{h \epsilon} \tilde{q}^{1 / 10}+S_{h \epsilon^{\prime}} \tilde{q}^{3 / 5}+S_{h \epsilon^{\prime \prime}} \tilde{q}^{3 / 2}+S_{h \sigma} \tilde{q}^{3 / 80}+S_{h \sigma^{\prime}} \tilde{q}^{7 / 16}\right)
+\]</span> So at leading order: <span class="math display">\[
+\begin{aligned}
+\chi_{1} \sim \chi_{\epsilon^{\prime \prime}} &amp; \sim \frac{s_{2}}{\sqrt{5}} \tilde{q}^{-c / 24}=\frac{s_{2}}{\sqrt{5}} e^{7 \pi / 30 \delta} \\
+\chi_{\epsilon} \sim \chi_{\epsilon^{\prime}} &amp; \sim \frac{s_{1}}{\sqrt{5}} \tilde{q}^{-c / 24}=\frac{s_{1}}{\sqrt{5}} e^{7 \pi / 30 \delta} \\
+\chi_{\sigma} &amp; \sim \frac{\sqrt{2} s_{1}}{\sqrt{5}} \tilde{q}^{-c / 24}=\frac{\sqrt{2} s_{1}}{\sqrt{5}} e^{7 \pi / 30 \delta}, \\
+\chi_{\sigma^{\prime}} &amp; \sim \frac{\sqrt{2} s_{2}}{\sqrt{5}} \tilde{q}^{-c / 24}=\frac{\sqrt{2} s_{2}}{\sqrt{5}} e^{7 \pi / 30 \delta}
+\end{aligned}
+\]</span> All the possible partition functions in (C.8) are now <span class="math display">\[
+\begin{aligned}
+Z_{\epsilon \epsilon}=Z_{\epsilon^{\prime} \epsilon^{\prime}}=Z_{\epsilon \epsilon^{\prime}} &amp; \sim \frac{s_{1}+s_{2}}{\sqrt{5}} e^{7 \pi / 30 \delta} \\
+Z_{\epsilon \epsilon^{\prime \prime}}=Z_{1 \epsilon^{\prime}}=Z_{\epsilon^{\prime} \epsilon^{\prime \prime}}=Z_{1 \epsilon} &amp; \sim \frac{s_{1}}{\sqrt{5}} e^{7 \pi / 30 \delta} \\
+Z_{\epsilon^{\prime \prime} \epsilon^{\prime \prime}}=Z_{11} \sim Z_{1 \epsilon^{\prime \prime}} &amp; \sim \frac{s_{2}}{\sqrt{5}} e^{7 \pi / 30 \delta} \\
+Z_{\epsilon \sigma}=Z_{\epsilon^{\prime} \sigma} &amp; \sim \sqrt{\frac{2}{5}}\left(s_{1}+s_{2}\right) e^{7 \pi / 30 \delta}, \\
+Z_{\epsilon \sigma^{\prime}}=Z_{\epsilon^{\prime} \sigma^{\prime}}=Z_{\epsilon^{\prime \prime} \sigma}=Z_{\epsilon^{\prime \prime} \sigma^{\prime}}=Z_{0 \sigma} &amp; \sim \frac{\sqrt{2} s_{1}}{\sqrt{5}} e^{7 \pi / 30 \delta} \\
+Z_{\sigma \sigma} &amp; \sim \frac{2 s_{1}+2 s_{2}}{\sqrt{5}} e^{7 \pi / 30 \delta}, \\
+Z_{\sigma \sigma^{\prime}} &amp; \sim \frac{2 s_{1}}{\sqrt{5}} e^{7 \pi / 30 \delta} \\
+Z_{\sigma^{\prime} \sigma^{\prime}} &amp; \sim \frac{2 s_{2}}{\sqrt{5}} e^{7 \pi / 30 \delta} \\
+Z_{1 \sigma^{\prime}} &amp; \sim \frac{\sqrt{2} s_{2}}{\sqrt{5}} e^{7 \pi / 30 \delta}
+\end{aligned}
+\]</span> where <span class="math inline">\(s_{1}\)</span> and <span class="math inline">\(s_{2}\)</span> are entries of the modular <span class="math inline">\(S\)</span> -matrix reviewed in appendix C. According to our proposition (4.4) on the form of leading term in partition functions, gravitational <span class="math inline">\(g_{a}\)</span> 's can be solved by boundary entropies of BCFT: <span class="math display">\[
+\begin{aligned}
+g_{\epsilon}=g_{\epsilon^{\prime}} &amp;=\left(\frac{1}{4}+\frac{1}{2 \sqrt{5}}\right)^{1 / 4} \\
+g_{1}=g_{\epsilon^{\prime \prime}} &amp;=\left(\frac{1}{8}-\frac{1}{8 \sqrt{5}}\right)^{1 / 4} \\
+g_{\sigma^{\prime}} &amp;=\left(\frac{1}{2}-\frac{1}{2 \sqrt{5}}\right)^{1 / 4} \\
+g_{\sigma} &amp;=2 \sqrt{2} \cos \left(\frac{\pi}{5}\right) g_{1}
+\end{aligned}
+\]</span> which exactly agree with the already known values of boundary entropy for the purely <span class="math inline">\(2 d\)</span> tricritical Ising CFT [26]. The four different RS brane tensions can be easily computed using (3.1).</p>
+<h2 id="quad-discussion"><span class="math inline">\(5 \quad\)</span> Discussion</h2>
+<p>In this work, we demonstrated that the duality between pure gravity in <span class="math inline">\(AdS _{3}\)</span> and the Ising CFT can be extended to conformal field theories with boundaries. There are several interesting questions that should be addressed in the future.</p>
+<p>For one, one could wonder whether an extension to higher central charges can be found. Since in AdS/BCFT, there is no Poincaré series, but only two terms, upon summing over geometries, we do not encounter the difficulty of regularizing an infinite sum. Hence, in principle, any rational CFT with <span class="math inline">\(c&gt;1\)</span> (even irrational CFTs, as long as the modular <span class="math inline">\(S\)</span> matrix is well-defined, such as Liouville field theory [27] and logarithmic CFT [28]) would allow branes with certain tensions extending into the bulk. Of course this is a mute point unless a dual for the CFTs on closed manifolds can be constructed, but it is encouraging to note that no new constraints arise from the case with boundary.</p>
+<p>We only studied the case of the CFT partition function on a disk and a cylinder. A general orientable <span class="math inline">\(2 d\)</span> manifold <span class="math inline">\(\Sigma_{g, b}\)</span> with boundaries is characterized by two nonnegative integers, the genus <span class="math inline">\(g\)</span> and the number of boundaries <span class="math inline">\(b\)</span>. Our two cases correspond to <span class="math inline">\((g, b)=\)</span> <span class="math inline">\((0,1)\)</span> and <span class="math inline">\((0,2)\)</span>. Extensions to higher <span class="math inline">\(g\)</span> and <span class="math inline">\(b\)</span> would be interesting. These more complicated geometries might allow us to connect to recent work on the gravitational determination of CFT correlation functions, which have been studied in e.g., [29].</p>
+<p>It would be also interesting to see if our analysis can be generalized to interfaces connecting several CFTs rather than just boundaries. Such interface CFTs have a much richer structure of allowed boundary conditions and it would be illuminating to see if they can be reproduced from a putative holographic dual.</p>
+<p>Last but not least, it would be interesting to explicitly perform the path integral over boundary gravitons, possibly by using a modified version of the heat kernel in <span class="math inline">\([30]\)</span> on 3 manifolds with genuine boundary components set by RS branes. We deduced the result based on the structure of the partition function that is forced upon us by the conformal symmetry of the problem, but we would presumably learn something about quantum gravity in the presence of RS branes if we were to be able to redo this calculation explicitly in the gravity theory.</p>
+<h2 id="附录">附录</h2>
+<p>A Proof of equation (4.9) In this appendix, we show that (4.9), combined with (4.8), gives (4.7). <span class="math display">\[
+\begin{aligned}
+\sum_{c, d} f_{a b}^{c d} Z_{c d} &amp;=\sum_{c, d} \sum_{h, h^{\prime}} n_{a b}^{h}\left(S_{0 h}\right)^{2} S_{h}^{h^{\prime}} n_{c d}^{h^{\prime}} Z_{c d} \\
+&amp;=\sum_{h, h^{\prime}} n_{a b}^{h}\left(S_{0 h}\right)^{2} S_{h}^{h^{\prime}} \sum_{h^{\prime \prime}} \chi_{h^{\prime \prime}} \sum_{c, d}\left(n_{c d}^{h^{\prime}} n_{c d}^{h^{\prime \prime}}\right) \\
+&amp;=\sum_{h, h^{\prime}} n_{a b}^{h}\left(S_{0 h}\right)^{2} S_{h}^{h^{\prime}} \sum_{h^{\prime \prime}} \chi_{h^{\prime \prime}} \sum_{c, d} \sum_{x, y} S_{x c} S_{x d} S_{x h^{\prime}} S_{y c} S_{y d} S_{y h^{\prime \prime}} / S_{x 0} S_{y 0} \\
+&amp;=\sum_{h, h^{\prime}} n_{a b}^{h}\left(S_{0 h}\right)^{2} S_{h}^{h^{\prime}} \sum_{h^{\prime \prime}} \chi_{h^{\prime \prime}} \sum_{x, y} S_{x h^{\prime}} S_{y h^{\prime \prime}}\left(\sum_{c} S_{x c} S_{y c}\right)\left(\sum_{d} S_{x d} S_{y d}\right) / S_{x 0} S_{y 0} \\
+&amp;=\sum_{h, h^{\prime}} n_{a b}^{h}\left(S_{0 h}\right)^{2} S_{h}^{h^{\prime}} \sum_{h^{\prime \prime}} \chi_{h^{\prime \prime}} \sum_{x, y} S_{x h^{\prime}} S_{y h^{\prime \prime}} \delta_{x y} / S_{x 0} S_{y 0}
+\end{aligned}
+\]</span> where in the third line we have used the Verlinde formula. In the last line, we use the fact that the <span class="math inline">\(S\)</span> -matrix is symmetric and squares to identity for diagonal minimal models. Continuing the analysis, <span class="math display">\[
+\begin{aligned}
+\sum_{c, d} f_{a b}^{c d} Z_{c d} &amp;=\sum_{h, h^{\prime}} n_{a b}^{h}\left(S_{0 h}\right)^{2} S_{h}^{h^{\prime}} \sum_{h^{\prime \prime}} \chi_{h^{\prime \prime}} \sum_{x} S_{x h^{\prime}} S_{h^{\prime \prime} x} /\left(S_{x 0}\right)^{2} \\
+&amp;=\sum_{h} n_{a b}^{h}\left(S_{0 h}\right)^{2} \sum_{h^{\prime \prime}} \sum_{x} S_{h^{\prime \prime} x} \chi_{h^{\prime \prime}}\left(\sum_{h^{\prime}} S_{x h^{\prime}} S_{h}^{h^{\prime}}\right) /\left(S_{x 0}\right)^{2} \\
+&amp;=\sum_{h} n_{a b}^{h}\left(S_{0 h}\right)^{2} \sum_{h^{\prime \prime}} \sum_{x} S_{h^{\prime \prime} x} \chi_{h^{\prime \prime}} \delta_{h x} /\left(S_{x 0}\right)^{2} \\
+&amp;=\sum_{h} n_{a b}^{h} \sum_{h^{\prime \prime}} S_{h}^{h^{\prime \prime}} \chi_{h^{\prime \prime}} \\
+&amp;=\sum_{h, h^{\prime}} n_{a b}^{h} S_{h}^{h^{\prime}} \chi_{h^{\prime}}
+\end{aligned}
+\]</span> In the third line we have again used the fact that <span class="math inline">\(S\)</span> -matrix is symmetric and squares to identity. The last line is obtained by redefining <span class="math inline">\(h^{\prime \prime} \rightarrow h^{\prime}\)</span>. We observe that this is exactly <span class="math inline">\((4.7) .\)</span></p>
+<h3 id="b-equivalence-of-disconnected-brane-configurations-for-the-annulus">B Equivalence of disconnected brane configurations for the annulus</h3>
+<p>In the bulk of the paper, we considered two geometries dual to a BCFT on the annulus, the high temperature phase corresponding to two disconnected branes in the BTZ black hole background of (2.20), or the low temperature phase corresponding to a single connected brane in thermal <span class="math inline">\(AdS _{3}\)</span> with metric (2.18). In [11] a third configuration of disconnected branes has been presented in section <span class="math inline">\(3.1\)</span> therein. It is the goal of this appendix to show that this putative third solution is just the high temperature BTZ background rewritten in different coordinates.</p>
+<p>The putative third configuration is obtained by considering Euclidean <span class="math inline">\(AdS _{3}\)</span> in Poincaré patch coordinates: <span class="math display">\[
+d s^{2}=\frac{\ell_{A d S}^{2}}{Z^{2}} d T^{2}+d X^{2}+d Z^{2}
+\]</span> A trivial solution for the embedding of an RS brane in this geometry corresponding to a BCFT with planar boundary is given by <span class="math inline">\(X \propto Z\)</span>, a half-plane anchored on the <span class="math inline">\(T\)</span> -axis, where the constant of proportionality depends on the brane tension. By a conformal transformation, one can obtain from this the solution for the BCFT on a disk <span class="math inline">\(D\)</span> of radius <span class="math inline">\(r_{D}\)</span>. The embedding of the corresponding RS brane is given by the equation <span class="math display">\[
+T^{2}+X^{2}+Z^{2}-2 s_{*} Z r_{D}=r_{D}^{2}
+\]</span> where <span class="math inline">\(s_{*}=\sinh \left(\rho_{*}\right)\)</span> encodes the brane tension, and <span class="math inline">\(\rho_{*}\)</span> is as defined in <span class="math inline">\((2.16)\)</span>. Using the inversion isometry <span class="math inline">\(^{7}\)</span> of <span class="math inline">\(AdS _{3}\)</span> one can obtain both solutions where the spacetime removed is the outside or the inside of the disk <span class="math inline">\(D\)</span> (with positive or negative brane tension). It is now easy to put together two such branes <span class="math inline">\(Q\)</span> and <span class="math inline">\(Q^{\prime}\)</span>, of opposite orientations with different disk radii <span class="math inline">\(r_{D}\)</span> and <span class="math inline">\(r_{D}^{\prime}\)</span>, in such a way that one keeps only the annulus between the two circular boundaries <span class="math inline">\(\partial D\)</span> and <span class="math inline">\(\partial D^{\prime} .\)</span> In [11] this surface was treated as yet another valid configuration for the annulus. Here we want to show that this is just the high temperature BTZ phase in different coordinates.</p>
+<p>To see this, first recall that locally the BTZ black hole is just <span class="math inline">\(AdS _{3} .\)</span> Therefore, a coordinate change must exist that takes the Poincaré coordinates to the BTZ coordinates in <span class="math inline">\((2.20)\)</span>. To see this change of coordinates, it is best to connect both coordinate systems to the isometric embedding space <span class="math inline">\(R ^{3,1}\)</span> with coordinates <span class="math inline">\(X_{0}, X_{1}, X_{2}\)</span>, and <span class="math inline">\(X_{3}\)</span> with metric <span class="math inline">\(d S^{2}=-d X_{0}^{2}+d X_{1}^{2}+d X_{2}^{2}+d X_{3}^{2}\)</span> in terms of which (Euclidean) <span class="math inline">\(AdS _{3}\)</span> is given by the hyperboloid of one sheet <span class="math inline">\(X_{0}^{2}-X_{1}^{2}-X_{2}^{2}-X_{3}^{2}=\ell_{A d S}^{2} .\)</span> For simplicity, we set <span class="math inline">\(\ell_{A d S}=1\)</span> for the remainder of this appendix. The parametrization of the embedding space coordinates in terms of the Poincaré coordinates is well known:</p>
+<p><span class="math inline">\(X_{0}=\frac{1}{2 Z}\left(Z^{2}+X^{2}+T^{2}+1\right), \quad X_{1}=\frac{T}{Z}, \quad X_{2}=\frac{X}{Z}, \quad X_{3}=\frac{1}{2 Z}\left(Z^{2}+X^{2}+T^{2}-1\right)\)</span> Plugging this into the flat embedding space metric yields (B.1). The BTZ black hole is given by what in higher dimensions is the hyperbolic slicing of <span class="math inline">\(AdS _{3}\)</span>. The embedding coordinates this time are parametrized as <span class="math display">\[
+\begin{array}{ll}
+\frac{X_{0}}{z_{H}}=\frac{\cosh \frac{x}{z_{H}}}{z}, &amp; \frac{X_{1}}{z_{H}}=\sqrt{1-\frac{z^{2}}{z_{H}^{2}}} \frac{\sin \frac{\tau}{z_{H}}}{z} \\
+\frac{X_{3}}{z_{H}}=\frac{\sinh \frac{x}{z_{H}}}{z}, &amp; \frac{X_{2}}{z_{H}}=\sqrt{1-\frac{z^{2}}{z_{H}^{2}}} \frac{\cos \frac{\tau}{z_{H}}}{z} .
+\end{array}
+\]</span> This yields the BTZ metric of (2.20) when plugging into the flat embedding space metric.</p>
+<p>In the BTZ coordinates, the embedding of a single RS brane associated with the disk on the conformal boundary is given by [11] <span class="math display">\[
+x(z)=z_{H} \operatorname{arcsinh}\left(c_{0} z\right)+x_{0}
+\]</span> where <span class="math inline">\(c_{0}\)</span> encodes the brane tension <span class="math inline">\(^{8}\)</span> and <span class="math inline">\(x_{0}\)</span> is an integration constant. Once again, we can get the annulus by considering the disconnected union of two such branes with different <span class="math inline">\(x_{0}\)</span>, taking care that it is the region between the branes that is kept. Let us start with <span class="math inline">\(x_{0}=0\)</span>. By comparing the expression for <span class="math inline">\(X_{3}\)</span> in the two parametrizations, we can see that the brane embedding for the disk in BTZ coordinates given by (B.5) in terms of the Poincaré coordinates reads <span class="math display">\[
+Z^{2}+X^{2}+T^{2}-2 Z c_{0}=1
+\]</span> which is indeed of the form (B.2) with <span class="math inline">\(r_{D}=1\)</span>. To get the general <span class="math inline">\(x_{0}\)</span> case <span class="math inline">\(^{9}\)</span>, we need to look at a linear combination of the equation of <span class="math inline">\(X_{3}\)</span> and <span class="math inline">\(X_{0}\)</span> to again find the form of (B.2), but this time with <span class="math inline">\(r_{D}=\cosh \left(x_{0}\right)-\sinh \left(x_{0}\right)\)</span>. So, lo and behold, we do indeed find that these putative novel solutions to (B.2) are just the high temperature solutions to (B.5) in a different coordinate system. The same is obviously true for putting together two disconnected branes of this form separated by a distance <span class="math inline">\(\Delta x=\pi z_{0}\)</span>.</p>
+<p>There is another less straightforward way to see that the two disconnected concentric branes are equivalent to the two parallel branes along the meridian in the solid torus representing a BTZ black hole. The ordinary BTZ solid torus is constructed from identifying two ends of a hyperbolic cylinder (possibly with a twist) by an one-generator loxodromic discrete subgroup <span class="math display">\[
+Z \cong\left\langle\left(\begin{array}{cc}
+q &amp; 0 \\
+0 &amp; q^{-1}
+\end{array}\right)\right\rangle \subset S L(2, C )
+\]</span> where <span class="math inline">\(|q|&lt;1\)</span>, as in [2]. The same solid torus can be equivalently constructed from identifying fundamental regions <span class="math inline">\({ }^{10}\)</span> of two hemispheres centered at the origin in the Poincaré upper-space along the radial direction, so that the line segment connecting two North Poles becomes the (outer) horizon, as shown in <span class="math inline">\([31,32] .\)</span> In our case, the two concentric branes <span class="math inline">\(Q\)</span> and <span class="math inline">\(Q^{\prime}\)</span> centered at <span class="math inline">\(Z=s_{*}\)</span> in the beginning of this appendix can be viewed as the two hemispheres before identification, and we simply stop there, then it would be brought to the open cylinder cut off by two RS branes in (2.20) via a suitable coordinate transformation, upon which the separation between two North Poles becomes <span class="math inline">\(\Delta x\)</span> right above <span class="math inline">\((2.21) .\)</span> The center at <span class="math inline">\(s_{*}\)</span> above (or below) the origin tells if both ends of the cylinder are concave (or convex), since <span class="math inline">\(Q\)</span> and <span class="math inline">\(Q^{\prime}\)</span> have opposite orientations in the Poincaré patch (B.1).</p>
+<h3 id="c-data-of-both-tricritical-ising-cft-and-bcft">C Data of both tricritical Ising CFT and BCFT</h3>
+<p>In this appendix, out of convenience, we collect results on modular data for the tricritical Ising CFT, and enumerate fusion coefficients for BCFT. We then list all Ishibashi and Cardy states, and their corresponding boundary entropy, as well as partition functions consistent with those boundary conditions.</p>
+<p>In the convention of [1], and in the same order as (4.10), the Virasoro characters of irreducible representations <span class="math inline">\(M_{r, s}\)</span> corresponding to six primaries are <span class="math inline">\({ }^{11}\)</span> : <span class="math display">\[
+\begin{array}{l}
+\chi_{1,1}(\tau)=K_{1,1}(\tau)-K_{1,-1}(\tau)=\frac{1}{\eta(\tau)} \sum_{n \in Z }\left(q^{\frac{1}{120}(60 n-1)^{2}}-q^{\frac{1}{120}(60 n+11)^{2}}\right) \\
+\chi_{3,3}(\tau)=K_{3,3}(\tau)-K_{3,-3}(\tau)=\frac{1}{\eta(\tau)} \sum_{n \in Z }\left(q^{\frac{3}{40}(20 n-1)^{2}}-q^{\frac{1}{120}(60 n+33)^{2}}\right), \\
+\chi_{2,3}(\tau)=K_{2,3}(\tau)-K_{2,-3}(\tau)=\frac{1}{\eta(\tau)} \sum_{n \in Z }\left(q^{\frac{2}{15}(15 n-2)^{2}}-q^{\frac{1}{120}(60 n+28)^{2}}\right), \\
+\chi_{1,3}(\tau)=K_{1,3}(\tau)-K_{1,-3}(\tau)=\frac{1}{\eta(\tau)} \sum_{n \in Z }\left(q^{\frac{1}{120}(60 n-13)^{2}}-q^{\frac{1}{120}(60 n+23)^{2}}\right), \\
+\chi_{2,2}(\tau)=K_{2,2}(\tau)-K_{2,-2}(\tau)=\frac{1}{\eta(\tau)} \sum_{n \in Z }\left(q^{\frac{1}{30}(30 n-1)^{2}}-q^{\frac{1}{120}(60 n+22)^{2}}\right), \\
+\chi_{1,2}(\tau)=K_{1,2}(\tau)-K_{1,-2}(\tau)=\frac{1}{\eta(\tau)} \sum_{n \in Z }\left(q^{\frac{1}{120}(60 n-7)^{2}}-q^{\frac{1}{120}(60 n+17)^{2}}\right)
+\end{array}
+\]</span> where Dedekind's eta function <span class="math inline">\(\eta(\tau)\)</span> is defined as</p>
+<p>where Dedekind's eta function <span class="math inline">\(\eta(\tau)\)</span> is defined as <span class="math display">\[
+\eta(\tau)=q^{1 / 24} \prod_{n=1}^{\infty}\left(1-q^{n}\right),
+\]</span> where <span class="math inline">\(q=e^{2 \pi i \tau}\)</span>, and <span class="math inline">\(\tau\)</span> is the modular parameter of the torus. Their small <span class="math inline">\(q\)</span> expansions are <span class="math inline">\([15]\)</span> <span class="math display">\[
+\begin{array}{l}
+\chi_{1,1}(q)=q^{-7 / 240}\left(1+q+q^{2}+q^{3}+2 q^{4}+2 q^{5}+4 q^{6}+\ldots\right) \\
+\chi_{3,3}(q)=q^{17 / 240}\left(1+q+q^{2}+2 q^{3}+3 q^{4}+4 q^{5}+6 q^{6}+\ldots\right) \\
+\chi_{2,3}(q)=q^{137 / 240}\left(1+q+2 q^{2}+2 q^{3}+4 q^{4}+5 q^{5}+7 q^{6}+\ldots\right), \\
+\chi_{1,3}(q)=q^{353 / 240}\left(1+q+q^{2}+2 q^{3}+3 q^{4}+4 q^{5}+6 q^{6}+\ldots\right) \\
+\chi_{2,2}(q)=q^{1 / 120}\left(1+q+2 q^{2}+3 q^{3}+4 q^{4}+6 q^{5}+8 q^{6}+\ldots\right) \\
+\chi_{1,2}(q)=q^{49 / 120}\left(1+q+q^{2}+2 q^{3}+3 q^{4}+4 q^{5}+6 q^{6}+\ldots\right)
+\end{array}
+\]</span> The modular <span class="math inline">\(S\)</span> -matrix in the basis <span class="math inline">\((4.10)\)</span> is <span class="math display">\[
+S=\frac{1}{\sqrt{5}}\left(\begin{array}{cccccc}
+s_{2} &amp; s_{1} &amp; s_{1} &amp; s_{2} &amp; \sqrt{2} s_{1} &amp; \sqrt{2} s_{2} \\
+s_{1} &amp; -s_{2} &amp; -s_{2} &amp; s_{1} &amp; \sqrt{2} s_{2} &amp; -\sqrt{2} s_{1} \\
+s_{1} &amp; -s_{2} &amp; -s_{2} &amp; s_{1} &amp; -\sqrt{2} s_{2} &amp; \sqrt{2} s_{1} \\
+s_{2} &amp; s_{1} &amp; s_{1} &amp; s_{2} &amp; -\sqrt{2} s_{1} &amp; -\sqrt{2} s_{2} \\
+\sqrt{2} s_{1} &amp; \sqrt{2} s_{2} &amp; -\sqrt{2} s_{2} &amp; -\sqrt{2} s_{1} &amp; 0 &amp; 0 \\
+\sqrt{2} s_{2} &amp; -\sqrt{2} s_{1} &amp; \sqrt{2} s_{1} &amp; -\sqrt{2} s_{2} &amp; 0 &amp; 0
+\end{array}\right),
+\]</span> where <span class="math inline">\(s_{1} \equiv \sin (2 \pi / 5)\)</span> and <span class="math inline">\(s_{2} \equiv \sin (4 \pi / 5)\)</span>. Considering its BCFT, where all <span class="math inline">\(q=e^{2 \pi i \tau}\)</span> in (C.1)-(C.3) are changed into <span class="math inline">\(q=e^{-\pi \delta}\)</span> as in (3.3), there are six possible boundary conditions in terms of Cardy states written in terms of Ishibashi states: <span class="math display">\[
+\begin{array}{l}
+\left.\left.\left.\left.\left.\left.|1\rangle=C[|0\rangle\rangle+\phi\left|\frac{1}{10}\right\rangle\right\rangle+\phi\left|\frac{3}{5}\right\rangle\right\rangle+\left|\frac{3}{2}\right\rangle\right\rangle+\sqrt[4]{2}\left|\frac{7}{16}\right\rangle\right\rangle+\sqrt[4]{2} \phi\left|\frac{3}{80}\right\rangle\right\rangle\right], \\
+\left.\left.\left.\left.\left.\left.\left|\epsilon^{\prime \prime}\right\rangle=C[|0\rangle\rangle+\phi\left|\frac{1}{10}\right\rangle\right\rangle+\phi\left|\frac{3}{5}\right\rangle\right\rangle+\left|\frac{3}{2}\right\rangle\right\rangle-\sqrt[4]{2}\left|\frac{7}{16}\right\rangle\right\rangle-\sqrt[4]{2} \phi\left|\frac{3}{80}\right\rangle\right\rangle\right], \\
+\left.\left.\left.\left.\left|\sigma^{\prime}\right\rangle=\sqrt{2} C[|0\rangle\rangle-\phi\left|\frac{1}{10}\right\rangle\right\rangle+\phi\left|\frac{3}{5}\right\rangle\right\rangle-\left|\frac{3}{2}\right\rangle\right\rangle\right] \\
+\left.\left.\left.\left.\left.\left.|\epsilon\rangle=C\left[\phi^{2}|0\rangle\right\rangle-\phi^{-1}\left|\frac{1}{10}\right\rangle\right\rangle-\phi^{-1}\left|\frac{3}{5}\right\rangle\right\rangle+\phi^{2}\left|\frac{3}{2}\right\rangle\right\rangle-\sqrt[4]{2} \phi^{2}\left|\frac{7}{16}\right\rangle\right\rangle+\sqrt[4]{2} \phi^{-1}\left|\frac{3}{80}\right\rangle\right\rangle\right] \\
+\left.\left.\left.\left.\left.\left.\left|\epsilon^{\prime}\right\rangle=C\left[\phi^{2}|0\rangle\right\rangle-\phi^{-1}\left|\frac{1}{10}\right\rangle\right\rangle-\phi^{-1}\left|\frac{3}{5}\right\rangle\right\rangle+\phi^{2}\left|\frac{3}{2}\right\rangle\right\rangle+\sqrt[4]{2} \phi^{2}\left|\frac{7}{16}\right\rangle\right\rangle-\sqrt[4]{2} \phi^{-1}\left|\frac{3}{80}\right\rangle\right\rangle\right] \\
+\left.\left.\left.\left.|\sigma\rangle=\sqrt{2} C\left[\phi^{2}|0\rangle\right\rangle+\phi^{-1}\left|\frac{1}{10}\right\rangle\right\rangle-\phi^{-1}\left|\frac{3}{5}\right\rangle\right\rangle-\phi^{2}\left|\frac{3}{2}\right\rangle\right\rangle\right]
+\end{array}
+\]</span> where <span class="math inline">\(C \equiv \sqrt{\sin (\pi / 5) / \sqrt{5}}\)</span> and <span class="math inline">\(\phi \equiv \sqrt{\cos (\pi / 5)}\)</span>. The coefficients in the annulus partition function <span class="math inline">\((2.2)\)</span> are: <span class="math display">\[
+\begin{array}{r}
+n_{\epsilon \epsilon}^{0}=n_{\epsilon \in}^{\epsilon^{\prime}}=n_{\epsilon \epsilon^{\prime}}^{\epsilon}=n_{\epsilon \epsilon^{\prime}}^{\epsilon^{\prime \prime}}=n_{\epsilon \epsilon^{\prime}}^{\epsilon^{\prime}}=n_{\epsilon^{\prime} \epsilon^{\prime}}^{0}=n_{\epsilon^{\prime} \epsilon^{\prime}}^{\epsilon^{\prime}}=n_{\epsilon^{\prime} \in^{\prime}}^{\epsilon}=n_{\epsilon^{\prime} \epsilon^{\prime \prime}}^{0}=1, \\
+n_{\epsilon \sigma}^{\sigma}=n_{\epsilon \sigma}^{\sigma^{\prime}}=n_{\epsilon^{\prime}}^{\sigma}=n_{\epsilon^{\prime} \sigma}^{\sigma}=n_{\epsilon^{\prime} \sigma}^{\sigma^{\prime}}=n_{\epsilon^{\prime} \sigma^{\prime}}^{\sigma}=n_{\epsilon^{\prime \prime} \sigma}^{\sigma}=n_{\epsilon^{\prime \prime} \sigma^{\prime}}^{\sigma^{\prime}}=1, \\
+n_{\sigma \sigma}^{0}=n_{\sigma \sigma}^{\epsilon}=n_{\sigma \sigma}^{\epsilon^{\prime}}=n_{\sigma \sigma}^{\epsilon^{\prime \prime}}=n_{\sigma \sigma^{\prime}}^{\epsilon}=n_{\sigma \sigma^{\prime}}^{\epsilon^{\prime}}=n_{\sigma^{\prime} \sigma^{\prime}}^{0}=n_{\sigma^{\prime} \sigma^{\prime}}^{\epsilon^{\prime \prime}}=1, \\
+n_{h 0}^{h}=1,
+\end{array}
+\]</span> and we emphasize again that acoording to <span class="math inline">\((2.9), n_{h^{\prime} h^{\prime \prime}}^{h}\)</span> here is equal to <span class="math inline">\(N_{h^{\prime} h^{\prime \prime}}^{h}\)</span>, the fusion coefficients in the Verlinde formula.</p>
+<p>Incidentally, the dictionary between primaries and boundary conditions is as follows <span class="math inline">\([26]\)</span> (and <span class="math inline">\([33,34]\)</span> cited therein <span class="math inline">\()^{12}\)</span> <span class="math display">\[
+\begin{array}{cl}
+1: &amp; |+\rangle \\
+\epsilon: &amp; |0+\rangle \\
+\epsilon^{\prime}: &amp; |-0\rangle
+\end{array}
+\]</span> (C.7) <span class="math display">\[
+\begin{aligned}
+\epsilon^{\prime \prime}: &amp;|-\rangle, \\
+\sigma: &amp;|d\rangle \\
+\sigma^{\prime}: &amp;|0\rangle
+\end{aligned}
+\]</span> The notations in the right column have their roots in the order parameter <span class="math inline">\(\langle\sigma\rangle\)</span>, the expectation value of the leading spin field, on the boundary. "+", "-", "0" respectively mean "up", "down" and "zero" spin, and " <span class="math inline">\(d\)</span> ' stands for "degenerate", namely " <span class="math inline">\((-0+)\)</span> ". Finally, all possible annulus partition functions are <span class="math display">\[
+\begin{aligned}
+Z_{\epsilon \epsilon}=Z_{\epsilon^{\prime} \in^{\prime}} &amp;=\chi_{0}+\chi_{\epsilon^{\prime}}, \\
+Z_{\epsilon \epsilon^{\prime}} &amp;=\chi_{\epsilon}+\chi_{\epsilon^{\prime \prime}}, \\
+Z_{\epsilon \epsilon^{\prime \prime}}=Z_{0 \epsilon^{\prime}} &amp;=\chi_{\epsilon^{\prime}}, \\
+Z_{\epsilon^{\prime} \epsilon^{\prime \prime}}=Z_{0 \epsilon} &amp;=\chi_{\epsilon}, \\
+Z_{\epsilon^{\prime \prime} \epsilon^{\prime \prime}}=Z_{00} &amp;=\chi_{0}, \\
+Z_{\epsilon \sigma}=Z_{\epsilon^{\prime} \sigma} &amp;=\chi_{\sigma}+\chi_{\sigma^{\prime}}, \\
+Z_{\epsilon \sigma^{\prime}}=Z_{\epsilon^{\prime} \sigma^{\prime}}=Z_{\epsilon^{\prime \prime} \sigma}=Z_{\epsilon^{\prime \prime} \sigma^{\prime}}=Z_{0 \sigma} &amp;=\chi_{\sigma}, \\
+Z_{\sigma \sigma} &amp;=\chi_{0}+\chi_{\epsilon}+\chi_{\epsilon^{\prime}}+\chi_{\epsilon^{\prime \prime}}, \\
+Z_{\sigma \sigma^{\prime}} &amp;=\chi_{\epsilon}+\chi_{\epsilon^{\prime}}, \\
+Z_{\sigma^{\prime} \sigma^{\prime}} &amp;=\chi_{0}+\chi_{\epsilon^{\prime \prime}}, \\
+Z_{0 \epsilon^{\prime \prime}} &amp;=\chi_{\epsilon^{\prime \prime}}, \\
+Z_{0 \sigma^{\prime}} &amp;=\chi_{\sigma^{\prime}},
+\end{aligned}
+\]</span> where we suppressed all of their argument, i.e., the modular parameter <span class="math inline">\(\delta\)</span> of the annulus.</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CFT/">CFT</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/18/CMP_19_CFT05_book01/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">书籍-凝聚态物理中的Holoaraphic对偶</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/17/CMP_22_Localization_10CN_02/">
+                        <span class="hidden-mobile">概览-多体局域化</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "边界CFT的Holographic对偶&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

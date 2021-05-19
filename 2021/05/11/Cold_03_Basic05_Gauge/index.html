@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>冷原子中的人工规范场 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/Cold_03_Basic05_Gauge.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-05-11 14:23">
+      May 11, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      79
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考">参考</h2>
+<p>参考</p>
+<ol type="1">
+<li>《人工规范场中的BEC》</li>
+<li>《人工规范场中的冷原子》</li>
+</ol>
+<p>补充扩展</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/283924717" target="_blank" rel="noopener">规范理论入门</a></li>
+<li><a href="http://wulixb.iphy.ac.cn/cn/article/doi/10.7498/aps.69.20200197" target="_blank" rel="noopener">具有全局对称性的强关联拓扑物态的规范场论</a></li>
+<li>Artificial Gauge Fields with Ultracold Atoms in Optical Lattices (Springer Theses)</li>
+<li><a href="https://www.physik.hu-berlin.de/de/nano/lehre/copy_of_quantenoptik09/Chapter9" target="_blank" rel="noopener">Atomic Coherence in Three-Level Atoms</a></li>
+</ul>
+<h2 id="人工规范场">人工规范场</h2>
+<h3 id="berry相位">Berry相位</h3>
+<p>把初态放在其中一个本征态上去看系统的演化，系统的状态可以表示为 <span class="math display">\[
+|\psi(t)\rangle=e^{-i \theta(t)}|n( R (t))\rangle
+\]</span> 代入薛定谔方程可以解得 <span class="math display">\[
+\theta(t)=\frac{1}{\hbar} \int_{0}^{t} E_{n}\left( R \left(t^{\prime}\right)\right) d t^{\prime}-i \int_{0}^{t}\left\langle n\left( R \left(t^{\prime}\right)\right)\left|\frac{d}{d t^{\prime}}\right| n\left( R \left(t^{\prime}\right)\right)\right\rangle d t^{\prime}
+\]</span> 其中</p>
+<ul>
+<li>第一部分就是动力学相位</li>
+<li>第二部分就是Berry相位 <span class="math inline">\(\gamma_{n}\)</span></li>
+</ul>
+<p><span class="math display">\[
+\gamma_{n}=i \int_{0}^{t}\left\langle n\left( R \left(t^{\prime}\right)\right)\left|\frac{d}{d t^{\prime}}\right| n\left( R \left(t^{\prime}\right)\right)\right\rangle d t^{\prime} .
+\]</span></p>
+<p>写到参数空间有 <span class="math display">\[
+\gamma_{n}=i \int_{c}\left\langle n( R )\left|\nabla_{ R }\right| n( R )\right\rangle d R .
+\]</span> 可以定义</p>
+<ul>
+<li>Berry Connection</li>
+</ul>
+<p><span class="math display">\[
+A _{n}( R )=i\left\langle n( R )\left|\frac{\partial}{\partial R }\right| n( R )\right\rangle
+\]</span></p>
+<ul>
+<li>Berry Vector potential:</li>
+</ul>
+<p><span class="math display">\[
+\gamma_{n}=\int_{c} d R \cdot A _{n}( R ) 
+\]</span></p>
+<h3 id="简单模型">简单模型</h3>
+<blockquote>
+<p>规范场和Berry connection的关系</p>
+</blockquote>
+<p>系统的哈密顿量 <span class="math display">\[
+H=\left(\frac{P^{2}}{2 M}+V\right)  +U
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(P =-i \hbar \nabla\)</span> 是动量算符</li>
+<li>耦合算符</li>
+</ul>
+<p><span class="math display">\[
+U=\frac{\hbar \Omega}{2}\left(\begin{array}{cc}
+\cos \theta &amp; e^{-i \phi} \sin \theta \\
+e^{i \phi} \sin \theta &amp; -\cos \theta
+\end{array}\right)
+\]</span></p>
+<p><span class="math inline">\(U\)</span> 的本征态是: <span class="math display">\[
+\left|\chi_{1}\right\rangle=\left(\begin{array}{c}
+\cos \theta / 2 \\
+e^{i \phi} \sin \theta / 2
+\end{array}\right),\left|\chi_{2}\right\rangle=\left(\begin{array}{c}
+-e^{-i \phi} \sin \theta / 2 \\
+\cos \theta / 2
+\end{array}\right)
+\]</span> 他们分别对应本征值土 <span class="math inline">\(\hbar \Omega\)</span> /2。</p>
+<p>我们将 <span class="math inline">\(U\)</span> 的本征态叫做 “dressed" 态。用 “dressed" 态 <span class="math inline">\(\left|\chi_{j}\right\rangle\)</span> 张成内部希尔伯特空间，粒子的波函数可以写成: <span class="math display">\[
+|\Psi(r, t)\rangle=\sum_{j=1,2} \psi_{j}(r, t)\left|\chi_{j}\right\rangle
+\]</span></p>
+<h4 id="演化">演化</h4>
+<p>假设初态放在其中一个 "dressed”态上，比如说| <span class="math inline">\(\left.\chi_{1}\right\rangle\)</span> ，在绝热条件下粒子将一 直处在这一本征:态上。将动量算符 <span class="math inline">\(P\)</span> 作用在态欠量上我们有: <span class="math display">\[
+\begin{aligned}
+P |\Psi\rangle=&amp;-i\hbar\nabla |\Psi\rangle
+\\
+=&amp;-i\hbar\nabla \sum_{j=1,2} \psi_{j} \left|\chi_{j} \right\rangle
+\\
+=&amp;i\hbar \sum_{j=1,2}\left[\nabla \psi_{j}\right]\left|\chi_{j}\right\rangle+\psi_{j}\left|\nabla \chi_{j}\right\rangle\\
+=&amp;i\hbar  \sum_{l, j=1.2}\left|\chi_{l}\right\rangle\left\langle \chi_{l}\right| (\left[\nabla \psi_{j}\right]\left|\chi_{j}\right\rangle+\psi_{j}\left|\nabla \chi_{j}\right\rangle)\\
+=&amp;\sum_{j, l=1,2}\left[\delta_{j, l} P - A _{j l} \psi_{l}\right]\left|\chi_{j}\right\rangle
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li>$A <em>{l j}(r)=i </em>{l} _{j}$</li>
+</ul>
+<p>系统绝热演化我们可以假设 <span class="math inline">\(\psi_{2}=0\)</span>, 将薛定讲方程投影到“dressed”态 <span class="math inline">\(\left|\chi_{1}\right\rangle\)</span> 上，我们得到第一个 "dressed” 态上的薛定谔方程 : <span class="math display">\[
+\begin{aligned}
+i \hbar \frac{\partial \psi_{1}}{\partial t}=&amp;H \psi_{1}\\
+i \hbar \frac{\partial \psi_{1}}{\partial t}=&amp;\left[\left(\frac{P^{2}}{2 M}+V\right)+U\right] \psi_{1}\\
+=&amp;\left[\frac{( P - A )^{2}}{2 M}+V+\frac{\hbar \Omega}{2}+W\right] \psi_{1}
+\end{aligned}
+\]</span> 式中出现了矢势 <span class="math inline">\(A ( r )\)</span> 和标势 <span class="math inline">\(W(r)\)</span></p>
+<ul>
+<li>矢势</li>
+</ul>
+<p><span class="math display">\[
+A ( r )=i \hbar\left\langle\chi_{1} \mid \nabla \chi_{1}\right\rangle=\frac{\hbar}{2}(\cos \theta-1) \nabla \phi
+\]</span></p>
+<p>其所对应的磁场是: <span class="math display">\[
+B ( r )=\nabla \times A =\frac{\hbar}{2} \nabla(\cos \theta) \times \nabla \phi
+\]</span> 当这个人工磁场不等于了0，矢势 <span class="math inline">\(A\)</span> 不能通过规范变换消去。这样的粒子得到 个等效的电荷并且它的运动展现出轨道磁场中带电粒子的性质。</p>
+<ul>
+<li>标势 <span class="math inline">\(W(r)\)</span> 有:</li>
+</ul>
+<p><span class="math display">\[
+W(r)=\frac{\hbar^{2}}{2 M}\left|\left\langle\chi_{2} \mid \nabla \chi_{1}\right\rangle\right|^{2}=\frac{\hbar^{2}}{8 M}\left[(\nabla \theta)^{2}+\sin ^{2} \theta(\nabla \phi)^{2}\right] .
+\]</span> 在量子光学实验中这样的标势的第一个证据在[10]。</p>
+<h4 id="近似">近似</h4>
+<p>在产生人工规范场的过程中我们做了粒子一直处在 <span class="math inline">\(\left|\chi_{1}\right\rangle\)</span> 这一<strong>绝热近似</strong>。然而初态放在 <span class="math inline">\(\mid \chi_{1}\)</span> 粒子，被加速到 <span class="math inline">\(v\)</span> 后，在 <span class="math inline">\(\left|\chi_{2}\right\rangle\)</span> 上的占有数 <span class="math inline">\(\Pi_{2}\)</span> 在末 态并不严格的等于0。这里将粒子的质心运动看成经典运动而将内部自由 度上的运动仍然用量子力学描述。对于速度很小的情况末态占有数 <span class="math display">\[
+\Pi_{2} \simeq \left|v \cdot\left\langle\chi_{2} \mid \nabla \chi_{1}\right\rangle  \frac{1}{\Omega} \right|^{2}=\left|v \cdot[\nabla \theta-i \sin \theta \nabla \phi] e^{-i \phi}  \frac{1}{2\Omega}\right|^{2}
+\]</span> 绝热条件成立条件 <span class="math display">\[
+\Pi_{2}&lt;&lt;1
+\]</span> 有, <span class="math inline">\(\left|v \cdot\left\langle\chi_{2} \mid \nabla \chi_{1}\right\rangle / \Omega\right|^{2}&lt;&lt;1\)</span> 。</p>
+<h3 id="三能级系统">三能级系统</h3>
+<ol type="1">
+<li>上面我们讨论了二能级系统中如何在绝热条件下在 <span class="math inline">\(\left|\chi_{1}\right\rangle\)</span> 的投影哈密顿量中 出现 <span class="math inline">\(U(1)\)</span> 人工规范场。对于这样的系统只有碱土金属原子这样激发态寿命很长 的原子种类适用[13]。</li>
+<li>然而冷原子系统更多的是 <span class="math inline">\(R b, L i, N a, K\)</span> 等碱金属原子气 体，对于这样的气体上面的讨论将不再适用。</li>
+</ol>
+<p>下面我们主要以 <span class="math inline">\(\Lambda\)</span> 三能级系统为例讨论电基态（近）简并的多能级系统中人工规范场的产生。</p>
+<ol type="1">
+<li>在 <span class="math inline">\(\Lambda\)</span> 型的三能级系统中，当系统参数取一定范围将出现暗态 <span class="math inline">\([14]\)</span>,</li>
+<li>s在暗态投影哈密顿量中将像 上节中讨论的一样出现人工规范场。</li>
+</ol>
+<p><span class="math inline">\(\Lambda\)</span> 型的三能级系统，如图所示：</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210511091835021.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<ul>
+<li>原子激发态 <span class="math inline">\(|e\rangle\)</span></li>
+<li>两个（近）简并 的基态 <span class="math inline">\(\left|g_{1}\right\rangle,\left|g_{2}\right\rangle\)</span></li>
+<li>由激光场 <span class="math inline">\(k_{1}, k_{2}\)</span> 耦合在一起</li>
+<li>且有势谐都有 <span class="math inline">\(\delta_{0}\)</span></li>
+</ul>
+<h4 id="本征问题">本征问题</h4>
+<p>在旋转波近似下, <span class="math inline">\(\left|g_{1}\right\rangle,|e\rangle,\left|g_{2}\right\rangle\)</span> 所张成的希尔伯特空间中耦合算符的矩阵形式是: <span class="math display">\[
+U=\frac{\hbar}{2}\left(\begin{array}{ccc}
+-2 \delta &amp; k_{1}^{*} &amp; 0 \\
+k_{1} &amp; 0 &amp; k_{2} \\
+0 &amp; k_{2}^{*} &amp; 2 \delta
+\end{array}\right)
+\]</span> 假设 <span class="math inline">\(\delta=0\)</span>, 矩阵有三个本征态 <span class="math display">\[
+\begin{aligned}
+|D\rangle=&amp;\frac{1}{k} \left(k_{2}\left|g_{1}\right\rangle-k_{1}\left|g_{2}\right\rangle\right) \\
+|\pm\rangle=&amp;\frac{1}{\sqrt{2}} (|B\rangle \pm|\epsilon\rangle) 
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li>态 <span class="math inline">\(|\pm\rangle\)</span> 对应的本征值(能量)是 $k $</li>
+<li>态 <span class="math inline">\(|D\rangle\)</span> 对应的本征值(能量)是0，它没有激发态 <span class="math inline">\(|e\rangle\)</span> 的成分，我们称之为暗态(非耦合态)</li>
+<li><span class="math inline">\(|B\rangle\)</span> 是明态（耦合态）</li>
+</ul>
+<p><span class="math display">\[
+|B\rangle=\frac{1}{k}\left(k_{1}^{*}\left|g_{1}\right\rangle+k_{2}^{*}\left|g_{2}\right\rangle\right)
+\]</span></p>
+<h4 id="暗态">暗态</h4>
+<p>暗态在量子光学中被广泛的提及。我们向暗态子空间中投影得到: <span class="math display">\[
+i \hbar \frac{\partial \psi_{D}}{\partial t}=\left[\frac{( P - A )^{2}}{2 M}+V+W\right] \psi_{D}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(A=i \hbar\langle D \mid \nabla D\rangle\)</span></li>
+<li><span class="math inline">\(W=\hbar^{2}|\langle B \mid \nabla D\rangle|^{2} /(2 M)\)</span></li>
+</ul>
+<p>令: <span class="math display">\[
+\sqrt{\zeta} \equiv \frac{\left|k_{1}\right|}{\left|k_{2}\right|}=-\tan \frac{\theta}{2},\\ \phi_{1}-\phi_{2}=\phi
+\]</span> 这里 <span class="math inline">\(\phi_{j}\)</span> 来源于 <span class="math inline">\(k_{j}=\left|k_{j}\right| e^{i \phi_{j}},(j=1,2)\)</span> 。 这样人工磁场为: <span class="math display">\[
+B =\hbar \frac{\nabla \phi \times \zeta}{(1+\zeta)^{2}}
+\]</span> 从该式看出只有当 <span class="math inline">\(\phi, \zeta\)</span> 都具有空间分布时磁场才不为0。</p>
+<h4 id="实验非零磁场">实验：非零磁场</h4>
+<p>为了产生非0的磁场，一般的可以用</p>
+<ol type="1">
+<li>具有轨道角动量[16]的激光</li>
+<li>或者用 两束对打的中心偏移的高斯光[17, 18]</li>
+</ol>
+<p>打在冷原子气体上。下面我们简要 介绍这两种方法。</p>
+<p>（1）如图所示，两束有角动量的高斯光的拉比频 率 <span class="math inline">\(k_{j}(r)=k_{j}^{(0)}(\rho) c^{i l_{j} \varphi},\)</span><span class="math inline">\((j=1.2)\)</span> 该式是在柱坐标中的表示。所以 <span class="math display">\[
+B (\rho)=\frac{\hbar l}{\rho} \frac{\partial_{\rho} \zeta}{(1+\zeta)^{2}} \hat{z}
+\]</span> 其中 <span class="math inline">\(l=l_{1}-l_{2}\)</span></p>
+<p>（2）两速对打的中心偏移的高斯光的拉比频率 <span class="math inline">\(k_{j}(r)=k^{(0)} e^{\pm i k x} e^{-(y \pm a)^{2} / \omega^{2}}\)</span> <span class="math display">\[
+B =\frac{4 \hbar k a}{\omega^{2}} \frac{1}{\cosh ^{2}\left(4 y a / \omega^{2}\right)}
+\]</span></p>
+<h2 id="非阿贝的人工规范场">非阿贝的人工规范场</h2>
+<blockquote>
+<p>非阿贝场的产生，磁单极，自旋轨道耦合</p>
+</blockquote>
+<ol type="1">
+<li>上面我们简要介绍了 <span class="math inline">\(U(1)\)</span> 的阿贝人工规范场在冷原子气体等效哈密顿 量中的产生。</li>
+<li>当 <span class="math inline">\(\Lambda\)</span> 型能级在势谐 <span class="math inline">\(\delta&gt;&gt;\left|k_{1}\right| .\left|k_{2}\right|\)</span> 时，出现两个近简汇的暗态, 从而在这样的系统中将产生一个 <span class="math inline">\(S U(2)\)</span> 的非阿贝场</li>
+</ol>
+<p>在这一节我们主要介绍，冷原子在激光场中所感受的非阿贝场，并且介绍磁单极的产生，自旋轨道耦合的产生。</p>
+<h3 id="q-能级系统">q 能级系统</h3>
+<p>非阿贝场可产生于如图</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210511095551476.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<p><span class="math inline">\(N+1\)</span> 的能级系统中</p>
+<ol type="1">
+<li><span class="math inline">\(N \geq 3\)</span> 的基态 <span class="math inline">\(\left|g_{j}\right\rangle\)</span> 和 激发态 <span class="math inline">\(|e\rangle\)</span> 与激光耦合在一起。</li>
+<li>在旋转波近似下粗合算符 <span class="math inline">\(U\)</span> 是一个 <span class="math inline">\((N+1) \times(N+1)\)</span>矩阵。</li>
+</ol>
+<p>一般的可以写为 <span class="math display">\[
+U=\sum_{j=1}^{N} \frac{\hbar k_{j}(r)}{2}|e\rangle\left\langle g_{j}\right|+H . c
+\]</span> 或写成 <span class="math display">\[
+U=\frac{\hbar k(r)}{2}(|\epsilon\rangle\langle B(r)|+| B(r)\rangle\langle e|)
+\]</span> 其中 <span class="math inline">\(|B\rangle=\sum_{j=1}^{N}\left(k_{j}^{*}\left|g_{j}\right\rangle\right) / k\)</span> 是明态。</p>
+<p>矩阵 <span class="math inline">\(U\)</span> 可以对角化得到本征能量为 <span class="math inline">\(\varepsilon_{n}(r)\)</span> dressed态 <span class="math inline">\(\left|\chi_{n}(r)\right\rangle_{\text {。 }}\)</span> 产生非阿贝的人工规范场的关键在 于有一些dressed态在任意位置都简并或近简并。当初念制备在这样的简并子空间中时，在绝热条件下，我们可以忽略子空间外的部分将薛定谔方程投影到 <span class="math inline">\(q \geq 2\)</span> 维的简并子空间中有: <span class="math display">\[
+i \hbar \frac{\partial \Psi^{\prime}}{\partial t}=\left[\frac{(P-A)^{2}}{2 M}+(V+\varepsilon) \hat{1}_{q}+W\right] \Psi^{\prime}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\hat{1}_{q}\)</span> 为单位矩阵，</li>
+<li><span class="math inline">\(\varepsilon\)</span> 是简并子空间能量,</li>
+<li><span class="math inline">\(\Psi^{\prime}=\left(\psi_{1}, \ldots, \psi_{q}\right)^{T}\)</span> 。</li>
+</ul>
+<p>人工规范场 <span class="math inline">\(A , W\)</span> 是 <span class="math inline">\(q \times q\)</span> 的矩阵 <span class="math display">\[
+\begin{aligned}
+A _{n, m} &amp;=i \hbar\left\langle\chi_{n}(r)\left|\nabla \chi_{m}(r)\right\rangle\right.\\
+W_{n, m} &amp;=\frac{1}{2 M} \sum_{l=q+1}^{N+1} A _{n, l} \cdot A _{l, m}
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li>$n, m (1, , q) $</li>
+<li><span class="math inline">\(A\)</span> 又叫做Mean-Berry connection</li>
+</ul>
+<p>人工规范场 <span class="math inline">\(A\)</span> 所给出的磁场 (或curvature <span class="math inline">\(B\)</span>) 是 <span class="math display">\[
+\begin{aligned}
+B_{i}=&amp;\frac{1}{2} \epsilon_{i k l} F_{k l}, F_{k l}\\=&amp;\partial_{k} A_{l}-\partial_{l} A_{k}-\frac{i}{\hbar}\left[A_{k}, A_{l}\right] 
+W_{n, m} 
+\\=&amp;\frac{1}{2 M} \sum_{l=q+1}^{N+1} A _{n, l} \cdot A _{l, m}
+\end{aligned}
+\]</span> 我们看到一般的 <span class="math inline">\(A\)</span> 各组分不对易，所以即使均匀的 <span class="math inline">\(A\)</span> 产生的磁场也可以不等于0。</p>
+<h3 id="q3-磁单极">q=3 磁单极</h3>
+<p>非阿贝场的一个有趣的性质是可以产生磁单极[21]。我们这里主要介 绍[22]中在 <span class="math inline">\(N=3\)</span> 的体系中所产生的磁单极。拉比频率一般的可以有以下形式: <span class="math display">\[
+\begin{array}{l}
+k_{1}=k \sin \alpha \cos \beta e^{i \phi_{1}} \\
+k_{2}=k \sin \alpha \sin \beta \epsilon^{i \phi_{2}} \\
+k_{3}=k \cos \alpha e^{i \phi_{3}}
+\end{array}
+\]</span> 在 <span class="math inline">\(\left|g_{1}\right\rangle,\left|g_{2}\right\rangle,\left|g_{3}\right\rangle\)</span> 空间中, <span class="math display">\[
+\left|D_{1}\right\rangle=\left(\begin{array}{c}
+\sin \beta e^{i \phi_{31}} \\
+-\cos \beta e^{i \phi_{32}} \\
+0
+\end{array}\right) \cdot\left|D_{2}\right\rangle=\left(\begin{array}{c}
+\cos \alpha \cos \beta e^{i \varphi_{31}} \\
+\cos \alpha \sin \beta e^{i \phi_{32}} \\
+-\sin n
+\end{array}\right)
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\phi_{i j}=\phi_{i}-\phi_{j}\)</span></li>
+</ul>
+<p>那么矢量场 <span class="math inline">\(A\)</span> 是: <span class="math display">\[
+\begin{array}{l} 
+A _{11}=\hbar\left(\cos ^{2} \beta \nabla \phi_{23}+\sin ^{2} \beta \nabla \phi_{13}\right) \\
+A _{12}=\hbar \cos \alpha\left(\frac{1}{2} \sin (2 \beta) \nabla \phi_{12}-i \nabla \beta\right) \\
+A _{22}=\hbar \cos ^{2} \alpha\left(\cos ^{2} \beta \nabla \phi_{13}+\sin ^{2} \beta \nabla \phi_{23}\right)
+\end{array}
+\]</span> 为了产生磁单极我们取</p>
+<ul>
+<li><span class="math inline">\(k_{1,2}\)</span> 用Laguerre-Gauss型的激光，</li>
+<li><span class="math inline">\(k_{3}\)</span> 用Hermite-Gauss型 激光:</li>
+</ul>
+<p><span class="math display">\[
+k_{1,2}=k_{0} \frac{\rho}{R} e^{i(k z \mp \varphi)}, k_{3}=k_{0} \frac{z}{R} e^{i k x}
+\]</span> 这样的激光场中给出的矢势: <span class="math display">\[
+A =-\frac{\hbar}{r \tan \theta} e_{\varphi} \sigma_{x}+\frac{\hbar k}{2}\left(e_{z}-e_{x}\right)\left[\left(1+\cos ^{2} \theta\right) \hat{1}+\left(1-\cos ^{2} \theta\right) \sigma_{z}\right]
+\]</span> 在原点处有一个磁单极出现: <span class="math display">\[
+B =\frac{\hbar}{r^{2}} e_{r} \sigma_{x}+\ldots
+\]</span></p>
+<p>当激光场是 <span class="math inline">\(k_{j}=k^{(0)} e^{i k _{j} \cdot r } / \sqrt{3}\)</span> 时，中性原子将感受到Rashba的自旋轨道 耦合。在动量表象下，有 <span class="math display">\[
+H_{ K }=\frac{\hbar K \hat{1}- A }{2 M}+W+V \hat{1}
+\]</span> 其中 <span class="math display">\[
+A =-k \hat{ S }_{\perp}, \hat{ S }_{\perp} \propto \hat{\sigma}_{x} e _{x}+\hat{\sigma}_{y} e _{y}
+\]</span> Rashba的自旋轨道耦合。</p>
+<h2 id="自旋轨道耦合">自旋轨道耦合</h2>
+<blockquote>
+<p>非阿贝规范势可以用来在冷原子里产生自旋轨道耦合。</p>
+</blockquote>
+<p>自旋轨道耦合在原子物理和凝聚态物理中有这重要的作用。</p>
+<ol type="1">
+<li>在原子物理中，它带来超精细能级辟裂。</li>
+<li>在固体物理中，自旋轨道塊合的出现带来了诸如拓扑绝缘体、量子反常霍尔效应和拓扑超导体的新型材料。</li>
+</ol>
+<p>通过拉曼机制同样可以使得中性的冷原子感受到自旋轨道耦合。</p>
+<ol type="1">
+<li>由于冷原子的高度可调控性，使得自旋轨道耦合的研究可以到达固体物理里面不能到达的<strong>参数区域</strong>。</li>
+<li>同时拉曼机制下，自旋轨道耦合本身的形式不再局限于Rashba和Dresselhaus 等，使得冷原子里面可以研究各种不同类型的自旋轨道耦合。</li>
+</ol>
+<h3 id="一维自旋轨道耦合">一维自旋轨道耦合</h3>
+<p>实验上在 <span class="math inline">\(^{87} Rb\)</span> 原子中产生Rashba和Dresselhaus等权叠加的自旋轨道耦合。这样 的自旋轨道耦合里面，耦合只发生在一个方向，所以叫一维的自旋轨道耦合。</p>
+<p>系统的单粒子哈密顿量是 <span class="math display">\[
+H=\frac{\hbar^{2} k ^{2}}{2 m}+\frac{\Omega}{2} \sigma_{z}+\frac{\delta}{2} \sigma_{y}+2 \alpha k_{x} \sigma_{y}
+\]</span> 1. 系统工作在 <span class="math inline">\(^{87} Rb\)</span> 的 <span class="math inline">\(F=1\)</span> 的基态子空间中。 2. 用两束波长 <span class="math inline">\(\lambda=807.1 nm\)</span> 的拉曼光耦合子空间中的态，耦合强度是 <span class="math inline">\(\Omega\)</span>，失谐是 $$ 3. 两束激光传播方向分别是 <span class="math inline">\(x+y\)</span> 和 <span class="math inline">\(-x+y\)</span> 方向 4. 并且在 <span class="math inline">\(y\)</span> 方向加一个磁场打开简并</p>
+<p>具体的能级如图所示。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210511124908252.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<blockquote>
+<p>图 <span class="math inline">\(1.8 \quad{ }^{87} Rb\)</span> 的 <span class="math inline">\(F=1\)</span> 的能级图。其中两束波长为 <span class="math inline">\(\lambda=804.1 n m\)</span> 的激光耦合| <span class="math inline">\(F=1, m_{F}=\)</span> <span class="math inline">\(0\rangle\)</span> 和 <span class="math inline">\(\left|F=1, m_{F}=-1\right\rangle\)</span> 的态。他们之间的能级差是 <span class="math inline">\(\hbar \omega_{z^{\circ}} \quad\left|F=1, m_{F}=0\right\rangle\)</span> 和 <span class="math inline">\(\mid F=1, m_{F}= +1\rangle\)</span> 之间的能级差 <span class="math inline">\(\hbar\left(\omega_{z}-\omega_{q}\right)_{\circ}\)</span> 这里 <span class="math inline">\(\hbar \omega_{q}\)</span> 很大所以 <span class="math inline">\(\left|m_{F}=+1\right\rangle\)</span> 可以被忽略。<a href="https://www.nature.com/articles/nature09887" target="_blank" rel="noopener">[2]</a></p>
+</blockquote>
+<p>系统的哈密顿量是 <span class="math display">\[
+\begin{aligned}
+H_{0}=&amp;\left[\frac{\hbar^{2} k ^{2}}{2 m}+V( r )\right] \hat{1}+\left(\begin{array}{ccc}
+\hbar\left(-\omega_{z}+\omega_{q}\right) &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; \hbar \omega_{z}
+\end{array}\right)\\&amp;+\sqrt{2} \Omega \sigma_{3, x} \cos \left(2 k_{L} x+\Delta \omega_{L} t\right)
+\end{aligned}
+\]</span> 1. 矩阵的一项来源于外加磁场带来的能级辟裂， 2. 最后一项来源于拉曼光的耦合。</p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(\sigma_{3, x, y, z}\)</span> 是 <span class="math inline">\(3\times 3\)</span> 的Pauli矩阵。他们的矩阵形式分别是</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{x}=\frac{\sqrt{2}}{2}\left(\begin{array}{lll}
+0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+\sigma_{y}=\frac{\sqrt{2}}{2}\left(\begin{array}{ccc}
+0 &amp; -i &amp; 0 \\
+i &amp; 0 &amp; -i \\
+0 &amp; i &amp; 0
+\end{array}\right)
+\]</span></p>
+<p><span class="math display">\[
+\sigma_{z}=\frac{\sqrt{2}}{2}\left(\begin{array}{ccc}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; -1
+\end{array}\right)
+\]</span></p>
+<p>将Pauli矩阵在旋转基下</p>
+<ul>
+<li><span class="math inline">\(\sigma_{3, y} \rightarrow \sigma_{3, z}\)</span></li>
+<li><span class="math inline">\(\sigma_{3, x} \rightarrow \sigma_{3, y}\)</span></li>
+<li><span class="math inline">\(\sigma_{3, z} \rightarrow \sigma_{3, x}\)</span></li>
+</ul>
+<p>做旋转波近似，得到在基 <span class="math inline">\(\left\{\left|m_{F}=+1\right\rangle,\left|m_{F}=0\right\rangle,\left|m_{F}=-1\right\rangle\right\}\)</span> 下的哈密顿量 <span class="math display">\[
+\begin{aligned}
+H_{3}=&amp; [\frac{\hbar^{2} k ^{2}}{2 m}   +V( r )] \hat{1}+\left(\begin{array}{ccc}
+3 \delta / 2+\hbar \omega_{q} &amp; 0 &amp; 0 \\
+0 &amp; \delta / 2 &amp; 0 \\
+0 &amp; 0 &amp; -\delta / 2
+\end{array}\right) \\
+&amp;+\frac{\Omega_{R}}{2} \sigma_{3, x} \cos \left(2 k_{L} x\right)-\frac{\Omega_{R}}{2} \sigma_{3, y} \sin \left(2 k_{L} x\right)
+\end{aligned}
+\]</span> 旋转波近似</p>
+<ol type="1">
+<li>相当于对哈密顿量做 <span class="math inline">\(U=e^{i \Delta \omega \sigma_{3,2} t}\)</span> 的规范变换</li>
+<li>并且忽略里面的高频项。</li>
+</ol>
+<p>接下来由于 <span class="math inline">\(\hbar \omega_{q}\)</span> 足够大，所以当初态制备在子空间 <span class="math inline">\(\left\{\mid m_{F}=\right.0\rangle,\left|m_{F}=-1\right\rangle\}\)</span> 里面，可以写出一个两能级的等效哈密顿量 <span class="math display">\[
+H_{2}=\left[\frac{\hbar^{2} k ^{2}}{2 m}+V( r )\right] \hat{1}+\frac{\delta}{2} \sigma_{z}+\frac{\Omega}{2} \sigma_{x} \cos \left(2 k_{L} x\right)-\frac{\Omega}{2} \sigma_{y} \sin \left(2 k_{L} x\right)
+\]</span> 其中 $= $</p>
+<ol type="1">
+<li>接下来做规范变换 <span class="math inline">\(U=e^{i 2 k_{L} x \sigma_{z}}\)</span>,</li>
+<li>再做自旋的旋转 <span class="math inline">\(\sigma_{z} \rightarrow \sigma_{y}, \sigma_{y} \rightarrow\)</span> <span class="math inline">\(\sigma_{x}, \sigma_{x} \rightarrow \sigma_{z}, \quad\)</span></li>
+</ol>
+<p>得到自旋轨道耦合的哈密顿量 <span class="math display">\[
+H=\frac{\hbar^{2} k ^{2}}{2 m} \hat{\imath}+\frac{\Omega}{2} \sigma_{z}+\frac{\delta}{2} \sigma_{y}+2 \frac{\hbar^{2} k_{L} k_{x}}{2 m} \sigma_{y}
+\]</span> 在费米气体中，实验上目前也产生了类似的一维自旋轨道耦合</p>
+<h3 id="二维的自旋轨道耦合">二维的自旋轨道耦合</h3>
+<p>这一节介绍实现二维的自旋轨道的实验 <a href="https://www.nature.com/articles/nphys3672" target="_blank" rel="noopener">[3]</a>。用三束在x-y平面传播的激光耦合 <span class="math inline">\(^{40} K\)</span> 的三个超精细自旋基态。在4 <span class="math inline">\(^{2} S_{1 / 2}\)</span> 的基态空间里面这三个态分别是 <span class="math display">\[
+\begin{array}{l}
+|1\rangle=\mid F=9 / 2, m_{F}=3 / 2 \rangle \\
+|2\rangle=\mid F=9 / 2, m_{F}=1 / 2 \rangle \\
+|3\rangle=\mid F=7 / 2, m_{F}=1 / 2 \rangle
+\end{array}
+\]</span> <span class="math inline">\(\left(F, m_{F}\right)\)</span> 是超精细态的量子数。具体的能级结构和激光场如图(1.9)。</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210511125312483.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<blockquote>
+<p>图 <span class="math inline">\(1.9\)</span> 工作的 <span class="math inline">\({ }^{40} K\)</span> 能级图和激光场<a href="https://www.nature.com/articles/nphys3672" target="_blank" rel="noopener">[3]</a></p>
+</blockquote>
+<p>系统哈密顿量是 <span class="math display">\[
+\begin{aligned}
+H=&amp;\sum_{i=1}^{3}\left(\frac{ p ^{2}}{2 m}+\varepsilon_{i}\right)|i\rangle \langle i |+\sum_{j=1}^{n} E_{j} | j \rangle\langle j|\\&amp;+\sum_{i=1}^{3}\left(\Omega_{i} e^{ k _{i}^{\prime} r +\omega_{i} t+\theta_{i}}\left(\sum_{n_{j=1}} M_{i j}|j\rangle\langle i|\right)+\text { h.c. }\right)
+\end{aligned}
+\]</span> 其中</p>
+<ul>
+<li><span class="math inline">\(\varepsilon_{i}\)</span> 和 <span class="math inline">\(E_{j}\)</span> 是自旋基态和激发态能量，</li>
+<li><span class="math inline">\(\Omega_{i} Rabi\)</span> 频率，</li>
+<li><span class="math inline">\(M_{i j}\)</span> 是dipole 耦合强度。</li>
+</ul>
+<p>旋转波近似和绝热的消除掉激发态后，来到三能级的哈密顿量 <span class="math display">\[
+H_{a}=\frac{p_{z}^{2}}{2 m}+H_{x y}
+\]</span></p>
+<p><span class="math display">\[
+H_{x y}=\sum_{i=1}^{3}\left(\frac{\left( p - k _{i}\right)^{2}}{2 m}+\delta_{i}\right)|i\rangle \langle i |-\sum_{i^{\prime} \neq i} \frac{\Omega_{i i^{\prime}}}{2} | i \rangle\left\langle i^{\prime}\right|
+\]</span> 对于二维的哈密顿量 <span class="math inline">\(H_{x y}\)</span> ，在动量空间有简并点 <span class="math inline">\(p _{0}\)</span>, 他满足 <span class="math display">\[
+\begin{array}{l}
+-\frac{\left( k _{1}- k _{2}\right) \cdot p _{0}}{m}+\delta_{1}-\delta_{2}=\frac{\Omega_{12} \Omega_{13}}{2 \Omega_{23}}+\frac{\Omega_{12} \Omega_{23}}{2 \Omega_{13}} \\
+-\frac{\left( k _{2}- k _{3}\right) \cdot p _{0}}{m}+\delta_{2}-\delta_{3}=\frac{\Omega_{12} \Omega_{23}}{2 \Omega_{13}}+\frac{\Omega_{13} \Omega_{23}}{2 \Omega_{12}} .
+\end{array}
+\]</span> 在简并点附近展开，可以得到一个低能下的有效哈密顿量 <span class="math display">\[
+H_{S O}=\left(\lambda_{x 1} p_{x}+\lambda_{y 1} p_{y}\right) \sigma_{x}+\left(\lambda_{x 2} p_{x}+\lambda_{y 2} p_{y}\right) \sigma_{z}
+\]</span> 这里重新定义了动量零点 <span class="math inline">\(p_{i=x, y}=p_{i}-p_{0, i}\)</span> 通过旋转动量和自旋可以得到 <span class="math display">\[
+H_{S O}=\lambda_{x} p_{x} \sigma_{x}+\lambda_{y} p_{y} \sigma_{z}
+\]</span></p>
+<p>以上人工规范场的实现都是基于拉曼机制。另外还有其他的实现人工规范场的方法。</p>
+<ol type="1">
+<li>比如旋转冷原子气体可以在旋转坐标系中得到一个等效磁场。这也在冷原子中被广泛的研究 [35,36]。</li>
+<li>也可以用空间分布的磁场脉冲产生的自旋轨道耦合[37,38]。</li>
+</ol>
+<h2 id="附录">附录</h2>
+<p>考虑一个中性原子具有两个内部态</p>
+<ul>
+<li>基态 <span class="math inline">\(|g\rangle\)</span></li>
+<li>激发态 <span class="math inline">\(|e\rangle\)</span></li>
+</ul>
+<p>一个激光场将两个内部态耦合起来。耦合算符可以写成 <span class="math display">\[
+U=\Omega\left(\begin{array}{cc}
+\cos \theta &amp; e^{i \phi} \sin \theta \\
+e^{i \phi} \sin \theta &amp; -\cos \theta
+\end{array}\right) .
+\]</span> <span class="math inline">\(U\)</span> 的本征态是 <span class="math inline">\(\left|\chi_{1}\right\rangle\)</span> 和 <span class="math inline">\(\left|\chi_{2}\right\rangle\)</span></p>
+<p>系统的哈密顿量可以写成 <span class="math display">\[
+H=\left(\frac{P^{2}}{2 M}+V\right)  +U
+\]</span> 在 <span class="math inline">\(\left.\left\{\chi_{1}\right\rangle,\left|\chi_{2}\right\rangle\right\}\)</span> 的基下，态可以写成 <span class="math display">\[
+|\Psi( r , t)\rangle=\sum_{j=1,2} \psi_{j}( r , t)\left|\chi_{j}( r )\right\rangle
+\]</span> 把初态放在其中一个本征态上，如 <span class="math inline">\(\left|\chi_{1}\right\rangle\)</span></p>
+<blockquote>
+<p><span class="math inline">\(\psi_{1}\)</span> 的演化方程中将会出现一个规范场</p>
+</blockquote>
+<p>因为 <span class="math inline">\(\left.\nabla\left[\psi_{j}\left|\chi_{j}\right\rangle\right]=\left[\nabla \psi_{j}\right] |\chi_{j}\right\rangle+\psi_{j}\left|\nabla \chi_{j}\right\rangle\)</span> ，而且 <span class="math inline">\(\hat{P}=-i\hbar\nabla\)</span> 所以 <span class="math display">\[
+P |\Psi\rangle=\sum_{j, l=1,2}\left[\delta_{j, l} P - A _{j l} \psi_{l}\right]\left|\chi_{j}\right\rangle
+\]</span></p>
+<blockquote>
+<p><span class="math display">\[
+\begin{aligned}
+P |\Psi\rangle=&amp;-i\hbar\nabla |\Psi\rangle
+\\
+=&amp;-i\hbar\nabla \sum_{j=1,2} \psi_{j} \left|\chi_{j} \right\rangle
+\\
+=&amp;i\hbar \sum_{j=1,2}\left[\nabla \psi_{j}\right]\left|\chi_{j}\right\rangle+\psi_{j}\left|\nabla \chi_{j}\right\rangle\\
+=&amp;i\hbar  \sum_{l, j=1.2}\left|\chi_{l}\right\rangle\left\langle \chi_{l}\right| (\left[\nabla \psi_{j}\right]\left|\chi_{j}\right\rangle+\psi_{j}\left|\nabla \chi_{j}\right\rangle)\\
+=&amp;\sum_{j, l=1,2}\left[\delta_{j, l} P - A _{j l} \psi_{l}\right]\left|\chi_{j}\right\rangle
+\end{aligned}
+\]</span></p>
+</blockquote>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Cold-Atom/">Cold Atom</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Cold-Atom/">Cold Atom</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Gauge-theory/">Gauge theory</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/12/CMP_20_ising_QNN/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">神经网络量子态 - Ising模型</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/11/CMP_18_DMRG03/">
+                        <span class="hidden-mobile">t-J模型的DMRG算法</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "冷原子中的人工规范场&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

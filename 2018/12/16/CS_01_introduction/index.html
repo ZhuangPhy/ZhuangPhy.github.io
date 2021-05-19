@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      2.6k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      23
+      36
        分钟
     </span>
   
@@ -413,6 +413,83 @@ v. <span class="hljs-keyword">ConjugateTranspose</span>[v] // <span class="hljs-
 <li><p><a href="https://reference.wolfram.com/language/guide/MatricesAndLinearAlgebra.html" target="_blank" rel="noopener">矩阵运算</a></p></li>
 <li><p><a href="https://www.wolfram.com/language/12/physics-and-chemistry-entities/visualize-particle-energy-spectra-and-properties.html?product=mathematica" target="_blank" rel="noopener">可视化基本粒子</a> <a href="https://www.wolfram.com/language/12/physics-and-chemistry-entities/exploring-symmetries-of-crystal-systems.html.zh?product=mathematica" target="_blank" rel="noopener">晶体对称性</a> <a href="https://www.wolfram.com/language/12/physics-and-chemistry-entities/discover-the-structural-complexity-of-proteins.html.zh?product=mathematica" target="_blank" rel="noopener">蛋白质结构</a></p></li>
 </ul>
+<h3 id="解方程">解方程</h3>
+<p>数值解</p>
+<pre><code class="hljs mathematica"><span class="hljs-keyword">Solve</span>[&#123;y == <span class="hljs-number">2</span> x + <span class="hljs-number">3</span>, y == <span class="hljs-number">3</span> x - <span class="hljs-number">7</span>&#125; , &#123;x, y&#125;]
+<span class="hljs-keyword">NSolve</span>[x^<span class="hljs-number">5</span> - <span class="hljs-number">2</span> x + <span class="hljs-number">3</span> == <span class="hljs-number">0</span>, x]</code></pre>
+<p>符号解</p>
+<pre><code class="hljs mathematica"><span class="hljs-keyword">Solve</span>[&#123;Z11 I1 + Z12 I2 - Urms == <span class="hljs-number">0</span>, Z21 I1 + Z22 I2 == <span class="hljs-number">0</span>&#125; , &#123;I1 , I2&#125;]</code></pre>
+<p><span class="math display">\[
+\left\{\begin{array}{l}
+Z_{11} I_{1}+Z_{12} I_{2}-U_{r m s}=0 \\
+Z_{21} I_{1}+Z_{22} I_{2} \quad=0
+\end{array}\right.
+\]</span></p>
+<p>微分方程组数值解 <span class="math display">\[
+\left\{\begin{array}{l}
+\frac{d e 1+}{d t}=(-j \omega-\Gamma) e_{1+}(t)+j \kappa e_{2+}(t) \\
+\frac{d e 2+}{d t}=j \kappa e_{1+}(t)+(-j \omega-\Gamma) e_{2+}(t)
+\end{array}\right.
+\]</span></p>
+<pre><code class="hljs mathematica">freq = <span class="hljs-number">1</span>* <span class="hljs-number">10</span>^<span class="hljs-number">-6</span>;
+w = <span class="hljs-number">2</span>*<span class="hljs-keyword">Pi</span>*freq;
+
+R1 = <span class="hljs-number">0.3</span>;
+L1 = <span class="hljs-number">1</span>*<span class="hljs-number">10</span>^<span class="hljs-number">-6</span>;
+\[CapitalGamma] = R1/(<span class="hljs-number">2</span>*L1);
+
+k = <span class="hljs-number">0.1</span>;\[Kappa] = w*k/<span class="hljs-number">2</span>;
+
+
+<span class="hljs-keyword">NDSolve</span>[&#123;e1'[t] == (-I w  - \[CapitalGamma]) e1[t] + I \[Kappa] e2[t] , e2'[t] == I \[Kappa] e1[t] + (-I w - \[CapitalGamma]) e2[t] , e1[<span class="hljs-number">0</span>] == <span class="hljs-number">0.4</span>*<span class="hljs-number">10</span>^<span class="hljs-number">-2</span>, e2[<span class="hljs-number">0</span>] == <span class="hljs-number">0</span>&#125; , &#123;e1 , e2&#125; , &#123;t, <span class="hljs-number">0</span>, <span class="hljs-number">15</span>*<span class="hljs-number">10</span>^<span class="hljs-number">-6</span>&#125;]</code></pre>
+<p>求解在 t= 2*10^-6 时刻的e1</p>
+<pre><code class="hljs mathematica">e1[<span class="hljs-number">2</span>*<span class="hljs-number">10</span>^<span class="hljs-number">-6</span>]/.%</code></pre>
+<p>微分方程组符号解</p>
+<pre><code class="hljs mathematica"><span class="hljs-keyword">DSolve</span>[&#123;e1'[t] == (-I w  - \[CapitalGamma]) e1[t] + I \[Kappa] e2[t] , e2'[t] == I \[Kappa] e1[t] + (-I w - \[CapitalGamma]) e2[t]&#125; , &#123;e1 , e2&#125; , t]</code></pre>
+<p>指定初值</p>
+<pre><code class="hljs mathematica"><span class="hljs-keyword">DSolve</span>[&#123;e1'[t] == (-I w  - \[CapitalGamma]) e1[t] + I \[Kappa] e2[t] , e2'[t] == I \[Kappa] e1[t] + (-I w - \[CapitalGamma]) e2[t] , e1[<span class="hljs-number">0</span>] == <span class="hljs-number">0.4</span>*<span class="hljs-number">10</span>^<span class="hljs-number">-2</span>, e2[<span class="hljs-number">0</span>] == <span class="hljs-number">0</span>&#125; , &#123;e1 , e2&#125; , t]</code></pre>
+<p><a href="https://zhuanlan.zhihu.com/p/219915709" target="_blank" rel="noopener">二阶线性微分方程_特征值_相图_时域响应_线性化_Mathematica</a></p>
+<pre><code class="hljs mathematica">pSave = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;;
+
+<span class="hljs-keyword">Manipulate</span>[&#123;evals, evecs&#125; = <span class="hljs-keyword">Eigensystem</span>[(&#123;&#123;a, b&#125;, &#123;c, d&#125;&#125;)];
+ <span class="hljs-keyword">GraphicsColumn</span>[&#123;<span class="hljs-keyword">Dynamic</span>[<span class="hljs-keyword">Manipulate</span>[<span class="hljs-keyword">If</span>[pt != pSave, pSave = pt];
+     <span class="hljs-keyword">Show</span>[
+      <span class="hljs-keyword">ParametricPlot</span>[
+       <span class="hljs-keyword">Evaluate</span>[<span class="hljs-keyword">MatrixExp</span>[(&#123;&#123;a, b&#125;, &#123;c, d&#125;&#125;) t, #] &amp; /@ pt], &#123;t, <span class="hljs-number">0</span>, 
+        <span class="hljs-number">10</span>&#125;, <span class="hljs-keyword">PlotRange</span> -&gt; <span class="hljs-number">5</span>, <span class="hljs-keyword">PlotStyle</span> -&gt; &#123;<span class="hljs-keyword">Red</span>&#125;], 
+      <span class="hljs-keyword">StreamPlot</span>[(&#123;&#123;a, b&#125;, &#123;c, d&#125;&#125;).&#123;x, y&#125;, &#123;x, <span class="hljs-number">-4</span>, <span class="hljs-number">4</span>&#125;, &#123;y, <span class="hljs-number">-4</span>, <span class="hljs-number">4</span>&#125;, 
+       <span class="hljs-keyword">Axes</span> -&gt; <span class="hljs-keyword">True</span>, <span class="hljs-keyword">StreamStyle</span> -&gt; <span class="hljs-keyword">Thickness</span>[<span class="hljs-keyword">Medium</span>], 
+       <span class="hljs-keyword">PerformanceGoal</span> -&gt; <span class="hljs-string">"Speed"</span>, <span class="hljs-keyword">StreamScale</span> -&gt; <span class="hljs-keyword">Large</span>, 
+       <span class="hljs-keyword">StreamPoints</span> -&gt; 
+        <span class="hljs-keyword">ControlActive</span>[<span class="hljs-number">.5</span> &#123;&#123;<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">1</span>, <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">1</span>, <span class="hljs-number">-1</span>&#125;, &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>&#125;&#125;, 
+         <span class="hljs-keyword">Coarse</span>], <span class="hljs-keyword">Frame</span> -&gt; <span class="hljs-keyword">False</span>, <span class="hljs-keyword">Ticks</span> -&gt; <span class="hljs-keyword">None</span>], 
+      <span class="hljs-keyword">ImageSize</span> -&gt; <span class="hljs-number">250</span>], &#123;&#123;pt, &#123;&#123;<span class="hljs-number">2</span>, <span class="hljs-number">0</span>&#125;&#125;&#125;, <span class="hljs-keyword">Locator</span>&#125;, 
+     <span class="hljs-keyword">SaveDefinitions</span> -&gt; <span class="hljs-keyword">True</span>]], 
+   <span class="hljs-keyword">Dynamic</span>[<span class="hljs-keyword">Plot</span>[
+     <span class="hljs-keyword">Evaluate</span>[<span class="hljs-keyword">MatrixExp</span>[(&#123;&#123;a, b&#125;, &#123;c, d&#125;&#125;) t, #] &amp; /@ pSave], &#123;t, <span class="hljs-number">0</span>, 
+      <span class="hljs-number">10</span>&#125;, <span class="hljs-keyword">PlotRange</span> -&gt; &#123;<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>&#125;]]&#125;], 
+ <span class="hljs-keyword">Row</span>[&#123;<span class="hljs-keyword">Spacer</span>[<span class="hljs-number">60</span>], 
+   <span class="hljs-keyword">Dynamic</span>[<span class="hljs-keyword">Style</span>[
+     <span class="hljs-keyword">Text</span>@<span class="hljs-keyword">TraditionalForm</span>[
+       <span class="hljs-keyword">HoldForm</span>[(&#123;&#123;x&#125;, &#123;y&#125;&#125;)' == 
+         <span class="hljs-keyword">Dynamic</span>[(&#123;&#123;a, b&#125;, &#123;c, d&#125;&#125;)] (&#123;&#123;x&#125;, &#123;y&#125;&#125;)]], 
+     <span class="hljs-keyword">Medium</span>]]&#125;], <span class="hljs-keyword">Delimiter</span>, &#123;&#123;a, <span class="hljs-number">-1</span>, 
+   <span class="hljs-keyword">Style</span>[<span class="hljs-string">"\!\(\*SubscriptBox[\(a\), \(11\)]\)"</span>, <span class="hljs-keyword">Medium</span>]&#125;, <span class="hljs-number">-2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">.01</span>, 
+  <span class="hljs-keyword">Appearance</span> -&gt; <span class="hljs-string">"Labeled"</span>&#125;, &#123;&#123;b, <span class="hljs-number">1</span>, 
+   <span class="hljs-keyword">Style</span>[<span class="hljs-string">"\!\(\*SubscriptBox[\(a\), \(12\)]\)"</span>, <span class="hljs-keyword">Medium</span>]&#125;, <span class="hljs-number">-2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">.01</span>, 
+  <span class="hljs-keyword">Appearance</span> -&gt; <span class="hljs-string">"Labeled"</span>&#125;, &#123;&#123;c, <span class="hljs-number">.5</span>, 
+   <span class="hljs-keyword">Style</span>[<span class="hljs-string">"\!\(\*SubscriptBox[\(a\), \(21\)]\)"</span>, <span class="hljs-keyword">Medium</span>]&#125;, <span class="hljs-number">-2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">.01</span>, 
+  <span class="hljs-keyword">Appearance</span> -&gt; <span class="hljs-string">"Labeled"</span>&#125;, &#123;&#123;d, <span class="hljs-number">-1</span>, 
+   <span class="hljs-keyword">Style</span>[<span class="hljs-string">"\!\(\*SubscriptBox[\(a\), \(22\)]\)"</span>, <span class="hljs-keyword">Medium</span>]&#125;, <span class="hljs-number">-2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">.01</span>, 
+  <span class="hljs-keyword">Appearance</span> -&gt; <span class="hljs-string">"Labeled"</span>&#125;, &#123;evecs, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, 
+  <span class="hljs-keyword">ControlType</span> -&gt; <span class="hljs-keyword">None</span>&#125;, &#123;evals, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-keyword">ControlType</span> -&gt; <span class="hljs-keyword">None</span>&#125;, 
+ <span class="hljs-keyword">Dynamic</span>[<span class="hljs-keyword">Graphics</span>[&#123;<span class="hljs-keyword">PointSize</span>[<span class="hljs-number">.04</span>], <span class="hljs-keyword">RGBColor</span>[<span class="hljs-number">0.5</span>, <span class="hljs-number">0.21</span>, <span class="hljs-number">0.36</span>], 
+    <span class="hljs-keyword">Point</span>[&#123;<span class="hljs-keyword">Re</span>[#], <span class="hljs-keyword">Im</span>[#]&#125;] &amp; /@ evals&#125;, 
+   <span class="hljs-keyword">PlotRange</span> -&gt; &#123;&#123;<span class="hljs-number">-3</span>, <span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-number">-2</span>, <span class="hljs-number">2</span>&#125;&#125;, <span class="hljs-keyword">Axes</span> -&gt; <span class="hljs-keyword">True</span>, 
+   <span class="hljs-keyword">AxesLabel</span> -&gt; <span class="hljs-keyword">Text</span> /@ &#123;<span class="hljs-keyword">Re</span>[z], <span class="hljs-keyword">Im</span>[z]&#125;, <span class="hljs-keyword">Ticks</span> -&gt; <span class="hljs-keyword">True</span>, 
+   <span class="hljs-keyword">ImagePadding</span> -&gt; <span class="hljs-number">33</span>, <span class="hljs-keyword">ImageSize</span> -&gt; <span class="hljs-number">250</span>, 
+   <span class="hljs-keyword">PlotLabel</span> -&gt; <span class="hljs-keyword">Text</span>@<span class="hljs-string">"\nEigenvalues"</span>]], <span class="hljs-keyword">ControlPlacement</span> -&gt; <span class="hljs-keyword">Left</span>, 
+ <span class="hljs-keyword">AutorunSequencing</span> -&gt; &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;]</code></pre>
 <h2 id="julia">Julia</h2>
 <ul>
 <li><a href="https://www.bilibili.com/video/BV1Ms411w7Hh/?spm_id_from=333.788.videocard.2" target="_blank" rel="noopener">Julia语言入门教程(罗秀哲)</a></li>

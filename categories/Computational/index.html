@@ -160,12 +160,18 @@
                 
 
 <div class="list-group">
-  <p class="h4">10 posts in total.</p>
+  <p class="h4">11 posts in total.</p>
   <hr>
   
     
       
       <p class="h5">2021</p>
+    
+    <a href="/2021/05/10/CS_07_Julia_02/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Julia</span>
+      <span style="float: right;">05-10</span>
+    </a>
+  
     
     <a href="/2021/05/08/CS_02_python_02/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Python常用代码</span>
@@ -223,13 +229,19 @@
       <span style="float: right;">12-18</span>
     </a>
   
-    
-    <a href="/2018/12/16/CS_01_introduction/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">计算科学与编程</span>
-      <span style="float: right;">12-16</span>
-    </a>
-  
 </div>
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/categories/Computational/page/2/">2</a><a class="extend next" rel="next" href="/categories/Computational/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 

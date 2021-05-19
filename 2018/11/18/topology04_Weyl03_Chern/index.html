@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      103
+      104
        分钟
     </span>
   
@@ -208,7 +208,8 @@
               <h2 id="概览">概览</h2>
 <ol type="1">
 <li>第一阶段是在文文献中计算了两个基本例子</li>
-<li></li>
+<li>多手征荷外尔半金属，也就是陈数大于等于2的情况</li>
+<li>数值计算方法</li>
 </ol>
 <p>[TOC]</p>
 <h2 id="入门例子">入门例子</h2>
@@ -532,29 +533,7 @@ u_{+}=\left(\begin{array}{c}
 \]</span> The monopole charge reads <span class="math display">\[
 K=\frac{1}{2 \pi} \int_{0}^{\pi} \frac{1}{2} J \sin \theta d \theta \int_{0}^{2 \pi} d \varphi=J .
 \]</span> We see that the monopole has a multiple charge, which is determined by the power <span class="math inline">\(J\)</span> of polynomial dispersions.</p>
-<h2 id="参考文献">参考文献</h2>
-<p>第一部分</p>
-<ol type="1">
-<li>《二维自旋轨道耦合下拓扑半金属的量子模拟》刘聪明 2014 山西大学</li>
-<li><a href="http://www.guanjihuan.com/archives/3932" target="_blank" rel="noopener">陈数Chern number的计算（定义法）</a></li>
-<li><a href="http://www.guanjihuan.com/archives/4179" target="_blank" rel="noopener">陈数Chern number的计算（高效法）</a></li>
-</ol>
-<p>第二部分</p>
-<ol type="1">
-<li>《多手征荷外尔半金属物性研究》</li>
-</ol>
-<p>直接 4 by 4 矩阵进行计算</p>
-<ol type="1">
-<li>chern number projection</li>
-<li><a href="https://phy.ntnu.edu.tw/~changmc/Teach/Topo/latex/10.pdf" target="_blank" rel="noopener">Lecture notes on topological insulators</a></li>
-</ol>
-<p>数值方法计算</p>
-<ol type="1">
-<li>chern number numerical calculation</li>
-<li><a href="https://arxiv.org/pdf/cond-mat/0503172.pdf" target="_blank" rel="noopener">Chern Numbers in Discretized Brillouin Zone: Efficient Method of Computing (Spin) Hall Conductances</a></li>
-</ol>
-<h2 id="附录">附录</h2>
-<p>陈数的数值计算方法</p>
+<h2 id="数值计算方法">数值计算方法</h2>
 <ol type="1">
 <li>定义法计算陈数</li>
 <li>高效的计算方法</li>
@@ -818,6 +797,27 @@ H(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>)=<span c
 H(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)=<span class="hljs-number">-1</span>+<span class="hljs-number">2</span>*<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(kx)+<span class="hljs-number">2</span>*<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(ky)+<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(kx+ky);
 H(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>)=-(<span class="hljs-number">-1</span>+<span class="hljs-number">2</span>*<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(kx)+<span class="hljs-number">2</span>*<span class="hljs-number">0.5</span>*<span class="hljs-built_in">sin</span>(ky)+<span class="hljs-number">2</span>*<span class="hljs-built_in">cos</span>(kx+ky));
 <span class="hljs-keyword">end</span></code></pre>
+<h2 id="参考文献">参考文献</h2>
+<p>第一部分</p>
+<ol type="1">
+<li>《二维自旋轨道耦合下拓扑半金属的量子模拟》刘聪明 2014 山西大学</li>
+<li><a href="http://www.guanjihuan.com/archives/3932" target="_blank" rel="noopener">陈数Chern number的计算（定义法）</a></li>
+<li><a href="http://www.guanjihuan.com/archives/4179" target="_blank" rel="noopener">陈数Chern number的计算（高效法）</a></li>
+</ol>
+<p>第二部分</p>
+<ol type="1">
+<li>《多手征荷外尔半金属物性研究》</li>
+</ol>
+<p>直接 4 by 4 矩阵进行计算</p>
+<ol type="1">
+<li>chern number projection</li>
+<li><a href="https://phy.ntnu.edu.tw/~changmc/Teach/Topo/latex/10.pdf" target="_blank" rel="noopener">Lecture notes on topological insulators</a></li>
+</ol>
+<p>数值方法计算</p>
+<ol type="1">
+<li>chern number numerical calculation</li>
+<li><a href="https://arxiv.org/pdf/cond-mat/0503172.pdf" target="_blank" rel="noopener">Chern Numbers in Discretized Brillouin Zone: Efficient Method of Computing (Spin) Hall Conductances</a></li>
+</ol>
 
             </article>
             <hr>
