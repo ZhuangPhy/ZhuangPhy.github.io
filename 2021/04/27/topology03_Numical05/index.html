@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      8k 字
+      8.1k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      156
+      158
        分钟
     </span>
   
@@ -582,8 +582,15 @@ H &amp;=-t \sum_{i_{x}, \delta_{x}, k_{y}, \sigma, \sigma^{\prime}} \mathbb{I}_{
 &amp;+E_{s o} \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}, \delta_{x}}-2 \sin \left(k_{y}\right) c_{i_{x}, k_{y}, \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(x)} c_{i_{x}, k_{y}, \sigma^{\prime}}+i \sigma_{\sigma, \sigma^{\prime}}^{(y)}\left(c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}+\delta_{x}, k_{y}, \sigma^{\prime}}-h . c_{\cdot}\right) \\
 &amp;-\gamma B \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}} c_{i_{x}, k_{y}, \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(z)} c_{i_{x}, k_{y}, \sigma^{\prime}}+\sum_{i_{x}, k_{y}} \Delta c_{i_{x}, k_{y}, \uparrow}^{\dagger} c_{i_{x},-k_{y}, \downarrow}^{\dagger}+h . c .
 \end{aligned}
-\]</span> re-range $$ \begin{aligned} H =&amp;[--2 t(k_{y})-B ] <em>{i</em>{x}, k_{y}, , ^{}} <em>{, <sup>{}}</sup>{2 2} c</em>{i_{x}, k_{y}, }^{} c_{i_{x}, k_{y}, ^{}} \ &amp;-t <em>{i</em>{x}, <em>{x}, k</em>{y}, , ^{}} <em>{, <sup>{}}</sup>{2 2}( c</em>{i_{x}+<em>{x}, k</em>{y}, }^{}c_{i_{x}, k_{y}, ^{}}+c_{i_{x}-<em>{x}, k</em>{y}, }^{}c_{i_{x}, k_{y}, ^{}}) \</p>
-<p>&amp; +<em>{i</em>{x}, k_{y}} <em>s c</em>{i_{x}, k_{y}, }^{} c_{i_{x},-k_{y}, }^{}+h . c .\ &amp;+E_{s o} <em>{i</em>{x}, k_{y}, , ^{}, }-2 (k_{y}) c_{i_{x}, k_{y}, }^{} <em>{, <sup>{}}</sup>{(x)} c</em>{i_{x}, k_{y}, ^{}} \ &amp;+E_{s o} <em>{i</em>{x}, k_{y}, , ^{}, <em>{x}}i </em>{, <sup>{}}</sup>{(y)}(c_{i_{x}, k_{y}, }^{} c_{i_{x}+<em>{x}, k</em>{y}, ^{}}-h . c_{}) \end{aligned} $$ <span class="math inline">\(N\)</span> sites on each edge, resulting in <span class="math inline">\(N^{2}\)</span> sites lattice. OPC Hamiltonian therefore is a <span class="math inline">\(4N\times 4N\)</span> matrix</p>
+\]</span> re-range <span class="math display">\[
+\begin{aligned}
+H =&amp;[-\mu-2 t\cos \left(k_{y}\right)-\gamma B ] \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}} \mathbb{I}_{\sigma, \sigma^{\prime}}^{2 \times 2} c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}, k_{y}, \sigma^{\prime}} \\
+&amp;-t \sum_{i_{x}, \delta_{x}, k_{y}, \sigma, \sigma^{\prime}} \mathbb{I}_{\sigma, \sigma^{\prime}}^{2 \times 2}\left( c_{i_{x}+\delta_{x}, k_{y}, \sigma}^{\dagger}c_{i_{x}, k_{y}, \sigma^{\prime}}+c_{i_{x}-\delta_{x}, k_{y}, \sigma}^{\dagger}c_{i_{x}, k_{y}, \sigma^{\prime}}\right)   \\
+&amp; +\sum_{i_{x}, k_{y}} \Delta_s c_{i_{x}, k_{y}, \uparrow}^{\dagger} c_{i_{x},-k_{y}, \downarrow}^{\dagger}+h . c .\\
+&amp;+E_{s o} \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}, }-2 \sin \left(k_{y}\right) c_{i_{x}, k_{y}, \sigma}^{\dagger} \sigma_{\sigma, \sigma^{\prime}}^{(x)} c_{i_{x}, k_{y}, \sigma^{\prime}} \\
+&amp;+E_{s o} \sum_{i_{x}, k_{y}, \sigma, \sigma^{\prime}, \delta_{x}}i \sigma_{\sigma, \sigma^{\prime}}^{(y)}\left(c_{i_{x}, k_{y}, \sigma}^{\dagger} c_{i_{x}+\delta_{x}, k_{y}, \sigma^{\prime}}-h . c_{\cdot}\right) 
+\end{aligned}
+\]</span> <span class="math inline">\(N\)</span> sites on each edge, resulting in <span class="math inline">\(N^{2}\)</span> sites lattice. OPC Hamiltonian therefore is a <span class="math inline">\(4N\times 4N\)</span> matrix</p>
 <pre><code class="hljs matlab">N=<span class="hljs-number">30</span>;
 Ny=N;
 <span class="hljs-comment">%哈密顿量矩阵，然后填充数值</span>

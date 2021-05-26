@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      920 字
+      3.2k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18
+      62
        分钟
     </span>
   
@@ -210,7 +210,10 @@
 <h2 id="简介">简介</h2>
 <h2 id="参考">参考</h2>
 <ul>
-<li>《A Short Course on Topological Insulators 》</li>
+<li>《A Short Course on Topological Insulators 》
+<ul>
+<li>Chapter 3 Polarization and Berry phase</li>
+</ul></li>
 <li><a href="https://github.com/oroszl/topins" target="_blank" rel="noopener">Github jupyter notebooks</a> 这个作者还有transport的课程</li>
 <li><a href="http://optics.szfki.kfki.hu/~asboth/topins_course/" target="_blank" rel="noopener">课程</a></li>
 </ul>
@@ -218,9 +221,36 @@
 <p>The Su-Schrieffer-Heeger (SSH) Model</p>
 <p>We take a hands-on approach and get to know the basic concepts of topological insulators via a concrete system: the Su-Schrieffer-Heeger (SSH) model describes spinless fermions hopping on a one-dimensional lattice with staggered hopping amplitudes. Using the SSH model, we introduce the concepts of the single-particle Hamiltonian, the difference between bulk and boundary, chiral symmetry, adiabatic equivalence, topological invariants, and bulk-boundary correspondence.</p>
 <h2 id="the-ssh-hamiltonian">1.1 The SSH Hamiltonian</h2>
-<p>The Su-Schrieffer-Heeger (SSH) model describes electrons hopping on a chain (one-dimensional lattice), with staggered hopping amplitudes, as shown in Fig. 1.1. The chain consist of <span class="math inline">\(N\)</span> unit cells, each unit cell hosting two sites, one on sublattice <span class="math inline">\(A\)</span>, and one on sublattice <span class="math inline">\(B .\)</span> Interactions between the electrons are neglected, and so the dynamics of each electron is described by a single-particle Hamiltonian, of the form <span class="math display">\[
-\hat{H}=v \sum_{m=1}^{N}(|m, B\rangle\langle m, A|+\text { h.c. })+w \sum_{m=1}^{N-1}(|m+1, A\rangle\langle m, B|+\text { h.c. })
-\]</span> Here <span class="math inline">\(|m, A\rangle\)</span> and <span class="math inline">\(|m, B\rangle\)</span>, with <span class="math inline">\(m \in\{1,2, \ldots, N\}\)</span>, denote the state of the chain where the electron is on unit cell <span class="math inline">\(m\)</span>, in the site on sublattice <span class="math inline">\(A\)</span>, respectively, <span class="math inline">\(B\)</span>, and <span class="math inline">\(h . c .\)</span> stands for Hermitian Conjugate (e.g., h.c. of <span class="math inline">\(\alpha|m, B\rangle\left\langle m^{\prime}, A\right|\)</span> is <span class="math inline">\(\alpha^{*}\left|m^{\prime}, A\right\rangle\langle m, B|\)</span> for any <span class="math inline">\(\alpha \in C )\)</span>. The spin degree of freedom is completely absent from the SSH model, since no term in the Hamiltonian acts on spin. Thus, the SSH model describes spinpolarized electrons, and when applying the model to a real physical system, e.g.,polyacetylene, we have to always take two copies of it. In this chapter we will just consider a single copy, and call the particles fermions, or electrons, or just particles. We are interested in the dynamics of fermions in and around the ground state of the SSH model at zero temperature and zero chemical potential, where all negative energy eigenstates of the Hamiltonian are singly occupied (because of the Pauli principle). As we will show later, due to the absence of onsite potential terms, there are <span class="math inline">\(N\)</span> such occupied states. This situation-called half filling-is characteristic of the simplest insulators such as polyacetylene, where each carbon atom brings one conduction electron, and so we find one particle (of each spin type) per unit cell. For simplicity, we take the hopping amplitudes to be real and nonnegative, <span class="math inline">\(v, w \geq 0 .\)</span> If this was not the case, if they carried phases, <span class="math inline">\(v=|v| e^{i \phi_{v}}\)</span>, and <span class="math inline">\(w=|w| e^{i \phi_{w}}\)</span>, with <span class="math inline">\(\phi_{v}, \phi_{w} \in[0,2 \pi)\)</span> these phases could always be gauged away. This is done by a redefinition of the basis states: <span class="math inline">\(|m, A\rangle \rightarrow e^{-i(m-1)\left(\phi_{v}+\phi_{w}\right)}\)</span>, and <span class="math inline">\(|m, B\rangle \rightarrow e^{-i \phi_{v}} e^{-i(m-1)\left(\phi_{v}+\phi_{w}\right)}\)</span> The matrix for the Hamiltonian of the SSH model, Eq. (1.1), on a real-space basis, for a chain of <span class="math inline">\(N=4\)</span> unit cells, reads <span class="math display">\[
+<p>The Su-Schrieffer-Heeger (SSH) model describes electrons hopping on a chain (one-dimensional lattice), with staggered hopping amplitudes, as shown in Fig. 1.1.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210527033229730.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<blockquote>
+<p>Fig. 1.1 Geometry of the SSH model. Filled (empty) circles are sites on sublattice <span class="math inline">\(A(B)\)</span>, each hosting a single state. They are grouped into unit cells: the <span class="math inline">\(n=6\)</span> th cell is circled by a dotted line. Hopping amplitudes are staggered:</p>
+<ul>
+<li>intracell hopping <span class="math inline">\(v\)</span> (thin lines) is different from</li>
+<li>intercell hopping <span class="math inline">\(w\)</span> (thick lines).</li>
+</ul>
+<p>The left and right edge regions are indicated by blue and red shaded background.</p>
+</blockquote>
+<p>The chain consist of <span class="math inline">\(N\)</span> unit cells, each unit cell hosting two sites, one on sublattice <span class="math inline">\(A\)</span>, and one on sublattice <span class="math inline">\(B .\)</span> Interactions between the electrons are neglected, and so the dynamics of each electron is described by a single-particle Hamiltonian, of the form <span class="math display">\[
+\hat{H}=v \sum_{m=1}^{N}(|m, B\rangle\langle m, A|+\text { h.c. })+w \sum_{m=1}^{N-1}(|m+1, A\rangle\langle m, B|+\text { h.c. }) \tag{1.1}
+\]</span> Here</p>
+<ul>
+<li><span class="math inline">\(|m, A\rangle\)</span> and <span class="math inline">\(|m, B\rangle\)</span>, with <span class="math inline">\(m \in\{1,2, \ldots, N\}\)</span>, denote the state of the chain where the electron is on unit cell <span class="math inline">\(m\)</span>, in the site on sublattice <span class="math inline">\(A\)</span>, respectively, <span class="math inline">\(B\)</span>,</li>
+<li><span class="math inline">\(h . c .\)</span> stands for Hermitian Conjugate (e.g., h.c. of <span class="math inline">\(\alpha|m, B\rangle\left\langle m^{\prime}, A\right|\)</span> is <span class="math inline">\(\alpha^{*}\left|m^{\prime}, A\right\rangle\langle m, B|\)</span> for any <span class="math inline">\(\alpha \in C )\)</span>.</li>
+</ul>
+<ol type="1">
+<li>spin-less</li>
+</ol>
+<p>The spin degree of freedom is completely absent from the SSH model, since no term in the Hamiltonian acts on spin. Thus, the SSH model describes <strong>spinpolarized</strong> electrons, and when applying the model to a real physical system, e.g.,polyacetylene, we have to always take two copies of it. In this chapter we will just consider a single copy, and call the particles fermions, or electrons, or just particles.</p>
+<ol start="2" type="1">
+<li>half filling</li>
+</ol>
+<p>We are interested in the dynamics of fermions in and around the ground state of the SSH model at zero temperature and zero chemical potential, where all negative energy eigenstates of the Hamiltonian are singly occupied (because of the Pauli principle). As we will show later, due to the absence of onsite potential terms, there are <span class="math inline">\(N\)</span> such occupied states. This situation-called <strong>half filling</strong>-is characteristic of the simplest insulators such as polyacetylene, where each carbon atom brings one conduction electron, and so we find one particle (of each spin type) per unit cell.</p>
+<ol start="3" type="1">
+<li>phase and gauge</li>
+</ol>
+<p>For simplicity, we take the hopping amplitudes to be real and nonnegative, <span class="math inline">\(v, w \geq 0 .\)</span> If this was not the case, if they carried phases, <span class="math inline">\(v=|v| e^{i \phi_{v}}\)</span>, and <span class="math inline">\(w=|w| e^{i \phi_{w}}\)</span>, with <span class="math inline">\(\phi_{v}, \phi_{w} \in[0,2 \pi)\)</span> these phases could always be gauged away. This is done by a redefinition of the basis states: <span class="math inline">\(|m, A\rangle \rightarrow e^{-i(m-1)\left(\phi_{v}+\phi_{w}\right)}\)</span>, and <span class="math inline">\(|m, B\rangle \rightarrow e^{-i \phi_{v}} e^{-i(m-1)\left(\phi_{v}+\phi_{w}\right)}\)</span></p>
+<p>The matrix for the Hamiltonian of the SSH model, Eq. (1.1), on a real-space basis, for a chain of <span class="math inline">\(N=4\)</span> unit cells, reads <span class="math display">\[
 H=\left(\begin{array}{llllllll}
 0 &amp; v &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 v &amp; 0 &amp; w &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
@@ -252,6 +282,128 @@ i &amp; 0
 \]</span> the Hamiltonian can be written as <span class="math display">\[
 \hat{H}=v \sum_{m=1}^{N}|m\rangle\langle m| \otimes \hat{\sigma}_{x}+w \sum_{m=1}^{N-1}\left(|m+1\rangle\langle m| \otimes \frac{\hat{\sigma}_{x}+i \hat{\sigma}_{y}}{2}+\text { h.c. }\right)
 \]</span> The intracell hopping shows up here as an intracell operator, while the intercell hopping as a hopping operator.</p>
+<h3 id="bulk-hamiltonian">1.2 Bulk Hamiltonian</h3>
+<p>As every solid-state system, the long chain of the SSH model has a bulk and a boundary. The bulk is the long central part of the chain, the boundaries are the two ends, or "edges" of the chain, indicated by shading in Fig. <span class="math inline">\(1.1\)</span> We first concentrate on the bulk, since, in the thermodynamic limit of <span class="math inline">\(N \rightarrow \infty\)</span>, it is much larger than the boundaries, and it will determine the most important physical properties of the model. Although the treatment of the bulk using the Fourier transformation might seem like a routine step, we detail it here because different conventions are used in the literature. More on this in Appendix <span class="math inline">\(? ?\)</span>.</p>
+<p>The physics in the bulk, the long central part of the system, should not depend on how the edges are defined, and so for simplicity we set periodic (Born-von Karman) boundary conditions. This corresponds to closing the bulk part of the chain into a ring, with the bulk Hamiltonian defined as <span class="math display">\[
+\hat{H}_{\text {bulk }}=\sum_{m=1}^{N}(v|m, B\rangle\langle m, A|+w|(m \bmod N)+1, A\rangle\langle m, B|)+\text { h.c.. }
+\]</span> We are looking for eigenstates of this Hamiltonian, <span class="math display">\[
+\hat{H}_{\text {bulk }}\left|\Psi_{n}(k)\right\rangle=E_{n}(k)\left|\Psi_{n}(k)\right\rangle,
+\]</span> with <span class="math inline">\(n \in\{1, \ldots, 2 N\}\)</span>.</p>
+<h4 id="bulk-momentum-space-hamiltonian">Bulk momentum-space Hamiltonian</h4>
+<p>Due to the translation invariance of the bulk, Bloch's theorem applies, and we look for the eigenstates in a plane wave form. We introduce the plane wave basis states only for the external degree of freedom, <span class="math display">\[
+|k\rangle=\frac{1}{\sqrt{N}} \sum_{m=1}^{N} e^{i m k}|m\rangle, \quad \text { for } k \in\left\{\delta_{k}, 2 \delta_{k}, \ldots, N \delta_{k}\right\} \quad \text { with } \delta_{k}=\frac{2 \pi}{N}
+\]</span> where the wavenumber <span class="math inline">\(k\)</span> was chosen to take on values from the first Brillouin zone. The Bloch eigenstates read <span class="math display">\[
+\left|\Psi_{n}(k)\right\rangle=|k\rangle \otimes\left|u_{n}(k)\right\rangle ; \quad\left|u_{n}(k)\right\rangle=a_{n}(k)|A\rangle+b_{n}(k)|B\rangle
+\]</span> The vectors <span class="math inline">\(\left|u_{n}(k)\right\rangle \in H _{\text {internal }}\)</span> are eigenstates of the bulk momentum-space Hamiltonian <span class="math inline">\(\hat{H}(k)\)</span> defined as <span class="math display">\[
+\begin{aligned}
+\hat{H}(k) &amp;=\left\langle k\left|\hat{H}_{\text {bulk }}\right| k\right\rangle=\sum_{\alpha, \beta \in\{A, B\}}\left\langle k, \alpha\left|H_{\text {bulk }}\right| k, \beta\right\rangle \cdot|\alpha\rangle\langle\beta| \\
+\hat{H}(k)\left|u_{n}(k)\right\rangle &amp;=E_{n}(k)\left|u_{n}(k)\right\rangle
+\end{aligned}
+\]</span> #### Periodicity in wavenumber</p>
+<p>Although Eq. (1.9) has a lot to do with the continous-variable Bloch theorem, <span class="math inline">\(\Psi_{n, k}(x)=e^{i k x} u_{n, k}(x)\)</span>, this correspondence is not direct. In a discretization of the continuous-variable Bloch theorem, the internal degree of freedom would play the role of the coordinate within the unit cell, which is also transformed by the Fourier transform. Thus, the function <span class="math inline">\(u_{n, k}(x)\)</span> cell-periodic, <span class="math inline">\(u_{n, k}(x+1)=u_{n, k}(x)\)</span>, but not periodic in the Brillouin zone, <span class="math inline">\(u_{n, k+2 \pi}(x+1) \neq u_{n, k}(x)\)</span>. Our Fourier transform acts only on the external degree of freedom, and as a result, we have periodicity in the Brillouin zone, <span class="math display">\[
+\hat{H}(k+2 \pi)=\hat{H}(k) ; \quad\left|u_{n}(k+2 \pi)\right\rangle=\left|u_{n}(k)\right\rangle .
+\]</span> This convention simplifies the formulas for the topological invariants immensely. Note, however, that the other convention, the discretization of the Bloch theorem, is also widely used in the literature. We compare the two approaches in Appendix</p>
+<p>As an example, for the SSH model on a chain of <span class="math inline">\(N=4\)</span> unit cells, the Schrödinger equation, Eq. (1.7), using Eq. <span class="math inline">\(1.9\)</span>, translates to a matrix eigenvalue equation, <span class="math display">\[
+\left(\begin{array}{cccccccc}
+0 &amp; v &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; w \\
+v &amp; 0 &amp; w &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; w &amp; 0 &amp; v &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; v &amp; 0 &amp; w &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; w &amp; 0 &amp; v &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; v &amp; 0 &amp; w &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; w &amp; 0 &amp; v \\
+w &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; v &amp; 0
+\end{array}\right)\left(\begin{array}{c}
+a(k) e^{i k} \\
+b(k) e^{i k} \\
+a(k) e^{2 i k} \\
+b(k) e^{2 i k} \\
+a(k) e^{3 i k} \\
+b(k) e^{3 i k} \\
+a(k) e^{N i k} \\
+b(k) e^{N i k}
+\end{array}\right)=E(k)\left(\begin{array}{c}
+a(k) e^{i k} \\
+b(k) e^{i k} \\
+a(k) e^{2 i k} \\
+b(k) e^{2 i k} \\
+a(k) e^{3 i k} \\
+b(k) e^{3 i k} \\
+a(k) e^{N i k} \\
+b(k) e^{N i k}
+\end{array}\right) .
+\]</span> The Schrödinger equation defining the matrix <span class="math inline">\(H(k)\)</span> of the bulk momentum-space Hamiltonian reads <span class="math display">\[
+H(k)=\left(\begin{array}{cc}
+0 &amp; v+w e^{-i k} \\
+v+w e^{i k} &amp; 0
+\end{array}\right) ;\\ \quad H(k)\left(\begin{array}{l}
+a(k) \\
+b(k)
+\end{array}\right)=E(k)\left(\begin{array}{l}
+a(k) \\
+b(k)
+\end{array}\right)
+\]</span></p>
+<h2 id="polarization-and-berry-phase">3 Polarization and Berry phase</h2>
+<p>The bulk polarization of a band insulator is a tricky concept. Polarization of a neutral molecule is easily defined using the difference in centers of the negative and positive charges constituting the system. When we try to apply this simple concept to the periodic bulk of a band insulator (assuming for simplicity that the positive atom cores are immobile and localized), we meet complications. The center of the negative charges should be calculated from electrons in the fully occupied valence bands. However, all energy eigenstates in the valence band are delocalized over the bulk, and so the center of charge of each electron in such a state is ill defined. Nevertheless, insulators are polarizable, and respond to an external electric field by a rearrangement of charges, which corresponds to a (tiny) current in the bulk. Thus, there should be a way to define a bulk polarization.</p>
+<p>In this chapter we show how a bulk polarization can be defined for band insulators using the so-called modern theory of polarization <span class="math inline">\(27,28,23 \mid\)</span>. The contribution of the electrons to the polarization is a property of the many-body electron state, a Slater determinant of the energy eigenstates from the fully occupied valence bands. The central idea is to rewrite the same Slater determinant using a different orthonormal basis, one composed of localized states, the so-called Wannier states. The contribution of each electron in a Wannier state to the center of charge can then be easily assessed, and then added up.</p>
+<p>We discuss the simplest interesting case, that of a one-dimensional two-band insulator with one occupied and one empty band, and leave the multiband case for later. We show that the center of charge of the Wannier states can be identified with the Berry phase of the occupied band over the Brillouin zone, also known as the Zak phase <span class="math inline">\([38]\)</span>.</p>
+<p>For a more complete and very pedagogical introduction to the Berry phase in electron wavefunctions, we refer the reader to a set of lecture notes by Resta <span class="math inline">\([26 \mid\)</span>.</p>
+<h4 id="the-rice-mele-model">The Rice-Mele model</h4>
+<p>The toy model we use in this chapter is the Rice-Mele model, which is the SSH model of Chapt. 1 with an extra staggered onsite potential. The Hamiltonian for the Rice-Mele model on a chain of <span class="math inline">\(N\)</span> unit cells reads <span class="math display">\[
+\begin{aligned}
+\hat{H}=v \sum_{m=1}^{N}(|m, B\rangle\langle m, A|+\text { h.c. })+w &amp; \sum_{m=1}^{N-1}(|m+1, A\rangle\langle m, B|+\text { h.c. }) \\
+&amp;+u \sum_{m=1}^{N}(|m, A\rangle\langle m, A|-| m, B\rangle\langle m, B|),
+\end{aligned}
+\]</span> with the staggered onsite potential <span class="math inline">\(u\)</span>, the intracell hopping amplitude <span class="math inline">\(v\)</span>, and intercell hopping amplitude <span class="math inline">\(w\)</span> all assumed to be real. The matrix of the Hamiltonian for the Rice-Mele model on a chain of <span class="math inline">\(N=4\)</span> sites reads <span class="math display">\[
+H=\left(\begin{array}{cccccccc}
+u &amp; v &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+v &amp; -u &amp; w &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; w &amp; u &amp; v &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; v &amp; -u &amp; w &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; w &amp; u &amp; v &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; v &amp; -u &amp; v &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; w &amp; u &amp; v \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; v &amp; -u
+\end{array}\right),
+\]</span> ### 3.1 Wannier states in the Rice-Mele model</p>
+<p>The bulk energy eigenstates of a band insulator are delocalized over the whole system. We use as an example the bulk Hamiltonian of the Rice-Mele model, i.e., the model on a ring of <span class="math inline">\(N\)</span> unit cells. As in the case of the SSH model, Sect. <span class="math inline">\(1.2\)</span>, the energy eigenstates are the plane wave Bloch states, <span class="math display">\[
+|\Psi(k)\rangle=|k\rangle \otimes|u(k)\rangle,
+\]</span> with <span class="math display">\[
+|k\rangle=\frac{1}{\sqrt{N}} \sum_{m=1}^{N} e^{i m k}|m\rangle, \quad \text { for } k \in\left\{\delta_{k}, 2 \delta_{k}, \ldots, N \delta_{k}\right\} \quad \text { with } \delta_{k}=\frac{2 \pi}{N}
+\]</span> We omit the index 1 from the eigenstate for simplicity. The <span class="math inline">\(|u(k)\rangle\)</span> are eigenstates of the bulk momentum-space Hamiltonian, <span class="math display">\[
+H(k)=\left(\begin{array}{cc}
+u &amp; v+w e^{-i k} \\
+v+w e^{i k} &amp; -u
+\end{array}\right)
+\]</span> with eigenvalue <span class="math inline">\(E(k)\)</span>. The Bloch states <span class="math inline">\(|\Psi(k)\rangle\)</span> are spread over the whole chain. They span the occupied subspace, defined by the projector <span class="math display">\[
+\hat{P}=\sum_{k \in B Z}|\Psi(k)\rangle\langle\Psi(k)|
+\]</span> The phase of each Bloch eigenstate <span class="math inline">\(|\Psi(k)\rangle\)</span> can be set at will. A change of these phases, a gauge transformation, <span class="math display">\[
+|u(k)\rangle \rightarrow e^{i \alpha(k)}|u(k)\rangle ; \quad|\Psi(k)\rangle \rightarrow e^{i \alpha(k)}|\Psi(k)\rangle,
+\]</span> gives an equally good set of Bloch states, with an arbitrary set of phases <span class="math inline">\(\alpha(k) \in R\)</span> for <span class="math inline">\(k=\delta_{k}, 2 \delta_{k}, \ldots, 2 \pi\)</span>. Using this freedom it is in principle possible to ensure that in the thermodynamic limit of <span class="math inline">\(N \rightarrow \infty\)</span>, the components of <span class="math inline">\(|\Psi(k)\rangle\)</span> are smooth, continuous functions of <span class="math inline">\(k\)</span>. However, this gauge might not be easy to obtain by numerical methods. We therefore prefer, if possible, to work with gauge-independent quantities, like the projector to the occupied subspace defined in Eq. (3.6).</p>
+<h4 id="defining-properties-of-wannier-states">Defining properties of Wannier states</h4>
+<p>The Wannier states <span class="math inline">\(|w(j)\rangle \in H _{\text {external }} \otimes H _{\text {internal }}\)</span>, with <span class="math inline">\(j=1, \ldots, N\)</span>, are defined by the following properties:</p>
+<ol type="1">
+<li>Orthonormal set</li>
+</ol>
+<p><span class="math display">\[
+\left\langle w\left(j^{\prime}\right) \mid w(j)\right\rangle=\delta_{j^{\prime} j}
+\]</span> 2. Span the occupied subspace</p>
+<p><span class="math display">\[
+\sum_{j=1}^{N}|w(j)\rangle\langle w(j)|=\hat{P}
+\]</span> 3. Related by translation</p>
+<p><span class="math display">\[
+\langle m+1 \mid w(j+1)\rangle=\langle m \mid w(j)\rangle
+\]</span></p>
+<ol start="4" type="1">
+<li>Localization</li>
+</ol>
+<p><span class="math display">\[
+\lim _{N \rightarrow \infty}\left\langle w(N / 2)\left|(\hat{x}-N / 2)^{2}\right| w(N / 2)\right\rangle&lt;\infty
+\]</span></p>
+<p>with the addition in Eq. (3.8c) defined modulo <span class="math inline">\(N\)</span>. Requirement <span class="math inline">\((3.8 d )\)</span>, that of localization, uses the position operator, <span class="math display">\[
+\hat{x}=\sum_{m=1}^{N} m(|m, A\rangle\langle m, A|+| m, B\rangle\langle m, B|)
+\]</span> and refers to a property of <span class="math inline">\(|w(j)\rangle\)</span> in the thermodynamic limit of <span class="math inline">\(N \rightarrow \infty\)</span> that is not easy to define precisely. In this one-dimensional case it can be turned into an even stricter requirement of exponential localization, <span class="math inline">\(\langle w(j) \mid m\rangle\langle m \mid w(j)\rangle&lt;e^{-|j-m| / \xi}\)</span> for some finite localization length <span class="math inline">\(\xi \in R\)</span>.</p>
 
             </article>
             <hr>
@@ -294,8 +446,8 @@ i &amp; 0
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2016/11/02/topology06_Basic02_Dirac/">
-                        <span class="hidden-mobile">从狄拉克方程到拓扑材料</span>
+                      <a href="/2016/11/03/topology07_book_short03/">
+                        <span class="hidden-mobile">读书笔记 从一到二</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

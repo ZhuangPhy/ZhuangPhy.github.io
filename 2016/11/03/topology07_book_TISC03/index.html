@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>读书笔记 Magnetic Field on the Square Lattice - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/topology07_book_TISC_chern.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2016-11-03 14:24">
+      November 3, 2016 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      58
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考">参考</h2>
+<ol type="1">
+<li>《Topological Insulators and Topological Superconductors》 - B. Andrei Bernevig</li>
+<li>Chapter-5 Magnetic Field on the Square Lattice</li>
+<li></li>
+</ol>
+<h2 id="chapter-5-magnetic-field-on-the-square-lattice">Chapter-5 Magnetic Field on the Square Lattice</h2>
+<p>Historically, the first system exhibiting topological behavior was the quantum Hall effect. When placed in a magnetic field large enough that Landau-level quantization becomes important, electrons exhibit a quantized Hall effect, in which the Hall conductance is an integer in units of the quantum of conductance, <span class="math inline">\(e^{2} / h\)</span>. This effect can be analyzed through different means; in the continuum limit we obtain Landau levels, with their massive degeneracy of states-and the Hall conductance measures the number of Landau levels that are occupied. However, a better understanding of the problem is obtained by understanding the problem from a lattice perspective, which is the subject of the current chapter. We present a detailed exposition of the problem of a 2-D lattice pierced by a uniform magnetic field and learn about magnetic translation generators, the magnetic translation group, the Hofstadter problem, the Diophantine equation, explicit gauge fixing, and Hall conductance on the square lattice.</p>
+<h2 id="hamiltonian-and-lattice-translations">5.1 Hamiltonian and Lattice Translations</h2>
+<p>We first look at spinless electrons and want to analyze the simplest nontrivial, tight-binding Hamiltonian: <span class="math display">\[
+H=T_{x}+T_{y}+\text { h.c. }
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(T_{x}, T_{y}\)</span> are the (covariant) translation operators by one lattice constant in the <span class="math inline">\(x\)</span> - and <span class="math inline">\(y\)</span> directions,</li>
+</ul>
+<h4 id="peierels-phase">Peierel's Phase</h4>
+<p>when a magnetic field is applied, take the covariant form <span class="math display">\[
+T_{x}=\sum_{m, n} c_{m+1, n}^{\dagger} c_{m, n} e^{i \theta_{m, n}^{x}, n}, \quad T_{y}=\sum_{m, n} c_{m, n+1}^{\dagger} c_{m, n} e^{i \theta_{m, n}^{y}}
+\]</span> Since the Hamiltonian contains only nearest-neighbor terms, the phase factors can be consistently chosen as the integral of the external vector potential over the bond linking the nearest neighbors (as we learned in the Peierel's substitution of equation) <span class="math display">\[
+\theta_{m n}^{x}=\frac{e}{\hbar} \int_{m}^{m+1} A \cdot d x , \quad \theta_{m n}^{y}=\frac{e}{\hbar} \int_{n}^{n+1} A \cdot d y .
+\]</span> We introduce the lattice derivatives: <span class="math display">\[
+\Delta_{x} f_{m n}=f_{m+1, n}-f_{m, n}, \quad \Delta_{y} f_{m n}=f_{m, n+1}-f_{m, n} .
+\]</span> The lattice curl of the phase factors is related to the the flux per plaquette <span class="math inline">\(\phi_{m n}\)</span> : <span class="math display">\[
+\begin{aligned}
+\operatorname{rot}_{m n} \theta &amp;=\Delta_{x} \theta_{m n}^{y}-\Delta_{y} \theta_{m n}^{x}\\
+&amp;=\theta_{m+1, n}^{y}-\theta_{m, n}^{y}-\theta_{m, n+1}^{x}+\theta_{m, n}^{x} \\
+&amp;=\frac{e}{\hbar} \int_{\text {unit cell }} A \cdot d l \\
+&amp;=2 \pi \frac{e}{h} \int B d S\\
+&amp;=2 \pi \phi_{m n}
+\end{aligned}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\phi_{m n}\)</span> is the number of flux quanta in units of <span class="math inline">\(h / e\)</span>.</li>
+</ul>
+<h4 id="u1-symmetry">U(1) symmetry</h4>
+<p>The lattice Hamiltonian has a <span class="math inline">\(U(1)\)</span> gauge symmetry: <span class="math display">\[
+c_{i} \rightarrow U_{i} c_{i}, \quad e^{i \theta_{i j}} \rightarrow U_{i} e^{i \theta_{i j}} U_{j}^{-1}, \quad\left|U_{i}\right|=1 \quad \forall j \in(m, n)
+\]</span> Under the preceding transformation, it is clear that the Hamiltonian remains invariant. The transformation on the hopping phases is just a gauge transformation on <span class="math inline">\(A\)</span>. The spectrum of the current problem is the famous <strong>Hofstadter butterfly</strong>.</p>
+<blockquote>
+<p>In the weak field limit <span class="math inline">\(\phi \rightarrow 0\)</span>, it gives the <strong>Landau-level</strong> structure, which we will soon see. Before that, we want to analyze its symmetries.</p>
+</blockquote>
+<p>First, we look at the symmetries of this Hamiltonian. We immediately see that the covariant translation operators do <strong>not commute</strong>; for example, when we act on a single-particle state at site <span class="math inline">\((m, n),\left|\psi_{m n}\right\rangle=c_{m, n}^{\dagger}|0\rangle\)</span>, we find <span class="math display">\[
+\begin{array}{l}
+T_{x} T_{y}\left|\psi_{i j}\right\rangle=T_{x} c_{i, j+1}^{\dagger} e^{i \theta_{i j}^{y}}|0\rangle=e^{i \theta_{i, j+1}^{x}}+i \theta_{i j}^{y} c_{i+1, j+1}^{\dagger}|0\rangle \\
+T_{y} T_{x}\left|\psi_{i j}\right\rangle=e^{i \theta_{i j}^{x}+i \theta_{i+1, j}^{y}} c_{i+1, j+1}^{\dagger}|0\rangle, \\
+T_{y} T_{x}\left|\psi_{m n}\right\rangle=e^{i 2 \pi \phi_{n n}} T_{\chi} T_{y}\left|\psi_{m n}\right\rangle
+\end{array}
+\]</span> Even in an external, constant magnetic field, we see that the Hamiltonian is not translationally invariant with the original translation operators because the two do not commute with each other (and hence do not commute with the Hamiltonian, which is a sum of the two). Even though the magnetic field is translationally invariant, the gauge potential is not. A gauge transformation is required to make the Hamiltonian translationally invariant, but we will see that we cannot maintain the translational symmetry of the original lattice.</p>
+<h4 id="magnetic-translation-operators">magnetic translation operators</h4>
+<p>We can find operators that commute with the Hamiltonian, <span class="math inline">\(\hat{T}_{x}, \hat{T}_{y}-\)</span> they are called the magnetic translation operators and are defined by <span class="math display">\[
+\hat{T}_{x}=\sum_{m, n} c_{m+1, n}^{\dagger} c_{m, n} e^{i x_{n, n}^{x},}, \quad \hat{T}_{y}=\sum_{m, n} c_{m, n+1}^{\dagger} c_{m n} e^{i \chi_{m, n}^{y}}
+\]</span> We could have guessed the form of these operators on physical grounds: they have to be onebody operators because we are solving a one-body Hamiltonian. We also knew that they have to have phases that are different from the original ones, because those do not commute. We find the phases <span class="math inline">\(\chi\)</span> by requiring that the operators commute with the Hamiltonian, which is a sum of the translation operators in the <span class="math inline">\(x\)</span> - and <span class="math inline">\(y\)</span> - directions.</p>
+<p>For <span class="math inline">\(\hat{T}_{x}\)</span>, <span class="math display">\[
+\left[T_{x}, \hat{T}_{x}\right]=\sum_{n m} c_{m+2, n}^{\dagger} c_{m, n} e^{i\left(x_{n n}^{x}+\theta_{m+1, n}^{x}\right.}\left[e^{i\left(x_{m+1, n}^{x}+\theta_{m, n}^{x}-\chi_{n n}^{x}-\theta_{m+1, n}^{x}\right)}-1\right]
+\]</span> To obtain zero, we hence require <span class="math display">\[
+\Delta_{\chi} \chi_{m n}^{\chi}=\Delta_{x} \theta_{m n}^{x}
+\]</span> We also want another commutator to vanish: <span class="math display">\[
+\left[\hat{T}_{x}, T_{y}\right]=0
+\]</span> which, once worked out, imposes the constraint <span class="math display">\[
+\Delta_{y} \chi_{m n}^{\chi}=\Delta_{x} \theta_{m n}^{y}=\Delta_{y} \theta_{m n}^{\chi}+2 \pi \phi_{m n} .
+\]</span> We similarly have <span class="math display">\[
+\left[\hat{T}_{y}, T_{x}\right]=0, \quad\left[\hat{T}_{y}, T_{y}\right]=0
+\]</span> which gives the mirror constraints to the preceding constraints: <span class="math display">\[
+\begin{array}{l}
+\Delta_{x} \chi_{m, n}^{y}=\Delta \theta_{m n}^{y} \quad\left(=\Delta_{x} \theta_{m, n}^{y}-2 \pi \phi_{m n}\right), \\
+\Delta_{y} \chi_{m, n}^{y}=\Delta_{y} \theta_{m, n}^{y} .
+\end{array}
+\]</span> The constraints can be solved, with the solutions <span class="math display">\[
+\chi_{m n}^{\chi}=\theta_{m n}^{x}+2 \pi n \phi_{m, n}, \quad \chi_{m n}^{y}=\theta_{m n}^{y}-2 \pi m \phi_{n n} .
+\]</span> We have now found operators that commute with <span class="math inline">\(H\)</span> but do not commute between themselves: <span class="math display">\[
+\left[\hat{T}_{x}, \hat{T}_{y}\right] \neq 0
+\]</span> To obtain the commutators of the two preceding operators,we use a useful trick: we take the action of the operators on the single particle state at site <span class="math inline">\((i, j)\)</span>. <span class="math display">\[
+\begin{array}{l}
+\hat{T}_{x} \hat{T}_{y} c_{i, j}^{\dagger}|0\rangle=\sum_{m n} e^{i\left(x_{n n}^{x}+x_{i j}^{y}\right)} c_{m+1, n}^{\dagger} c_{m, n} c_{i, j+1}^{\dagger}|0\rangle=e^{i\left(x_{i, j+1}^{x} x_{i j}^{x}\right)} c_{i+1, j+1}^{y}|0\rangle, \\
+\hat{T}_{y} \hat{T}_{x} c_{i, j}^{\dagger}|0\rangle=\sum_{m n} e^{i\left(x_{n n}^{y}+x_{i j}^{x}\right)} c_{m, n+1}^{\dagger} c_{m, n} c_{i+1, j}^{\dagger}|0\rangle=e^{i\left(x_{i+1, j}^{y}+x_{i j}^{x}\right)} c_{i+1, j+1}^{\dagger}|0\rangle .
+\end{array}
+\]</span> They do not commute.</p>
+<h4 id="landau-gauge">Landau gauge</h4>
+<p>In general, we can find a combination of the translation operators that does commute. This combination <strong>depends on the gauge that we pick</strong>. We select the <strong>Landau gauge</strong> <span class="math display">\[
+A_{y}=B x=2 \pi \phi m
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\phi\)</span> is the uniform flux per plaquette.</li>
+</ul>
+<p>Hence, <span class="math inline">\(\theta_{m n}^{y}=\)</span> <span class="math inline">\(2 \pi \phi m(n+1-n)=2 \pi \phi m\)</span>, and we have <span class="math display">\[
+\hat{T}_{x} \hat{T}_{y}=e^{i 2 \pi \phi} \hat{T}_{y} \hat{T}_{x}
+\]</span> By successive application of <span class="math inline">\(\hat{T}_{x}\)</span> to the preceding commutation, we find that <span class="math inline">\(\hat{T}_{x}^{q} \hat{T}_{y}=e^{i 2 q \pi \phi} \hat{T}_{y} \hat{T}_{x}^{q}\)</span> and, in general, no power of the magnetic translation operators commutes with the other translation operator. However, for the special case of rational flux per plaquette, <span class="math inline">\(\phi=p / q\)</span>, where <span class="math inline">\(p, q\)</span> are relatively prime, we then find that <span class="math display">\[
+\hat{T}_{x}^{q} \hat{T}_{y}=\hat{T}_{y} \hat{T}_{x}^{q}
+\]</span> We hence have two operators, <span class="math inline">\(\hat{T}_{x}^{q}, \hat{T}_{y}\)</span>, which commute between themselves and commute with the Hamiltonian; hence, they define a new set of good quantum numbers.</p>
+<blockquote>
+<p>We hence have two operators, <span class="math inline">\(\hat{T}_{x}^{q}, \hat{T}_{y}\)</span>, which commute between themselves and commute with the Hamiltonian; hence, they define a new set of good quantum numbers.</p>
+</blockquote>
+<h4 id="degenerate">Degenerate</h4>
+<p>In the gauge chosen here, <span class="math inline">\(\hat{T}_{y}=\sum_{m, n} c_{m, n+1}^{\dagger} c_{m, n}\)</span> is the noncovariantized translation operator, whereas <span class="math inline">\(\hat{T}_{x}=\sum_{m, n} c_{m+1, n}^{\dagger} c_{m, n} e^{i 2 \pi n \phi}\)</span>. The action of these two operators on single-particle states is that of translation by one lattice constant in the <span class="math inline">\(y\)</span> -direction and by <span class="math inline">\(q\)</span> lattice constants in the <span class="math inline">\(x\)</span> -direction: <span class="math display">\[
+\begin{array}{l}
+\hat{T}_{y} c_{i, j}|0\rangle=c_{i, j+1}^{\dagger}|0\rangle, \quad \hat{T}_{x}^{n} c_{i, j}^{\dagger}|0\rangle=e^{i 2 \pi j \phi} c_{i+n, j}^{\dagger}|0\rangle \\
+\hat{T}_{x}^{q} c_{i, j}^{\dagger}|0\rangle=e^{i 2 \pi q \phi} c_{i+q, j}^{\dagger}|0\rangle=e^{i 2 \pi p} c_{i+q, j}^{\dagger}|0\rangle=c_{i+q, j}^{\dagger}|0\rangle
+\end{array}
+\]</span> The new translational unit cell in the <span class="math inline">\(x\)</span> -direction is called the magnetic unit cell, and it is <span class="math inline">\(q\)</span> times larger than the usual unit cell. Because <span class="math inline">\(\hat{T}_{x}^{q}\)</span> and <span class="math inline">\(\hat{T}_{y}\)</span> commute with the Hamiltonian, it means that the eigenstates have quantum numbers under these operators. Since these operators perform translations, it is then clear that we can index the state by momentum quantum numbers. The Bloch conditions then become <span class="math display">\[
+H| k \rangle=E( k )| k \rangle \quad \hat{T}_{x}^{q}| k \rangle=e^{i k_{x} q a}| k \rangle \quad \hat{T}_{y}| k \rangle=e^{i k_{y}}| k \rangle,
+\]</span> where, because the unit cell is <span class="math inline">\(q\)</span> times larger in the <span class="math inline">\(x\)</span> -direction, the magnetic <span class="math inline">\(BZ\)</span> is <span class="math inline">\(q\)</span> times smaller: <span class="math inline">\(0 \leq k_{x} \leq 2 \pi / q, \quad 0 \leq k_{y} \leq 2 \pi\)</span>. From here we can prove that the Landau-level problem on a lattice has a <span class="math inline">\(q\)</span> -fold degeneracy at different wavevectors, i.e., the bulk bands have the same energy at <span class="math inline">\(q\)</span> different wavevectors on the <span class="math inline">\(y\)</span> -axis. Assume <span class="math inline">\(\left|k_{x}, k_{y}\right\rangle\)</span> is an eigenstate of the Hamiltonian. Because the Hamiltonian commutes with <span class="math inline">\(\hat{T}_{x}, \hat{T}_{y}\)</span>, we have that <span class="math inline">\(\hat{T}_{x}\left|k_{x}, k_{y}\right\rangle\)</span> is also an eigenstate of the Hamiltonian. However, because <span class="math inline">\(\hat{T}_{x, y}\)</span> do not commute between themselves, <span class="math inline">\(\hat{T}_{x}\left|k_{x}, k_{y}\right\rangle\)</span> cannot be an eigenstate of the Hamiltonian at the same wavevector. Instead, <span class="math display">\[
+\hat{T}_{y} \hat{T}_{x}\left|k_{x}, k_{y}\right\rangle=e^{-i 2 \pi \phi} \hat{T}_{x} \hat{T}_{y}\left|k_{x}, k_{y}\right\rangle=e^{i\left(k_{y}-2 \pi \phi\right)} \hat{T}_{x}\left|k_{x}, k_{y}\right\rangle .
+\]</span> The eigenvalue under <span class="math inline">\(\hat{T}_{y}\)</span> of <span class="math inline">\(\hat{T}_{x}\left|k_{x}, k_{y}\right\rangle\)</span> is <span class="math inline">\(k_{y}-2 \pi \phi\)</span>, which leads us to conclude that <span class="math inline">\(\hat{T}_{x}\left|k_{x}, k_{y}\right\rangle \sim\)</span> <span class="math inline">\(\left|k_{x}, k_{y}-2 \pi \phi\right\rangle .\)</span> The eigenstates <span class="math inline">\(\left|k_{x}, k_{y}-2 \pi \phi\right\rangle\)</span> and <span class="math inline">\(\left|k_{x}, k_{y}\right\rangle\)</span> have identical energy. Because <span class="math inline">\(\phi=\)</span> <span class="math inline">\(p / q\)</span> are rational and <span class="math inline">\(p, q\)</span> are relatively prime, we have that the spectrum is <span class="math inline">\(q\)</span> -fold degenerate, corresponding to the application of <span class="math inline">\(\hat{T}_{x} q\)</span> times.</p>
+<h2 id="diagonalization-of-the-hamiltonian">5.2 Diagonalization of the Hamiltonian</h2>
+<blockquote>
+<p>Diagonalization of the Hamiltonian of a 2-D Lattice in a Magnetic Field</p>
+</blockquote>
+<p>We would like to make use of the newly learned fact that the true unit cell is <span class="math inline">\(q\)</span> times larger than the initial lattice unit cell to diagonalize the Hamiltonian.</p>
+<p>Let us choose the Landau gauge from before <span class="math display">\[
+A_{y}=2 \pi \Phi m
+\]</span> The expanded Hamiltonian then is <span class="math display">\[
+H=\sum_{m, n}-t_{a} c_{m+1, n}^{\dagger} c_{m, n}-t_{b} c_{m, n+1}^{\dagger} c_{m, n} e^{i 2 \pi \Phi m}+\text { h.c. }
+\]</span> Fourier-transform <span class="math display">\[
+c_{m, n}=\frac{1}{(2 \pi)^{2}} \int_{-\pi}^{\pi} d k_{x} \int_{-\pi}^{\pi} d k_{y} e^{i k_{x} m+i k_{y} n} c_{c_{k_{x}, k_{y}}}
+\]</span> where</p>
+<ul>
+<li>for now <span class="math inline">\(-\pi \leq k_{x}, k_{y} \leq \pi\)</span>,</li>
+<li>and require <span class="math inline">\(c_{k_{x}+2 \pi j, k_{y}+2 \pi l}=c_{k_{x}, k_{y}} .\)</span></li>
+</ul>
+<p>In a sign that we have not used the full translational symmetry of the model, the Fourier-transformed Hamiltonian has - due to the magnetic field-coupling between different <span class="math inline">\(k\)</span> -sectors and is not diagonal in <span class="math inline">\(k\)</span> : <span class="math display">\[
+H=-\int_{-\pi}^{\pi} \frac{d k_{x}}{2 \pi} \int_{-\pi}^{\pi} \frac{d k_{y}}{2 \pi}\left[t_{a} \cos \left(k_{x}\right) c_{k_{x}, k_{y}}^{\dagger} c_{k_{x}, k_{y}}+t_{b} e^{-i k_{y}} c_{k_{x}+2 \pi \Phi, k_{y}}^{\dagger} c_{k_{x}, k_{y}}+\text { h.c. }\right]
+\]</span> The Fourier transform of the Hamiltonian mixes <span class="math inline">\(\left(k_{x}, k_{y}\right) \rightarrow\left(k_{x} \pm 2 \pi \Phi, k_{y}\right)\)</span>. To diagonalize our Hamiltonian, we need to find a momentum space where there is no mixing.</p>
+<blockquote>
+<p>To diagonalize our Hamiltonian, we need to find a momentum space where there is no mixing.</p>
+</blockquote>
+<p>If <span class="math inline">\(\Phi=\)</span> <span class="math inline">\(p / q\)</span>, where <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are relatively prime, we see that the Hamiltonian can be broken in several sectors by making the Brillouin zone <span class="math inline">\(q\)</span> times smaller than the initial one in the <span class="math inline">\(x\)</span> -direction (corresponding to an enlarged magnetic unit cell made out of <span class="math inline">\(q\)</span> initial unit cells): <span class="math display">\[
+H=\frac{1}{(2 \pi)^{2}} \int_{-\pi / q}^{\pi / q} d k_{x}^{0} \int_{-\pi}^{\pi} d k_{y} \hat{H}_{k_{x}^{0}, k_{y}},
+\]</span> where (made <span class="math inline">\(k_{x}=k_{x}^{0}+2 \pi \Phi n\)</span>) <span class="math display">\[
+\begin{aligned}
+\hat{H}_{k_{x}^{0}, k_{y}}=&amp; \sum_{n=0}^{q-1}\left\{-2 t_{a} \cos \left(k_{x}+2 \pi \Phi n\right) c_{k_{x}+2 \pi \Phi n, k_{y}}^{\dagger} c_{k_{x}+2 \pi \Phi n, k_{y}}\right.\\
+&amp;-t_{b}\left(e^{-i k_{y}} c_{k_{x}+2 \pi \Phi(n+1), k_{y}}^{\dagger} c_{k_{k}+2 \pi \Phi n, k_{y}}+e^{i k_{y}} c_{k_{x}+2 \pi \Phi(n-1), k_{y}}^{\dagger} c_{k_{k}+2 \pi \Phi n, k_{y}}\right)
+\end{aligned}
+\]</span> Note that this partition of the <span class="math inline">\(k\)</span> -space can happen only if <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are relatively prime. Only in this case is the covering <span class="math inline">\(k_{x}^{0}+2 \pi \Phi n\)</span> able to reproduce the whole initial <span class="math inline">\(-\pi \leq k_{x} \leq \pi\)</span>.</p>
+<p>For example, for the case <span class="math inline">\(p=2, q=3\)</span>, we find <span class="math display">\[
+k_{x}^{0} \in[-\pi / 3, \pi / 3], k_{x}^{0}+2 \pi \Phi \in[\pi, 5 \pi / 3]=[-\pi,-\pi / 3]
+\]</span> and <span class="math display">\[
+k_{x}^{0}+4 \pi \Phi \in[7 \pi / 3,9 \pi / 3]=[\pi / 3, \pi]
+\]</span> thereby showing that <span class="math inline">\(k_{x}^{0}+2 \pi \Phi n\)</span> covers the entire range <span class="math inline">\(-\pi\)</span> to <span class="math inline">\(\pi\)</span>.</p>
+<p>However, if <span class="math inline">\(p, q\)</span> are not relatively prime, this is not possible: <span class="math inline">\(p=2, q=2\)</span>, <span class="math display">\[
+k_{x}^{0} \in[-\pi / 2, \pi / 2], k_{x}^{0}+2 \pi=[-\pi / 2, \pi / 2]
+\]</span> so you can never sample the sectors <span class="math inline">\([-\pi, \pi / 2],[\pi / 2, \pi]\)</span></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/">Topological Physics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/Book-TI-SC/">Book TI SC</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/11/03/topology07_book_TISC05/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">读书笔记 Chern Insulator</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2016/11/03/topology07_Quantization02_BerryPhase/">
+                        <span class="hidden-mobile">Berry Phase</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "读书笔记 Magnetic Field on the Square Lattice&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

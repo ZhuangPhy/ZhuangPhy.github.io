@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.6k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      26
+      31
        分钟
     </span>
   
@@ -263,7 +263,7 @@ H (k)\left|u^{a}(k)\right\rangle=\varepsilon^{a}(k)\left|u^{a}(k)\right\rangle, 
 \end{array}
 \]</span></p>
 <h3 id="quantum-phase-transition-qpt">2.2 Quantum Phase Transition (QPT)</h3>
-<h3 id="例子1">例子1</h3>
+<h3 id="例子1-quantum-spin-hall-effect-in-graphene">例子1 Quantum Spin Hall Effect in Graphene</h3>
 <blockquote>
 <p>One of the systems that can be used to study these <span class="math inline">\(Z_{2}\)</span> insulators is given by the graphene model.</p>
 <ul>
@@ -273,6 +273,10 @@ H (k)\left|u^{a}(k)\right\rangle=\varepsilon^{a}(k)\left|u^{a}(k)\right\rangle, 
 <p>Hamiltonian for the graphene model <span class="math display">\[
 H=t \sum_{&lt;i j&gt;\sigma} c_{i \sigma}^{\dagger} c_{j \sigma}+i \lambda_{s o} \sum_{&lt;&lt;i j&gt;&gt;\sigma \delta} \nu_{i j} c_{i \sigma}^{\dagger} s_{\sigma \delta}^{z} c_{j \delta}+\lambda_{\nu} \sum_{i, \sigma} \zeta_{i} c_{i \sigma}^{\dagger} c_{i \sigma}
 \]</span></p>
+<p>where</p>
+<ol type="1">
+<li></li>
+</ol>
 <h4 id="edge-mode-hopping">Edge mode: hopping</h4>
 <p>The Hamiltonian of nearest neighbor hopping from site to site <span class="math display">\[
 H_{t}=-t \sum_{\sigma, m, n}\left[a_{\sigma}^{\dagger}(m, n) b_{\sigma}(m, n)+a_{\sigma}^{\dagger}(m, n) b_{\sigma}(m-1, n)+a_{\sigma}^{\dagger}(m, n) b_{\sigma}(m, n-1)+H . c .\right]
@@ -313,9 +317,21 @@ E_{k} \beta_{k, n}=-t\left[\left(1+e^{-i k a}\right) \alpha_{k, n}+\alpha_{k, n+
 \alpha_{k, n}=(-2 \cos (k a / 2))^{n} e^{-i n k a / 2} \alpha_{k, 0} \\
 \beta_{k, N-n}=(-2 \cos (k a / 2))^{n} e^{i n k a / 2} \beta_{k, N}
 \end{array}
-\]</span> as <span class="math inline">\(n \rightarrow N, \alpha_{k, n}\)</span> and <span class="math inline">\(\beta_{k, N-n}\)</span> converge to zero as the behavior of the edge states.</p>
+\]</span> By Eqs <span class="math inline">\(\beta_{k, 0}=0\)</span> and <span class="math inline">\(\alpha_{k, N}=0\)</span> as <span class="math inline">\(n \rightarrow N, \alpha_{k, n}\)</span> and <span class="math inline">\(\beta_{k, N-n}\)</span> converge to zero as the behavior of the edge states.</p>
 <p>That is, <span class="math inline">\(|-2 \cos (k a / 2)|&lt;1\)</span>. Hence, zero energy edge states are present at <span class="math inline">\(4 \pi / 3&gt;k a&gt;2 \pi / 3\)</span>. The two solutions <span class="math inline">\(\alpha_{k, n}\)</span> and <span class="math inline">\(\beta_{k, n}\)</span> are two independent edge states in the top/bottom of the strip in A/B sublattice, respectively.</p>
 <h4 id="edge-mode-spin-orbit-coupling">Edge mode: spin-orbit coupling</h4>
+<p>Consider the spin-orbit coupling interaction (the second term of Eq <span class="math inline">\((2.8)\)</span> ) <span class="math display">\[
+\begin{aligned}
+H_{s o}=&amp; i \lambda_{s o} \sum_{\sigma, \alpha, m, n}(-1)^{\sigma+\alpha}\left(c_{\sigma \alpha}^{\dagger}(m, n) c_{\sigma \alpha}(m+1, n)-c_{\sigma \alpha}^{\dagger}(m, n) c_{\sigma \alpha}(m, n+1)+c_{\sigma \alpha}^{\dagger}(m, n) c_{\sigma \alpha}(m-1, n+1)\right.\\
+&amp;\left.-c_{\sigma \alpha}^{\dagger}(m, n) c_{\sigma \alpha}(m-1, n)+c_{\sigma \alpha}^{\dagger}(m, n) c_{\sigma \alpha}(m, n-1)-c_{\sigma \alpha}^{\dagger}(m, n) c_{\sigma \alpha}(m+1, n-1)\right)
+\end{aligned}
+\]</span> The spin orbit part of the Hamiltonian is described by the second neighbor coupling. The values <span class="math inline">\(\alpha=0,1\)</span> indicates the A and B sublattice, respectively, and the spin index values <span class="math inline">\(\sigma=0,-1\)</span> correspond to spin up and down, respectively.</p>
+<p>After Fourier transformation in the <span class="math inline">\(x\)</span> direction, the Hamiltonian is given by <span class="math display">\[
+\begin{aligned}
+H_{s o}=&amp; i \lambda_{s o} \sum_{\sigma, \alpha, m, n}(-1)^{\sigma+\alpha}\left(-c_{\sigma \alpha}^{\dagger}(n) c_{\sigma \alpha}(n)\left(e^{i k a}-e^{-i k a}\right)-c_{\sigma \alpha}^{\dagger}(n) c_{\sigma \alpha}(n+1)\left(e^{i k a}-1\right)\right.\\
+&amp;\left.+c_{\sigma \alpha}^{\dagger}(n) c_{\sigma \alpha}(n-1)\left(1-e^{-i k a}\right)\right)
+\end{aligned}
+\]</span></p>
 
             </article>
             <hr>
