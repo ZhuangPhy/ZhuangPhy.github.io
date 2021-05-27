@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>Categories - Book - JPZ</title>
+  <title>Archives - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -42,7 +42,7 @@
 
 
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 60vh;">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -130,7 +130,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/black.png') no-repeat center center;
+         style="background: url('/img/sub_page.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -160,40 +160,55 @@
                 
 
 <div class="list-group">
-  <p class="h4">4 posts in total.</p>
+  <p class="h4">239 posts in total.</p>
   <hr>
-  
-    
-      
-      <p class="h5">2020</p>
-    
-    <a href="/2020/09/18/topology07_Quantization02_hall/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hall Conductance and Chern Numbers</span>
-      <span style="float: right;">09-18</span>
-    </a>
   
     
       
       <p class="h5">2016</p>
     
-    <a href="/2016/11/03/topology07_book_Berry02/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">读书笔记 Berry Phases in Electronic Structure Theory</span>
-      <span style="float: right;">11-03</span>
+    <a href="/2016/11/02/topology07_book_TISC07/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">TS笔记7 六角晶格</span>
+      <span style="float: right;">11-02</span>
     </a>
   
     
-    <a href="/2016/11/03/topology07_book_short02/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">读书笔记 (SSH) Model</span>
-      <span style="float: right;">11-03</span>
+    <a href="/2016/11/02/topology07_book_TISC06/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">TS笔记6 方晶格</span>
+      <span style="float: right;">11-02</span>
     </a>
   
     
-    <a href="/2016/11/03/topology07_book_short03/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">读书笔记 从一到二</span>
-      <span style="float: right;">11-03</span>
+    <a href="/2016/11/02/topology07_book_TISC05/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">TS笔记5 Magnetic Field on the Square Lattice</span>
+      <span style="float: right;">11-02</span>
+    </a>
+  
+    
+    <a href="/2016/11/02/topology06_Basic02_Dirac/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">从狄拉克方程到拓扑材料</span>
+      <span style="float: right;">11-02</span>
+    </a>
+  
+    
+    <a href="/2016/11/01/topology01_Introduction/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Topology in Condensed matter Physics</span>
+      <span style="float: right;">11-01</span>
     </a>
   
 </div>
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/archives/2016/11/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/2016/11/">1</a><span class="page-number current">2</span>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
@@ -286,7 +301,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Category - Book&nbsp;",
+        "Archive&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

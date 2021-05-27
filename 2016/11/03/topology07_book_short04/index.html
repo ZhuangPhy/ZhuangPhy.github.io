@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>TI笔记4 绝热电荷泵，Rice-Mele模型 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/topology07_book_short01.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2016-11-03 14:04">
+      November 3, 2016 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      99
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="简介">简介</h2>
+<h2 id="参考">参考</h2>
+<ul>
+<li>《A Short Course on Topological Insulators 》
+<ul>
+<li>Chapter 4 Adiabatic Charge Pumping, Rice-Mele Model</li>
+</ul></li>
+<li><a href="https://github.com/oroszl/topins" target="_blank" rel="noopener">Github jupyter notebooks</a> 这个作者还有transport的课程</li>
+<li><a href="http://optics.szfki.kfki.hu/~asboth/topins_course/" target="_blank" rel="noopener">课程</a></li>
+</ul>
+<h2 id="chapter-4-adiabatic-charge-pumping-rice-mele-model">Chapter 4 Adiabatic Charge Pumping, Rice-Mele Model</h2>
+<p>We now apply the Berry phase and the Chern number to show that by periodically and slowly changing the parameters of a one-dimensional solid, it is possible to pump particles in it. The number of particles (charge) pumped is an integer per cycle, that is given by a Chern number. Along the way we will introduce important concepts of edge state branches of the dispersion relation, and bulk-boundary correspondence. Since we are working towards understanding time-independent topological insulators, this chapter might seem like a detour. However, bulkboundary correspondence of 2 -dimensional Chern insulators, at the heart of the theory of topological insulators, is best understood via a mapping to an adiabatic charge pump.</p>
+<p>The concrete system we use in this chapter is the simplest adiabatic charge pump, the time-dependent version of the Rice-Mele model, <span class="math display">\[
+\begin{array}{c}
+\hat{H}(t)=v(t) \sum_{m=1}^{N}(|m, B\rangle\langle m, A|+\text { h.c. })+w(t) \sum_{m=1}^{N-1}(|m+1, A\rangle\langle m, B|+\text { h.c. }) \\
++u(t) \sum_{m=1}^{N}(|m, A\rangle\langle m, A|-| m, B\rangle\langle m, B|)
+\end{array}
+\]</span> with the staggered onsite potential <span class="math inline">\(u\)</span>, intracell hopping amplitude <span class="math inline">\(v\)</span>, and intercell hopping amplitude <span class="math inline">\(w\)</span> all assumed to be real and periodic functions of time <span class="math inline">\(t\)</span>. In this chapter, we are going to see how, by properly choosing the time sequences, we can ensure that particles are pumped along the chain.</p>
+<h2 id="charge-pumping-in-a-control-freak-way">4.1 Charge Pumping in a Control Freak Way</h2>
+<p>The most straightforward way to operate a charge pump in the Rice-Mele model is to make sure that the system falls apart at all times to disconnected dimers. This will happen if at any time either the intercell hopping amplitude <span class="math inline">\(w\)</span>, or the intracell hopping amplitude <span class="math inline">\(v\)</span> vanishes. We can then use the staggered onsite potential to nudge the lower energy eigenstate to the right. If during the whole cycle we keep a finite energy difference between the two eigenstates, we can do the cycle slowly enough to prevent excitation.</p>
+<h4 id="adiabatic-shifting-of-charge-on-a-dimer">4.1.1 Adiabatic Shifting of Charge on a Dimer</h4>
+<p>As a first step towards the charge pumping protocol, consider a single dimer, i.e., <span class="math inline">\(N=1\)</span>. Using the adiabatic limit introduced in the last chapter, we can shift charge from one site to the other. The Hamiltonian reads <span class="math display">\[
+\hat{H}(t)=u(t) \hat{\sigma}_{z}+v(t) \hat{\sigma}_{x}
+\]</span> with no hopping allowed at the beginning and end of the cycle, at <span class="math inline">\(t=0\)</span>, we have <span class="math inline">\((u, v)=(1,0)\)</span>, we have and at <span class="math inline">\(t=T\)</span>, we have <span class="math inline">\((u, v)=(-1,0)\)</span>.</p>
+<p>We initialize the system in the ground state, which at time <span class="math inline">\(t=0\)</span> corresponds to <span class="math inline">\(|A\rangle\)</span>, a particle on site <span class="math inline">\(A\)</span>. Then we switch on the hopping, which allows the particle to spill over to site <span class="math inline">\(B\)</span>, and once it has done that, we switch the hopping off. To ensure that the particle spills over, we raise the onsite potential at <span class="math inline">\(A\)</span> and lower it at <span class="math inline">\(B\)</span>. A practical choice is <span class="math display">\[
+u(t)=\cos (\pi t / T) ; \quad v(t)=\sin (\pi t / T),
+\]</span> whereby the energy gap is at any time 2 . According to the adiabatic theorem, if <span class="math inline">\(H(t)\)</span> is varied slowly enough, we will have shifted the charge to <span class="math inline">\(B\)</span> at the end of the cycle.</p>
+<h4 id="putting-together-the-control-freak-sequence">4.1.2 Putting Together the Control Freak Sequence</h4>
+<p>Once we know how to shift a particle from <span class="math inline">\(|m, A\rangle\)</span> to <span class="math inline">\(|m, B\rangle\)</span>, we can use that to shift the particle further from <span class="math inline">\(|m, B\rangle\)</span> to <span class="math inline">\(|m+1, A\rangle .\)</span> For simplicity, we take a sequence constructed from linear ramps of the amplitudes, using the function <span class="math inline">\(f:[0,1) \rightarrow R\)</span> : <span class="math display">\[
+f(x)=\left\{\begin{array}{ll}
+8 x, &amp; \text { if } x \leq 1 / 8 \\
+1, &amp; \text { if } 1 / 8 \leq x&lt;3 / 8 \\
+1-8(x-3 / 8), &amp; \text { if } 3 / 8 \leq x&lt;1 / 2 \\
+0, &amp; \text { otherwise }
+\end{array}\right.
+\]</span> One period of the pump sequence, for <span class="math inline">\(0 \leq t&lt;T\)</span>, reads <span class="math display">\[
+\begin{array}{l}
+u(t)=f(t / T)-f\left(t / T+\frac{1}{2}\right) \\
+v(t)=2 f\left(t / T+\frac{1}{4}\right) ; \\
+w(t)=f\left(t / T-\frac{1}{4}\right) .
+\end{array}
+\]</span> This period, shown in Fig. 4.1a, is assumed to then be repeated. Note that we shifted the beginning time of the sequence: now at times <span class="math inline">\(t / T=n \in Z\)</span>, the Hamiltonian is the trivial SSH model, <span class="math inline">\(t / T=n+1 / 4\)</span>, disconnected monomers, at times <span class="math inline">\(t / T=\)</span> <span class="math inline">\(n+1 / 2\)</span>, it is the nontrivial SSH model. The time-dependent bulk momentum-space Hamiltonian reads <span class="math display">\[
+\hat{H}(k, t)= d (k, t) \hat{\sigma}=(v(t)+w(t) \cos k) \hat{\sigma}_{x}+w(t) \sin k \hat{\sigma}_{y}+u(t) \hat{\sigma}_{z}
+\]</span> which can be represented graphically as the path of the vector <span class="math inline">\(d (k, t)\)</span> as the quasimomentum goes through the Brillouin zone, <span class="math inline">\(k: 0 \rightarrow 2 \pi\)</span>, for various fixed values of time <span class="math inline">\(t\)</span>, as in Fig. <span class="math inline">\(4.1\)</span> b.</p>
+<h4 id="visualizing-the-motion-of-energy-eigenstates">4.1.3 Visualizing the Motion of Energy Eigenstates</h4>
+<p>We can visualize the effects of the control freak pumps sequence in the Rice-Mele model by tracing the trajectories of the energy eigenstates. At any time <span class="math inline">\(t\)</span>, each instantaneous energy eigenstate can be chosen confined to a single dimer: either on a single unit cell, or shared between two cells. In both cases, we can associate a position with the energy eigenstates: the expectation value of the position operator x defined as per Eq. (3.9).</p>
+<p>The trajectories of energy eigenstates in the position-energy space, Fig. <span class="math inline">\(4.2\)</span>, show that the charge pump sequence works rather like a conveyor belt for the eigenstates. We engineered the sequence as a unitary operation that pushes all negative energy states in the bulk to the right at the rate of one unit cell per cycle (a current of one particle per cycle). These orthogonal states, one by one, are pushed into the right end region, which has only room for one energy eigenstate. Eigenstates cannot pile up in the right end region: if they did, this would violate unitarity of the time evolution operator <span class="math inline">\(U(t)= T e^{-i \int_{0}^{t} H\left(t^{\prime}\right) d r^{\prime}}\)</span>, where <span class="math inline">\(T\)</span> stands for time ordering, since initially orthogonal states would acquire finite overlap. So, states pumped to the right edge have to go somewhere, and the only direction they can go is back towards the bulk. This on the other hand is only possible, if they acquire enough energy to be in the upper band, since all states in the lower band in the bulk are pushed towards the right. Moreover, in order to carry these states away from the right edge, and make room for those coming from the bulk, the pump sequence has to push upper band bulk states towards the left.</p>
+<p>To summarize, the control freak pump sequence is characterized by three statements. The protocol - in the bulk, pushes all <span class="math inline">\(E&lt;0\)</span> eigenstates rightwards, by 1 unit cell per cycle, - at the right end, pushes 1 eigenstate per cycle with <span class="math inline">\(E&lt;0\)</span> to <span class="math inline">\(E&gt;0\)</span>, - in the bulk, pushes all <span class="math inline">\(E&gt;0\)</span> eigenstates leftwards, by 1 unit cell per cycle. If any one of these statements holds, the other two must also hold as a consequence.</p>
+<h4 id="edge-states-in-the-instantaneous-spectrum">4.1.4 Edge States in the Instantaneous Spectrum</h4>
+<p>We can see the charge pump at work indirectly-via its effect on the edge statesusing the instantaneous spectrum, the eigenvalues of <span class="math inline">\(\hat{H}(t)\)</span> of the open chain. An example is shown for the control freak pump sequence of the Rice-Mele model on a chain of 10 unit cells ( 20 sites) in Fig. 4.1. Due to the special choice of the control freak sequence, the bulk consists of <span class="math inline">\(N-1\)</span> -fold degenerate states (the bands are flat). More importantly, there is an energy gap separating the bands, which is open around <span class="math inline">\(E=0\)</span> at all times. However, there are branches of the spectrum crossing this energy gap, which must represent edge states.</p>
+<p>To assign "right" or "left" labels to edge states in the instantaneous spectrum, it is necessary to examine the corresponding wavefunctions. In case of the control freak pump sequence, right (left) edge state wavefunctions are localized on the <span class="math inline">\(m=N\)</span> ( <span class="math inline">\(m=1\)</span> ) unit cells, and the corresponding energy values are highlighted in green (red). The edge state branches in the dispersion in Fig. 4.1. clearly show that 1 state per cycle is pushed up in energy at the right edge.</p>
+<h2 id="moving-away-from-the-control-freak-limit">4.2 Moving Away from the Control Freak Limit</h2>
+<p>We will now argue that the number of particles pumped by a cycle of a periodic adiabatic modulation of an insulating chain is an integer, even if the control freak attitude is relaxed. In the generic case, the energy eigenstates are delocalized over the whole bulk, and so we will need new tools to keep track of the charge pumping process. The robust quantization of charge pumping was shown by Thouless, who calculated the bulk current directly: we defer this calculation to the next chapter, and here argue using adiabatic deformations.</p>
+<p>As an example for a generic periodically modulated insulator, we take the Rice-Mele model, but we relax the control freak attitude. We consider a smooth modulation sequence, <span class="math display">\[
+\begin{array}{l}
+u(t)=\sin (2 \pi t / T) \\
+v(t)=\bar{v}+\cos (2 \pi t / T), \\
+w(t)=1
+\end{array}
+\]</span> where the sequence is fixed by choosing the average value of the intracell hopping, <span class="math inline">\(\bar{v}\)</span>. With <span class="math inline">\(\bar{v}=1\)</span>, this sequence can be obtained by an adiabatic deformation of the control freak sequence. We show the smooth pump sequence and its representation in the <span class="math inline">\(d\)</span> space for <span class="math inline">\(\bar{v}=1\)</span> in Fig. <span class="math inline">\(4.3\)</span>.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210527175326149.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<blockquote>
+<p>Fig. 4.3 The smooth pump sequence of the Rice-Mele model for <span class="math inline">\(\bar{v}=1\)</span>. The hopping amplitudes and the sublattice potential (a) are varied smoothly as a function of time. The vector <span class="math inline">\(d (k, t)\)</span> corresponding to the bulk momentum-space Hamiltonian (b) traces out a torus in the 3 -dimensional space. Instantaneous spectrum of the Hamiltonian <span class="math inline">\(\hat{H}(t)\)</span> on an open chain of <span class="math inline">\(N=10\)</span> sites (c) reveals that during a cycle, one state crosses over to the upper band on the right edge, and one to the lower band on the left edge (dark red/light blue highlights energies of edge states, whose wavefunctions have than <span class="math inline">\(60 \%\)</span> weight on the rightmost/leftmost 2 unit cells). The wavefunctions of the edge states (d,e) are exponentially localized to one edge and have support overwhelmingly on one sublattice each. In contrast a typical bulk state (f) has a delocalized wavefunction with support on both sublattices</p>
+</blockquote>
+<h4 id="edge-states-in-the-instantaneous-spectrum-1">4.2.1 Edge States in the Instantaneous Spectrum</h4>
+<p>Consider the spectrum of the instantaneous energies on an open chain, with an example for <span class="math inline">\(N=20\)</span> unit cells shown in Fig. <span class="math inline">\(4.3\)</span>. Since this charge sequence was obtained by adiabatic deformation of the control freak sequence above, each branch in the dispersion relation is deformed continuously from a branch in Fig. 4.1.</p>
+<p>The edge states are no longer confined to a single unit cell, as in the control freak case. However, as long as their energy lies deep in the bulk band gap, they have wavefunctions that decay exponentially towards the bulk, and so they can be unambiguously assigned to the left or the right end. (In case of a degeneracy between edge states at the right and left end, we might find a wavefunction with components on both ends. In that case, however, restriction of that state to the left/right end results in two separate eigenstates, to a precision that is exponentially high in the bulk length). In Fig. <span class="math inline">\(4.3\)</span> we used the same simple criterion as in Chap. 1 to define edge states: <span class="math display">\[
+|\Psi\rangle \text { is on the right edge } \Leftrightarrow \sum_{m=N-1}^{N}\left(|\langle\Psi \mid m, A\rangle|^{2}+|\langle\Psi \mid m, B\rangle|^{2}\right)&gt;0.6
+\]</span></p>
+<p><span class="math display">\[
+|\Psi\rangle \text { is on the left edge } \Leftrightarrow \sum_{m=1}^{2}\left(|\langle\Psi \mid m, A\rangle|^{2}+|\langle\Psi \mid m, B\rangle|^{2}\right)&gt;0.6
+\]</span></p>
+<p>As in the control freak case, there is a branch of energy eigenstates crossing over from <span class="math inline">\(E&lt;0\)</span> to <span class="math inline">\(E&gt;0\)</span> at the right edge, and from <span class="math inline">\(E&gt;0\)</span> to <span class="math inline">\(E&lt;0\)</span>, at the left.</p>
+<p>We can define the edge spectrum to consist of edge state branches of the dispersion relation, that are clearly assigned to the right end. More precisely, we take two limiting energies, <span class="math inline">\(\varepsilon_{-}\)</span> and <span class="math inline">\(\varepsilon_{+}\)</span>, deep in the bulk gap, and only consider energy eigenstates of the open chain with eigenvalues <span class="math inline">\(E_{n}(t)\)</span> between these limits, <span class="math inline">\(\varepsilon_{-}&lt;E_{n}(t)&lt;\varepsilon_{+}\)</span>, with eigenstates localized at the right edge. Each edge state branch can begin (1) at <span class="math inline">\(t=0\)</span>, as a continuation of another (or the same) edge state branch ending at <span class="math inline">\(t=T\)</span>, or (2) at <span class="math inline">\(E=\varepsilon_{-}\)</span>, or (3) at <span class="math inline">\(E=\varepsilon_{+}\)</span>. Each edge state branch can end (1) at <span class="math inline">\(t=T\)</span>, to then continue in another (or the same) edge state branch at <span class="math inline">\(t=0\)</span>, or (2) at <span class="math inline">\(E=\varepsilon_{-}\)</span>, or (3) at <span class="math inline">\(E=\varepsilon_{+}\)</span>. That is 9 possible types of edge state branches. Taking into account that the edge state spectrum, like the total spectrum, has to be periodic in <span class="math inline">\(t\)</span>, the number of edge state branches entering the energy range <span class="math inline">\(\varepsilon_{-}&lt;E&lt;\varepsilon_{+}\)</span> during a cycle is equal to the number of branches leaving it.</p>
+<h4 id="the-net-number-of-edge-states-pumped-in-energy-is-a-topological-invariant">4.2.2 The Net Number of Edge States Pumped in Energy Is a Topological Invariant</h4>
+<p>We now define an integer <span class="math inline">\(Q\)</span>, that counts the number of edge states pumped up in energy across at the right edge. Although this quantity is not easily represented by a closed formula, it is straightforward to read it off from the dispersion relation of an open system. We restrict our attention to the neighbourhood of an energy <span class="math inline">\(\varepsilon\)</span> deep in the bulk gap around <span class="math inline">\(E=0\)</span>, such that at all points where <span class="math inline">\(E_{n}=\varepsilon\)</span>, the derivative <span class="math inline">\(d E_{n} / d t\)</span> does not vanish. Then every edge state energy branch entering this neighborhood crosses <span class="math inline">\(E=\varepsilon\)</span> either towards <span class="math inline">\(E&gt;\varepsilon\)</span> or towards <span class="math inline">\(E&lt;\varepsilon .\)</span> During one cycle, we define for the states at the right edge</p>
+<ul>
+<li><span class="math inline">\(N_{+}=\)</span> number of times <span class="math inline">\(E=\varepsilon\)</span> is crossed from <span class="math inline">\(E&lt;\varepsilon\)</span> to <span class="math inline">\(E&gt;\varepsilon ;\)</span></li>
+<li><span class="math inline">\(N_{-}=\)</span> number of times <span class="math inline">\(E=\varepsilon\)</span> is crossed from <span class="math inline">\(E&gt;\varepsilon\)</span> to <span class="math inline">\(E&lt;\varepsilon ;\)</span></li>
+</ul>
+<p><span class="math display">\[
+Q=N_{+}-N_{-}=\text {net number of edge states pumped up in energy } .
+\]</span></p>
+<p>Note that within the gap, <span class="math inline">\(Q\)</span> is independent of the choice of <span class="math inline">\(\varepsilon\)</span>. If we found a value <span class="math inline">\(Q_{0}\)</span> at <span class="math inline">\(E=\varepsilon_{0}\)</span>, but a different <span class="math inline">\(Q_{1} \neq Q_{0}\)</span> at <span class="math inline">\(E=\varepsilon_{1}&gt;\varepsilon_{0}\)</span>, this would require a net number <span class="math inline">\(Q_{0}-Q_{1}\)</span> of edge state branches at the right edge to enter the energy region <span class="math inline">\(\varepsilon_{0}&lt;E&lt;\varepsilon_{1}\)</span> during a cycle but never exit it. Since both <span class="math inline">\(\varepsilon_{0}\)</span> and <span class="math inline">\(\varepsilon_{1}\)</span> are deep in the bulk gap, away from the bulk bands, this is not possible.</p>
+<p>The net number of edge states pumped up inside the gap on the right edge, <span class="math inline">\(Q\)</span>, is a topological invariant: its value cannot change under continuous deformations of the Hamiltonian <span class="math inline">\(H(t)\)</span> that preserve the bulk gap. This so-called topological protection is straightforward to prove, by considering processes that might change this number. We do this using Fig. <span class="math inline">\(4.4\)</span>.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210527175639415.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<blockquote>
+<p>Fig. 4.4 Adiabatic deformations of dispersion relations of edge states on one edge, in an energy window that is deep inside the bulk gap. Starting from a system with 3 copropagating edge states (a), an edge state's dispersion relation can develop a "bump", (b)-(c). This can change the number of edge states at a given energy (intersections of the branches with the horizontal line corresponding to the energy), but always by introducing new edge states pairwise, with opposite directions of propagation. Thus the signed sum of edge states remains unchanged. Alternatively, two edge states can develop a crossing, that because of possible coupling between the edge states turns into an avoided crossing (d), (f). This cannot open a gap between branches of the dispersion relation (e), as this would mean that the branches become multivalued functions of the wavenumber <span class="math inline">\(k_{x}\)</span> (indicating a discontinuity in <span class="math inline">\(E\left(k_{x}\right)\)</span>, which is not possible for a system with short-range hoppings). Therefore, the signed sum of edge states is also unchanged by this process. One might think the signed sum of edge states can change if an edge state's direction of propagation changes under the adiabatic deformation, as in (g). However, this is also not possible, as it would also make a branch of the dispersion relation multivalued. Deformation of the Hamiltonian can also form a new edge state dispersion branch, as in (a)-(h)-(i), but because of periodic boundary conditions along <span class="math inline">\(k_{x}\)</span>, this cannot change the signed sum of the number of edge states</p>
+</blockquote>
+<p>The number of times edge state branches intersect <span class="math inline">\(E=0\)</span> can change because new intersection points appear. These can form because an edge state branch is deformed, and as a result, it gradually develops a "bump", local maximum, and the local maximum gets displaced from <span class="math inline">\(E&lt;0\)</span> to <span class="math inline">\(E&gt;0\)</span>. For a schematic example, see Fig. 4.4a-c. Alternatively, the dispersion relation branch of the edge state can also form a local minimum, gradually displaced from <span class="math inline">\(E&gt;0\)</span> to <span class="math inline">\(E&lt;0 .\)</span> In both cases, the number of intersections of the edge band with the <span class="math inline">\(E=0\)</span> line grows by 2, but the two new intersections must have opposite pump directions. Therefore, both <span class="math inline">\(N_{+}\)</span> and <span class="math inline">\(N_{-}\)</span> increase by 1, but their difference, <span class="math inline">\(Q=N_{+}-N_{-}\)</span>, stays the same.</p>
+<p>New intersection points can also arise because a new edge state branch forms. As long as the bulk gap stays open, though, this new edge state band has to be a deformed version of one of the bulk bands, as shown in Fig. <span class="math inline">\(4.4 a-h- i\)</span>. Because the periodic boundary conditions must hold in the Brillouin zone, the dispersion relation of the new edge state has to come from a bulk band and go back to the same bulk band, or it can be detached from the bulk band, and be entirely inside the gap. In both cases, the above argument applies, and it has to intersect the <span class="math inline">\(E=0\)</span> line an even number of times, with no change of <span class="math inline">\(Q\)</span>.</p>
+<p>The number of times edge state branches intersect <span class="math inline">\(E=0\)</span> can also decrease if two edge state branches develop an energy gap. However, to open an energy gap, the edge states have to be pumped in opposite directions. For states pumped in the same direction, energy crossing between them can become an avoided crossing, but no gap can be opened, as this would violate the single-valuedness of a dispersion relation branch, as illustrated in Fig. 4.4d-f. This same argument shows why it is not possible for an edge state to change its direction of propagation under an adiabatic deformation without developing a local maximum or minimum (which cases we already considered above). As shown in Fig. <span class="math inline">\(4.4 g\)</span>, this would entail that at some stage during the deformation the edge state branch was not single valued.</p>
+<h2 id="tracking-the-charges-with-wannier-states">4.3 Tracking the Charges with Wannier States</h2>
+<p>Electrons in a solid are often described via Bloch states delocalized over the whole lattice. As we have seen in Sect. <span class="math inline">\(3.2\)</span> though, one can represent a certain energy band with a set of Wannier states, which inherit the spatial structure (discrete translational invariance) of the lattice, and are well localized. Therefore, it seems possible to visualize the adiabatic pumping process by following the adiabatic motion of the Wannier functions as the parameters of the lattice Hamiltonian are varied in time. In fact, we will describe the adiabatic evolution of both the position and energy expectation values of the Wannier functions. By this, the toolbox for analyzing the adiabatic pumping procedure for control-freak-type pumping is extended to arbitrary pumping sequences.</p>
+<h4 id="plot-the-wannier-centers">4.3.1 Plot the Wannier Centers</h4>
+<p>According to the result (3.13), the Wannier center positions of a certain band, in units of the lattice constant, are given by the Berry phase of that band divided by <span class="math inline">\(2 \pi\)</span>. Hence, to follow the motion of the Wannier centers during the pumping procedure, we calculate the Berry phase of the given band for each moment of time.</p>
+<p>The numerically computed Wannier-center positions obtained for the smoothly modulated Rice-Mele sequence [defined via Eqs. (4.6) and (4.7)], with <span class="math inline">\(\bar{v}=1\)</span>, on a finite lattice with periodic boundary conditions, are shown in Fig. <span class="math inline">\(4.5\)</span> a.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210527175904078.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<blockquote>
+<p>Fig. 4.5 Time evolution of Wannier centers and Wannier energies in a smoothly modulated topological Rice-Mele pumping sequence [defined via Eqs. (4.6) and (4.5)]. The parameter of the sequence is <span class="math inline">\(\bar{v}=1\)</span>, corresponding to a Chern number of 1 . In both subfigures, a solid (dotted) line corresponds to the valence (conduction) band. (a) Time evolution of the Wannier centers of the bands. During a cycle, each Wannier center of the valence (conduction) band moves to the right (left) with a single lattice constant. (b) Time evolution of the position and energy expectation value of a single Wannier center in the valence/conduction band, over a few complete cycles</p>
+</blockquote>
+<p>Solid (dotted) lines correspond to Wannier states of the valence, i.e., lower (conduction, i.e., upper) band. The results show that during a complete cycle, each Wannier center of the valence (conduction) band moves to the right (left) with a single lattice constant. Figure <span class="math inline">\(4.5 b\)</span> shows time evolution of the position and energy expectation value of a single Wannier center in the valence/conduction band, over a few complete cycles. In complete analogy with control-freak pumping, these results suggest that the considered pumping sequence operates as a conveyor belt: it transports valence-band electrons from left to right, with a speed of one lattice constant per cycle, and would transport conduction-band electrons, if they were present, from right to left, with the same pace.</p>
+<p>An important result, which is not specific to the considered pumping cycle, arises from the above considerations. As pumping is cyclic, the Berry phase of a given band at <span class="math inline">\(t=0\)</span> is equivalent to that at <span class="math inline">\(t=T\)</span>. Therefore, the displacement of the Wannier center during a complete cycle is an integer.</p>
+<h4 id="number-of-pumped-particles-is-the-chern-number">4.3.2 Number of Pumped Particles Is the Chern Number</h4>
+<p>Our above results for the smoothly modulated Rice-Mele cycle suggest the interpretation that during a complete cycle, each electron in the filled valence band is displaced to the right by a single lattice constant. From this interpretation, it follows that the number of particles pumped from left to right, through an arbitrary cross section of the lattice, during a complete cycle, is one. Generalizing this consideration for arbitrary one-dimensional lattice models and pumping cycles, it suggests that the number of pumped particles is an integer.</p>
+<h4 id="number-of-pumped-particles-is-the-chern-number-1">4.3.2 Number of Pumped Particles Is the Chern Number</h4>
+<p>Our above results for the smoothly modulated Rice-Mele cycle suggest the interpretation that during a complete cycle, each electron in the filled valence band is displaced to the right by a single lattice constant. From this interpretation, it follows that the number of particles pumped from left to right, through an arbitrary cross section of the lattice, during a complete cycle, is one. Generalizing this consideration for arbitrary one-dimensional lattice models and pumping cycles, it suggests that the number of pumped particles is an integer.</p>
+<p>We now shown that this integer is the Chern number associated to the valence band, that is, to the ground-state manifold of the time-dependent bulk momentumspace Hamiltonian <span class="math inline">\(\hat{H}(k, t) .\)</span> To prove this, we first write the Wannier-center displacement <span class="math inline">\(\Delta x_{0, T}\)</span> for the complete cycle by splitting up the cycle <span class="math inline">\([0, T]\)</span> to small pieces <span class="math inline">\(\Delta t:\)</span> <span class="math display">\[
+\Delta x_{0, T}=\lim _{n \rightarrow \infty} \sum_{i=0}^{n-1} \Delta x_{t_{i}, t_{i}+\Delta t},
+\]</span> where <span class="math inline">\(\Delta t=T / n\)</span> and <span class="math inline">\(t_{i}=i \Delta t .\)</span> Then, we express the infinitesimal displacements with the Berry phases, <span class="math inline">\(\Delta x\left(t_{i}, t_{i}+\Delta t\right)=\frac{i}{2 \pi} \int_{-\pi}^{\pi} d k\left[\left\langle u_{n}\left(t_{i}+\Delta t\right) \mid \partial_{k} u_{n}\left(t_{i}+\Delta t\right)\right\rangle-\left\langle u_{n}\left(t_{i}\right) \mid \partial_{k} u_{n}\left(t_{i}\right)\right\rangle\right]\)</span> where the <span class="math inline">\(k\)</span> argument is suppressed for brevity. Since the <span class="math inline">\(k=-\pi\)</span> and <span class="math inline">\(k=\pi\)</span> values are equivalent, the above integral can be considered as a line integral of the Berry connection to the closed boundary line <span class="math inline">\(\partial R_{i}\)</span> of the infinitesimally narrow rectangle <span class="math inline">\((k, t) \in R_{i}=[-\pi, \pi) \times\left[t_{i}, t_{i}+\Delta t\right] ;\)</span> that is, <span class="math display">\[
+\Delta x\left(t_{i}, t_{i}+\Delta t\right)=\frac{1}{2 \pi} \oint_{\partial R_{i}} A ^{(n)} \cdot d R .
+\]</span> Using the fact that we can choose a gauge that is locally smooth on that rectangle <span class="math inline">\(R_{i}\)</span>, we obtain <span class="math display">\[
+\Delta x\left(t_{i}, t_{i}+\Delta t\right)=\frac{1}{2 \pi} \int_{\partial R_{i}} B^{(n)} d k d t
+\]</span> where <span class="math inline">\(B^{(n)}\)</span> is the Berry curvature associated to the <span class="math inline">\(n\)</span> th eigenstate manifold of <span class="math inline">\(\hat{H}(k, t)\)</span>. Together with Eq. (4.13), this result ensures that the Wannier-center displacement is the Chern number: <span class="math display">\[
+\Delta x_{0, T}=\frac{1}{2 \pi} \int_{0}^{T} d t \int_{-\pi}^{\pi} d k B^{(n)} .
+\]</span> Note that even though we have not performed an explicit calculation of the valence-band Chern number of the smooth Rice-Mele pump cycle with <span class="math inline">\(\bar{v}=1\)</span>, by looking at the motion of the corresponding Wannier centers we can conclude that the Chern number is 1 .</p>
+<h4 id="tuning-the-pump-using-the-average-intracell-hopping-amplitude-barv">4.3.3 Tuning the Pump Using the Average Intracell Hopping Amplitude <span class="math inline">\(\bar{v}\)</span></h4>
+<p>So far, the discussed results were obtained for the special case of the smoothly modulated Rice-Mele pumping cycle with average intracell hopping <span class="math inline">\(\bar{v}=1\)</span>. Now we ask the question: can the number of pumped particles be changed by tuning the parameter <span class="math inline">\(\bar{v}\)</span> ? To show that the answer is yes, and the pump has such a tunability, on Fig. 4.6a we plot the instantaneous energy spectrum corresponding to <span class="math inline">\(\bar{v}=-1\)</span>. The spectrum reveals that this sequence, similarly to the <span class="math inline">\(\bar{v}=1\)</span> case, does pump a single particle per cycle. However, the direction of pumping is opposite in the two cases: Fig. <span class="math inline">\(4.6\)</span> a shows that during a cycle, one edge state on the left (light blue) crosses over from the valence band to the conduction band, revealing that the particles are pumped from right to left in the valence band.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210527180159153.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<blockquote>
+<p>Fig. <span class="math inline">\(4.6\)</span> The smooth pump sequence of the Rice-Mele model for <span class="math inline">\(\bar{v}=-1\)</span>, revealing reversed pumping with respect to the <span class="math inline">\(\bar{v}=1\)</span> case. (a) Instantaneous spectrum of the Hamiltonian <span class="math inline">\(\hat{H}(t)\)</span> on an open chain of <span class="math inline">\(N=10\)</span> sites. During a cycle, one edge state on the left (light blue) crosses over from the valence to the conduction band, revealing that there is a single particle per cycle is pumped from right to left in the valence band. Wavefunctions of the edge states <span class="math inline">\(( b , c )\)</span> as well as a typical bulk state (d) are also shown</p>
+</blockquote>
+<h4 id="robustness-against-disorder">4.3.4 Robustness Against Disorder</h4>
+<p>So far, we have the following picture of an adiabatic pump in a long open chain. If we take a cross section at the middle of the chain, a single particle will be pumped through that, from left to right, during a complete cycle. This implies that at the end of the cycle, the number of particles on the right side of the cross section has grown by one, therefore the final state reached by the electron system is different from the original, ground state. This implies that during the course of the cycle, a valenceband energy eigenstate deformed into a conduction-band state, and that occurred on the right edge of the chain; the opposite happens on the left edge.</p>
+<p>Does that qualitative behavior change if we introduce disorder in the edge regions of the open chain? No: as long as the bulk of the chain remains regular, the pump works at the middle of the chain, and therefore the above conclusion about the exchange of a pair of states between the valence and conduction bands still holds. On the other hand, introducing disorder in the bulk seems to complicate the abovedeveloped description of pumping in terms of Wannier-center motion, and therefore might change number of edge states and the qualitative nature of the instantaneous energy spectrum.</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/">Topological Physics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/Book-Short-TI/">Book Short TI</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/11/03/topology07_book_short05/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">TI笔记5 从一到二</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2016/11/03/topology07_book_short03/">
+                        <span class="hidden-mobile">TI笔记3 极化与Berry相位</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "TI笔记4 绝热电荷泵，Rice-Mele模型&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

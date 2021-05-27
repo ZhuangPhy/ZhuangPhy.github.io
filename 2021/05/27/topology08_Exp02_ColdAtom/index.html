@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>冷原子系统中的拓扑相位 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/topology08_Exp02_ColdAtom.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-05-27 13:01">
+      May 27, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      10.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      201
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考文献">参考文献</h2>
+<ol type="1">
+<li>《Introduction to Topological Quantum Matter Quantum Computation》Tudor D. Stanescu (2016)
+<ul>
+<li>Chapter-09 Topological Phases in Cold Atom Systems</li>
+</ul></li>
+</ol>
+<p>ultracold atomic gases have emerged as an ideal testground for fundamental many-body physics. The "quantum revolution" triggered by the work of John Bell and the subsequent advances in the experimental control of few-body quantum systems has nowadays entered a new phase associated with the rise of quantum information science and the quest for control over macroscopic quantum systems. The exceptional level of control enabled by cold atom systems has placed them at the frontier of modern quantum physics as a promising route to realizing quantum simulators, engineering topological quantum matter, and emulating interacting gauge fields. By allowing the realization of tunable interactions and synthetic spin-orbit couplings, cold atom systems offer the possibility of engineering topological phases that are not supported by solid state systems, including experimental realizations of ideal models. In this chapter we briefly summarize the recent developments in this field and point out some of the basic physical ideas behind these advances. For a more detailed survey of the field the reader is referred to specialized books and review articles, for example Refs. <span class="math inline">\([53,184,290,291]\)</span>.</p>
+<h2 id="brief-historical-perspective">9.1 Brief Historical Perspective</h2>
+<p>The experimental observation of Bose-Einstein condensation (BEC) in 1995 <span class="math inline">\([19,65,118]\)</span> marked a breakthrough moment in which the atomic, molecular, and optical (AMO) physics has reached the frontiers of condensed matter physics. This significant achievement was made possible by the earlier development of efficient methods to cool and trap atoms using laser light <span class="math inline">\([90,100,345]\)</span>. With the observation of BEC, the study of many-body systems took central stage in AMO physics. Nonetheless, the condensed matter community remained rather reserved, mainly because the BEC phenomenon can be well understood within an effective Ginzburg-Landau picture [177] in which the coherent many-body state of the quantum system is described by a macroscopic wave function <span class="math inline">\(\Psi( r , t)\)</span>, a very familiar concept in superconductivity and superfluidity. A complete and quantitative description of the static and time-dependent properties of a BEC can be obtained by solving the so-called Gross-Pitaevskii equation <span class="math inline">\([195,347]\)</span>, a nonlinear Schrödinger-type equation for the macroscopic wave function, <span class="math display">\[
+i \hbar \frac{\partial \Psi(r, t)}{\partial t}=\left(-\frac{\hbar^{2}}{2 m} \nabla^{2}+V(r)+g|\Psi(r, t)|^{2}\right) \Psi(r, t)
+\]</span> where <span class="math inline">\(V(r)\)</span> is an external potential (e.g., the trapping potential) and <span class="math inline">\(g\)</span> is a coupling constant describing the weak interaction between two particles. The elementary excitation of the BEC can be described by considering small fluctuations <span class="math inline">\(\delta \Psi\)</span> with respect to the equilibrium wave function, which leads to the well-known Bogoliubov theory of weakly interacting Bose gases.</p>
+<p>The birth of quantum information was a significant driving force behind the unprecedented level of quantum engineering (i.e., preparation, manipulation, control, and detection of quantum systems) developed in AMO physics. For example, systems of cold trapped ions were investigated with the goal of realizing quantum gates, such as the Cirac-Zoller controlled-NOT gate [95], and building a scalable quantum computer <span class="math inline">\([222,387] .\)</span> Perhaps more interestingly, cold atom systems can naturally be employed as quantum simulators [75], following the idea originally suggested by Feynman [146]. Trapped ions, for example, can be used to simulate interacting spin chains [388]. Since the computational power of classical computers is likely to be limited (at least in the foreseeable future) to simulations of about 50 qubits [358], using analog quantum simulators provides a solution for dealing with certain types of classically intractable problems and an appealing route toward a deeper understanding of (strongly) interacting quantum systems consisting of <span class="math inline">\(O \left(10^{2}\right)\)</span> qubits (e.g., 100 spin-1/2 particles). We should think about an analog quantum simulator as a many-body quantum system that mimics a simple model (or family of models). In turn, the model is relevant to understanding a certain challenging problem in condensed matter (or in other areas, e.g., high-energy physics). The system has to satisfy certain requirements. More specifically, we assume that i) the initial state and its dynamics can be precisely controlled, ii) the relevant parameters can be manipulated, and iii) the readout of the important characteristics of the final state can be efficiently performed. However, compared to quantum computers, analog quantum simulators are predicted to have substantially lower constraints regarding the number of required qubits and the fidelities of quantum operations [75].</p>
+<p>Ultracold atoms have become prime candidates for the realization of quantum simulators as a result of three major developments that have considerably enlarged the range of physics that is accessible to AMO systems: (i) the ability to tune the interaction strength using Feshbach resonances <span class="math inline">\([105,228]\)</span>, (ii) the possibility of generating strong periodic potentials through optical lattices [191], and (iii) the possibility of engineering laser-induced gauge potentials [184], including non-Abelian fields that generate an effective spinorbit coupling <span class="math inline">\([167,481]\)</span> and dynamical gauge fields for simulating interacting gauge theories with cold atoms <span class="math inline">\([457] .\)</span> These advances opened wide possibilities for addressing interesting problems in condensed matter physics, quantum electrodynamics, or quantum chromodynamics using the cold atoms toolbox and have attracted the attention of different physics communities. In principle, studying cold atom systems could shed light on challenging problems, such as, for example, understanding the effects of strong correlations in many-body quantum systems using Hubbard-type [233] and spin models <span class="math inline">\([130,168]\)</span>, understanding disorder effects and the interplay between disorder and interactions [271, 391], realizing topologically non-trivial quantum phases <span class="math inline">\([12,47,104,185,400,413]\)</span> and Majorana bound states <span class="math inline">\([235,420]\)</span>, and investigating various quantum chromodynamics phenomena (e.g., the confinement of dynamical quarks) [486]. The future will tell us how fruitful this path really is and whether or not using cold atom systems as quantum simulators can provide fundamentally new insight into some basic open questions in physics.</p>
+<h2 id="many-body-physics-with-ultracold-gases-basic-tools">9.2 many-body physics with ultracold gases: basic tools</h2>
+<p>In this chapter we briefly describe the basic tools for creating trapped cold atom systems. Here, we only sketch some key ideas; the interested reader can find the relevant details in specialized books and review articles (see, for example, [102] and [290] and references therein).</p>
+<h4 id="cooling-and-trapping-of-neutral-atoms">9.2.1 Cooling and trapping of neutral atoms</h4>
+<p>The molecules and atoms in a gas at room temperature have speeds on the order of the speed of sound. Cooling the gas down to, say, <span class="math inline">\(4 K\)</span> (the condensation temperature of helium) will reduce this thermal velocity to tens of meters per second. If the system is at equilibrium, cooling it further will produce the condensation of the gas. It appears that studies of free atoms have to be done with fast moving particles. This, however, limits the observation time (and, consequently, the spectral resolution) and generates Doppler shifts and relativistic effects that cause the displacement and broadening of spectral lines, a major limitation for precision measurements and atomic clocks. Furthermore, observing any collective quantum phenomenon (e.g., BEC) requires low particle densities <span class="math inline">\(n\)</span> (to prevent the transition to a solid phase) and thermal de Broglie wavelengths <span class="math inline">\(\lambda_{ dB }\)</span> of the order of the inter-atomic spacing, so that the waves of neighboring atoms overlap and interfere constructively. Realizing this quantum degenerate regime requires a phase space density <span class="math inline">\(n \lambda_{ dB }&gt;2.6\)</span>. The path to realizing this condition involves slowing down an atomic beam, trapping the atoms, then cooling the system further.</p>
+<h5 id="doppler-cooling">Doppler cooling</h5>
+<p>When placed in a laser field, neutral atoms experience a velocity-dependent dissipative force generated by light scattering processes. In certain conditions, the scattered light carries away more energy than the amount of energy absorbed by the atoms. This leads to the so-called Doppler cooling scheme, which was proposed independently by Hänsch and Schawlow <span class="math inline">\([213]\)</span> and by Wineland and Dehmelt <span class="math inline">\([467]\)</span> in 1975, and to the concept of optical molasses.</p>
+<p>Consider an atom that absorbs (or emits) a photon of momentum <span class="math inline">\(\hbar k\)</span>. As a result of this process, the momentum <span class="math inline">\(p\)</span> of the atoms shifts to <span class="math inline">\(p \pm \hbar k\)</span>. The corresponding atomic recoil velocity is <span class="math inline">\(\hbar k / m\)</span>, where <span class="math inline">\(m\)</span> is the mass of the atom; in the case of cesium, for example, the recoil velocity is of the order of <span class="math inline">\(3 mm / s\)</span>. Since spontaneous emission occurs with the same probability in all directions, for an atom in a laser field the average change in atomic momentum (after many absorption-spontaneous emission cycles) is <span class="math inline">\(\langle\delta p \rangle=\hbar k_{L}\)</span>, where <span class="math inline">\(k_{L}\)</span> laser photon wavenumber. The resulting radiative force is <span class="math inline">\(\hbar k_{L}\)</span> times the rate of absorption-spontaneous emission cycles.</p>
+<p>Next, consider an idealized two-level atom with ground state <span class="math inline">\(|g\rangle\)</span> and unstable excited state <span class="math inline">\(|e\rangle\)</span> of energy <span class="math inline">\(\hbar \omega_{0}\)</span> and lifetime <span class="math inline">\(\Gamma^{-1}\)</span>, as shown in Figure 9.1. For an atom at rest, the mean scattering rate has a Lorentzian dependence on the frequency of the laser with a maximum at <span class="math inline">\(\omega_{L}=\omega_{0}[102] .\)</span> The key idea is to use the Doppler effect to make this scattering rate (hence, the corresponding radiative force) velocity dependent. For a given direction, the scheme involves two counter-propagating lasers having the same amplitude and the same, slightly red detuned frequency <span class="math inline">\(\omega_{L}=\omega_{0}+\delta\)</span>, with <span class="math inline">\(\delta&lt;0 .\)</span> As illustrated schematically in Figure <span class="math inline">\(9.2\)</span>, for an atom moving with velocity <span class="math inline">\(v\)</span>, the counter-propagating laser beam (with wave vector <span class="math inline">\(-k_{L}\)</span> in the laboratory frame) is perceived with a frequency <span class="math inline">\(\omega_{L}+v \cdot k_{L}\)</span> closer to <span class="math inline">\(\omega_{0}\)</span>, while the copropagating beam <span class="math inline">\(\left(+k_{L}\right)\)</span> is perceived with a frequency <span class="math inline">\(\omega_{L}-v \cdot k_{L}\)</span> that is further detuned from the atomic transition frequency. This results in more photons being absorbed from the counter-propagating wave than from the co-propagating wave and generates a friction-like force that, for slow-enough atoms, has the form <span class="math inline">\([102]\)</span> <span class="math inline">\(F =-\alpha v\)</span>, where <span class="math inline">\(\alpha\)</span> is a positive coefficient. Of course, to provide cooling along all directions, one has to use three (relatively orthogonal) pairs of counter-propagating lasers. Note that Eq. (9.2) describes the motion of a particle in a viscous medium, the solution corresponding to an exponential damping of the velocity towards <span class="math inline">\(v=0\)</span>. The viscous medium created by the lasers is the so-called optical molasses [91].</p>
+<p>Since Doppler cooling involves absorption and spontaneous emission processes, equilibrium corresponds to a Brownian motion of the atom (rather than a particle at rest). Consequently, there is a limit for the minimal temper-ature <span class="math inline">\(T_{D}\)</span> that can be reached using this scheme. Explicit calculations using the two-level model give <span class="math inline">\([187,468]\)</span> <span class="math display">\[
+k_{B} T_{D}=\frac{\hbar \Gamma}{2}
+\]</span> For cesium atoms, for example, <span class="math inline">\(T_{D} \approx 120 \mu K\)</span>. Magnetic and magneto-optical trapping. The methods used for trapping atoms can be roughly divided into three groups. The corresponding key elements that enable the trapping of neutral particles are (i) induced atomic dipole moments, (ii) non-homogeneous magnetic fields, and (iii) a combination of radiation pressure and static fields. Below, we briefly summarize the main ideas behind the last two types of traps; dipole traps, which are based on induced atomic dipole moments, will be discussed later in the context of optical lattices. Note that, in general, wall-free confinement is necessary to prevent the atoms from sticking to the surface of the container.</p>
+<p>Once the atoms are cold enough (i.e., after Doppler cooling the system), they can be confined in a magnetic trap. The basic idea is to create a nonhomogeneous magnetic field that has a local minimum and use neutral particles that have non-zero magnetic moment. The atoms with magnetic moments aligned opposite to the field (the so-called "low-field-seekers") will try to minimize their energy by occupying locations with lower field strengths. Consequently, the local minimum of the magnetic field will trap low-field-seeking atoms that do not have enough kinetic energy to escape.</p>
+<p>Another trapping method is based on the idea of making the radiative force not only <span class="math inline">\(v\)</span> -dependent but also position-dependent. Assume that the ground state has angular momentum <span class="math inline">\(j_{g}=0\)</span>, while the excited level has <span class="math inline">\(j_{e}=1\)</span>, and the corresponding states are <span class="math inline">\(\left|e, m_{e}\right\rangle\)</span>, where <span class="math inline">\(m_{e}=-1,0,1\)</span> is the projection of the angular momentum along the <span class="math inline">\(z\)</span> axis. The counter-propagating lasers are <span class="math inline">\(\sigma_{+}\)</span> and <span class="math inline">\(\sigma_{-}\)</span> circularly polarized, respectively, and a position-dependent magnetic field <span class="math inline">\(B_{z}=\beta z\)</span> is applied along the quantization axis <span class="math inline">\(z\)</span>, as shown in Figure 9.3. The <span class="math inline">\(\sigma_{+}\)</span> laser couples the ground states to the excited state <span class="math inline">\(|e, 1\rangle\)</span>, while the <span class="math inline">\(\sigma_{-}\)</span> laser couples it to <span class="math inline">\(|e,-1\rangle .\)</span> In the presence of a magnetic field, the energies <span class="math inline">\(\epsilon_{m_{e}}\)</span> of the excited states are Zeeman shifted, so that <span class="math inline">\(\epsilon_{+}\)</span> is closer to the resonance frequency for <span class="math inline">\(z&lt;0\)</span>, while <span class="math inline">\(\epsilon_{-}\)</span> is closer to resonance when the atom is in the region <span class="math inline">\(z&gt;0\)</span>. Consequently, the radiative force will acquire an additional, position-dependent term <span class="math inline">\(\Delta F_{z}=-\kappa z\)</span>, which corresponds to an effective harmonic trapping potential.</p>
+<h5 id="sub-doppler-cooling.">Sub-Doppler cooling.</h5>
+<p>Since 1988, systematic experimental investigations of atoms cooled in optical molasses have found temperatures well below the Doppler limit <span class="math inline">\([210,285,403] .\)</span> In addition, these low temperatures were observed at large laser detunings, <span class="math inline">\(\delta \gg \Gamma\)</span> (instead of the optimal value <span class="math inline">\(\delta=\Gamma / 2\)</span> predicted for Doppler cooling). The mechanism responsible for these effects involves, in essence, the following components [101]: In the presence of a laser field, the (bare) atomic levels shift and mix; this is the so-called ac-Stark effect or light shift illustrated schematically in Figure <span class="math inline">\(9.4( a )\)</span>. The light shifts depend on the laser polarization. Since two counter-propagating lasers can give rise to a (periodic) position-dependent polarization, the corresponding light shifts are equivalent to a periodic, state-selective potential. If, for example, the ground level has <span class="math inline">\(j_{g}=1 / 2\)</span>, the potential "hills" of <span class="math inline">\(|g,-1 / 2\rangle\)</span> will coincide spatially with the "valleys" of <span class="math inline">\(|g,+1 / 2\rangle\)</span> (and vice versa). Finally, a transition to the excited states is more likely when the atom is on top of a <span class="math inline">\(|g, m\rangle\)</span> hill; this is followed by a spontaneous emission that brings the atom into the <span class="math inline">\(|g,-m\rangle\)</span> valley, as shown in Figure <span class="math inline">\(9.4( b )\)</span>. The net result is that the atoms keep climbing potential hills, but end up in potential valleys, thus losing kinetic energy. The mechanism is called Sisyphus cooling or polarization gradient cooling [101].</p>
+<p>As a final note, we mention that the Sisyphus cooling limit is given by the height of the potential hills and is of the order of <span class="math inline">\(10^{2} E_{R}\)</span>, where <span class="math inline">\(E_{R}=\hbar^{2} k^{2} / 2 m\)</span> is the recoil energy. In general, for multi-level atoms the fundamental laser cooling limit is characterized by the recoil energy. Schemes to overcome the recoil limit include velocity selective coherent population trapping [26], stimulated Raman cooling [248], and forced evaporative cooling [254]. To achieve Bose-Einstein condensation, for example, one can use laser cooling to "precool" the gas, which is then trapped in a magnetic trap; next, forced evaporative cooling is applied as a second cooling stage. This is realized by reducing the trap depth and allowing the most energetic atoms to escape.</p>
+<h4 id="quad-optical-lattices">9.2.2 <span class="math inline">\(\quad\)</span> Optical lattices</h4>
+<p>Optical lattices are artificial crystals of light consisting of hundreds of thousands of dipole microtraps created by interfering optical laser beams. In essence, the electric field <span class="math inline">\(E\)</span> of the laser induces an atomic dipole moment <span class="math inline">\(p\)</span>, which, in turn, interacts with the field. As a result, in the presence of the laser field the atom acquires a (dipole) potential energy <span class="math inline">\(V_{d}=-p \cdot E\)</span>. The strength of the induced dipole moment is determined by the interactioninduced change of the internal states of the atom, i.e., the ac-Stark effect mentioned above in the context of sub-Doppler cooling, which depends on the laser frequency, light intensity, and polarization. Linear response gives <span class="math inline">\(p=\alpha\left(\omega_{L}\right) E ( r , t)\)</span>, where <span class="math inline">\(\alpha\left(\omega_{L}\right)\)</span> is the polarizability of the atom and <span class="math inline">\(\omega_{L}\)</span> the frequency of the laser. Since the center-of-mass motion of the atom is much slower than the inverse laser frequency, <span class="math inline">\(\omega_{L}^{-1}\)</span>, the effective potential will be given by the time-averaged laser intensity <span class="math inline">\(I(r) \propto\left\langle E^{2}(r)\right\rangle_{t}=\frac{1}{2}|E(r)|^{2}\)</span>, and we have <span class="math inline">\(V_{d}(r)=-\frac{1}{2} \alpha\left(\omega_{L}\right)|E(r)|^{2}\)</span>. Consequently, a spatially dependent intensity induces a potential energy that can be used to trap atoms. An optical lattice corresponds to a periodic potential energy landscape induced by the standing wave pattern generated by interfering laser beams.</p>
+<p>To get better insight, let us consider an atom described by the two-level toy model introduced above in the presence of a classical electromagnetic field <span class="math inline">\(E ( r , t)= E (r) e^{-i \omega_{L} t}+ E ^{*}(r) e^{i \omega_{L} t} .\)</span> Since the atom does not have a permanent dipole moment, the dipole operator <span class="math inline">\(\hat{d}=-e \sum_{k} r_{k}\)</span>, where <span class="math inline">\(r_{k}\)</span> designates the position of the <span class="math inline">\(k^{\text {th }}\)</span> electron, is off-diagonal in the two-level basis: <span class="math display">\[
+\hat{d}=\mu|e\rangle\left\langle g\left|+\mu^{*}\right| g\right\rangle\langle e|
+\]</span> where <span class="math inline">\(\mu=\langle e|\hat{d}| g\rangle .\)</span> Consequently, the Hamiltonian <span class="math inline">\(H=H_{0}-\hat{d} \cdot E\)</span> of the atom-laser field system can be written as <span class="math display">\[
+H=\hbar \omega_{0}|e\rangle\langle e|-\left( \mu |e\rangle\left\langle g\left|+ \mu ^{*}\right| g\right\rangle\langle e|\right) \cdot\left( E ( r ) e^{-i \omega_{L} t}+ \mathcal { E } ^{*}( r ) e^{i \omega_{L} t}\right)
+\]</span> In the limit of small detuning <span class="math inline">\(|\delta|=\left|\omega_{L}-\omega_{0}\right| \ll \omega_{0}\)</span>, it is convenient to work in the rotating frame of the laser by performing the unitary transformation <span class="math inline">\(U(t)=\exp \left(-i \omega_{L} t \hat{\sigma}_{z} / 2\right)\)</span>, with <span class="math inline">\(\hat{\sigma}_{z}=|e\rangle\langle e|-| g\rangle\langle g| .\)</span> Neglecting rapidly oscillat- ing terms <span class="math inline">\(\propto e^{\pm i\left(\omega_{L}+\omega_{0}\right) t}\)</span>, which generate effects that average out to zero over relevant timescales, we obtain the time-independent Hamiltonian <span class="math display">\[
+H^{\prime}=-\frac{\hbar}{2} \delta \hat{\sigma}_{z}+\frac{\hbar}{2}\left[\Omega(r)|e\rangle\left\langle g\left|+\Omega^{*}(r)\right| g\right\rangle\langle e|\right]
+\]</span> where <span class="math inline">\(\Omega(r)=-\frac{2}{\hbar} E (r) \cdot \mu\)</span> is the so-called Rabi frequency. When the detuning is large compared to the Rabi frequency, <span class="math inline">\(|\delta| \gg|\Omega|\)</span>, the ac-Stark shifts given by second-order perturbation theory are <span class="math display">\[
+\Delta E_{g}=\hbar \frac{|\Omega(r)|^{2}}{4 \delta}, \quad \Delta E_{e}=-\hbar \frac{|\Omega(r)|^{2}}{4 \delta}
+\]</span> We conclude that the ac-Stark shifted energy of an atom (in the ground state) is, in general, position-dependent and corresponds to an optical potential <span class="math inline">\(V_{d}(r)=\hbar \frac{|\Omega(r)|^{2}}{4 \delta} .\)</span> Note that, as expected, the potential is proportional to the laser intensity, <span class="math inline">\(|\Omega(r)|^{2}=(2 / \hbar)^{2}\left|\left\langle e\left|\hat{d}_{ E }\right| g\right\rangle\right|^{2}| E |^{2} \propto|E|^{2}\)</span>, where <span class="math inline">\(\hat{d}_{ E }\)</span> is the dipole operator in the direction of the field. Also, within this simplified model, the polarizability takes the form <span class="math inline">\(\alpha\left(\omega_{L}\right) \approx-\frac{1}{\hbar}\left|\left\langle e\left|\hat{d}_{ E }\right| g\right\rangle\right|^{2} /\left(\omega_{L}-\omega_{0}\right) .\)</span> Since the atom experiences a force <span class="math inline">\(F=-\nabla V_{d}\)</span>, it will be attracted to the minima or to the maxima of the laser intensity for blue-detuned <span class="math inline">\(\left(\omega_{L}&gt;\omega_{0}\right)\)</span> or red-detuned <span class="math inline">\(\left(\omega_{L}&lt;\omega_{0}\right)\)</span> laser light, respectively. This property is often described in the literature by calling the atoms "weak field seekers" and "strong field seekers" for the cases of blue and red detuning, respectively.</p>
+<p>The simplest periodic optical potential is obtained by overlapping two counter-propagating laser beams of equal frequency that create a standing wave interference pattern. The resulting trapping potential has the form <span class="math display">\[
+V_{\text {latt }}(x)=V_{0} \sin ^{2}(k x)
+\]</span> where <span class="math inline">\(k=2 \pi / \lambda\)</span> is the wave vector of the laser light and <span class="math inline">\(V_{0}\)</span> is the lattice depth (which is determined by the Rabi frequency and the detuning, as shown above). Equation (9.7) defines a one-dimensional (1D) lattice of parallel confining planes (or, more precisely, confining disks, if we take into account the profile of the laser) with a lattice constant <span class="math inline">\(a=\lambda / 2 .\)</span> A two-dimensional lattice of tightly confining potential tubes can be created using two orthogonal sets of counter propagating laser beams. Similarly, a <span class="math inline">\(3 D\)</span> simple cubic array of confining centers is obtained by superimposing three orthogonal standing waves. Note that using laser beams with two different wavelengths gives rise to superlattice structures.</p>
+<p>A large variety of optical lattices can be created by controlling the number and the geometry (i.e., relative angles) of the lasers, their frequencies, intensities and polarizations, as well as the type of atom to be loaded in the optical lattice. For example, one can create different effective optical potentials for different magnetic sublevels, thus obtaining spin-dependent optical lattices [234].</p>
+<p>The interested reader can find more details in specialized books and review articles, for example <span class="math inline">\([52,198,290] .\)</span> The versatility of these periodic potential landscapes makes optical lattices a critical element in the effort to establish cold atom systems as effective quantum simulators for condensed matter systems. In this context, we note that, in contrast to real materials, optical lattices are free of disorder, structural defects, and lattice vibrations, which makes them perfect candidates for simulating idealized quantum models.</p>
+<h4 id="feshbach-resonances">9.2.3 Feshbach resonances</h4>
+<p>The ability to control the particle-particle interaction strength is another key feature of cold atom systems. Feshbach resonances represent an essential tool that enables this type of control and the most direct way of reaching a stronginteraction regime. Below, we sketch the basic physics of the Feshbach resonance and make a few general remarks on the role of this phenomenon in cold atom physics. For a detailed discussion of Feshbach resonances in ultracold gases see, for example, the review article by Chin et al. [86].</p>
+<p>Basic scattering theory. One of the best approaches to understanding the interaction between particles is to scatter them off each other. Consider first the collision of two structureless atoms of masses <span class="math inline">\(m_{1}\)</span> and <span class="math inline">\(m_{2}\)</span> that interact through a potential <span class="math inline">\(V(R)\)</span>, where <span class="math inline">\(R=r_{2}-r_{2}\)</span> is the relative position vector. For simplicity, we consider the case of a potential with spherical symmetry, <span class="math inline">\(V( R )=V(R) .\)</span> The relative motion of the pair is described by the wave function <span class="math inline">\(\psi_{k}(R)\)</span> and we assume that the system is prepared in a plane wave with relative momentum <span class="math inline">\(\hbar k\)</span> and relative kinetic energy <span class="math inline">\(E=\hbar^{2} k^{2} / 2 \mu\)</span>, where <span class="math inline">\(\mu=m_{1} m_{2} /\left(m_{1}+m_{2}\right)\)</span> is the reduced mass. In the limit of large separation, the wave function is a superposition of the incident plane wave and a scattered spherical wave, <span class="math display">\[
+\psi_{ k }( R ) \simeq e^{i k \cdot R }+f_{k}(\theta) \frac{e^{i k R}}{R}
+\]</span> where <span class="math inline">\(\theta\)</span> is the angle between the initial and final directions of relative motion and the function <span class="math inline">\(f_{k}(\theta)\)</span>, called the scattering amplitude, provides information about the relative amplitude and phase of the scattered wave along a given direction. Below, to simplify the notation, we drop the <span class="math inline">\(k\)</span> -dependence in <span class="math inline">\(f_{k}(\theta)\)</span>. We note that the scattering amplitude is related to the differential cross section <span class="math inline">\(^{1}, \frac{d \sigma}{d \Omega}=|f(\theta)|^{2}\)</span>. The scattering amplitude can be represented as a sum over partial waves, <span class="math display">\[
+f(\theta)=\sum_{\ell=0}^{\infty}(2 \ell+1) f_{\ell}(k) P_{\ell}(\cos \theta)
+\]</span> where <span class="math inline">\(P_{\ell}\)</span> are Legendre polynomials and <span class="math inline">\(f_{\ell}(k)\)</span> are partial scattering amplitudes that characterize the scattering in states with (relative) angular mo-mentum <span class="math inline">\(\ell=0,1,2, \ldots\)</span> We note that in the case of identical particles the wave function (9.9) has to be properly symmetrized (for bosons) or antisymmetrized (for fermions). In particular we have <span class="math inline">\(e^{i k \cdot R } \rightarrow e^{i k \cdot R } \pm e^{-i k \cdot R }\)</span> and <span class="math inline">\(f(\theta) \rightarrow f(\theta) \pm f(\pi-\theta)\)</span>, consistent with the fact that one cannot say which one of the particles scatters in the direction <span class="math inline">\(\theta\)</span> and which one in the opposite direction (i.e., <span class="math inline">\(\pi-\theta\)</span> ). Consequently, for identical bosons or fermions only partial scattering amplitudes with even or odd values of <span class="math inline">\(\ell\)</span> are possible, respectively. Usually, at low temperatures (i.e., in the sub-millikelvin regime) the lowest angular momentum collisions dominate, more specifically <span class="math inline">\(s\)</span> -wave collisions for ultracold bosons and <span class="math inline">\(p\)</span> -wave collisions for fermions.</p>
+<p>It is convenient to express the partial scattering amplitudes in terms of the so-called <span class="math inline">\(S\)</span> -matrix element <span class="math inline">\(S_{\ell}=e^{2 i \delta_{\ell}}\)</span> and the scattering phase shift <span class="math inline">\(\delta_{\ell}\)</span>. Specifically, we have <span class="math display">\[
+f_{\ell}(k)=\frac{e^{i \delta_{\ell}} \sin \delta_{\ell}}{k}=\frac{1}{k \cot \delta_{\ell}-i k}=\frac{S_{\ell}-1}{2 i k} .
+\]</span> For <span class="math inline">\(s\)</span> -wave scattering in the low-energy regime, which is relevant for ultracold bosonic systems, we have <span class="math inline">\(k \cot \delta_{0}(k) \approx-\frac{1}{a}\)</span>, where <span class="math inline">\(a\)</span> is the so-called scattering length. In other words, in this limit the two-body scattering problem is uniquely specified by a single parameter, the scattering length <span class="math inline">\(a\)</span>, and we have <span class="math display">\[
+f_{0}(k)=-\frac{a}{1+i k a}
+\]</span> Note that the total scattering cross section is <span class="math inline">\(\sigma \simeq 4 \pi a^{2}\)</span>, i.e., the scattering length <span class="math inline">\(a\)</span> characterizes the effective "size of target." Moreover, <span class="math inline">\(a\)</span> can be either positive or negative, corresponding to an effectively repulsive or attractive interaction, respectively. One can show that Eq. <span class="math inline">\((9.12)\)</span> is the exact scattering amplitude for the pseudopotential <span class="math display">\[
+\widetilde{V}( R )=\frac{2 \pi \hbar^{2} a}{\mu} \delta( R )
+\]</span> Hence, the two-body interactions in ultracold gases can be described by the pseudopotential <span class="math inline">\(\widetilde{V}( R )\)</span> with a strength determined by the scattering length <span class="math inline">\(a\)</span>, which is typically an experimentally determined parameter.</p>
+<p>In general, the poles of the scattering amplitude in the upper complex <span class="math inline">\(k\)</span> plane are related to the bound states of the interaction potential <span class="math inline">\(V(R) .\)</span> More specifically, the pole <span class="math inline">\(k=i / a\)</span>, with <span class="math inline">\(a&gt;0\)</span>, corresponds to the highest energy bound state with wave function <span class="math inline">\(\propto \exp (-R / a)\)</span> and energy <span class="math inline">\(E_{10}=-\hbar^{2} / 2 \mu a^{2}\)</span>, where <span class="math inline">\(0&gt;E_{1 \ell}&gt;\cdots&gt;E_{N_{\ell} \ell}\)</span> are the energies of the discrete set of <span class="math inline">\(N_{\ell}\)</span> bound states with relative angular momentum <span class="math inline">\(\ell\)</span> (see Figure 9.5). Note that the top bound state has to be within a certain energy range <span class="math inline">\(E_{c}\)</span> below the continuum threshold, <span class="math inline">\(\left|E_{10}\right|&lt;E_{c} ;\)</span> if such a bound state does not exist <span class="math inline">\(\left(\right.\)</span> e.g., if <span class="math inline">\(\left.E_{10}&lt;-E_{c}\right)\)</span>, the interaction will be effectively attractive with <span class="math inline">\(a&lt;0 .\)</span> Finally, if there is a zero-energy bound state, <span class="math inline">\(E_{10} \lesssim 0\)</span>, the two-particle collision is characterized by a divergent scattering length, <span class="math inline">\(a \rightarrow \infty\)</span>, i.e., an infinitely strong pseudopotential.</p>
+<p>Collision channels. Real atoms have non-trivial internal structures, in particular nontrivial spin structures. For example, the total electronic angular momentum <span class="math inline">\(J=L+S\)</span> may be coupled to the nuclear spin <span class="math inline">\(I\)</span> to give the total angular momentum <span class="math inline">\(F = J + I\)</span>. In this case, the eigenstates of the atom are labeled (at zero magnetic field) by the quantum numbers <span class="math inline">\(f\)</span> and <span class="math inline">\(m\)</span> corresponding to the total angular momentum and its projection along the <span class="math inline">\(z\)</span> axis, respectively. In general, the states of the atom are indexed by a composite label <span class="math inline">\(\alpha\)</span> and the corresponding energies are <span class="math inline">\(\epsilon_{\alpha}\)</span>. The set of quantum numbers that characterize a pair of atoms in the limit of large separation, e.g., <span class="math inline">\(\left(\alpha_{1} ; \alpha_{2}\right)=\left(f_{1}, m_{1} ; f_{2}, m_{2}\right)\)</span>, defines a certain scattering channel. If the energy of the system is <span class="math inline">\(E&gt;\epsilon_{\alpha_{1}}+\epsilon_{\alpha_{2}}\)</span>, the channel is open, otherwise (i.e., for <span class="math inline">\(\left.E&lt;\epsilon_{\alpha_{1}}+\epsilon_{\alpha_{2}}\right)\)</span> the channel is said to be closed (see Figure 9.5).</p>
+<p>Consider now a simplified two-channel model corresponding to the states <span class="math inline">\(\left|\alpha_{1} ; \alpha_{2}\right\rangle\)</span> and <span class="math inline">\(\left|\beta_{1} ; \beta_{2}\right\rangle .\)</span> We assume that the atoms are prepared in the open channel <span class="math inline">\(\left(\alpha_{1} ; \alpha_{2}\right)\)</span> and that the second channel is closed, i.e., <span class="math inline">\(\epsilon_{\alpha_{1}}+\epsilon_{\alpha_{2}}&lt;E&lt;\)</span> <span class="math inline">\(\epsilon_{\beta_{1}}+\epsilon_{\beta_{2}} .\)</span> Since, in general, the interaction potential <span class="math inline">\(V(R)\)</span> is spin-dependent, the two channels are coupled. More specifically, the effective Hamiltonian that describes the scattering process takes the form <span class="math display">\[
+H=\left(\begin{array}{cc}
+-\frac{\hbar^{2}}{2 \mu} \nabla^{2}+V_{ op }(R) &amp; W( R ) \\
+W( R ) &amp; -\frac{\hbar^{2}}{2 \mu} \nabla^{2}+V_{ cl }( R )
+\end{array}\right)
+\]</span> where <span class="math inline">\(V_{ op }( R )=\left\langle\alpha_{1} ; \alpha_{2}|V( R )| \alpha_{1} ; \alpha_{2}\right\rangle\)</span> and <span class="math inline">\(V_{ cl }( R )=\left\langle\beta_{1} ; \beta_{2}|V( R )| \beta_{1} ; \beta_{2}\right\rangle\)</span> are the potentials of the open and closed channels, respectively, and <span class="math inline">\(W(R)=\)</span> <span class="math inline">\(\left\langle\alpha_{1} ; \alpha_{2}|V( R )| \beta_{1} ; \beta_{2}\right\rangle\)</span> is the coupling between the two channels. Feshbach resonances. In a two-channel model the scattering length has a background component <span class="math inline">\(a_{ bg }\)</span> that is solely determined by the properties of the open channel (i.e., the scattering length corresponding to the absence of any coupling to the closed channel, <span class="math inline">\(W(R)=0\)</span> ) and a resonant component that becomes very large when the energy of the system is nearly resonant with a bound state of the closed channel potential <span class="math inline">\(V_{ cl }\)</span> (see Figure 9.5). If the magnetic moments corresponding to the two channels are different, we can shift the closed-channel energy with respect to the open-channel energy by varying the magnetic field, thus changing the scattering length. The dependence of the s-wave scattering length on the magnetic field <span class="math inline">\(B\)</span> near a magnetically tuned Feshbach resonance is described by the expression [316] <span class="math display">\[
+a(B)=a_{ bg }\left(1-\frac{\Delta_{B}}{B-B_{0}}\right),
+\]</span> where the parameter <span class="math inline">\(B_{0}\)</span> gives the resonance position and <span class="math inline">\(\Delta_{B}\)</span> characterizes the resonance width. Note that <span class="math inline">\(\Delta_{B}\)</span> can be positive or negative. At the magnetic field <span class="math inline">\(B^{*}=B_{0}+\Delta_{B}\)</span>, the scattering length crosses zero.</p>
+<p>Feshbach resonances arise from the coupling of a discrete (bound) state to the continuum. This type of phenomenon was systematically investigated by Ugo Fano, in the context of atomic physics [143], and Herman Feshbach, in the context of nuclear physics [145]. Sometimes the phenomenon is referred to as a Fano-Feshbach resonance, although Fano's name is typically associated with the asymmetric line-shape of such a resonance. In cold atom systems, Feshbach resonances are particularly useful as they enable the tuning of the scattering length by changing the magnetic field [424], which is possible due to the difference between the magnetic moments of the closed and open channels. In practice, the realization of a many-body system with tunable interactions requires the additional condition that the relaxation rate into deep bound states (due to three-body collisions) be negligible. This condition is well satisfied by fermions [344], but in dilute bosonic gases the three-body recombinations are important and make highly correlated states unstable [417].</p>
+<h2 id="light-induced-artificial-gauge-fields">9.3 Light-Induced Artificial Gauge Fields</h2>
+<p>Gauge theories are central components of our understanding of elementary particle interactions and condensed matter physics. In particular, the emergent gauge fields associated with the effective low-energy theory of certain condensed matter systems play a key role in understanding the non-trivial topological properties of many-body quantum states. For example, the adiabatic motion of quantum particles with internal structure can be described in terms of geometric gauge potentials, as first pointed out by Mead and Truhlar [308] and Berry [50]. This type of gauge potential can be engineered in a cold atom system by making the Hamiltonian governing the internal dynamics of the atom parametrically dependent on its position via, for example, the interaction with a position-dependent laser field. In this section we provide a brief overview of the main ideas behind the realization of light-induced gauge fields in cold atom systems. For comprehensive reviews, see Refs. <span class="math inline">\([109,184]\)</span>.</p>
+<h4 id="geometric-gauge-potentials">9.3.1 Geometric gauge potentials</h4>
+<p>Geometric gauge potential emerge naturally in cold atom systems when the center of mass motion of an atom is coupled to its internal degrees of freedom. Consider an atom in the presence of a position- and time-dependent laser field. The position of the atom is given by the the atomic center of mass position vector <span class="math inline">\(r\)</span> and the corresponding momentum operator is <span class="math inline">\(p=-i \hbar \nabla\)</span>. The dynamics of the internal degrees of freedom is described by the atomic Hamiltonian <span class="math inline">\(H_{0}\)</span>, while the atom-light coupling is given by the position- and time-dependent term <span class="math inline">\(H_{1}(r, t)\)</span>. Assuming that the atom moves in a (stateindependent) trapping potential <span class="math inline">\(V(r, t)\)</span>, the total Hamiltonian takes the form <span class="math display">\[
+H_{ tot }=-\frac{\hbar^{2} \nabla^{2}}{2 m}+V( r , t)+H_{0}+H_{1}( r , t)
+\]</span> Note that the first two terms act trivially on the internal degrees of freedom of the atom. Let <span class="math inline">\(|\alpha\rangle\)</span> be the eigenstates of <span class="math inline">\(H_{0}\)</span>, i.e., the atomic bare states. Diagonalizing the atomic Hamiltonian in the presence of the laser field, i.e., <span class="math inline">\(H_{0}+H_{1}\)</span>, generates a set of eigenstates, called atomic dressed states, that depend parametrically on the position of the atom and on time, <span class="math inline">\(\left|\phi_{\alpha}\right\rangle \equiv\left|\phi_{\alpha}(r, t)\right\rangle\)</span>. Note that we can use the same set of labels to designate the bare and dressed states and, in the limit of vanishing atom-light coupling, <span class="math inline">\(H_{1} \rightarrow 0\)</span>, we have <span class="math inline">\(\left|\phi_{\alpha}\right\rangle \rightarrow|\alpha\rangle .\)</span> The position- and time-dependent operator <span class="math display">\[
+U(r, t)=\sum_{\alpha}\left|\phi_{\alpha}\right\rangle\langle\alpha|
+\]</span> is a unitary transformation that connects the bare and dressed basis states, <span class="math inline">\(U|\alpha\rangle=\left|\phi_{\alpha}\right\rangle .\)</span> Note that <span class="math inline">\(U\)</span> diagonalizes the operator <span class="math inline">\(H_{0}+H_{1}\)</span>, <span class="math display">\[
+U^{\dagger}\left(H_{0}+H_{1}\right) U=\sum_{\alpha} \epsilon_{\alpha}(r, t)|\alpha\rangle\langle\alpha| \equiv \Lambda(r, t)
+\]</span> where <span class="math inline">\(\epsilon_{\alpha}(r, t)\)</span> are the position- and time-dependent "energies" of the atomic dressed states, <span class="math inline">\(\left(H_{0}+H_{1}\right)\left|\phi_{\alpha}\right\rangle=\epsilon_{\alpha}\left|\phi_{\alpha}\right\rangle .\)</span> If <span class="math inline">\(|\psi\rangle\)</span> is a solution of the timedependent Schrödinger equation defined by the total Hamiltonian <span class="math inline">\(H_{\text {tot }}\)</span>, the transformed state <span class="math inline">\(\left|\psi^{\prime}\right\rangle=U^{\dagger}|\psi\rangle\)</span> will be a solution of the time-dependent Schrödinger equation defined by the transformed Hamiltonian <span class="math inline">\(H_{\text {tot }}^{\prime}=\)</span> <span class="math inline">\(U^{\dagger} H_{ tot } U-i \hbar U^{\dagger} \partial_{t} U\)</span>. Explicitly, we have <span class="math display">\[
+H_{ tot }^{\prime}=\frac{[p- A (r, t)]^{2}}{2 m}+V(r, t)+\Lambda(r, t)+\Phi(r, t)
+\]</span> where <span class="math inline">\(A =i \hbar U^{\dagger} \nabla U\)</span> and <span class="math inline">\(\Phi=-i \hbar U^{\dagger} \partial_{t} U .\)</span> Note that in the derivation of Eq. (9.19) we have exploited the fact that <span class="math inline">\(U\)</span> is a unitary operator, which leads to the identities <span class="math inline">\(\left( \nabla U^{\dagger}\right) U+U^{\dagger}( \nabla U)=0\)</span> and <span class="math inline">\(U^{\dagger} \nabla^{2} U= \nabla \cdot\left(U^{\dagger} \nabla U\right)+\left(U^{\dagger} \nabla U\right)^{2}\)</span> Next, we assume that a subset <span class="math inline">\(q\)</span> of atomic dressed states is well separated in energy from the other dressed states and that the trapped atom evolves adiabatically within the subspace spanned by the <span class="math inline">\(q\)</span> -states. The effective Hamiltonian that describes the adiabatic evolution of the system is <span class="math inline">\(\widetilde{ P }_{q} H_{ tot } \widetilde{ P }_{q}\)</span>, where <span class="math inline">\(\widetilde{ P }_{q}=\sum_{\alpha \in q}\left|\phi_{\alpha}\right\rangle\left\langle\phi_{\alpha}\right|\)</span> is the projector onto the subspace of dressed <span class="math inline">\(q\)</span> -states. Note, however, that the unitary operator <span class="math inline">\(U\)</span> given by Eq. <span class="math inline">\((9.17)\)</span> realizes a oneto-one mapping between the dressed states <span class="math inline">\(\left|\phi_{\alpha}\right\rangle\)</span> and the bare states <span class="math inline">\(|\alpha\rangle .\)</span> Consequently, in terms of transformed states the "dressed" <span class="math inline">\(q\)</span> -subspace becomes a "bare" <span class="math inline">\(q\)</span> -subspace spanned by the states <span class="math inline">\(|\alpha\rangle\)</span> with <span class="math inline">\(\alpha \in q .\)</span> If <span class="math inline">\(P _{q}=\sum_{\alpha \in q}|\alpha\rangle\langle\alpha|\)</span> is the projector onto the bare <span class="math inline">\(q\)</span> -subspace, we have <span class="math inline">\(\widetilde{ P }_{q} U=U P _{q}\)</span> and the effective (transformed) Hamiltonian that describes the dynamics of the system within the adiabatic approximation takes the form <span class="math display">\[
+H_{ eff }= P _{q} H_{ tot }^{\prime} P _{q}=\frac{\left[p- A ^{(q)}\right]^{2}}{2 m}+V+\Lambda^{(q)}+\Phi^{(q)}+W^{(q)}
+\]</span> where <span class="math inline">\(A ^{(q)}, \Lambda^{(q)}\)</span> and <span class="math inline">\(\Phi^{(q)}\)</span> are the projections of the corresponding operators onto the <span class="math inline">\(q\)</span> -subspace. The additional term has the form <span class="math display">\[
+W^{(q)}=\frac{1}{2 m}\left[ P _{q} A ^{2} P _{q}-\left( A ^{(q)}\right)^{2}\right]=\frac{1}{2 m} P _{q} A \left(1- P _{q}\right) A P _{q}
+\]</span> In terms of atomic bare states, the operators associated with the geometric vector potential <span class="math inline">\(A ^{(q)}\)</span> and the scalar potentials <span class="math inline">\(W^{(q)}\)</span> and <span class="math inline">\(\Phi^{(q)}\)</span> are <span class="math display">\[
+\begin{aligned}
+A ^{(q)} &amp;=\sum_{\alpha, \beta \in q}|\alpha\rangle A _{\alpha \beta}\langle\beta|, &amp; A_{\alpha \beta}=i \hbar\left\langle\phi_{\alpha}|\nabla| \phi_{\beta}\right\rangle 
+\\
+\Phi^{(q)} &amp;=\sum_{\alpha, \beta \in q}|\alpha\rangle \Phi_{\alpha \beta}\langle\beta|,   &amp; \Phi_{\alpha \beta}=-i \hbar\left\langle\phi_{\alpha}\left|\frac{\partial}{\partial t}\right| \phi_{\beta}\right\rangle, 
+\\
+W^{(q)} &amp;=\sum_{\alpha, \beta \in q}|\alpha\rangle W_{\alpha \beta}\langle\beta|, &amp; W_{\alpha \beta}=\frac{1}{2 m} \sum_{\lambda \notin q} A _{\alpha \lambda} \cdot A _{\lambda \beta}
+\end{aligned}
+\]</span> Note that the geometric vector potential and the scalar potential <span class="math inline">\(W^{(q)}\)</span> are generated by the spatial dependence of the dressed states, while <span class="math inline">\(\Phi^{(q)}\)</span> is generated by their time dependence. If the <span class="math inline">\(q\)</span> subspace is one-dimensional or if the matrices <span class="math inline">\(A _{\alpha \beta}, \Phi_{\alpha \beta}\)</span>, and <span class="math inline">\(W_{\alpha \beta}\)</span> are diagonal, they represent Abelian geometric potentials. In general, however, these matrices do not commute and represent non- Abelian potentials. Below, we discuss two examples of setups that can be used to generate these types of geometric potentials.</p>
+<h4 id="abelian-gauge-potentials-the-lambda-scheme">9.3.2 Abelian gauge potentials: The <span class="math inline">\(\Lambda\)</span> scheme</h4>
+<p>Consider a simplified atom structure consisting of three atomic states: <span class="math inline">\(\left|g_{1}\right\rangle\)</span>, <span class="math inline">\(\left|g_{2}\right\rangle\)</span>, and <span class="math inline">\(|e\rangle\)</span>, where, typically, the first two are nearly degenerate ground states and the third is an excited state. Two laser beams couple the states <span class="math inline">\(\left|g_{1}\right\rangle\)</span> and <span class="math inline">\(\left|g_{2}\right\rangle\)</span> to the excited state resulting in the so-called <span class="math inline">\(\Lambda\)</span> scheme of the atom-light coupling, which is schematically illustrated in Figure <span class="math inline">\(9.6( a )\)</span>. We assume that the detunings of the lasers are <span class="math inline">\(\delta_{1}=-\delta\)</span> and <span class="math inline">\(\delta_{2}=\delta\)</span>, respectively. The dynamics of the atom-light system is described by a Hamiltonian <span class="math inline">\(H=H_{0}+H_{1}\)</span> similar to that from Eq. (9.5), but containing two interaction terms. In the rotating wave approximation, the effective atom-light Hamiltonian is time-independent and can be obtained following the steps leading to Eq. (9.6). Explicitly, we have <span class="math display">\[
+H^{\prime}=\frac{\hbar \delta}{2}\left[\left|g_{2}\right\rangle\left\langle g_{2}|-| g_{1}\right\rangle\left\langle g_{1}\right|\right]+\frac{\hbar}{2}\left[\Omega_{1}(r)|e\rangle\left\langle g_{1}\left|+\Omega_{2}(r)\right| e\right\rangle\left\langle g_{2}\right|+h . c .\right]
+\]</span> where <span class="math inline">\(\Omega_{1}\)</span> and <span class="math inline">\(\Omega_{2}\)</span> are Rabi frequencies characterizing the two transitions. The three eigenstates of <span class="math inline">\(H^{\prime}\)</span> represent the dressed atomic states <span class="math inline">\(\left|\phi_{\alpha}\right\rangle\)</span> of an atom-light system with <span class="math inline">\(\Lambda\)</span> -type level structure. Assuming exact resonance, <span class="math inline">\(\delta=0\)</span>, we have <span class="math display">\[
+|D\rangle=\frac{\left|g_{1}\right\rangle-\zeta\left|g_{2}\right\rangle}{\sqrt{1+|\zeta|^{2}}}, \quad\left|B_{\pm}\right\rangle=\frac{\left|g_{1}\right\rangle+\zeta^{*}\left|g_{2}\right\rangle}{\sqrt{2\left(1+|\zeta|^{2}\right)}} \pm \frac{|e\rangle}{\sqrt{2}},
+\]</span> where <span class="math inline">\(\zeta \equiv \Omega_{1} / \Omega_{2}=|\zeta| e^{i S}\)</span> gives the relative magnitude and phase of the two Rabi frequencies, i.e., <span class="math inline">\(|\zeta|\)</span> and <span class="math inline">\(S\)</span>, respectively. Note that the state <span class="math inline">\(|D\rangle\)</span>, called the dark state, contains no contribution from the excited state <span class="math inline">\(|e\rangle .\)</span> In practice, this property is important because for a system in state <span class="math inline">\(|D\rangle\)</span> the excited level</p>
+<p>does not become populated and the spontaneous decay is suppressed. Furthermore, the dark state, which is characterized by a zero eigenvalue <span class="math inline">\(\epsilon_{D}=0\)</span>, is well separated in energy from the other two states, which have eigenvalues <span class="math inline">\(\epsilon_{B_{\pm}}=\pm \frac{\hbar}{2} \sqrt{\left|\Omega_{1}\right|^{2}+\left|\Omega_{2}\right|^{2}}\)</span>. If <span class="math inline">\(\left|\epsilon_{B_{\pm}}\right|\)</span> exceeds the characteristic kinetic energy of the atomic motion, the atoms will evolve adiabatically within the dark state subspace <span class="math inline">\(q=D .\)</span> The corresponding geometric vector potential defined by <span class="math inline">\((9.22)\)</span>, i.e., <span class="math inline">\(A \equiv A _{D D}=i \hbar\langle D|\nabla| D\rangle\)</span>, takes the form <span class="math display">\[
+A =-\hbar \frac{|\zeta|^{2}}{1+|\zeta|^{2}} \nabla S
+\]</span> In the general language of geometric phases summarized in Chapter <span class="math inline">\(2, A\)</span> is the Mead- -Berry vector potential (or Mead-Berry connection) given by Eq. (2.17). The corresponding Berry curvature vector <span class="math inline">\(B \equiv \Omega^{D}(r)=\nabla \times A\)</span>, which can be interpreted as an artificial magnetic field, has the form <span class="math display">\[
+B =\hbar \frac{\nabla S \times \nabla|\zeta|^{2}}{\left(1+|\zeta|^{2}\right)^{2}}
+\]</span> Note that <span class="math inline">\(B \neq 0\)</span> only if the gradients of the relative intensity <span class="math inline">\(|\zeta|^{2}\)</span> and the relative phase <span class="math inline">\(S\)</span> are both non-zero and not parallel to each other. This requires a non-vanishing relative orbital angular momentum of the two light beams, which can be realized, for example, using two counter-propagating Gaussian beams with an offset between their propagation axes <span class="math inline">\([241,109] .\)</span> Finally, we note that in the rotating wave approximation the dressed states are timeindependent and, consequently, we have <span class="math inline">\(\Phi=0 .\)</span> On the other hand, the scalar potential <span class="math inline">\(W\)</span> is, in general, non-zero and can be determined explicitly using Eq. <span class="math inline">\((9.22)\)</span>, i.e., <span class="math inline">\(W \equiv W_{D D}=\frac{1}{2 m}\left( A _{D B_{+}} \cdot A _{B_{+} D}+ A _{D B_{-}} \cdot A _{B_{-} D}\right)\)</span>, and the explicit expressions for the dressed states given by Eq. (9.24).</p>
+<h4 id="non-abelian-gauge-potentials-the-tripod-scheme-and-spin-orbit-coupling">9.3.3 Non-Abelian gauge potentials: The tripod scheme and spin-orbit coupling</h4>
+<p>When the atom-light system evolves adiabatically within a manifold of degenerate (or quasi-degenerate) <span class="math inline">\(q\)</span> -states, the emerging geometric potentials <span class="math inline">\((9.22)\)</span> are non-Abelian. A generic way to obtain a degenerate subspace is to couple <span class="math inline">\(N \geq 3\)</span> states <span class="math inline">\(\left|g_{i}\right\rangle\)</span>, where <span class="math inline">\(i=1,2, \ldots, N\)</span> to a single level <span class="math inline">\(|e\rangle\)</span> via laser fields with Rabi frequencies <span class="math inline">\(\Omega_{i}[375,109]\)</span>. The case <span class="math inline">\(N=3-\)</span> the so-called tripod scheme - is illustrated in Figure <span class="math inline">\(9.6( b )\)</span>. The non-Abelian gauge potentials created using this type of scheme couple the center of mass motion of the atom to its internal (spin-like) degrees of freedom, thus generating an effective "spin-orbit" coupling [167].</p>
+<p>Consider <span class="math inline">\(N\)</span> states <span class="math inline">\(\left|g_{i}\right\rangle\)</span> coupled resonantly to an excited state <span class="math inline">\(|e\rangle\)</span> via laser fields. In the rotating field approximation the effective atom-light Hamiltonian is <span class="math display">\[
+H^{\prime}=\sum_{i=1}^{N} \frac{\hbar}{2} \Omega_{i}|e\rangle\left\langle g_{i}\right|+\text { h.c. }=\frac{\hbar \Omega(r)}{2}[|e\rangle\langle B(r)|+| B(r)\rangle\langle e|]
+\]</span> where <span class="math inline">\(\Omega=\sqrt{\left|\Omega_{1}\right|^{2}+\cdots+\left|\Omega_{N}\right|^{2}}\)</span> and <span class="math inline">\(|B\rangle=\frac{1}{\Omega} \sum_{i} \Omega_{i}\left|g_{i}\right\rangle\)</span> is the bright coupled state. The dressed states are obtained by diagonalizing <span class="math inline">\(H^{\prime}\)</span>. This gives two states <span class="math inline">\(\left|B_{\pm}\right\rangle=(|B\rangle \pm|e\rangle) / \sqrt{2}\)</span> with energies <span class="math inline">\(\epsilon_{B_{\pm}}=\pm \frac{\hbar}{2} \Omega\)</span>, which generalize the <span class="math inline">\(\left|B_{\pm}\right\rangle\)</span> states from Eq. <span class="math inline">\((9.24)\)</span>, and <span class="math inline">\(N-1\)</span> dark states with energy <span class="math inline">\(\epsilon_{D_{n}}=0\)</span> that are orthogonal to the bright state <span class="math inline">\(|B\rangle\)</span>. These dark states provide the degenerate subspace <span class="math inline">\(q=\left\{D_{1}, \ldots, D_{N-1}\right\}\)</span> in which the system can evolve adiabatically. Experimentally, the tripod scheme can be realized using, for example, the atomic transition between a ground level with angular momentum <span class="math inline">\(j_{g}=1\)</span> and an excited state with <span class="math inline">\(j_{e}=0 .\)</span> This level structure occurs in alkali-metal species such as <span class="math inline">\({ }^{23} Na\)</span> and <span class="math inline">\({ }^{87} Rb\)</span>. A proper choice of laser fields leads to a geometric vector potential <span class="math inline">\(A _{n m}\)</span> with non-commuting Cartesian components. The artificial non-Abelian potential can be equivalent to the presence of an effective magnetic monopole [375] or, more interestingly, to the presence of an effective "spin-orbit" coupling <span class="math inline">\([167,412,484]\)</span>.</p>
+<p>To illustrate the generation of spin-orbit coupling (SOC) in cold-atom systems, let us consider a simple example involving a spatially uniform vector potential. We assume <span class="math inline">\(N=3\)</span> ground states coupled resonantly to an excited state via three plane waves of equal amplitude propagating in the <span class="math inline">\(x y\)</span> plane. The corresponding Rabi frequencies and wave vectors are <span class="math display">\[
+\Omega_{j}(r)=\frac{1}{\sqrt{N}} \Omega e^{i k _{j} \cdot r }, \quad k _{j}=k\left(-\hat{e}_{x} \cos \alpha_{j}+\hat{e}_{y} \sin \alpha_{j}\right)
+\]</span> where <span class="math inline">\(\hat{e}_{x}\)</span> and <span class="math inline">\(\hat{e}_{y}\)</span> are unit vectors along the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> directions, respectively, and <span class="math inline">\(\alpha_{j}=2 \pi j / N\)</span>. A convenient basis for the <span class="math inline">\(q\)</span> subspace, which has <span class="math inline">\(N-1=2\)</span> dimensions, is given by the following set of orthonormal dark states <span class="math display">\[
+\left|D_{n}\right\rangle=\frac{1}{\sqrt{N}} \sum_{j}\left|g_{j}\right\rangle e^{i \alpha_{j} n-i k _{j} \cdot r }
+\]</span> Substituting this expression in Eq. (9.22), we obtain the geometric vector and scalar potentials <span class="math display">\[
+\begin{array}{ll} 
+A _{12}=-\frac{\hbar k}{2}\left(\hat{e}_{x}-i \hat{e}_{y}\right)= A _{21}^{*}, &amp; A _{11}= A _{22}=0 \\
+W_{11}=W_{22}=\frac{\hbar^{2} k^{2}}{4 m}, &amp; W_{12}=W_{21}=0 .
+\end{array}
+\]</span> Note that, although these are constant potentials, the effect of the vector potential on the dynamics of the system is non-trivial because the Cartesian components of <span class="math inline">\(A\)</span> do not commute. Assuming that the atoms move in a constant potential, the solutions of the Schrödinger equation defined by the effective Hamiltonian <span class="math inline">\(H_{\text {eff }}\)</span> from <span class="math inline">\((9.20)\)</span> are plane waves <span class="math inline">\(\left|\psi_{q}(r, t)\right\rangle=\)</span> <span class="math inline">\(\left|\varphi_{ q }\right\rangle \exp \left[i\left( q \cdot r -E_{ q } t\right)\right]\)</span>, where the amplitudes <span class="math inline">\(\left|\varphi_{ q }\right\rangle\)</span> are solutions of the eigen-value problem <span class="math inline">\(H_{ eff }(q)\left|\varphi_{ q }\right\rangle=E_{ q }\left|\varphi_{ q }\right\rangle\)</span>. Note that the effective Hamiltonian is a <span class="math inline">\(2 \times 2\)</span> matrix and that the terms <span class="math inline">\(\Lambda^{(q)^{\prime \prime}}\)</span> and <span class="math inline">\(\Phi^{(q)}\)</span> vanish, while <span class="math inline">\(V\)</span> and <span class="math inline">\(W^{(q)}\)</span> are proportional to the unit matrix. Choosing for simplicity <span class="math inline">\(V=-\hbar^{2} k^{2} / 4 m=-W\)</span>,</p>
+<p>we have <span class="math display">\[
+H_{ eff }(q)=\frac{(\hbar q- A )^{2}}{2 m}=\frac{\hbar^{2} q^{2}}{2 m}-\frac{\hbar k}{4 m}\left(q_{x} \sigma_{x}+q_{y} \sigma_{y}\right)+\frac{\hbar^{2} k^{2}}{8 m}
+\]</span> where <span class="math inline">\(\sigma=\left(\sigma_{x}, \sigma_{y}, \sigma_{z}\right)\)</span> are Pauli matrices. Note that the vector potential is proportional to the in-plane spin-1/2 operator, <span class="math inline">\(A =-k\left(S_{x} \hat{e}_{x}+S_{y} \hat{e}_{y}\right)\)</span>, where <span class="math inline">\(S=\frac{\hbar}{2} \sigma\)</span>. The second term in Eq. <span class="math inline">\((9.32)\)</span> couples the (pseudo) spin to the center of mass motion of the atom, i.e., it represents an effective spin-orbit coupling. Several other schemes were proposed to realize similar linear Dresselhaus or Rashba type spin-orbit coupling <span class="math inline">\([240,375,484]\)</span>. Engineering such couplings in cold atom systems represents a key step in the development of quantum simulators for a variety of interesting condensed matter systems, including systems that support topologically non-trivial phases.</p>
+<h2 id="topological-states-in-cold-atom-systems">9.4 Topological States In Cold Atom Systems</h2>
+<p>There is a large variety of theoretical proposals for realizing topological phases in cold atom systems (see, for example, [184] and references therein). Below, we briefly discuss one example and touch upon another to illustrate some of the specific ingredients, tuning knobs, and probes associated with the preparation and detection of topological phases in a cold atom environment.</p>
+<h4 id="realization-of-the-haldane-model-with-ultracold-atoms">9.4.1 Realization of the Haldane model with ultracold atoms</h4>
+<p>The Haldane model [205] discussed in Chapter 7 (see Section <span class="math inline">\(7.2\)</span> starting on page 198) cannot be naturally realized in a condensed matter system. Cold atoms, on the other hand, appear to be better suited for its implementation [12, 183]. In essence, a state-dependent honeycomb optical lattice generated by a three-beam laser configuration traps atoms with two different internal pseudospin states at the nodes of two intertwined triangular lattices, as shown in Figure <span class="math inline">\(9.7\)</span> (a). The state-dependent potential corresponds to an effective "Zeeman shift" that has minima on the A lattice and maxima on the B lattice for pseudo-spin up atoms, while for pseudo-spin down atoms the shift has the opposite sign. Additional lasers are used to coherently transfer atoms from one internal state to the other, thus causing laser-induced hopping [232] between nearest neighbor (n.n.) sites.</p>
+<p>For a sufficiently deep optical potential (and no additional lasers) only hopping between neighboring sites on each triangular lattice - i.e., next nearest neighbors (n.n.n.) on the honeycomb lattice - are allowed. The corresponding Hamiltonian takes the form <span class="math display">\[
+H_{0}=-t_{A} \sum_{\left\langle\left\langle i_{A}, j_{A}\right\rangle\right\rangle} a_{i_{A}}^{\dagger} a_{j_{A}}-t_{B} \sum_{\left\langle\left\langle i_{B}, j_{B}\right\rangle\right\rangle} b_{i_{B}}^{\dagger} b_{j_{B}}
+\]</span> where <span class="math inline">\(a_{i_{A}}\)</span> and <span class="math inline">\(b_{i_{B}}\)</span> are annihilation operators for atoms at lattice sites <span class="math inline">\(r_{i_{A}}\)</span> and <span class="math inline">\(r_{i_{B}}\)</span> on lattice A and B, respectively, and <span class="math inline">\(\left\langle\left\langle i_{x}, j_{x}\right\rangle\right\rangle\)</span> designates n.n.n. sites on the lattice <span class="math inline">\(x=A, B\)</span>. In general, the depths of the two optical lattices can be different, which amounts to introducing a staggered potential described by <span class="math display">\[
+H_{M}=-M \sum_{i_{A}} a_{i_{A}}^{\dagger} a_{i_{A}}+M \sum_{i_{B}} b_{i_{B}}^{\dagger} b_{i_{B}}
+\]</span> Note that <span class="math inline">\(H_{M}\)</span> breaks the inversion symmetry of the honeycomb lattice with respect to the center of a hexagon.</p>
+<p>Next, the two triangular lattices are coupled through laser-assisted tunneling, as illustrated schematically in Figure <span class="math inline">\(9.7\)</span> (b). The effective hopping <span class="math inline">\(t_{\text {eff }}\)</span> contains a Peierls phase determined by the wave vector <span class="math inline">\(q\)</span> of the laser [232], <span class="math display">\[
+t_{ eff }=-t e^{i \phi\left(i_{A}, j_{B}\right)}, \quad \phi\left(i_{A}, j_{B}\right)=\frac{1}{2} q \cdot\left(r_{i_{A}}+r_{j_{B}}\right)=-\phi\left(j_{b}, i_{A}\right)
+\]</span> The effective Hamiltonian describing the laser-assisted coupling of the two lattices has the form <span class="math display">\[
+H_{A B}=-t \sum_{\left\langle i_{A}, j_{B}\right\rangle}\left(e^{i \phi\left(i_{A}, j_{B}\right)} a_{i_{A}}^{\dagger} b_{j_{B}}+\text { h.c. }\right),
+\]</span> where <span class="math inline">\(\left\langle i_{A}, j_{B}\right\rangle\)</span> labels n.n. sites on the honeycomb lattice. The total Hamiltonian for the system is <span class="math inline">\(H_{\text {tot }}=H_{0}+H_{M}+H_{A B}\)</span> and the relevant parameters are the hopping amplitudes <span class="math inline">\(t_{A}, t_{B}\)</span> and <span class="math inline">\(t\)</span>, the mismatch energy <span class="math inline">\(M\)</span>, and the wave vector <span class="math inline">\(q\)</span></p>
+<p>The effective Hamiltonian <span class="math inline">\(H_{\text {tot }}\)</span> is explicitly position-dependent through the Peierls phases <span class="math inline">\(\phi\left(i_{A}, j_{B}\right)\)</span>. To eliminate this dependence, it is convenient to perform the unitary transformation corresponding to <span class="math inline">\(a_{i_{A}} \rightarrow a_{i_{A}} \exp \left(i q \cdot r _{i_{A}} / 2\right)\)</span> and <span class="math inline">\(b_{j_{B}} \rightarrow b_{j_{B}} \exp \left(-i q \cdot r_{j_{B}} / 2\right)\)</span>. The transformed Hamiltonian is characterized by real n.n. hopping and complex n.n.n. hopping, similar to the original Haldane model. After performing a Fourier transform, the Hamiltonian can be written in the standard form <span class="math inline">\(H_{\text {tot }}=\epsilon(k) I_{2 \times 2}+d(k) \cdot \sigma\)</span>, where <span class="math inline">\(\sigma=\left(\sigma_{x}, \sigma_{y}, \sigma_{z}\right)\)</span> are Pauli matrices and <span class="math display">\[
+\begin{array}{l}
+\epsilon(k)=-t_{A} f(k-q / 2)-t_{B} f(k+q / 2) \\
+d_{x}(k)=-t \operatorname{Re}[g(k)], \quad d_{y}(k)=t \operatorname{Im}[g(k)] \\
+d_{z}(k)=-M-t_{A} f(k-q / 2)+t_{B} f(k+q / 2) .
+\end{array}
+\]</span> The functions <span class="math inline">\(f(k)=\sum_{\alpha} \cos \left(k \cdot a_{\alpha}\right)\)</span> and <span class="math inline">\(g(k)=\sum_{\alpha} \exp \left(-i k \cdot \delta_{\alpha}\right)\)</span> are defined in terms of the primitive lattice vectors <span class="math inline">\(a_{\alpha}=\pm\left(\delta_{\mu}-\delta_{\nu}\right)\)</span> of the honeycomb lattice shown in Figure <span class="math inline">\(9.7( a )\)</span>. We note that the effective Hamiltonian of the cold atom system has the same structure as the original Haldane model given by Eqs. (7.22) and <span class="math inline">\((7.23)\)</span>, with the minor difference that the "magnetic flux" configurations associated with the Peierls phases have different structures [183]. We note that the experimental realization of a Haldane-type model in a periodically modulated optical honeycomb lattice was recently reported [237]. The Hamiltonian <span class="math inline">\(H_{\text {tot }}\)</span> of the two-dimensional cold atom system is in symmetry class A and its gapped ground states are classified by a <span class="math inline">\(Z\)</span> topological invariant given by the first Chern number of the occupied band. In an analog solid-state system (e.g., an integer quantum Hall fluid), the non-trivial topology is detected by measuring the Hall conductance. However, it is not clear how a similar transport measurement can be done with cold atoms. Hence, the question: how can one probe the presence of a topologically non-trivial phase in a cold atom system? A type of measurement that can be easily done with cold atoms is the so-called time of flight (ToF) measurement: the trapping potential is switched off and the momentum distribution of the particles is determined by imaging the expansion of the atomic cloud. For the Haldanetype model described above, the normalized vector <span class="math inline">\(n(k)=d(k) /|d(k)|\)</span> can be reconstructed from the (pseudo) spin-resolved momentum densities <span class="math inline">\(\rho_{A, B}(k)\)</span> associated with the two internal states of the atoms <span class="math inline">\([12,183]\)</span>. Knowing <span class="math inline">\(n(k)\)</span>, provides us with direct access to the Berry curvature of the valence band, <span class="math inline">\(F =\frac{1}{2} n \cdot\left(\partial_{k_{x}} n \times \partial_{k_{y}} n\right)\)</span>, and to the corresponding Chern number (see Section 5.4.2 on page 142), <span class="math display">\[
+\nu=\frac{1}{4 \pi} \int_{ T ^{2}} d^{2} k n \cdot\left(\partial_{k_{x}} n \times \partial_{k_{y}} n\right)
+\]</span> where <span class="math inline">\(T ^{2}\)</span> is the <span class="math inline">\(BZ\)</span> torus. This example illustrates three important potential contributions that cold atom systems could bring to the table. i) Simplicity. The effective low-energy physics is free from effects associated with phonons, disorder, sub-dominant interactions, and other "unwanted" sources that make life complicated in solidstate systems. Thus, cold atom systems are ideally suited for studying simple models, which is key to advancing our understanding of the physical world (including topological quantum matter). ii) Control and tunability. In solid state systems one can easily control a few external parameters (e.g., temperature, magnetic field, etc.). With cold atoms, one can basically control all the parameters of the effective Hamiltonian. Potentially, this is a significant advantage, as it offers access to certain parameter regimes that may not be accessible in a nature-given system, facilitates the study of phase transition (along various paths in the parameter space), and provides convenient knobs for changing the symmetry class of the Hamiltonian. iii) Accessibility. The cold atom environment provides certain tools for probing the topological properties of a system that are not available in solid-state physics. For example, one has direct access to the Berry curvature, as discussed above. Also, a direct measurement of the Zak phase in topological Bloch bands was recently reported [28].</p>
+<h4 id="majorana-fermions-in-optical-lattices">9.4.2 Majorana fermions in optical lattices</h4>
+<p>We close this chapter with a few brief remarks on proposed schemes for the realization of zero-energy Majorana modes with cold atoms. To engineer a topological superconducting state one can start with fermionic atoms trapped in a 1D (or 2D) optical lattice. Synthetic spin-orbit coupling and Zeeman fields can be generated using spatially modulated laser fields <span class="math inline">\([382,482]\)</span>, as described in Section 9.3.3. Alternatively, one can use laser-assisted tunneling methods or Raman coupling with non-zero photon recoil. For example, one can show <span class="math inline">\([235,273]\)</span> that using the <span class="math inline">\(\Lambda\)</span> scheme [see Figure $9.6( a )]$ with two lasers propagating along <span class="math inline">\(k_{1}\)</span> and <span class="math inline">\(k_{2}\)</span> and <span class="math inline">\(k_{1}-k_{2} \neq 0\)</span> oriented parallel to the quantum wire one can induce both (effective) spin-orbit interaction and magnetic field. To generate pairing, one can couple the system to a BEC reservoir of Feshbach molecules via radio-frequency pulse [235]. This could be regarded as the analog of the superconducting proximity effect in solid-state heterostructures.</p>
+<p>The detection of Majorana zero modes (MZMs) can be a non-trivial task. As discussed in the previous chapter, there are several different "detection levels" determined by the type of property that is probed, starting with establishing the presence of a zero-energy mode and culminating with the demonstration of non-Abelian statistics. In cold atom systems, one can use, for example, spatially resolved radio-frequency spectroscopy [193] to obtain information about the local density of states. This would be the AMO analog of scanning tunneling spectroscopy. ToF imaging can also provide information about the existence and number of MZMs in an optical lattice setup. More specifically, the presence of MZMs is signaled by rapid oscillations of the atomic density distribution at the detector, which are associated with the nonlocal nature of the fermionic state corresponding to a pair of Majoranas localized at the opposite ends of a <span class="math inline">\(1 D\)</span> system <span class="math inline">\([273]\)</span>. In addition, for a 1D Majorana system in the BDI symmetry class, the <span class="math inline">\(Z\)</span> topological invariant could be measured using a ToF scheme similar to the one proposed for Chern insulators [12].</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/">Topological Physics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/%E6%8B%93%E6%89%91%E7%89%A9%E6%80%81%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">拓扑物态的基础概念</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Entanglement/">Entanglement</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/21/CS_07_Monte_Carlo_02/">
+                        <span class="hidden-mobile">Monte Carlo 积分</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "冷原子系统中的拓扑相位&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
