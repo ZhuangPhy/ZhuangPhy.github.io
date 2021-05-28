@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      8.6k 字
+      8.7k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      170
+      172
        分钟
     </span>
   
@@ -380,7 +380,14 @@ E(k)=\pm\left|v+e^{-i k} w\right|=\pm \sqrt{v^{2}+w^{2}+2 v w \cos k}
 \]</span> We show this dispersion relation for five choices of the parameters in Fig. 1.2.</p>
 <p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210527161620569.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
 <blockquote>
-<p>Fig. <span class="math inline">\(1.2\)</span> Dispersion relations of the SSH model, Eq. (1.15), for five settings of the hopping amplitudes: (a):$v=1, w=0 <span class="math display">\[ ;( b ): v=1,\]</span> w=0.6 ;( c ): v=w=1 ;$<span class="math inline">\(( d ): v=0.6, w=1\)</span> (e): <span class="math inline">\(v=0, w=1\)</span>.</p>
+<p>Fig. <span class="math inline">\(1.2\)</span> Dispersion relations of the SSH model, Eq. (1.15), for five settings of the hopping amplitudes:</p>
+<ul>
+<li>(a):$v=1, w=0 $ ;</li>
+<li><span class="math inline">\(( b ): v=1, w=0.6 ;\)</span></li>
+<li>$( c ): v=w=1 $;</li>
+<li><span class="math inline">\(( d ): v=0.6, w=1\)</span></li>
+<li>(e): <span class="math inline">\(v=0, w=1\)</span>.</li>
+</ul>
 <p>In each case, the path of the endpoints of the vector <span class="math inline">\(d (k)\)</span> representing the bulk momentum-space Hamiltonian, are also shown on the <span class="math inline">\(d_{x}, d_{y}\)</span> plane, as the wavenumber is sweeped across the Brillouin zone, <span class="math inline">\(k=0 \rightarrow 2 \pi\)</span></p>
 </blockquote>
 <p>As long as the hopping amplitudes are staggered, <span class="math inline">\(v \neq w\)</span>, (Fig. <span class="math inline">\(1.2 a , b , d , e )\)</span>, there is an energy gap of <span class="math inline">\(2 \Delta\)</span> separating the lower, filled band, from the upper, empty band, with <span class="math display">\[
@@ -395,18 +402,30 @@ E(k)=\pm\left|v+e^{-i k} w\right|=\pm \sqrt{v^{2}+w^{2}+2 v w \cos k}
 <p>The bulk momentum-space Hamiltonian <span class="math inline">\(\hat{H}(k)\)</span> of any two-band model (i.e., a model with 2 internal states per unit cell), reads <span class="math display">\[
 \begin{aligned}
 H(k)&amp;=d_{0}(k) \hat{\sigma}_{0}+ d (k) \hat{\sigma}\\&amp;=d_{0}(k) \hat{\sigma}_{0}+d_{x}(k) \hat{\sigma}_{x}+d_{y}(k) \hat{\sigma}_{y}+d_{z}(k) \hat{\sigma}_{z}
-\end{aligned} 
+\end{aligned}
 \]</span> For the SSH model, <span class="math inline">\(d_{0}(k)=0\)</span>, and the real numbers <span class="math inline">\(d_{x y, z} \in R\)</span>, the components of the <span class="math inline">\(k\)</span> -dependent 3 -dimensional vector <span class="math inline">\(d (k)\)</span>, read <span class="math display">\[
 d_{x}(k)=v+w \cos k ; \quad d_{y}(k)=w \sin k ; \quad d_{z}(k)=0
 \]</span> The internal structure of the eigenstates with momentum <span class="math inline">\(k\)</span> is given by the direction in which the vector <span class="math inline">\(d (k)\)</span> (the energy is given by the magnitude of <span class="math inline">\(d (k) ;\)</span> for details see Sect. <span class="math inline">\(2.5\)</span> ).</p>
-<p>As the wavenumber runs through the Brillouin zone, <span class="math inline">\(k=0 \rightarrow 2 \pi\)</span>, the path that the endpoint of the vector <span class="math inline">\(d (k)\)</span> traces out is a closed circle of radius <span class="math inline">\(w\)</span> on the <span class="math inline">\(d_{x}, d_{y}\)</span> plane, centered at <span class="math inline">\((v, 0)\)</span>. For more general 2-band insulators, this path need not be a circle, but it needs to be a closed loop due to the periodicity of the bulk momentum-space Hamiltonian, Eq. (1.12), and it needs to avoid the origin, to describe an insulator. The topology of this loop can be characterized by an integer, the bulk winding number <span class="math inline">\(v\)</span>. This counts the number of times the loop winds around the origin of the <span class="math inline">\(d_{x}, d_{y}\)</span> plane. For example, in Fig. <span class="math inline">\(1.2 f , g\)</span>, we have <span class="math inline">\(v=0\)</span>, in Fig. <span class="math inline">\(1.2 i , j\)</span>, we have <span class="math inline">\(v=1\)</span>, while in Fig. <span class="math inline">\(1.2 h\)</span>, the winding number <span class="math inline">\(v\)</span> is undefined.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210527161620569.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<p>As the wavenumber runs through the Brillouin zone, <span class="math inline">\(k=0 \rightarrow 2 \pi\)</span>, the path that the endpoint of the vector <span class="math inline">\(d (k)\)</span> traces out is a closed circle of radius <span class="math inline">\(w\)</span> on the <span class="math inline">\(d_{x}, d_{y}\)</span> plane, centered at <span class="math inline">\((v, 0)\)</span>. For more general 2-band insulators, this path need not be a circle, but it needs to be a <strong>closed loop</strong> due to the periodicity of the bulk momentum-space Hamiltonian and it needs to avoid the origin, to describe an insulator.</p>
+<h5 id="bulk-winding-number">bulk winding number</h5>
+<p>The topology of this loop can be characterized by an integer, the <strong>bulk winding number</strong> <span class="math inline">\(v\)</span>. This counts the number of times the loop winds around the origin of the <span class="math inline">\(d_{x}, d_{y}\)</span> plane. For example,</p>
+<ul>
+<li>in Fig. <span class="math inline">\(1.2 f , g\)</span>, we have <span class="math inline">\(v=0\)</span>,</li>
+<li>in Fig. <span class="math inline">\(1.2 i , j\)</span>, we have <span class="math inline">\(v=1\)</span>,</li>
+<li>while in Fig. <span class="math inline">\(1.2 h\)</span>, the winding number <span class="math inline">\(v\)</span> is undefined.</li>
+</ul>
 <h2 id="edge-states">1.3 Edge States</h2>
-<p>Like any material, the SSH Hamiltonian does not only have a bulk part, but also boundaries (which we refer to as ends or edges). The distinction between bulk and edge is not sharply defined, it describes the behaviour of energy eigenstates in the thermodynamic limit. In the case we consider in these lecture notes, the bulk is translation invariant, and then the we can distinguish edge states and bulk states by their localized/delocalized behaviour in the thermodynamic limit. We will begin with the fully dimerized limits, where the edge regions can be unambiguously defined. We then move away from these limits, and use a practical definition of edge states.</p>
+<p>Like any material, the SSH Hamiltonian does not only have a bulk part, but also boundaries (which we refer to as ends or edges). The distinction between bulk and edge is not sharply defined, it describes the behavior of energy eigenstates in the thermodynamic limit. In the case we consider in these lecture notes, the bulk is translation invariant, and then the we can distinguish edge states and bulk states by their localized/delocalized behavior in the thermodynamic limit. We will begin with the fully dimerized limits, where the edge regions can be unambiguously defined. We then move away from these limits, and use a practical definition of edge states.</p>
 <h4 id="fully-dimerized-limits">1.3.1 Fully Dimerized Limits</h4>
 <p>The SSH model becomes particularly simple in the two fully dimerized cases: if the intercell hopping amplitude vanishes and the intracell hopping is set to 1 , <span class="math inline">\(v=1, w=0\)</span>, or vice versa, <span class="math inline">\(v=0, w=1\)</span>. In both cases the SSH chain falls apart to a sequence of disconnected dimers, as shown in Fig. 1.3.</p>
 <p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210527161759833.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
 <blockquote>
-<p>Fig. <span class="math inline">\(1.3\)</span> Fully dimerized limits of the SSH model, where the chain has fallen apart to disconnected dimers. In the trivial case (top, only intracell hopping, <span class="math inline">\(v=1, w=0\)</span> ), every energy eigenstate is an even or an odd superposition of two sites at the same unit cell. In the topological case, (bottom, only intercell hopping, <span class="math inline">\(v=0, w=1\)</span> ), dimers are between neighboring unit cells, and there is 1 isolated site per edge, that must contain one zero-energy eigenstate each, as there are no onsite potentials</p>
+<p>Fig. <span class="math inline">\(1.3\)</span> Fully dimerized limits of the SSH model, where the chain has fallen apart to disconnected dimers.</p>
+<ul>
+<li>In the trivial case (top, only intracell hopping, <span class="math inline">\(v=1, w=0\)</span> ), every energy eigenstate is an even or an odd superposition of two sites at the same unit cell.</li>
+<li>In the topological case, (bottom, only intercell hopping, <span class="math inline">\(v=0, w=1\)</span> ), dimers are between neighboring unit cells, and there is 1 isolated site per edge, that must contain one zero-energy eigenstate each, as there are no onsite potentials</li>
+</ul>
 </blockquote>
 <h5 id="the-bulk-in-the-fully-dimerized-limits-has-flat-bands">1.3.1.1 The Bulk in the Fully Dimerized Limits Has Flat Bands</h5>
 <p>In the fully dimerized limits, one can choose a set of energy eigenstates which are restricted to one dimer each. These consist of the even (energy <span class="math inline">\(E=+1)\)</span> and odd (energy <span class="math inline">\(E=-1\)</span> ) superpositions of the two sites forming a dimer.</p>
@@ -422,7 +441,7 @@ d_{x}(k)=v+w \cos k ; \quad d_{y}(k)=w \sin k ; \quad d_{z}(k)=0
 \]</span> for <span class="math inline">\(m=1, \ldots, N-1 .\)</span> The bulk momentum-space Hamiltonian now is <span class="math display">\[
 \hat{H}(k)=\hat{\sigma}_{x} \cos k+\hat{\sigma}_{y} \sin k
 \]</span></p>
-<p>In both fully dimerized limits, the energy eigenvalues are independent of the wavenumber, <span class="math inline">\(E(k)=\pm 1 .\)</span> In this so-called flat-band limit, the group velocity is zero, which again shows that as the chain falls apart to dimers, a particle input into the bulk will not move along the chain.</p>
+<p>In both fully dimerized limits, the energy eigenvalues are <strong>independent of the wavenumber</strong>, <span class="math inline">\(E(k)=\pm 1 .\)</span> In this so-called <strong>flat-band limit</strong>, the group velocity is zero, which again shows that as the chain falls apart to dimers, a particle input into the bulk will not move along the chain.</p>
 <h5 id="the-edges-in-the-fully-dimerized-limit-can-host-zero-energy-states">1.3.1.2 The Edges in the Fully Dimerized Limit Can Host Zero Energy States</h5>
 <p>In the trivial case, <span class="math inline">\(v=1, w=0\)</span>, all energy eigenstates of the SSH chain are given by the formulas of the bulk <span class="math display">\[
 \hat{H}(|m, A\rangle \pm|m, B\rangle)=\pm(|m, A\rangle \pm|m, B\rangle)
@@ -432,8 +451,8 @@ d_{x}(k)=v+w \cos k ; \quad d_{y}(k)=w \sin k ; \quad d_{z}(k)=0
 v=0, w=1: \quad \hat{H}|1, A\rangle=\hat{H}|N, B\rangle=0 .
 \]</span> These eigenstates have support on one site only. Their energy is zero because onsite potentials are not allowed in the SSH model. These are the simplest examples of edge states.</p>
 <h4 id="moving-away-from-the-fully-dimerized-limit">1.3.2 Moving Away from the Fully Dimerized Limit</h4>
-<p>We now examine what happens to the edge states as we move away from the fully dimerized limit. To be specific, we examine how the spectrum of an open topological chain, <span class="math inline">\(v=0, w=1\)</span>, of <span class="math inline">\(N=10\)</span> unit cells changes, as we continuously turn on the intra-cell hopping amplitude <span class="math inline">\(v\)</span>. The spectra, Fig. <span class="math inline">\(1.4\)</span>, reveal that the energies of the edge states remain very close to zero energy.</p>
-<p>The wave-functions of almost-zero-energy edge states have to be <strong>exponentially localized</strong> at the left/right edge, because the zero of energy is in the bulk band gap. A plot of the wave-functions (which have only real components, since the Hamiltonian is real), Fig. <span class="math inline">\(1.4\)</span>,</p>
+<p>We now examine what happens to the edge states as we <strong>move away</strong> from the fully dimerized limit. To be specific, we examine how the spectrum of an open topological chain, <span class="math inline">\(v=0, w=1\)</span>, of <span class="math inline">\(N=10\)</span> unit cells changes, as we <strong>continuously turn on</strong> the intra-cell hopping amplitude <span class="math inline">\(v\)</span>. The spectra, Fig. <span class="math inline">\(1.4\)</span>, reveal that the energies of the edge states remain very close to zero energy.</p>
+<p>The wave-functions of almost-zero-energy edge states have to be <strong>exponentially localized</strong> at the left/right edge, because the zero of energy is in the bulk band gap. A plot of the wave-functions (which have only real components, since the Hamiltonian is real), Fig. <span class="math inline">\(1.4\)</span></p>
 <p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210527162122115.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
 <blockquote>
 <p>Fig. 1.4 Energy spectrum and wave functions of a finite-sized SSH model. The number of unit cells is <span class="math inline">\(N=10\)</span>. (a) Energy spectrum of the system for intercell hopping amplitude <span class="math inline">\(w=1\)</span> as a function the intracell hopping amplitude <span class="math inline">\(v . v&lt;1(v&gt;1)\)</span> corresponds to the topological (trivial) phases. (b) and (c) shows the wave functions of the hybridized edge states, while (d) shows a generic bulk wave function</p>
@@ -450,48 +469,89 @@ E=e^{-N / \xi}
 <h2 id="chiral-symmetry">1.4 Chiral Symmetry</h2>
 <p>In quantum mechanics, we say that a Hamiltonian <span class="math inline">\(\hat{H}\)</span> has a symmetry represented by a unitary operator <span class="math inline">\(\hat{U}\)</span> if <span class="math display">\[
 \hat{U} \hat{H} \hat{U}^{\dagger}=\hat{H}
-\]</span> In case of a symmetry, <span class="math inline">\(\hat{U}\)</span> and <span class="math inline">\(\hat{H}\)</span> can be diagonalized together, and therefore, <span class="math inline">\(\hat{H}\)</span> has no matrix elements between two eigenstates of <span class="math inline">\(\hat{U}\)</span> with different eigenvalues. This can be understood as a superselection rule: if we partition the Hilbert space into different sectors, i.e., eigenspaces of <span class="math inline">\(\hat{U}\)</span>, labeled by the corresponding eigenvalues, then the dynamics as defined by <span class="math inline">\(\hat{H}\)</span> can be regarded separately in each sector.</p>
+\]</span> In case of a symmetry, <span class="math inline">\(\hat{U}\)</span> and <span class="math inline">\(\hat{H}\)</span> can be diagonalized together, and therefore, <span class="math inline">\(\hat{H}\)</span> has no matrix elements between two eigenstates of <span class="math inline">\(\hat{U}\)</span> with different eigenvalues. This can be understood as a super-selection rule:</p>
+<p class="note note-primary">
+super-selection rule:
+</p>
+<p>if we partition the Hilbert space into different sectors, i.e, eigenspaces of <span class="math inline">\(\hat{U}\)</span>, labeled by the corresponding eigenvalues, then the dynamics as defined by <span class="math inline">\(\hat{H}\)</span> can be regarded separately in each sector.</p>
 <h4 id="no-unitary-symmetries">1.4.1 No Unitary Symmetries</h4>
-<p>A unitary symmetry can be simply made to disappear if we restrict ourselves to one sector of the Hilbert space. This is how we obtained the bulk momentum-space Hamiltonian, in Sect. <span class="math inline">\(1.2\)</span>, where the symmetry was the lattice translation operator <span class="math inline">\(\hat{U}=|m+1, A\rangle\langle m, A|+| m+1, B\rangle\langle m, B|\)</span>, and the labels of the superselection sectors were the quasimomenta <span class="math inline">\(k\)</span>.</p>
+<p>A unitary symmetry can be simply made to disappear if we restrict ourselves to one sector of the Hilbert space. This is how we obtained the bulk momentum-space Hamiltonian, in Sect. <span class="math inline">\(1.2\)</span>, where the symmetry was the lattice translation operator <span class="math inline">\(\hat{U}=|m+1, A\rangle\langle m, A|+| m+1, B\rangle\langle m, B|\)</span>, and the labels of the super-selection sectors were the quasi-momenta <span class="math inline">\(k\)</span>.</p>
 <h4 id="a-different-type-of-symmetry">1.4.2 A Different Type of Symmetry</h4>
 <p>The word "symmetry" is also used in a different sense in condensed matter physics. One example is chiral symmetry. We say that a system with Hamiltonian <span class="math inline">\(\hat{H}\)</span> has chiral symmetry, if <span class="math display">\[
 \hat{\Gamma} \hat{H} \hat{\Gamma}^{\dagger}=-\hat{H}
-\]</span> with an operator <span class="math inline">\(\hat{\Gamma}\)</span> that is not only unitary, but fulfils some other criteria as well. Notice the extra minus sign on the right hand side. This has important consequences, which we come to later, but first discuss the criteria on the symmetry operator. First, the chiral symmetry operator has to be unitary and Hermitian, <span class="math inline">\(\hat{\Gamma}^{\dagger}=\hat{\Gamma}\)</span>, which can be written succinctly as <span class="math display">\[
+\]</span> with an operator <span class="math inline">\(\hat{\Gamma}\)</span> that is not only unitary, but fulfils some other criteria as well. Notice the extra minus sign on the right hand side. This has important consequences, which we come to later, but first discuss the criteria on the symmetry operator.</p>
+<h5 id="unitary">(1) unitary</h5>
+<p>First, the chiral symmetry operator has to be unitary and Hermitian, <span class="math inline">\(\hat{\Gamma}^{\dagger}=\hat{\Gamma}\)</span>, which can be written succinctly as <span class="math display">\[
 \hat{\Gamma}^{\dagger} \hat{\Gamma}=\hat{\Gamma}^{2}=1
 \]</span> The reason for this requirement is that if the operator <span class="math inline">\(\hat{\Gamma}^{2}\)</span> was nontrivial, it would represent a unitary symmetry, since <span class="math display">\[
 \hat{\Gamma} \hat{\Gamma} \hat{H} \hat{\Gamma} \hat{\Gamma}=-\hat{\Gamma} \hat{H} \hat{\Gamma}=\hat{H}
-\]</span> This could still leave room for the chiral symmetry operator to square to a stateindependent phase, <span class="math inline">\(\hat{\Gamma}^{2}=e^{i \phi} .\)</span> However, this can be got rid of by a redefinition of the chiral symmetry, <span class="math inline">\(\Gamma \rightarrow e^{-i \phi / 2} \Gamma\)</span>.</p>
-<p>Second, it is also required that the sublattice operator <span class="math inline">\(\hat{\Gamma}\)</span> be local. The system is assumed to consist of unit cells, and matrix elements of <span class="math inline">\(\hat{\Gamma}\)</span> between sites from different unit cells should vanish. In the SSH chain, this means that for <span class="math inline">\(m \neq m^{\prime}\)</span>, we have <span class="math inline">\(\left\langle m, \alpha|\hat{\Gamma}| m^{\prime}, \alpha^{\prime}\right\rangle=0\)</span>, for any <span class="math inline">\(\alpha, \alpha^{\prime} \in(A, B)\)</span>. To keep things simple, we can demand that the sublattice operator act in the same way in each unit cell (although this is not strictly necessary), its action represented by a unitary operator <span class="math inline">\(\hat{\gamma}\)</span> acting on the internal Hilbert space of one unit cell, i.e. <span class="math display">\[
+\]</span> This could still leave room for the chiral symmetry operator to square to a state independent phase, <span class="math inline">\(\hat{\Gamma}^{2}=e^{i \phi} .\)</span> However, this can be got rid of by a redefinition of the chiral symmetry <span class="math display">\[
+\Gamma \rightarrow e^{-i \phi / 2} \Gamma
+\]</span></p>
+<h5 id="sublattice-operator-local">(2) sublattice operator-local</h5>
+<p>Second, it is also required that the <strong>sublattice operator</strong> <span class="math inline">\(\hat{\Gamma}\)</span> be <strong>local</strong>. The system is assumed to consist of unit cells, and matrix elements of <span class="math inline">\(\hat{\Gamma}\)</span> between sites from different unit cells should vanish.</p>
+<p>In the SSH chain, this means that for <span class="math inline">\(m \neq m^{\prime}\)</span>, we have <span class="math display">\[
+\langle m, \alpha|\hat{\Gamma}| m^{\prime}, \alpha^{\prime}\rangle=0
+\]</span> for any <span class="math inline">\(\alpha, \alpha^{\prime} \in(A, B)\)</span>.</p>
+<p>To keep things simple, we can demand that the sublattice operator act in the same way in each unit cell (although this is not strictly necessary), its action represented by a unitary operator <span class="math inline">\(\hat{\gamma}\)</span> acting on the internal Hilbert space of one unit cell, i.e. <span class="math display">\[
 \hat{\Gamma}=\hat{\gamma} \oplus \hat{\gamma} \oplus \ldots \oplus \hat{\gamma}=\bigoplus_{ - 1 }^{N} \hat{\gamma}
-\]</span> where <span class="math inline">\(N\)</span> is the number of unit cells. A third requirement, which is often not explicitly stated, is that the chiral symmetry has to be robust. To understand what we mean by that, first note that in solid state physics, we often deal with Hamiltonians with many local parameters that vary in a controlled or uncontrolled way. An example is the SSH model, where the values of the hopping amplitudes could be subject to spatial disorder. We gather all such parameters in a formal vector, and call it <span class="math inline">\(\xi \in E .\)</span> Here <span class="math inline">\(\Xi\)</span> is the set of all realizations of disorder that we investigate. Instead of talking about the symmetries of a Hamiltonian <span class="math inline">\(\hat{H}\)</span>, we should rather refer to symmetries of a set of Hamiltonians <span class="math inline">\(\{\hat{H}(\xi)\}\)</span>, for all <span class="math inline">\(\xi \in E .\)</span> This set has chiral symmetry represented by <span class="math inline">\(\hat{\Gamma}\)</span> if <span class="math display">\[
+\]</span> where <span class="math inline">\(N\)</span> is the number of unit cells.</p>
+<h5 id="robust">(3) robust</h5>
+<p>A third requirement, which is often not explicitly stated, is that the chiral symmetry has to be robust. To understand what we mean by that, first note that in solid state physics, we often deal with Hamiltonians with many local parameters that vary in a controlled or uncontrolled way.</p>
+<p>An example is the SSH model, where the values of the hopping amplitudes could be subject to spatial disorder. We gather all such parameters in a formal vector, and call it <span class="math inline">\(\xi \in E .\)</span> Here <span class="math inline">\(\Xi\)</span> is the set of all realizations of disorder that we investigate. Instead of talking about the symmetries of a Hamiltonian <span class="math inline">\(\hat{H}\)</span>, we should rather refer to symmetries of a set of Hamiltonians <span class="math inline">\(\{\hat{H}(\xi)\}\)</span>, for all <span class="math inline">\(\xi \in E .\)</span> This set has chiral symmetry represented by <span class="math inline">\(\hat{\Gamma}\)</span> if <span class="math display">\[
 \forall \xi \in E: \quad \hat{\Gamma} \hat{H}(\xi) \hat{\Gamma}=-\hat{H}(\xi)
 \]</span> with the symmetry operator <span class="math inline">\(\hat{\Gamma}\)</span> independent of the parameters <span class="math inline">\(\xi\)</span>. This is the robustness of the chiral symmetry.</p>
 <h4 id="consequences-of-chiral-symmetry-for-energy-eigenstates">1.4.3 Consequences of Chiral Symmetry for Energy Eigenstates</h4>
-<p>We now come to the consequences of chiral symmetry, which are very different from those of conventional symmetries, due to the extra minus sign in its definition, Eq. (1.23).</p>
+<p>We now come to the consequences of chiral symmetry, which are very different from those of conventional symmetries, due to the extra minus sign in its definition <span class="math inline">\(\hat{\Gamma} \hat{H} \hat{\Gamma}^{\dagger}=-\hat{H}\)</span></p>
 <h5 id="sublattice-symmetry">1.4.3.1 Sublattice Symmetry</h5>
 <p>Chiral symmetry is also called sublattice symmetry. Given the chiral symmetry operator <span class="math inline">\(\hat{\Gamma}\)</span>, we can define orthogonal sublattice projectors <span class="math inline">\(\hat{P}_{A}\)</span> and <span class="math inline">\(\hat{P}_{B}\)</span>, as <span class="math display">\[
 \hat{P}_{A}=\frac{1}{2}( I +\hat{\Gamma}) ; \quad \hat{P}_{B}=\frac{1}{2}( I -\hat{\Gamma}),
-\]</span> where <span class="math inline">\(I\)</span> represents the identity operator on the Hilbert space of the system. Note that <span class="math inline">\(\hat{P}_{A}+\hat{P}_{B}=I\)</span>, and <span class="math inline">\(\hat{P}_{A} \hat{P}_{B}=0 .\)</span> The defining relation of sublattice symmetry, Eq. (1.23), can be written in an equivalent form by requiring that the Hamiltonian induces no transitions from any site on one sublattice to any site on the same sublattice, <span class="math display">\[
-\hat{P}_{A} \hat{H} \hat{P}_{A}=P_{B} \hat{H} \hat{P}_{B}=0 ; \quad \hat{H}=\hat{P}_{A} \hat{H} \hat{P}_{B}+\hat{P}_{B} \hat{H} \hat{P}_{A}
-\]</span> In fact, using the projectors <span class="math inline">\(\hat{P}_{A}\)</span> and <span class="math inline">\(\hat{P}_{B}\)</span> is an alternative and equivalent way of defining chiral symmetry.</p>
+\]</span> where <span class="math inline">\(I\)</span> represents the identity operator on the Hilbert space of the system. Note that</p>
+<ul>
+<li><span class="math inline">\(\hat{P}_{A}+\hat{P}_{B}=I\)</span></li>
+<li><span class="math inline">\(\hat{P}_{A} \hat{P}_{B}=0\)</span></li>
+</ul>
+<p>The defining relation of sub-lattice symmetry, <span class="math inline">\(\hat{\Gamma} \hat{H} \hat{\Gamma}^{\dagger}=-\hat{H}\)</span>, can be written in an equivalent form by requiring that the Hamiltonian induces no transitions from any site on one sub-lattice to any site on the same sub-lattice <span class="math display">\[
+\hat{P}_{A} \hat{H} \hat{P}_{A}=P_{B} \hat{H} \hat{P}_{B}=0 ;  
+\]</span> <span class="math display">\[
+\hat{H}=\hat{P}_{A} \hat{H} \hat{P}_{B}+\hat{P}_{B} \hat{H} \hat{P}_{A}
+\]</span></p>
+<p>In fact, using the projectors <span class="math inline">\(\hat{P}_{A}\)</span> and <span class="math inline">\(\hat{P}_{B}\)</span> is an alternative and equivalent way of defining chiral symmetry.</p>
 <h5 id="symmetric-spectrum">1.4.3.2 Symmetric Spectrum</h5>
-<p>The spectrum of a chiral symmetric Hamiltonian is symmetric. For any state with energy <span class="math inline">\(E\)</span>, there is a chiral symmetric partner with energy <span class="math inline">\(-E\)</span>. This is simply seen, <span class="math inline">\(\hat{H}\left|\psi_{n}\right\rangle=E_{n}\left|\psi_{n}\right\rangle \quad \Longrightarrow \quad \hat{H} \hat{\Gamma}\left|\psi_{n}\right\rangle=-\hat{\Gamma} \hat{H}\left|\psi_{n}\right\rangle=-\hat{\Gamma} E_{n}\left|\psi_{n}\right\rangle=-E_{n} \hat{\Gamma}\left|\psi_{n}\right\rangle\)</span> <span class="math inline">\((1.30)\)</span> This carries different implications for nonzero energy eigenstates and zero energy eigenstates.</p>
-<p>For <span class="math inline">\(E_{n} \neq 0\)</span>, the states <span class="math inline">\(\left|\psi_{n}\right\rangle\)</span> and <span class="math inline">\(\hat{\Gamma}\left|\psi_{n}\right\rangle\)</span> are eigenstates with different energy, and. therefore, have to be orthogonal. This implies that every nonzero energy eigenstate of <span class="math inline">\(\hat{H}\)</span> has equal support on both sublattices, <span class="math display">\[
+<p>The spectrum of a chiral symmetric Hamiltonian is symmetric. For any state with energy <span class="math inline">\(E\)</span>, there is a chiral symmetric partner with energy <span class="math inline">\(-E\)</span>. This is simply seen, <span class="math display">\[
+\begin{aligned}
+\hat{H}\left|\psi_{n}\right\rangle&amp;=E_{n}\left|\psi_{n}\right\rangle \\
+\hat{H} \hat{\Gamma}\left|\psi_{n}\right\rangle&amp;=-\hat{\Gamma} \hat{H}\left|\psi_{n}\right\rangle\\&amp;=-\hat{\Gamma} E_{n}\left|\psi_{n}\right\rangle\\&amp;=-E_{n} \hat{\Gamma}\left|\psi_{n}\right\rangle
+\end{aligned}
+\]</span> This carries different implications for nonzero energy eigenstates and zero energy eigenstates.</p>
+<blockquote>
+<p>For <span class="math inline">\(E_{n} \neq 0\)</span>, the states <span class="math inline">\(\left|\psi_{n}\right\rangle\)</span> and <span class="math inline">\(\hat{\Gamma}\left|\psi_{n}\right\rangle\)</span> are eigenstates with different energy, and. therefore, have to be orthogonal.</p>
+</blockquote>
+<p>This implies that every nonzero energy eigenstate of <span class="math inline">\(\hat{H}\)</span> has equal support on both sublattices, <span class="math display">\[
 \text { If } E_{n} \neq 0: \quad 0=\left\langle\psi_{n}|\hat{\Gamma}| \psi_{n}\right\rangle=\left\langle\psi_{n}\left|P_{A}\right| \psi_{n}\right\rangle-\left\langle\psi_{n}\left|P_{B}\right| \psi_{n}\right\rangle .
 \]</span> For <span class="math inline">\(E_{n}=0\)</span>, zero energy eigenstates can be chosen to have support on only one sublattice. This is because <span class="math display">\[
 \text { If } \hat{H}\left|\psi_{n}\right\rangle=0: \quad \hat{H} \hat{P}_{A / B}\left|\psi_{n}\right\rangle=\hat{H}\left(\left|\psi_{n}\right\rangle \pm \hat{\Gamma}\left|\psi_{n}\right\rangle\right)=0
 \]</span> These projected zero-energy eigenstates are eigenstates of <span class="math inline">\(\hat{\Gamma}\)</span>, and therefore are chiral symmetric partners of themselves.</p>
 <h4 id="sublattice-projectors-and-chiral-symmetry-of-the-ssh-model">1.4.4 Sublattice Projectors and Chiral Symmetry of the SSH Model</h4>
-<p>The Hamiltonian of the SSH model, Eq. (1.1), is bipartite: the Hamiltonian includes no transitions between sites with the same sublattice index. The projectors to the sublattices read <span class="math display">\[
-\hat{P}_{A}=\sum_{m=1}^{N}|m, A\rangle\left\langle n, A\left|; \quad \hat{P}_{B}=\sum_{m=1}^{N}\right| m, B\right\rangle\langle n, B| .
-\]</span> Chiral symmetry is represented by the sublattice operator <span class="math inline">\(\hat{\Sigma}_{z}\)</span>, that multiplies all components of a wavefunction on sublattice <span class="math inline">\(B\)</span> by <span class="math inline">\((-1)\)</span>, <span class="math display">\[
+<p>The Hamiltonian of the SSH model is bipartite: the Hamiltonian includes no transitions between sites with the same sublattice index. The projectors to the sublattices read <span class="math display">\[
+\hat{P}_{A}=\sum_{m=1}^{N}|m, A\rangle \langle n, A |;   
+\]</span> <span class="math display">\[
+\hat{P}_{B}=\sum_{m=1}^{N} | m, B \rangle\langle n, B| .
+\]</span></p>
+<p>Chiral symmetry is represented by the sublattice operator <span class="math inline">\(\hat{\Sigma}_{z}\)</span>, that multiplies all components of a wavefunction on sublattice <span class="math inline">\(B\)</span> by <span class="math inline">\((-1)\)</span>, <span class="math display">\[
 \hat{\Sigma}_{z}=\hat{P}_{A}-\hat{P}_{B}
 \]</span> Note that this operator has the properties required of the chiral symmetry operator above: it is unitary, Hermitian, and local.</p>
 <p>The chiral symmetry of the SSH model is a restatement of the fact that the Hamiltonian is bipartite, <span class="math display">\[
-\hat{P}_{A} \hat{H} \hat{P}_{A}=\hat{P}_{B} \hat{H} \hat{P}_{B}=0 ; \quad \hat{\Sigma}_{z} \hat{H} \hat{\Sigma}_{z}=-\hat{H}
-\]</span> This relation holds because <span class="math inline">\(\hat{H}\)</span> only contains terms that are multiples of <span class="math inline">\(|m, A\rangle\left\langle m^{\prime}, B\right|\)</span>, or of <span class="math inline">\(|m, B\rangle\left\langle m^{\prime}, A\right|\)</span> with <span class="math inline">\(m, m^{\prime} \in Z\)</span>. Upon multiplication from the left and the right by <span class="math inline">\(\hat{\Sigma}_{z}\)</span>, such a term picks up a single factor of <span class="math inline">\(-1\)</span> (because of the multiplication from the left or because of the multiplication from the right). Note that this relation, equivalent to an anticommutation of <span class="math inline">\(\hat{H}\)</span> and <span class="math inline">\(\hat{\Sigma}_{z}\)</span>, holds whether or not the hopping amplitudes depend on position: therefore, the chiral symmetry represented by <span class="math inline">\(\hat{\Sigma}_{z}\)</span> has the required property of robustness.</p>
+\hat{P}_{A} \hat{H} \hat{P}_{A}=\hat{P}_{B} \hat{H} \hat{P}_{B}=0 ;   
+\]</span> <span class="math display">\[
+\hat{\Sigma}_{z} \hat{H} \hat{\Sigma}_{z}=-\hat{H}
+\]</span></p>
+<p>This relation holds because <span class="math inline">\(\hat{H}\)</span> only contains terms that are multiples of <span class="math inline">\(|m, A\rangle\left\langle m^{\prime}, B\right|\)</span>, or of <span class="math inline">\(|m, B\rangle\left\langle m^{\prime}, A\right|\)</span> with <span class="math inline">\(m, m^{\prime} \in Z\)</span>. Upon multiplication from the left and the right by <span class="math inline">\(\hat{\Sigma}_{z}\)</span>, such a term picks up a single factor of <span class="math inline">\(-1\)</span> (because of the multiplication from the left or because of the multiplication from the right). Note that this relation, equivalent to an anti-commutation of <span class="math inline">\(\hat{H}\)</span> and <span class="math inline">\(\hat{\Sigma}_{z}\)</span>, holds whether or not the hopping amplitudes depend on position: therefore, the chiral symmetry represented by <span class="math inline">\(\hat{\Sigma}_{z}\)</span> has the required property of robustness.</p>
 <h4 id="consequence-of-chiral-symmetry-bulk-winding-number-for-the-ssh-model">1.4.5 Consequence of Chiral Symmetry: Bulk Winding Number for the SSH Model</h4>
-<p>We now consider the bulk momentum-space Hamiltonian <span class="math inline">\(\hat{H}(k)= d (k) \hat{\sigma}\)</span>. The path of the endpoint of <span class="math inline">\(d (k)\)</span>, as the wavenumber goes through the Brillouin zone, <span class="math inline">\(k=0 \rightarrow 2 \pi\)</span>, is a closed path on the <span class="math inline">\(d_{x}, d_{y}\)</span> plane. This path has to avoid the origin, <span class="math inline">\(d =0\)</span> : if there was a <span class="math inline">\(k\)</span> at which <span class="math inline">\(d (k)=0\)</span>, the gap would close at this <span class="math inline">\(k\)</span>, and we would not be talking about an insulator. Because of chiral symmetry, the vector <span class="math inline">\(d (k)\)</span> is restricted to lie on the <span class="math inline">\(d_{x} d_{y}\)</span> plane, <span class="math display">\[
+<p>We now consider the bulk momentum-space Hamiltonian <span class="math inline">\(\hat{H}(k)= d (k) \hat{\sigma}\)</span>. The path of the endpoint of <span class="math display">\[
+d (k)
+\]</span> as the wavenumber goes through the Brillouin zone, <span class="math inline">\(k=0 \rightarrow 2 \pi\)</span>, is a closed path on the <span class="math inline">\(d_{x}, d_{y}\)</span> plane. This path has to avoid the origin, <span class="math inline">\(d =0\)</span> : if there was a <span class="math inline">\(k\)</span> at which <span class="math inline">\(d (k)=0\)</span>, the gap would close at this <span class="math inline">\(k\)</span>, and we would not be talking about an insulator.</p>
+<p>Because of chiral symmetry, the vector <span class="math inline">\(d (k)\)</span> is <strong>restricted</strong> to lie on the <span class="math inline">\(d_{x} d_{y}\)</span> plane, <span class="math display">\[
 \operatorname{sigma}_{z} \hat{H}(k) \operatorname{sigma}_{z}=-\hat{H}(k) \quad \Longrightarrow \quad d_{z}(k)=0 .
 \]</span> The endpoint of <span class="math inline">\(d (k)\)</span> is then a closed, directed loop on the plane, and thus has a well defined integer winding number about the origin.</p>
 <h5 id="winding-number-as-the-multiplicity-of-solutions">1.4.5.1 Winding Number as the Multiplicity of Solutions</h5>
@@ -505,52 +565,114 @@ E=e^{-N / \xi}
 </ol>
 <p>We now consider how the winding number <span class="math inline">\(v\)</span> defined above can change under continuous deformations of <span class="math inline">\(L\)</span> or of <span class="math inline">\(d (k)\)</span>. We only allow for deformations that keep both curves on the plane, maintain <span class="math inline">\(L\)</span> going from the origin to infinity, and do not create points where <span class="math inline">\(d (k)=0 .\)</span> Due to the deformations the intersections of <span class="math inline">\(L\)</span> and <span class="math inline">\(d (k)\)</span> can move, but this does not change <span class="math inline">\(v\)</span>. They can also appear or disappear, at points where <span class="math inline">\(L\)</span> and <span class="math inline">\(d (k)\)</span> touch. However, they can only appear or disappear pairwise: a red and a blue intersection together, which does not change <span class="math inline">\(v .\)</span> As an example, the two choices of the line of sight <span class="math inline">\(L\)</span> in Fig. <span class="math inline">\(1.5 a\)</span>, have 1 or 3 intersections, but the winding number is <span class="math inline">\(+1\)</span>, for either of them.</p>
 <h5 id="winding-number-as-an-integral">1.4.5.2 Winding Number as an Integral</h5>
-<p>The winding number can also be written as a compact formula using the unit vector d, defined as <span class="math display">\[
+<p>The winding number can also be written as a compact formula using the unit vector, defined as <span class="math display">\[
 \tilde{ d }=\frac{ d }{| d |} \text { . }
-\]</span> This is the result of projecting the curve of <span class="math inline">\(d (k)\)</span> to the unit circle, as shown in Fig. 1.5b. The vector <span class="math inline">\(d (k)\)</span> is well defined for all <span class="math inline">\(k\)</span> because <span class="math inline">\(d (k) \neq 0\)</span>. You can check easily that the winding number <span class="math inline">\(v\)</span> is given by <span class="math display">\[
+\]</span> This is the result of <strong>projecting</strong> the curve of <span class="math inline">\(d (k)\)</span> to the unit circle, as shown in Fig. 1.5b. The vector <span class="math inline">\(d (k)\)</span> is well defined for all <span class="math inline">\(k\)</span> because <span class="math inline">\(d (k) \neq 0\)</span>. You can check easily that the winding number <span class="math inline">\(v\)</span> is given by <span class="math display">\[
 v=\frac{1}{2 \pi} \int_{-\pi}^{\pi}\left(\tilde{ d }(k) \times \frac{d}{d k} \tilde{ d }(k)\right)_{z} d k
 \]</span> To calculate <span class="math inline">\(v\)</span> directly from the bulk momentum-space Hamiltonian, note that <span class="math inline">\(it\)</span> is off-diagonal (in the basis of eigenstates of the chiral symmetry operator <span class="math inline">\(\hat{\sigma}_{z}\)</span> ), <span class="math display">\[
 H(k)=\left(\begin{array}{cc}
 0 &amp; h(k) \\
 h^{*}(k) &amp; 0
-\end{array}\right) ; \quad h(k)=d_{x}(k)-i d_{y}(k) .
-\]</span> The winding number of <span class="math inline">\(d (k)\)</span> can be written as an integral, using the complex logarithm function, <span class="math inline">\(\log \left(|h| e^{i \text { arg } h}\right)=\log |h|+i \arg h\)</span>. It is easy to check that <span class="math display">\[
+\end{array}\right)  
+\]</span> where <span class="math inline">\(h(k)=d_{x}(k)-i d_{y}(k) .\)</span></p>
+<p>The winding number of <span class="math inline">\(d (k)\)</span> can be written as an integral, using the complex logarithm function, <span class="math inline">\(\log \left(|h| e^{i \text { arg } h}\right)=\log |h|+i \arg h\)</span>. It is easy to check that <span class="math display">\[
 v=\frac{1}{2 \pi i} \int_{-\pi}^{\pi} d k \frac{d}{d k} \log h(k)
 \]</span> Here during the calculation of the integral, the branch cut for the logarithm is always shifted so that the derivative is always well defined. The above integral is always real, since <span class="math inline">\(|h(k=-\pi)|=|h(k=\pi)|\)</span>.</p>
 <h5 id="winding-number-of-the-ssh-model">1.4.5.3 Winding Number of the SSH Model</h5>
-<p>For the SSH model, the winding number is either 0 or 1 , depending on the parameters. In the trivial case, when the intracell hopping dominates the intercell hopping, <span class="math inline">\(v&gt;w\)</span>, the winding number is <span class="math inline">\(v=0 .\)</span> In the topological case, when <span class="math inline">\(w&gt;v\)</span>, we have <span class="math inline">\(v=1\)</span></p>
-<p>To change the winding number <span class="math inline">\(v\)</span> of the SSH model, we need to either (a) pull the path of <span class="math inline">\(d (k)\)</span> through the origin in the <span class="math inline">\(d_{x}, d_{y}\)</span> plane, or (b) lift it out of the plane and put it back on the plane at a different position. This is illustrated in Fig. <span class="math inline">\(1.6 .\)</span></p>
+<p>For the SSH model, the winding number is either 0 or 1 , depending on the parameters.</p>
+<ul>
+<li>In the trivial case, when the intra-cell hopping dominates the inter-cell hopping, <span class="math inline">\(v&gt;w\)</span>, the winding number is <span class="math inline">\(v=0 .\)</span></li>
+<li>In the topological case, when <span class="math inline">\(w&gt;v\)</span>, we have <span class="math inline">\(v=1\)</span></li>
+</ul>
+<p>To change the winding number <span class="math inline">\(v\)</span> of the SSH model, we need to either</p>
+<ul>
+<li><ol type="a">
+<li>pull the path of <span class="math inline">\(d (k)\)</span> through the origin in the <span class="math inline">\(d_{x}, d_{y}\)</span> plane</li>
+</ol></li>
+<li>or (b) lift it out of the plane and put it back on the plane at a different position.</li>
+</ul>
+<p>This is illustrated in Fig. <span class="math inline">\(1.6 .\)</span></p>
 <p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210527162808173.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
 <blockquote>
-<p>Fig. 1.6 The endpoints of the vector <span class="math inline">\(d (k)\)</span> as <span class="math inline">\(k\)</span> goes across the Brillouin zone (red or blue closed circles), for various parameter settings in the SSH model. In (a), intercell hopping is kept constant at <span class="math inline">\(w=1\)</span>, while the intracell hopping is increased from <span class="math inline">\(v=0\)</span> to <span class="math inline">\(v=2.3\)</span>. In the process, the bulk gap was closed and reopened, as the origin (black point) falls on one of the blue circles. The winding number is changed from 1 to <span class="math inline">\(0 .\)</span> In (b), we again keep <span class="math inline">\(w=1\)</span>, and increase <span class="math inline">\(v\)</span> from 0 to 2.3, but this time avoid closing the bulk gap by introducing a sublattice potential, <span class="math inline">\(H_{\text {sublattice }}=u \hat{\sigma}_{z}\)</span>. We do this by tuning a parameter <span class="math inline">\(\theta\)</span> from 0 to <span class="math inline">\(\pi\)</span>, and setting <span class="math inline">\(v=1.15(1-\cos \theta)\)</span>, and <span class="math inline">\(u=\sin \theta\)</span>. At the end of the process, <span class="math inline">\(\theta=\pi\)</span>, there is no sublattice potential, so chiral symmetry is restored. The winding number has been changed from 1 to 0</p>
+<p>Fig. 1.6 The endpoints of the vector <span class="math inline">\(d (k)\)</span> as <span class="math inline">\(k\)</span> goes across the Brillouin zone (red or blue closed circles), for various parameter settings in the SSH model.</p>
+<ul>
+<li>In (a), intercell hopping is kept constant at <span class="math inline">\(w=1\)</span>, while the intracell hopping is increased from <span class="math inline">\(v=0\)</span> to <span class="math inline">\(v=2.3\)</span>. In the process, the bulk gap was closed and reopened, as the origin (black point) falls on one of the blue circles. The winding number is changed from 1 to <span class="math inline">\(0 .\)</span></li>
+<li>In (b), we again keep <span class="math inline">\(w=1\)</span>, and increase <span class="math inline">\(v\)</span> from 0 to 2.3, but this time avoid closing the bulk gap by introducing a sublattice potential, <span class="math inline">\(H_{\text {sublattice }}=u \hat{\sigma}_{z}\)</span>. We do this by tuning a parameter <span class="math inline">\(\theta\)</span> from 0 to <span class="math inline">\(\pi\)</span>, and setting <span class="math inline">\(v=1.15(1-\cos \theta)\)</span>, and <span class="math inline">\(u=\sin \theta\)</span>. At the end of the process, <span class="math inline">\(\theta=\pi\)</span>, there is no sublattice potential, so chiral symmetry is restored. The winding number has been changed from 1 to 0</li>
+</ul>
 </blockquote>
-<p>Method (a) requires closing the bulk gap. Method (b) requires breaking chiral symmetry.</p>
+<ol type="1">
+<li>Method (a) requires closing the bulk gap.</li>
+<li>Method (b) requires breaking chiral symmetry.</li>
+</ol>
 <h2 id="number-of-edge-states-as-topological-invariant">1.5 Number of Edge States as Topological Invariant</h2>
 <p>We now introduce the notion of adiabatic deformation of insulating Hamiltonians. An insulating Hamiltonian is adiabatically deformed if</p>
 <ul>
 <li>its parameters are changed continuously,</li>
 <li>the important symmetries of the system are maintained,</li>
-<li>the bulk gap around <span class="math inline">\(E=0\)</span> remains open. The deformation is a fictitious process, and does not take place in time. However, if we do think of it as a process in real time, the adiabatic theorem [15] tells us, that, starting from the many-body ground state (separated from excited states by the energy gap), and performing the deformation slowly enough, we end up in the ground state, at least as far as the bulk of the system is concerned. At the edges of a system, changes can occur, and there is a subtle point to be made about adiabatic deformations being slow, but not too slow, that the edges should still be considered separately. We will come back to this point in Chap. <span class="math inline">\(4 .\)</span> 1.5.1 Adiabatic Equivalence of Hamiltonians Two insulating Hamiltonians are said to be adiabatically equivalent or adiabatically connected if there is an adiabatic deformation connecting them, that respects the important symmetries. For example, in the phase diagram Fig. <span class="math inline">\(1.7\)</span> of the SSH model,</li>
+<li>the bulk gap around <span class="math inline">\(E=0\)</span> remains open.</li>
 </ul>
+<p>The deformation is a fictitious process, and does not take place in time. However, if we do think of it as a process in real time, the adiabatic theorem [15] tells us, that, starting from the many-body ground state (separated from excited states by the energy gap), and performing the deformation slowly enough, we end up in the ground state, at least as far as the bulk of the system is concerned. At the edges of a system, changes can occur, and there is a subtle point to be made about adiabatic deformations being slow, but not too slow, that the edges should still be considered separately. We will come back to this point in Chap. <span class="math inline">\(4 .\)</span></p>
+<h4 id="adiabatic-equivalence-of-hamiltonians">1.5.1 Adiabatic Equivalence of Hamiltonians</h4>
+<p>Two insulating Hamiltonians are said to be adiabatically equivalent or adiabatically connected if there is an adiabatic deformation connecting them, that respects the important symmetries. For example, in the phase diagram Fig. <span class="math inline">\(1.7\)</span> of the SSH model,</p>
 <p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210527162840077.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
 <blockquote>
 <p>Fig. 1.7 Phase diagram of the SSH model. The winding number of the bulk momentum-space Hamiltonian <span class="math inline">\(\hat{H}(k)\)</span> can be <span class="math inline">\(v=0\)</span>, if <span class="math inline">\(v&gt;w\)</span>, or <span class="math inline">\(v=1\)</span>, if <span class="math inline">\(v&lt;w .\)</span> This defines the trivial (gray) and the topological phase (white). The boundary separating these phases (black solid line), corresponds to <span class="math inline">\(v=w\)</span>, where the bulk gap closes at some <span class="math inline">\(k\)</span>. Two Hamiltonians in the same phase are adiabatically connected</p>
 </blockquote>
 <h4 id="topological-invariant">1.5.2 Topological Invariant</h4>
-<p>We call an integer number characterizing an insulating Hamiltonian a topological invariant, or adiabatic invariant, if it cannot change under adiabatic deformations. Note that the use of adiabatic deformations implies two properties of the topological invariant: (1) it is only well defined in the thermodynamic limit, (2) it depends on the symmetries that need to be respected. An example for a topological invariant is the winding number <span class="math inline">\(v\)</span> of the SSH model.</p>
+<p>We call an integer number characterizing an insulating Hamiltonian a topological invariant, or adiabatic invariant, if it cannot change under adiabatic deformations. Note that the use of adiabatic deformations implies two properties of the topological invariant:</p>
+<ul>
+<li><ol type="1">
+<li>it is only well defined in the thermodynamic limit</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>it depends on the symmetries that need to be respected. An example for a topological invariant is the winding number <span class="math inline">\(v\)</span> of the SSH model.</li>
+</ol></li>
+</ul>
 <p>We know that two insulating Hamiltonians are not adiabatically equivalent if their topological invariants differ. Consider as an example two Hamiltonians corresponding to two points on different sides of the phase boundary in Fig. <span class="math inline">\(1.7\)</span> of the SSH model. They are not adiabatically connected in the phase diagram. Nevertheless, one might think that continuously modifying the bulk Hamiltonian by the addition of extra terms, while maintaining chiral symmetry, can lead to a connection between them. However, their winding numbers differ, and since winding numbers cannot change under adiabatic deformation, we know that they are not adiabatically equivalent.</p>
 <h4 id="number-of-edge-states-as-a-topological-invariant">1.5.3 Number of Edge States as a Topological Invariant</h4>
 <p>We have seen in Sect. 1.3.2, that the number of edge states at one end of the SSH model was an integer that did not change under a specific type of adiabatic deformation. We now generalize this example.</p>
-<p>Consider energy eigenstates at the left end of a gapped chiral symmetric onedimensional Hamiltonian in the thermodynamic limit, i.e., with length <span class="math inline">\(N \rightarrow \infty\)</span>, in an energy window from <span class="math inline">\(-\varepsilon&lt;E&lt;\varepsilon\)</span>, with <span class="math inline">\(\varepsilon\)</span> in the bulk gap. There can be nonzero-energy edge states in this energy window, and zero-energy edge states as well. Each nonzero-energy state has to have a chiral symmetric partner, with the state and its partner occupying the same unit cells (the chiral symmetry operator is a local unitary). The number of zero-energy states is finite (because of the gap in the bulk), and they can be restricted to a single sublattice each. There are <span class="math inline">\(N_{A}\)</span> zero-energy states on sublattice <span class="math inline">\(A\)</span>, and <span class="math inline">\(N_{B}\)</span> states on sublattice <span class="math inline">\(B\)</span>.</p>
-<p>Consider the effect of an adiabatic deformation of the Hamiltonian, indexed by some continuous parameter <span class="math inline">\(d: 0 \rightarrow 1\)</span>, on the number <span class="math inline">\(N_{A}-N_{B} .\)</span> The Hamiltonian respects chiral symmetry, and its bulk energy gap exceeds <span class="math inline">\(2 \varepsilon\)</span>, for all values of <span class="math inline">\(d\)</span>. The deformation can create zero-energy states by bringing a nonzero-energy edge state <span class="math inline">\(\left|\Psi_{0}(d=0)\right\rangle\)</span> to zero energy, <span class="math inline">\(E_{0}(d)=0\)</span> for <span class="math inline">\(d \geq d^{\prime}\)</span> but not for <span class="math inline">\(d&lt;d^{\prime}\)</span>. In that case, the chiral symmetric partner of <span class="math inline">\(\left|\Psi_{0}\right\rangle\)</span>, which is <span class="math inline">\(\Gamma\left|\Psi_{0}(d)\right\rangle\)</span> up to a phase factor, has to move simultaneously to zero energy. The newly created zero energy edge states are <span class="math inline">\(\hat{P}_{A}\left|\Psi_{0}\left(d^{\prime}\right)\right\rangle\)</span> and <span class="math inline">\(\hat{P}_{B}\left|\Psi_{0}\left(d^{\prime}\right)\right\rangle\)</span>, which occupy sublattice <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, respectively. Thus, the number <span class="math inline">\(N_{A}-N_{B}\)</span> is unchanged.</p>
+<p>Consider energy eigenstates at the left end of a gapped chiral symmetric one dimensional Hamiltonian in the thermodynamic limit, i.e., with length <span class="math inline">\(N \rightarrow \infty\)</span>, in an <strong>energy window</strong> from <span class="math inline">\(-\varepsilon&lt;E&lt;\varepsilon\)</span>, with <span class="math inline">\(\varepsilon\)</span> in the bulk gap.</p>
+<ol type="1">
+<li>There can be nonzero-energy edge states in this energy window
+<ul>
+<li>Each nonzero-energy state has to have a chiral symmetric <strong>partner</strong>, with the state and its partner occupying the same unit cells (the chiral symmetry operator is a local unitary).</li>
+</ul></li>
+<li>and zero-energy edge states as well.
+<ul>
+<li>The number of zero-energy states is finite (because of the gap in the bulk), and they can be restricted to a single sub-lattice each. There are <span class="math inline">\(N_{A}\)</span> zero-energy states on sub-lattice <span class="math inline">\(A\)</span>, and <span class="math inline">\(N_{B}\)</span> states on sub-lattice <span class="math inline">\(B\)</span>.</li>
+</ul></li>
+</ol>
+<p>Consider the effect of an adiabatic deformation of the Hamiltonian, indexed by some continuous parameter <span class="math inline">\(d: 0 \rightarrow 1\)</span>, on the number <span class="math inline">\(N_{A}-N_{B} .\)</span> The Hamiltonian respects chiral symmetry, and its bulk energy gap exceeds <span class="math inline">\(2 \varepsilon\)</span>, for all values of <span class="math inline">\(d\)</span>. The deformation can create zero-energy states by bringing a nonzero-energy edge state <span class="math inline">\(\left|\Psi_{0}(d=0)\right\rangle\)</span> to zero energy, <span class="math inline">\(E_{0}(d)=0\)</span> for <span class="math inline">\(d \geq d^{\prime}\)</span> but not for <span class="math inline">\(d&lt;d^{\prime}\)</span>. In that case, the chiral symmetric partner of <span class="math inline">\(\left|\Psi_{0}\right\rangle\)</span>, which is <span class="math inline">\(\Gamma\left|\Psi_{0}(d)\right\rangle\)</span> up to a phase factor, has to move simultaneously to zero energy. The newly created zero energy edge states are <span class="math inline">\(\hat{P}_{A}\left|\Psi_{0}\left(d^{\prime}\right)\right\rangle\)</span> and <span class="math inline">\(\hat{P}_{B}\left|\Psi_{0}\left(d^{\prime}\right)\right\rangle\)</span>, which occupy sub-lattice <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, respectively. Thus, the number <span class="math inline">\(N_{A}-N_{B}\)</span> is unchanged.</p>
 <p>The deformation can also bring a zero energy state <span class="math inline">\(\left|\Psi_{0}\right\rangle\)</span> to energy <span class="math inline">\(E&gt;0\)</span> at some <span class="math inline">\(d=d^{\prime}\)</span>. However, it must also create a chiral symmetric partner with energy <span class="math inline">\(E&lt;0\)</span> at the same <span class="math inline">\(d^{\prime}\)</span>. This is the time reverse of the process of the previous paragraph: here, both <span class="math inline">\(N_{A}\)</span> and <span class="math inline">\(N_{B}\)</span> must decrease by 1, and, again, <span class="math inline">\(N_{A}-N_{B}\)</span> is unchanged.</p>
 <p>The deformation can move nonzero-energy states in or out of the <span class="math inline">\(-\varepsilon&lt;E&lt;\varepsilon\)</span> energy window. This obviously has no effect on the number <span class="math inline">\(N_{A}-N_{B}\)</span>.</p>
 <p>Due to the deformation, the wavefunction of a zero-energy eigenstate can change so that it extends deeper and deeper into the bulk. However, because of the gap condition, zero-energy states have to have wavefunctions that decay exponentially towards the bulk, and so this process cannot move them away from the edge. Thus, <span class="math inline">\(N_{A}\)</span> and <span class="math inline">\(N_{B}\)</span> cannot be changed this way.</p>
-<p>The arguments above show that <span class="math inline">\(N_{A}-N_{B}\)</span>, the net number of edge states on sublattice <span class="math inline">\(A\)</span> at the left edge, is a topological invariant.</p>
+<p>The arguments above show that <span class="math display">\[
+N_{A}-N_{B}
+\]</span> the net number of edge states on sublattice <span class="math inline">\(A\)</span> at the left edge, is a topological invariant.</p>
 <h4 id="bulk-boundary-correspondence-in-the-ssh-model">1.5.4 Bulk-Boundary Correspondence in the SSH Model</h4>
-<p>We have introduced two topological invariants for the SSH model: the winding number <span class="math inline">\(v\)</span>, of Eq. <span class="math inline">\((1.38)\)</span>, and the net number of edge states, <span class="math inline">\(N_{A}-N_{B}\)</span>, of this section The first one was obtained from the bulk Hamiltonian only, the second by looking at the low energy sector of the left edge. In the trivial case of the SSH model, <span class="math inline">\(v&gt;w\)</span>, both are 0 ; in the topological case, <span class="math inline">\(v&lt;w\)</span>, both are 1 . This shows that we can use the bulk topological invariant (the winding number) to make simple robust predictions about the low-energy physics at the edge. This is a simple example for the bulk boundary correspondence, a recurrent theme in the theory of topological insulators, which will reappear in various models in the forthcoming chapters.</p>
+<p>We have introduced two topological invariants for the SSH model:</p>
+<ol type="1">
+<li>the winding number <span class="math inline">\(v\)</span>,</li>
+<li>the net number of edge states, <span class="math inline">\(N_{A}-N_{B}\)</span>,</li>
+</ol>
+<p>The first one was obtained from the bulk Hamiltonian only, the second by looking at the low energy sector of the left edge.</p>
+<ul>
+<li>In the trivial case of the SSH model, <span class="math inline">\(v&gt;w\)</span>, both are 0 ;</li>
+<li>in the topological case, <span class="math inline">\(v&lt;w\)</span>, both are 1 .</li>
+</ul>
+<p>This shows that we can use the bulk topological invariant (the winding number) to make simple robust predictions about the low-energy physics at the edge. This is a simple example for the bulk boundary correspondence, a recurrent theme in the theory of topological insulators, which will reappear in various models in the forthcoming chapters.</p>
 <h4 id="bound-states-at-domain-walls">1.5.5 Bound States at Domain Walls</h4>
-<p>Edge states do not only occur at the ends of an open chain, but also at domain walls between different insulating domains of the same chain. This can be understood via the fully dimerized limit. The example in Fig. <span class="math inline">\(1.8\)</span> hosts two types of domain walls: one containing a single isolated site, which hosts a zero-energy state (no onsite potentials are allowed), and one containing a trimer. On a trimer, the odd superposition of the two end sites form a zero-energy eigenstate. In the example of Fig. <span class="math inline">\(1.8\)</span>, this is <span class="math display">\[
+<p>Edge states do not only occur at the ends of an open chain, but also at domain walls between different insulating domains of the same chain. This can be understood via the fully dimerized limit. The example in Fig. <span class="math inline">\(1.8\)</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210528225927844.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<blockquote>
+<p>Fig. 1.8 A long, fully dimerized SSH chain with 3 domains. The boundaries between the domains. the "domain walls", host zero energy eigenstates (yellow shading). These can be localized on a single site, as for the domain wall at <span class="math inline">\(n=3\)</span>, or on a superposition of sites, as the odd superposition of the ends of the trimer shared between the <span class="math inline">\(n=6\)</span> and <span class="math inline">\(n=7\)</span> unit cells</p>
+</blockquote>
+<p>hosts two types of domain walls:</p>
+<ol type="1">
+<li>one containing a single isolated site, which hosts a zero-energy state (no onsite potentials are allowed),</li>
+<li>and one containing a trimer. On a trimer, the odd superposition of the two end sites form a zero-energy eigenstate. In the example of Fig. <span class="math inline">\(1.8\)</span>, this is</li>
+</ol>
+<p><span class="math display">\[
 \hat{H}(|6, B\rangle-|7, B\rangle)=0
 \]</span> Note that, just as the edge states at the ends of the chain, these zero-energy states at the domain walls have wavefunctions that take nonzero values on one sublattice only.</p>
 <p>From a perfect dimerized phase without domains it is only possible to germinate an even number of domain walls. This means that if one encounters a domain wall with a localized state on one sublattice then there will be another domain wall somewhere in the system -possibly at the system's edge-with a localized state on the opposite sublattice.</p>
@@ -563,29 +685,44 @@ v=\frac{1}{2 \pi i} \int_{-\pi}^{\pi} d k \frac{d}{d k} \log h(k)
 \hat{H} \sum_{m=1}^{N}\left(a_{m}|m, A\rangle+b_{m}|m, B\rangle\right)=0
 \]</span> This gives us <span class="math inline">\(2 N\)</span> equations for the amplitudes <span class="math inline">\(a_{m}\)</span> and <span class="math inline">\(b_{m}\)</span>, which read <span class="math display">\[
 \begin{array}{ccc}
-m=1, \ldots, N-1: &amp; v_{m} a_{m}+w_{m} a_{m+1}=0 ; &amp; w_{m} b_{m}+v_{m+1} b_{m+1}=0 \\
-&amp; \text { boundaries : } &amp; v_{N} a_{N}=0 ; &amp; v_{1} b_{1}=0
+v_{m} a_{m}+w_{m} a_{m+1}=0\\
+w_{m} b_{m}+v_{m+1} b_{m+1}=0  
 \end{array}
-\]</span> <span class="math display">\[
-\begin{aligned}
-v_{N} a_{N}=0 ; &amp; v_{1} b_{1}=0 . \\
-&amp;(1.44 b )
-\end{aligned}
-\]</span> The first set of equations is solved by <span class="math display">\[
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(m=1, \ldots, N-1\)</span></li>
+</ul>
+<p>boundaries :</p>
+<ul>
+<li><span class="math inline">\(v_{N} a_{N}=0\)</span></li>
+<li><span class="math inline">\(v_{1} b_{1}=0\)</span></li>
+</ul>
+<p>The first set of equations is solved by <span class="math display">\[
 \begin{array}{ll}
 m=2, \ldots, N: &amp; a_{m}=\prod_{j=1}^{m-1} \frac{-v_{j}}{w_{j}} a_{1} \\
 m=1, \ldots, N-1: &amp; b_{m}=\frac{-v_{N}}{w_{m}} \prod_{j=m+1}^{N-1} \frac{-v_{j}}{w_{j}} b_{N}
 \end{array}
-\]</span> However, we also have to fulfil Eq. (1.44b), which give <span class="math display">\[
+\]</span> However, we also have to fulfill boundaries , which give <span class="math display">\[
 b_{1}=a_{N}=0
 \]</span> These equations together say that, in the generic case, there is no zero energy eigenstate, <span class="math inline">\(a_{m}=b_{m}=0\)</span>.</p>
-<p>Although there is no exactly zero energy state, Eqs. (1.45), (1.46) and (1.47) admit two approximate solutions in the thermodynamic limit, <span class="math inline">\(N \rightarrow \infty\)</span>, if the average intercell hopping is stronger than the intracell hopping. More precisely, we define the "bulk average values", <span class="math display">\[
-\overline{\log |v|}=\frac{1}{N-1} \sum_{m=1}^{N-1} \log \left|v_{m}\right| ; \quad \overline{\log |w|}=\frac{1}{N-1} \sum_{m=1}^{N-1} \log \left|w_{m}\right|
-\]</span> Equations (1.45) and (1.46) translate to <span class="math display">\[
-\left|a_{N}\right|=\left|a_{1}\right| e^{-(N-1) / \xi} ; \quad\left|b_{1}\right|=\left|b_{N}\right| e^{-(N-1) / \xi} \frac{\left|v_{N}\right|}{\left|v_{1}\right|},
+<p>Although there is no exactly zero energy state, they admit two approximate solutions in the thermodynamic limit, <span class="math inline">\(N \rightarrow \infty\)</span>, if the average intercell hopping is stronger than the intracell hopping. More precisely, we define the "bulk average values", <span class="math display">\[
+\overline{\log |v|}=\frac{1}{N-1} \sum_{m=1}^{N-1} \log \left|v_{m}\right| ;  
+\]</span> <span class="math display">\[
+\overline{\log |w|}=\frac{1}{N-1} \sum_{m=1}^{N-1} \log \left|w_{m}\right|
+\]</span></p>
+<p>Equations translate to <span class="math display">\[
+\begin{aligned}
+a_{m}=&amp;\prod_{j=1}^{m-1} \frac{-v_{j}}{w_{j}} a_{1}\\
+\left|a_{N}\right|=&amp;\left|a_{1}\right| e^{-(N-1) / \xi}
+\end{aligned}
+\]</span> and <span class="math display">\[
+\begin{aligned}
+b_{m}=&amp;\frac{-v_{N}}{w_{m}} \prod_{j=m+1}^{N-1} \frac{-v_{j}}{w_{j}} b_{N}\\
+\left|b_{1}\right|=&amp;\left|b_{N}\right| e^{-(N-1) / \xi} \frac{\left|v_{N}\right|}{\left|v_{1}\right|}
+\end{aligned}
 \]</span> with the localization length <span class="math display">\[
 \xi=\frac{1}{\overline{\log |w|}-\overline{\log |v|}}
-\]</span> If in the thermodynamic limit, the bulk average values, Eq. (1.48) make sense, and <span class="math inline">\(\xi&gt;0\)</span>, we have two approximate zero energy solutions, <span class="math display">\[
+\]</span> If in the thermodynamic limit, the bulk average values, Eq. (1.48) make sense, and <span class="math inline">\(\xi&gt;0\)</span>, we have two approximate zero energy solutions <span class="math display">\[
 |L\rangle=\sum_{m=1}^{N} a_{m}|m, A\rangle ; \quad|R\rangle=\sum_{m=1}^{N} b_{m}|m, B\rangle
 \]</span> with the coefficients <span class="math inline">\(a_{m}\)</span> and <span class="math inline">\(b_{m}\)</span> chosen according to Eqs. <span class="math inline">\((1.45)\)</span> and <span class="math inline">\((1.46)\)</span>, and <span class="math inline">\(a_{\perp}\)</span>, respectively, <span class="math inline">\(b_{N}\)</span>, used to fix the norm of <span class="math inline">\(|L\rangle\)</span>, respectively, <span class="math inline">\(|R\rangle\)</span>.</p>
 <h5 id="hybridization-of-edge-states">Hybridization of Edge States</h5>

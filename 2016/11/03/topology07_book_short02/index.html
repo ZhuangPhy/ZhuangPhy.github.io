@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      8.3k 字
+      8.4k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      165
+      168
        分钟
     </span>
   
@@ -205,8 +205,7 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>拓扑入门第一例</p>
-<p>[TOC]</p>
+              <p>[TOC]</p>
 <h2 id="简介">简介</h2>
 <h2 id="参考">参考</h2>
 <ul>
@@ -232,23 +231,43 @@ e^{-i \gamma_{12}}=\frac{\left\langle\Psi_{1} \mid \Psi_{2}\right\rangle}{\left|
 \]</span> However, the relative phase is not invariant under a local gauge transformation, <span class="math display">\[
 \left|\Psi_{j}\right\rangle \rightarrow e^{i \alpha_{j}}\left|\Psi_{j}\right\rangle \quad e^{-i \gamma_{12}} \rightarrow e^{-i \gamma_{12}+i\left(\alpha_{2}-\alpha_{1}\right)} .
 \]</span> #### 2.1.2 Berry Phase</p>
-<p>Take <span class="math inline">\(N \geq 3\)</span> states in a Hilbert space, order them in a loop, and ask about the phase around the loop. As we show below, the answer-the Berry phaseis gauge invariant. For states <span class="math inline">\(\left|\Psi_{j}\right\rangle\)</span>, with <span class="math inline">\(j=1,2, \ldots, N\)</span>, and for the ordered list <span class="math inline">\(L=(1,2, \ldots, N)\)</span> which define the loop, shown in Fig. <span class="math inline">\(2.1\)</span>, the Berry phase is defined as <span class="math display">\[
-\gamma_{L}=-\arg e^{-i\left(\gamma_{12}+\gamma_{23}+\ldots+\gamma_{N 1}\right)}=-\arg \left(\left\langle\Psi_{1} \mid \Psi_{2}\right\rangle\left\langle\Psi_{2} \mid \Psi_{3}\right\rangle \ldots\left\langle\Psi_{N} \mid \Psi_{1}\right\rangle\right)
+<p>Take <span class="math inline">\(N \geq 3\)</span> states in a Hilbert space, order them in a loop, and ask about the phase around the loop. As we show below, the answer-the Berry phaseis gauge invariant. For states <span class="math inline">\(\left|\Psi_{j}\right\rangle\)</span>, with <span class="math inline">\(j=1,2, \ldots, N\)</span>, and for the ordered list <span class="math inline">\(L=(1,2, \ldots, N)\)</span> which define the loop, shown in Fig. <span class="math inline">\(2.1\)</span>,</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210528230825174.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<blockquote>
+<p>Fig. 2.1 Berry phase, Berry flux and Berry curvature for discrete quantum states.</p>
+<ul>
+<li><ol type="a">
+<li>The Berry phase <span class="math inline">\(\gamma_{L}\)</span> for the loop <span class="math inline">\(L\)</span> consisting of <span class="math inline">\(N=3\)</span> states is defined from the relative phases <span class="math inline">\(\gamma_{12}, \gamma_{23}, \gamma_{31}\)</span></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>The Berry phase of a loop defined on a lattice of states can be expressed as the sum of the Berry phases <span class="math inline">\(F_{1,1}\)</span> and <span class="math inline">\(F_{2,1}\)</span> of the plaquettes enclosed by the loop. The plaquette Berry phase <span class="math inline">\(F_{n, m}\)</span> is also called Berry flux</li>
+</ol></li>
+</ul>
+</blockquote>
+<p>the Berry phase is defined as <span class="math display">\[
+\begin{aligned}
+\gamma_{L}=&amp;-\arg e^{-i\left(\gamma_{12}+\gamma_{23}+\ldots+\gamma_{N 1}\right)}
+\\=&amp;-\arg \left(\left\langle\Psi_{1} \mid \Psi_{2}\right\rangle\left\langle\Psi_{2} \mid \Psi_{3}\right\rangle \ldots\left\langle\Psi_{N} \mid \Psi_{1}\right\rangle\right)
+\end{aligned}
 \]</span> To show the gauge invariance of the Berry phase, it can be rewritten as <span class="math display">\[
 \gamma_{L}=-\arg \operatorname{Tr}\left(\left|\Psi_{1}\right\rangle\left\langle\Psi_{1}|| \Psi_{2}\right\rangle\left\langle\Psi_{2}|\ldots| \Psi_{N}\right\rangle\left\langle\Psi_{N}\right|\right) .
 \]</span> Here, we expressed the Berry phase <span class="math inline">\(\gamma_{L}\)</span> using projectors that are themselves gauge invariant.</p>
-<p>Even though the Berry phase is not the expectation value of some operator, it is a gauge invariant quantity, and as such, it can have a direct physical significance. We will find such a significance, but first, we want to gain more intuition about its behaviour.</p>
+<p>Even though the Berry phase is not the expectation value of some operator, it is a gauge invariant quantity, and as such, it can <strong>have a direct physical significance</strong>. We will find such a significance, but first, we want to gain more intuition about its behaviour.</p>
 <h4 id="berry-flux">2.1.3 Berry Flux</h4>
 <p>Consider a Hilbert space of quantum states, and a finite two-dimensional square lattice with points labelled by <span class="math inline">\(n, m \in Z , 1 \leq n \leq N\)</span>, and <span class="math inline">\(1 \leq m \leq M .\)</span> Assign a quantum state <span class="math inline">\(\left|\Psi_{n, m}\right\rangle\)</span> from the Hilbert space to each lattice site. Say you want to know the Berry phase of the loop <span class="math inline">\(L\)</span> around this set, <span class="math display">\[
 \begin{aligned}
-\gamma_{L}=-\arg \exp \left[-i\left(\sum_{n=1}^{N-1} \gamma_{(n, 1),(n+1,1)}+\sum_{m=1}^{M-1} \gamma_{(N, m),(N, m+1)}\right.\right.\\
+\gamma_{L}=&amp;-\arg \exp \left[-i\left(\sum_{n=1}^{N-1} \gamma_{(n, 1),(n+1,1)}+\sum_{m=1}^{M-1} \gamma_{(N, m),(N, m+1)}\right.\right.\\
 &amp;\left.\left.+\sum_{n=1}^{N-1} \gamma_{(n+1, M),(n, M)}+\sum_{m=1}^{M-1} \gamma_{(1, m+1),(1, m)}\right)\right]
 \end{aligned}
-\]</span> as shown in Fig. 2.1. Although the Berry phase is a gauge invariant quantity, calculating it according to the recipe above involves multiplying together many gauge dependent complex numbers. The alternative route, via Eq. (2.6), involves multiplying gauge independent matrices, and then taking the trace.</p>
-<p>There is a way to break the calculation of the Berry phase of the loop down to a product of gauge independent complex numbers. To each plaquette (elementary square) on the grid, with <span class="math inline">\(n, m\)</span> indexing the lower left corner, we define the Berry flux <span class="math inline">\(F_{n, m}\)</span> of the plaquette using the sum of the relative phases around its boundary, <span class="math display">\[
+\]</span> as shown in Fig. 2.1. Although the Berry phase is a gauge invariant quantity, calculating it according to the recipe above involves multiplying together many gauge dependent complex numbers.</p>
+<p>The alternative route, via Eq. <span class="math inline">\(\gamma_{L}=-\arg \operatorname{Tr}\left(\left|\Psi_{1}\right\rangle\left\langle\Psi_{1}|| \Psi_{2}\right\rangle\left\langle\Psi_{2}|\ldots| \Psi_{N}\right\rangle\left\langle\Psi_{N}\right|\right)\)</span>, involves multiplying gauge independent matrices, and then taking the trace.</p>
+<blockquote>
+<p>There is a way to break the calculation of the Berry phase of the loop down to a product of gauge independent complex numbers.</p>
+</blockquote>
+<p>To each <strong>plaquette</strong> (elementary square) on the grid, with <span class="math inline">\(n, m\)</span> indexing the lower left corner, we define the <strong>Berry flux</strong> <span class="math inline">\(F_{n, m}\)</span> of the plaquette using the sum of the relative phases around its boundary, <span class="math display">\[
 \begin{aligned}
-F_{n m}=-\arg \exp \left[-i\left(\gamma_{(n, m),(n+1, m)}\right.\right.&amp;+\gamma_{(n+1, m),(n+1, m+1)} \\
-+&amp;\left.\left.\gamma(n+1, m+1),(n, m+1)+\gamma_{(n, m+1),(n, m)}\right)\right],
+F_{n m}=-\arg \exp  [-&amp;i (\gamma_{(n, m),(n+1, m)}  +\gamma_{(n+1, m),(n+1, m+1)} \\
++&amp;\left.\left.\gamma_{(n+1, m+1),(n, m+1)}+\gamma_{(n, m+1),(n, m)}\right)\right],
 \end{aligned}
 \]</span> for <span class="math inline">\(n=1, \ldots, N\)</span> and <span class="math inline">\(m=1, \ldots, M\)</span>. Note that the Berry flux is itself a Berry phase and is therefore gauge invariant. Alternatively, we can also write <span class="math display">\[
 \begin{array}{r}
@@ -256,25 +275,34 @@ F_{n m}=-\arg \left(\left\langle\Psi_{n, m} \mid \Psi_{n+1, m}\right\rangle\left
 \left.\left\langle\Psi_{n+1, m+1} \mid \Psi_{n, m+1}\right\rangle\left\langle\Psi_{n, m+1} \mid \Psi_{n, m}\right\rangle\right)
 \end{array}
 \]</span> Now consider the product of all plaquette phase factors <span class="math inline">\(e^{-i F_{n m}}\)</span> <span class="math display">\[
-\begin{array}{c}
-\prod_{n=1}^{N-1} \prod_{m=1}^{M-1} e^{-i F_{n m}}=\exp \left[-i \sum_{n=1}^{N-1} \sum_{m=1}^{M-1} F_{n m}\right]=\exp \left[-i \sum_{n=1}^{N-1} \sum_{m=1}^{M-1}\left(\gamma_{(n, m),(n+1, m)}\right.\right. \\
-\left.\left.+\gamma_{(n+1, m),(n+1, m+1)}+\gamma_{(n+1, m+1),(n, m+1)}+\gamma_{(n, m+1),(n, m)}\right)\right]
-\end{array}
-\]</span> Each internal edge of the lattice is shared between two plaquettes, and therefore occurs twice in the product. However, since we fixed the orientation of the plaquette phases, these two contributions will always be complex conjugates of each other, and cancel each other. Therefore the exponent in the right-hand-side of Eq. <span class="math inline">\((2.10)\)</span> simplifies to the exponent appearing in Eq. (2.7), implying <span class="math display">\[
+\begin{aligned}
+\prod_{n=1}^{N-1} \prod_{m=1}^{M-1} e^{-i F_{n m}}=&amp;\exp \left[-i \sum_{n=1}^{N-1} \sum_{m=1}^{M-1} F_{n m}\right]\\
+ =&amp;\exp  [-i \sum_{n=1}^{N-1} \sum_{m=1}^{M-1}\left(\gamma_{(n, m),(n+1, m)}+\gamma_{(n+1, m),(n+1, m+1)}\right. \\
+ &amp;\left.+\gamma_{(n+1, m+1),(n, m+1)}+\gamma_{(n, m+1),(n, m)})\right]
+\end{aligned}
+\]</span> Each internal edge of the lattice is shared between two plaquettes, and therefore occurs twice in the product. However, since we fixed the orientation of the plaquette phases, these two contributions will always be complex conjugates of each other, and cancel each other. Therefore the exponent simplifies to <span class="math display">\[
 \exp \left[-i \sum_{n=1}^{N-1} \sum_{m=1}^{M-1} F_{n m}\right]=e^{-i \gamma_{L}}
-\]</span> This result is reminiscent of the Stokes theorem connecting the integral of the curl of a vector field on an open surface and the line integral of the vector field along the boundary of the surface. In Eq. (2.11), the sum of the relative phases, i.e., the Berry phase <span class="math inline">\(\gamma_{L}\)</span>, plays the role of the line integral, whereas the double sum of the Berry fluxes plays the role of the surface integral. There is an important difference with respect to the Stokes theorem, namely, the equality of the total Berry flux and the Berry phase is not guaranteed: Eq. ( <span class="math inline">\(2.11\)</span> ) only tells that they are either equal or have a difference of <span class="math inline">\(2 \pi\)</span> times an integer.</p>
+\]</span> This result is reminiscent of the <strong>Stokes theorem</strong> connecting the integral of the curl of a vector field on an open surface and the line integral of the vector field along the boundary of the surface.</p>
+<ol type="1">
+<li>the sum of the relative phases, i.e., the Berry phase <span class="math inline">\(\gamma_{L}\)</span>, plays the role of the line integral, whereas the double sum of the Berry fluxes plays the role of the surface integral.</li>
+<li>There is an important <strong>difference with</strong> respect to the Stokes theorem, namely, the equality of the total Berry flux and the Berry phase is not guaranteed: Eq. <span class="math inline">\(\exp \left[-i \sum_{n=1}^{N-1} \sum_{m=1}^{M-1} F_{n m}\right]=e^{-i \gamma_{L}}\)</span> only tells that they are either equal or have a difference of <span class="math inline">\(2 \pi\)</span> times an integer.</li>
+</ol>
 <h4 id="chern-number">2.1.4 Chern Number</h4>
-<p>Consider states in a Hilbert space arranged on a grid as above, <span class="math inline">\(\left|\Psi_{n, m}\right\rangle\)</span>, with <span class="math inline">\(n, m \in Z\)</span>, <span class="math inline">\(1 \leq n \leq N\)</span>, and <span class="math inline">\(1 \leq m \leq M\)</span>, but now imagine this grid to be on the surface of a torus. We use the same definition for the Berry flux per plaquette as in <span class="math inline">\((2.9)\)</span>, but now with <span class="math inline">\(n \bmod N+1\)</span> in place of <span class="math inline">\(n+1\)</span> and <span class="math inline">\(m \bmod M+1\)</span> in place of <span class="math inline">\(m+1\)</span> The product of the Berry flux phase factors of all plaquettes is now 1 . <span class="math display">\[
+<p>Consider states in a Hilbert space arranged on a grid as above, <span class="math inline">\(\left|\Psi_{n, m}\right\rangle\)</span>, with <span class="math inline">\(n, m \in Z\)</span>, <span class="math inline">\(1 \leq n \leq N\)</span>, and <span class="math inline">\(1 \leq m \leq M\)</span>, but now imagine this grid to be on the surface of a torus. We use the same definition for the Berry flux per plaquette , but now with <span class="math inline">\(n \bmod N+1\)</span> in place of <span class="math inline">\(n+1\)</span> and <span class="math inline">\(m \bmod M+1\)</span> in place of <span class="math inline">\(m+1\)</span></p>
+<p>The product of the Berry flux phase factors of all plaquettes is now 1 <span class="math display">\[
 \prod_{m=1}^{M} \prod_{n=1}^{N} e^{-i F_{n m}}=1
-\]</span> The same derivation can be applied as for Eq. (2.11) above, but now every edge is an internal edge, and so all contributions to the product cancel.</p>
+\]</span> The same derivation can be applied as for <span class="math inline">\(\exp \left[-i \sum_{n=1}^{N-1} \sum_{m=1}^{M-1} F_{n m}\right]=e^{-i \gamma_{L}}\)</span> above, but now every edge is an internal edge, and so all contributions to the product cancel.</p>
 <p>The Chern number <span class="math inline">\(Q\)</span> associated to our structure is defined via the sum of the Berry fluxes of all the plaquettes forming the closed torus surface: <span class="math display">\[
 Q=\frac{1}{2 \pi} \sum_{n m} F_{n m}
-\]</span> The fact that the Chern number <span class="math inline">\(Q\)</span> is defined via the gauge invariant Berry fluxes ensures that <span class="math inline">\(Q\)</span> itself is gauge invariant. Furthermore, taking the arg of Eq. (2.12) proves that the Chern number <span class="math inline">\(Q\)</span> is an integer.</p>
-<p>It is worthwhile to look a little deeper into the discrete formula for the Chern number. We can define modified Berry fluxes <span class="math inline">\(\tilde{F}_{n m}\)</span> as <span class="math inline">\(\tilde{F}_{n m}=\gamma_{(n, m),(n+1, m)}+\gamma_{(n+1, m),(n+1, m+1)}+\gamma_{(n+1, m+1),(n, m+1)}+\gamma_{(n, m+1),(n, m)}\)</span> Since each edge is shared between two neighboring plaquettes, the sum of the modified Berry fluxes over all plaquettes vanishes. <span class="math display">\[
+\]</span> The fact that the Chern number <span class="math inline">\(Q\)</span> is defined via the gauge invariant Berry fluxes ensures that <span class="math inline">\(Q\)</span> itself is gauge invariant. Furthermore, taking the arg of Eq. <span class="math inline">\(\prod_{m=1}^{M} \prod_{n=1}^{N} e^{-i F_{n m}}=1\)</span> proves that the Chern number <span class="math inline">\(Q\)</span> is an integer.</p>
+<p>It is worthwhile to look a little deeper into the discrete formula for the Chern number. We can define modified Berry fluxes <span class="math inline">\(\tilde{F}_{n m}\)</span> as <span class="math display">\[
+\tilde{F}_{n m}=\gamma_{(n, m),(n+1, m)}+\gamma_{(n+1, m),(n+1, m+1)}+\gamma_{(n+1, m+1),(n, m+1)}+\gamma_{(n, m+1),(n, m)}
+\]</span> Since each edge is shared between two neighboring plaquettes, the sum of the modified Berry fluxes over all plaquettes vanishes. <span class="math display">\[
 \sum_{m=1}^{M} \sum_{n=1}^{N} \tilde{F}_{n m}=0
-\]</span> If <span class="math inline">\(-\pi \leq \tilde{F}_{n m}&lt;\pi\)</span>, then we have <span class="math inline">\(\tilde{F}_{n m}=F_{n m} .\)</span> However, <span class="math inline">\(\tilde{F}_{n m}\)</span> can be outside the range <span class="math inline">\([-\pi, \pi):\)</span> then as the logarithm is taken in Eq. (2.8), <span class="math inline">\(F_{n m}\)</span> is taken back into <span class="math inline">\([-\pi, \pi)\)</span> by adding a (positive or negative) integer multiple of <span class="math inline">\(2 \pi .\)</span> In that case, we say the plaquette <span class="math inline">\(n m\)</span> contains a number <span class="math inline">\(Q_{n m} \in Z\)</span> of vortices, with <span class="math display">\[
+\]</span> If <span class="math inline">\(-\pi \leq \tilde{F}_{n m}&lt;\pi\)</span>, then we have <span class="math inline">\(\tilde{F}_{n m}=F_{n m} .\)</span></p>
+<p>However, <span class="math inline">\(\tilde{F}_{n m}\)</span> can be outside the range <span class="math inline">\([-\pi, \pi):\)</span> then as the logarithm is taken in Eq. (2.8), <span class="math inline">\(F_{n m}\)</span> is taken back into <span class="math inline">\([-\pi, \pi)\)</span> by adding a (positive or negative) integer multiple of <span class="math inline">\(2 \pi .\)</span> In that case, we say the plaquette <span class="math inline">\(n m\)</span> contains a number <span class="math inline">\(Q_{n m} \in Z\)</span> of vortices, with <span class="math display">\[
 Q_{n m}=\frac{F_{n m}-\tilde{F}_{n m}}{2 \pi} \in Z
-\]</span> We have found a simple picture for the Chern number: The Chern number <span class="math inline">\(Q\)</span>, that is, the sum of the Berry fluxes of all the plaquettes of a closed surface, is the number of vortices on the surface, <span class="math display">\[
+\]</span> We have found a <strong>simple picture</strong> for the Chern number: The Chern number <span class="math inline">\(Q\)</span>, that is, the sum of the Berry fluxes of all the plaquettes of a closed surface, is the number of vortices on the surface, <span class="math display">\[
 Q=\frac{1}{2 \pi} \sum_{n m} F_{n m}=\sum_{n m} Q_{n m} \in Z .
 \]</span> Although we proved it here for the special case of a torus, the derivation is easily generalized to all orientable closed surfaces. We focused on the torus, because this construction can be used as a very efficient numerical recipe to discretize and calculate the (continuum) Chern number of a 2-dimensional insulator [12], to be defined in Sect. <span class="math inline">\(2.2 .4\)</span></p>
 <h2 id="continuum-case">2.2 Continuum Case</h2>
@@ -283,14 +311,21 @@ Q=\frac{1}{2 \pi} \sum_{n m} F_{n m}=\sum_{n m} Q_{n m} \in Z .
 <p>We take a smooth directed path <span class="math inline">\(C\)</span>, i.e., a curve in the parameter space <span class="math inline">\(P\)</span>, <span class="math display">\[
 E :[0,1) \rightarrow P , \quad t \mapsto R (t) .
 \]</span> We assume that all components of <span class="math inline">\(|\Psi( R )\rangle\)</span> are smooth, at least in an open neighborhood of the curve <span class="math inline">\(C\)</span>. The relative phase between two neighbouring states on the curve <span class="math inline">\(C\)</span>, corresponding to the parameters <span class="math inline">\(R\)</span> and <span class="math inline">\(R +d R\)</span>, is <span class="math display">\[
-e^{-i \Delta \gamma}=\frac{\langle\Psi( R ) \mid \Psi( R +d R )\rangle}{|\langle\Psi( R ) \mid \Psi( R +d R )\rangle|} ; \quad \Delta \gamma=i\left\langle\Psi( R )\left|\nabla_{ R }\right| \Psi( R )\right\rangle \cdot d R
-\]</span> obtained to first order in <span class="math inline">\(d R \rightarrow 0\)</span>. The quantity multiplying <span class="math inline">\(d R\)</span> on the right-hand side defines the Berry connection, <span class="math display">\[
+e^{-i \Delta \gamma}=\frac{\langle\Psi( R ) \mid \Psi( R +d R )\rangle}{|\langle\Psi( R ) \mid \Psi( R +d R )\rangle|}  
+\]</span> <span class="math display">\[
+\Delta \gamma=i\left\langle\Psi( R )\left|\nabla_{ R }\right| \Psi( R )\right\rangle \cdot d R
+\]</span></p>
+<blockquote>
+<p>奇思妙想 <span class="math inline">\(\Psi(R+d R)\rangle=\nabla_{R}|\Psi(R)\rangle \cdot d R\)</span></p>
+</blockquote>
+<p>obtained to first order in <span class="math inline">\(d R \rightarrow 0\)</span>. The quantity multiplying <span class="math inline">\(d R\)</span> on the right-hand side defines the Berry connection, <span class="math display">\[
 A ( R )=i\left\langle\Psi( R ) \mid \nabla_{ R } \Psi( R )\right\rangle=-\operatorname{Im}\left\langle\Psi( R ) \mid \nabla_{ R } \Psi( R )\right\rangle
 \]</span> Here <span class="math inline">\(\left|\nabla_{ R } \Psi( R )\right\rangle\)</span> is defined by requiring for every Hilbert space vector <span class="math inline">\(|\Phi\rangle\)</span>, that <span class="math display">\[
 \left\langle\Phi \mid \nabla_{ R } \Psi( R )\right\rangle=\nabla_{ R }\langle\Phi \mid \Psi( R )\rangle .
 \]</span> The second equality in Eq. (2.20) follows from the conservation of the norm, <span class="math inline">\(\nabla_{ R }\langle\Psi( R ) \mid \Psi( R )\rangle=0\)</span> We have seen in the discrete case that the relative phase of two states is not gauge invariant; neither is the Berry connection. Under a gauge transformation, it changes as <span class="math display">\[
 |\Psi( R )\rangle \rightarrow e^{i \alpha( R )}|\Psi( R )\rangle: \quad A ( R ) \rightarrow A ( R )-\nabla_{ R } \alpha( R )
-\]</span> #### 2.2.2 Berry Phase</p>
+\]</span></p>
+<h4 id="berry-phase">2.2.2 Berry Phase</h4>
 <p>Consider a closed directed curve <span class="math inline">\(C\)</span> in parameter space. The Berry phase along the curve is defined as <span class="math display">\[
 \gamma( E )=-\arg \exp \left[-i \oint_{ E } A \cdot d R \right]
 \]</span> The Berry phase of a closed directed curve is gauge invariant, since it can be interpreted as a limiting case of the discrete Berry phase, via Eqs. (2.20), (2.19), and <span class="math inline">\((2.5)\)</span>, and the latter has been shown to be gauge invariant.</p>
@@ -298,7 +333,8 @@ A ( R )=i\left\langle\Psi( R ) \mid \nabla_{ R } \Psi( R )\right\rangle=-\operat
 <p>As in the discrete case above, we would like to express the gauge invariant Berry phase as a surface integral of a gauge invariant quantity. This quantity is the Berry curvature. Similarly to the discrete case, we consider a two-dimensional parameter space, and for simplicity denote the parameters as <span class="math inline">\(x\)</span> and <span class="math inline">\(y .\)</span> We take a simply connected region <span class="math inline">\(F\)</span> in this two-dimensional parameter space, with the oriented boundary curve of this surface denoted by <span class="math inline">\(\partial F\)</span>, and consider the continuum Berry phase corresponding to the boundary.</p>
 <h5 id="smoothness-of-the-manifold-of-states">2.2.3.1 Smoothness of the Manifold of States</h5>
 <p>Before relating the Berry phase to the Berry curvature, an important note on the manifold <span class="math inline">\(|\Psi( R )\rangle\)</span> of considered states is in order. From now on, we consider a manifold of states, living in our two-dimensional parameter space, that is smooth, in the sense that the map <span class="math inline">\(R \mapsto|\Psi( R )\rangle\langle\Psi( R )|\)</span> is smooth. Importantly, this condition does not necessarily imply that that the function <span class="math inline">\(R \mapsto|\Psi( R )\rangle\)</span>, also referred to as a gauge describing our manifold, is smooth. (For further discussion and examples, see Sect. 2.5.1.) Nevertheless, even if the gauge <span class="math inline">\(R \mapsto|\Psi( R )\rangle\)</span> is not smooth in a</p>
-<p>point <span class="math inline">\(R _{0}\)</span> of the parameter space, one can always find an alternative gauge <span class="math inline">\(\left|\Psi^{\prime}( R )\right\rangle\)</span> which is (i) locally smooth, that is, smooth in the point <span class="math inline">\(R _{0}\)</span>, and (ii) locally generates the same map as <span class="math inline">\(|\Psi( R )\rangle\)</span>, that is, for which <span class="math inline">\(\left|\Psi^{\prime}( R )\right\rangle\left\langle\Psi^{\prime}( R )|=| \Psi( R )\right\rangle\langle\Psi( R )\)</span> in an infinitesimal neighborhood of <span class="math inline">\(R _{0}\)</span>. Let us formulate an intuitive argument supporting the latter claim using quantum-mechanical perturbation theory. Take the Hamiltonian <span class="math inline">\(\hat{H}( R )=-|\Psi( R )\rangle\langle\Psi( R )|\)</span>, which can be substituted in the infinitesimal neighborhood of <span class="math inline">\(R _{0}\)</span> with <span class="math inline">\(\hat{H}\left( R _{0}+\Delta R \right)=\hat{H}\left( R _{0}\right)+\Delta R \cdot(\nabla \hat{H})\left( R _{0}\right)\)</span> According to first-order perturbation theory, the ground state of the latter is given by <span class="math display">\[
+<p>point <span class="math inline">\(R _{0}\)</span> of the parameter space, one can always find an alternative gauge <span class="math inline">\(\left|\Psi^{\prime}( R )\right\rangle\)</span> which is (i) locally smooth, that is, smooth in the point <span class="math inline">\(R _{0}\)</span>, and (ii) locally generates the same map as <span class="math inline">\(|\Psi( R )\rangle\)</span>, that is, for which <span class="math inline">\(\left|\Psi^{\prime}( R )\right\rangle\left\langle\Psi^{\prime}( R )|=| \Psi( R )\right\rangle\langle\Psi( R )|\)</span> in an infinitesimal neighborhood of <span class="math inline">\(R _{0}\)</span>. Let us formulate an intuitive argument supporting the latter claim using quantum-mechanical perturbation theory. Take the Hamiltonian <span class="math inline">\(\hat{H}( R )=-|\Psi( R )\rangle\langle\Psi( R )|\)</span>, which can be substituted in the infinitesimal neighborhood of <span class="math inline">\(R _{0}\)</span> with <span class="math inline">\(\hat{H}\left( R _{0}+\Delta R \right)=\hat{H}\left( R _{0}\right)+\Delta R \cdot(\nabla \hat{H})\left( R _{0}\right)\)</span></p>
+<p>According to first-order perturbation theory, the ground state of the latter is given by <span class="math display">\[
 \left|\Psi^{\prime}\left( R _{0}+\Delta R \right)\right\rangle=\left|\Psi\left( R _{0}\right)\right\rangle-\sum_{n=2}^{D}\left|\Psi_{n}\left( R _{0}\right)\right\rangle\left\langle\Psi_{n}\left( R _{0}\right)\left|\Delta R \cdot(\nabla \hat{H})\left( R _{0}\right)\right| \Psi\left( R _{0}\right)\right\rangle,
 \]</span> where the states <span class="math inline">\(\left|\Psi_{n}\left( R _{0}\right)\right\rangle(n=2,3, \ldots, D)\)</span>, together with <span class="math inline">\(\left|\Psi\left( R _{0}\right)\right\rangle\)</span>, form a basis of the Hilbert space. On the one hand, Eq. (2.24) defines a function that is smooth in <span class="math inline">\(R _{0}\)</span>, hence the condition (i) above is satisfied. On the other hand, as <span class="math inline">\(\left|\Psi^{\prime}\left( R _{0}+\Delta R \right)\right\rangle\)</span> is the ground state of <span class="math inline">\(\hat{H}\left( R _{0}+\Delta R \right)\)</span>, condition (ii) is also satisfied.</p>
 <h5 id="berry-phase-and-berry-curvature">2.2.3.2 Berry Phase and Berry Curvature</h5>

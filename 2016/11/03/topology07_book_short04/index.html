@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5k 字
+      5.2k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      99
+      102
        分钟
     </span>
   
@@ -219,11 +219,18 @@
 <h2 id="chapter-4-adiabatic-charge-pumping-rice-mele-model">Chapter 4 Adiabatic Charge Pumping, Rice-Mele Model</h2>
 <p>We now apply the Berry phase and the Chern number to show that by periodically and slowly changing the parameters of a one-dimensional solid, it is possible to pump particles in it. The number of particles (charge) pumped is an integer per cycle, that is given by a Chern number. Along the way we will introduce important concepts of edge state branches of the dispersion relation, and bulk-boundary correspondence. Since we are working towards understanding time-independent topological insulators, this chapter might seem like a detour. However, bulkboundary correspondence of 2 -dimensional Chern insulators, at the heart of the theory of topological insulators, is best understood via a mapping to an adiabatic charge pump.</p>
 <p>The concrete system we use in this chapter is the simplest adiabatic charge pump, the time-dependent version of the Rice-Mele model, <span class="math display">\[
-\begin{array}{c}
-\hat{H}(t)=v(t) \sum_{m=1}^{N}(|m, B\rangle\langle m, A|+\text { h.c. })+w(t) \sum_{m=1}^{N-1}(|m+1, A\rangle\langle m, B|+\text { h.c. }) \\
-+u(t) \sum_{m=1}^{N}(|m, A\rangle\langle m, A|-| m, B\rangle\langle m, B|)
-\end{array}
-\]</span> with the staggered onsite potential <span class="math inline">\(u\)</span>, intracell hopping amplitude <span class="math inline">\(v\)</span>, and intercell hopping amplitude <span class="math inline">\(w\)</span> all assumed to be real and periodic functions of time <span class="math inline">\(t\)</span>. In this chapter, we are going to see how, by properly choosing the time sequences, we can ensure that particles are pumped along the chain.</p>
+\begin{aligned}
+\hat{H}(t)=&amp;v(t) \sum_{m=1}^{N}(|m, B\rangle\langle m, A|+\text { h.c. })
+\\&amp;+w(t) \sum_{m=1}^{N-1}(|m+1, A\rangle\langle m, B|+\text { h.c. }) 
+\\&amp;+u(t) \sum_{m=1}^{N}(|m, A\rangle\langle m, A|-| m, B\rangle\langle m, B|)
+\end{aligned}
+\]</span> with</p>
+<ul>
+<li>the staggered onsite potential <span class="math inline">\(u\)</span>,</li>
+<li>intracell hopping amplitude <span class="math inline">\(v\)</span>,</li>
+<li>and intercell hopping amplitude <span class="math inline">\(w\)</span></li>
+</ul>
+<p>all assumed to be real and periodic functions of time <span class="math inline">\(t\)</span>. In this chapter, we are going to see how, by properly choosing the time sequences, we can ensure that particles are pumped along the chain.</p>
 <h2 id="charge-pumping-in-a-control-freak-way">4.1 Charge Pumping in a Control Freak Way</h2>
 <p>The most straightforward way to operate a charge pump in the Rice-Mele model is to make sure that the system falls apart at all times to disconnected dimers. This will happen if at any time either the intercell hopping amplitude <span class="math inline">\(w\)</span>, or the intracell hopping amplitude <span class="math inline">\(v\)</span> vanishes. We can then use the staggered onsite potential to nudge the lower energy eigenstate to the right. If during the whole cycle we keep a finite energy difference between the two eigenstates, we can do the cycle slowly enough to prevent excitation.</p>
 <h4 id="adiabatic-shifting-of-charge-on-a-dimer">4.1.1 Adiabatic Shifting of Charge on a Dimer</h4>
@@ -232,7 +239,7 @@
 \]</span> with no hopping allowed at the beginning and end of the cycle, at <span class="math inline">\(t=0\)</span>, we have <span class="math inline">\((u, v)=(1,0)\)</span>, we have and at <span class="math inline">\(t=T\)</span>, we have <span class="math inline">\((u, v)=(-1,0)\)</span>.</p>
 <p>We initialize the system in the ground state, which at time <span class="math inline">\(t=0\)</span> corresponds to <span class="math inline">\(|A\rangle\)</span>, a particle on site <span class="math inline">\(A\)</span>. Then we switch on the hopping, which allows the particle to spill over to site <span class="math inline">\(B\)</span>, and once it has done that, we switch the hopping off. To ensure that the particle spills over, we raise the onsite potential at <span class="math inline">\(A\)</span> and lower it at <span class="math inline">\(B\)</span>. A practical choice is <span class="math display">\[
 u(t)=\cos (\pi t / T) ; \quad v(t)=\sin (\pi t / T),
-\]</span> whereby the energy gap is at any time 2 . According to the adiabatic theorem, if <span class="math inline">\(H(t)\)</span> is varied slowly enough, we will have shifted the charge to <span class="math inline">\(B\)</span> at the end of the cycle.</p>
+\]</span> where by the energy gap is at any time 2 . According to the adiabatic theorem, if <span class="math inline">\(H(t)\)</span> is varied slowly enough, we will have shifted the charge to <span class="math inline">\(B\)</span> at the end of the cycle.</p>
 <h4 id="putting-together-the-control-freak-sequence">4.1.2 Putting Together the Control Freak Sequence</h4>
 <p>Once we know how to shift a particle from <span class="math inline">\(|m, A\rangle\)</span> to <span class="math inline">\(|m, B\rangle\)</span>, we can use that to shift the particle further from <span class="math inline">\(|m, B\rangle\)</span> to <span class="math inline">\(|m+1, A\rangle .\)</span> For simplicity, we take a sequence constructed from linear ramps of the amplitudes, using the function <span class="math inline">\(f:[0,1) \rightarrow R\)</span> : <span class="math display">\[
 f(x)=\left\{\begin{array}{ll}
@@ -247,15 +254,44 @@ u(t)=f(t / T)-f\left(t / T+\frac{1}{2}\right) \\
 v(t)=2 f\left(t / T+\frac{1}{4}\right) ; \\
 w(t)=f\left(t / T-\frac{1}{4}\right) .
 \end{array}
-\]</span> This period, shown in Fig. 4.1a, is assumed to then be repeated. Note that we shifted the beginning time of the sequence: now at times <span class="math inline">\(t / T=n \in Z\)</span>, the Hamiltonian is the trivial SSH model, <span class="math inline">\(t / T=n+1 / 4\)</span>, disconnected monomers, at times <span class="math inline">\(t / T=\)</span> <span class="math inline">\(n+1 / 2\)</span>, it is the nontrivial SSH model. The time-dependent bulk momentum-space Hamiltonian reads <span class="math display">\[
+\]</span> This period, shown in Fig. 4.1a, is assumed to then be repeated.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210529030915730.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<blockquote>
+<p>Fig. <span class="math inline">\(4.1\)</span> The control freak pump sequence in the Rice-Mele model. The sequence is defined via Eqs. (4.5) and (4.6).</p>
+<ul>
+<li><ol type="a">
+<li>Time dependence of the hopping amplitudes <span class="math inline">\(v, w\)</span> and the sublattice potential <span class="math inline">\(u\)</span>.</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>The surface formed by the vector <span class="math inline">\(d (k, t)\)</span> corresponding to the bulk momentumspace Hamiltonian. The topology of the surface is a torus, but its parts corresponding to <span class="math inline">\(t \in\)</span> <span class="math inline">\([0,0.25] T\)</span> and <span class="math inline">\(t \in[0.75,1] T\)</span> are infinitely thin and appear as a line due to the vanishing value of <span class="math inline">\(w\)</span> in these time intervals.</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Instantaneous spectrum of the Hamiltonian <span class="math inline">\(\hat{H}(t)\)</span> of an open chain of <span class="math inline">\(N=10\)</span> sites. Red (blue) points represent states that are localized in the rightmost (leftmost) unit cells and have energies between <span class="math inline">\(-1\)</span> and 1</li>
+</ol></li>
+</ul>
+</blockquote>
+<p>Note that we shifted the beginning time of the sequence:</p>
+<ul>
+<li>now at times <span class="math inline">\(t / T=n \in Z\)</span>, the Hamiltonian is the trivial SSH model,</li>
+<li><span class="math inline">\(t / T=n+1 / 4\)</span>, disconnected monomers,</li>
+<li>at times <span class="math inline">\(t / T=\)</span> <span class="math inline">\(n+1 / 2\)</span>, it is the nontrivial SSH model.</li>
+</ul>
+<p>The time-dependent bulk momentum-space Hamiltonian reads <span class="math display">\[
 \hat{H}(k, t)= d (k, t) \hat{\sigma}=(v(t)+w(t) \cos k) \hat{\sigma}_{x}+w(t) \sin k \hat{\sigma}_{y}+u(t) \hat{\sigma}_{z}
-\]</span> which can be represented graphically as the path of the vector <span class="math inline">\(d (k, t)\)</span> as the quasimomentum goes through the Brillouin zone, <span class="math inline">\(k: 0 \rightarrow 2 \pi\)</span>, for various fixed values of time <span class="math inline">\(t\)</span>, as in Fig. <span class="math inline">\(4.1\)</span> b.</p>
+\]</span> which can be represented graphically as the path of the vector <span class="math inline">\(d (k, t)\)</span> as the quasi-momentum goes through the Brillouin zone, <span class="math inline">\(k: 0 \rightarrow 2 \pi\)</span>, for various fixed values of time <span class="math inline">\(t\)</span>, as in Fig. <span class="math inline">\(4.1\)</span> b.</p>
 <h4 id="visualizing-the-motion-of-energy-eigenstates">4.1.3 Visualizing the Motion of Energy Eigenstates</h4>
 <p>We can visualize the effects of the control freak pumps sequence in the Rice-Mele model by tracing the trajectories of the energy eigenstates. At any time <span class="math inline">\(t\)</span>, each instantaneous energy eigenstate can be chosen confined to a single dimer: either on a single unit cell, or shared between two cells. In both cases, we can associate a position with the energy eigenstates: the expectation value of the position operator x defined as per Eq. (3.9).</p>
-<p>The trajectories of energy eigenstates in the position-energy space, Fig. <span class="math inline">\(4.2\)</span>, show that the charge pump sequence works rather like a conveyor belt for the eigenstates. We engineered the sequence as a unitary operation that pushes all negative energy states in the bulk to the right at the rate of one unit cell per cycle (a current of one particle per cycle). These orthogonal states, one by one, are pushed into the right end region, which has only room for one energy eigenstate. Eigenstates cannot pile up in the right end region: if they did, this would violate unitarity of the time evolution operator <span class="math inline">\(U(t)= T e^{-i \int_{0}^{t} H\left(t^{\prime}\right) d r^{\prime}}\)</span>, where <span class="math inline">\(T\)</span> stands for time ordering, since initially orthogonal states would acquire finite overlap. So, states pumped to the right edge have to go somewhere, and the only direction they can go is back towards the bulk. This on the other hand is only possible, if they acquire enough energy to be in the upper band, since all states in the lower band in the bulk are pushed towards the right. Moreover, in order to carry these states away from the right edge, and make room for those coming from the bulk, the pump sequence has to push upper band bulk states towards the left.</p>
-<p>To summarize, the control freak pump sequence is characterized by three statements. The protocol - in the bulk, pushes all <span class="math inline">\(E&lt;0\)</span> eigenstates rightwards, by 1 unit cell per cycle, - at the right end, pushes 1 eigenstate per cycle with <span class="math inline">\(E&lt;0\)</span> to <span class="math inline">\(E&gt;0\)</span>, - in the bulk, pushes all <span class="math inline">\(E&gt;0\)</span> eigenstates leftwards, by 1 unit cell per cycle. If any one of these statements holds, the other two must also hold as a consequence.</p>
+<p>The trajectories of energy eigenstates in the position-energy space, Fig. <span class="math inline">\(4.2\)</span></p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210529031446551.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<blockquote>
+<p>Fig. <span class="math inline">\(4.2\)</span> An instantaneous energy eigenstate of the control freak pump sequence, as it is pumped through the system. At negative (positive) energy, it is pumped towards the right (left), upon reaching the right (left) end, it is pumped into the upper (lower) band</p>
+</blockquote>
+<p>show that the charge pump sequence works rather like a conveyor belt (输送带) <strong>for the eigenstates</strong>. We engineered the sequence as a unitary operation that pushes all negative energy states in the bulk to the right at the rate of one unit cell per cycle (a current of one particle per cycle). These orthogonal states, one by one, are pushed into the right end region, which has <strong>only room for one energy eigenstate</strong>. Eigenstates cannot pile up in the right end region: if they did, this would violate unitarity of the time evolution operator <span class="math inline">\(U(t)= T e^{-i \int_{0}^{t} H\left(t^{\prime}\right) d r^{\prime}}\)</span>, where <span class="math inline">\(T\)</span> stands for time ordering, since initially orthogonal states would acquire finite overlap. So, states pumped to the right edge have to go somewhere, and the only direction they can go is back towards the bulk. This on the other hand is only possible, if they acquire enough energy to be in the upper band, since all states in the lower band in the bulk are pushed towards the right. Moreover, in order to carry these states away from the right edge, and make room for those coming from the bulk, the pump sequence has to push upper band bulk states towards the left.</p>
+<p>To summarize, the control freak pump sequence is characterized by three statements. The protocol - in the bulk, pushes all <span class="math inline">\(E&lt;0\)</span> eigenstates rightwards, by 1 unit cell per cycle, - at the right end, pushes 1 eigenstate per cycle with <span class="math inline">\(E&lt;0\)</span> to <span class="math inline">\(E&gt;0\)</span>, - in the bulk, pushes all <span class="math inline">\(E&gt;0\)</span> eigenstates leftwards, by 1 unit cell per cycle.</p>
+<p>If any one of these statements holds, the other two must also hold as a consequence.</p>
 <h4 id="edge-states-in-the-instantaneous-spectrum">4.1.4 Edge States in the Instantaneous Spectrum</h4>
-<p>We can see the charge pump at work indirectly-via its effect on the edge statesusing the instantaneous spectrum, the eigenvalues of <span class="math inline">\(\hat{H}(t)\)</span> of the open chain. An example is shown for the control freak pump sequence of the Rice-Mele model on a chain of 10 unit cells ( 20 sites) in Fig. 4.1. Due to the special choice of the control freak sequence, the bulk consists of <span class="math inline">\(N-1\)</span> -fold degenerate states (the bands are flat). More importantly, there is an energy gap separating the bands, which is open around <span class="math inline">\(E=0\)</span> at all times. However, there are branches of the spectrum crossing this energy gap, which must represent edge states.</p>
+<p>We can see the charge pump at work indirectly-via its effect on the edge statesusing the instantaneous spectrum, the eigenvalues of <span class="math inline">\(\hat{H}(t)\)</span> of the open chain.</p>
+<p>An example is shown for the control freak pump sequence of the Rice-Mele model on a chain of 10 unit cells ( 20 sites) in Fig. 4.1. Due to the special choice of the control freak sequence, the bulk consists of <span class="math inline">\(N-1\)</span> -fold degenerate states (the bands are flat). More importantly, there is an energy gap separating the bands, which is open around <span class="math inline">\(E=0\)</span> at all times. However, there are branches of the spectrum crossing this energy gap, which must represent edge states.</p>
 <p>To assign "right" or "left" labels to edge states in the instantaneous spectrum, it is necessary to examine the corresponding wavefunctions. In case of the control freak pump sequence, right (left) edge state wavefunctions are localized on the <span class="math inline">\(m=N\)</span> ( <span class="math inline">\(m=1\)</span> ) unit cells, and the corresponding energy values are highlighted in green (red). The edge state branches in the dispersion in Fig. 4.1. clearly show that 1 state per cycle is pushed up in energy at the right edge.</p>
 <h2 id="moving-away-from-the-control-freak-limit">4.2 Moving Away from the Control Freak Limit</h2>
 <p>We will now argue that the number of particles pumped by a cycle of a periodic adiabatic modulation of an insulating chain is an integer, even if the control freak attitude is relaxed. In the generic case, the energy eigenstates are delocalized over the whole bulk, and so we will need new tools to keep track of the charge pumping process. The robust quantization of charge pumping was shown by Thouless, who calculated the bulk current directly: we defer this calculation to the next chapter, and here argue using adiabatic deformations.</p>
