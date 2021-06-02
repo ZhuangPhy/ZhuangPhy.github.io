@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>TI笔记7 局域态的连续模型 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/topology07_book_short01.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2016-11-03 14:07">
+      November 3, 2016 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      66
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="简介">简介</h2>
+<h2 id="参考">参考</h2>
+<ul>
+<li>《A Short Course on Topological Insulators 》
+<ol start="2" type="1">
+<li>Chapter 7 Continuum Model of Localized States at a Domain Wall</li>
+</ol></li>
+<li><a href="https://github.com/oroszl/topins" target="_blank" rel="noopener">Github jupyter notebooks</a> 这个作者还有transport的课程</li>
+<li><a href="http://optics.szfki.kfki.hu/~asboth/topins_course/" target="_blank" rel="noopener">课程</a></li>
+</ul>
+<h2 id="chapter-7-continuum-model-of-localized-states-at-a-domain-wall">Chapter 7 Continuum Model of Localized States at a Domain Wall</h2>
+<p>So far, we have discussed edge states in lattice models, in which the states live on discrete lattice sites, and the Hamiltonian governing the physics is a matrix. In this chapter, we argue that in certain cases, it is also possible to describe these states via a continuum model, in which the states live in continuous space, and the Hamiltonian is a differential operator. One benefit of such a continuum description is that it allows one to use the vast available toolkit of differential equations for solid-state problems in general, including the description of topologically protected states in particular. Another interesting aspect of these continuum models is their strong similarity with the Dirac equation describing relativistic fermions. A limitation of the continuum models is that their validity is restricted to narrow windows in momentum and energy; typically they are applied in the vicinities of band edges. Here, we obtain the continuum differential equations for three basic lattice models: the one-dimensional monatomic chain, the one-dimensional SSH model, and the two-dimensional QWZ model. In the cases of the SSH and QWZ models, the resulting equations will be used to analytically characterize the localized states appearing at boundaries between regions with different topological invariants. Even though in the entire chapter we build our discussion on the three specific lattice models, the applicability of the technique introduced here, called envelope-function approximation, is more general and widely used to describe electronic states in various crystalline solids.</p>
+<h2 id="one-dimensional-monatomic-chain-in-an-electric-potential">7.1 One-Dimensional Monatomic Chain in an Electric Potential</h2>
+<p>We use this minimal lattice model to illustrate the basic concepts of the envelopefunction approximation (EFA) [3], the technique that allows us to find the continuum versions of our lattice models. Of course, the one-dimensional monatomic chain does not host topologically protected states.</p>
+<h3 id="the-model">7.1.1 The Model</h3>
+<p>We take a long lattice with <span class="math inline">\(N \gg 1\)</span> unit cells (or sites) without an internal degree of freedom, with periodic boundary conditions, and a negative hopping amplitude <span class="math inline">\(t&lt;0\)</span>. We consider the situation when the electrons are subject to an inhomogeneous electric potential <span class="math inline">\(V(x)\)</span>. This setup is pictured in Fig. 7.1.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210530151439347.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<blockquote>
+<p>Fig. 7.1 One-dimensional monatomic chain in an inhomogeneous potential <span class="math inline">\(V(x)\)</span></p>
+</blockquote>
+<p>The lattice Hamiltonian describing this inhomogeneous system reads <span class="math display">\[
+H_{ i }=H+V
+\]</span> where <span class="math display">\[
+\begin{array}{l}
+H=t \sum_{m=1}^{N}|m\rangle\langle m+1|+\text { h.c. } \\
+V=\sum_{m=1}^{N} V_{m}|m\rangle\langle m|
+\end{array}
+\]</span> with <span class="math inline">\(V_{m}=V(x=m) .\)</span> Our aim is to construct a continuum model that accurately describes the low-energy eigenstates of this lattice Hamiltonian.</p>
+<p>Before discussing the inhomogeneous case incorporating <span class="math inline">\(V(x)\)</span>, focus first on the homogeneous system. The bulk momentum-space Hamiltonian is a scalar <span class="math inline">\((1 \times 1\)</span> matrix) in this model, since there is no integral degree of freedom associated to the unit cell; it reads <span class="math display">\[
+H(k)=\epsilon(k)|k\rangle\langle k|
+\]</span> where <span class="math inline">\(\epsilon(k)\)</span> is the electronic dispersion relation: <span class="math display">\[
+\epsilon(k)=-2|t| \cos k
+\]</span> The low-energy part of the dispersion relation is located around zero momentum, and is approximated by a parabola: <span class="math display">\[
+\epsilon(k) \approx-2|t|+|t| k^{2}=\epsilon_{0}+\frac{k^{2}}{2 m^{*}},
+\]</span> where we introduced the minimum energy of the band <span class="math inline">\(\epsilon_{0}=-2|t|\)</span>, and the effective mass <span class="math inline">\(m^{*}=\frac{1}{2 \mid t}\)</span> characterizing the low-energy part of the dispersion relation. (Using proper physical units, the effective mass would have the form <span class="math inline">\(m^{*}=\hbar^{2} /\left(2|t| a^{2}\right)\)</span>, with <span class="math inline">\(a\)</span> being the lattice constant.) For simplicity, we suppress <span class="math inline">\(\epsilon_{0}\)</span> in what follows; that is, we measure energies with respect to <span class="math inline">\(\epsilon_{0}\)</span>.</p>
+<h3 id="envelope-function-approximation">7.1.2 Envelope-Function Approximation</h3>
+<p>Our goal is to find the low-energy eigenstates of the inhomogeneous lattice Hamiltonian <span class="math inline">\(H_{ i }\)</span>. The central proposition of the EFA, applied to our specific example of the one-dimensional monatomic chain, says that it is possible to complete this goal by solving the simple continuum Schrödinger equation <span class="math display">\[
+H_{ EFA } \varphi(x)=E \varphi(x)
+\]</span> where the envelope-function Hamiltonian <span class="math inline">\(H_{ EFA }\)</span> has a very similar form to the freeelectron Hamiltonian with the electric potential <span class="math inline">\(V\)</span> : <span class="math display">\[
+H_{ EFA }=\frac{\hat{p}^{2}}{2 m^{*}}+V(x)
+\]</span> Here <span class="math inline">\(\hat{p}=-i \partial_{x}\)</span> is the usual real-space representation of the momentum operator, and the function <span class="math inline">\(\varphi(x)\)</span> is usually called envelope function. Note the very simple relation between the low-energy dispersion in Eq. <span class="math inline">\((7.6)\)</span> and the kinetic term in the EFA Hamiltonian (7.8): the latter can be obtained from the former by substituting the momentum operator <span class="math inline">\(\hat{p}\)</span> in place of the momentum <span class="math inline">\(k\)</span>.</p>
+<p>Before formulating the EFA proposition more precisely, we introduce the concept of a spatially slowly varying envelope function. We say that <span class="math inline">\(\varphi(x)\)</span> is spatially slowly varying, if its Fourier transform <span class="math display">\[
+\tilde{\varphi}(q)=\int_{0}^{N} d x \frac{e^{-i q x}}{\sqrt{N}} \varphi(x)
+\]</span> is localized to the <span class="math inline">\(|q| \ll \pi\)</span> region, i.e., to the vicinity of the center of the Brillouin zone.</p>
+<p>With this definition at hand, we can formulate the EFA proposition. Consider the inhomogeneous one-dimensional monatomic chain described by <span class="math inline">\(H_{ i } .\)</span> Assume that <span class="math inline">\(\varphi(x)\)</span> is a spatially slowly varying eigenfunction of <span class="math inline">\(H_{ EFA }\)</span> with eigenvalue <span class="math inline">\(E\)</span>. Then, the state <span class="math inline">\(|\psi\rangle\)</span> defined on the lattice via <span class="math display">\[
+|\psi\rangle=\sum_{m=1}^{N} \varphi(x=m)|m\rangle .
+\]</span> is approximately an eigenstate of the lattice Hamiltonian <span class="math inline">\(H_{ i }\)</span> with eigenvalue <span class="math inline">\(E\)</span>. The proof follows below in Sect. 7.1.3. Note that if the envelope function <span class="math inline">\(\varphi(x)\)</span> fulfils the normalization condition <span class="math display">\[
+\int_{0}^{N} d x|\varphi(x)|^{2}=1
+\]</span> then, for a long lattice <span class="math inline">\(N \gg 1\)</span>, the lattice state <span class="math inline">\(|\psi\rangle\)</span> will also be normalized to a good accuracy: <span class="math display">\[
+\langle\psi \mid \psi\rangle \approx 1 .
+\]</span> It is important to point out two possible interpretations of the lattice state <span class="math inline">\(|\psi\rangle\)</span> introduced in Eq. (7.10). (1) The state <span class="math inline">\(|\psi\rangle\)</span> can be interpreted as the zero-momentum band-edge eigenstate <span class="math inline">\(|k=0\rangle=\frac{1}{\sqrt{N}} \sum_{m=1}^{N}|m\rangle\)</span> of the homogeneous system, modulated by the envelope function <span class="math inline">\(\varphi(x)\)</span> restricted to the lattice-site positions <span class="math inline">\(x=m .(2)\)</span> The state <span class="math inline">\(|\psi\rangle\)</span> can also be interpreted as a wave packet, composed of those eigenstates <span class="math inline">\(|k\rangle\)</span> of the homogeneous lattice Hamiltonian <span class="math inline">\(H\)</span> that have wave numbers <span class="math inline">\(k\)</span> close to the band-edge wave number, the latter being zero in this case. To see this, we first Fourier-decompose <span class="math inline">\(\varphi(x)\)</span> : <span class="math display">\[
+\varphi(x)=\sum_{k \in BZ } \tilde{\varphi}(k) \frac{e^{i k x}}{\sqrt{N}} \approx \sum_{k}^{\prime} \tilde{\varphi}(k) \frac{e^{i k x}}{\sqrt{N}}
+\]</span> In the approximate equality, we used the fact that <span class="math inline">\(\varphi(x)\)</span> is spatially slowly varying, i.e., its Fourier transform <span class="math inline">\(\tilde{\varphi}(k)\)</span> is localized to the central part of the Brillouin zone. and introduced the notation <span class="math inline">\(\sum_{k}^{\prime}\)</span> for a wave-number sum that goes only for the central part of the Brillouin zone. By inserting Eq. (7.13) to Eq. (7.10), we find <span class="math display">\[
+|\psi\rangle=\sum_{m=1}^{N}\left(\sum_{k}^{\prime} \tilde{\varphi}(k) \frac{e^{i k m}}{\sqrt{N}}\right)|m\rangle=\sum_{k}^{\prime} \tilde{\varphi}(k)|k\rangle .
+\]</span> That is, <span class="math inline">\(|\psi\rangle\)</span> is indeed a packet of plane waves with small wave numbers.</p>
+<p>7.1.3 <span class="math inline">\(\quad\)</span> Envelope-Function Approximation: The Proof To prove the EFA proposition, we calculate <span class="math inline">\(H_{ i }|\psi\rangle\)</span> and utilize the spatially-slowlyvarying condition on <span class="math inline">\(\varphi(x)\)</span>. Start with the contribution of the bulk Hamiltonian <span class="math inline">\(\hat{H}\)</span> : utilizing Eq. (7.14), we find <span class="math display">\[
+H|\psi\rangle=\left[\sum_{k \in BZ } \epsilon(k)|k\rangle\langle k|\right]\left[\sum_{q}^{\prime} \tilde{\varphi}(q)|q\rangle\right]
+\]</span> Performing the scalar product yields <span class="math display">\[
+H|\psi\rangle=\sum_{q}^{\prime} \epsilon(q) \tilde{\varphi}(q)|q\rangle
+\]</span> Using the fact that the <span class="math inline">\(q\)</span> sum goes for the central part of the Brillouin zone, where the dispersion relation <span class="math inline">\(\epsilon(q)\)</span> is well approximated by a parabola, we find <span class="math display">\[
+H|\psi\rangle \approx \sum_{q}^{\prime} \frac{q^{2}}{2 m^{*}} \tilde{\varphi}(q)|q\rangle
+\]</span> Utilizing the definition of the plane wave <span class="math inline">\(|q\rangle\)</span>, we obtain <span class="math display">\[
+H|\psi\rangle \approx \sum_{q}^{\prime} \frac{q^{2}}{2 m^{*}} \tilde{\varphi}(q) \sum_{m=1}^{N} \frac{e^{i q m}}{\sqrt{N}}|m\rangle,
+\]</span> which can be rewritten as <span class="math display">\[
+\begin{aligned}
+H|\psi\rangle &amp; \approx \sum_{m=1}^{N}\left[\sum_{q}^{\prime} \frac{q^{2}}{2 m^{*}} \tilde{\varphi}(q) \frac{e^{i q x}}{\sqrt{N}}\right]_{x=m}|m\rangle \\
+&amp;=\sum_{m=1}^{N}\left[-\frac{1}{2 m^{*}} \partial_{x}^{2} \sum_{q}^{\prime} \tilde{\varphi}(q) \frac{e^{i q x}}{\sqrt{N}}\right]_{x=m}|m\rangle \\
+&amp;=\sum_{m=1}^{N}\left[\frac{\hat{p}^{2}}{2 m^{*}} \varphi(x)\right]_{x=m}|m\rangle
+\end{aligned}
+\]</span> Continue with the contribution of the potential <span class="math inline">\(V\)</span>. Using Eqs. (7.3) and (7.10), we find <span class="math display">\[
+\begin{aligned}
+V|\psi\rangle &amp;=\left[\sum_{m=1}^{N} V_{m}|m\rangle\langle m|\right]\left[\sum_{m^{\prime}=1}^{N} \varphi\left(m^{\prime}\right)\left|m^{\prime}\right\rangle\right]=\sum_{m=1}^{N} V_{m} \varphi(m)|m\rangle \\
+&amp;=\sum_{m=1}^{N}[V(x) \varphi(x)]_{x=m}|m\rangle
+\end{aligned}
+\]</span> Summing up the contribution (7.21) of <span class="math inline">\(H\)</span> and the contribution (7.22) of <span class="math inline">\(V\)</span>, we find <span class="math display">\[
+\begin{aligned}
+(H+V)|\psi\rangle &amp; \approx \sum_{m=1}^{N}\left[H_{\text {EFA }} \varphi(x)\right]_{x=m}|m\rangle=\sum_{m=1}^{N}[E \varphi(x)]_{x=m}|m\rangle \\
+&amp;=E \sum_{m=1}^{N} \varphi(m)|m\rangle=E|\psi\rangle
+\end{aligned}
+\]</span> which concludes the proof.</p>
+<h2 id="the-ssh-model-and-the-one-dimensional-dirac-equation">7.2 The SSH Model and the One-Dimensional Dirac Equation</h2>
+<p>To illustrate how the EFA captures topologically protected bound states in onedimensional, we use the SSH model described in detail in Chap. <span class="math inline">\(1 .\)</span> The model is visualized in Fig. <span class="math inline">\(1.1 .\)</span> The bulk Hamiltonian is characterized by two parameters, the intra-cell and inter-cell hopping amplitudes <span class="math inline">\(v, w&gt;0\)</span>, respectively. The bulk lattice Hamiltonian of the SSH model is given in Eq. (1.1), whereas the bulk momentumspace Hamiltonian is given in Eq. (1.14). We have seen that the <span class="math inline">\((v, w)\)</span> parameter space is separated to two adiabatically connected partitions by the <span class="math inline">\(v=w\)</span> line. In Sect. <span class="math inline">\(1.5 .5\)</span>, we have also seen that localized zero-energy states appear at a domain wall between two half-infinite homogeneous regions, if the two regions have different bulk topological invariants; that is, if the sign of <span class="math inline">\(v-w\)</span> is different at the two sides of the domain wall.</p>
+<p>This is the phenomenon that we address in this section: we show that an analytical description of such localized states can be given using the EFA. First, we discuss the electronic dispersion relation of the metallic <span class="math inline">\((v=w)\)</span> and nearly metallic <span class="math inline">\((|v-w| \ll\)</span> <span class="math inline">\(|v+w|\)</span> ) homogeneous SSH model. Second, we obtain the Dirac-type differential equation providing a continuum description for the inhomogeneous SSH model (see Fig. <span class="math inline">\(7.2\)</span> ) for the energy range in the vicinity of the bulk band gap. Finally, we solve that differential equation to find the localized zero-energy states at a domain wall. Remarkably, the analytical treatment remains useful even if the spatial structure of the domain wall is rather irregular.</p>
+<p><img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210530153325520.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
+<blockquote>
+<p>Fig. 7.2 Inhomogeneous intracell hopping and domain walls in the SSH model. The dashed ellipse denotes the unit cell. The dashed line connecting the edges of the chain denotes the periodic boundary condition</p>
+</blockquote>
+<h3 id="the-metallic-case">7.2.1 The Metallic Case</h3>
+<p>First, consider the metallic homogeneous SSH model, where <span class="math inline">\(v=w\)</span>. The dispersion relation is shown as the blue solid line in Fig. <span class="math inline">\(1.2 c\)</span>. The filled and empty bands touch at the end of the Brillouin zone, at <span class="math inline">\(k=k_{0} \equiv \pi\)</span>. Figure <span class="math inline">\(1.2 c\)</span> shows that in the vicinity of that touching point, commonly referred to as a Dirac point, the dispersion relations are linear functions of the relative wave vector <span class="math inline">\(q=k-k_{0}\)</span>. The slope of these linear functions, corresponding to the group velocity of the electrons, can be determined, e.g. by Taylor-expanding the bulk momentum-space Hamiltonian <span class="math inline">\(\hat{H}(k)=(v+w \cos k) \hat{\sigma}_{x}+w \sin k \hat{\sigma}_{y}\)</span>, see Eq. <span class="math inline">\((1.10)\)</span>, to first order in <span class="math inline">\(q:\)</span> <span class="math display">\[
+\hat{H}\left(k_{0}+q\right) \approx-w q \hat{\sigma}_{y}, \quad(v=w)
+\]</span> which indeed has a linear dispersion relation, <span class="math display">\[
+E_{\pm}(q)=\pm w q
+\]</span> The eigenstates of the linearized Hamiltonian ( <span class="math inline">\(7.25\)</span> ) are <span class="math display">\[
+\psi_{\pm}(q)=\frac{1}{\sqrt{2}}\left(\begin{array}{c}
+1 \\
+\mp i
+\end{array}\right)
+\]</span> Note that the dispersion relation of the Dirac equation of fermions with zero mass is <span class="math display">\[
+E_{\pm}(k)=\pm \hbar k c
+\]</span> where <span class="math inline">\(\hbar\)</span> is the reduced Planck's constant and <span class="math inline">\(c\)</span> is the speed of light. Comparing Eqs. (7.26) and (7.28), we conclude that the dispersion of the metallic SSH model is analogous to that of massless Dirac fermions, and the hopping amplitude of the metallic SSH model plays the role of <span class="math inline">\(\hbar c\)</span>. Because of the similarity of the dispersions (7.26) and (7.28), the linearized Hamiltonian (7.25) is often called a massless Dirac Hamiltonian.</p>
+<p>At this point, the linearization of the bulk momentum-space Hamiltonian of the SSH model does not seem to be a particularly fruitful simplification: to obtain the dispersion relation and the eigenstates, a <span class="math inline">\(2 \times 2\)</span> matrix has to be diagonalized, no matter if the linearization has been done or not. However, linearizing the Hamiltonian is the first step towards the EFA, as discussed below. 7.2.2 The Nearly Metallic Case Now consider a homogeneous, insulating SSH model that is nearly metallic; that is, the scale of the energy gap <span class="math inline">\(|v-w|\)</span> opened at <span class="math inline">\(k_{0}\)</span> is significantly smaller than the scale of the band width <span class="math inline">\(v+w\)</span>. An example is are shown in Fig. <span class="math inline">\(1.2 b\)</span>, where the dispersion relation is plotted for the parameter values <span class="math inline">\(v=1\)</span> and <span class="math inline">\(w=0.6\)</span>.</p>
+<p>We wish to describe the states close to the band gap located around zero energy. Hence, again, we can use the approximate bulk momentum-space Hamiltonian obtained via linearization in the relative momentum <span class="math inline">\(q\)</span> : <span class="math display">\[
+\hat{H}\left(k_{0}+q\right) \approx M \hat{\sigma}_{x}-w q \hat{\sigma}_{y}
+\]</span> where we defined <span class="math inline">\(M=v-w\)</span>. The dispersion relation reads <span class="math display">\[
+E_{\pm}(q)=\pm \sqrt{M^{2}+w^{2} q^{2}}
+\]</span> The (unnormalized) eigenstates of the linearized Hamiltonian (7.29) have the form. <span class="math display">\[
+\psi_{\pm}(q)=\left(\begin{array}{c}
+M+i w q \\
+E_{\pm}(q)
+\end{array}\right)
+\]</span> Note that the dispersion relation of the Dirac equation for fermions with finite mass <span class="math inline">\(\mu \neq 0\)</span> reads <span class="math display">\[
+E_{\pm}(k)=\pm \sqrt{\mu^{2} c^{4}+\hbar^{2} k^{2} c^{2}}
+\]</span> Therefore, the parameter <span class="math inline">\(M=v-w\)</span> of the SSH model plays the role of the massrelated term <span class="math inline">\(\mu c^{2}\)</span> of the relativistic dispersion relation <span class="math inline">\((7.32)\)</span>, and the linearized Hamiltonian (7.29) is often called a massive Dirac Hamiltonian.</p>
+<h3 id="quad-continuum-description-of-the-nearly-metallic-case">7.2.3 <span class="math inline">\(\quad\)</span> Continuum Description of the Nearly Metallic Case</h3>
+<p>We are mostly interested in a continuum description of the zero-energy localized states formed at a domain wall between two topologically distinct regions. For simplicity and concreteness, consider the case when the domain wall is created so that the intra-cell hopping amplitude <span class="math inline">\(v\)</span> varies in space while the inter-cell one is constant, as shown in Fig. <span class="math inline">\(7.2\)</span>.</p>
+<p>In what follows, we will focus on one of the two domain walls shown in Fig. <span class="math inline">\(7.2 .\)</span> The inhomogeneous Hamiltonian has the form <span class="math display">\[
+H_{ i }=\sum_{m=1}^{N} v_{m}(|m, B\rangle\langle m, A|+\text { h.c. })+w \sum_{m=1}^{N}(|m, B\rangle\langle m+1, A|+\text { h.c. }),
+\]</span> where <span class="math inline">\(v_{m}=v(x=m)\)</span> and <span class="math inline">\(v(x) \geq 0\)</span> is a continuously varying function of position, which takes the constant value <span class="math inline">\(v_{-}\left(v_{+}\right)\)</span> far on the left (right) from the domain wall. We also assume that the local Hamiltonian is a nearly metallic SSH Hamiltonian everywhere in space. That is, <span class="math inline">\(|v(x)-w| \ll v(x)+w\)</span>. This ensures that the local band gaps <span class="math inline">\(\left|v_{\pm}-w\right|\)</span> on the two sides of the domain wall are much smaller than the local band widths <span class="math inline">\(v_{\pm}+w\)</span>.</p>
+<p>Based on our experience with the EFA in the inhomogeneous one-dimensional monatomic chain (see Sect. 7.1), now we construct the EFA proposition corresponding to this inhomogeneous, nearly metallic SSH model. Recall that in the former case, we obtained the EFA Hamiltonian by (i) Taylor-expanding the bulk momentum-space Hamiltonian around the wave vector corresponding to the band extremum (that was <span class="math inline">\(k_{0}=0\)</span> in Sect. 7.1), (ii) replacing the relative wave vector <span class="math inline">\(q\)</span> with the momentum operator <span class="math inline">\(\hat{p}=-i \partial_{x}\)</span>, and (iii) incorporating the inhomogeneity of the respective parameter, which was the on-site potential <span class="math inline">\(V(x)\)</span> in that case. The same procedure, applied now for the SSH model with a first-order Taylor expansion, yields the following EFA Hamiltonian: <span class="math display">\[
+H_{ EFA }=M(x) \hat{\sigma}_{x}-w \hat{p} \hat{\sigma}_{y}
+\]</span> The EFA proposition is then formulated as follows. Assume that <span class="math inline">\(\varphi(x)=\)</span> <span class="math inline">\(\left(\varphi_{A}(x), \varphi_{B}(x)\right)\)</span> is a spatially slowly varying eigenfunction of <span class="math inline">\(H_{ EFA }\)</span> in Eq. (7.34), with eigenvalue <span class="math inline">\(E\)</span>. Then, the state <span class="math inline">\(|\psi\rangle\)</span> defined on the lattice via <span class="math display">\[
+|\psi\rangle=\sum_{m=1}^{N} \sum_{\alpha=A, B} \varphi_{\alpha}(m) e^{i k_{0} m}|m, \alpha\rangle
+\]</span> is approximately an eigenstate of the lattice Hamiltonian <span class="math inline">\(H_{ i }\)</span> with energy <span class="math inline">\(E\)</span>.</p>
+<p>Note that, in analogy with Eq. (7.14), the lattice state <span class="math inline">\(|\psi\rangle\)</span> can be reformulated as a wave packet formed by plane waves from the vicinity of the band-edge momentum <span class="math inline">\(k_{0}\)</span> : <span class="math display">\[
+|\psi\rangle \approx \sum_{q}^{\prime} \sum_{\alpha=A, B} \tilde{\varphi}_{\alpha}(q)\left|k_{0}+q\right\rangle \otimes|\alpha\rangle
+\]</span> ### 7.2.4 Localized States at a Domain Wall</p>
+<p>Having the envelope-function Schrödinger equation <span class="math display">\[
+\left[M(x) \hat{\sigma}_{x}-w \hat{p} \hat{\sigma}_{y}\right] \varphi(x)=E \varphi(x)
+\]</span> at hand, we can study the domain wall between the two topologically distinct regions. First, we consider a step-type domain wall, defined via <span class="math display">\[
+M(x)=\left\{\begin{array}{ll}
+M_{0} &amp; \text { if } x&gt;0 \\
+-M_{0} &amp; \text { if } x&lt;0
+\end{array}\right.
+\]</span> and <span class="math inline">\(M_{0}&gt;0\)</span>, as shown in Fig. 7.3a. We wish to use the EFA Schrödinger equation ( <span class="math inline">\(7.37\)</span> ) to establish the zero-energy states localized to the domain wall, which were revealed earlier in the lattice SSH model. That is, we look for evanescent solutions of Eq. (7.37) on both sides of the domain wall, and try to match them at the domain wall at <span class="math inline">\(x=0\)</span>. For the <span class="math inline">\(x&gt;0\)</span> region, our evanescent-wave Ansatz reads <span class="math display">\[
+\varphi_{x&gt;0}(x)=\left(\begin{array}{l}
+a \\
+b
+\end{array}\right) e^{-\kappa x}
+\]</span> <img src="https://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210530153704114.png" srcset="/img/loading.gif" /></p>
+<blockquote>
+<p>Fig. 7.3 (a) Step-like and (b) irregular spatial dependence of the mass parameter <span class="math inline">\(M(x)\)</span> of the one-dimensional Dirac equation</p>
+</blockquote>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/">Topological Physics</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Topological-Physics/Book-Short-TI/">Book Short TI</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Topology/">Topology</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/11/03/topology06_Basic03_BerryPhase/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Berry Phase</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2016/11/03/topology07_book_short06/">
+                        <span class="hidden-mobile">TI笔记6 二维陈绝缘体-QWZ模型</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "TI笔记7 局域态的连续模型&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

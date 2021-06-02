@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="JPZhuang">
   <meta name="keywords" content="">
-  <title>简并费米气体 - JPZ</title>
+  <title>冷原6 BCS理论 - JPZ</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -153,7 +153,7 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2021-03-03 14:23">
+    <time datetime="2021-03-03 14:06">
       March 3, 2021 pm
     </time>
   </div>
@@ -164,7 +164,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.8k 字
+      1.8k 字
     </span>
   
 
@@ -174,7 +174,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      54
+      32
        分钟
     </span>
   
@@ -225,88 +225,6 @@
 <li>Introduce radio-frequency spectroscopy and how it measures the polaron energy and the quasi-particle residue.</li>
 <li>Summarize different spectroscopy measurements in ultracold atomic systems.</li>
 </ul>
-<h2 id="free-fermions">5.1 Free Fermions</h2>
-<h3 id="momentum-and-density-distributions.">Momentum and Density Distributions.</h3>
-<p>For a noninteracting Fermi gas, each plane wave state with wave vector <span class="math inline">\(k\)</span> is a single-particle eigenstate, and the many-body eigenstate can be labeled by the occupation <span class="math inline">\(n( k )\)</span> on each of these plane wave states, with <span class="math inline">\(0 \leqslant n( k ) \leqslant 1\)</span>. For the ground state, all fermions fill the Fermi sea up to the Fermi energy, and the many-body wave function is given by <span class="math display">\[
-| FS \rangle=\prod_{k&lt;k_{ F }} c_{ k }^{\dagger}|0\rangle
-\]</span> where</p>
-<ul>
-<li><span class="math inline">\(\hat{c}_{ k }^{\dagger}\)</span> and <span class="math inline">\(\hat{c}_{ k }\)</span> are creation and annihilation operators of fermions at momentum <span class="math inline">\(k ,\)</span></li>
-<li>and <span class="math inline">\(\hbar k_{ F }\)</span> is the Fermi momentum.</li>
-</ul>
-<p>For this ground state</p>
-<ul>
-<li><span class="math inline">\(n_{0}( k )=1\)</span> for <span class="math inline">\(k&lt;k_{ F }\)</span></li>
-<li><span class="math inline">\(n_{0}( k )=0\)</span> for <span class="math inline">\(k&gt;k_{ F },\)</span> as shown in Figure <span class="math inline">\(5.1( a )\)</span></li>
-</ul>
-<figure>
-<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210303133029726.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210303133029726</figcaption>
-</figure>
-<h4 id="激发">激发</h4>
-<p>Considering excitations above the Fermi sea, one can either add a particle above the Fermi sea or take a particle away below the Fermi sea, which are called</p>
-<ol type="1">
-<li>the particle excitation</li>
-<li>and the hole excitation</li>
-</ol>
-<p>The wave function for the particle excitation is <span class="math display">\[
-\hat{c}_{k&gt;k_{ F }}^{\dagger}| FS \rangle
-\]</span> whose</p>
-<ul>
-<li>excitation energy is given by <span class="math inline">\(E _{ k }=\epsilon_{ k }-\mu,\)</span></li>
-<li>where <span class="math inline">\(\epsilon_{ k }=\hbar^{2} k ^{2} /(2 m)\)</span></li>
-<li>and <span class="math inline">\(\mu=\hbar^{2} k_{ F }^{2} /(2 m)\)</span>.</li>
-</ul>
-<p>The wave function for the hole excitation is <span class="math inline">\(\hat{c}_{k&lt;k_{ F }}| FS \rangle,\)</span> whose <span class="math inline">\(E_{ k }=\mu-\epsilon_{ k } .\)</span> Hence, the excitation energy is always positive and can be given by <span class="math display">\[
-E _{ k }=\left|\epsilon_{ k }-\mu\right|
-\]</span> &gt; 激发能 <span class="math inline">\(\delta E\)</span> 是通过偏离平衡动量分布 <span class="math inline">\(\delta n(k)\)</span> 来测量的</p>
-<p>For a general deviation from the ground state, the excitation energy is measured by the deviation from the equilibrium momentum distribution <span class="math inline">\(n_{0}( k ),\)</span> that is, <span class="math inline">\(\delta n( k )=n( k )-n_{0}( k )\)</span>, and the change of the total energy is given by <span class="math display">\[
-\delta E=\sum_{ k }\left(\epsilon_{ k }-\mu\right) \delta n( k )
-\]</span> - <span class="math inline">\(\delta E\)</span> is therefork always positive.</p>
-<p>At finite temperature and in the presence of the harmonic trap <span class="math inline">\(V( r )\)</span>, it can be shown that when the total fermion number <span class="math inline">\(N\)</span> is very large, the semiclassical approximation can be safely applied and the distribution is given by <span class="math display">\[
-f( r , k )=\frac{1}{e^{\beta\left(\epsilon_{ k }+V( r )-\mu\right)}+1}
-\]</span> where</p>
-<ul>
-<li><span class="math inline">\(\beta=1 /\left(k_{ B } T\right)\)</span>.</li>
-<li>And the local density <span class="math inline">\(n( r )\)</span> is given by</li>
-</ul>
-<p><span class="math display">\[
-n( r )=\frac{1}{(2 \pi)^{3}} \int d^{3} k f( r , k )
-\]</span> This is nothing but the local density approximation we have discussed in Section <span class="math inline">\(3.2,\)</span> by which we can replace <span class="math inline">\(\mu\)</span> as <span class="math inline">\(\mu-V( r )\)</span> in the equation-of-state for a uniform system. The chemical potential can be determined by the conservation of the total number of atoms as <span class="math display">\[
-N=\int d^{3} r n( r )
-\]</span> #### 评论：分布</p>
-<p>Here are a few remarks about this distribution:</p>
-<ol type="1">
-<li>At zero temperature, the density will become</li>
-</ol>
-<p><span class="math display">\[
-n( r ) \propto(\mu-V( r ))^{3 / 2}
-\]</span> for <span class="math inline">\(\mu&gt;V( r )\)</span> and <span class="math inline">\(n( r )=0\)</span> for <span class="math inline">\(\mu&lt;V( r ) .\)</span> This density distribution actually is similar as the density distribution of interacting bosons, which is proportional to <span class="math inline">\(\mu-V( r )\)</span>.</p>
-<p>However, the physical difference is that, in that case of interacting bosons, the density distribution is determined by the balance between the interaction energy and the potential energy. And in this case of noninteracting fermions, the density distribution is determined by the balance between the kinetic energy and the potential energy.</p>
-<ol start="2" type="1">
-<li>At zero temperature, we can determine <span class="math inline">\(\mu=(6 N)^{1 / 3} \hbar \bar{\omega},\)</span> where <span class="math inline">\(\bar{\omega}=\left(\omega_{x} \omega_{y} \omega_{z}\right)^{1 / 3}\)</span> and <span class="math inline">\(\omega_{i}\)</span> <span class="math inline">\((i=x, y, z)\)</span> is the trapping frequency along direction- <span class="math inline">\(i .\)</span> This dependence can be understood intuitively in the following way. For chemical potential <span class="math inline">\(\mu,\)</span> the radius of the cloud along direction- <span class="math inline">\(i\)</span> will be <span class="math inline">\(R_{i}=\sqrt{2 \mu /\left(m \omega_{i}^{2}\right)}\)</span>. Therefore, roughly speaking, the density will be</li>
-</ol>
-<p><span class="math display">\[
-n \propto \frac{N}{R_{x} R_{y} R_{z}} \propto \frac{N m^{3 / 2} \bar{\omega}^{3}}{\mu^{3 / 2}}
-\]</span> hence, <span class="math display">\[
-\mu \propto \frac{\hbar^{2}}{m} n^{2 / 3} \propto \frac{\hbar^{2} \bar{\omega}^{2} N^{2 / 3}}{\mu}
-\]</span> Solving Eq. <span class="math inline">\(5.9,\)</span> it leads to <span class="math inline">\(\mu \propto N^{1 / 3} \hbar \bar{\omega}\)</span></p>
-<ol start="3" type="1">
-<li>In an anisotropic trap, although the density distribution is anisotropic, the momentum distribution obtained by</li>
-</ol>
-<p><span class="math display">\[
-n( k )=\int d^{3} r f( r , k )
-\]</span></p>
-<p>is always isotropic. This is similar as the thermal gas of bosons above Bose condensation temperature. Thus, in the time-of-flight measurement, the aspect ratio of the cloud should finally approach unity after sufficiently long expansion time. As we have discussed in Section 3.2, hydrodynamical expansion leads to an anisotropic expansion with inverted aspect ratio. Therefore, the time-of-flight expansion can distinguish a free Fermi gas from a Fermi system with hydrodynamic behavior, and the latter can be either due to superfluidity or due to strong interactions.</p>
-<ol start="4" type="1">
-<li>With the distribution <span class="math inline">\(n( k )\)</span> one can also extract the kinetic energy per particle <span class="math inline">\(E_{ K }\)</span> from the time-of-flight measurement as</li>
-</ol>
-<p><span class="math display">\[
-E_{ K }=\frac{V}{N} \frac{1}{(2 \pi)^{3}} \int d^{3} k \frac{\hbar^{2} k ^{2}}{2 m} n( k )
-\]</span> At high temperature, <span class="math inline">\(E_{ K }\)</span> is proportional to <span class="math inline">\(k_{ B } T,\)</span> and at low temperature, it approaches a constant due to the Fermi statistics. Thus that <span class="math inline">\(E_{ K } /\left(k_{ B } T\right)\)</span> deviates from a constant is taken as an evidence for the onset of the Fermi degeneracy, which has been observed experimentally [47] soon after the Fermi gas of atoms has been cooled to quantum degeneracy in 1999 [46]. The experimental results are shown in Figure 5.2 .</p>
-<h3 id="quantized-conductance-through-a-quantum-point-contact.">Quantized Conductance through a Quantum Point Contact.</h3>
-<p>Transport measurements play an important role in studying Fermi gases. In condensed matter physics, most of the states are characterized by and named after the transport properties of electrons, such as conductor, insulator and superconductor. Various kind of transport experiments have also been carried out in ultracold atom experiments, such as hydrodynamics expansion</p>
-<h3 id="concepts-of-the-fermi-liquid-theory">Concepts of the Fermi Liquid Theory</h3>
-<h2 id="fermi-polaron">5.2 Fermi Polaron</h2>
 <h2 id="bcs-pairing">6.1 BCS Pairing</h2>
 <h2 id="bcs-bec-crossover">6.2 BCS-BEC Crossover</h2>
 <h4 id="两个极限">两个极限</h4>
@@ -367,6 +285,8 @@ n=\frac{1}{2 V} \sum_{ k }\left(1-\frac{\epsilon_{ k }-\mu}{ E _{ k }}\right)
                     
                       <a class="hover-with-bg" href="/categories/Cold-Atom/">Cold Atom</a>
                     
+                      <a class="hover-with-bg" href="/categories/Cold-Atom/%E7%BF%9F%E8%8D%9F/">翟荟</a>
+                    
                   </div>
                 
                 
@@ -386,9 +306,9 @@ n=\frac{1}{2 V} \sum_{ k }\left(1-\frac{\epsilon_{ k }-\mu}{ E _{ k }}\right)
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/03/Math_09_Complex_Applications/">
+                      <a href="/2021/03/03/Cold_04_Ultracold_Atomic07_Band/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">复变函数的映射</span>
+                        <span class="hidden-mobile">冷原7 BCS理论</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -396,8 +316,8 @@ n=\frac{1}{2 V} \sum_{ k }\left(1-\frac{\epsilon_{ k }-\mu}{ E _{ k }}\right)
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2021/03/02/Math_08_Matrix/">
-                        <span class="hidden-mobile">矩阵分解-用python</span>
+                      <a href="/2021/03/03/Cold_04_Ultracold_Atomic05_Fermi/">
+                        <span class="hidden-mobile">冷原5 简并费米气体</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -537,7 +457,7 @@ n=\frac{1}{2 V} \sum_{ k }\left(1-\frac{\epsilon_{ k }-\mu}{ E _{ k }}\right)
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "简并费米气体&nbsp;",
+        "冷原6 BCS理论&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>冷原5 简并费米气体 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/Cold_04_Ultracold_Atomic03_Fermi.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-03-03 14:05">
+      March 3, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li>《Ultracold Atomic Physics》 Zhai, Hui (2021)</li>
+</ul>
+<h4 id="大目录">大目录</h4>
+<ol type="1">
+<li>Part I Atomic and Few-Body Physics</li>
+<li>Part II Interacting Bose Gas</li>
+<li>Part III Degenerate Fermi Gases</li>
+<li>Part IV Optical Lattices</li>
+</ol>
+<h4 id="学习目标">学习目标</h4>
+<ul>
+<li>Introduce density distribution and momentum distribution of noninteracting Fermi gas.</li>
+<li>Discuss the transport property of a Fermi gas through a quantum point contact.</li>
+<li>Discuss the Fermi surface as a key of a noninteracting Fermi gas and its generalization to a Fermi liquid.</li>
+<li>Introduce the effective mass and the quasi-particle residue as two key parameters of the Fermi liquid. Introduce the self-energy and the universal relations between the effective mass, the quasi-particle residue, and the self-energy.</li>
+<li>Discuss the Fermi polaron as an example of the Fermi liquid, and show these universal relations with this example. Discuss the divergence of the effective mass and vanishing of quasi-particle residue when Fermi liquid description fails.</li>
+<li>Introduce radio-frequency spectroscopy and how it measures the polaron energy and the quasi-particle residue.</li>
+<li>Summarize different spectroscopy measurements in ultracold atomic systems.</li>
+</ul>
+<h2 id="free-fermions">5.1 Free Fermions</h2>
+<h3 id="momentum-and-density-distributions.">Momentum and Density Distributions.</h3>
+<p>For a noninteracting Fermi gas, each plane wave state with wave vector <span class="math inline">\(k\)</span> is a single-particle eigenstate, and the many-body eigenstate can be labeled by the occupation <span class="math inline">\(n( k )\)</span> on each of these plane wave states, with <span class="math inline">\(0 \leqslant n( k ) \leqslant 1\)</span>. For the ground state, all fermions fill the Fermi sea up to the Fermi energy, and the many-body wave function is given by <span class="math display">\[
+| FS \rangle=\prod_{k&lt;k_{ F }} c_{ k }^{\dagger}|0\rangle
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\hat{c}_{ k }^{\dagger}\)</span> and <span class="math inline">\(\hat{c}_{ k }\)</span> are creation and annihilation operators of fermions at momentum <span class="math inline">\(k ,\)</span></li>
+<li>and <span class="math inline">\(\hbar k_{ F }\)</span> is the Fermi momentum.</li>
+</ul>
+<p>For this ground state</p>
+<ul>
+<li><span class="math inline">\(n_{0}( k )=1\)</span> for <span class="math inline">\(k&lt;k_{ F }\)</span></li>
+<li><span class="math inline">\(n_{0}( k )=0\)</span> for <span class="math inline">\(k&gt;k_{ F },\)</span> as shown in Figure <span class="math inline">\(5.1( a )\)</span></li>
+</ul>
+<figure>
+<img src="http://jptanjing.oss-cn-beijing.aliyuncs.com/img/image-20210303133029726.png" srcset="/img/loading.gif" alt="" /><figcaption>image-20210303133029726</figcaption>
+</figure>
+<h4 id="激发">激发</h4>
+<p>Considering excitations above the Fermi sea, one can either add a particle above the Fermi sea or take a particle away below the Fermi sea, which are called</p>
+<ol type="1">
+<li>the particle excitation</li>
+<li>and the hole excitation</li>
+</ol>
+<p>The wave function for the particle excitation is <span class="math display">\[
+\hat{c}_{k&gt;k_{ F }}^{\dagger}| FS \rangle
+\]</span> whose</p>
+<ul>
+<li>excitation energy is given by <span class="math inline">\(E _{ k }=\epsilon_{ k }-\mu,\)</span></li>
+<li>where <span class="math inline">\(\epsilon_{ k }=\hbar^{2} k ^{2} /(2 m)\)</span></li>
+<li>and <span class="math inline">\(\mu=\hbar^{2} k_{ F }^{2} /(2 m)\)</span>.</li>
+</ul>
+<p>The wave function for the hole excitation is <span class="math inline">\(\hat{c}_{k&lt;k_{ F }}| FS \rangle,\)</span> whose <span class="math inline">\(E_{ k }=\mu-\epsilon_{ k } .\)</span> Hence, the excitation energy is always positive and can be given by <span class="math display">\[
+E _{ k }=\left|\epsilon_{ k }-\mu\right|
+\]</span> &gt; 激发能 <span class="math inline">\(\delta E\)</span> 是通过偏离平衡动量分布 <span class="math inline">\(\delta n(k)\)</span> 来测量的</p>
+<p>For a general deviation from the ground state, the excitation energy is measured by the deviation from the equilibrium momentum distribution <span class="math inline">\(n_{0}( k ),\)</span> that is, <span class="math inline">\(\delta n( k )=n( k )-n_{0}( k )\)</span>, and the change of the total energy is given by <span class="math display">\[
+\delta E=\sum_{ k }\left(\epsilon_{ k }-\mu\right) \delta n( k )
+\]</span> - <span class="math inline">\(\delta E\)</span> is therefork always positive.</p>
+<p>At finite temperature and in the presence of the harmonic trap <span class="math inline">\(V( r )\)</span>, it can be shown that when the total fermion number <span class="math inline">\(N\)</span> is very large, the semiclassical approximation can be safely applied and the distribution is given by <span class="math display">\[
+f( r , k )=\frac{1}{e^{\beta\left(\epsilon_{ k }+V( r )-\mu\right)}+1}
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\beta=1 /\left(k_{ B } T\right)\)</span>.</li>
+<li>And the local density <span class="math inline">\(n( r )\)</span> is given by</li>
+</ul>
+<p><span class="math display">\[
+n( r )=\frac{1}{(2 \pi)^{3}} \int d^{3} k f( r , k )
+\]</span> This is nothing but the local density approximation we have discussed in Section <span class="math inline">\(3.2,\)</span> by which we can replace <span class="math inline">\(\mu\)</span> as <span class="math inline">\(\mu-V( r )\)</span> in the equation-of-state for a uniform system. The chemical potential can be determined by the conservation of the total number of atoms as <span class="math display">\[
+N=\int d^{3} r n( r )
+\]</span> #### 评论：分布</p>
+<p>Here are a few remarks about this distribution:</p>
+<ol type="1">
+<li>At zero temperature, the density will become</li>
+</ol>
+<p><span class="math display">\[
+n( r ) \propto(\mu-V( r ))^{3 / 2}
+\]</span> for <span class="math inline">\(\mu&gt;V( r )\)</span> and <span class="math inline">\(n( r )=0\)</span> for <span class="math inline">\(\mu&lt;V( r ) .\)</span> This density distribution actually is similar as the density distribution of interacting bosons, which is proportional to <span class="math inline">\(\mu-V( r )\)</span>.</p>
+<p>However, the physical difference is that, in that case of interacting bosons, the density distribution is determined by the balance between the interaction energy and the potential energy. And in this case of noninteracting fermions, the density distribution is determined by the balance between the kinetic energy and the potential energy.</p>
+<ol start="2" type="1">
+<li>At zero temperature, we can determine <span class="math inline">\(\mu=(6 N)^{1 / 3} \hbar \bar{\omega},\)</span> where <span class="math inline">\(\bar{\omega}=\left(\omega_{x} \omega_{y} \omega_{z}\right)^{1 / 3}\)</span> and <span class="math inline">\(\omega_{i}\)</span> <span class="math inline">\((i=x, y, z)\)</span> is the trapping frequency along direction- <span class="math inline">\(i .\)</span> This dependence can be understood intuitively in the following way. For chemical potential <span class="math inline">\(\mu,\)</span> the radius of the cloud along direction- <span class="math inline">\(i\)</span> will be <span class="math inline">\(R_{i}=\sqrt{2 \mu /\left(m \omega_{i}^{2}\right)}\)</span>. Therefore, roughly speaking, the density will be</li>
+</ol>
+<p><span class="math display">\[
+n \propto \frac{N}{R_{x} R_{y} R_{z}} \propto \frac{N m^{3 / 2} \bar{\omega}^{3}}{\mu^{3 / 2}}
+\]</span> hence, <span class="math display">\[
+\mu \propto \frac{\hbar^{2}}{m} n^{2 / 3} \propto \frac{\hbar^{2} \bar{\omega}^{2} N^{2 / 3}}{\mu}
+\]</span> Solving Eq. <span class="math inline">\(5.9,\)</span> it leads to <span class="math inline">\(\mu \propto N^{1 / 3} \hbar \bar{\omega}\)</span></p>
+<ol start="3" type="1">
+<li>In an anisotropic trap, although the density distribution is anisotropic, the momentum distribution obtained by</li>
+</ol>
+<p><span class="math display">\[
+n( k )=\int d^{3} r f( r , k )
+\]</span></p>
+<p>is always isotropic. This is similar as the thermal gas of bosons above Bose condensation temperature. Thus, in the time-of-flight measurement, the aspect ratio of the cloud should finally approach unity after sufficiently long expansion time. As we have discussed in Section 3.2, hydrodynamical expansion leads to an anisotropic expansion with inverted aspect ratio. Therefore, the time-of-flight expansion can distinguish a free Fermi gas from a Fermi system with hydrodynamic behavior, and the latter can be either due to superfluidity or due to strong interactions.</p>
+<ol start="4" type="1">
+<li>With the distribution <span class="math inline">\(n( k )\)</span> one can also extract the kinetic energy per particle <span class="math inline">\(E_{ K }\)</span> from the time-of-flight measurement as</li>
+</ol>
+<p><span class="math display">\[
+E_{ K }=\frac{V}{N} \frac{1}{(2 \pi)^{3}} \int d^{3} k \frac{\hbar^{2} k ^{2}}{2 m} n( k )
+\]</span> At high temperature, <span class="math inline">\(E_{ K }\)</span> is proportional to <span class="math inline">\(k_{ B } T,\)</span> and at low temperature, it approaches a constant due to the Fermi statistics. Thus that <span class="math inline">\(E_{ K } /\left(k_{ B } T\right)\)</span> deviates from a constant is taken as an evidence for the onset of the Fermi degeneracy, which has been observed experimentally [47] soon after the Fermi gas of atoms has been cooled to quantum degeneracy in 1999 [46]. The experimental results are shown in Figure 5.2 .</p>
+<h3 id="quantized-conductance-through-a-quantum-point-contact.">Quantized Conductance through a Quantum Point Contact.</h3>
+<p>Transport measurements play an important role in studying Fermi gases. In condensed matter physics, most of the states are characterized by and named after the transport properties of electrons, such as conductor, insulator and superconductor. Various kind of transport experiments have also been carried out in ultracold atom experiments, such as hydrodynamics expansion</p>
+<h3 id="concepts-of-the-fermi-liquid-theory">Concepts of the Fermi Liquid Theory</h3>
+<h2 id="fermi-polaron">5.2 Fermi Polaron</h2>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Cold-Atom/">Cold Atom</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Cold-Atom/%E7%BF%9F%E8%8D%9F/">翟荟</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Cold-Atom/">Cold Atom</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/03/Cold_04_Ultracold_Atomic06_BCS/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">冷原6 BCS理论</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/02/Math_08_Matrix/">
+                        <span class="hidden-mobile">矩阵分解-用python</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "冷原5 简并费米气体&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

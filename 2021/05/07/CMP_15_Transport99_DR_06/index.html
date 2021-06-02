@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="JPZhuang">
+  <meta name="keywords" content="">
+  <title>纳米尺度下量子输运理论-6 - JPZ</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Physics</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://jptanjing.oss-cn-beijing.aliyuncs.com/blog_QuantumAI/CMP_15_Transport99.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-05-07 23:06">
+      May 7, 2021 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      153
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>[TOC]</p>
+<h4 id="reference">Reference:</h4>
+<ol type="1">
+<li>《Theory of Quantum Transport at Nanoscale - An Introduction》 Dmitry A. Ryndyk
+<ul>
+<li>Chapter 6 Vibrons and Polarons</li>
+</ul></li>
+</ol>
+<p>outline</p>
+<p>[TOC]</p>
+<h2 id="chapter-6-vibrons-and-polarons">Chapter 6 Vibrons and Polarons</h2>
+<style>
+  /* 设置整个页面的字体 */
+  html, body, .markdown-body {
+    font-family: KaiTi,"Microsoft YaHei",Georgia, sans, serif;
+    font-size: 15px;
+  }
+</style>
+<p>The second (after electron-electron interaction) ingredient of the nanoscale transport models are vibrons and electron-vibron interactions. It is especially important in molecular junctions because molecules are relatively flexible and vibrational effects are observed at current-voltage curves being one of the spectroscopic tools, and also can be significant at finite voltage producing some effects, for example the vibrational heating and switching.</p>
+<p>In this chapter we consider basic electron-vibron phenomena. First we introduce vibrons (local vibrations, space localized version of phonons) and obtain a linear electron-vibron Hamiltonian in Sect. <span class="math inline">\(6.1\)</span>.</p>
+<p>In Sect. <span class="math inline">\(6.2\)</span> we consider the inelastic electron tunneling spectroscopy (IETS) for weak electron-vibron interaction and its description within the Persson-Baratoff model of inelastic STM spectroscopy.</p>
+<p>In next sections we address the problem of strong electron-vibron interaction (polaron transport). In Sect. <span class="math inline">\(6.3\)</span> we consider a polaron weakly and strongly coupled to the electrodes. We use canonical (Lang-Firsov) transformation to get the exact many-body eigenstates for isolated polarons.</p>
+<p>In Sect. <span class="math inline">\(6.4\)</span> we consider the exactly solvable case of inelastic tunneling through the polaron state in the single-particle approximation. In this approximation the Fermi see of electrons in the electrodes is ignored and only scattering of one electron is considered. The result can be used for tunneling at large energies, when the effect of other electrons can be neglected.</p>
+<p>Finally in Sect. <span class="math inline">\(6.5\)</span> we obtain the master equation for sequential tunneling and discuss the phenomena of Franck-Condon blockade.</p>
+<h2 id="electron-vibron-interaction-in-nanosystems">6.1 Electron-Vibron Interaction in Nanosystems</h2>
+<h3 id="linear-vibrons">6.1.1 Linear Vibrons</h3>
+<p>Vibrons are quantum local vibrations of nanosystems (Fig. 6.1), especially important in flexible molecules. In the linear regime the small displacements of the system can be expressed as linear combinations of the coordinates of the normal modes <span class="math inline">\(x_{q}\)</span>, which are described by a set of independent linear oscillators with the Hamiltonian <span class="math display">\[
+\hat{H}_{V}^{(0)}=\sum_{q}\left(\frac{\hat{p}_{q}^{2}}{2 m_{q}}+\frac{1}{2} m_{q} \omega_{q}^{2} \hat{x}_{q}^{2}\right)
+\]</span> The parameters <span class="math inline">\(m_{q}\)</span> are determined by the microscopic theory, and <span class="math inline">\(\hat{p}_{q}\left(\hat{p}_{q}=-i \hbar \frac{\partial}{\partial x_{q}}\right.\)</span> in the <span class="math inline">\(x\)</span> -representation) is the momentum conjugated to <span class="math inline">\(\hat{x}_{q},\left[\hat{x}_{q}, \hat{p}_{q}\right]_{-}=i \hbar\)</span>.</p>
+<p>Let us outline briefly a possible way to calculate the normal modes of a molecule, and the relation between the positions of individual atoms and collective variables. We assume, that the atomic configuration of a system is determined mainly by the elastic forces, which are insensitive to the transport electrons. The dynamics of this system is determined by the atomic Hamiltonian <span class="math display">\[
+\hat{H}_{a t}=\sum_{n} \frac{P_{n}^{2}}{2 M_{n}}+W\left(\left\{ R _{n}\right\}\right)
+\]</span> where <span class="math inline">\(W\left(\left\{ R _{n}\right\}\right)\)</span> is the elastic energy, which includes also the static external forces and can be calculated by some <span class="math inline">\(a b\)</span> initio method. Now define new generalized variables <span class="math inline">\(q_{i}\)</span> with corresponding momentum <span class="math inline">\(p_{i}\)</span> (as the generalized coordinates not only atomic positions, but also any other convenient degrees of freedom can be considered, for example, molecular rotations, center-of-mass motion, etc.) <span class="math display">\[
+\hat{H}_{a t}=\sum_{i} \frac{p_{i}^{2}}{2 m_{i}}+W\left(\left\{q_{i}\right\}\right)
+\]</span> and "masses" <span class="math inline">\(m_{i}\)</span>, which should be considered as some parameters. The equilibrium coordinates <span class="math inline">\(q_{i}^{0}\)</span> are defined from the energy minimum, the set of equations is <span class="math display">\[
+\frac{\partial W\left(\left\{q_{i}^{0}\right\}\right)}{\partial q_{i}}=0
+\]</span> The equations for linear oscillations are obtained from the next order expansion in the deviations <span class="math inline">\(\Delta q_{i}=q_{i}-q_{i}^{0}\)</span> <span class="math display">\[
+\hat{H}_{a t}=\sum_{i} \frac{p_{i}^{2}}{2 m_{i}}+\sum_{i j} \frac{\partial^{2} W\left(\left\{q_{j}^{0}\right\}\right)}{\partial q_{i} \partial q_{j}} \Delta q_{i} \Delta q_{j}
+\]</span> This Hamiltonian describes a set of coupled oscillators. Finally, applying the canonical transformation from <span class="math inline">\(\Delta q_{i}\)</span> to new variables <span class="math inline">\(x_{q}(q\)</span> is now the index of independent modes) <span class="math display">\[
+x_{q}=\sum_{i} C_{q i} q_{i}
+\]</span> we derive the Hamiltonian (6.1) together with the frequencies <span class="math inline">\(\omega_{q}\)</span> of vibrational modes. It is useful to introduce the creation and annihilation operators <span class="math display">\[
+\begin{aligned}
+a_{q}^{\dagger} &amp;=\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m_{q} \omega_{q}}{\hbar}} \hat{x}_{q}+\frac{i}{\sqrt{m_{q} \omega_{q} \hbar}} \hat{p}_{q}\right) \\
+a_{q} &amp;=\frac{1}{\sqrt{2}}\left(\sqrt{\frac{m_{q} \omega_{q}}{\hbar}} \hat{x}_{q}-\frac{i}{\sqrt{m_{q} \omega_{q} \hbar}} \hat{p}_{q}\right)
+\end{aligned}
+\]</span> in this representation the Hamiltonian of free vibrons is <span class="math inline">\((\hbar=1)\)</span> <span class="math display">\[
+\hat{H}_{V}^{(0)}=\sum_{q} \omega_{q} a_{q}^{\dagger} a_{q}
+\]</span> We consider only free noninteracting vibrons. In some cases it can be important to take into account the anharmonicity of vibrons, which takes place if the energy <span class="math inline">\(W\left(\left\{ R _{n}\right\}\right)\)</span> is not a quadratic function. Thus, the next order expansion in <span class="math inline">\(\Delta q_{i}=q_{i}-q_{i}^{0}\)</span> should be calculated. This term gives additional terms to (6.9), which include several vibron operators and describe vibron-vibron interactions.</p>
+<h3 id="electron-vibron-hamiltonian">6.1.2 Electron-Vibron Hamiltonian</h3>
+<p>A system without vibrons is described as before by a basis set of states <span class="math inline">\(|\alpha\rangle\)</span> with energies <span class="math inline">\(\varepsilon_{\alpha}\)</span> and inter-state overlap integrals <span class="math inline">\(t_{\alpha \beta}\)</span>, the model Hamiltonian of a noninteracting system is <span class="math display">\[
+\hat{H}_{C}^{(0)}=\sum_{\alpha}\left(\varepsilon_{\alpha}+e \varphi_{\alpha}(t)\right) d_{\alpha}^{\dagger} d_{\alpha}+\sum_{\alpha \neq \beta} t_{\alpha \beta} d_{\alpha}^{\dagger} d_{\beta}
+\]</span> where <span class="math inline">\(d_{\alpha}^{\dagger}, d_{\alpha}\)</span> are creation and annihilation operators in the states <span class="math inline">\(|\alpha\rangle\)</span>, and <span class="math inline">\(\varphi_{\alpha}(t)\)</span> is the (self-consistent) electrical potential (5.47). The index <span class="math inline">\(\alpha\)</span> is used to mark singleelectron states (atomic orbitals) including the spin degree of freedom.</p>
+<p>To establish the Hamiltonian describing the interaction of electrons with vibrons in nanosystems, we can start from the generalized Hamiltonian <span class="math display">\[
+\hat{H}_{C}=\sum_{\alpha} \tilde{\varepsilon}_{\alpha}\left(\left\{x_{q}\right\}\right) d_{\alpha}^{\dagger} d_{\alpha}+\sum_{\alpha \neq \beta} t_{\alpha \beta}\left(\left\{x_{q}\right\}\right) d_{\alpha}^{\dagger} d_{\beta}
+\]</span> where the parameters are some functions of the vibronic normal coordinates <span class="math inline">\(x_{q} .\)</span> Note that we consider now only the electronic states, which were excluded previously from the Hamiltonian (6.2), it is important to prevent double counting. Expanding to the first order near the equilibrium state we obtain <span class="math display">\[
+\hat{H}_{e v}=\sum_{\alpha} \sum_{q} \frac{\partial \tilde{\varepsilon}_{\alpha}(0)}{\partial x_{q}} x_{q} d_{\alpha}^{\dagger} d_{\alpha}+\sum_{\alpha \neq \beta} \sum_{q} \frac{\partial t_{\alpha \beta}(0)}{\partial x_{q}} x_{q} d_{\alpha}^{\dagger} d_{\beta}
+\]</span> where <span class="math inline">\(\tilde{\varepsilon}_{\alpha}(0)\)</span> and <span class="math inline">\(t_{\alpha \beta}(0)\)</span> are unperturbed values of the energy and the overlap integral. In the quantum limit the normal coordinates should be treated as operators, and in the second-quantized representation the interaction Hamiltonian is <span class="math display">\[
+\hat{H}_{e v}=\sum_{\alpha \beta} \sum_{q} \lambda_{\alpha \beta}^{q}\left(a_{q}+a_{q}^{\dagger}\right) d_{\alpha}^{\dagger} d_{\beta}
+\]</span> This Hamiltonian is similar to the usual electron-phonon Hamiltonian, but the vibrations are like localized phonons and <span class="math inline">\(q\)</span> is an index labeling them, not the wave-vector. We include both diagonal coupling, which describes a change of the electrostatic energy with the distance between atoms, and the off-diagonal coupling, which describes the dependence of the matrix elements <span class="math inline">\(t_{\alpha \beta}\)</span> over the distance between atoms. The full Hamiltonian <span class="math display">\[
+\hat{H}=\hat{H}_{C}^{0}+\hat{H}_{V}+\hat{H}_{L}+\hat{H}_{R}+\hat{H}_{T}
+\]</span> is the sum of the noninteracting Hamiltonian <span class="math inline">\(\hat{H}_{C}^{0}\)</span>, the Hamiltonians of the leads <span class="math inline">\(\hat{H}_{R(L)}\)</span>, the tunneling Hamiltonian <span class="math inline">\(\hat{H}_{T}\)</span> describing the system-to-lead coupling, the vibron Hamiltonian <span class="math inline">\(\hat{H}_{V}\)</span> including electron-vibron interaction and coupling of vibrations to the environment (describing dissipation of vibrons).</p>
+<p>Vibrons and the electron-vibron coupling are described by the Hamiltonian <span class="math inline">\((\hbar=1)\)</span> <span class="math display">\[
+\hat{H}_{V}=\sum_{q} \omega_{q} a_{q}^{\dagger} a_{q}+\sum_{\alpha \beta} \sum_{q} \lambda_{\alpha \beta}^{q}\left(a_{q}+a_{q}^{\dagger}\right) d_{\alpha}^{\dagger} d_{\beta}+\hat{H}_{e n v} .
+\]</span> The first term represents free vibrons with the energy <span class="math inline">\(\hbar \omega_{q}\)</span>. The second term is the electron-vibron interaction. The remaining part <span class="math inline">\(\hat{H}_{e n v}\)</span> describes dissipation of vibrons due to interaction with other degrees of freedom, we do not consider the details in this chapter. The Hamiltonians of the right (R) and left (L) leads read as usual <span class="math display">\[
+\hat{H}_{i=L(R)}=\sum_{k \sigma}\left(\varepsilon_{i k \sigma}+e \varphi_{i}\right) c_{i k \sigma}^{\dagger} c_{i k \sigma}
+\]</span> <span class="math inline">\(\varphi_{i}\)</span> are the electrical potentials of the leads. Finally, the tunneling Hamiltonian <span class="math display">\[
+\hat{H}_{T}=\sum_{i=L, R} \sum_{k \sigma, \alpha}\left(V_{i k \sigma, \alpha} c_{i k \sigma}^{\dagger} d_{\alpha}+V_{i k \sigma, \alpha}^{*} d_{\alpha}^{\dagger} c_{i k \sigma}\right)
+\]</span> describes the hopping between the leads and the molecule. A direct hopping between two leads is neglected.</p>
+<p>The simplest example of the considered model is a single-level model (Fig. 6.2) with the Hamiltonian <span class="math display">\[
+\hat{H}=\tilde{\varepsilon}_{0} d^{\dagger} d+\omega_{0} a^{\dagger} a+\lambda\left(a^{\dagger}+a\right) d^{\dagger} d+\sum_{i k}\left[\tilde{\varepsilon}_{i k} c_{i k}^{\dagger} c_{i k}+V_{i k} c_{i k}^{\dagger} d+\text { h.c. }\right]
+\]</span> where the first and the second terms describe free electron state and free vibron, the third term is electron-vibron interaction, and the rest is the Hamiltonian of the leads and tunneling coupling <span class="math inline">\((i=L, R\)</span> is the lead index).</p>
+<p>The other important case is a center-of-mass motion of molecules between the leads (Fig. 6.3). Here not the internal overlap integrals, but the coupling to the leads <span class="math inline">\(V_{i k \sigma, \alpha}(x)\)</span> is fluctuating. This model is easily reduced to the general model (6.15), if we consider additionally two not flexible states in the left and right leads (two atoms most close to a system), to which the central system is coupled (shown by the dotted circles).</p>
+<p>The tunneling Hamiltonian includes <span class="math inline">\(x\)</span> -dependent matrix elements, considered in linear approximation <span class="math display">\[
+\begin{array}{c}
+H_{T}=\sum_{i=L, R} \sum_{k \sigma, \alpha}\left(V_{i k \sigma, \alpha}(\hat{x}) c_{i k \sigma}^{\dagger} d_{\alpha}+\text { h.c. }\right) \\
+V_{L, R}(x)=V_{0} e^{\mp \hat{x} / L} \approx V_{0}\left(1 \mp \frac{\hat{x}}{L}\right)
+\end{array}
+\]</span> Consider now a single-level molecule <span class="math inline">\((\alpha \equiv 0)\)</span> and extend our system, including two additional states from the left <span class="math inline">\((\alpha \equiv l)\)</span> and right <span class="math inline">\((\alpha \equiv r)\)</span> sides of a molecule, which are coupled to the central state through <span class="math inline">\(x\)</span> -dependent matrix elements, and to the leads in a usual way through <span class="math inline">\(\Gamma_{L(R)}\)</span>. Then the Hamiltonian is of linear electronvibron type <span class="math display">\[
+\begin{aligned}
+\hat{H}_{M+V}=&amp; \sum_{\alpha=l, 0, r}\left(\varepsilon_{\alpha}+e \varphi_{\alpha}\right) d_{\alpha}^{\dagger} d_{\alpha}+t_{l}\left(d_{l}^{\dagger} d_{0}+\text { h.c. }\right)+t_{r}\left(d_{r}^{\dagger} d_{0}+\text { h.c. }\right) \\
+&amp;+\omega_{0} a^{\dagger} a+\left(a+a^{\dagger}\right)\left(\lambda_{0} d_{0}^{\dagger} d_{0}-\lambda_{l}\left(d_{l}^{\dagger} d_{0}+\text { h.c. }\right)+\lambda_{r}\left(d_{r}^{\dagger} d_{0}+\text { h.c. }\right)\right)
+\end{aligned}
+\]</span> ## 6.2 Inelastic Electron Tunneling Spectroscopy (IETS)</p>
+<p>We start from the case of weak electron-vibron interaction, when the perturbation theory can be used. The observed change of the voltage-current curve is small in this case. Nevertheless, the inelastic effects play an important role, being the powerful method of tunneling spectroscopy. The characteristic features of the inelastic</p>
+<p>electron scattering can be used to determine the frequencies of vibrons and identify the quantum system (any single molecule has the unique vibronic spectrum).</p>
+<p>To demonstrate the peculiarities of the IETS of single molecules, we consider the Persson-Baratoff [1] model of the STM spectroscopy (Fig. 6.4). In this model, the system (molecule) is assumed to be strongly coupled to a substrate, so that any electron state <span class="math inline">\(|\alpha\rangle\)</span> of the system can be included into the basis set of the system <span class="math inline">\(+\)</span> substrate states <span class="math inline">\(|q\rangle\)</span>, the system is always in equilibrium and the wave function <span class="math inline">\(|\alpha\rangle\)</span> is defined by the projection <span class="math display">\[
+|\alpha\rangle=\sum_{q}\langle q \mid \alpha\rangle|q\rangle .
+\]</span> The state <span class="math inline">\(|\alpha\rangle\)</span>, and therefore the states <span class="math inline">\(|q\rangle\)</span>, are coupled to the states <span class="math inline">\(|k\rangle\)</span> of the STM tip by the usual tunneling Hamiltonian <span class="math display">\[
+\hat{H}_{T}=\sum_{k q}\left(V_{k q} c_{k}^{\dagger} c_{q}+V_{k q}^{*} c_{q}^{\dagger} c_{k}\right)
+\]</span> The problem is reduced to the tunneling from the "left" <span class="math inline">\(|k\rangle\)</span> to the "right" <span class="math inline">\(|q\rangle\)</span> states. but the state <span class="math inline">\(|\alpha\rangle\)</span> is coupled to a vibron with frequency <span class="math inline">\(\omega_{0}\)</span>, this coupling leads to a new inelastic channel of tunneling. The electron-vibron Hamiltonian is <span class="math inline">\(\hat{H}_{e v}=\lambda\left(a+a^{\dagger}\right) d_{\alpha}^{\dagger} d_{\alpha}=\lambda\left(a+a^{\dagger}\right) \sum_{q q^{\prime}}\left\langle q^{\prime} \mid \alpha\right\rangle\langle\alpha \mid q\rangle c_{q^{\prime}}^{\dagger} c_{q}=\lambda\left(a+a^{\dagger}\right) \sum_{q q^{\prime}} V_{q^{\prime} q}^{v} c_{q^{\prime}}^{\dagger} c_{q}\)</span> Assuming that both the tunneling coupling and the electron-vibron interaction are weak, we can apply the perturbation theory to the Hamiltonian <span class="math inline">\(\hat{H}=\hat{H}_{0}+\hat{H}_{1}\)</span> <span class="math display">\[
+\begin{array}{r}
+\hat{H}_{0}=\sum_{k} \tilde{\varepsilon}_{k} c_{k}^{\dagger} c_{k}+\sum_{q} \tilde{\varepsilon}_{q} c_{q}^{\dagger} c_{q}+\omega_{0} a^{\dagger} a 
+\end{array}
+\]</span></p>
+<p><span class="math display">\[
+\hat{H}_{1}=\hat{H}_{T}+\hat{H}_{e v}
+\]</span></p>
+<p>The many-particle eigenstates <span class="math inline">\(|\hat{k}, \hat{q}, m\rangle\)</span> of the Hamiltonian <span class="math inline">\(\hat{H}_{0}\)</span> are characterized by three sets of quantum numbers: <span class="math inline">\(\hat{k}\)</span> is the occupation of the single particle states <span class="math inline">\(|k\rangle\)</span> in the tip (see <span class="math inline">\((5.50)), \hat{q}\)</span> is the occupation of states <span class="math inline">\(|q\rangle\)</span> in the substrate, and <span class="math inline">\(m\)</span> is the number of vibrons.</p>
+<p>The transition rate from some initial state <span class="math inline">\(|i\rangle\)</span> into a final state <span class="math inline">\(|f\rangle\)</span> up to a second order in the perturbation Hamiltonian <span class="math inline">\(\hat{H}_{1}\)</span> is <span class="math display">\[
+\Gamma_{i \rightarrow f}^{(1+2)}=\frac{2 \pi}{\hbar}\left|\left\langle f\left|\hat{H}_{1}\right| i\right\rangle+\sum_{\lambda} \frac{\left\langle f\left|\hat{H}_{1}\right| \lambda\right\rangle\left\langle\lambda\left|\hat{H}_{1}\right| i\right\rangle}{E_{i}-E_{\lambda}+i \eta}\right|^{2} \delta\left(E_{i}-E_{f}\right)
+\]</span> What are possible final states <span class="math inline">\(\left|\hat{k}_{f}, \hat{q}_{f}, m_{f}\right\rangle\)</span> for a given initial state <span class="math inline">\(\left|\hat{k}_{i}, \hat{q}_{i}, m_{i}\right\rangle ?\)</span> The only nonzero single-particle matrix elements of the operators <span class="math inline">\(\hat{H}_{T}\)</span> and <span class="math inline">\(\hat{H}_{v e}\)</span> are <span class="math display">\[
+\left\langle q, m\left|\hat{H}_{T}\right| k, m\right\rangle=\left\langle q, m\left|V_{q k} c_{q}^{\dagger} c_{k}\right| k, m\right\rangle=V_{q k}
+\]</span> the tunneling Hamiltonian transfer the electrons between left and right states, and does not change the number of vibrons, <span class="math display">\[
+\left\langle q, m+1\left|\hat{H}_{e v}\right| q^{\prime}, m\right\rangle=\left\langle q, m+1\left|\lambda\left(a+a^{\dagger}\right) V_{q q^{\prime}}^{v} c_{q}^{\dagger} c_{q^{\prime}}\right| q^{\prime}, m\right\rangle=\lambda \sqrt{m+1} V_{q q^{\prime}}^{v}
+\]</span> <span class="math inline">\(\left\langle q, m-1\left|\hat{H}_{e v}\right| q^{\prime}, m\right\rangle=\left\langle q, m-1\left|\lambda\left(a+a^{\dagger}\right) V_{q q^{\prime}}^{v} c_{q}^{\dagger} c_{q^{\prime}}\right| q^{\prime}, m\right\rangle=\lambda \sqrt{m} V_{q q^{\prime}}^{v}\)</span> the matrix elements of the electron-vibron Hamiltonian describe the inelastic scattering of electrons in the substrate with emission (absorption) of one vibron.</p>
+<p>To apply the rate formula (6.27) we should take into account the incoherence and equilibrium distribution of electrons in the leads, which means that all initial states <span class="math inline">\(\left|\hat{k}_{i}, \hat{q}_{i}, m_{i}\right\rangle\)</span>, as well as all final states <span class="math inline">\(\left|\hat{k}_{f}, \hat{q}_{f}, m_{f}\right\rangle\)</span>, are incoherent and probabilities should be summarized instead of quantum amplitudes. The total tunneling rate of one electron from the tip (left) to the substrate (right) is a sum of all possible singleelectron events. For the elastic processes we get <span class="math display">\[
+\Gamma_{L \rightarrow R}^{(e l)}=\frac{2 \pi}{\hbar} \sum_{k \in L, q \in R}\left|V_{q k}\right|^{2} f_{L}^{0}\left(E_{k}\right)\left(1-f_{R}^{0}\left(E_{q}\right)\right) \delta\left(E_{k}-E_{q}\right)
+\]</span> and for the inelastic processes with emission of one vibron <span class="math inline">\((m \rightarrow m+1)\)</span> <span class="math display">\[
+\begin{aligned}
+\Gamma_{L \rightarrow R}^{(i n)}=\frac{2 \pi}{\hbar} \lambda^{2} \sum_{k \in L, q \in R} \sum_{m} f_{L}^{0}\left(E_{k}\right) &amp;\left(1-f_{R}^{0}\left(E_{q}\right)\right) f_{B}^{0}\left(m \omega_{0}\right) \delta\left(E_{k}-E_{q}-\omega_{0}\right) \\
+&amp; \times\left|\sum_{q^{\prime}} \frac{\sqrt{m+1} V_{q q^{\prime}}^{v} V_{q^{\prime} k}}{E_{k}-E_{q^{\prime}}+i \eta}\right|^{2}
+\end{aligned}
+\]</span> The tunneling rate for the inelastic process with absorption of one vibron <span class="math inline">\((m \rightarrow m-1)\)</span> is given by the same expression with <span class="math inline">\(-\omega_{0}\)</span> replaced by <span class="math inline">\(+\omega_{0}\)</span> in the delta-function, and <span class="math inline">\(\sqrt{m+1}\)</span> replaced by <span class="math inline">\(\sqrt{m}\)</span>.</p>
+<p>Now we restrict ourselves by the low temperatures <span class="math inline">\(T \ll \omega_{0}\)</span>, so that thermally excited vibrons can be neglected, and assume that emitted vibrons are dissipated fast enough, in that case only one inelastic process with vibron emission is possible, which can be shown symbolically as <span class="math display">\[
+|k, 0\rangle \stackrel{\hat{H}_{T}}{\longrightarrow}\left|q^{\prime}, 0\right\rangle \stackrel{\hat{H}_{e v}}{\longrightarrow}|q, 1\rangle
+\]</span> In this short-hand notation we show only the essential degrees of freedom, namely the electron from the initial state <span class="math inline">\(|k\rangle\)</span> in the tip tunnels into the state <span class="math inline">\(\left|q^{\prime}\right\rangle\)</span> in the substrate (the first virtual transition), and then one vibron is emitted accompanied by the transition of the electron from the state <span class="math inline">\(\left|q^{\prime}\right\rangle\)</span> into the final state <span class="math inline">\(|q\rangle .\)</span> The first transition here is due to the tunneling Hamiltonian, and the second is due to the electron-vibron coupling.</p>
+<p>The inelastic tunneling rate in this case is <span class="math display">\[
+\begin{array}{c}
+\Gamma_{L \rightarrow R}^{(i n)}=\frac{2 \pi}{\hbar} \lambda^{2} \sum_{k \in L, q \in R} f_{L}^{0}\left(E_{k}\right)\left(1-f_{R}^{0}\left(E_{q}\right)\right) \delta\left(E_{k}-E_{q}-\omega_{0}\right) \\
+\times\left|\sum_{q^{\prime}} \frac{V_{q q^{\prime}}^{v} V_{q^{\prime} k}}{E_{k}-E_{q^{\prime}}+i \eta}\right|^{2}
+\end{array}
+\]</span> Making the natural assumption that the density of states in the tip <span class="math inline">\(\rho_{t i p}\)</span> is energyindependent near the Fermi-surface, and neglecting possible energy dependence of the tunneling and scattering matrix elements <span class="math inline">\(V_{k q}\)</span> and <span class="math inline">\(V_{q q^{\prime}}\)</span> we obtain the PerssonBaratoff formula for the inelastic differential conductance at finite voltage (we take <span class="math inline">\(\varepsilon_{F}=0\)</span> ) <span class="math display">\[
+G(V)=\frac{e d \Gamma_{L \rightarrow R}^{(i n)}}{d V}=\frac{4 \pi e^{2}}{\hbar} \lambda^{2}|V|^{2} \rho_{t i p} \rho_{\alpha}\left(e V-\omega_{0}\right)\left|\int d \varepsilon^{\prime} \frac{\rho_{\alpha}\left(\varepsilon^{\prime}\right)}{\varepsilon^{\prime}-e V-i \eta}\right|^{2} \theta\left(e V-\omega_{0}\right),
+\]</span> note, that the voltage <span class="math inline">\(V\)</span> is explicitly presented in this expression, and the density of states of the molecular level <span class="math inline">\(\rho_{\alpha}(\varepsilon)\)</span> is defined as <span class="math display">\[
+\rho_{\alpha}(\varepsilon)=\sum_{q}|\langle q \mid \alpha\rangle|^{2} \delta\left(\varepsilon-\varepsilon_{q}\right)
+\]</span> The conductance can be calculated analytically if we assume the Lorentzian form for the molecular density of states <span class="math display">\[
+\rho_{\alpha}(\varepsilon)=\frac{\Gamma}{\left(\varepsilon-\varepsilon_{\alpha}\right)^{2}+(\Gamma / 2)^{2}}
+\]</span> substituting this expression into (6.35) we find <span class="math display">\[
+G(V)=\frac{4 \pi^{3} e^{2} \lambda^{2}|V|^{2} \rho_{t i p}}{\hbar} \frac{\Gamma^{3} \theta\left(e V-\omega_{0}\right)}{\left[\left(e V-\omega_{0}-\varepsilon_{\alpha}\right)^{2}+(\Gamma / 2)^{2}\right]\left[\left(e V-\varepsilon_{\alpha}\right)^{2}+(\Gamma / 2)^{2}\right]^{2}}
+\]</span> Now it is interesting to compare the inelastic conductance in two limiting cases, the broad molecular density of states (strong coupling to a substrate, Fig. 6.5), and small broadening (Fig. 6.6).</p>
+<h2 id="local-polaron">6.3 Local Polaron</h2>
+<p>Now let us start to consider the situation, when the electron-vibron interaction is strong. For an isolated system with the Hamiltonian, including only diagonal terms, <span class="math display">\[
+\hat{H}_{S+V}=\sum_{\alpha} \tilde{\varepsilon}_{\alpha} d_{\alpha}^{\dagger} d_{\alpha}+\sum_{q} \omega_{q} a_{q}^{\dagger} a_{q}+\sum_{\alpha} \sum_{q} \lambda_{\alpha}^{q}\left(a_{q}+a_{q}^{\dagger}\right) d_{\alpha}^{\dagger} d_{\alpha}
+\]</span> the problem can be solved exactly. This solution, as well as the method of the solution (canonical transformation), plays an important role in the theory of electron-vibron systems, and we consider it in detail.</p>
+<h3 id="canonical-lang-firsov-transformation">6.3.1 Canonical (Lang-Firsov) Transformation</h3>
+<p>Let's start from the simplest case. The single-level electron-vibron model is described by the Hamiltonian <span class="math display">\[
+\hat{H}_{S+V}=\tilde{\varepsilon}_{0} d^{\dagger} d+\omega_{0} a^{\dagger} a+\lambda\left(a^{\dagger}+a\right) d^{\dagger} d
+\]</span> where the first and the second terms describe free electron state and free vibron, and the third term is the electron-vibron interaction.</p>
+<p>This Hamiltonian is diagonalized by the canonical transformation (called "Lang-Firsov" or "polaron") <span class="math display">\[
+\bar{H}=\hat{S}^{-1} \hat{H} \hat{S},
+\]</span> with <span class="math display">\[
+\hat{S}=\exp \left[-\frac{\lambda}{\omega_{0}}\left(a^{\dagger}-a\right) d^{\dagger} d\right]
+\]</span> the Hamiltonian <span class="math inline">\((6.40)\)</span> is transformed as <span class="math display">\[
+\bar{H}_{S+V}=\hat{S}^{-1} \hat{H}_{S+V} \hat{S}=\tilde{\varepsilon}_{0} \bar{d}^{\dagger} \bar{d}+\omega_{0} \bar{a}^{\dagger} \bar{a}+\lambda\left(\bar{a}^{\dagger}+\bar{a}\right) \bar{d}^{\dagger} \bar{d},
+\]</span> it has the same form as (6.40) with new operators, it is a trivial consequence of the general property <span class="math display">\[
+\hat{S}^{-1}\left(\hat{f}_{1} \hat{f}_{2} \hat{f}_{3} \ldots\right) \hat{S}=\left(\hat{S}^{-1} \hat{f}_{1} \hat{S}\right)\left(\hat{S}^{-1} \hat{f}_{2} \hat{S}\right)\left(\hat{S}^{-1} \hat{f}_{3} \hat{S}\right) \ldots=\bar{f}_{1} \bar{f}_{2} \bar{f}_{3} \ldots
+\]</span> and new single-particle operators are <span class="math display">\[
+\begin{array}{r}
+\bar{a}=\hat{S}^{-1} a \hat{S}=a-\frac{\lambda}{\omega_{0}} d^{\dagger} d \\
+\bar{a}^{\dagger}=\hat{S}^{-1} a^{\dagger} \hat{S}=a^{\dagger}-\frac{\lambda}{\omega_{0}} d^{\dagger} d \\
+\bar{d}=\hat{S}^{-1} d \hat{S}=\exp \left[-\frac{\lambda}{\omega_{0}}\left(a^{\dagger}-a\right)\right] d \\
+\bar{d}^{\dagger}=\hat{S}^{-1} d^{\dagger} \hat{S}=\exp \left[\frac{\lambda}{\omega_{0}}\left(a^{\dagger}-a\right)\right] d^{\dagger}
+\end{array}
+\]</span> Substituting these expressions into (6.43) we get finally <span class="math display">\[
+\bar{H}_{S+V}=\left(\tilde{\varepsilon}_{0}-\frac{\lambda^{2}}{\omega_{0}}\right) d^{\dagger} d+\omega_{0} a^{\dagger} a
+\]</span> We see that the electron-vibron Hamiltonian (6.40) is equivalent to the freeparticle Hamiltonian (6.49). This equivalence means that any quantum state <span class="math inline">\(\left|\bar{\psi}_{\lambda}\right\rangle\)</span>, obtained as a solution of the Hamiltonian (6.49) is one-to-one equivalent to the state <span class="math inline">\(\left|\psi_{\lambda}\right\rangle\)</span> as a solution of the initial Hamiltonian (6.40), with the same matrix elements for any operator <span class="math display">\[
+\begin{array}{c}
+\left\langle\bar{\psi}_{\lambda}|\bar{f}| \bar{\psi}_{\lambda}\right\rangle=\left\langle\psi_{\lambda}|\hat{f}| \psi_{\lambda}\right\rangle, \\
+\bar{f}=\hat{S}^{-1} \hat{f} \hat{S} \\
+\left|\bar{\psi}_{\lambda}\right\rangle=\hat{S}^{-1}\left|\psi_{\lambda}\right\rangle .
+\end{array}
+\]</span> It follows immediately that the eigenstates of the free-particle Hamiltonian are <span class="math display">\[
+\left|\bar{\psi}_{n m}\right\rangle=|n=0,1 ; m=0,1,2, \ldots\rangle=\left(d^{\dagger}\right)^{n} \frac{\left(a^{\dagger}\right)^{m}}{\sqrt{m !}}|0\rangle
+\]</span> and the eigen-energies are <span class="math display">\[
+E(n, m)=\left(\tilde{\varepsilon}_{0}-\frac{\lambda^{2}}{\omega_{0}}\right) n+\omega_{0} m .
+\]</span> The eigenstates of the initial Hamiltonian (6.40) are <span class="math display">\[
+\left|\psi_{n m}\right\rangle=\hat{S}\left|\bar{\psi}_{n m}\right\rangle=e^{-\frac{\lambda}{\Delta_{0}}\left(a^{\dagger}-a\right) d^{\dagger} d}\left(d^{\dagger}\right)^{n} \frac{\left(a^{\dagger}\right)^{m}}{\sqrt{m !}}|0\rangle,
+\]</span> with the same quantum numbers <span class="math inline">\((n, m)\)</span> and the same energies (6.54). This representation of the eigenstates demonstrates clearly the collective nature of the excitations, but it is inconvenient for practical calculations.</p>
+<p>To conclude, after the canonical transformation we have two equivalent models: (1) the initial model (6.40) with the eigenstates (6.55); and (2) the fictional freeparticle model (6.49) with the eigenstates (6.53). We shall call this second model polaron representation. The relation between the models is established by <span class="math inline">\((6.50)-\)</span> (6.52). It is also clear from the Hamiltonian (6.43), that the operators <span class="math inline">\(\bar{d}^{\dagger}, \overline{\bar{d}}, \bar{a}^{\dagger}\)</span>, and <span class="math inline">\(\bar{a}\)</span> describe the initial electrons and vibrons in the fictional model.</p>
+<p>Note, that the problem can be solved by the same method in the multilevel case <span class="math display">\[
+\hat{H}_{S+V}=\sum_{\alpha} \tilde{\varepsilon}_{\alpha} d_{\alpha}^{\dagger} d_{\alpha}+\sum_{q} \omega_{q} a_{q}^{\dagger} a_{q}+\sum_{\alpha} \sum_{q} \lambda_{\alpha}^{q}\left(a_{q}+a_{q}^{\dagger}\right) d_{\alpha}^{\dagger} d_{\alpha}
+\]</span> but not for the off-diagonal coupling. The canonical transformation is then given by <span class="math display">\[
+\hat{S}=\exp \left[-\sum_{\alpha q} \frac{\lambda_{\alpha}^{q}}{\omega_{0}}\left(a_{q}^{\dagger}-a_{q}\right) d_{\alpha}^{\dagger} d_{\alpha}\right]
+\]</span> ### 6.3.2 Spectral Function</p>
+<p>As it is clear from (6.55), the states without electrons <span class="math inline">\(|0, m\rangle\)</span> are the states with the definite number of vibrons in both models (both Hamiltonians are simply the same in this case), but the ground state of the system with one electron <span class="math inline">\(|1,0\rangle\)</span> actually is a superposition of many vibrational states in the initial model. We can consider also the state <span class="math inline">\(\bar{d}^{\dagger}|0, m\rangle\)</span>, which is the state with one electron and fixed number of vibrons in the initial model, and is not the eigenstate of this model. Expanding the state <span class="math inline">\(|1,0\rangle\)</span> into the series <span class="math display">\[
+|1,0\rangle=\sum_{m} c_{m} \bar{d}^{\dagger}|0, m\rangle
+\]</span> we define the contribution of different vibronic states into the ground state with one electron <span class="math display">\[
+\rho_{m}=\left|c_{m}\right|^{2}=|\langle 0, m|\bar{d}| 1,0\rangle|^{2}
+\]</span> This function can be called spectral function (density of states) because it shows the contribution of states with different energy into the ground state.</p>
+<p>To calculate the matrix element, we take <span class="math display">\[
+\begin{array}{r}
+|1,0\rangle=d^{\dagger}|0\rangle \\
+|0, m\rangle=\frac{\left(a^{\dagger}\right)^{m}}{\sqrt{m !}}|0\rangle, \\
+\bar{d}=e^{-\frac{\lambda}{\omega_{0}}\left(a^{\dagger}-a\right)} d
+\end{array}
+\]</span> and apply the Feynman's disentangling theorem <span class="math display">\[
+e^{A+B}=e^{A} e^{B} e^{-[A, B]_{-} / 2}
+\]</span> the theorem is valid when the commutator <span class="math inline">\([A, B]_{-}\)</span> commutes itself with <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, which is in our case <span class="math display">\[
+[A, B]_{-}=\left[-\frac{\lambda}{\omega_{0}} a^{\dagger}, \frac{\lambda}{\omega_{0}} a\right]_{-}=\left(\frac{\lambda}{\omega_{0}}\right)^{2}
+\]</span> thus the theorem can be used. Now we can proceed with the calculation <span class="math display">\[
+\begin{aligned}
+\langle 0, m|\bar{d}| 1,0\rangle=&amp;\left\langle 0, m\left|e^{-\frac{\lambda}{\omega_{0}}\left(a^{\dagger}-a\right)} d d^{\dagger}\right| 0\right\rangle=\\
+&amp; e^{-\left(\lambda / \omega_{0}\right)^{2} / 2} \sum_{n=0}^{\infty} \sum_{n^{\prime}=0}^{\infty}\left\langle 0, m\left|\left(-\frac{\lambda}{\omega_{0}}\right)^{n^{\prime}} \frac{\left(a^{\dagger}\right)^{n^{\prime}}}{n^{\prime} !}\left(\frac{\lambda}{\omega_{0}}\right)^{n} \frac{(a)^{n}}{n !}\right| 0\right\rangle
+\end{aligned}
+\]</span> where we used the relation <span class="math inline">\(d d^{\dagger}|0\rangle=\left(1-d^{\dagger} d\right)|0\rangle=|0\rangle\)</span>, the Feynman's theorem, and expand the exponents into series. Obviously, the only nonzero contribution is from the term <span class="math inline">\(n=0, n^{\prime}=m .\)</span> Finally we obtain <span class="math display">\[
+\langle 0, m|\bar{d}| 1,0\rangle=\left(-\frac{\lambda}{\omega_{0}}\right)^{m} \frac{e^{-\left(\lambda / \omega_{0}\right)^{2} / 2}}{\sqrt{m !}}
+\]</span> and the density of states is <span class="math display">\[
+\rho_{m}=\left(\frac{\lambda}{\omega_{0}}\right)^{2 m} \frac{e^{-\left(\lambda / \omega_{0}\right)^{2}}}{m !}
+\]</span> ### 6.3.3 Weak Coupling to the Metallic Lead</p>
+<p>Before we considered an isolated system. Now assume that it is only very weakly coupled to the metallic lead (Fermi sea of electrons) with <span class="math inline">\(\Gamma \ll \lambda^{2} / \omega_{0}\)</span>. The energy</p>
+<p>spectrum is not changed, but the population of the system is determined by the equilibrium with the lead.</p>
+<p>At zero temperature the system is in its ground state: neutral <span class="math inline">\(|0,0\rangle\)</span> if <span class="math inline">\(\tilde{\varepsilon}-\lambda^{2} / \omega_{0}&gt;0\)</span>, and charged <span class="math inline">\(|1,0\rangle\)</span> if <span class="math inline">\(\tilde{\varepsilon}-\lambda^{2} / \omega_{0}&lt;0\)</span>. At finite temperature the probability to find the system in the state <span class="math inline">\(|n, m\rangle\)</span> is given by the Gibbs distribution <span class="math display">\[
+p(n, m)=\frac{1}{Z} \exp \left(-\frac{E(n, m)}{T}\right)
+\]</span> with the energy (6.54), the normalization coefficient is determined from the condition <span class="math display">\[
+\sum_{n m} p(n, m)=1
+\]</span> The average number of electrons is <span class="math display">\[
+\langle n\rangle=\sum_{m} p(1, m)=\frac{1}{Z} \sum_{m} \exp \left(-\frac{E(1, m)}{T}\right)
+\]</span> The situation in this case is completely the same as for the single-electron box, at temperature <span class="math inline">\(T \sim\left|\tilde{\varepsilon}-\lambda^{2} / \omega_{0}\right|\)</span> there are equal probabilities to find the system in neutral or charged state.</p>
+<h3 id="strong-coupling-to-the-metallic-lead">6.3.4 Strong Coupling to the Metallic Lead</h3>
+<p>Now consider the strong coupling to the lead <span class="math inline">\(\Gamma \gg \lambda^{2} / \omega_{0}\)</span>. The energy spectrum is essentially modified in this case, and the simple arguments of the previous subsection can not be applied. The polaron transformation does not help, because the tunneling terms are nontrivially modified.</p>
+<p>Let us consider the limit <span class="math inline">\(\Gamma \gg \omega_{0}\)</span>. In that case the simple mean-field approximation can be used. Consider first the vibrons. While the frequency of vibrons is much smaller than the tunneling rate, vibrons see only the average electron charge density (the Born-Oppenheimer approximation). It means that the vibron Hamiltonian is coupled to the electron part only through the "mean field" <span class="math inline">\(\langle n\rangle=\left\langle d^{\dagger} d\right\rangle\)</span> <span class="math display">\[
+\hat{H}_{V}=\omega_{0} a^{\dagger} a+\lambda\langle n\rangle\left(a^{\dagger}+a\right)
+\]</span> The solution of this problem can be easily obtained by the equation-of-motion method <span class="math display">\[
+\begin{array}{r}
+i \frac{\partial a}{\partial t}=\left[a, \hat{H}_{V}\right]_{-}=\omega_{0} a+\lambda\langle n\rangle \\
+i \frac{\partial a^{\dagger}}{\partial t}=\left[a^{\dagger}, \hat{H}_{V}\right]_{-}=-\omega_{0} a^{\dagger}-\lambda\langle n\rangle
+\end{array}
+\]</span> From these two equations we obtain in the stationary case <span class="math display">\[
+\left\langle a+a^{\dagger}\right\rangle=-\frac{2 \lambda}{\omega_{0}}\langle n\rangle .
+\]</span> The self-consistent problem is obtained if we consider now the electron part of the Hamiltonian as a single-electron problem with the effective energy <span class="math display">\[
+\varepsilon^{*}=\tilde{\varepsilon}_{0}-\lambda\left\langle a+a^{\dagger}\right\rangle=\tilde{\varepsilon}_{0}-\frac{2 \lambda^{2}}{\omega_{0}}\langle n\rangle
+\]</span> taking the lead and tunneling into account we get <span class="math display">\[
+\hat{H}_{e}=\varepsilon^{*} d^{\dagger} d+\sum_{k \sigma} \varepsilon_{k \sigma} c_{k \sigma}^{\dagger} c_{k \sigma}+\sum_{k \sigma}\left(V_{i k \sigma} c_{i k \sigma}^{\dagger} d+V_{i k \sigma}^{*} d^{\dagger} c_{i k \sigma}\right) .
+\]</span> The density of states is given by the Lorentzian <span class="math display">\[
+\rho(\varepsilon)=\frac{1}{2 \pi} \frac{\Gamma}{\left(\varepsilon-\varepsilon^{*}\right)^{2}+(\Gamma / 2)^{2}}
+\]</span> and the average number of electrons is <span class="math display">\[
+\langle n\rangle=\int_{-\infty}^{\infty} \rho(\varepsilon) f^{0}(\varepsilon) d \varepsilon
+\]</span> where <span class="math inline">\(f^{0}(\varepsilon)\)</span> is the Fermi distribution function.</p>
+<h2 id="inelastic-tunneling-in-the-single-particle-approximation">6.4 Inelastic Tunneling in the Single-Particle Approximation</h2>
+<p>In this section we consider a special case of a single particle transmission through an electron-vibron system. It means that we consider a system coupled to the leads, but without electrons in the leads. This can be considered equivalently as the limit of large electron level energy <span class="math inline">\(\varepsilon_{0}\)</span> (far from the Fermi surface in the leads).</p>
+<h3 id="the-inelastic-transmission-matrix">6.4.1 The Inelastic Transmission Matrix</h3>
+<p>The inelastic transmission matrix <span class="math inline">\(T\left(\varepsilon^{\prime}, \varepsilon\right)\)</span> describes the probability that an electron with energy <span class="math inline">\(\varepsilon\)</span>, incident from one lead, is transmitted with the energy <span class="math inline">\(\varepsilon^{\prime}\)</span> into a second lead. The transmission function can be defined as the total transmission probability <span class="math display">\[
+T(\varepsilon)=\int T\left(\varepsilon^{\prime}, \varepsilon\right) d \varepsilon^{\prime}
+\]</span> For a noninteracting single-level system the transmission matrix is <span class="math display">\[
+T^{0}\left(\varepsilon^{\prime}, \varepsilon\right)=\frac{\Gamma_{R}(\varepsilon) \Gamma_{L}(\varepsilon) \delta\left(\varepsilon-\varepsilon^{\prime}\right)}{\left(\varepsilon-\varepsilon_{0}-\Lambda(\varepsilon)\right)^{2}+(\Gamma(\varepsilon) / 2)^{2}}
+\]</span> where <span class="math inline">\(\Gamma(\varepsilon)=\Gamma_{L}(\varepsilon)+\Gamma_{R}(\varepsilon)\)</span> is the level-width function, and <span class="math inline">\(\Lambda(\varepsilon)\)</span> is the real part of the self-energy.</p>
+<p>To understand the general structure of the transmission matrix, let us consider again the polaron transformation (6.41) and (6.42) applied to the tunneling Hamiltonian <span class="math display">\[
+\hat{H}_{T}=\sum_{i=L, R} \sum_{k \sigma}\left(V_{i k \sigma} c_{i k \sigma}^{\dagger} d+V_{i k \sigma}^{*} d^{\dagger} c_{i k \sigma}\right)
+\]</span> The electron operators in the left and right leads <span class="math inline">\(c_{i k \sigma}\)</span> are not changed by this operation, but the dot operators <span class="math inline">\(d_{\alpha}, d_{\alpha}^{\dagger}\)</span> are changed in accordance with (6.47) and (6.48). The transformed Hamiltonian is <span class="math display">\[
+\bar{H}_{T}=\sum_{i=L, R} \sum_{k \sigma}\left(V_{i k \sigma} e^{-\frac{\lambda}{\omega_{0}}\left(a^{\dagger}-a\right)} c_{i k \sigma}^{\dagger} d+V_{i k \sigma}^{*} e^{\frac{\lambda}{e_{0}}\left(a^{\dagger}-a\right)} d^{\dagger} c_{i k \sigma}\right) .
+\]</span> Now we clearly see the problem: while the new dot Hamiltonian (6.49) is very simple and exactly solvable, the new tunneling Hamiltonian (6.82) is complicated. Moreover, instead of one linear electron-vibron interaction term, the exponent in (6.82) produces all powers of vibronic operators. Actually, we simply move the complexity from one place to the other. This approach works well, if the tunneling can be considered as a perturbation, we consider it in the next section. In the general case the problem is quite difficult, but in the single-particle approximation it can be solved exactly [2-4].</p>
+<p>But first, we can do some general conclusions, based on the form of the tunneling Hamiltonian (6.82). Expanding the exponent in the same way as before, we get <span class="math display">\[
+\bar{H}_{T}=\sum_{i=L, R} \sum_{k \sigma}\left(V_{i k \sigma} c_{i k \sigma}^{\dagger} d\left[\alpha_{0}+\sum_{m=1}^{\infty} \alpha_{m}\left(\left(a^{\dagger}\right)^{m}+a^{m}\right)\right]+\text { h.c. }\right)
+\]</span> with the coefficients <span class="math display">\[
+\alpha_{m}=\left(-\frac{\lambda}{\omega_{0}}\right)^{m} \frac{e^{-\left(\lambda / \omega_{0}\right)^{2} / 2}}{m !}
+\]</span> This complex Hamiltonian has a very clear interpretation, the tunneling of one electron from the right to the left lead is accompanied by the excitation of vibrons. The energy conservation implies that <span class="math display">\[
+\varepsilon-\varepsilon^{\prime}=\pm m \omega_{0}
+\]</span> so that the inelastic tunneling with emission or absorption of vibrons is possible. 6.4.2 Exact Solution in the Wide-Band Limit It is convenient to introduce the dimensionless electron-vibron coupling constant <span class="math display">\[
+g=\left(\frac{\lambda}{\omega_{0}}\right)^{2}
+\]</span> At zero temperature the solution is <span class="math display">\[
+\begin{array}{l}
+T\left(\varepsilon^{\prime}, \varepsilon\right)=\Gamma_{L} \Gamma_{R} e^{-2 g} \sum_{m=0}^{\infty} \frac{g^{m}}{m !} \delta\left(\varepsilon-\varepsilon^{\prime}-m \omega_{0}\right) \\
+\quad \times\left|\sum_{j=0}^{m}(-1)^{j} \frac{m !}{j !(m-j) !} \sum_{l=0}^{\infty} \frac{g^{l}}{l !} \frac{1}{\varepsilon-\varepsilon_{0}+g \omega_{0}-(j+l) \omega_{0}+i \Gamma / 2}\right|^{2}
+\end{array}
+\]</span> the total transmission function <span class="math inline">\(T(\varepsilon)\)</span> is trivially obtained by integration over <span class="math inline">\(\varepsilon^{\prime}\)</span>. The representative results are presented in Figs. <span class="math inline">\(6.7\)</span> and <span class="math inline">\(6.8\)</span>.</p>
+<p>At finite temperature the general expression is too cumbersome, and we present here only the expression for the total transmission function <span class="math display">\[
+\begin{array}{l}
+T(\varepsilon)=\frac{\Gamma_{L} \Gamma_{R}}{\Gamma} e^{-g\left(1+2 n_{\omega}\right)} \int_{-\infty}^{\infty} d t \\
+\quad \times \exp \left(-\frac{\Gamma}{2}|t|+i\left(\varepsilon-\varepsilon_{0}+g \omega_{0}\right) t-g\left[\left(1+n_{\omega}\right) e^{-i \omega_{0} t}+n_{\omega} e^{i \omega_{0} t}\right]\right)
+\end{array}
+\]</span> where <span class="math inline">\(n_{\omega}\)</span> is the equilibrium number of vibrons.</p>
+<h2 id="sequential-inelastic-tunneling">6.5 Sequential Inelastic Tunneling</h2>
+<p>When the system is weakly coupled to the leads, the polaron representation (6.49) and <span class="math inline">\((6.82)\)</span> is a convenient starting point. Here we consider how the sequential tunneling is modified by vibrons.</p>
+<h3 id="master-equation">6.5.1 Master Equation</h3>
+<p>In the sequential tunneling regime the master equation for the probability <span class="math inline">\(p(n, m, t)\)</span> to find the system in one of the polaron eigenstates <span class="math inline">\((6.53)\)</span> can be written as <span class="math display">\[
+\frac{d p(n, m)}{d t}=\sum_{n^{\prime} m^{\prime}} \Gamma_{m m^{\prime}}^{n n^{\prime}} p\left(n^{\prime}, m^{\prime}\right)-\sum_{n^{\prime} m^{\prime}} \Gamma_{m^{\prime} m}^{n^{\prime} n} p(n, m)+I^{V}[p]
+\]</span> where the first term describes the tunneling transition into the state <span class="math inline">\(|n, m\rangle\)</span>, and the second term <span class="math inline">\(-\)</span> tunneling transition out of the state <span class="math inline">\(|n, m\rangle, I^{V}[p]\)</span> is the vibron scattering integral describing the relaxation to equilibrium. The transition rates <span class="math inline">\(\Gamma_{m m^{\prime}}^{n n^{\prime}}\)</span> should be found from the Hamiltonian (6.82).</p>
+<p>Taking into account all possible single-electron tunneling processes, we obtain the incoming tunneling rate <span class="math display">\[
+\begin{aligned}
+\Gamma_{m m^{\prime}}^{10} &amp;=\frac{2 \pi}{\hbar} \sum_{i k \sigma} f_{i}^{0}\left(E_{i k \sigma}\right)\left|\left\langle i \bar{k}, 1, m\left|\bar{H}_{T}\right| i k, 0, m^{\prime}\right\rangle\right|^{2} \delta\left(E_{0 m^{\prime}}+E_{i k \sigma}-E_{1 m}\right) \\
+&amp;=\frac{2 \pi}{\hbar} \sum_{i k \sigma} f_{i}^{0}\left(E_{i k \sigma}\right)\left|V_{i k \sigma}\right|^{2}\left|\left\langle m\left|e^{\frac{\lambda}{\omega_{0}}\left(a^{\dagger}-a\right)}\right| m^{\prime}\right\rangle\right|^{2} \delta\left(E_{0 m^{\prime}}+E_{i k \sigma}-E_{1 m}\right) \\
+&amp;=\sum_{i=L, R} \Gamma_{i}\left(E_{1 m}-E_{0 m^{\prime}}\right)\left|M_{m m^{\prime}}\right|^{2} f_{i}^{0}\left(E_{1 m}-E_{0 m^{\prime}}\right)
+\end{aligned}
+\]</span> where <span class="math display">\[
+M_{m m^{\prime}}=\left\langle m\left|e^{\frac{\lambda}{\omega_{0}}\left(a^{\dagger}-a\right)}\right| m^{\prime}\right\rangle
+\]</span> is the Franck-Condon matrix element. We use usual short-hand notations: <span class="math inline">\(|i k, n, m\rangle\)</span> is the state with occupied <span class="math inline">\(k\)</span> -state in the <span class="math inline">\(i\)</span> -th lead, <span class="math inline">\(n\)</span> electrons, and <span class="math inline">\(m\)</span> vibrons, while <span class="math inline">\(|i \bar{k}, n, m\rangle\)</span> is the state with unoccupied <span class="math inline">\(k\)</span> -state in the <span class="math inline">\(i\)</span> -th lead, <span class="math inline">\(E_{n m}\)</span> is the polaron energy (6.54). Similarly, the outgoing rate is <span class="math display">\[
+\Gamma_{m m^{\prime}}^{01}=\sum_{i=L, R} \Gamma_{i}\left(E_{1 m^{\prime}}-E_{0 m}\right)\left|M_{m m^{\prime}}\right|^{2}\left(1-f_{i}^{0}\left(E_{1 m^{\prime}}-E_{0 m}\right)\right)
+\]</span> The current (from the left or right lead to the system) is <span class="math display">\[
+J_{i=L, R}(t)=e \sum_{m m^{\prime}}\left(\Gamma_{i m m^{\prime}}^{10} p\left(0, m^{\prime}\right)-\Gamma_{i m m^{\prime}}^{01} p\left(1, m^{\prime}\right)\right)
+\]</span> The system of <span class="math inline">\((6.89)-(6.93)\)</span> solves the transport problem in the sequential tunneling regime.</p>
+<h3 id="franck-condon-blockade">6.5.2 Franck-Condon Blockade</h3>
+<p>Now let us consider some details of the tunneling at small and large values of the electro-vibron coupling constant (6.86). The matrix element (6.91) can be calculated analytically, it is symmetric in <span class="math inline">\(m-m^{\prime}\)</span> and for <span class="math inline">\(m&lt;m^{\prime}\)</span> is <span class="math display">\[
+M_{m&lt;m^{\prime}}=\sum_{l=0}^{m} \frac{(-g)^{l} \sqrt{m ! m^{\prime}} ! e^{-g / 2} g^{\left(m^{\prime}-m\right) / 2}}{l !(m-l) !\left(l+m^{\prime}-m\right) !}
+\]</span> The lowest order elements are <span class="math display">\[
+\begin{array}{c}
+M_{0 m}=e^{-g / 2} \frac{g^{m / 2}}{\sqrt{m !}} \\
+M_{11}=(1-g) e^{-g / 2} \\
+M_{12}=\sqrt{2 g}\left(1-\frac{g}{2}\right) e^{-g / 2} \ldots
+\end{array}
+\]</span> The characteristic feature of these matrix elements is the so-called Franck-Condon blockade [5, 6], illustrated in Fig. <span class="math inline">\(6.9\)</span> for the matrix element <span class="math inline">\(M_{0 m}\)</span>. From the picture, as well as from the analytical formulas, it is clear, that in the case of strong electronvibron interaction the tunneling with small change of the vibron quantum number is suppressed exponentially, and only the tunneling through high-energy states is possible, which is also suppressed at low bias voltage and low temperature. Thus, the electron transport through a system (linear conductance) is very small. There are several interesting manifestations of the Franck-Condon blockade. The life-time of the state <span class="math inline">\(|n, m\rangle\)</span> is determined by the sum of the rates of all possible processes which change this state in the assumption that all other states are empty <span class="math display">\[
+\tau_{n m}^{-1}=\sum_{n^{\prime} m^{\prime}} \Gamma_{m^{\prime} m}^{n^{\prime} n}
+\]</span> As an example, let us calculate the life-time of the neutral ground state <span class="math inline">\(|0,0\rangle\)</span>, which has the energy higher than the charged ground state <span class="math inline">\(|1,0\rangle\)</span>. <span class="math display">\[
+\tau_{00}^{-1}=\sum_{n^{\prime} m^{\prime}} \Gamma_{m^{\prime} 0}^{n^{\prime} 0}=\sum_{m} \sum_{i=L, R} \Gamma_{i}\left(E_{1 m}-E_{00}\right)\left|M_{m 0}\right|^{2} f_{i}^{0}\left(E_{1 m}-E_{00}\right)
+\]</span> In the wide-band limit we obtain the simple analytical expression <span class="math display">\[
+\tau_{00}^{-1}=\Gamma \sum_{m} e^{-g} \frac{g^{m}}{m !} f^{0}\left(\tilde{\varepsilon}_{0}-\frac{\lambda^{2}}{\omega_{0}}+\omega_{0} m\right)
+\]</span> The result of the calculation is shown in Fig. <span class="math inline">\(6.10\)</span>, it can be clearly seen that the tunneling from the state <span class="math inline">\(|0,0\rangle\)</span> is suppressed in comparison with the bare tunneling rate <span class="math inline">\(\Gamma\)</span> at large values of the electron-vibron interaction constant <span class="math inline">\(\lambda\)</span>. Note that the charged state <span class="math inline">\(|1,0\rangle\)</span> has lower energy and is also stable. However, at finite voltage the switch between two states is easy accessible through the excited vibron states. This polaron memory effect <span class="math inline">\([7,8]\)</span> can be used to create nano-memory and nano-switches. The other direct manifestation of the Franck-Condon blockade, the suppression of current at small bias voltages, was investigated by Koch et al. [5].</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Condensed-matter-Physics/">Condensed matter Physics</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Transport/">Transport</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/08/IN10_pre/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">外卖骑手与平台资本</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/07/CMP_15_Transport99_DR_05/">
+                        <span class="hidden-mobile">纳米尺度下量子输运理论-5</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 1,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "纳米尺度下量子输运理论-6&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
